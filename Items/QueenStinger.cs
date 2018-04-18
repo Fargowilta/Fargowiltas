@@ -40,7 +40,7 @@ namespace Fargowiltas.Items
 		 player.npcTypeNoAggro[235] = true;
 		 
 		 //stinger immmune/poison
-		  ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).queenStinger = true;
+		  (player.GetModPlayer<FargoPlayer>(mod)).queenStinger = true;
 		 
 		 //dash
         }

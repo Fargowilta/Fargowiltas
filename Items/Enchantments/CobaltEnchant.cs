@@ -13,7 +13,10 @@ namespace Fargowiltas.Items.Enchantments
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Cobalt Enchantment");
-			Tooltip.SetDefault("'I can't believe it's not palladium' \n10% increased melee and movement speed \nChance to confuse enemies \nEnemies will explode into cobalt shards on death");
+			Tooltip.SetDefault(@"'I can't believe it's not palladium' 
+10% increased melee and movement speed 
+Chance to confuse enemies 
+Enemies will explode into cobalt shards on death");
 		}
 		public override void SetDefaults()
 		{

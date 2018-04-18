@@ -19,7 +19,7 @@ namespace Fargowiltas.Items
 			
 			public override float UseTimeMultiplier(Item item, Player player)
 			{
-				FargoPlayer p = (FargoPlayer)player.GetModPlayer(mod, "FargoPlayer");
+				FargoPlayer p = player.GetModPlayer<FargoPlayer>(mod);
 				if (item.ranged && item.damage > 0 && item.useTime > 5 && item.useAnimation > 5)
 				{
 					return 1f + p.firingSpeed;
@@ -61,7 +61,7 @@ namespace Fargowiltas.Items
 			
 			public override float MeleeSpeedMultiplier(Item item, Player player)
 			{
-				FargoPlayer p = (FargoPlayer)player.GetModPlayer(mod, "FargoPlayer");
+				FargoPlayer p = player.GetModPlayer<FargoPlayer>(mod);
 				if (item.ranged && item.damage > 0 && item.useTime > 1 && item.useAnimation > 1)
 				{
 					return 1f + p.firingSpeed;
@@ -142,7 +142,7 @@ namespace Fargowiltas.Items
 		
 		public override void GrabRange(Item item, Player player, ref int grabRange)
 		{
-			FargoPlayer p = (FargoPlayer)player.GetModPlayer(mod, "FargoPlayer");
+			FargoPlayer p = player.GetModPlayer<FargoPlayer>(mod);
 			//ignore money, hearts, mana stars
 			if(p.ironEnchant && item.type != 71 && item.type != 72 && item.type != 73 && item.type != 74 && item.type != 54 && item.type != 1734 && item.type != 1735 && item.type != 184)
 			{
@@ -152,7 +152,7 @@ namespace Fargowiltas.Items
 		
 		public override void PickAmmo (Item item, Player player, ref int type, ref float speed, ref int damage, ref float knockback)
 		{
-            FargoPlayer modPlayer = (FargoPlayer)player.GetModPlayer(mod, "FargoPlayer");
+            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>(mod);
             if (modPlayer.jammed)
             {
                 type = ProjectileID.ConfettiGun;
@@ -161,7 +161,7 @@ namespace Fargowiltas.Items
 
         public override bool ConsumeItem (Item item, Player player)
 		{
-			FargoPlayer p = (FargoPlayer)player.GetModPlayer(mod, "FargoPlayer");
+			FargoPlayer p = player.GetModPlayer<FargoPlayer>(mod);
 			
 			if(p.infinity && item.createTile == -1 && item.type != ItemID.LifeFruit)
 			{
@@ -271,7 +271,7 @@ namespace Fargowiltas.Items
 		public override bool OnPickup (Item item, Player player)
 		{
 			bool returnVal = true;
-			FargoPlayer p = (FargoPlayer)player.GetModPlayer(mod, "FargoPlayer");
+			FargoPlayer p = player.GetModPlayer<FargoPlayer>(mod);
 
             if(p.chloroEnchant && (item.type == ItemID.Daybloom || item.type == ItemID.Blinkroot || item.type == ItemID.Deathweed || item.type == ItemID.Fireblossom || item.type == ItemID.Moonglow || item.type == ItemID.Shiverthorn || item.type == ItemID.Waterleaf || item.type == ItemID.Mushroom || item.type == ItemID.VileMushroom || item.type == ItemID.ViciousMushroom || item.type == ItemID.GlowingMushroom))
             {

@@ -14,7 +14,7 @@ namespace Fargowiltas.Items
 		{
 			
 				
-			if (((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).universeEffect == true)
+			if ((player.GetModPlayer<FargoPlayer>(mod)).universeEffect == true)
 			{
 				if (item.thrown)
 				{

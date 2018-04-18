@@ -145,7 +145,7 @@ namespace Fargowiltas.NPCs
 		public override void OnChatButtonClicked(bool firstButton, ref bool shop)
 		{
 			Player player = Main.player[Main.myPlayer];
-			FargoPlayer p = (FargoPlayer)player.GetModPlayer(mod, "FargoPlayer");
+			FargoPlayer p = player.GetModPlayer<FargoPlayer>(mod);
 
 			if (firstButton)
 			{

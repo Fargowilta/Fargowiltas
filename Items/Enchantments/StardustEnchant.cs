@@ -13,7 +13,10 @@ namespace Fargowiltas.Items.Enchantments
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Stardust Enchantment");
-			Tooltip.SetDefault("'The power of the Stand is yours' \n15% increased minion damage \nIncreases max minions by 2 \nDouble tap down to direct your guardian");
+			Tooltip.SetDefault(@"'The power of the Stand is yours' 
+15% increased minion damage 
+Increases max minions by 2 
+Double tap down to direct your guardian");
 		}
 		public override void SetDefaults()
 		{

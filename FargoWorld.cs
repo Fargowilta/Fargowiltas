@@ -16,14 +16,14 @@ using Terraria.UI;
 
 namespace Fargowiltas
 {
-	public class FargoWorld : ModWorld
-	{
-		public static bool movedLumberjack = false;
-		public static bool downedBetsy = false;
-		public static bool downedBoss = false;
+    public class FargoWorld : ModWorld
+    {
+        public static bool movedLumberjack = false;
+        public static bool downedBetsy = false;
+        public static bool downedBoss = false;
 
         //masomode
-		public static bool masochistMode = false;
+        public static bool masochistMode = false;
         public static int eyeCount = 0;
         public static int slimeCount = 0;
         public static int eaterCount = 0;
@@ -42,36 +42,36 @@ namespace Fargowiltas
 
         //town npcs
         public static bool guide = false;
-		public static bool merch = false;
-		public static bool nurse = false;
-		public static bool demo = false;
-		public static bool dye = false;
-		public static bool dryad = false;
-		public static bool keep = false;
-		public static bool dealer = false;
-		public static bool style = false;
-		public static bool paint = false;
-		public static bool angler = false;	
-		public static bool goblin = false;
-		public static bool doc = false;
-		public static bool cloth = false;
-		public static bool mech = false;
-		public static bool party = false;
-		public static bool wiz = false;
-		public static bool tax = false;
-		public static bool truf = false;
-		public static bool pirate = false;
-		public static bool steam = false;
-		public static bool borg = false;		
-		
-		public override void Initialize()
-		{
-			movedLumberjack = false;
-			downedBetsy = false;
-			downedBoss = false;
+        public static bool merch = false;
+        public static bool nurse = false;
+        public static bool demo = false;
+        public static bool dye = false;
+        public static bool dryad = false;
+        public static bool keep = false;
+        public static bool dealer = false;
+        public static bool style = false;
+        public static bool paint = false;
+        public static bool angler = false;
+        public static bool goblin = false;
+        public static bool doc = false;
+        public static bool cloth = false;
+        public static bool mech = false;
+        public static bool party = false;
+        public static bool wiz = false;
+        public static bool tax = false;
+        public static bool truf = false;
+        public static bool pirate = false;
+        public static bool steam = false;
+        public static bool borg = false;
+
+        public override void Initialize()
+        {
+            movedLumberjack = false;
+            downedBetsy = false;
+            downedBoss = false;
 
             //masomode
-			masochistMode = false;
+            masochistMode = false;
             eyeCount = 0;
             slimeCount = 0;
             eaterCount = 0;
@@ -90,32 +90,32 @@ namespace Fargowiltas
 
             //town npcs
             guide = false;
-			merch = false;
-			nurse = false;
-			demo = false;
-			dye = false;
-			dryad = false;
-			keep = false;
-			dealer = false;
-			style = false;
-			paint = false;
-			angler = false;
-			goblin = false;
-			doc = false;
-			cloth = false;
-			mech = false;
-			party = false;
-			wiz = false;
-			tax = false;
-			truf = false;
-			pirate = false;
-			steam = false;
-			borg = false;
-			
-		}
+            merch = false;
+            nurse = false;
+            demo = false;
+            dye = false;
+            dryad = false;
+            keep = false;
+            dealer = false;
+            style = false;
+            paint = false;
+            angler = false;
+            goblin = false;
+            doc = false;
+            cloth = false;
+            mech = false;
+            party = false;
+            wiz = false;
+            tax = false;
+            truf = false;
+            pirate = false;
+            steam = false;
+            borg = false;
 
-		public override TagCompound Save()
-		{
+        }
+
+        public override TagCompound Save()
+        {
             var count = new List<int>();
             count.Add(eyeCount);
             count.Add(slimeCount);
@@ -132,47 +132,47 @@ namespace Fargowiltas
             count.Add(fishronCount);
             count.Add(cultistCount);
             count.Add(moonlordCount);
-            
+
             var downed = new List<string>();
-			if (movedLumberjack) downed.Add("lumberjack");
-			if (downedBetsy) downed.Add("betsy");
-			if (downedBoss) downed.Add("boss");
+            if (movedLumberjack) downed.Add("lumberjack");
+            if (downedBetsy) downed.Add("betsy");
+            if (downedBoss) downed.Add("boss");
 
             //masomode
-			if (masochistMode) downed.Add("masochist");
-			
-			//town npcs
-			if (guide) downed.Add("guide");
-			if (merch) downed.Add("merch");
-			if (nurse) downed.Add("nurse");
-			if (demo) downed.Add("demo");
-			if (dye) downed.Add("dye");
-			if (dryad) downed.Add("dryad");
-			if (keep) downed.Add("keep");
-			if (dealer) downed.Add("dealer");
-			if (style) downed.Add("style");
-			if (paint) downed.Add("paint");
-			if (angler) downed.Add("angler");
-			if (goblin) downed.Add("goblin");
-			if (doc) downed.Add("doc");
-			if (cloth) downed.Add("cloth");
-			if (mech) downed.Add("mech");
-			if (party) downed.Add("party");
-			if (wiz) downed.Add("wiz");
-			if (tax) downed.Add("tax");
-			if (truf) downed.Add("truf");
-			if (pirate) downed.Add("pirate");
-			if (steam) downed.Add("steam");
-			if (borg) downed.Add("borg");
+            if (masochistMode) downed.Add("masochist");
 
-			return new TagCompound {
+            //town npcs
+            if (guide) downed.Add("guide");
+            if (merch) downed.Add("merch");
+            if (nurse) downed.Add("nurse");
+            if (demo) downed.Add("demo");
+            if (dye) downed.Add("dye");
+            if (dryad) downed.Add("dryad");
+            if (keep) downed.Add("keep");
+            if (dealer) downed.Add("dealer");
+            if (style) downed.Add("style");
+            if (paint) downed.Add("paint");
+            if (angler) downed.Add("angler");
+            if (goblin) downed.Add("goblin");
+            if (doc) downed.Add("doc");
+            if (cloth) downed.Add("cloth");
+            if (mech) downed.Add("mech");
+            if (party) downed.Add("party");
+            if (wiz) downed.Add("wiz");
+            if (tax) downed.Add("tax");
+            if (truf) downed.Add("truf");
+            if (pirate) downed.Add("pirate");
+            if (steam) downed.Add("steam");
+            if (borg) downed.Add("borg");
+
+            return new TagCompound {
                 {"downed", downed}, { "count", count}
             };
-		}
-		
-		public override void Load(TagCompound tag)
-		{
-            if(tag.ContainsKey("count"))
+        }
+
+        public override void Load(TagCompound tag)
+        {
+            if (tag.ContainsKey("count"))
             {
                 var count = tag.GetList<int>("count");
                 eyeCount = count[0];
@@ -191,39 +191,39 @@ namespace Fargowiltas
                 cultistCount = count[13];
                 moonlordCount = count[14];
             }
-            
-            var downed = tag.GetList<string>("downed");
-			movedLumberjack = downed.Contains("lumberjack");
-			downedBetsy = downed.Contains("betsy");
-			downedBoss = downed.Contains("boss");
-			masochistMode = downed.Contains("masochist");
-			
-			guide = downed.Contains("guide");
-			merch = downed.Contains("merch");
-			nurse = downed.Contains("nurse");
-			demo = downed.Contains("demo");
-			dye = downed.Contains("dye");
-			dryad = downed.Contains("dryad");
-			keep = downed.Contains("keep");
-			dealer = downed.Contains("dealer");
-			style = downed.Contains("style");
-			paint = downed.Contains("paint");
-			angler = downed.Contains("angler");
-			goblin = downed.Contains("goblin");
-			doc = downed.Contains("doc");
-			cloth = downed.Contains("cloth");
-			mech = downed.Contains("mech");
-			party = downed.Contains("party");
-			wiz = downed.Contains("wiz");
-			tax = downed.Contains("tax");
-			truf = downed.Contains("truf");
-			pirate = downed.Contains("pirate");
-			steam = downed.Contains("steam");
-			borg = downed.Contains("borg");
-		}
 
-		public override void NetReceive(BinaryReader reader)
-		{
+            var downed = tag.GetList<string>("downed");
+            movedLumberjack = downed.Contains("lumberjack");
+            downedBetsy = downed.Contains("betsy");
+            downedBoss = downed.Contains("boss");
+            masochistMode = downed.Contains("masochist");
+
+            guide = downed.Contains("guide");
+            merch = downed.Contains("merch");
+            nurse = downed.Contains("nurse");
+            demo = downed.Contains("demo");
+            dye = downed.Contains("dye");
+            dryad = downed.Contains("dryad");
+            keep = downed.Contains("keep");
+            dealer = downed.Contains("dealer");
+            style = downed.Contains("style");
+            paint = downed.Contains("paint");
+            angler = downed.Contains("angler");
+            goblin = downed.Contains("goblin");
+            doc = downed.Contains("doc");
+            cloth = downed.Contains("cloth");
+            mech = downed.Contains("mech");
+            party = downed.Contains("party");
+            wiz = downed.Contains("wiz");
+            tax = downed.Contains("tax");
+            truf = downed.Contains("truf");
+            pirate = downed.Contains("pirate");
+            steam = downed.Contains("steam");
+            borg = downed.Contains("borg");
+        }
+
+        public override void NetReceive(BinaryReader reader)
+        {
             eyeCount = reader.ReadInt32();
             slimeCount = reader.ReadInt32();
             eaterCount = reader.ReadInt32();
@@ -241,9 +241,9 @@ namespace Fargowiltas
             moonlordCount = reader.ReadInt32();
 
             BitsByte flags = reader.ReadByte();
-			downedBetsy = flags[0];		
-			downedBoss = flags[1];
-			masochistMode = flags[2];
+            downedBetsy = flags[0];
+            downedBoss = flags[1];
+            masochistMode = flags[2];
             guide = flags[3];
             merch = flags[4];
             nurse = flags[5];
@@ -273,9 +273,9 @@ namespace Fargowiltas
             BitsByte flags4 = reader.ReadByte();
             borg = flags4[0];
         }
-		
-		public override void NetSend(BinaryWriter writer)
-		{
+
+        public override void NetSend(BinaryWriter writer)
+        {
             writer.Write(eyeCount);
             writer.Write(slimeCount);
             writer.Write(eaterCount);
@@ -293,9 +293,9 @@ namespace Fargowiltas
             writer.Write(moonlordCount);
 
             BitsByte flags = new BitsByte();
-			flags[0] = downedBetsy;
-			flags[1] = downedBoss;
-			flags[2] = masochistMode;
+            flags[0] = downedBetsy;
+            flags[1] = downedBoss;
+            flags[2] = masochistMode;
             flags[3] = guide;
             flags[4] = merch;
             flags[5] = nurse;
@@ -331,9 +331,9 @@ namespace Fargowiltas
             writer.Write(flags4);
 
         }
-		
-		public override void PostUpdate ()
-		{
+
+        public override void PostUpdate()
+        {
             if (Soulcheck.GetValue("Seasonal Enemies"))
             {
                 Main.xMas = true;
@@ -341,9 +341,9 @@ namespace Fargowiltas
             }
 
             Player player = Main.player[Main.myPlayer];
-			
-			//right when day starts
-			/*if(/*Main.time == 0 && Main.dayTime && !Main.eclipse && FargoWorld.masochistMode)
+
+            //right when day starts
+            /*if(/*Main.time == 0 && Main.dayTime && !Main.eclipse && FargoWorld.masochistMode)
 			{
 					Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0, 1f, 0f);
 					
@@ -359,102 +359,101 @@ namespace Fargowiltas
 				
 				
 			}*/
-			
-			// if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 361 && Main.CanStartInvasion(1, true))
-				// {
-					// this.itemTime = item.useTime;
-					// Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
-					// if (Main.netMode != 1)
-					// {
-						// if (Main.invasionType == 0)
-						// {
-							// Main.invasionDelay = 0;
-							// Main.StartInvasion(1);
-						// }
-					// }
-					// else
-					// {
-						// NetMessage.SendData(61, -1, -1, "", this.whoAmI, -1f, 0f, 0f, 0, 0, 0);
-					// }
-				// }
-				// if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 602 && Main.CanStartInvasion(2, true))
-				// {
-					// this.itemTime = item.useTime;
-					// Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
-					// if (Main.netMode != 1)
-					// {
-						// if (Main.invasionType == 0)
-						// {
-							// Main.invasionDelay = 0;
-							// Main.StartInvasion(2);
-						// }
-					// }
-					// else
-					// {
-						// NetMessage.SendData(61, -1, -1, "", this.whoAmI, -2f, 0f, 0f, 0, 0, 0);
-					// }
-				// }
-				// if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 1315 && Main.CanStartInvasion(3, true))
-				// {
-					// this.itemTime = item.useTime;
-					// Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
-					// if (Main.netMode != 1)
-					// {
-						// if (Main.invasionType == 0)
-						// {
-							// Main.invasionDelay = 0;
-							// Main.StartInvasion(3);
-						// }
-					// }
-					// else
-					// {
-						// NetMessage.SendData(61, -1, -1, "", this.whoAmI, -3f, 0f, 0f, 0, 0, 0);
-					// }
-				// }
-				// if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 1844 && !Main.dayTime && !Main.pumpkinMoon && !Main.snowMoon && !DD2Event.Ongoing)
-				// {
-					// this.itemTime = item.useTime;
-					// Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
-					// if (Main.netMode != 1)
-					// {
-						// Main.NewText(Lang.misc[31], 50, 255, 130, false);
-						// Main.startPumpkinMoon();
-					// }
-					// else
-					// {
-						// NetMessage.SendData(61, -1, -1, "", this.whoAmI, -4f, 0f, 0f, 0, 0, 0);
-					// }
-				// }
-				
-				// if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 3601 && NPC.downedGolemBoss && Main.hardMode && !NPC.AnyDanger() && !NPC.AnyoneNearCultists())
-				// {
-					// Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
-					// this.itemTime = item.useTime;
-					// if (Main.netMode == 0)
-					// {
-						// WorldGen.StartImpendingDoom();
-					// }
-					// else
-					// {
-						// NetMessage.SendData(61, -1, -1, "", this.whoAmI, -8f, 0f, 0f, 0, 0, 0);
-					// }
-				// }
-				// if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 1958 && !Main.dayTime && !Main.pumpkinMoon && !Main.snowMoon && !DD2Event.Ongoing)
-				// {
-					// this.itemTime = item.useTime;
-					// Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
-					// if (Main.netMode != 1)
-					// {
-						// Main.NewText(Lang.misc[34], 50, 255, 130, false);
-						// Main.startSnowMoon();
-					// }
-					// else
-					// {
-						// NetMessage.SendData(61, -1, -1, "", this.whoAmI, -5f, 0f, 0f, 0, 0, 0);
-					// }
-				// }
-				
-		}
-	}
+
+            // if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 361 && Main.CanStartInvasion(1, true))
+            // {
+            // this.itemTime = item.useTime;
+            // Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
+            // if (Main.netMode != 1)
+            // {
+            // if (Main.invasionType == 0)
+            // {
+            // Main.invasionDelay = 0;
+            // Main.StartInvasion(1);
+            // }
+            // }
+            // else
+            // {
+            // NetMessage.SendData(61, -1, -1, "", this.whoAmI, -1f, 0f, 0f, 0, 0, 0);
+            // }
+            // }
+            // if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 602 && Main.CanStartInvasion(2, true))
+            // {
+            // this.itemTime = item.useTime;
+            // Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
+            // if (Main.netMode != 1)
+            // {
+            // if (Main.invasionType == 0)
+            // {
+            // Main.invasionDelay = 0;
+            // Main.StartInvasion(2);
+            // }
+            // }
+            // else
+            // {
+            // NetMessage.SendData(61, -1, -1, "", this.whoAmI, -2f, 0f, 0f, 0, 0, 0);
+            // }
+            // }
+            // if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 1315 && Main.CanStartInvasion(3, true))
+            // {
+            // this.itemTime = item.useTime;
+            // Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
+            // if (Main.netMode != 1)
+            // {
+            // if (Main.invasionType == 0)
+            // {
+            // Main.invasionDelay = 0;
+            // Main.StartInvasion(3);
+            // }
+            // }
+            // else
+            // {
+            // NetMessage.SendData(61, -1, -1, "", this.whoAmI, -3f, 0f, 0f, 0, 0, 0);
+            // }
+            // }
+            // if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 1844 && !Main.dayTime && !Main.pumpkinMoon && !Main.snowMoon && !DD2Event.Ongoing)
+            // {
+            // this.itemTime = item.useTime;
+            // Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
+            // if (Main.netMode != 1)
+            // {
+            // Main.NewText(Lang.misc[31], 50, 255, 130, false);
+            // Main.startPumpkinMoon();
+            // }
+            // else
+            // {
+            // NetMessage.SendData(61, -1, -1, "", this.whoAmI, -4f, 0f, 0f, 0, 0, 0);
+            // }
+            // }
+
+            // if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 3601 && NPC.downedGolemBoss && Main.hardMode && !NPC.AnyDanger() && !NPC.AnyoneNearCultists())
+            // {
+            // Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
+            // this.itemTime = item.useTime;
+            // if (Main.netMode == 0)
+            // {
+            // WorldGen.StartImpendingDoom();
+            // }
+            // else
+            // {
+            // NetMessage.SendData(61, -1, -1, "", this.whoAmI, -8f, 0f, 0f, 0, 0, 0);
+            // }
+            // }
+            // if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 1958 && !Main.dayTime && !Main.pumpkinMoon && !Main.snowMoon && !DD2Event.Ongoing)
+            // {
+            // this.itemTime = item.useTime;
+            // Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
+            // if (Main.netMode != 1)
+            // {
+            // Main.NewText(Lang.misc[34], 50, 255, 130, false);
+            // Main.startSnowMoon();
+            // }
+            // else
+            // {
+            // NetMessage.SendData(61, -1, -1, "", this.whoAmI, -5f, 0f, 0f, 0, 0, 0);
+            // }
+            // }
+
+        }
+    }
 }
-		
