@@ -29,7 +29,7 @@ namespace Fargowiltas.Items.Souls
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).throwSoul = true;
+            (player.GetModPlayer<FargoPlayer>(mod)).throwSoul = true;
 
             player.thrownVelocity += 0.2f;
             player.thrownDamage += 0.4f;

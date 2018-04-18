@@ -30,7 +30,7 @@ Enemies will explode into cobalt shards on death");
 		
 		public override void UpdateAccessory(Player player, bool hideVisual)
         {
-			((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).cobaltEnchant = true;
+			(player.GetModPlayer<FargoPlayer>(mod)).cobaltEnchant = true;
 			player.meleeSpeed += .1f;
 			player.moveSpeed += 0.1f;
         }

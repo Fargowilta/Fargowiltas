@@ -52,7 +52,7 @@ namespace Fargowiltas.Items.Souls
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).dimensionSoul = true;
+            (player.GetModPlayer<FargoPlayer>(mod)).dimensionSoul = true;
 
             //tank
             player.endurance += 0.30f;
@@ -148,7 +148,7 @@ namespace Fargowiltas.Items.Souls
             //frostspark
             if (Soulcheck.GetValue("Super Speed") == true)
             {
-                ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).speedEffect = true;
+                (player.GetModPlayer<FargoPlayer>(mod)).speedEffect = true;
                 player.accRunSpeed = 2.00f;
                 player.moveSpeed += 5f;
             }
@@ -208,7 +208,7 @@ namespace Fargowiltas.Items.Souls
                 player.minionDamage*= 0f;
                 player.thrownDamage*= 0f;*/
 
-                ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).builderMode = true;
+                (player.GetModPlayer<FargoPlayer>(mod)).builderMode = true;
             }
 
 
@@ -236,7 +236,7 @@ namespace Fargowiltas.Items.Souls
                 player.sporeSac = true;
             }
 
-        ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).fishSoul2 = true;
+        (player.GetModPlayer<FargoPlayer>(mod)).fishSoul2 = true;
 
             //dread eye
             if (Fargowiltas.instance.thoriumLoaded)

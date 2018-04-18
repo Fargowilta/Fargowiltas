@@ -30,7 +30,7 @@ namespace Fargowiltas.Items
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             //nothing used son
-            ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).infinity = true;
+            (player.GetModPlayer<FargoPlayer>(mod)).infinity = true;
             player.manaCost -= 1f;
 
             //the price

@@ -39,7 +39,7 @@ namespace Fargowiltas.Items.Enchantments
             if (Soulcheck.GetValue("Shroomite Stealth") == true)
             {
                 player.shroomiteStealth = true;
-                ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).shroomEnchant = true;
+                (player.GetModPlayer<FargoPlayer>(mod)).shroomEnchant = true;
             }
         }
 

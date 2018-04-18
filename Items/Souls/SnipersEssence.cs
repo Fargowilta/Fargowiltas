@@ -27,7 +27,7 @@ namespace Fargowiltas.Items.Souls
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).miniRangedEffect = true;
+            (player.GetModPlayer<FargoPlayer>(mod)).miniRangedEffect = true;
 
             player.rangedCrit += 5;
             player.rangedDamage += .18f;

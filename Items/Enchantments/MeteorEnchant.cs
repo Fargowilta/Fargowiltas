@@ -31,7 +31,7 @@ namespace Fargowiltas.Items.Enchantments
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            FargoPlayer modPlayer = (FargoPlayer)player.GetModPlayer(mod, "FargoPlayer");
+            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>(mod);
             modPlayer.meteorEnchant = true;
 
             player.magicDamage += .10f;

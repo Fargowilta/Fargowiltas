@@ -48,7 +48,7 @@ namespace Fargowiltas.Items.Souls
 		public override void UpdateAccessory(Player player, bool hideVisual)
         {
 			
-			((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).tankEffect = true;
+			(player.GetModPlayer<FargoPlayer>(mod)).tankEffect = true;
 			
 			//thorium
 			if(Fargowiltas.instance.thoriumLoaded)

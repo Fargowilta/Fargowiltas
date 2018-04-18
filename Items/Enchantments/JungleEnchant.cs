@@ -29,7 +29,7 @@ namespace Fargowiltas.Items.Enchantments
         {
             if (Soulcheck.GetValue("Spore Explosion") == true)
             {
-                ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).jungleEnchant = true;
+                (player.GetModPlayer<FargoPlayer>(mod)).jungleEnchant = true;
             }
             player.manaCost -= .1f;
         }

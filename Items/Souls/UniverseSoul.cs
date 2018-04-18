@@ -90,7 +90,7 @@ namespace Fargowiltas.Items.Souls
             player.thrownVelocity += 0.35f;
             player.thrownDamage += .66f;
             player.thrownCrit += 25;
-            ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).throwSoul = true;
+            (player.GetModPlayer<FargoPlayer>(mod)).throwSoul = true;
 
             //buffs
             player.kbBuff = true;
@@ -99,7 +99,7 @@ namespace Fargowiltas.Items.Souls
 
 
 
-            ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).universeEffect = true;
+            (player.GetModPlayer<FargoPlayer>(mod)).universeEffect = true;
 
             if (Fargowiltas.instance.thoriumLoaded)
             {

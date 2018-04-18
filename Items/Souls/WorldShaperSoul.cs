@@ -37,7 +37,7 @@ No enemies can spawn
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).builderEffect = true;
+            (player.GetModPlayer<FargoPlayer>(mod)).builderEffect = true;
 
             player.tileSpeed += 0.25f;
             player.wallSpeed += 0.25f;
@@ -68,7 +68,7 @@ No enemies can spawn
                 player.minionDamage*= 0f;
                 player.thrownDamage*= 0f;*/
 
-                ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).builderMode = true;
+                (player.GetModPlayer<FargoPlayer>(mod)).builderMode = true;
             }
 
         }

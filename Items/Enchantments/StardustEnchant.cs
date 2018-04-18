@@ -48,7 +48,7 @@ Double tap down to direct your guardian");
 			}
 			}
 			
-			((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).stardustEnchant = true;
+			(player.GetModPlayer<FargoPlayer>(mod)).stardustEnchant = true;
         }
 		
 		public override void AddRecipes()

@@ -25,7 +25,7 @@ namespace Fargowiltas.Items.Souls
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).fishSoul1 = true;
+            (player.GetModPlayer<FargoPlayer>(mod)).fishSoul1 = true;
 
             player.fishingSkill += 10;
         }

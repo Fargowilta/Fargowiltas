@@ -48,7 +48,7 @@ namespace Fargowiltas.Items.Souls
             //frostspark
             if (Soulcheck.GetValue("Super Speed") == true)
             {
-                ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).speedEffect = true;
+                (player.GetModPlayer<FargoPlayer>(mod)).speedEffect = true;
                 player.accRunSpeed = 2.00f;
                 player.moveSpeed += 5f;
             }

@@ -30,7 +30,7 @@ namespace Fargowiltas.Items.Enchantments
             player.noKnockback = true;
             if (Soulcheck.GetValue("Hallowed Shield") == true)
             {
-                ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).hallowEnchant = true;
+                (player.GetModPlayer<FargoPlayer>(mod)).hallowEnchant = true;
                 //shield and sword
                 if (player.whoAmI == Main.myPlayer)
                 {

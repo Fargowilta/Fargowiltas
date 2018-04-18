@@ -32,7 +32,7 @@ namespace Fargowiltas.Items.Souls
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            ((FargoPlayer)player.GetModPlayer(mod, "FargoPlayer")).meleeEffect = true;
+            (player.GetModPlayer<FargoPlayer>(mod)).meleeEffect = true;
 
             if (Soulcheck.GetValue("Melee Speed") == false)
             {
