@@ -165,8 +165,8 @@ namespace Fargowiltas
             {
                 if (Soulcheck.visible)
                 {
-                        //Update CustomBars
-                        customResources.Update(Main._drawInterfaceGameTime);
+                    //Update CustomBars
+                    customResources.Update(Main._drawInterfaceGameTime);
                     SoulCheck.Draw(Main.spriteBatch);
                 }
                 return true;
@@ -294,7 +294,7 @@ namespace Fargowiltas
                 debuffIDs[15] = this.BuffType("LightningRod");
                 debuffIDs[16] = this.BuffType("SqueakyToy");
 
-    }
+            }
             catch (Exception e)
             {
                 ErrorLogger.Log("Fargowiltas PostSetupContent Error: " + e.StackTrace + e.Message);

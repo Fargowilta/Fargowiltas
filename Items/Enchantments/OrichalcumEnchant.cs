@@ -8,37 +8,40 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Fargowiltas.Items.Enchantments
 {
-	public class OrichalcumEnchant : ModItem
-	{
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Orichalcum Enchantment");
-			Tooltip.SetDefault("'Nature blesses you' \n10% increased critical strike chance \nFlower petals will cause extra damage to your target \nChance for a fireball to spew from a hit enemy");
-		}
-		public override void SetDefaults()
-		{
-			item.width = 20;
-			item.height = 20;
-			item.accessory = true;
-			ItemID.Sets.ItemNoGravity[item.type] = true;
-			item.rare = 4; 
-			item.value = 50000; 
-		}
-		
-		public override void UpdateAccessory(Player player, bool hideVisual)
+    public class OrichalcumEnchant : ModItem
+    {
+        public override void SetStaticDefaults()
         {
-			FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>(mod);
-			if(Soulcheck.GetValue("Orichalcum Fireball") == true)
-			{
-			modPlayer.oriEnchant = true;
-			player.onHitPetal = true;
-			}
-			player.magicCrit += 10;
-			player.meleeCrit += 10;
-			player.rangedCrit += 10;
-			player.thrownCrit += 10;
-			
-			/*if (player.whoAmI == Main.myPlayer)
+            DisplayName.SetDefault("Orichalcum Enchantment");
+            Tooltip.SetDefault(@"'Nature blesses you' 
+10% increased critical strike chance 
+Flower petals will cause extra damage to your target 
+Chance for a fireball to spew from a hit enemy");
+        }
+        public override void SetDefaults()
+        {
+            item.width = 20;
+            item.height = 20;
+            item.accessory = true;
+            ItemID.Sets.ItemNoGravity[item.type] = true;
+            item.rare = 4;
+            item.value = 50000;
+        }
+
+        public override void UpdateAccessory(Player player, bool hideVisual)
+        {
+            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>(mod);
+            if (Soulcheck.GetValue("Orichalcum Fireball") == true)
+            {
+                modPlayer.oriEnchant = true;
+                player.onHitPetal = true;
+            }
+            player.magicCrit += 10;
+            player.meleeCrit += 10;
+            player.rangedCrit += 10;
+            player.thrownCrit += 10;
+
+            /*if (player.whoAmI == Main.myPlayer)
             {
 				if(!hideVisual)
 				{
@@ -60,21 +63,21 @@ namespace Fargowiltas.Items.Enchantments
 				
             }*/
         }
-		
-		public override void AddRecipes()
-		{
+
+        public override void AddRecipes()
+        {
             ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddRecipeGroup("Fargowiltas:AnyOriHead");
+            recipe.AddRecipeGroup("Fargowiltas:AnyOriHead");
             recipe.AddIngredient(ItemID.OrichalcumBreastplate);
-			recipe.AddIngredient(ItemID.OrichalcumLeggings);
-			recipe.AddIngredient(ItemID.FlowerofFire);
-			recipe.AddIngredient(ItemID.FlowerofFrost);
-			recipe.AddIngredient(ItemID.CursedFlames);
-			
-			recipe.AddTile(TileID.CrystalBall);
+            recipe.AddIngredient(ItemID.OrichalcumLeggings);
+            recipe.AddIngredient(ItemID.FlowerofFire);
+            recipe.AddIngredient(ItemID.FlowerofFrost);
+            recipe.AddIngredient(ItemID.CursedFlames);
+
+            recipe.AddTile(TileID.CrystalBall);
             recipe.SetResult(this);
             recipe.AddRecipe();
-		}
-	}
+        }
+    }
 }
 

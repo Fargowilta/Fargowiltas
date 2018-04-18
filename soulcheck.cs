@@ -13,10 +13,10 @@ using System.Collections.Generic;
 
 namespace Fargowiltas
 {
-	class Soulcheck : UIState
-	{
-		public UIPanel checklistPanel;
-		public static bool visible = false;
+    class Soulcheck : UIState
+    {
+        public UIPanel checklistPanel;
+        public static bool visible = false;
 
         public static Dictionary<String, bool> toggleDict = new Dictionary<String, bool>();
 
@@ -53,19 +53,19 @@ namespace Fargowiltas
         }
 
         public override void OnInitialize()
-		{
-			// Is initialize called? (Yes it is called on reload) I want to reset nicely with new character or new loaded mods: visible = false;
+        {
+            // Is initialize called? (Yes it is called on reload) I want to reset nicely with new character or new loaded mods: visible = false;
 
-			checklistPanel = new UIPanel();
-			checklistPanel.SetPadding(10);
-			checklistPanel.Width.Set(450f, 0f);
-			checklistPanel.Height.Set(600f, 0f);
+            checklistPanel = new UIPanel();
+            checklistPanel.SetPadding(10);
+            checklistPanel.Width.Set(450f, 0f);
+            checklistPanel.Height.Set(600f, 0f);
             checklistPanel.Left.Set(1000f, 0f);
             checklistPanel.Top.Set(450f, 0f);
             checklistPanel.BackgroundColor = new Color(73, 94, 171);
-			checklistPanel.OnMouseDown += new UIElement.MouseEvent(DragOn);
-			checklistPanel.OnMouseUp += new UIElement.MouseEvent(DragOff);
-			base.Append(checklistPanel);
+            checklistPanel.OnMouseDown += new UIElement.MouseEvent(DragOn);
+            checklistPanel.OnMouseUp += new UIElement.MouseEvent(DragOff);
+            base.Append(checklistPanel);
 
             CreateCheckbox("Inferno Buff", new Color(244, 121, 13));
             CreateCheckbox("Hallowed Shield", new Color(224, 221, 44));
@@ -108,15 +108,15 @@ namespace Fargowiltas
             CreateCheckbox("Wisp Pet", new Color(81, 181, 113));
             CreateCheckbox("Cursed Sapling Pet", new Color(81, 181, 113));
             CreateCheckbox("Black Cat Pet", new Color(81, 181, 113));
-		}
+        }
 
-		internal void UpdateNeeded()
-		{
-			updateneeded = true;
-		}
-		private bool updateneeded;
+        internal void UpdateNeeded()
+        {
+            updateneeded = true;
+        }
+        private bool updateneeded;
 
-		private Vector2 offset;
+        private Vector2 offset;
         public bool dragging = false;
 
         private void DragOn(UIMouseEvent evt, UIElement listeningElement)
@@ -151,5 +151,5 @@ namespace Fargowiltas
                 Recalculate();
             }
         }
-	}
+    }
 }
