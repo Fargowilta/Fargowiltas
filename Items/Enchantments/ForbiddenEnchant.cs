@@ -37,6 +37,14 @@ namespace Fargowiltas.Items.Enchantments
             player.minionDamage += 0.1f;
             player.magicDamage += 0.1f;
 
+            EffectAdd(modPlayer, hideVisual);
+
+        }
+
+        public static void EffectAdd(FargoPlayer modPlayer, bool hideVisual)
+        {
+            Player player = modPlayer.player;
+
             player.buffImmune[194] = true; //mighty wind
 
             if (Soulcheck.GetValue("Forbidden Storm") == true)
@@ -45,7 +53,6 @@ namespace Fargowiltas.Items.Enchantments
                 player.UpdateForbiddenSetLock();
                 Lighting.AddLight(player.Center, 0.8f, 0.7f, 0.2f);
             }
-
         }
 
         public override void AddRecipes()

@@ -92,14 +92,8 @@ namespace Fargowiltas.Items.Enchantments
             player.npcTypeNoAggro[452] = true;
 
             //forbidden
-            player.buffImmune[194] = true;
+            ForbiddenEnchant.EffectAdd(modPlayer, hideVisual);
 
-            if (Soulcheck.GetValue("Forbidden Storm") == true)
-            {
-                player.setForbidden = true;
-                player.UpdateForbiddenSetLock();
-                Lighting.AddLight(player.Center, 0.8f, 0.7f, 0.2f);
-            }
             //hallowed
             player.noKnockback = true;
 
