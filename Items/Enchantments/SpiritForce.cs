@@ -92,35 +92,13 @@ namespace Fargowiltas.Items.Enchantments
             player.npcTypeNoAggro[452] = true;
 
             //forbidden
-            ForbiddenEnchant.EffectAdd(modPlayer, hideVisual);
+            ForbiddenEnchant.EffectAdd(player, hideVisual, mod);
 
             //hallowed
-            player.noKnockback = true;
-
-            //shield and sword
-            if (Soulcheck.GetValue("Hallowed Shield") == true)
-            {
-                modPlayer.hallowEnchant = true;
-                if (player.whoAmI == Main.myPlayer)
-                {
-                    if (player.ownedProjectileCounts[mod.ProjectileType("HallowProj")] < 1)
-                    {
-                        Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, mod.ProjectileType("HallowProj"), 80/*dmg*/, 2f, Main.myPlayer, 0f, 0f);
-                    }
-                }
-            }
+            HallowEnchant.EffectAdd(player, hideVisual, mod);
 
             //spectre
-            modPlayer.spectreEnchant = true;
-
-            if (modPlayer.specHeal)
-            {
-                player.ghostHeal = true;
-            }
-            else
-            {
-                player.ghostHurt = true;
-            }
+            SpectreEnchant.EffectAdd(player, hideVisual, mod);
 
             //spooky
             if (Soulcheck.GetValue("Spooky Scythes") == true)

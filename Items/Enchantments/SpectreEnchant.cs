@@ -31,19 +31,11 @@ namespace Fargowiltas.Items.Enchantments
 		public override void UpdateAccessory(Player player, bool hideVisual)
         {
 			FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>(mod);
-			modPlayer.spectreEnchant = true;
-			
+
 			player.magicDamage+= .12f;
-			
-			if(modPlayer.specHeal)
-			{
-				player.ghostHeal = true;
-			}
-			else
-			{
-				player.ghostHurt = true;	
-			}
-			
+
+            EffectAdd(player, hideVisual, mod);
+
 			if (player.whoAmI == Main.myPlayer)
             {
 				if(Soulcheck.GetValue("Wisp Pet"))
@@ -63,6 +55,22 @@ namespace Fargowiltas.Items.Enchantments
 						modPlayer.spectrePet = false;
 				}
             }
+        }
+
+        public static void EffectAdd(Player player, bool hideVisual, Mod mod)
+        {
+			FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>(mod);
+
+			modPlayer.spectreEnchant = true;
+			
+			if(modPlayer.specHeal)
+			{
+				player.ghostHeal = true;
+			}
+			else
+			{
+				player.ghostHurt = true;	
+			}
         }
 		
 		public override void AddRecipes()

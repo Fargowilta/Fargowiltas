@@ -27,6 +27,11 @@ namespace Fargowiltas.Items.Enchantments
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            EffectAdd(player, hideVisual, mod);
+        }
+
+        public static void EffectAdd(Player player, bool hideVisual, Mod mod)
+        {
             player.noKnockback = true;
             if (Soulcheck.GetValue("Hallowed Shield") == true)
             {

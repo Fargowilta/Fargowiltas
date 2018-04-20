@@ -37,14 +37,12 @@ namespace Fargowiltas.Items.Enchantments
             player.minionDamage += 0.1f;
             player.magicDamage += 0.1f;
 
-            EffectAdd(modPlayer, hideVisual);
+            EffectAdd(player, hideVisual, mod);
 
         }
 
-        public static void EffectAdd(FargoPlayer modPlayer, bool hideVisual)
+        public static void EffectAdd(Player player, bool hideVisual, Mod mod)
         {
-            Player player = modPlayer.player;
-
             player.buffImmune[194] = true; //mighty wind
 
             if (Soulcheck.GetValue("Forbidden Storm") == true)
