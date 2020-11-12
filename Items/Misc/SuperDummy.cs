@@ -1,8 +1,8 @@
-using Fargowiltas.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Fargowiltas.Projectiles;
 
 namespace Fargowiltas.Items.Misc
 {
@@ -12,9 +12,9 @@ namespace Fargowiltas.Items.Misc
         {
             DisplayName.SetDefault("Super Dummy");
             Tooltip.SetDefault("Spawns a super dummy at your cursor" +
-                               "\nSame as regular Target Dummy except minions and projectiles detect and home onto it" +
-                               "\nOn hit effects get triggered as well" +
-                               "\nRight click to remove all spawned super dummies");
+                "\nSame as regular Target Dummy except minions and projectiles detect and home onto it" +
+                "\nOn hit effects get triggered as well" +
+                "\nRight click to remove all spawned super dummies");
         }
 
         public override void SetDefaults()
@@ -36,18 +36,27 @@ namespace Fargowiltas.Items.Misc
             {
                 for (int i = 0; i < Main.maxNPCs; i++)
                 {
-                    if (Main.npc[i].type == ModContent.NPCType<NPCs.SuperDummy>())
+                    NPC npc = Main.npc[i];
+
+                    if (npc.active && npc.type == ModContent.NPCType<NPCs.SuperDummy>())
                     {
-                        Main.npc[i].active = false;
-                        Main.npc[i].netUpdate = true;
+                        npc.life = 0;
+
+                        npc.HitEffect();
+                        npc.StrikeNPCNoInteraction(9999, 0, 0, false, false, false);
+
+                        if (Main.netMode == NetmodeID.MultiplayerClient)
+                        {
+#pragma warning disable CS0618 // Type or member is obsolete
+                            NetMessage.SendData(MessageID.StrikeNPC, -1, -1, null, i, 9999, 0, 0, 0, 0, 0);
+#pragma warning restore CS0618 // Type or member is obsolete
+                        }
                     }
                 }
             }
             else if (player.whoAmI == Main.myPlayer)
             {
                 Projectile.NewProjectile(new Vector2((int)Main.MouseWorld.X - 9, (int)Main.MouseWorld.Y - 20), Vector2.Zero, ModContent.ProjectileType<SpawnProj>(), 0, 0, player.whoAmI, ModContent.NPCType<NPCs.SuperDummy>());
-
-                //NPC.NewNPC((int)pos.X, (int)pos.Y, ModContent.NPCType<NPCs.SuperDummy>());
             }
 
             return true;

@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -19,11 +20,8 @@ namespace Fargowiltas.NPCs
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position) => false;
 
-        public override bool CheckDead()
-        {
-            npc.life = npc.lifeMax;
+        public override void AI() => npc.life = npc.lifeMax;
 
-            return false;
-        }
+        public override bool CheckDead() => false;
     }
 }

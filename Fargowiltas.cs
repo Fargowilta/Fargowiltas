@@ -512,15 +512,10 @@ namespace Fargowiltas
                 AddContent<OverloadStrider>();
                 AddContent<OverloadCoznix>();
                 AddContent<Buffs.OmnistationPlus>();
-                AddContent<OverloadAbyssion>();
                 AddContent<OverloadJelly>();
                 AddContent<OverloadLich>();
                 AddContent<OverloadSaucer>();
                 AddContent<OverloadThunderbird>();
-                AddContent<OverloadViscount>();
-                //AddContent<OverloadChampion>();
-                //AddContent<OverloadGranite>();
-                //AddContent<OverloadRag>();
             }
 
             if (ModLoaded("CalamityMod") && !ModLoaded("ThoriumMod"))
