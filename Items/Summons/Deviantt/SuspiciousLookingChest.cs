@@ -11,7 +11,8 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Suspicious Looking Chest");
-            Tooltip.SetDefault("Summons Mimic");
+            Tooltip.SetDefault("Summons Mimic"
+            + "\nSummons the Ice Mimic when in the underground snow biome");
         }
     }
 }
