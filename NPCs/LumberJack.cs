@@ -77,31 +77,31 @@ namespace Fargowiltas.NPCs
             }
         }
 
-        public override string TownNPCName() => Language.GetTextValue("Mods.Fargowilta.NPC_Names_LumberJack." + Main.rand.Next(12));
+        public override string TownNPCName() => Language.GetTextValue("Mods.Fargowiltas.NPC_Names_LumberJack." + Main.rand.Next(12));
 
         public override string GetChat()
         {
             List<string> dialogue = new List<string>
             {
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.Dynasty"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.Cactus"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.Fantasies"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.BowlofWoodchips"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.Timber"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.LumberJack"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.Axe"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.Fish"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.TwentyThrity"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.WorldTree"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.NotSellingSexJoke"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.Acrons"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.BestTree"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.AxeYouAQuestion"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.Nap"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.WoodExpert"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.FavoriteColors"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.FlannelSeason"),
-                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Lumberjack.SexJoke")
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.Dynasty"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.Cactus"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.Fantasies"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.BowlofWoodchips"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.Timber"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.LumberJack"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.Axe"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.Fish"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.TwentyThrity"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.WorldTree"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.NotSellingSexJoke"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.Acrons"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.BestTree"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.AxeYouAQuestion"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.Nap"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.WoodExpert"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.FavoriteColors"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.FlannelSeason"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_LumberJack.SexJoke")
             };
 
             int dryad = NPC.FindFirstNPC(NPCID.Dryad);

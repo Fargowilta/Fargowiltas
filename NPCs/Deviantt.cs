@@ -67,7 +67,7 @@ namespace Fargowiltas.NPCs
 
         public override void AI() => npc.breath = 200;
 
-        public override string TownNPCName() => Language.GetTextValue("NPC_Names_Deviantt." + Main.rand.Next(11));
+        public override string TownNPCName() => Language.GetTextValue("Mods.Fargowiltas.NPC_Names_Deviantt." + Main.rand.Next(11));
 
         public override string GetChat()
         {

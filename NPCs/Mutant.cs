@@ -282,21 +282,21 @@ namespace Fargowiltas.NPCs
             switch (shopNum)
             {
                 case 1:
-                    button = Language.GetTextValue("NPC_ChatButtons_Mutant.PreHM");
+                    button = Language.GetTextValue("Mods.Fargowiltas.NPC_ChatButtons_Mutant.PreHM");
                     break;
 
                 case 2:
-                    button = Language.GetTextValue("NPC_ChatButtons_Mutant.HM");
+                    button = Language.GetTextValue("Mods.Fargowiltas.NPC_ChatButtons_Mutant.HM");
                     break;
 
                 default:
-                    button = Language.GetTextValue("NPC_ChatButtons_Mutant.PostML");
+                    button = Language.GetTextValue("Mods.Fargowiltas.NPC_ChatButtons_Mutant.PostML");
                     break;
             }
 
             if (Main.hardMode)
             {
-                button2 = Language.GetTextValue("NPC_ChatButtons_Mutant.CycleShop");
+                button2 = Language.GetTextValue("Mods.Fargowiltas.NPC_ChatButtons_Mutant.CycleShop");
             }
 
             if (NPC.downedMoonlord)
