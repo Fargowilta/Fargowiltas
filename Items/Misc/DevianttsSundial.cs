@@ -36,7 +36,7 @@ namespace Fargowiltas.Items.Misc
 
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                NetMessage.SendData(MessageID.Assorted1, number: Main.myPlayer, number2: 3f);
+                NetMessage.SendData(51, number: Main.myPlayer, number2: 3f);
 
                 return true;
             }

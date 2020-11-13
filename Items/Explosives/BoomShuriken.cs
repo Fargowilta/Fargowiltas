@@ -7,18 +7,14 @@ namespace Fargowiltas.Items.Explosives
 {
     public class BoomShuriken : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Boom Shuriken");
-            Tooltip.SetDefault("Rapid firing explosives");
-        }
+        public override void SetStaticDefaults() => Tooltip.SetDefault("Rapid firing explosives");
 
         public override void SetDefaults()
         {
             item.width = 11;
             item.height = 11;
             item.damage = 16;
-            item.ranged = true;
+            item.DamageType = DamageClass.Ranged;
             item.noMelee = true;
             item.consumable = true;
             item.noUseGraphic = true;
@@ -38,10 +34,10 @@ namespace Fargowiltas.Items.Explosives
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe(20);
-            recipe.AddIngredient(ItemID.Shuriken, 20);
-            recipe.AddIngredient(ItemID.Dynamite, 5);
-            recipe.AddTile(TileID.Anvils);            recipe.Register();
+            CreateRecipe(20)
+                .AddIngredient(ItemID.Shuriken, 20)
+                .AddIngredient(ItemID.Dynamite, 5)                .AddTile(TileID.Anvils)
+                .Register();
         }
     }
 }

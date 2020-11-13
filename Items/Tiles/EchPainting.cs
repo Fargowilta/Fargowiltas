@@ -5,11 +5,7 @@ namespace Fargowiltas.Items.Tiles
 {
     public class EchPainting : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Ech Painting");
-            Tooltip.SetDefault("'Groalt W. Fai'");
-        }
+        public override void SetStaticDefaults() => Tooltip.SetDefault("'Groalt W. Fai'");
 
         public override void SetDefaults()
         {
@@ -23,7 +19,7 @@ namespace Fargowiltas.Items.Tiles
             item.useStyle = ItemUseStyleID.Swing;
             item.consumable = true;
             item.rare = ItemRarityID.Blue;
-            item.createTile = ModContent.TileType<EchPaintingSheet>();
+            item.createTile = ModContent.TileType<EchPaintingTile>();
         }
     }
 }

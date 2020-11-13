@@ -5,11 +5,7 @@ namespace Fargowiltas.Items.Tiles
 {
     public class WalkingRick : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Walking Rick");
-            Tooltip.SetDefault("'Kien R. Oco'");
-        }
+        public override void SetStaticDefaults() => Tooltip.SetDefault("'Kien R. Oco'");
 
         public override void SetDefaults()
         {
@@ -23,7 +19,7 @@ namespace Fargowiltas.Items.Tiles
             item.useStyle = ItemUseStyleID.Swing;
             item.consumable = true;
             item.rare = ItemRarityID.Blue;
-            item.createTile = ModContent.TileType<WalkingRickSheet>();
+            item.createTile = ModContent.TileType<WalkingRickTile>();
         }
     }
 }

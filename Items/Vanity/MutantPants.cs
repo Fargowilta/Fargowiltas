@@ -1,5 +1,4 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Fargowiltas.Items.Vanity
@@ -7,8 +6,6 @@ namespace Fargowiltas.Items.Vanity
     [AutoloadEquip(EquipType.Legs)]
     public class MutantPants : ModItem
     {
-        public override void SetStaticDefaults() => DisplayName.SetDefault("Mutant Pants");
-
         public override void SetDefaults()
         {
             item.width = 18;
@@ -19,10 +16,10 @@ namespace Fargowiltas.Items.Vanity
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.BeeMask);
-            recipe.AddIngredient(ItemID.PlanteraMask);
-            recipe.AddTile(TileID.TinkerersWorkbench);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.BeeMask)
+                .AddIngredient(ItemID.PlanteraMask)                .AddTile(TileID.TinkerersWorkbench)
+                .Register();
         }
     }
 }

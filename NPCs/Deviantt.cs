@@ -1,12 +1,10 @@
-﻿using Fargowiltas.ItemDropRules;
+﻿using Fargowiltas.Gores;
 using Fargowiltas.Items.Summons.Deviantt;
-using Fargowiltas.Items.Tiles;
 using Fargowiltas.Projectiles;
+using Fargowiltas.Utilities;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -49,11 +47,11 @@ namespace Fargowiltas.NPCs
             npc.buffImmune[BuffID.Suffocation] = true;
         }
 
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        /*public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[1] { BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface });
             bestiaryEntry.Info.Add(new FlavorTextBestiaryInfoElement("This energetic creature knows more than she lets on about the state of the world. Gets pouty when told jokes about her name."));
-        }
+        }*/
 
         public override bool CanTownNPCSpawn(int numTownnpcs, int money)
         {
@@ -62,14 +60,14 @@ namespace Fargowiltas.NPCs
                 return false;
             }
 
-            return ModContent.GetInstance<FargoConfig>().Devi && !FargoGlobalNPC.AnyBossAlive() && (FargoWorld.DownedBools["rareEnemy"] || (Fargowiltas.ModLoaded("FargowiltasSouls") && (bool)Fargowiltas.LoadedMods["FargowiltasSouls"].Call("Masomode")));
+            return ModContent.GetInstance<FargoConfig>().devi && !FargoGlobalNPC.AnyBossAlive() && (FargoWorld.DownedBools["rareEnemy"] || (Fargowiltas.ModLoaded("FargowiltasSouls") && (bool)Fargowiltas.LoadedMods["FargowiltasSouls"].Call("Masomode")));
         }
 
         public override bool CanGoToStatue(bool toKingStatue) => !toKingStatue;
 
         public override void AI() => npc.breath = 200;
 
-        public override string TownNPCName() => Main.rand.Next(new string[] { "Akira", "Remi", "Bloom", "Yuuki", "Seira", "Koi", "Elly", "Lori", "Calius", "Teri", "Artt" });
+        public override string TownNPCName() => Language.GetTextValue("NPC_Dialogue_Deviantt." + Main.rand.Next(11));
 
         public override string GetChat()
         {
@@ -80,56 +78,56 @@ namespace Fargowiltas.NPCs
 
             List<string> dialogue = new List<string>
             {
-                "Did you know? The only real music genres are death metal and artcore.",
-                "I'll have you know I'm over a hundred Fargo years old! Don't ask me how long a Fargo year is.",
-                "I might be able to afford a taller body if you keep buying!",
-                "Where's that screm cat?",
-                $"{Main.LocalPlayer.name}! I saw something rodent-y just now! You don't have a hamster infestation, right? Right!?",
-                "You're the Terrarian? Honestly, I was expecting someone a little... taller.",
-                "Don't look at me like that! The only thing I've deviated from is my humanity.",
-                "Rip and tear and buy from me for more things to rip and tear!",
-                "What's a chee-bee doe-goe?",
-                "Wait a second. Are you sure this house isn't what they call 'prison?'",
-                "Deviantt has awoken! Quick, give her all your money to defeat her!",
-                "One day, I'll sell a summon for myself! ...Just kidding.",
-                "Hmm, I can tell! You've killed a lot, but you haven't killed enough!",
-                "Why the extra letter, you ask? Only the strongest sibling is allowed to remove their own!",
-                "The more rare things you kill, the more stuff I sell! Simple, right?",
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.MusicGenres"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.NotALoliISwearDevianttIsLegal"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.TallerBody"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.ScremCat"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.HamsterInfestation", Main.LocalPlayer.name),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.TallerTerrarian"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.Deviated"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.RipandTear"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.ChungusDog"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.Prison"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.DevianttHasAwoken"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.SummonforMyself"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.KilledaLot"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.ExtraLetter"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.MoreStuffISell")
             };
 
             int mutant = NPC.FindFirstNPC(ModContent.NPCType<Mutant>());
 
             if (mutant != -1)
             {
-                dialogue.Add($"Can you tell {Main.npc[mutant].GivenName} to put some clothes on?");
-                dialogue.Add($"One day, I'll sell a summon for myself! ...Just kidding. That's {Main.npc[mutant].GivenName}'s job.");
-                dialogue.Add($"{Main.npc[mutant].GivenName} is here! That's my big brother!");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.MutantClothes", Main.npc[mutant].GivenName));
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.MutantSummonJoke", Main.npc[mutant].GivenName));
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.MutantTheChaddestBrotherAlive", Main.npc[mutant].GivenName));
             }
 
             int abom = NPC.FindFirstNPC(ModContent.NPCType<Abominationn>());
 
             if (abom != -1)
             {
-                dialogue.Add($"{Main.npc[abom].GivenName} is here! That's my big-but-not-biggest brother!");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.Abom", Main.npc[abom].GivenName));
             }
 
             int lumberjack = NPC.FindFirstNPC(ModContent.NPCType<LumberJack>());
 
             if (lumberjack != -1)
             {
-                dialogue.Add($"What's that? You want to fight {Main.npc[lumberjack].GivenName}? ...even I know better than to try.");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.LumberJack", Main.npc[lumberjack].GivenName));
             }
 
             int angler = NPC.FindFirstNPC(NPCID.Angler);
 
             if (angler != -1)
             {
-                dialogue.Add($"Have you ever considered throwing {Main.npc[angler].GivenName} back where you found him?");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.Angler", Main.npc[angler].GivenName));
             }
 
             if (Fargowiltas.ModLoaded("FargowiltasSouls") && (bool)Fargowiltas.LoadedMods["FargowiltasSouls"].Call("Masomode"))
             {
-                dialogue.Add("Embrace suffering... and while you're at it, embrace another purchase!");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Deviantt.EMode"));
             }
 
             return Main.rand.Next(dialogue);
@@ -141,7 +139,7 @@ namespace Fargowiltas.NPCs
 
             if (Fargowiltas.ModLoaded("FargowiltasSouls") && (bool)Fargowiltas.LoadedMods["FargowiltasSouls"].Call("Masomode"))
             {
-                button2 = (bool)Fargowiltas.LoadedMods["FargowiltasSouls"].Call("DownedMutant") ? "Lore" : "Help";
+                button2 = (bool)Fargowiltas.LoadedMods["FargowiltasSouls"].Call("DownedMutant") ? Language.GetTextValue("Mods.Fargowiltas.NPC_ChatButtons_Deviantt.Lore") : Language.GetTextValue("Mods.Fargowiltas.NPC_ChatButtons_Deviantt.Help");
             }
         }
 
@@ -169,8 +167,7 @@ namespace Fargowiltas.NPCs
             if (check)
             {
                 shop.item[nextSlot].SetDefaults(item);
-                shop.item[nextSlot].shopCustomPrice = price;
-                nextSlot++;
+                shop.item[nextSlot++].shopCustomPrice = price;
             }
         }
 
@@ -178,8 +175,7 @@ namespace Fargowiltas.NPCs
         {
             if (Fargowiltas.ModLoaded("FargowiltasSouls"))
             {
-                shop.item[nextSlot].SetDefaults(Fargowiltas.LoadedMods["FargowiltasSouls"].ItemType("EurusSock"));
-                nextSlot++;
+                shop.item[nextSlot++].SetDefaults(Fargowiltas.LoadedMods["FargowiltasSouls"].ItemType("EurusSock"));
             }
 
             AddItem(FargoWorld.DownedBools["pinky"], ModContent.ItemType<PinkSlimeCrown>(), Item.buyPrice(0, 5), ref shop, ref nextSlot);
@@ -242,7 +238,7 @@ namespace Fargowiltas.NPCs
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = NPC.downedMoonlord ? ModContent.ProjectileType<FakeHeartMarkDeviantt>() : ModContent.ProjectileType<FakeHeartDeviantt>();
+            projType = NPC.downedMoonlord ? ModContent.ProjectileType<FakeHeartMarkDevianttProj>() : ModContent.ProjectileType<FakeHeartDevianttProj>();
             attackDelay = 1;
         }
 
@@ -261,14 +257,9 @@ namespace Fargowiltas.NPCs
                     Dust.NewDust(npc.position, npc.width, npc.height, 5, 2.5f * hitDirection, -2.5f, 0, default, 0.8f);
                 }
 
-                Vector2 pos = npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2));
-                Gore.NewGore(pos, npc.velocity, Mod.GetGoreSlot("Gores/DevianttGore3"));
-
-                pos = npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2));
-                Gore.NewGore(pos, npc.velocity, Mod.GetGoreSlot("Gores/DevianttGore2"));
-
-                pos = npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2));
-                Gore.NewGore(pos, npc.velocity, Mod.GetGoreSlot("Gores/DevianttGore1"));
+                Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<DevianttGore1>());
+                Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<DevianttGore2>());
+                Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<DevianttGore3>());
             }
             else
             {
@@ -279,6 +270,7 @@ namespace Fargowiltas.NPCs
             }
         }
 
+        // TODO: Can't be asked to localize this shiz
         private void Fargos()
         {
             Player player = Main.LocalPlayer;
@@ -418,7 +410,7 @@ namespace Fargowiltas.NPCs
                     //"Why bother fishing when you can massacre bosses for the same goods? With spawners provided by my big brother, of course!",
                 };
 
-                if (player.HeldItem.ranged)
+                if (player.HeldItem.DamageType == DamageClass.Ranged)
                 {
                     dialogue.Add("Just so you know, ammos are less effective. Only a tiny fraction of their damage can contribute to your total output!");
                 }
@@ -515,12 +507,12 @@ namespace Fargowiltas.NPCs
                 Item.NewItem(npc.Hitbox, ModContent.ItemType<WalkingRick>());
         }*/
 
-        public override void ModifyNPCLoot(ItemDropDatabase database)
+        /*public override void ModifyNPCLoot(ItemDropDatabase database)
         {
             if (Fargowiltas.ModLoaded("FargowiltasSouls"))
             {
                 database.RegisterToNPC(ModContent.ItemType<WalkingRick>(), new ItemDropWithConditionRule(ModContent.ItemType<WalkingRick>(), 1, 1, 1, new ExtraItemDropRules.EridanusIsAlive()));
             }
-        }
+        }*/
     }
 }

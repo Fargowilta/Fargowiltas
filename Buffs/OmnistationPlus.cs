@@ -1,5 +1,6 @@
 //using CalamityMod.CalPlayer;
 using Fargowiltas.Items.Tiles;
+using Fargowiltas.Utilities;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -58,7 +59,7 @@ namespace Fargowiltas.Buffs
 
             int type = Framing.GetTileSafely(player.Center).type;
 
-            if (type == ModContent.TileType<OmnistationPlusSheet>())
+            if (type == ModContent.TileType<OmnistationPlusTile>())
             {
                 player.AddBuff(BuffID.Honey, 30 * 60 + 1);
             }

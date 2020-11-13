@@ -1,3 +1,4 @@
+using Fargowiltas.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -75,43 +76,31 @@ namespace Fargowiltas.NPCs
                     }
                 }
             }
+
             return false;
         }
 
         public override bool CanGoToStatue(bool toKingStatue) => toKingStatue;
 
-        public override string TownNPCName()
-        {
-            switch (WorldGen.genRand.Next(3))
-            {
-                case 0:
-                    return "Rick";
-
-                case 1:
-                    return "Acorn";
-
-                default:
-                    return "Squeaks";
-            }
-        }
+        public override string TownNPCName() => Language.GetTextValue("Mods.Fargoawiltas.NPC_Names_Squirrel." + WorldGen.genRand.Next(3));
 
         public override string GetChat()
         {
             if (Main.bloodMoon)
             {
-                return "You will suffer.";
+                return Language.GetTextValue("Mods.Fargoawiltas.NPC_Dialogu_Squirrel.Suffer");
             }
 
             switch (Main.rand.Next(3))
             {
                 case 0:
-                    return "*squeak*";
+                    return Language.GetTextValue("Mods.Fargoawiltas.NPC_Dialogu_Squirrel.Squeak");
 
                 case 1:
-                    return "*chitter*";
+                    return Language.GetTextValue("Mods.Fargoawiltas.NPC_Dialogu_Squirrel.Chitter");
 
                 default:
-                    return "*crunch crunch*";
+                    return Language.GetTextValue("Mods.Fargoawiltas.NPC_Dialogu_Squirrel.Crunch");
             }
         }
 
@@ -130,15 +119,17 @@ namespace Fargowiltas.NPCs
             const int maxShop = 40;
 
             if (item.modItem == null || !item.modItem.Mod.Name.Equals("FargowiltasSouls") || nextSlot >= maxShop)
+            {
                 return;
+            }
 
             bool duplicateItem = false;
 
             if (item.Name.EndsWith("Enchantment"))
             {
-                foreach (Item item2 in shop.item)
+                foreach (Item shopItem in shop.item)
                 {
-                    if (item2.type == item.type)
+                    if (shopItem.type == item.type)
                     {
                         duplicateItem = true;
 
@@ -146,7 +137,7 @@ namespace Fargowiltas.NPCs
                     }
                 }
 
-                if (duplicateItem == false && nextSlot < maxShop)
+                if (!duplicateItem && nextSlot < maxShop)
                 {
                     shop.item[nextSlot].SetDefaults(item.type);
                     nextSlot++;
@@ -154,125 +145,115 @@ namespace Fargowiltas.NPCs
             }
             else if (item.Name.Contains("Force"))
             {
-                RecipeFinder finder = new RecipeFinder();
-
-                finder.SetResult(item.type);
-
-                Recipe exactRecipe = finder.SearchRecipes()[0];
-
-                foreach (Item item2 in exactRecipe.requiredItem)
+                for (int i = 0; i < Recipe.numRecipes; i++)
                 {
-                    foreach (Item item3 in shop.item)
-                    {
-                        if (item3.type == item2.type)
-                        {
-                            duplicateItem = true;
+                    Recipe recipe = Main.recipe[i];
 
-                            break;
-                        }
-                    }
-
-                    if (duplicateItem == false && nextSlot < maxShop)
+                    if (recipe.HasResult(item.type))
                     {
-                        if (item2.Name.Contains("Enchantment"))
+                        foreach (Item requiredItem in recipe.requiredItem)
                         {
-                            shop.item[nextSlot].SetDefaults(item2.type);
-                            nextSlot++;
+                            foreach (Item shopItem in shop.item)
+                            {
+                                if (requiredItem.type == shopItem.type)
+                                {
+                                    duplicateItem = true;
+
+                                    break;
+                                }
+                            }
+
+                            if (!duplicateItem && nextSlot < maxShop)
+                            {
+                                if (requiredItem.Name.Contains("Enchantment"))
+                                {
+                                    shop.item[nextSlot++].SetDefaults(requiredItem.type);
+                                }
+                            }
                         }
                     }
                 }
             }
             else if (item.Name.StartsWith("Soul"))
             {
-                RecipeFinder finder = new RecipeFinder();
-
-                finder.SetResult(item.type);
-
-                Recipe exactRecipe = finder.SearchRecipes()[0];
-
-                foreach (Item item2 in exactRecipe.requiredItem)
+                for (int i = 0; i < Recipe.numRecipes; i++)
                 {
-                    foreach (Item item3 in shop.item)
-                    {
-                        if (item3.type == item2.type)
-                        {
-                            duplicateItem = true;
+                    Recipe recipe = Main.recipe[i];
 
-                            break;
-                        }
-                    }
-
-                    if (duplicateItem == false && nextSlot < maxShop)
+                    if (recipe.HasResult(item.type))
                     {
-                        if (item2.Name.Contains("Force") || item2.Name.Contains("Soul"))
+                        foreach (Item requiredItem in recipe.requiredItem)
                         {
-                            shop.item[nextSlot].SetDefaults(item2.type);
-                            nextSlot++;
+                            foreach (Item shopItem in shop.item)
+                            {
+                                if (requiredItem.type == shopItem.type)
+                                {
+                                    duplicateItem = true;
+
+                                    break;
+                                }
+                            }
+
+                            if (!duplicateItem && nextSlot < maxShop)
+                            {
+                                if (requiredItem.Name.Contains("Force") || requiredItem.Name.Contains("Soul"))
+                                {
+                                    shop.item[nextSlot++].SetDefaults(requiredItem.type);
+                                }
+                            }
                         }
                     }
                 }
             }
             else if (item.Name.EndsWith("Essence"))
             {
-                foreach (Item item2 in shop.item)
+                for (int i = 0; i < Recipe.numRecipes; i++)
                 {
-                    if (item2.type == item.type)
+                    foreach (Item shopItem in shop.item)
                     {
-                        duplicateItem = true;
-                        break;
-                    }
-                }
-
-                if (duplicateItem == false && nextSlot < maxShop)
-                {
-                    shop.item[nextSlot].SetDefaults(item.type);
-                    nextSlot++;
-                }
-            }
-            else if (item.Name.EndsWith("Soul"))
-            {
-                RecipeFinder finder = new RecipeFinder();
-
-                finder.SetResult(item.type);
-
-                Recipe exactRecipe = finder.SearchRecipes()[0];
-
-                foreach (Item item2 in exactRecipe.requiredItem)
-                {
-                    foreach (Item item3 in shop.item)
-                    {
-                        if (item3.type == item2.type)
+                        if (shopItem.type == item.type)
                         {
                             duplicateItem = true;
+
                             break;
                         }
                     }
 
-                    if (duplicateItem == false && nextSlot < maxShop)
+                    if (!duplicateItem && nextSlot < maxShop)
                     {
-                        if (item2.Name.EndsWith("Essence"))
+                        shop.item[nextSlot++].SetDefaults(item.type);
+                    }
+                }
+            }
+            else if (item.Name.EndsWith("Soul"))
+            {
+                for (int i = 0; i < Recipe.numRecipes; i++)
+                {
+                    Recipe recipe = Main.recipe[i];
+
+                    if (recipe.HasResult(item.type))
+                    {
+                        foreach (Item requiredItem in recipe.requiredItem)
                         {
-                            shop.item[nextSlot].SetDefaults(item2.type);
-                            nextSlot++;
+                            foreach (Item shopItem in shop.item)
+                            {
+                                if (requiredItem.type == shopItem.type)
+                                {
+                                    duplicateItem = true;
+
+                                    break;
+                                }
+                            }
+
+                            if (!duplicateItem && nextSlot < maxShop)
+                            {
+                                if (requiredItem.Name.Contains("Essence"))
+                                {
+                                    shop.item[nextSlot++].SetDefaults(requiredItem.type);
+                                }
+                            }
                         }
                     }
-                }
-
-                duplicateItem = false;
-
-                foreach (Item item4 in shop.item)
-                {
-                    if (item4.type == item.type)
-                    {
-                        duplicateItem = true;
-                        break;
-                    }
-                }
-
-                if (duplicateItem == false && nextSlot < maxShop)
-                {
-                    shop.item[nextSlot].SetDefaults(item.type);
-                    nextSlot++;
                 }
             }
             else if (item.type == Fargowiltas.LoadedMods["FargowiltasSouls"].ItemType("AeolusBoots"))
@@ -289,14 +270,12 @@ namespace Fargowiltas.NPCs
 
                 if (duplicateItem == false && nextSlot < maxShop)
                 {
-                    shop.item[nextSlot].SetDefaults(ItemID.FrostsparkBoots);
-                    nextSlot++;
+                    shop.item[nextSlot++].SetDefaults(ItemID.FrostsparkBoots);
                 }
 
                 if (duplicateItem == false && nextSlot < maxShop)
                 {
-                    shop.item[nextSlot].SetDefaults(ItemID.BalloonHorseshoeFart);
-                    nextSlot++;
+                    shop.item[nextSlot++].SetDefaults(ItemID.BalloonHorseshoeFart);
                 }
             }
         }
@@ -306,8 +285,7 @@ namespace Fargowiltas.NPCs
             if (Fargowiltas.ModLoaded("FargowiltasSouls"))
             {
                 shop.item[nextSlot].SetDefaults(Fargowiltas.LoadedMods["FargowiltasSouls"].ItemType("TophatSquirrel"));
-                shop.item[nextSlot].shopCustomPrice = 100000;
-                nextSlot++;
+                shop.item[nextSlot++].shopCustomPrice = 100000;
             }
 
             for (int k = 0; k < 255; k++)
@@ -331,32 +309,25 @@ namespace Fargowiltas.NPCs
             }
         }
 
-        public override void OnKill() => FargoWorld.DownedBools["squirrel"] = true;
+        public override void /*OnKill*/ NPCLoot() => FargoWorld.DownedBools["squirrel"] = true;
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            Asset<Texture2D> texture2D13 = TextureAssets.Npc[npc.type];
-            int num156 = TextureAssets.Npc[npc.type].Height() / Main.npcFrameCount[npc.type]; //ypos of lower right corner of sprite to draw
-            int y3 = num156 * npc.frame.Y; //ypos of upper left corner of sprite to draw
-            Rectangle rectangle = npc.frame;//new Rectangle(0, y3, texture2D13.Width, num156);
-            Vector2 origin2 = rectangle.Size() / 2f;
+            Asset<Texture2D> texture = TextureAssets.Npc[npc.type];
+            Rectangle rec = npc.frame;//new Rectangle(0, y3, texture2D13.Width, num156);
+            Vector2 origin = rec.Size() / 2f;
             SpriteEffects effects = npc.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
             if (Main.bloodMoon)
             {
-                Texture2D texture2D14 = ModContent.GetTexture("Fargowiltas/NPCs/Squirrel_Glow").Value;
-                float scale = (Main.mouseTextColor / 200f - 0.35f) * 0.3f + 0.9f;
-
-                Main.spriteBatch.Draw(texture2D14, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Color.White * npc.Opacity, npc.rotation, origin2, scale, effects, 0f);
+                Main.spriteBatch.Draw(ModContent.GetTexture("Fargowiltas/NPCs/Squirrel_Glow").Value, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rec), Color.White * npc.Opacity, npc.rotation, origin, (Main.mouseTextColor / 200f - 0.35f) * 0.3f + 0.9f, effects, 0f);
             }
 
-            Main.spriteBatch.Draw(texture2D13.Value, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), npc.GetAlpha(lightColor), npc.rotation, origin2, npc.scale, effects, 0f);
+            Main.spriteBatch.Draw(texture.Value, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rec), npc.GetAlpha(lightColor), npc.rotation, origin, npc.scale, effects, 0f);
 
             if (Main.bloodMoon)
             {
-                Texture2D texture2D14 = ModContent.GetTexture("Fargowiltas/NPCs/Squirrel_Eyes").Value;
-
-                Main.spriteBatch.Draw(texture2D14, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Color.White * npc.Opacity, npc.rotation, origin2, npc.scale, effects, 0f);
+                Main.spriteBatch.Draw(ModContent.GetTexture("Fargowiltas/NPCs/Squirrel_Eyes").Value, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rec), Color.White * npc.Opacity, npc.rotation, origin, npc.scale, effects, 0f);
             }
 
             return false;

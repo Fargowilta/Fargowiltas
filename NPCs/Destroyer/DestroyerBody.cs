@@ -12,6 +12,7 @@ namespace Fargowiltas.NPCs.Destroyer
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("The Destroyer");
+
             Main.npcFrameCount[npc.type] = 2;
         }
 

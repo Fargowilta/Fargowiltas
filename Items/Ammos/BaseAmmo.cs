@@ -24,9 +24,9 @@ namespace Fargowiltas.Items.Ammos
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(AmmunitionItem, 3996);
-            recipe.AddTile(TileID.CrystalBall);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(AmmunitionItem, 3996)                .AddTile(TileID.CrystalBall)
+                .Register();
         }
     }
 }

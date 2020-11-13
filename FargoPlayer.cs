@@ -1,4 +1,5 @@
 using Fargowiltas.NPCs;
+using Fargowiltas.Utilities;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -11,16 +12,13 @@ namespace Fargowiltas
 {
     public class FargoPlayer : ModPlayer
     {
-        internal bool BattleCry;
-        internal int originalSelectedItem;
-        internal bool autoRevertSelectedItem = false;
-        internal Dictionary<string, bool> FirstDyeIngredients = new Dictionary<string, bool>();
+        public bool battleCry;
+        public int originalSelectedItem;
+        public bool autoRevertSelectedItem = false;
+        public Dictionary<string, bool> firstDyeIngredients = new Dictionary<string, bool>();
 
-        private int oldSelected;
-        private bool isReuse = false;
-
-        private readonly string[] tags = new string[]
-       {
+        private readonly string[] tags = new string[13]
+        {
             "RedHusk",
             "OrangeBloodroot",
             "YellowMarigold",
@@ -34,9 +32,9 @@ namespace Fargowiltas
             "VioletHusk",
             "PinkPricklyPear",
             "BlackInk"
-       };
+        };
 
-        private int[] Informational = new int[]
+        private int[] Informational = new int[23]
         {
             ItemID.CopperWatch,
             ItemID.TinWatch,
@@ -70,11 +68,9 @@ namespace Fargowiltas
 
             foreach (string tag in tags)
             {
-                bool value;
-
-                if (FirstDyeIngredients.TryGetValue(tag, out value))
+                if (firstDyeIngredients.TryGetValue(tag, out bool _))
                 {
-                    dyes.AddWithCondition(tag, FirstDyeIngredients[tag]);
+                    dyes.AddWithCondition(tag, firstDyeIngredients[tag]);
                 }
                 else
                 {
@@ -91,12 +87,11 @@ namespace Fargowiltas
         public override void Load(TagCompound tag)
         {
             string name = "FargoDyes" + player.name;
-
             IList<string> dyes = tag.GetList<string>(name);
 
             foreach (string downedTag in tags)
             {
-                FirstDyeIngredients[downedTag] = dyes.Contains(downedTag);
+                firstDyeIngredients[downedTag] = dyes.Contains(downedTag);
             }
         }
 
@@ -104,7 +99,7 @@ namespace Fargowiltas
         {
             foreach (string tag in tags)
             {
-                FirstDyeIngredients[tag] = false;
+                firstDyeIngredients[tag] = false;
             }
 
             return new[] { new Item(ModContent.ItemType<Items.Misc.Stats>()) };
@@ -112,7 +107,7 @@ namespace Fargowiltas
 
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
-            if (Fargowiltas.CustomKey.JustPressed)
+            if (Fargowiltas.QuickUseCustomKey.JustPressed)
             {
                 QuickUseItemAt(40);
             }
@@ -168,22 +163,22 @@ namespace Fargowiltas
 
         public override void UpdateBiomes()
         {
-            if (FargoGlobalNPC.SpecificBossIsAlive(ref FargoGlobalNPC.eaterBoss, NPCID.EaterofWorldsHead))
+            if (FargoGlobalNPC.SpecificBossIsAlive(ref FargoGlobalNPC.EaterBoss, NPCID.EaterofWorldsHead))
             {
                 player.ZoneCorrupt = true;
             }
 
-            if (FargoGlobalNPC.SpecificBossIsAlive(ref FargoGlobalNPC.brainBoss, NPCID.BrainofCthulhu))
+            if (FargoGlobalNPC.SpecificBossIsAlive(ref FargoGlobalNPC.BrainBoss, NPCID.BrainofCthulhu))
             {
                 player.ZoneCrimson = true;
             }
 
-            if (FargoGlobalNPC.SpecificBossIsAlive(ref FargoGlobalNPC.plantBoss, NPCID.Plantera))
+            if (FargoGlobalNPC.SpecificBossIsAlive(ref FargoGlobalNPC.PlantBoss, NPCID.Plantera))
             {
                 player.ZoneJungle = true;
             }
 
-            if (ModContent.GetInstance<FargoConfig>().Fountains)
+            if (ModContent.GetInstance<FargoConfig>().fountains)
             {
                 switch (Main.SceneMetrics.ActiveFountainColor)
                 {
@@ -253,6 +248,7 @@ namespace Fargowiltas
                 if (player.inventory[i].type == ItemID.RodofDiscord)
                 {
                     QuickUseItemAt(i);
+
                     break;
                 }
             }

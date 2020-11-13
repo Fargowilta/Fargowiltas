@@ -4,6 +4,7 @@ using Fargowiltas.Items.Summons.SwarmSummons.Thorium;
 using Fargowiltas.Items.Tiles;
 using Fargowiltas.Items.Vanity;
 using Fargowiltas.NPCs;
+using Fargowiltas.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -17,36 +18,34 @@ using Terraria.ModLoader;
 
 namespace Fargowiltas
 {
-    public class Fargowiltas : Mod
+    public partial class Fargowiltas : Mod
     {
-        internal static MutantSummonTracker summonTracker;
+        private string[] _mods;
 
         // Hotkeys
-        internal static ModHotKey CustomKey;
-
-        internal static ModHotKey HomeKey;
-        internal static ModHotKey RodKey;
+        public static ModHotKey QuickUseCustomKey;
+        public static ModHotKey HomeKey;
+        public static ModHotKey RodKey;
 
         // Swarms
-        internal static bool SwarmActive;
-
-        internal static int SwarmKills;
-        internal static int SwarmTotal;
-        internal static int SwarmSpawned;
+        public static bool SwarmActive;
+        public static int SwarmKills;
+        public static int SwarmTotal;
+        public static int SwarmSpawned;
 
         // Dictionary for actually getting the mod
-        internal static Dictionary<string, Mod> LoadedMods;
-
-        internal static Dictionary<int, string> ModRareEnemies = new Dictionary<int, string>();
-        private string[] mods;
+        public static Dictionary<string, Mod> LoadedMods;
+        public static Dictionary<int, string> ModRareEnemies = new Dictionary<int, string>();
 
         public Fargowiltas()
         {
+            // This is all true by default :blobshrug:
             Properties = new ModProperties()
             {
                 Autoload = true,
                 AutoloadGores = true,
-                AutoloadSounds = true
+                AutoloadSounds = true,
+                AutoloadBackgrounds = true
             };
         }
 
@@ -59,13 +58,13 @@ namespace Fargowiltas
 
         public override void Load()
         {
-            summonTracker = new MutantSummonTracker();
+            MutantSummonTracker.InitializeVanillaSummons();
 
             HomeKey = RegisterHotKey("Quick Recall/Mirror", "Home");
             RodKey = RegisterHotKey("Quick Rod of Discord", "E");
-            CustomKey = RegisterHotKey("Quick Use Custom (Bottom Left Inventory Slot)", "K");
+            QuickUseCustomKey = RegisterHotKey("Quick Use Custom (Bottom Left Inventory Slot)", "K");
 
-            mods = new string[]
+            _mods = new string[]
             {
                 "FargowiltasSouls", // Fargo's Souls
                 "Bluemagic", // Elemental Unleash / Blushiemagic's Mod
@@ -97,7 +96,7 @@ namespace Fargowiltas
 
             LoadedMods = new Dictionary<string, Mod>();
 
-            foreach (string mod in mods)
+            foreach (string mod in _mods)
             {
                 LoadedMods.Add(mod, null);
             }
@@ -120,7 +119,7 @@ namespace Fargowiltas
             {
                 LoadedMods = new Dictionary<string, Mod>();
 
-                foreach (string mod in mods)
+                foreach (string mod in _mods)
                 {
                     ModLoader.TryGetMod(mod, out Mod loadedMod);
                     LoadedMods.Add(mod, loadedMod);
@@ -131,28 +130,23 @@ namespace Fargowiltas
                 Logger.Error("Fargowiltas PostSetupContent Error: " + e.StackTrace + e.Message);
             }
 
-            Mod fargowiltasSouls = null;
+            Mod fargowiltasSouls = ModLoaded("FargowiltasSouls") ? LoadedMods["FargowiltasSouls"] : null;
+            Mod census = ModLoaded("Census") ? LoadedMods["Census"] : null;
 
-            if (ModLoaded("FargowiltasSouls"))
+            if (census != null)
             {
-                fargowiltasSouls = LoadedMods["FargowiltasSouls"];
-            }
-
-            if (ModLoaded("Census"))
-            {
-                Mod census = LoadedMods["Census"];
                 census.Call("TownNPCCondition", ModContent.NPCType<Deviantt>(), "Defeat any rare enemy or... embrace eternity");
                 census.Call("TownNPCCondition", ModContent.NPCType<Mutant>(), "Defeat any boss or miniboss");
                 census.Call("TownNPCCondition", ModContent.NPCType<LumberJack>(), $"Have a Wooden Token ([i:{ModContent.ItemType<WoodenToken>()}]) in your inventory");
                 census.Call("TownNPCCondition", ModContent.NPCType<Abominationn>(), "Clear any event");
 
-                if (ModLoaded("FargowiltasSouls"))
+                if (fargowiltasSouls != null)
                 {
                     census.Call("TownNPCCondition", ModContent.NPCType<Squirrel>(), $"Have a Top Hat Squirrel ([i:{fargowiltasSouls.ItemType("TophatSquirrel")}]) in your inventory");
                 }
             }
 
-            if (ModLoaded("FargowiltasSouls"))
+            if (fargowiltasSouls != null)
             {
                 if (!ModRareEnemies.ContainsKey(fargowiltasSouls.NPCType("BabyGuardian")))
                 {
@@ -163,11 +157,9 @@ namespace Fargowiltas
 
         public override void Unload()
         {
-            summonTracker = null;
             HomeKey = null;
             RodKey = null;
-            CustomKey = null;
-            mods = null;
+            QuickUseCustomKey = null;
             LoadedMods = null;
         }
 
@@ -183,12 +175,12 @@ namespace Fargowiltas
                         return SwarmActive;
 
                     case "AddSummon":
-                        if (summonTracker.SummonsFinalized)
+                        if (MutantSummonTracker.SummonsFinalized)
                         {
                             throw new Exception($"Call Error: Summons must be added before AddRecipes");
                         }
 
-                        summonTracker.AddSummon(
+                        MutantSummonTracker.AddSummon(
                             Convert.ToSingle(args[1]),
                             args[2] as string,
                             args[3] as string,
@@ -198,12 +190,12 @@ namespace Fargowiltas
                         break;
 
                     case "AddEventSummon":
-                        if (summonTracker.SummonsFinalized)
+                        if (MutantSummonTracker.SummonsFinalized)
                         {
                             throw new Exception($"Call Error: Event summons must be added before AddRecipes");
                         }
 
-                        summonTracker.AddEventSummon(
+                        MutantSummonTracker.AddEventSummon(
                             Convert.ToSingle(args[1]),
                             args[2] as string,
                             args[3] as string,
@@ -228,15 +220,6 @@ namespace Fargowiltas
 
             return base.Call(args);
         }
-
-        public override void AddRecipes()
-        {
-            summonTracker.FinalizeSummonData();
-
-            FargoRecipes.AddRecipes();
-        }
-
-        public override void AddRecipeGroups() => FargoRecipes.AddRecipeGroups();
 
         public override void HandlePacket(BinaryReader reader, int whoAmI)
         {
@@ -269,10 +252,6 @@ namespace Fargowiltas
                     {
                         Main.AnglerQuestSwap();
                     }
-
-                    break;
-
-                default:
                     break;
             }
         }
@@ -348,6 +327,7 @@ namespace Fargowiltas
                 if (canClearEvent)
                 {
                     Main.StopSlimeRain();
+
                     Main.slimeWarningDelay = 1;
                     Main.slimeWarningTime = 1;
                 }
@@ -402,14 +382,14 @@ namespace Fargowiltas
                         if (Main.npc[i].active && (Main.npc[i].type == NPCID.LunarTowerNebula || Main.npc[i].type == NPCID.LunarTowerSolar || Main.npc[i].type == NPCID.LunarTowerStardust || Main.npc[i].type == NPCID.LunarTowerVortex))
                         {
                             Main.npc[i].dontTakeDamage = false;
-                            Main.npc[i].GetGlobalNPC<FargoGlobalNPC>().NoLoot = true;
+                            Main.npc[i].GetGlobalNPC<FargoGlobalNPC>().noLoot = true;
                             Main.npc[i].StrikeNPCNoInteraction(int.MaxValue, 0f, 0);
                         }
                     }
                 }
             }
 
-            foreach (MutantSummonInfo summon in summonTracker.EventSummons)
+            foreach (MutantSummonInfo summon in MutantSummonTracker.EventSummons)
             {
                 if ((bool)LoadedMods[summon.modSource].Call("AbominationnClearEvents", canClearEvent))
                 {
@@ -425,55 +405,40 @@ namespace Fargowiltas
             return eventOccurring && canClearEvent;
         }
 
-        // SpawnBoss(player, ModContent.NPCType<MyBoss>(), true, 0, 0, "DerpyBoi 2", false);
+        // Example: SpawnBoss(Main.player[Main.myPlayer], ModContent.NPCType<ExampleBoss>(), true, 0, 0, "Example Name", false);
         internal static void SpawnBoss(Player player, int bossType, bool spawnMessage = true, int overrideDirection = 0, int overrideDirectionY = 0, string overrideDisplayName = "", bool namePlural = false)
         {
-            if (overrideDirection == 0)
-            {
-                overrideDirection = Main.rand.NextBool(2) ? -1 : 1;
-            }
+            overrideDirection = overrideDirection == 0 ? Main.rand.NextBool(2) ? -1 : 1 : overrideDirection;
+            overrideDirectionY = overrideDirectionY == 0 ? -1 : overrideDirectionY;
 
-            if (overrideDirectionY == 0)
-            {
-                overrideDirectionY = -1;
-            }
-
-            Vector2 npcCenter = player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, 800f * overrideDirectionY);
-            SpawnBoss(player, bossType, spawnMessage, npcCenter, overrideDisplayName, namePlural);
+            SpawnBoss(player, bossType, spawnMessage, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, 800f * overrideDirectionY), overrideDisplayName, namePlural);
         }
 
-        // SpawnBoss(player, ModContent.NPCType<MyBoss>(), true, player.Center + new Vector2(0, 800f), "DerpFromBelow", false);
+        // Example: SpawnBoss(Main.player[Main.myPlayer], ModContent.NPCType<ExampleBoss>(), true, Main.player[Main.myPlayer].Center + new Vector2(0, 800f), "Example From Below", false);
         internal static int SpawnBoss(Player player, int bossType, bool spawnMessage = true, Vector2 npcCenter = default, string overrideDisplayName = "", bool namePlural = false)
         {
-            if (npcCenter == default)
-            {
-                npcCenter = player.Center;
-            }
+            npcCenter = npcCenter == default ? player.Center : npcCenter;
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int npcID = NPC.NewNPC((int)npcCenter.X, (int)npcCenter.Y, bossType);
-                Main.npc[npcID].Center = npcCenter;
-                Main.npc[npcID].netUpdate2 = true;
+                NPC npc = Main.npc[NPC.NewNPC((int)npcCenter.X, (int)npcCenter.Y, bossType)];
+                npc.Center = npcCenter;
+                npc.netUpdate2 = true;
 
                 if (spawnMessage)
                 {
-                    string npcName = !string.IsNullOrEmpty(Main.npc[npcID].GivenName) ? Main.npc[npcID].GivenName : overrideDisplayName;
-
-                    if (string.IsNullOrEmpty(npcName) && Main.npc[npcID].modNPC != null)
-                    {
-                        npcName = Main.npc[npcID].modNPC.DisplayName.GetDefault();
-                    }
+                    string npcName = !string.IsNullOrEmpty(npc.GivenName) ? npc.GivenName : overrideDisplayName;
+                    npcName = string.IsNullOrEmpty(npcName) && npc.modNPC != null ? npc.modNPC.DisplayName.GetDefault() : npcName;
 
                     if (namePlural)
                     {
                         if (Main.netMode == NetmodeID.SinglePlayer)
                         {
-                            Main.NewText(npcName + " have awoken!", 175, 75);
+                            Main.NewText(Language.GetTextValue("Mods.Fargowiltas.Announcement.HaveAwoken", npcName), 175, 75);
                         }
                         else if (Main.netMode == NetmodeID.Server)
                         {
-                            ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(npcName + " have awoken!"), new Color(175, 75, 255));
+                            ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.Fargowiltas.Announcement.HaveAwoken", npcName)), new Color(175, 75, 255));
                         }
                     }
                     else
@@ -492,7 +457,7 @@ namespace Fargowiltas
             else
             {
                 // I have no idea how to convert this to the standard system so im gonna post this method too lol
-                FargoNet.SendNetMessage(FargoNet.SummonNPCFromClient, (byte)player.whoAmI, (short)bossType, spawnMessage, npcCenter.X, npcCenter.Y, overrideDisplayName, namePlural);
+                FargoNet.SendNetMessage(FargoNet.summonNPCFromClient, (byte)player.whoAmI, (short)bossType, spawnMessage, npcCenter.X, npcCenter.Y, overrideDisplayName, namePlural);
             }
 
             return 200;

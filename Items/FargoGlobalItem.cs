@@ -26,8 +26,6 @@ namespace Fargowiltas.Items
 
         public override bool InstancePerEntity => true;
 
-        public override bool CloneNewInstances => true;
-
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
             TooltipLine line;
@@ -85,7 +83,7 @@ namespace Fargowiltas.Items
                     break;
             }
 
-            if (ModContent.GetInstance<FargoConfig>().ExtraLures)
+            if (ModContent.GetInstance<FargoConfig>().extraLures)
             {
                 if (item.type == ItemID.FishingPotion)
                 {
@@ -115,7 +113,7 @@ namespace Fargowiltas.Items
 
         public override void SetDefaults(Item item)
         {
-            if (ModContent.GetInstance<FargoConfig>().IncreaseMaxStack)
+            if (ModContent.GetInstance<FargoConfig>().increaseMaxStack)
             {
                 if (item.maxStack > 10 && (item.maxStack != 100 || Fargowiltas.ModLoaded("TerrariaOverhaul")) && !(item.type >= ItemID.CopperCoin && item.type <= ItemID.PlatinumCoin))
                 {
@@ -144,8 +142,7 @@ namespace Fargowiltas.Items
                 case ItemID.WoodenCrateHard:
                     if (Main.rand.NextBool(40))
                     {
-                        int[] drops = { ItemID.Spear, ItemID.Blowpipe, ItemID.WandofSparking, ItemID.WoodenBoomerang };
-                        player.QuickSpawnItem(Main.rand.Next(drops));
+                        player.QuickSpawnItem(Main.rand.Next(new int[] { ItemID.Spear, ItemID.Blowpipe, ItemID.WandofSparking, ItemID.WoodenBoomerang }));
                     }
                     break;
 
@@ -153,8 +150,7 @@ namespace Fargowiltas.Items
                 case ItemID.GoldenCrateHard:
                     if (Main.rand.NextBool(10))
                     {
-                        int[] drops = { ItemID.BandofRegeneration, ItemID.MagicMirror, ItemID.CloudinaBottle, ItemID.EnchantedBoomerang, ItemID.ShoeSpikes, ItemID.FlareGun, ItemID.HermesBoots, ItemID.LavaCharm, ItemID.SandstorminaBottle, ItemID.FlyingCarpet };
-                        player.QuickSpawnItem(Main.rand.Next(drops));
+                        player.QuickSpawnItem(Main.rand.Next(new int[] { ItemID.BandofRegeneration, ItemID.MagicMirror, ItemID.CloudinaBottle, ItemID.EnchantedBoomerang, ItemID.ShoeSpikes, ItemID.FlareGun, ItemID.HermesBoots, ItemID.LavaCharm, ItemID.SandstorminaBottle, ItemID.FlyingCarpet }));
                     }
                     break;
             }
@@ -170,7 +166,7 @@ namespace Fargowiltas.Items
 
         public override void PostUpdate(Item item)
         {
-            if (ModContent.GetInstance<FargoConfig>().Halloween && ModContent.GetInstance<FargoConfig>().Christmas && firstTick)
+            if (ModContent.GetInstance<FargoConfig>().halloween && ModContent.GetInstance<FargoConfig>().christmas && firstTick)
             {
                 if (Array.IndexOf(Hearts, item.type) >= 0)
                 {
@@ -188,7 +184,7 @@ namespace Fargowiltas.Items
 
         public override bool CanUseItem(Item item, Player player)
         {
-            if (ModContent.GetInstance<FargoConfig>().ExtractSpeed && (item.type == ItemID.SiltBlock || item.type == ItemID.SlushBlock || item.type == ItemID.DesertFossil))
+            if (ModContent.GetInstance<FargoConfig>().extractSpeed && (item.type == ItemID.SiltBlock || item.type == ItemID.SlushBlock || item.type == ItemID.DesertFossil))
             {
                 item.useTime = 2;
                 item.useAnimation = 3;
@@ -199,7 +195,7 @@ namespace Fargowiltas.Items
 
         public override void UpdateInventory(Item item, Player player)
         {
-            if (item.buffType != 0 && item.stack >= 60 && ModContent.GetInstance<FargoConfig>().UnlimitedPotionBuffsOn120)
+            if (item.buffType != 0 && item.stack >= 60 && ModContent.GetInstance<FargoConfig>().unlimitedPotionBuffsOn120)
             {
                 player.AddBuff(item.buffType, 2);
             }
@@ -209,7 +205,7 @@ namespace Fargowiltas.Items
         {
             if (item.type == ItemID.MusicBox && Main.curMusic > 0 && Main.curMusic <= 41)
             {
-                int itemId = 0;
+                int itemId;
 
                 //still better than vanilla (fear)
                 switch (Main.curMusic)
@@ -341,25 +337,9 @@ namespace Fargowiltas.Items
             }
         }
 
-        public override bool ConsumeAmmo(Item item, Player player)
-        {
-            if (ModContent.GetInstance<FargoConfig>().UnlimitedAmmo && Main.hardMode && item.ammo != 0 && item.stack >= 3996)
-            {
-                return false;
-            }
+        public override bool ConsumeAmmo(Item item, Player player) => !(ModContent.GetInstance<FargoConfig>().unlimitedAmmo && Main.hardMode && item.ammo != 0 && item.stack >= 3996);
 
-            return true;
-        }
-
-        public override bool ConsumeItem(Item item, Player player)
-        {
-            if (ModContent.GetInstance<FargoConfig>().UnlimitedConsumableWeapons && Main.hardMode && item.damage > 0 && item.ammo == 0 && item.stack >= 3996)
-            {
-                return false;
-            }
-
-            return true;
-        }
+        public override bool ConsumeItem(Item item, Player player) => !(ModContent.GetInstance<FargoConfig>().unlimitedConsumableWeapons && Main.hardMode && item.damage > 0 && item.ammo == 0 && item.stack >= 3996);
 
         public override bool OnPickup(Item item, Player player)
         {
@@ -422,7 +402,7 @@ namespace Fargowiltas.Items
 
             if (dye != "")
             {
-                player.GetModPlayer<FargoPlayer>().FirstDyeIngredients[dye] = true;
+                player.GetModPlayer<FargoPlayer>().firstDyeIngredients[dye] = true;
             }
 
             return base.OnPickup(item, player);

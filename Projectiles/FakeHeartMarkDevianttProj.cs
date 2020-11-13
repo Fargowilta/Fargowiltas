@@ -5,9 +5,9 @@ using Terraria.ModLoader;
 
 namespace Fargowiltas.Projectiles
 {
-    public class FakeHeartMarkDeviantt : ModProjectile
+    public class FakeHeartMarkDevianttProj : ModProjectile
     {
-        public override string Texture => "Fargowiltas/Projectiles/FakeHeartDeviantt";
+        public override string Texture => "Fargowiltas/Projectiles/FakeHeartDevianttProj";
 
         public override void SetStaticDefaults() => DisplayName.SetDefault("Fake Heart");
 
@@ -28,13 +28,13 @@ namespace Fargowiltas.Projectiles
             {
                 for (int i = -3; i < 3; i++)
                 {
-                    Projectile.NewProjectile(projectile.Center, -projectile.velocity.RotatedBy(Math.PI / 7 * i), ModContent.ProjectileType<FakeHeart2Deviantt>(), projectile.damage, projectile.knockBack, projectile.owner, -1, 120 + 20 * i);
+                    Projectile.NewProjectile(projectile.Center, -projectile.velocity.RotatedBy(Math.PI / 7 * i), ModContent.ProjectileType<FakeHeart2DevianttProj>(), projectile.damage, projectile.knockBack, projectile.owner, -1, 120 + 20 * i);
                 }
             }
 
             projectile.Kill();
         }
 
-        public override bool CanDamage() => false;
+        public override bool? CanDamage() => false;
     }
 }

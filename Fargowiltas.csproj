@@ -11,9 +11,11 @@
     <Exec Command="&quot;$(tMLBuildServerPath)&quot; -build $(ProjectDir) -eac $(TargetPath) -define &quot;$(DefineConstants)&quot; -unsafe $(AllowUnsafeBlocks)" />
   </Target>
   <ItemGroup>
-    <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
+    <Compile Remove="Items\Weapons\Thrown\**" />
+    <EmbeddedResource Remove="Items\Weapons\Thrown\**" />
+    <None Remove="Items\Weapons\Thrown\**" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Items\Weapons\Thrown\" />
+    <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
   </ItemGroup>
 </Project>

@@ -7,11 +7,7 @@ namespace Fargowiltas.Items.Explosives
 {
     public class Trollbomb : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Troll Bomb");
-            Tooltip.SetDefault("Summon a random bomb");
-        }
+        public override void SetStaticDefaults() => Tooltip.SetDefault("Summon a random bomb");
 
         public override void SetDefaults()
         {
@@ -119,13 +115,13 @@ namespace Fargowiltas.Items.Explosives
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Bomb, 10);
-            recipe.AddIngredient(ItemID.StickyBomb, 10);
-            recipe.AddIngredient(ItemID.BouncyBomb, 10);
-            recipe.AddIngredient(ItemID.Dynamite, 10);
-            recipe.AddIngredient(ItemID.ManaCrystal);
-            recipe.AddTile(TileID.Anvils);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.Bomb, 10)
+                .AddIngredient(ItemID.StickyBomb, 10)
+                .AddIngredient(ItemID.BouncyBomb, 10)
+                .AddIngredient(ItemID.Dynamite, 10)
+                .AddIngredient(ItemID.ManaCrystal)                .AddTile(TileID.Anvils)
+                .Register();
         }
     }
 }

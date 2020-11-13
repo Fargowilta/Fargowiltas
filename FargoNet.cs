@@ -11,8 +11,8 @@ namespace Fargowiltas
 {
     public static class FargoNet
     {
-        public const byte SummonNPCFromClient = 0;
-        private const bool Debug = true;
+        public const byte summonNPCFromClient = 0;
+        public const bool debug = true;
 
         public static void SendData(int dataType, int dataA, int dataB, string text, int playerID, float dataC, float dataD, float dataE, int clientType) => NetMessage.SendData(dataType, dataA, dataB, NetworkText.FromLiteral(text), playerID, dataC, dataD, dataE, clientType);
 
@@ -29,6 +29,7 @@ namespace Fargowiltas
                     case byte[] _:
                         {
                             byte[] array = (byte[])obj;
+
                             foreach (byte b in array)
                             {
                                 packet.Write(b);
@@ -64,11 +65,11 @@ namespace Fargowiltas
 
         public static void SyncAI(Entity codable, float[] ai, int aitype)
         {
-            int entType = codable is NPC ? 0 : codable is Projectile ? 1 : -1;
+            int entityType = codable is NPC ? 0 : codable is Projectile ? 1 : -1;
 
-            if (entType != -1)
+            if (entityType != -1)
             {
-                SyncAI(entType, codable is NPC ? ((NPC)codable).whoAmI : ((Projectile)codable).identity, ai, aitype);
+                SyncAI(entityType, codable is NPC ? ((NPC)codable).whoAmI : ((Projectile)codable).identity, ai, aitype);
             }
         }
 
@@ -87,9 +88,9 @@ namespace Fargowiltas
             ai2[2] = (byte)aitype;
             ai2[3] = (byte)ai.Length;
 
-            for (int m = 4; m < ai2.Length; m++)
+            for (int i = 4; i < ai2.Length; i++)
             {
-                ai2[m] = ai[m - 4];
+                ai2[i] = ai[i - 4];
             }
 
             SendFargoNetMessage(1, ai2);
@@ -124,6 +125,7 @@ namespace Fargowiltas
         public static void WriteVector2Array(Vector2[] array, BinaryWriter writer)
         {
             writer.Write(array.Length);
+
             foreach (Vector2 vec in array)
             {
                 writer.Write(vec.X);
@@ -140,9 +142,10 @@ namespace Fargowiltas
         {
             int arrayLength = reader.ReadInt32();
             Vector2[] array = new Vector2[arrayLength];
-            for (int m = 0; m < arrayLength; m++)
+
+            for (int i = 0; i < arrayLength; i++)
             {
-                array[m] = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+                array[i] = new Vector2(reader.ReadSingle(), reader.ReadSingle());
             }
 
             return array;
@@ -161,14 +164,14 @@ namespace Fargowiltas
         {
             byte msg = bb.ReadByte();
 
-            if (Debug)
+            if (debug)
             {
                 ModContent.GetInstance<Fargowiltas>().Logger.Error((Main.netMode == NetmodeID.Server ? "--SERVER-- " : "--CLIENT-- ") + "HANDING MESSAGE: " + msg);
             }
 
             try
             {
-                if (msg == SummonNPCFromClient && Main.netMode == NetmodeID.Server)
+                if (msg == summonNPCFromClient && Main.netMode == NetmodeID.Server)
                 {
                     int playerID = bb.ReadByte();
                     int bossType = bb.ReadInt16();
@@ -191,7 +194,7 @@ namespace Fargowiltas
 
         public static void SyncPlayer(int toWho, int fromWho, bool newPlayer)
         {
-            if (Debug)
+            if (debug)
             {
                 ModContent.GetInstance<Fargowiltas>().Logger.Error((Main.netMode == NetmodeID.Server ? "--SERVER-- " : "--CLIENT-- ") + "SYNC PLAYER CALLED! NEWPLAYER: " + newPlayer + ". TOWHO: " + toWho + ". FROMWHO:" + fromWho);
             }
@@ -204,7 +207,7 @@ namespace Fargowiltas
 
         public static void PlayerConnected()
         {
-            if (Debug)
+            if (debug)
             {
                 ModContent.GetInstance<Fargowiltas>().Logger.Info("--SERVER-- PLAYER JOINED!");
             }

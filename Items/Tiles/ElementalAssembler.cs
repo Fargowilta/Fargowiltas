@@ -6,11 +6,7 @@ namespace Fargowiltas.Items.Tiles
 {
     public class ElementalAssembler : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Elemental Assembler");
-            Tooltip.SetDefault("Functions as several basic crafting stations");
-        }
+        public override void SetStaticDefaults() => Tooltip.SetDefault("Functions as several basic crafting stations");
 
         public override void SetDefaults()
         {
@@ -23,26 +19,25 @@ namespace Fargowiltas.Items.Tiles
             item.useTime = 10;
             item.useStyle = ItemUseStyleID.Swing;
             item.consumable = true;
-            item.createTile = ModContent.TileType<ElementalAssemblerSheet>();
+            item.createTile = ModContent.TileType<ElementalAssemblerTile>();
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-
-            recipe.AddIngredient(ItemID.Hellforge);
-            recipe.AddIngredient(ItemID.AlchemyTable);
-            recipe.AddIngredient(ItemID.TinkerersWorkshop);
-            recipe.AddIngredient(ItemID.ImbuingStation);
-            recipe.AddIngredient(ItemID.DyeVat);
-            recipe.AddIngredient(ItemID.LivingLoom);
-            recipe.AddIngredient(ItemID.GlassKiln);
-            recipe.AddIngredient(ItemID.IceMachine);
-            recipe.AddIngredient(ItemID.HoneyDispenser);
-            recipe.AddIngredient(ItemID.SkyMill);
-            recipe.AddIngredient(ItemID.Solidifier);
-            recipe.AddIngredient(ItemID.BoneWelder);
-            recipe.AddTile(TileID.DemonAltar);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.Hellforge)
+                .AddIngredient(ItemID.AlchemyTable)
+                .AddIngredient(ItemID.TinkerersWorkshop)
+                .AddIngredient(ItemID.ImbuingStation)
+                .AddIngredient(ItemID.DyeVat)
+                .AddIngredient(ItemID.LivingLoom)
+                .AddIngredient(ItemID.GlassKiln)
+                .AddIngredient(ItemID.IceMachine)
+                .AddIngredient(ItemID.HoneyDispenser)
+                .AddIngredient(ItemID.SkyMill)
+                .AddIngredient(ItemID.Solidifier)
+                .AddIngredient(ItemID.BoneWelder)                .AddTile(TileID.DemonAltar)
+                .Register();
         }
     }
 }

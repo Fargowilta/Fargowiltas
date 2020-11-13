@@ -49,7 +49,7 @@ namespace Fargowiltas.Items.Misc
             GameModeData currentGameModeInfo = (GameModeData)currentGameModeInfoField.GetValue(null);
             currentGameModeInfo = currentGameModeInfo == GameModeData.ExpertMode ? GameModeData.NormalMode : GameModeData.ExpertMode;
             currentGameModeInfoField.SetValue(null, currentGameModeInfo);
-            // I have no fucking clue if this even works. - Stevie
+            // Seems to work. - Stevie
 
             string text = Main.expertMode ? "Expert mode is now enabled!" : "Expert mode is now disabled!";
 

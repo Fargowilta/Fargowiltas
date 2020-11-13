@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -6,11 +5,7 @@ namespace Fargowiltas.Items.Tiles
 {
     public class WoodenToken : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Wooden Token");
-            Tooltip.SetDefault("'The sign of a true wood lover'");
-        }
+        public override void SetStaticDefaults() => Tooltip.SetDefault("'The sign of a true wood lover'");
 
         public override void SetDefaults()
         {
@@ -24,18 +19,18 @@ namespace Fargowiltas.Items.Tiles
             item.useStyle = ItemUseStyleID.Swing;
             item.consumable = true;
             item.rare = ItemRarityID.Blue;
-            item.createTile = ModContent.TileType<WoodenTokenSheet>();
+            item.createTile = ModContent.TileType<WoodenTokenTile>();
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Wood, 25);
-            recipe.AddIngredient(ItemID.BorealWood, 25);
-            recipe.AddIngredient(ItemID.RichMahogany, 25);
-            recipe.AddIngredient(ItemID.PalmWood, 25);
-            recipe.AddRecipeGroup("Fargowiltas:AnyEvilWood", 25);
-            recipe.AddTile(TileID.WorkBenches);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.Wood, 25)
+                .AddIngredient(ItemID.BorealWood, 25)
+                .AddIngredient(ItemID.RichMahogany, 25)
+                .AddIngredient(ItemID.PalmWood, 25)
+                .AddRecipeGroup("Fargowiltas:AnyEvilWood", 25)                .AddTile(TileID.WorkBenches)
+                .Register();
         }
     }
 }

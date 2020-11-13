@@ -10,13 +10,13 @@ namespace Fargowiltas.Items.Weapons
         {
             DisplayName.SetDefault("The Lumber Jaxe");
             Tooltip.SetDefault("'The former weapon of a true axe wielding hero'" +
-                               "\nHit enemies may drop wood when killed");
+                "\nHit enemies may drop wood when killed");
         }
 
         public override void SetDefaults()
         {
             item.damage = 15;
-            item.melee = true;
+            item.DamageType = DamageClass.Melee;
             item.width = 40;
             item.height = 40;
             item.useTime = 30;

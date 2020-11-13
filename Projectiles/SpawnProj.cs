@@ -39,19 +39,18 @@ namespace Fargowiltas.Projectiles
             projectile.hide = true;
         }
 
-        public override bool CanDamage() => false;
+        public override bool? CanDamage() => false;
 
         public override void Kill(int timeLeft)
         {
             if ((int)projectile.ai[0] == NPCID.CultistBoss && NPC.downedAncientCultist)
             {
                 // Lunatic Cultist
-                int npc = NPC.NewNPC((int)projectile.Center.X, (int)projectile.Center.Y, (int)projectile.ai[0]);
-                Main.npc[npc].GetGlobalNPC<FargoGlobalNPC>().PillarSpawn = false;
+                Main.npc[NPC.NewNPC((int)projectile.Center.X, (int)projectile.Center.Y, (int)projectile.ai[0])].GetGlobalNPC<FargoGlobalNPC>().pillarSpawn = false;
             }
             else if (projectile.ai[1] == 2)
             {
-                // Death Fairy (Pre-Hardmode bosses)
+                // Death Fairy (Pre-hardmode bosses)
                 for (int i = 0; i < 6; i++)
                 {
                     NPC.NewNPC((int)projectile.Center.X, (int)projectile.Center.Y, bosses[i]);
@@ -64,11 +63,9 @@ namespace Fargowiltas.Projectiles
                 // Mutant Voodoo (All bosses)
                 foreach (int boss in bosses)
                 {
-                    int spawn = NPC.NewNPC((int)projectile.Center.X, (int)projectile.Center.Y, boss);
-
                     if (boss == NPCID.CultistBoss)
                     {
-                        Main.npc[spawn].GetGlobalNPC<FargoGlobalNPC>().PillarSpawn = false;
+                        Main.npc[NPC.NewNPC((int)projectile.Center.X, (int)projectile.Center.Y, boss)].GetGlobalNPC<FargoGlobalNPC>().pillarSpawn = false;
                     }
                 }
 

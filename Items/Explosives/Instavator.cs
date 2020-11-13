@@ -7,11 +7,7 @@ namespace Fargowiltas.Items.Explosives
 {
     public class Instavator : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Instavator");
-            Tooltip.SetDefault("Creates a hellevator instantly\nDo not use if any important building is below");
-        }
+        public override void SetStaticDefaults() => Tooltip.SetDefault("Creates a hellevator instantly\nDo not use if any important building is below");
 
         public override void SetDefaults()
         {
@@ -34,12 +30,12 @@ namespace Fargowiltas.Items.Explosives
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.FossilOre, 20);
-            recipe.AddIngredient(ItemID.Dynamite, 50);
-            recipe.AddIngredient(ItemID.RopeCoil, 10);
-            recipe.AddIngredient(ItemID.Torch, 99);
-            recipe.AddTile(TileID.Anvils);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.FossilOre, 20)
+                .AddIngredient(ItemID.Dynamite, 50)
+                .AddIngredient(ItemID.RopeCoil, 10)
+                .AddIngredient(ItemID.Torch, 99)                .AddTile(TileID.Anvils)
+                .Register();
         }
     }
 }

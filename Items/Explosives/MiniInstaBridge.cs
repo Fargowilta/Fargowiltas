@@ -12,7 +12,7 @@ namespace Fargowiltas.Items.Explosives
         {
             DisplayName.SetDefault("Mini Instabridge");
             Tooltip.SetDefault("Creates a long bridge of platforms" +
-                               "\nWill not break any blocks");
+                "\nWill not break any blocks");
         }
 
         public override void SetDefaults()
@@ -41,10 +41,10 @@ namespace Fargowiltas.Items.Explosives
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.FossilOre, 5);
-            recipe.AddIngredient(ItemID.WoodPlatform, 100);
-            recipe.AddTile(TileID.Anvils);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.FossilOre, 5)
+                .AddIngredient(ItemID.WoodPlatform, 100)                .AddTile(TileID.Anvils)
+                .Register();
         }
     }
 }

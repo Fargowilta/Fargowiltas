@@ -6,11 +6,7 @@ namespace Fargowiltas.Items.Tiles
 {
     public class MultitaskCenter : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Multitask Center");
-            Tooltip.SetDefault("Functions as several basic crafting stations");
-        }
+        public override void SetStaticDefaults() => Tooltip.SetDefault("Functions as several basic crafting stations");
 
         public override void SetDefaults()
         {
@@ -23,25 +19,24 @@ namespace Fargowiltas.Items.Tiles
             item.useTime = 10;
             item.useStyle = ItemUseStyleID.Swing;
             item.consumable = true;
-            item.createTile = ModContent.TileType<MultitaskCenterSheet>();
+            item.createTile = ModContent.TileType<MultitaskCenterTile>();
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.WorkBench);
-            recipe.AddIngredient(ItemID.HeavyWorkBench);
-            recipe.AddIngredient(ItemID.Furnace);
-            recipe.AddRecipeGroup("Fargowiltas:AnyAnvil");
-            recipe.AddIngredient(ItemID.Bottle);
-            recipe.AddIngredient(ItemID.Sawmill);
-            recipe.AddIngredient(ItemID.Loom);
-            recipe.AddIngredient(ItemID.WoodenTable);
-            recipe.AddIngredient(ItemID.WoodenChair);
-            recipe.AddIngredient(ItemID.CookingPot);
-            recipe.AddIngredient(ItemID.WoodenSink);
-            recipe.AddIngredient(ItemID.Keg);
-            recipe.AddTile(TileID.DemonAltar);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.WorkBench)
+                .AddIngredient(ItemID.HeavyWorkBench)
+                .AddIngredient(ItemID.Furnace)
+                .AddRecipeGroup("Fargowiltas:AnyAnvil")
+                .AddIngredient(ItemID.Bottle)
+                .AddIngredient(ItemID.Sawmill)
+                .AddIngredient(ItemID.Loom)
+                .AddIngredient(ItemID.WoodenTable)
+                .AddIngredient(ItemID.WoodenChair)
+                .AddIngredient(ItemID.CookingPot)
+                .AddIngredient(ItemID.WoodenSink)                .AddIngredient(ItemID.Keg)                .AddTile(TileID.DemonAltar)
+                .Register();
         }
     }
 }

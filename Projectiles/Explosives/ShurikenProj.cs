@@ -15,7 +15,7 @@ namespace Fargowiltas.Projectiles.Explosives
             projectile.width = 11;
             projectile.height = 11;
             projectile.friendly = true;
-            projectile.ranged = true;
+            projectile.DamageType = DamageClass.Ranged;
             projectile.penetrate = 5;
             projectile.aiStyle = 2;
             projectile.timeLeft = 600;
@@ -33,7 +33,7 @@ namespace Fargowiltas.Projectiles.Explosives
 
         public override void Kill(int timeLeft)
         {
-            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, ModContent.ProjectileType<Explosion>(), 0, projectile.knockBack, projectile.owner);
+            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExplosionProj>(), 0, projectile.knockBack, projectile.owner);
 
             Vector2 position = projectile.Center;
 

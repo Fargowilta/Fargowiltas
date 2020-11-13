@@ -6,27 +6,22 @@ namespace Fargowiltas.Items.Tiles
 {
     public class Omnistation2 : Omnistation
     {
-        public override void SetDefaults()
-        {
-            base.SetDefaults();
-
-            item.createTile = ModContent.TileType<OmnistationSheet2>();
-        }
+        public override void SetDefaults() => item.createTile = ModContent.TileType<OmnistationTile2>();
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Sunflower, 30);
-            recipe.AddIngredient(ItemID.Campfire, 30);
-            recipe.AddIngredient(ItemID.HeartLantern, 30);
-            recipe.AddIngredient(ItemID.StarinaBottle, 30);
-            recipe.AddIngredient(ItemID.HoneyBucket, 30);
-            recipe.AddIngredient(ItemID.SharpeningStation, 5);
-            recipe.AddIngredient(ItemID.AmmoBox, 5);
-            recipe.AddIngredient(ItemID.CrystalBall, 5);
-            recipe.AddIngredient(ItemID.BewitchingTable, 5);
-            recipe.AddIngredient(ItemID.TitaniumBar, 5);
-            recipe.AddTile(TileID.MythrilAnvil);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.Sunflower, 30)
+                .AddIngredient(ItemID.Campfire, 30)
+                .AddIngredient(ItemID.HeartLantern, 30)
+                .AddIngredient(ItemID.StarinaBottle, 30)
+                .AddIngredient(ItemID.HoneyBucket, 30)
+                .AddIngredient(ItemID.SharpeningStation, 5)
+                .AddIngredient(ItemID.AmmoBox, 5)
+                .AddIngredient(ItemID.CrystalBall, 5)
+                .AddIngredient(ItemID.BewitchingTable, 5)
+                .AddIngredient(ItemID.TitaniumBar, 5)                .AddTile(TileID.MythrilAnvil)
+                .Register();
         }
     }
 }

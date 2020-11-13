@@ -6,7 +6,7 @@ using Terraria.ObjectData;
 
 namespace Fargowiltas.Items.Tiles
 {
-    public class MultitaskCenterSheet : ModTile
+    public class MultitaskCenterTile : ModTile
     {
         public override void SetDefaults()
         {

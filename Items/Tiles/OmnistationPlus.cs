@@ -1,3 +1,4 @@
+using Fargowiltas.Utilities;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,7 +27,7 @@ namespace Fargowiltas.Items.Tiles
             item.useTime = 10;
             item.useStyle = ItemUseStyleID.Swing;
             item.rare = ItemRarityID.Blue;
-            item.createTile = ModContent.TileType<OmnistationPlusSheet>();
+            item.createTile = ModContent.TileType<OmnistationPlusTile>();
         }
 
         public override void AddRecipes()

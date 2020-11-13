@@ -11,8 +11,8 @@ namespace Fargowiltas.Items.Misc
         {
             DisplayName.SetDefault("Portable Sundial");
             Tooltip.SetDefault("Left click to instantly switch from day to night" +
-                               "\nRight click to activate the Enchanted Sundial effect" +
-                               "\nThis will also reset travelling merchant's shops");
+                "\nRight click to activate the Enchanted Sundial effect" +
+                "\nThis will also reset travelling merchant's shops");
         }
 
         public override void SetDefaults()
@@ -40,7 +40,7 @@ namespace Fargowiltas.Items.Misc
 
                 if (Main.netMode == NetmodeID.MultiplayerClient)
                 {
-                    NetMessage.SendData(MessageID.Assorted1, number: Main.myPlayer, number2: 3f);
+                    NetMessage.SendData(51, number: Main.myPlayer, number2: 3f);
 
                     return true;
                 }
@@ -69,12 +69,12 @@ namespace Fargowiltas.Items.Misc
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Sundial);
-            recipe.AddIngredient(ItemID.SoulofLight, 10);
-            recipe.AddIngredient(ItemID.SoulofNight, 10);
-            recipe.AddIngredient(ItemID.SoulofFlight, 10);
-            recipe.AddTile(TileID.Anvils);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.Sundial)
+                .AddIngredient(ItemID.SoulofLight, 10)
+                .AddIngredient(ItemID.SoulofNight, 10)
+                .AddIngredient(ItemID.SoulofFlight, 10)                .AddTile(TileID.Anvils)
+                .Register();
         }
     }
 }

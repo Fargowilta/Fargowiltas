@@ -12,9 +12,12 @@ namespace Fargowiltas.Items.Tiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crucible of the Cosmos");
-            Tooltip.SetDefault("'It seems to be hiding magnificent power'\nFunctions as every crafting station");
+            Tooltip.SetDefault("'It seems to be hiding magnificent power'" +
+                "\nFunctions as every crafting station");
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "宇宙坩埚");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'它似乎隐藏着巨大的力量'\n包含几乎所有制作环境");
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'它似乎隐藏着巨大的力量'" +
+                "\n包含几乎所有制作环境");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -40,27 +43,27 @@ namespace Fargowiltas.Items.Tiles
             item.useTime = 10;
             item.useStyle = ItemUseStyleID.Swing;
             item.consumable = true;
-            item.createTile = ModContent.TileType<CrucibleCosmosSheet>();
+            item.createTile = ModContent.TileType<CrucibleCosmosTile>();
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<MultitaskCenter>());
-            recipe.AddIngredient(ModContent.ItemType<ElementalAssembler>());
-            recipe.AddRecipeGroup("Fargowiltas:AnyForge");
-            recipe.AddRecipeGroup("Fargowiltas:AnyHMAnvil");
-            recipe.AddRecipeGroup("Fargowiltas:AnyBookcase");
-            recipe.AddIngredient(ItemID.CrystalBall);
-            recipe.AddIngredient(ItemID.Autohammer);
-            recipe.AddIngredient(ItemID.BlendOMatic);
-            recipe.AddIngredient(ItemID.MeatGrinder);
-            recipe.AddIngredient(ItemID.SteampunkBoiler);
-            recipe.AddIngredient(ItemID.FleshCloningVaat);
-            recipe.AddIngredient(ItemID.LihzahrdFurnace);
-            recipe.AddIngredient(ItemID.LunarCraftingStation);
-            recipe.AddIngredient(ItemID.LunarBar, 25);
-            recipe.AddTile(TileID.DemonAltar);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ModContent.ItemType<MultitaskCenter>())
+                .AddIngredient(ModContent.ItemType<ElementalAssembler>())
+                .AddRecipeGroup("Fargowiltas:AnyForge")
+                .AddRecipeGroup("Fargowiltas:AnyHMAnvil")
+                .AddRecipeGroup("Fargowiltas:AnyBookcase")
+                .AddIngredient(ItemID.CrystalBall)
+                .AddIngredient(ItemID.Autohammer)
+                .AddIngredient(ItemID.BlendOMatic)
+                .AddIngredient(ItemID.MeatGrinder)
+                .AddIngredient(ItemID.SteampunkBoiler)
+                .AddIngredient(ItemID.FleshCloningVaat)
+                .AddIngredient(ItemID.LihzahrdFurnace)
+                .AddIngredient(ItemID.LunarCraftingStation)
+                .AddIngredient(ItemID.LunarBar, 25)                .AddTile(TileID.DemonAltar)
+                .Register();
         }
     }
 }

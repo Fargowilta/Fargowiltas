@@ -75,13 +75,13 @@ namespace Fargowiltas.Items.Summons
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.TrifoldMap);
-            recipe.AddIngredient(ItemID.Goggles);
-            recipe.AddIngredient(ItemID.Sunglasses);
-            recipe.AddIngredient(ItemID.SuspiciousLookingEye);
-            recipe.AddIngredient(ItemID.MechanicalEye);
-            recipe.AddTile(TileID.WorkBenches);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.TrifoldMap)
+                .AddIngredient(ItemID.Goggles)
+                .AddIngredient(ItemID.Sunglasses)
+                .AddIngredient(ItemID.SuspiciousLookingEye)
+                .AddIngredient(ItemID.MechanicalEye)                .AddTile(TileID.WorkBenches)
+                .Register();
         }
     }
 }

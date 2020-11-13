@@ -62,11 +62,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons.Thorium
             for (int i = 0; i < Fargowiltas.SwarmSpawned; i++)
             {
                 int boss = NPC.NewNPC((int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), Fargowiltas.LoadedMods["Thorium"].NPCType("Aquaius"));
-                Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
+                Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().swarmActive = true;
                 boss = NPC.NewNPC((int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), Fargowiltas.LoadedMods["Thorium"].NPCType("Omnicide"));
-                Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
+                Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().swarmActive = true;
                 boss = NPC.NewNPC((int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), Fargowiltas.LoadedMods["Thorium"].NPCType("SlagFury"));
-                Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
+                Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().swarmActive = true;
             }
 
             NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, Fargowiltas.LoadedMods["Thorium"].NPCType("RagSkyChanger"), 0, player.whoAmI, 0f, 0f, 0f, 255);

@@ -1,5 +1,4 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Fargowiltas.Items.Vanity
@@ -7,8 +6,6 @@ namespace Fargowiltas.Items.Vanity
     [AutoloadEquip(EquipType.Body)]
     public class MutantBody : ModItem
     {
-        public override void SetStaticDefaults() => DisplayName.SetDefault("Mutant Body");
-
         public override void SetDefaults()
         {
             item.width = 18;
@@ -19,15 +16,15 @@ namespace Fargowiltas.Items.Vanity
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.SkeletronMask);
-            recipe.AddIngredient(ItemID.DestroyerMask);
-            recipe.AddIngredient(ItemID.SkeletronPrimeMask);
-            recipe.AddIngredient(ItemID.TwinMask);
-            recipe.AddIngredient(ItemID.GolemMask);
-            recipe.AddIngredient(ItemID.FairyQueenMask);
-            recipe.AddIngredient(ItemID.BossMaskMoonlord);
-            recipe.AddTile(TileID.TinkerersWorkbench);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.SkeletronMask)
+                .AddIngredient(ItemID.DestroyerMask)
+                .AddIngredient(ItemID.SkeletronPrimeMask)
+                .AddIngredient(ItemID.TwinMask)
+                .AddIngredient(ItemID.GolemMask)
+                .AddIngredient(ItemID.FairyQueenMask)
+                .AddIngredient(ItemID.BossMaskMoonlord)                .AddTile(TileID.TinkerersWorkbench)
+                .Register();
         }
     }
 }

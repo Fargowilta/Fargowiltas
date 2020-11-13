@@ -218,6 +218,13 @@ namespace Fargowiltas.Items.CaughtNPCs
         public override void SetStaticDefaults() => Tooltip.SetDefault("'Stay off me booty, ya scallywag!'");
     }
 
+    public class Princess : BaseCaughtNPC
+    {
+        public override int NPCType => NPCID.Princess;
+
+        public override void SetStaticDefaults() => Tooltip.SetDefault("'I am so fabulously grateful for my subjects!'");
+    }
+
     public class SantaClaus : BaseCaughtNPC
     {
         public override int NPCType => NPCID.SantaClaus;

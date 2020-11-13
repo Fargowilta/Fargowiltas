@@ -1,17 +1,20 @@
+using Fargowiltas.Gores;
 using Fargowiltas.Items.Summons.Abom;
 using Fargowiltas.Items.Summons.Deviantt;
 using Fargowiltas.Items.Vanity;
+using Fargowiltas.Utilities;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Bestiary;
+//using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace Fargowiltas.NPCs
 {
+    // TODO: Localization here, too tired of localization, sorry.
     [AutoloadHead]
     public class Abominationn : ModNPC
     {
@@ -49,11 +52,11 @@ namespace Fargowiltas.NPCs
             npc.buffImmune[BuffID.Suffocation] = true;
         }
 
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        /*public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[1] { BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface });
             bestiaryEntry.Info.Add(new FlavorTextBestiaryInfoElement("His weapons are fused to his hands. Thankfully, he doesn’t need to eat and doors magically open when he approaches."));
-        }
+        }*/
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money)
         {
@@ -62,7 +65,7 @@ namespace Fargowiltas.NPCs
                 return false;
             }
 
-            return ModContent.GetInstance<FargoConfig>().Abom && NPC.downedGoblins && !FargoGlobalNPC.AnyBossAlive();
+            return ModContent.GetInstance<FargoConfig>().abom && NPC.downedGoblins && !FargoGlobalNPC.AnyBossAlive();
         }
 
         public override bool CanGoToStatue(bool toKingStatue) => toKingStatue;
@@ -144,7 +147,7 @@ namespace Fargowiltas.NPCs
                 {
                     if (Main.netMode != NetmodeID.SinglePlayer)
                     {
-                        var netMessage = Mod.GetPacket();
+                        ModPacket netMessage = Mod.GetPacket();
 
                         netMessage.Write((byte)2);
                         netMessage.Send();
@@ -177,8 +180,7 @@ namespace Fargowiltas.NPCs
             if (condition)
             {
                 shop.item[nextSlot].SetDefaults(Fargowiltas.LoadedMods[modName].ItemType(itemName));
-                shop.item[nextSlot].shopCustomPrice = price;
-                nextSlot++;
+                shop.item[nextSlot++].shopCustomPrice = price;
             }
         }
 
@@ -187,8 +189,7 @@ namespace Fargowiltas.NPCs
             if (check)
             {
                 shop.item[nextSlot].SetDefaults(item);
-                shop.item[nextSlot].shopCustomPrice = price;
-                nextSlot++;
+                shop.item[nextSlot++].shopCustomPrice = price;
             }
         }
 
@@ -200,9 +201,7 @@ namespace Fargowiltas.NPCs
             }
 
             shop.item[nextSlot].SetDefaults(Fargowiltas.LoadedMods[mod].ItemType(item));
-            shop.item[nextSlot].value = price;
-
-            nextSlot++;
+            shop.item[nextSlot++].value = price;
         }
 
         public override void SetupShop(Chest shop, ref int nextSlot)
@@ -237,7 +236,7 @@ namespace Fargowiltas.NPCs
 
             AddItem(NPC.downedTowers, ModContent.ItemType<PillarSummon>(), Item.buyPrice(0, 75), ref shop, ref nextSlot);
 
-            foreach (MutantSummonInfo summon in Fargowiltas.summonTracker.EventSummons)
+            foreach (MutantSummonInfo summon in MutantSummonTracker.EventSummons)
             {
                 AddItem(summon.downed(), summon.modSource, summon.itemName, summon.price, ref shop, ref nextSlot);
             }
@@ -282,14 +281,9 @@ namespace Fargowiltas.NPCs
                     Dust.NewDust(npc.position, npc.width, npc.height, 5, 2.5f * hitDirection, -2.5f, Scale: 0.8f);
                 }
 
-                Vector2 pos = npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2));
-                Gore.NewGore(pos, npc.velocity, Mod.GetGoreSlot("Gores/AbomGore3"));
-
-                pos = npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2));
-                Gore.NewGore(pos, npc.velocity, Mod.GetGoreSlot("Gores/AbomGore2"));
-
-                pos = npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2));
-                Gore.NewGore(pos, npc.velocity, Mod.GetGoreSlot("Gores/AbomGore1"));
+                Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<AbomGore1>());
+                Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<AbomGore2>());
+                Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<AbomGore3>());
             }
             else
             {

@@ -13,19 +13,15 @@ namespace Fargowiltas.Tiles
         {
             if (type == TileID.CrystalBall)
             {
-                int[] adjTiles = new int[] { TileID.DemonAltar, TileID.CrystalBall };
-
-                return adjTiles;
+                return new int[] { TileID.DemonAltar, TileID.CrystalBall };
             }
 
             if (type == TileID.HeavyWorkBench)
             {
-                int[] adjTiles = new int[] { TileID.WorkBenches, TileID.HeavyWorkBench };
-
-                return adjTiles;
+                return new int[] { TileID.WorkBenches, TileID.HeavyWorkBench };
             }
 
-            if (type == ModContent.TileType<CrucibleCosmosSheet>())
+            if (type == ModContent.TileType<CrucibleCosmosTile>())
             {
                 Main.LocalPlayer.adjHoney = true;
                 Main.LocalPlayer.adjLava = true;

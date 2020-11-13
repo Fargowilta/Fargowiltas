@@ -1,3 +1,4 @@
+using Fargowiltas.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -8,7 +9,7 @@ using Terraria.ObjectData;
 
 namespace Fargowiltas.Items.Tiles
 {
-    public class CrucibleCosmosSheet : ModTile
+    public class CrucibleCosmosTile : ModTile
     {
         public override void SetDefaults()
         {
@@ -22,7 +23,7 @@ namespace Fargowiltas.Items.Tiles
             name.SetDefault("Crucible of the Cosmos");
             AddMapEntry(new Color(200, 200, 200), name);
             // TODO: Uncomment when tML adds this back
-            //disableSmartCursor = true;
+            // disableSmartCursor = true;
 
             //counts as
             adjTiles = new int[] { TileID.WorkBenches, TileID.HeavyWorkBench, TileID.Furnaces, TileID.Anvils, TileID.Bottles, TileID.Sawmill, TileID.Loom, TileID.Tables, TileID.Chairs, TileID.CookingPots, TileID.Sinks, TileID.Kegs, TileID.Hellforge, TileID.AlchemyTable, TileID.TinkerersWorkbench, TileID.ImbuingStation, TileID.DyeVat, TileID.LivingLoom, TileID.GlassKiln, TileID.IceMachine, TileID.HoneyDispenser, TileID.SkyMill, TileID.Solidifier, TileID.BoneWelder, TileID.MythrilAnvil, TileID.AdamantiteForge, TileID.DemonAltar, TileID.Bookcases, TileID.CrystalBall, TileID.Autohammer, TileID.LunarCraftingStation, TileID.FleshCloningVat, TileID.LihzahrdFurnace, TileID.SteampunkBoiler, TileID.Blendomatic, TileID.MeatGrinder };

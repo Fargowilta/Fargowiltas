@@ -5,7 +5,7 @@ using Terraria.ObjectData;
 
 namespace Fargowiltas.Items.Tiles
 {
-    public class RegalStatueSheet : ModTile
+    public class RegalStatueTile : ModTile
     {
         public override void SetDefaults()
         {
@@ -18,7 +18,7 @@ namespace Fargowiltas.Items.Tiles
             name.SetDefault("Regal Statue");
             AddMapEntry(new Color(200, 200, 200), name);
             // TODO: Uncomment when tML adds this back
-            //disableSmartCursor = true;
+            // disableSmartCursor = true;
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY) => Item.NewItem(i * 16, j * 16, 32, 16, ModContent.ItemType<RegalStatue>());

@@ -4,7 +4,7 @@ using Terraria.ObjectData;
 
 namespace Fargowiltas.Items.Tiles
 {
-    public class WalkingRickSheet : ModTile
+    public class EchPaintingTile : ModTile
     {
         public override void SetDefaults()
         {
@@ -16,9 +16,9 @@ namespace Fargowiltas.Items.Tiles
             TileObjectData.addTile(Type);
             dustType = 7;
             // TODO: Uncomment when tML adds this back
-            //disableSmartCursor = true;
+            // disableSmartCursor = true;
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY) => Item.NewItem(i * 16, j * 16, 48, 48, ModContent.ItemType<WalkingRick>());
+        public override void KillMultiTile(int i, int j, int frameX, int frameY) => Item.NewItem(i * 16, j * 16, 32, 48, ModContent.ItemType<EchPainting>());
     }
 }

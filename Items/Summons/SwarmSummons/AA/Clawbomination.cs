@@ -63,9 +63,9 @@ namespace Fargowiltas.Items.Summons.SwarmSummons.AA
             for (int i = 0; i < Fargowiltas.SwarmSpawned; i++)
             {
                 int boss = NPC.NewNPC((int)player.position.X + 1000, (int)player.position.Y + Main.rand.Next(-1000, -400), Fargowiltas.LoadedMods["AAMod"].NPCType("GripOfChaosBlue"));
-                Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
+                Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().swarmActive = true;
                 int grip = NPC.NewNPC((int)player.position.X - 1000, (int)player.position.Y + Main.rand.Next(-1000, -400), Fargowiltas.LoadedMods["AAMod"].NPCType("GripOfChaosRed"));
-                Main.npc[grip].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
+                Main.npc[grip].GetGlobalNPC<FargoGlobalNPC>().swarmActive = true;
             }
 
             if (Main.netMode == NetmodeID.Server)

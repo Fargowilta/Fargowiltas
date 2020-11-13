@@ -95,11 +95,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
                     if (npcType == NPCID.Retinazer)
                     {
                         int twin = NPC.NewNPC((int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), NPCID.Spazmatism);
-                        Main.npc[twin].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
+                        Main.npc[twin].GetGlobalNPC<FargoGlobalNPC>().swarmActive = true;
                     }
 
                     int boss = NPC.NewNPC((int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), npcType);
-                    Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
+                    Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().swarmActive = true;
                 }
             }
 

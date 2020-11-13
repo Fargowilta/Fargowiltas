@@ -6,8 +6,6 @@ namespace Fargowiltas.Items.Vanity
     [AutoloadEquip(EquipType.Head)]
     public class LumberjackMask : ModItem
     {
-        public override void SetStaticDefaults() => DisplayName.SetDefault("Lumberjack Mask");
-
         public override void SetDefaults()
         {
             item.width = 18;

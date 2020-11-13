@@ -1,13 +1,10 @@
-using Fargowiltas.ItemDropRules;
 using Fargowiltas.Items.CaughtNPCs;
-using Fargowiltas.Items.Misc;
-using Fargowiltas.Items.Tiles;
+using Fargowiltas.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Chat;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -18,14 +15,11 @@ namespace Fargowiltas.NPCs
     {
         public static int LastWoFIndex = -1;
         public static int WoFDirection = 0;
-        public static int boss = -1;
-
-        internal bool PillarSpawn = true;
-        internal bool SwarmActive;
-        internal bool PandoraActive;
-        internal bool NoLoot = false;
-
-        internal static int[] Bosses = new int[]
+        public static int Boss = -1;
+        public static int EaterBoss = -1;
+        public static int BrainBoss = -1;
+        public static int PlantBoss = -1;
+        public static int[] Bosses = new int[]
         {
             NPCID.KingSlime,
             NPCID.EyeofCthulhu,
@@ -56,15 +50,16 @@ namespace Fargowiltas.NPCs
             NPCID.PirateShip
         };
 
-        public static int eaterBoss = -1;
-        public static int brainBoss = -1;
-        public static int plantBoss = -1;
+        public bool pillarSpawn = true;
+        public bool swarmActive;
+        public bool pandoraActive;
+        public bool noLoot = false;
 
         public override bool InstancePerEntity => true;
 
         public override void SetDefaults(NPC npc)
         {
-            if (ModContent.GetInstance<FargoConfig>().CatchNPCs)
+            if (ModContent.GetInstance<FargoConfig>().catchNPCs)
             {
                 if (npc.townNPC && npc.type < NPCID.Count && npc.type != NPCID.OldMan && npc.type != NPCID.TownCat && npc.type != NPCID.TownDog && npc.type != NPCID.TownBunny)
                 {
@@ -80,7 +75,7 @@ namespace Fargowiltas.NPCs
                     }
                     else
                     {
-                        npc.catchItem = npc.type == NPCID.DD2Bartender ? (short)ModContent.ItemType<Tavernkeep>() : (short)Mod.ItemType(FargoUtils.NPCIDUtils.GetUniqueKey(npc.type).Replace("Terraria ", string.Empty));
+                        npc.catchItem = npc.type == NPCID.DD2Bartender ? (short)ModContent.ItemType<Tavernkeep>() : (short)Mod.ItemType(NPCIDUtils.GetUniqueKey(npc.type).Replace("Terraria ", string.Empty));
                     }
                 }
 
@@ -96,24 +91,21 @@ namespace Fargowiltas.NPCs
         {
             if (npc.boss)
             {
-                boss = npc.whoAmI;
+                Boss = npc.whoAmI;
             }
 
             switch (npc.type)
             {
                 case NPCID.EaterofWorldsHead:
-                    eaterBoss = npc.whoAmI;
+                    EaterBoss = npc.whoAmI;
                     break;
 
                 case NPCID.BrainofCthulhu:
-                    brainBoss = npc.whoAmI;
+                    BrainBoss = npc.whoAmI;
                     break;
 
                 case NPCID.Plantera:
-                    plantBoss = npc.whoAmI;
-                    break;
-
-                default:
+                    PlantBoss = npc.whoAmI;
                     break;
             }
 
@@ -128,13 +120,13 @@ namespace Fargowiltas.NPCs
                 npc.dontTakeDamage = false;
             }
 
-            if (Fargowiltas.SwarmActive && Fargowiltas.ModLoaded("ThoriumMod"))
-            {
-                Mod thorium = Fargowiltas.LoadedMods["ThoriumMod"];
+            Mod thorium = Fargowiltas.ModLoaded("ThoriumMod") ? Fargowiltas.LoadedMods["ThoriumMod"] : null;
 
+            if (Fargowiltas.SwarmActive && thorium != null)
+            {
                 if (npc.type == thorium.NPCType("BoreanStriderPopped") || npc.type == thorium.NPCType("FallenDeathBeholder2") || npc.type == thorium.NPCType("LichHeadless") || npc.type == thorium.NPCType("AbyssionReleased"))
                 {
-                    SwarmActive = true;
+                    swarmActive = true;
                 }
             }
         }
@@ -143,16 +135,16 @@ namespace Fargowiltas.NPCs
         {
             Player player = Main.LocalPlayer;
 
-            if (ModContent.GetInstance<FargoConfig>().NPCSales)
+            if (ModContent.GetInstance<FargoConfig>().npcSales)
             {
                 switch (type)
                 {
                     case NPCID.Clothier:
-                        shop.item[nextSlot++].SetDefaults(ItemID.PharaohsMask);
-                        shop.item[nextSlot].value = 10000;
+                        shop.item[nextSlot].SetDefaults(ItemID.PharaohsMask);
+                        shop.item[nextSlot++].value = 10000;
 
-                        shop.item[nextSlot++].SetDefaults(ItemID.PharaohsRobe);
-                        shop.item[nextSlot].value = 10000;
+                        shop.item[nextSlot].SetDefaults(ItemID.PharaohsRobe);
+                        shop.item[nextSlot++].value = 10000;
 
                         if (player.anglerQuestsFinished >= 10)
                         {
@@ -169,57 +161,40 @@ namespace Fargowiltas.NPCs
                             }
                         }
 
-                        shop.item[nextSlot++].SetDefaults(ItemID.BlueBrick);
-                        shop.item[nextSlot].value = 100;
-                        shop.item[nextSlot++].SetDefaults(ItemID.GreenBrick);
-                        shop.item[nextSlot].value = 100;
-                        shop.item[nextSlot++].SetDefaults(ItemID.PinkBrick);
-                        shop.item[nextSlot].value = 100;
+                        shop.item[nextSlot].SetDefaults(ItemID.BlueBrick);
+                        shop.item[nextSlot++].value = 100;
+                        shop.item[nextSlot].SetDefaults(ItemID.GreenBrick);
+                        shop.item[nextSlot++].value = 100;
+                        shop.item[nextSlot].SetDefaults(ItemID.PinkBrick);
+                        shop.item[nextSlot++].value = 100;
                         break;
 
                     case NPCID.Merchant:
                         if (player.anglerQuestsFinished >= 5)
                         {
-                            shop.item[nextSlot].SetDefaults(ItemID.FuzzyCarrot);
-                            nextSlot++;
+                            shop.item[nextSlot++].SetDefaults(ItemID.FuzzyCarrot);
 
                             if (player.anglerQuestsFinished >= 10)
                             {
-                                shop.item[nextSlot].SetDefaults(ItemID.AnglerEarring);
-                                nextSlot++;
-
-                                shop.item[nextSlot].SetDefaults(ItemID.HighTestFishingLine);
-                                nextSlot++;
-
-                                shop.item[nextSlot].SetDefaults(ItemID.TackleBox);
-                                nextSlot++;
-
-                                shop.item[nextSlot].SetDefaults(ItemID.GoldenBugNet);
-                                nextSlot++;
-
-                                shop.item[nextSlot].SetDefaults(ItemID.FishHook);
-                                nextSlot++;
+                                shop.item[nextSlot++].SetDefaults(ItemID.AnglerEarring);
+                                shop.item[nextSlot++].SetDefaults(ItemID.HighTestFishingLine);
+                                shop.item[nextSlot++].SetDefaults(ItemID.TackleBox);
+                                shop.item[nextSlot++].SetDefaults(ItemID.GoldenBugNet);
+                                shop.item[nextSlot++].SetDefaults(ItemID.FishHook);
 
                                 if (Main.hardMode)
                                 {
-                                    shop.item[nextSlot].SetDefaults(ItemID.FinWings);
-                                    nextSlot++;
-
-                                    shop.item[nextSlot].SetDefaults(ItemID.SuperAbsorbantSponge);
-                                    nextSlot++;
-
-                                    shop.item[nextSlot].SetDefaults(ItemID.BottomlessBucket);
-                                    nextSlot++;
+                                    shop.item[nextSlot++].SetDefaults(ItemID.FinWings);
+                                    shop.item[nextSlot++].SetDefaults(ItemID.SuperAbsorbantSponge);
+                                    shop.item[nextSlot++].SetDefaults(ItemID.BottomlessBucket);
 
                                     if (player.anglerQuestsFinished >= 25)
                                     {
-                                        shop.item[nextSlot].SetDefaults(ItemID.HotlineFishingHook);
-                                        nextSlot++;
+                                        shop.item[nextSlot++].SetDefaults(ItemID.HotlineFishingHook);
 
                                         if (player.anglerQuestsFinished >= 30)
                                         {
-                                            shop.item[nextSlot].SetDefaults(ItemID.GoldenFishingRod);
-                                            nextSlot++;
+                                            shop.item[nextSlot++].SetDefaults(ItemID.GoldenFishingRod);
                                         }
                                     }
                                 }
@@ -337,67 +312,67 @@ namespace Fargowiltas.NPCs
                     case NPCID.DyeTrader:
                         FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>();
 
-                        if (modPlayer.FirstDyeIngredients["RedHusk"])
+                        if (modPlayer.firstDyeIngredients["RedHusk"])
                         {
                             shop.item[nextSlot++].SetDefaults(ItemID.RedHusk);
                         }
 
-                        if (modPlayer.FirstDyeIngredients["OrangeBloodroot"])
+                        if (modPlayer.firstDyeIngredients["OrangeBloodroot"])
                         {
                             shop.item[nextSlot++].SetDefaults(ItemID.OrangeBloodroot);
                         }
 
-                        if (modPlayer.FirstDyeIngredients["YellowMarigold"])
+                        if (modPlayer.firstDyeIngredients["YellowMarigold"])
                         {
                             shop.item[nextSlot++].SetDefaults(ItemID.YellowMarigold);
                         }
 
-                        if (modPlayer.FirstDyeIngredients["LimeKelp"])
+                        if (modPlayer.firstDyeIngredients["LimeKelp"])
                         {
                             shop.item[nextSlot++].SetDefaults(ItemID.LimeKelp);
                         }
 
-                        if (modPlayer.FirstDyeIngredients["GreenMushroom"])
+                        if (modPlayer.firstDyeIngredients["GreenMushroom"])
                         {
                             shop.item[nextSlot++].SetDefaults(ItemID.GreenMushroom);
                         }
 
-                        if (modPlayer.FirstDyeIngredients["TealMushroom"])
+                        if (modPlayer.firstDyeIngredients["TealMushroom"])
                         {
                             shop.item[nextSlot++].SetDefaults(ItemID.TealMushroom);
                         }
 
-                        if (modPlayer.FirstDyeIngredients["CyanHusk"])
+                        if (modPlayer.firstDyeIngredients["CyanHusk"])
                         {
                             shop.item[nextSlot++].SetDefaults(ItemID.CyanHusk);
                         }
 
-                        if (modPlayer.FirstDyeIngredients["SkyBlueFlower"])
+                        if (modPlayer.firstDyeIngredients["SkyBlueFlower"])
                         {
                             shop.item[nextSlot++].SetDefaults(ItemID.SkyBlueFlower);
                         }
 
-                        if (modPlayer.FirstDyeIngredients["BlueBerries"])
+                        if (modPlayer.firstDyeIngredients["BlueBerries"])
                         {
                             shop.item[nextSlot++].SetDefaults(ItemID.BlueBerries);
                         }
                         if
-                            (modPlayer.FirstDyeIngredients["PurpleMucos"])
+                            (modPlayer.firstDyeIngredients["PurpleMucos"])
                         {
                             shop.item[nextSlot++].SetDefaults(ItemID.PurpleMucos);
                         }
 
-                        if (modPlayer.FirstDyeIngredients["VioletHusk"])
+                        if (modPlayer.firstDyeIngredients["VioletHusk"])
                         {
                             shop.item[nextSlot++].SetDefaults(ItemID.VioletHusk);
                         }
 
-                        if (modPlayer.FirstDyeIngredients["PinkPricklyPear"])
+                        if (modPlayer.firstDyeIngredients["PinkPricklyPear"])
                         {
                             shop.item[nextSlot++].SetDefaults(ItemID.PinkPricklyPear);
                         }
 
-                        if (modPlayer.FirstDyeIngredients["BlackInk"])
+                        if (modPlayer.firstDyeIngredients["BlackInk"])
                         {
                             shop.item[nextSlot++].SetDefaults(ItemID.BlackInk);
                         }
@@ -426,7 +401,7 @@ namespace Fargowiltas.NPCs
 
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
-            if (player.GetFargoPlayer().BattleCry)
+            if (player.GetFargoPlayer().battleCry)
             {
                 spawnRate = (int)(spawnRate * 0.1);
                 maxSpawns = (int)(maxSpawns * 10f);
@@ -457,7 +432,7 @@ namespace Fargowiltas.NPCs
                 maxSpawns = (int)(maxSpawns * 30f);
             }
 
-            if (ModContent.GetInstance<FargoConfig>().BossZen && AnyBossAlive())
+            if (ModContent.GetInstance<FargoConfig>().bossZen && AnyBossAlive())
             {
                 maxSpawns = 0;
             }
@@ -546,10 +521,9 @@ namespace Fargowiltas.NPCs
             }
         }
 
-        // TODO: Find a way to re-add cancelling enemy loot from dropping? (NoLoot, Fargowiltas.SwarmActive && (npc.type == NPCID.BlueSlime || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsTail || npc.type == NPCID.Creeper || (npc.type >= NPCID.PirateCorsair && npc.type <= NPCID.PirateCrossbower)))
-        public override bool PreKill(NPC npc)
+        public override bool /*PreKill*/ PreNPCLoot(NPC npc)
         {
-            if (SwarmActive && Fargowiltas.SwarmActive)
+            if (swarmActive && Fargowiltas.SwarmActive)
             {
                 switch (npc.type)
                 {
@@ -662,11 +636,11 @@ namespace Fargowiltas.NPCs
                 {
                     Swarm(npc, ModContent.NPCType<Destroyer.Destroyer>(), -1, ItemID.DestroyerBossBag, ItemID.DestroyerTrophy, "EnergizerDestroy");
                 }
+                
+                Mod thorium = Fargowiltas.ModLoaded("ThoriumMod") ? Fargowiltas.LoadedMods["ThoriumMod"] : null;
 
-                if (Fargowiltas.ModLoaded("ThoriumMod"))
+                if (thorium != null)
                 {
-                    Mod thorium = Fargowiltas.LoadedMods["ThoriumMod"];
-
                     if (npc.type == thorium.NPCType("TheGrandThunderBirdv2"))
                     {
                         Swarm(npc, thorium.NPCType("TheGrandThunderBirdv2"), thorium.NPCType("Hatchling"), thorium.ItemType("ThunderBirdBag"), -1, string.Empty);
@@ -718,7 +692,7 @@ namespace Fargowiltas.NPCs
                 return false;
             }
 
-            if (!PandoraActive)
+            if (!pandoraActive)
             {
                 return true;
             }
@@ -728,7 +702,8 @@ namespace Fargowiltas.NPCs
             return false;
         }
 
-        public override void ModifyNPCLoot(NPC npc, ItemDropDatabase database)
+        // TODO: Wait for bestiary stuff.
+        /*public override void ModifyNPCLoot(NPC npc, ItemDropDatabase database)
         {
             // Lumber Jaxe
             database.RegisterToGlobal(new ItemDropWithConditionRule(ItemID.Wood, 1, 10, 30, new ExtraItemDropRules.HasWoodDrop()));
@@ -825,15 +800,14 @@ namespace Fargowiltas.NPCs
                     database.RegisterToNPC(npc.type, ItemDropRule.Common(ItemID.Bananarang));
                     break;
             }
-        }
-
-        public override void OnKill(NPC npc)
+        }*/
+        public override void /*OnKill*/ NPCLoot(NPC npc)
         {
             switch (npc.type)
             {
                 // Avoid lunar event with cultist summon
                 case NPCID.CultistBoss:
-                    if (!PillarSpawn)
+                    if (!pillarSpawn)
                     {
                         for (int i = 0; i < Main.maxNPCs; i++)
                         {
@@ -1020,7 +994,7 @@ namespace Fargowiltas.NPCs
 
         public override bool CheckDead(NPC npc)
         {
-            if (npc.type == NPCID.DD2Betsy && !PandoraActive)
+            if (npc.type == NPCID.DD2Betsy && !pandoraActive)
             {
                 Main.NewText("Betsy has been defeated!", 175, 75);
                 FargoWorld.DownedBools["betsy"] = true;
@@ -1036,7 +1010,7 @@ namespace Fargowiltas.NPCs
 
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            if (ModContent.GetInstance<FargoConfig>().RottenEggs && projectile.type == ProjectileID.RottenEgg && npc.townNPC)
+            if (ModContent.GetInstance<FargoConfig>().rottenEggs && projectile.type == ProjectileID.RottenEgg && npc.townNPC)
             {
                 damage *= 20;
             }
@@ -1045,7 +1019,7 @@ namespace Fargowiltas.NPCs
         public override void OnChatButtonClicked(NPC npc, bool firstButton)
         {
             // No angler check enables luiafk compatibility
-            if (ModContent.GetInstance<FargoConfig>().AnglerQuestInstantReset && Main.anglerQuestFinished)
+            if (ModContent.GetInstance<FargoConfig>().anglerQuestInstantReset && Main.anglerQuestFinished)
             {
                 if (Main.netMode == NetmodeID.SinglePlayer)
                 {
@@ -1054,8 +1028,7 @@ namespace Fargowiltas.NPCs
                 else if (Main.netMode == NetmodeID.MultiplayerClient)
                 {
                     // Broadcast swap request to server
-                    var netMessage = Mod.GetPacket();
-
+                    ModPacket netMessage = Mod.GetPacket();
                     netMessage.Write((byte)3);
                     netMessage.Send();
                 }
@@ -1066,7 +1039,7 @@ namespace Fargowiltas.NPCs
         {
             int spawn;
 
-            if (SwarmActive)
+            if (swarmActive)
             {
                 if (npc.type == NPCID.WallofFlesh)
                 {
@@ -1074,8 +1047,7 @@ namespace Fargowiltas.NPCs
                     int startingPos = (int)currentWoF.position.X;
 
                     spawn = NPC.NewNPC(startingPos + (400 * WoFDirection), (int)currentWoF.position.Y, NPCID.WallofFlesh, 0);
-
-                    Main.npc[spawn].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
+                    Main.npc[spawn].GetGlobalNPC<FargoGlobalNPC>().swarmActive = true;
                     LastWoFIndex = spawn;
                 }
                 else
@@ -1084,7 +1056,7 @@ namespace Fargowiltas.NPCs
 
                     if (spawn < Main.maxNPCs)
                     {
-                        Main.npc[spawn].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
+                        Main.npc[spawn].GetGlobalNPC<FargoGlobalNPC>().swarmActive = true;
                         NetMessage.SendData(MessageID.SyncNPC, number: boss);
                     }
                 }
@@ -1101,9 +1073,7 @@ namespace Fargowiltas.NPCs
                 while (NPC.CountNPCS(random) >= 4);
 
                 spawn = NPC.NewNPC((int)npc.position.X + Main.rand.Next(-1000, 1000), (int)npc.position.Y + Main.rand.Next(-400, -100), random);
-
-                Main.npc[spawn].GetGlobalNPC<FargoGlobalNPC>().PandoraActive = true;
-
+                Main.npc[spawn].GetGlobalNPC<FargoGlobalNPC>().pandoraActive = true;
                 NetMessage.SendData(MessageID.SyncNPC, number: random);
             }
         }
@@ -1117,7 +1087,7 @@ namespace Fargowiltas.NPCs
 
             int count = 0;
 
-            if (SwarmActive)
+            if (swarmActive)
             {
                 count = NPC.CountNPCS(boss) - 1; // Since this one is about to be dead
             }
@@ -1134,7 +1104,6 @@ namespace Fargowiltas.NPCs
             }
 
             int missing = Fargowiltas.SwarmSpawned - count;
-
             Fargowiltas.SwarmKills++;
 
             // Drop swarm reward every 100 kills
@@ -1151,8 +1120,8 @@ namespace Fargowiltas.NPCs
 
             if (Main.netMode == NetmodeID.Server)
             {
-                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Killed: " + Fargowiltas.SwarmKills), new Color(206, 12, 15));
-                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Total: " + Fargowiltas.SwarmTotal), new Color(206, 12, 15));
+                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.Fargowiltas.Killed") + " " + Fargowiltas.SwarmKills), new Color(206, 12, 15));
+                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.Fargowiltas.Total") + " " + Fargowiltas.SwarmTotal), new Color(206, 12, 15));
             }
             else
             {
@@ -1179,20 +1148,20 @@ namespace Fargowiltas.NPCs
                 for (int i = 0; i < Main.maxNPCs; i++)
                 {
                     // Count NPCs
-                    int num = 0;
+                    int npcCount = 0;
 
                     for (int j = 0; j < Main.maxNPCs; j++)
                     {
                         if (Main.npc[j].active)
                         {
-                            num++;
+                            npcCount++;
                         }
                     }
 
                     // Kill a minion and spawn boss if too many npcs
-                    if (num >= Main.maxNPCs)
+                    if (npcCount >= Main.maxNPCs)
                     {
-                        if (SwarmActive && minion > 0 && i < Main.maxNPCs - 1)
+                        if (swarmActive && minion > 0 && i < Main.maxNPCs - 1)
                         {
                             if (Main.npc[i].type == minion)
                             {
@@ -1225,11 +1194,11 @@ namespace Fargowiltas.NPCs
             {
                 if (Main.netMode == NetmodeID.Server)
                 {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The swarm has been defeated!"), new Color(206, 12, 15));
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.Fargowiltas.SwarmDefeated")), new Color(206, 12, 15));
                 }
                 else
                 {
-                    Main.NewText("The swarm has been defeated!", new Color(206, 12, 15));
+                    Main.NewText(Language.GetTextValue("Mods.Fargowiltas.SwarmDefeated"), new Color(206, 12, 15));
                 }
 
                 for (int i = 0; i < Main.maxNPCs; i++)
@@ -1238,7 +1207,7 @@ namespace Fargowiltas.NPCs
 
                     if (kill.active && !kill.friendly && kill.type != NPCID.LunarTowerNebula && kill.type != NPCID.LunarTowerSolar && kill.type != NPCID.LunarTowerStardust && kill.type != NPCID.LunarTowerVortex)
                     {
-                        Main.npc[i].GetGlobalNPC<FargoGlobalNPC>().NoLoot = true;
+                        Main.npc[i].GetGlobalNPC<FargoGlobalNPC>().noLoot = true;
                         Main.npc[i].StrikeNPCNoInteraction(Main.npc[i].lifeMax, 0f, -Main.npc[i].direction, true);
                     }
                 }
@@ -1275,7 +1244,7 @@ namespace Fargowiltas.NPCs
                     // Kill a minion and spawn boss if too many NPCs
                     if (num >= Main.maxNPCs)
                     {
-                        if (SwarmActive && minion > 0 && i < Main.maxNPCs - 1)
+                        if (swarmActive && minion > 0 && i < Main.maxNPCs - 1)
                         {
                             if (Main.npc[i].type == minion)
                             {
@@ -1328,7 +1297,7 @@ namespace Fargowiltas.NPCs
             }
 
             int wof = NPC.NewNPC(startingPos + (400 * WoFDirection), (int)pos.Y, NPCID.WallofFlesh, 0);
-            Main.npc[wof].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
+            Main.npc[wof].GetGlobalNPC<FargoGlobalNPC>().swarmActive = true;
 
             LastWoFIndex = wof;
         }
@@ -1356,17 +1325,17 @@ namespace Fargowiltas.NPCs
 
         public static bool AnyBossAlive()
         {
-            if (boss == -1)
+            if (Boss == -1)
             {
                 return false;
             }
 
-            if (Main.npc[boss].active && (Main.npc[boss].boss || Main.npc[boss].type == NPCID.EaterofWorldsHead))
+            if (Main.npc[Boss].active && (Main.npc[Boss].boss || Main.npc[Boss].type == NPCID.EaterofWorldsHead))
             {
                 return true;
             }
 
-            boss = -1;
+            Boss = -1;
 
             return false;
         }

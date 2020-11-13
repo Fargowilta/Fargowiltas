@@ -9,9 +9,9 @@ using Terraria.ModLoader;
 
 namespace Fargowiltas.Projectiles
 {
-    public class FakeHeart2Deviantt : ModProjectile
+    public class FakeHeart2DevianttProj : ModProjectile
     {
-        public override string Texture => "Fargowiltas/Projectiles/FakeHeartDeviantt";
+        public override string Texture => "Fargowiltas/Projectiles/FakeHeartDevianttProj";
 
         public override void SetStaticDefaults()
         {
@@ -60,18 +60,19 @@ namespace Fargowiltas.Projectiles
 
                     if (Main.npc[ai0].CanBeChasedBy())
                     {
-                        double num4 = (Main.npc[ai0].Center - projectile.Center).ToRotation() - projectile.velocity.ToRotation();
-                        if (num4 > Math.PI)
+                        double veloRotation = (Main.npc[ai0].Center - projectile.Center).ToRotation() - projectile.velocity.ToRotation();
+
+                        if (veloRotation > Math.PI)
                         {
-                            num4 -= 2.0 * Math.PI;
+                            veloRotation -= 2.0 * Math.PI;
                         }
 
-                        if (num4 < -1.0 * Math.PI)
+                        if (veloRotation < -1.0 * Math.PI)
                         {
-                            num4 += 2.0 * Math.PI;
+                            veloRotation += 2.0 * Math.PI;
                         }
 
-                        projectile.velocity = projectile.velocity.RotatedBy(num4 * (projectile.Distance(Main.npc[ai0].Center) > 100 ? 0.6f : 0.2f));
+                        projectile.velocity = projectile.velocity.RotatedBy(veloRotation * (projectile.Distance(Main.npc[ai0].Center) > 100 ? 0.6f : 0.2f));
                     }
                     else
                     {
@@ -124,26 +125,20 @@ namespace Fargowiltas.Projectiles
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            Asset<Texture2D> texture2D13 = TextureAssets.Projectile[projectile.type];
-            int num156 = texture2D13.Height() / Main.projFrames[projectile.type]; // Y-pos of lower right corner of sprite to draw
-            int y3 = num156 * projectile.frame; // Y-pos of upper left corner of sprite to draw
-            Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width(), num156);
-            Vector2 origin2 = rectangle.Size() / 2f;
-            Color color26 = lightColor;
+            Asset<Texture2D> texture = TextureAssets.Projectile[projectile.type];
+            int height = texture.Height() / Main.projFrames[projectile.type]; // Y-pos of lower right corner of sprite to draw
+            Rectangle rec = new Rectangle(0, height * projectile.frame, texture.Width(), height);
+            Vector2 origin = rec.Size() / 2f;
+            Color color = lightColor;
 
-            color26 = projectile.GetAlpha(color26);
+            color = projectile.GetAlpha(color);
 
             for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[projectile.type]; i++)
             {
-                Color color27 = color26;
-                color27 *= (float)(ProjectileID.Sets.TrailCacheLength[projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[projectile.type];
-                Vector2 value4 = projectile.oldPos[i];
-                float num165 = projectile.oldRot[i];
-
-                Main.spriteBatch.Draw(texture2D13.Value, value4 + projectile.Size / 2f - Main.screenPosition + new Vector2(0, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, projectile.scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(texture.Value, projectile.oldPos[i] + projectile.Size / 2f - Main.screenPosition + new Vector2(0, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rec), color * ((float)(ProjectileID.Sets.TrailCacheLength[projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[projectile.type]), projectile.oldRot[i], origin, projectile.scale, SpriteEffects.None, 0f);
             }
 
-            Main.spriteBatch.Draw(texture2D13.Value, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), projectile.GetAlpha(lightColor), projectile.rotation, origin2, projectile.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture.Value, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rec), projectile.GetAlpha(lightColor), projectile.rotation, origin, projectile.scale, SpriteEffects.None, 0f);
 
             return false;
         }

@@ -5,11 +5,13 @@ using Terraria.ModLoader;
 
 namespace Fargowiltas.Projectiles
 {
-    public class PhantasmalEyeProjectile : ModProjectile
+    public class PhantasmalEyeProj : ModProjectile
     {
-        private float HomingCooldown { get => projectile.ai[0]; set => projectile.ai[0] = value; }
-
-        public override void SetStaticDefaults() => DisplayName.SetDefault("PhantasmalEyeProjectile");
+        public float HomingCooldown
+        {
+            get => projectile.ai[0];
+            set => projectile.ai[0] = value;
+        }
 
         public override void SetDefaults()
         {
@@ -17,7 +19,7 @@ namespace Fargowiltas.Projectiles
             projectile.height = 16;
             projectile.aiStyle = 1;
             projectile.friendly = true;
-            projectile.ranged = true;
+            projectile.DamageType = DamageClass.Ranged;
             projectile.penetrate = 50;
             projectile.timeLeft = 600;
             aiType = ProjectileID.Bullet;
@@ -37,8 +39,8 @@ namespace Fargowiltas.Projectiles
         public override void AI()
         {
             const int homingDelay = 10;
-            const float flySpeed = 60; // fly speed in pixels per frame
-            const int lerpFrameAmount = 20; // minimum of 1
+            const float flySpeed = 60; // Fly speed in pixels per frame
+            const int lerpFrameAmount = 20; // Minimum of 1
 
             HomingCooldown++;
 
@@ -50,8 +52,8 @@ namespace Fargowiltas.Projectiles
 
                 if (foundTarget != -1)
                 {
-                    NPC n = Main.npc[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * flySpeed;
+                    NPC npc = Main.npc[foundTarget];
+                    Vector2 desiredVelocity = projectile.DirectionTo(npc.Center) * flySpeed;
                     projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / lerpFrameAmount);
                 }
             }
@@ -59,13 +61,14 @@ namespace Fargowiltas.Projectiles
 
         public override void Kill(int timeLeft)
         {
-            for (int num468 = 0; num468 < 20; num468++)
+            for (int i = 0; i < 20; i++)
             {
-                int num469 = Dust.NewDust(new Vector2(projectile.Center.X, projectile.Center.Y), projectile.width, projectile.height, DustID.BlueCrystalShard, -projectile.velocity.X * 0.2f, -projectile.velocity.Y * 0.2f, 100, default, 1.5f);
-                Main.dust[num469].noGravity = true;
-                Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(new Vector2(projectile.Center.X, projectile.Center.Y), projectile.width, projectile.height, DustID.BlueCrystalShard, -projectile.velocity.X * 0.2f, -projectile.velocity.Y * 0.2f, 100, default, .75f);
-                Main.dust[num469].velocity *= 2f;
+                int dust = Dust.NewDust(new Vector2(projectile.Center.X, projectile.Center.Y), projectile.width, projectile.height, DustID.BlueCrystalShard, -projectile.velocity.X * 0.2f, -projectile.velocity.Y * 0.2f, 100, default, 1.5f);
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust].velocity *= 2f;
+
+                dust = Dust.NewDust(new Vector2(projectile.Center.X, projectile.Center.Y), projectile.width, projectile.height, DustID.BlueCrystalShard, -projectile.velocity.X * 0.2f, -projectile.velocity.Y * 0.2f, 100, default, .75f);
+                Main.dust[dust].velocity *= 2f;
             }
         }
 
@@ -78,10 +81,10 @@ namespace Fargowiltas.Projectiles
 
             for (int i = 0; i < Main.maxNPCs; i++)
             {
-                NPC n = Main.npc[i];
-                if (n.CanBeChasedBy(projectile) && (!n.wet || HOMING_CAN_AIM_AT_WET_ENEMIES))
+                NPC npc = Main.npc[i];
+                if (npc.CanBeChasedBy(projectile) && (!npc.wet || HOMING_CAN_AIM_AT_WET_ENEMIES))
                 {
-                    float distance = projectile.Distance(n.Center);
+                    float distance = projectile.Distance(npc.Center);
 
                     if (distance <= HOMING_MAXIMUM_RANGE_IN_PIXELS && (selectedTarget == -1 || projectile.Distance(Main.npc[selectedTarget].Center) > distance))
                     {

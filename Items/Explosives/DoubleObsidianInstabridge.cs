@@ -8,13 +8,9 @@ namespace Fargowiltas.Items.Explosives
 {
     public class DoubleObsidianInstabridge : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Double Obsidian Instabridge");
-            Tooltip.SetDefault("Creates 2 bridges of obsidian platforms across the whole world" +
-                               "\nAlso clears the area between and above the platforms" +
-                               "\nDo not use if any important building is nearby");
-        }
+        public override void SetStaticDefaults() => Tooltip.SetDefault("Creates 2 bridges of obsidian platforms across the whole world" +
+                "\nAlso clears the area between and above the platforms" +
+                "\nDo not use if any important building is nearby");
 
         public override void SetDefaults()
         {
@@ -42,9 +38,9 @@ namespace Fargowiltas.Items.Explosives
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<ObsidianInstaBridge>(), 2);
-            recipe.AddTile(TileID.Anvils);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ModContent.ItemType<ObsidianInstaBridge>(), 2)                .AddTile(TileID.Anvils)
+                .Register();
         }
     }
 }

@@ -29,10 +29,10 @@ namespace Fargowiltas.Items.Explosives
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddRecipeGroup("Wood", 50);
-            recipe.AddIngredient(ItemID.Torch);
-            recipe.AddTile(TileID.Sawmill);            recipe.Register();
+            CreateRecipe()
+                .AddRecipeGroup("Wood", 50)
+                .AddIngredient(ItemID.Torch)                .AddTile(TileID.Sawmill)
+                .Register();
         }
     }
 }

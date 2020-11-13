@@ -22,14 +22,14 @@ namespace Fargowiltas.Items.Misc
             // item.owner was either replaced with something else (no idea what) or was deleted. Main.LocalPlayer should work fine, seeing as tooltips are client side, right?
             Player player = Main.LocalPlayer;
 
-            tooltips.Add(new TooltipLine(Mod, "info", $"Melee Damage: {player.meleeDamage * 100}%"));
+            tooltips.Add(new TooltipLine(Mod, "info", $"Melee Damage: {player.GetDamage(DamageClass.Melee) * 100}%"));
             tooltips.Add(new TooltipLine(Mod, "info", $"Melee Speed: {player.meleeSpeed * 100}%"));
-            tooltips.Add(new TooltipLine(Mod, "info", $"Melee Crit: {player.meleeCrit}%"));
-            tooltips.Add(new TooltipLine(Mod, "info", $"Ranged Damage: {player.rangedDamage * 100}%"));
-            tooltips.Add(new TooltipLine(Mod, "info", $"Ranged Crit: {player.rangedCrit}%"));
-            tooltips.Add(new TooltipLine(Mod, "info", $"Magic Damage: {player.magicDamage * 100}%"));
-            tooltips.Add(new TooltipLine(Mod, "info", $"Magic Crit: {player.magicCrit}%"));
-            tooltips.Add(new TooltipLine(Mod, "info", $"Summon Damage: {player.minionDamage * 100}%"));
+            tooltips.Add(new TooltipLine(Mod, "info", $"Melee Crit: {player.GetCrit(DamageClass.Melee)}%"));
+            tooltips.Add(new TooltipLine(Mod, "info", $"Ranged Damage: {player.GetDamage(DamageClass.Ranged) * 100}%"));
+            tooltips.Add(new TooltipLine(Mod, "info", $"Ranged Crit: {player.GetCrit(DamageClass.Ranged)}%"));
+            tooltips.Add(new TooltipLine(Mod, "info", $"Magic Damage: {player.GetDamage(DamageClass.Magic) * 100}%"));
+            tooltips.Add(new TooltipLine(Mod, "info", $"Magic Crit: {player.GetCrit(DamageClass.Magic)}%"));
+            tooltips.Add(new TooltipLine(Mod, "info", $"Summon Damage: {player.GetDamage(DamageClass.Summon) * 100}%"));
             tooltips.Add(new TooltipLine(Mod, "info", $"Max Minions: {player.maxMinions}"));
             tooltips.Add(new TooltipLine(Mod, "info", $"Max Sentries: {player.maxTurrets}"));
 
@@ -63,11 +63,11 @@ namespace Fargowiltas.Items.Misc
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Sign);
-            recipe.AddIngredient(ItemID.CopperAxe);
-            recipe.AddTile(TileID.WorkBenches);
-            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.Sign)
+                .AddIngredient(ItemID.CopperAxe)
+                .AddTile(TileID.WorkBenches)
+                .Register();
         }
     }
 }

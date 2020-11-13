@@ -1,6 +1,6 @@
+using Fargowiltas.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
 using Terraria.Localization;
@@ -14,7 +14,7 @@ namespace Fargowiltas.Items.Misc
         {
             DisplayName.SetDefault("Battle Cry");
             Tooltip.SetDefault("Increase spawn rates by 10x on use" +
-                               "\nUse it again to decrease them");
+                "\nUse it again to decrease them");
         }
 
         public override void SetDefaults()
@@ -31,9 +31,9 @@ namespace Fargowiltas.Items.Misc
         public override bool UseItem(Player player)
         {
             FargoPlayer modPlayer = player.GetFargoPlayer();
-            modPlayer.BattleCry = !modPlayer.BattleCry;
+            modPlayer.battleCry = !modPlayer.battleCry;
 
-            string text = "Spawn rates " + (modPlayer.BattleCry ? "increased!" : "decreased!");
+            string text = "Spawn rates " + (modPlayer.battleCry ? "increased!" : "decreased!");
 
             if (Main.netMode == NetmodeID.SinglePlayer)
             {
@@ -44,7 +44,7 @@ namespace Fargowiltas.Items.Misc
                 ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(text), new Color(175, 75, 255));
             }
 
-            if (modPlayer.BattleCry && !Main.dedServ)
+            if (modPlayer.battleCry && !Main.dedServ)
             {
                 // TODO: Uncomment when tML adds sound back in.
                 //SoundEngine.PlaySound(Mod.GetLegacySoundSlot(Terraria.ModLoader.SoundType.Custom, "Sounds/Horn").WithVolume(1f).WithPitchVariance(.5f), player.position);
@@ -55,12 +55,12 @@ namespace Fargowiltas.Items.Misc
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.BattlePotion, 15);
-            recipe.AddIngredient(ItemID.WaterCandle, 12);
-            recipe.AddIngredient(ItemID.SoulofNight, 10);
-            recipe.AddIngredient(ItemID.SoulofLight, 10);
-            recipe.AddTile(TileID.DemonAltar);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.BattlePotion, 15)
+                .AddIngredient(ItemID.WaterCandle, 12)
+                .AddIngredient(ItemID.SoulofNight, 10)
+                .AddIngredient(ItemID.SoulofLight, 10)                .AddTile(TileID.DemonAltar)
+                .Register();
         }
     }
 }

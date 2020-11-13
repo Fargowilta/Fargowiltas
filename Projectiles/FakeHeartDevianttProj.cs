@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace Fargowiltas.Projectiles
 {
-    public class FakeHeartDeviantt : ModProjectile
+    public class FakeHeartDevianttProj : ModProjectile
     {
         public override void SetStaticDefaults() => DisplayName.SetDefault("Fake Heart");
 
@@ -36,15 +36,19 @@ namespace Fargowiltas.Projectiles
                 projectile.rotation = -projectile.velocity.ToRotation();
             }
             else if (projectile.ai[0] == 0)
+            {
                 projectile.velocity = Vector2.Zero;
+            }
             else
             {
                 projectile.ai[1]--;
+
                 if (projectile.ai[1] == 0)
                 {
                     projectile.velocity = projectile.DirectionTo(Main.player[Player.FindClosest(projectile.Center, 0, 0)].Center) * 20;
                     projectile.netUpdate = true;
                 }
+
                 if (projectile.ai[1] <= 0)
                 {
                     projectile.rotation = projectile.velocity.ToRotation();
@@ -65,18 +69,19 @@ namespace Fargowiltas.Projectiles
 
                 if (Main.npc[ai0].CanBeChasedBy())
                 {
-                    double num4 = (Main.npc[ai0].Center - projectile.Center).ToRotation() - projectile.velocity.ToRotation();
-                    if (num4 > Math.PI)
+                    double veloRotation = (Main.npc[ai0].Center - projectile.Center).ToRotation() - projectile.velocity.ToRotation();
+
+                    if (veloRotation > Math.PI)
                     {
-                        num4 -= 2.0 * Math.PI;
+                        veloRotation -= 2.0 * Math.PI;
                     }
 
-                    if (num4 < -1.0 * Math.PI)
+                    if (veloRotation < -1.0 * Math.PI)
                     {
-                        num4 += 2.0 * Math.PI;
+                        veloRotation += 2.0 * Math.PI;
                     }
 
-                    projectile.velocity = projectile.velocity.RotatedBy(num4 * (projectile.Distance(Main.npc[ai0].Center) > 100 ? 0.4f : 0.1f));
+                    projectile.velocity = projectile.velocity.RotatedBy(veloRotation * (projectile.Distance(Main.npc[ai0].Center) > 100 ? 0.4f : 0.1f));
                 }
                 else
                 {
@@ -89,7 +94,6 @@ namespace Fargowiltas.Projectiles
                 if (++projectile.localAI[1] > 6f)
                 {
                     projectile.localAI[1] = 0f;
-
                     float maxDistance = 700f;
                     int possibleTarget = -1;
 
@@ -123,13 +127,11 @@ namespace Fargowiltas.Projectiles
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            Asset<Texture2D> texture2D13 = TextureAssets.Projectile[projectile.type];
-            int num156 = texture2D13.Height() / Main.projFrames[projectile.type]; // ypos of lower right corner of sprite to draw
-            int y3 = num156 * projectile.frame; // ypos of upper left corner of sprite to draw
-            Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width(), num156);
-            Vector2 origin2 = rectangle.Size() / 2f;
+            Asset<Texture2D> texture = TextureAssets.Projectile[projectile.type];
+            int textureHeight = texture.Height() / Main.projFrames[projectile.type]; // ypos of lower right corner of sprite to draw
+            Rectangle rec = new Rectangle(0, textureHeight * projectile.frame, texture.Width(), textureHeight);
 
-            Main.spriteBatch.Draw(texture2D13.Value, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), projectile.GetAlpha(lightColor), projectile.rotation, origin2, projectile.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture.Value, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rec), projectile.GetAlpha(lightColor), projectile.rotation, rec.Size() / 2f, projectile.scale, SpriteEffects.None, 0f);
 
             return false;
         }

@@ -1,10 +1,14 @@
+using Fargowiltas.Gores;
 using Fargowiltas.Projectiles;
+using Fargowiltas.Utilities;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent.Bestiary;
+
+//using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Events;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace Fargowiltas.NPCs
@@ -57,11 +61,11 @@ namespace Fargowiltas.NPCs
             }
         }
 
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        /*public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[1] { BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface });
             bestiaryEntry.Info.Add(new FlavorTextBestiaryInfoElement("Called brother by its siblings, but refuses to confirm its gender. More interested in looking for fuzzy critters than talking about its past."));
-        }
+        }*/
 
         public override bool CanGoToStatue(bool toKingStatue) => toKingStatue;
 
@@ -89,185 +93,185 @@ namespace Fargowiltas.NPCs
                 return false;
             }
 
-            return ModContent.GetInstance<FargoConfig>().Mutant && FargoWorld.DownedBools["boss"] && !FargoGlobalNPC.AnyBossAlive();
+            return ModContent.GetInstance<FargoConfig>().mutant && FargoWorld.DownedBools["boss"] && !FargoGlobalNPC.AnyBossAlive();
         }
 
-        public override string TownNPCName() => Main.rand.Next(new string[] { "Flacken", "Dorf", "Bingo", "Hans", "Fargo", "Grim", "Furgo", "Fargu", "Terrance", "Catty N. Pem", "Tom", "Weirdus", "Polly" });
+        public override string TownNPCName() => Language.GetTextValue("Mods.Fargowiltas.NPC_Names_Mutant." + Main.rand.Next(13));
 
         public override string GetChat()
         {
             List<string> dialogue = new List<string>
             {
-                "Savagery, barbarism, bloodthirst, that's what I like seeing in people.",
-                "The stronger you get, the more stuff I sell. Makes sense, right?",
-                "There's something all of you have that I don't... Death perception, I think it's called?",
-                "It would be pretty cool if I sold a summon for myself...",
-                "The only way to get stronger is to keep buying from me and in bulk too!",
-                "Why are you looking at me like that, all I did was eat an apple.",
-                "Don't bother with anyone else, all you'll ever need is right here.",
-                "You're lucky I'm on your side.",
-                "Thanks for the house, I guess.",
-                "Why yes I would love a ham and swiss sandwich.",
-                "Should I start wearing clothes? ...Nah.",
-                "It's not like I can actually use all the gold you're spending.",
-                "Violence for violence is the law of the beast.",
-                "Those guys really need to get more creative. All of their first bosses are desert themed!",
-                "You say you want to know how a Mutant and Abominationn are brothers? You're better off not knowing.",
-                "I'm all you need for a calamity.",
-                "Everything shall bow before me! ...after you make this purchase.",
-                "It's clear that I'm helping you out, but uh.. what's in this for me? A house you say? I eat zombies for breakfast.",
-                "Can I jump? No, I don't have something called a 'spacebar'.",
-                "Got your nose, I needed one to replace mine.",
-                "What's a Terry?",
-                "Why do so many creatures carry around a weird looking blue doll? The world may never know.",
-                "Impending doom approaches. ...If you don't buy anything of course.",
-                "I've heard of a '3rd dimension', I wonder what that looks like.",
-                "Boy don't I look fabulous today.",
-                "You have fewer friends than I do eyes.",
-                "The ocean is a dangerous place, I wonder where Diver is?",
-                "Do you know what an Ee-arth is?",
-                "I can't even spell 'apotheosis', do you expect me to know what it is?",
-                "Where do monsters get their gold from? ...I don't have pockets you know.",
-                "Dogs are cool and all, but cats don't try to bite my brain.",
-                "Beware the green dragon... What's that face mean?",
-                "Where is this O-hi-o I keep hearing about.",
-                "I've told you 56 times already, I'm busy... Oh wait you want to buy something, I suppose I have time.",
-                "I've heard of a 'Soul of Souls' that only exists in 2015.",
-                "Adding EX after everything makes it way more difficult.",
-                "I think that all modern art looks great, especially the bloody stuff.",
-                "How many guides does it take to change a lightbulb? ... I don't know, how about you ask him.",
-                "Good thing I don't have a bed, I'd probably never leave it.",
-                "What's this about an update? Sounds rare.",
-                "If you need me I'll be slacking off somewhere.",
-                "What do you mean who is Fargo!",
-                "Have you seen the ech cat?",
-                "I don't understand music nowadays, I prefer some smooth jazz... or the dying screams of monsters.",
-                "Cthulhu's got nothing on me!",
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Savagery"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.StrongerYouGet"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.DeathPerception"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.SummonofMyself"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.BuyingInBulk"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.EatAnApple"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.AllYoullEverNeed"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.OnYourSide"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.House"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.HamandSwiss"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Clothes"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.UseGold"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.ViolenceforViolence"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.DesertBoss"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Brothers"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Calamity"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.BowBeforeMe"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.HelpingYouOut"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Spacebar"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.GotYourNose"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Terry"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.BlueDoll"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.ImpendingDoomApproaches"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.ThirdDimension"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.LookFabulous"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.FewerFriends"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Diver"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Earth"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Apotheosis"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Pockets"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.DogsandCats"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.GreenDragon"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Ohio"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.IHaveTime"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.SoulofSouls"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.ExDifficulty"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.ModernArt"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.GuideLightbulb"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.NoBed"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.RareUpdate"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Slacking"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.WhoIsFargo"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.EchCat"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.JazzScreams"),
+                Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Cthulhu")
             };
 
             if (Fargowiltas.ModLoaded("FargowiltasSouls"))
             {
-                dialogue.AddWithCondition("Now that you've defeated the big guy, I'd say it's time to start collecting those materials!", NPC.downedMoonlord);
+                dialogue.AddWithCondition(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.BigGuy"), NPC.downedMoonlord);
 
                 if ((bool)Fargowiltas.LoadedMods["FargowiltasSouls"].Call("DownedMutant"))
                 {
-                    dialogue.Add("What's that? You want to fight me? ...sure, I guess.");
+                    dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.FightMeYes"));
                 }
                 else if ((bool)Fargowiltas.LoadedMods["FargowiltasSouls"].Call("DownedFishronEX") || (bool)Fargowiltas.LoadedMods["FargowiltasSouls"].Call("DownedAbom"))
                 {
-                    dialogue.Add("What's that? You want to fight me? ...maybe if I had a reason.");
+                    dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.FightMeNo"));
                 }
             }
             else
             {
-                dialogue.Add("What's that? You want to fight me? ...you're not worthy you rat.");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.FightMeFuckYou"));
             }
 
-            dialogue.AddWithCondition("Why would you do this.", Fargowiltas.ModLoaded("CalamityMod"));
-            dialogue.AddWithCondition("I feel a great imbalance in this world.", Fargowiltas.ModLoaded("CalamityMod") && Fargowiltas.ModLoaded("ThoriumMod"));
-            dialogue.AddWithCondition("A great choice, shame about that first desert boss thing though.", Fargowiltas.ModLoaded("ThoriumMod"));
-            dialogue.AddWithCondition("A bit spooky tonight, isn't it.", Main.pumpkinMoon);
-            dialogue.AddWithCondition("I'd ask for a coat, but I don't think you have any my size.", Main.snowMoon);
-            dialogue.AddWithCondition("Weather seems odd today, wouldn't you agree?", Main.slimeRain);
-            dialogue.AddWithCondition("Lovely night, isn't it?", Main.bloodMoon);
-            dialogue.AddWithCondition("I hope the constant arguing I'm hearing isn't my fault.", Main.bloodMoon);
-            dialogue.AddWithCondition("I'd follow and help, but I'd much rather sit around right now.", !Main.dayTime);
+            dialogue.AddWithCondition(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.CalamityMeme"), Fargowiltas.ModLoaded("CalamityMod"));
+            dialogue.AddWithCondition(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.CalamityThoriumMeme"), Fargowiltas.ModLoaded("CalamityMod") && Fargowiltas.ModLoaded("ThoriumMod"));
+            dialogue.AddWithCondition(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.ThoriumMeme"), Fargowiltas.ModLoaded("ThoriumMod"));
+            dialogue.AddWithCondition(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.PumpkinMoon"), Main.pumpkinMoon);
+            dialogue.AddWithCondition(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.SnowMoon"), Main.snowMoon);
+            dialogue.AddWithCondition(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.SlimeRain"), Main.slimeRain);
+            dialogue.AddWithCondition(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.BloodMoonLovely"), Main.bloodMoon);
+            dialogue.AddWithCondition(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.BloodMoonPeriodReference"), Main.bloodMoon);
+            dialogue.AddWithCondition(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.NightTime"), !Main.dayTime);
 
             int partyGirl = NPC.FindFirstNPC(NPCID.PartyGirl);
 
             if (partyGirl >= 0 && BirthdayParty.PartyIsUp)
             {
-                dialogue.Add($"Man, {Main.npc[partyGirl].GivenName}'s confetti keeps getting stuck to my wings");
-                dialogue.Add($"{Main.npc[partyGirl].GivenName} is the one who invited me, I don't understand why though.");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.PartyGirlConfetti", Main.npc[partyGirl].GivenName));
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.PartyGirlInvitation", Main.npc[partyGirl].GivenName));
             }
 
             if (BirthdayParty.PartyIsUp)
             {
-                dialogue.Add("I don't know what everyone's so happy about, but as long as nobody mistakes me for a Pigronata, I'm happy too.");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Party"));
             }
 
             int lumberJack = NPC.FindFirstNPC(ModContent.NPCType<LumberJack>());
 
             if (lumberJack >= 0)
             {
-                dialogue.Add($"It's okay {Main.npc[npc.whoAmI].GivenName}, just don't look straight into {Main.npc[lumberJack].GivenName}'s eyes. He can't scare you that way...");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.LumberJack", Main.npc[npc.whoAmI], Main.npc[lumberJack].GivenName));
             }
 
             int nurse = NPC.FindFirstNPC(NPCID.Nurse);
 
             if (nurse >= 0)
             {
-                dialogue.Add($"Whenever we're alone, {Main.npc[nurse].GivenName} keeps throwing syringes at me, no matter how many times I tell her to stop!");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Nurse", Main.npc[nurse].GivenName));
             }
 
             int witchDoctor = NPC.FindFirstNPC(NPCID.WitchDoctor);
 
             if (witchDoctor >= 0)
             {
-                dialogue.Add($"Please go tell {Main.npc[witchDoctor].GivenName} to drop the 'mystical' shtick, I mean, come on! I get it, you make tainted water or something.");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.WitchDoctor", Main.npc[witchDoctor].GivenName));
             }
 
             int dryad = NPC.FindFirstNPC(NPCID.Dryad);
 
             if (dryad >= 0)
             {
-                dialogue.Add($"Why does {Main.npc[dryad].GivenName}'s outfit make my wings flutter?");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Dryad", Main.npc[dryad].GivenName));
             }
 
             int stylist = NPC.FindFirstNPC(NPCID.Stylist);
 
             if (stylist >= 0)
             {
-                dialogue.Add($"{Main.npc[stylist].GivenName} once gave me a wig... I look hideous with long hair.");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Stylist", Main.npc[stylist].GivenName));
             }
 
             int truffle = NPC.FindFirstNPC(NPCID.Truffle);
 
             if (truffle >= 0)
             {
-                dialogue.Add("That mutated mushroom seems like my type of fella.");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Truffle"));
             }
 
             int tax = NPC.FindFirstNPC(NPCID.TaxCollector);
 
             if (tax >= 0)
             {
-                dialogue.Add($"{Main.npc[tax].GivenName} keeps asking me for money, but he won't accept my spawners!");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.TaxCollector", Main.npc[tax].GivenName));
             }
 
             int guide = NPC.FindFirstNPC(NPCID.Guide);
 
             if (guide >= 0)
             {
-                dialogue.Add($"Any idea why {Main.npc[guide].GivenName} is always cowering in fear when I get near him?");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Guide", Main.npc[guide].GivenName));
             }
 
             int cyborg = NPC.FindFirstNPC(NPCID.Cyborg);
 
             if (truffle >= 0 && witchDoctor >= 0 && cyborg >= 0 && Main.rand.NextBool(52))
             {
-                dialogue.Add($"If any of us could play instruments, I'd totally start a band with {Main.npc[witchDoctor].GivenName}, {Main.npc[truffle].GivenName}, and {Main.npc[cyborg].GivenName}.");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.Cyborg", Main.npc[witchDoctor].GivenName, Main.npc[truffle].GivenName, Main.npc[cyborg].GivenName));
             }
 
             int demoman = NPC.FindFirstNPC(NPCID.Demolitionist);
 
             if (demoman >= 0)
             {
-                dialogue.Add($"I'm surprised {Main.npc[demoman].GivenName} hasn't blown a hole in the floor yet, on second thought that sounds fun.");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.DemoMan", Main.npc[demoman].GivenName));
             }
 
             int tavernkeep = NPC.FindFirstNPC(NPCID.DD2Bartender);
 
             if (tavernkeep >= 0)
             {
-                dialogue.Add($"{Main.npc[tavernkeep].GivenName} keeps suggesting I drink some beer, something tells me he wouldn't like me when I'm drunk though.");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.TavernKeep", Main.npc[tavernkeep].GivenName));
             }
 
             int dyeTrader = NPC.FindFirstNPC(NPCID.DyeTrader);
 
             if (dyeTrader >= 0)
             {
-                dialogue.Add($"{Main.npc[dyeTrader].GivenName} wants to see what I would look like in blue... I don't know how to feel.");
+                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.NPC_Dialogue_Mutant.DyeTrader", Main.npc[dyeTrader].GivenName));
             }
 
             return Main.rand.Next(dialogue);
@@ -278,21 +282,21 @@ namespace Fargowiltas.NPCs
             switch (shopNum)
             {
                 case 1:
-                    button = "Pre Hardmode";
+                    button = Language.GetTextValue("NPC_ChatButtons_Mutant.PreHM");
                     break;
 
                 case 2:
-                    button = "Hardmode";
+                    button = Language.GetTextValue("NPC_ChatButtons_Mutant.HM");
                     break;
 
                 default:
-                    button = "Post Moon Lord";
+                    button = Language.GetTextValue("NPC_ChatButtons_Mutant.PostML");
                     break;
             }
 
             if (Main.hardMode)
             {
-                button2 = "Cycle Shop";
+                button2 = Language.GetTextValue("NPC_ChatButtons_Mutant.CycleShop");
             }
 
             if (NPC.downedMoonlord)
@@ -387,7 +391,7 @@ namespace Fargowiltas.NPCs
                     AddItem(true, "FargowiltasSouls", "Masochist", 10000, ref shop, ref nextSlot); // mutants gift, dam meme namer
                 }
 
-                foreach (MutantSummonInfo summon in Fargowiltas.summonTracker.SortedSummons)
+                foreach (MutantSummonInfo summon in MutantSummonTracker.SortedSummons)
                 {
                     //phm
                     if (summon.progression <= 6f)
@@ -398,7 +402,7 @@ namespace Fargowiltas.NPCs
             }
             else if (hardmodeShop)
             {
-                foreach (MutantSummonInfo summon in Fargowiltas.summonTracker.SortedSummons)
+                foreach (MutantSummonInfo summon in MutantSummonTracker.SortedSummons)
                 {
                     //hm
                     if (summon.progression > 6f && summon.progression <= 14)
@@ -409,7 +413,7 @@ namespace Fargowiltas.NPCs
             }
             else
             {
-                foreach (MutantSummonInfo summon in Fargowiltas.summonTracker.SortedSummons)
+                foreach (MutantSummonInfo summon in MutantSummonTracker.SortedSummons)
                 {
                     //post ml
                     if (summon.progression > 14f)
@@ -470,17 +474,17 @@ namespace Fargowiltas.NPCs
             {
                 projType = Fargowiltas.LoadedMods["FargowiltasSouls"].ProjectileType("MutantSpearThrownFriendly");
             }
-            if (NPC.downedMoonlord)
+            else if (NPC.downedMoonlord)
             {
-                projType = ModContent.ProjectileType<PhantasmalEyeProjectile>();
+                projType = ModContent.ProjectileType<PhantasmalEyeProj>();
             }
             else if (Main.hardMode)
             {
-                projType = ModContent.ProjectileType<MechEyeProjectile>();
+                projType = ModContent.ProjectileType<MechEyeProj>();
             }
             else
             {
-                projType = ModContent.ProjectileType<EyeProjectile>();
+                projType = ModContent.ProjectileType<EyeProj>();
             }
 
             attackDelay = 1;
@@ -509,14 +513,9 @@ namespace Fargowiltas.NPCs
                     Dust.NewDust(npc.position, npc.width, npc.height, 5, 2.5f * hitDirection, -2.5f, Scale: 0.8f);
                 }
 
-                Vector2 pos = npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2));
-                Gore.NewGore(pos, npc.velocity, Mod.GetGoreSlot("Gores/MutantGore3"));
-
-                pos = npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2));
-                Gore.NewGore(pos, npc.velocity, Mod.GetGoreSlot("Gores/MutantGore2"));
-
-                pos = npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2));
-                Gore.NewGore(pos, npc.velocity, Mod.GetGoreSlot("Gores/MutantGore1"));
+                Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<MutantGore1>());
+                Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<MutantGore2>());
+                Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<MutantGore3>());
             }
             else
             {

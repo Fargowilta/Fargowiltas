@@ -12,8 +12,8 @@ namespace Fargowiltas.Items.Explosives
         {
             DisplayName.SetDefault("Obsidian Instabridge");
             Tooltip.SetDefault("Creates a bridge of obsidian platforms across the whole world" +
-                               "\nAlso clears the area right above the platforms" +
-                               "\nDo not use if any important building is nearby");
+                "\nAlso clears the area right above the platforms" +
+                "\nDo not use if any important building is nearby");
         }
 
         public override void SetDefaults()
@@ -42,11 +42,11 @@ namespace Fargowiltas.Items.Explosives
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.FossilOre, 20);
-            recipe.AddIngredient(ItemID.Dynamite, 10);
-            recipe.AddIngredient(ItemID.ObsidianPlatform, 1000);
-            recipe.AddTile(TileID.Anvils);            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.FossilOre, 20)
+                .AddIngredient(ItemID.Dynamite, 10)
+                .AddIngredient(ItemID.ObsidianPlatform, 1000)                .AddTile(TileID.Anvils)
+                .Register();
         }
     }
 }

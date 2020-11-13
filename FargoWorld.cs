@@ -1,5 +1,6 @@
 using Fargowiltas.Items.Tiles;
 using Fargowiltas.NPCs;
+using Fargowiltas.Utilities;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,17 +13,15 @@ namespace Fargowiltas
 {
     public class FargoWorld : ModWorld
     {
-        internal static int AbomClearCD;
-        internal static bool MovedLumberjack;
-
-        internal static bool OverloadGoblins;
-        internal static bool OverloadPirates;
-        internal static bool OverloadPumpkinMoon;
-        internal static bool OverloadFrostMoon;
-        internal static bool OverloadMartians;
-
-        internal static bool[] CurrentSpawnRateTile;
-        internal static Dictionary<string, bool> DownedBools = new Dictionary<string, bool>();
+        public static int AbomClearCD;
+        public static bool MovedLumberjack;
+        public static bool OverloadGoblins;
+        public static bool OverloadPirates;
+        public static bool OverloadPumpkinMoon;
+        public static bool OverloadFrostMoon;
+        public static bool OverloadMartians;
+        public static bool[] CurrentSpawnRateTile;
+        public static Dictionary<string, bool> DownedBools = new Dictionary<string, bool>();
 
         // Do not change the order or name of any of these value names, it will fuck up loading. Any new additions should be added at the end.
         private readonly string[] tags = new string[]
@@ -73,13 +72,11 @@ namespace Fargowiltas
             }
 
             AbomClearCD = 0;
-
             OverloadGoblins = false;
             OverloadPirates = false;
             OverloadPumpkinMoon = false;
             OverloadFrostMoon = false;
             OverloadMartians = false;
-
             CurrentSpawnRateTile = new bool[Main.netMode == NetmodeID.Server ? 255 : 1];
         }
 
@@ -130,11 +127,11 @@ namespace Fargowiltas
 
         public override void PostUpdate()
         {
-            // seasonals
-            Main.halloween = ModContent.GetInstance<FargoConfig>().Halloween;
-            Main.xMas = ModContent.GetInstance<FargoConfig>().Christmas;
+            // Seasonals
+            Main.halloween = ModContent.GetInstance<FargoConfig>().halloween;
+            Main.xMas = ModContent.GetInstance<FargoConfig>().christmas;
 
-            // swarm reset in case something goes wrong
+            // Resets swarms in-case something goes wrong
             if (Fargowiltas.SwarmActive && NoBosses() && !NPC.AnyNPCs(NPCID.EaterofWorldsHead) && !NPC.AnyNPCs(NPCID.DungeonGuardian))
             {
                 Fargowiltas.SwarmActive = false;
@@ -178,7 +175,7 @@ namespace Fargowiltas
             ref bool current = ref CurrentSpawnRateTile[0];
             bool oldSpawnRateTile = current;
 
-            current = tileCounts[ModContent.TileType<RegalStatueSheet>()] > 0;
+            current = tileCounts[ModContent.TileType<RegalStatueTile>()] > 0;
 
             if (Main.netMode == NetmodeID.MultiplayerClient && current != oldSpawnRateTile)
             {
@@ -219,6 +216,6 @@ namespace Fargowiltas
             }
         }
 
-        private bool NoBosses() => Main.npc.All(npc => !npc.active || !npc.boss);
+        public static bool NoBosses() => Main.npc.All(npc => !npc.active || !npc.boss);
     }
 }
