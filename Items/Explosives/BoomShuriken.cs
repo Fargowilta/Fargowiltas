@@ -1,5 +1,4 @@
 ﻿using Fargowiltas.Projectiles.Explosives;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

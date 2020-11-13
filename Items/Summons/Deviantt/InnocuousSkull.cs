@@ -1,3 +1,4 @@
+using Fargowiltas.Utilities;
 using Terraria.ModLoader;
 
 namespace Fargowiltas.Items.Summons.Deviantt

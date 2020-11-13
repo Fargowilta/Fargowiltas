@@ -1,5 +1,4 @@
 ﻿using System.Text.RegularExpressions;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

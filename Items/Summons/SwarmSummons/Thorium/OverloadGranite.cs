@@ -1,4 +1,5 @@
 ﻿using Fargowiltas.NPCs;
+using Fargowiltas.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;

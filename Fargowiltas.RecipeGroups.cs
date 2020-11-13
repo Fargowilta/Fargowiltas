@@ -118,7 +118,7 @@ namespace Fargowiltas
                 ItemID.EnchantedSwordBanner
             });
 
-            CreateRecipeGroup("AnyCorruptions", new int[9] {
+            CreateRecipeGroup("AnyCorrupts", new int[9] {
                 ItemID.EaterofSoulsBanner,
                 ItemID.CorruptorBanner,
                 ItemID.CorruptSlimeBanner,
@@ -195,7 +195,7 @@ namespace Fargowiltas
                 ItemID.DesertDjinnBanner
             });
 
-            CreateRecipeGroup("AnyCaughtNPCs", new int[28] {
+            CreateRecipeGroup("AnyCaughtNPC", new int[28] {
                 ModContent.ItemType<Guide>(),
                 ModContent.ItemType<Angler>(),
                 ModContent.ItemType<ArmsDealer>(),

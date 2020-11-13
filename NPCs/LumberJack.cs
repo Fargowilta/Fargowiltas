@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+
 //using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
@@ -410,14 +411,14 @@ namespace Fargowiltas.NPCs
                     Dust.NewDust(npc.position, npc.width, npc.height, 5, 2.5f * hitDirection, -2.5f, Scale: 0.8f);
                 }
 
-                Vector2 pos = npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2));
+                /*Vector2 pos = npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2));
                 Gore.NewGore(pos, npc.velocity, ModContent.GoreType<LumberGore1>());
 
                 pos = npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2));
                 Gore.NewGore(pos, npc.velocity, ModContent.GoreType<LumberGore2>());
 
                 pos = npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2));
-                Gore.NewGore(pos, npc.velocity, ModContent.GoreType<LumberGore3>());
+                Gore.NewGore(pos, npc.velocity, ModContent.GoreType<LumberGore3>());*/
             }
             else
             {

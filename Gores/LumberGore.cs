@@ -2,7 +2,7 @@
 
 namespace Fargowiltas.Gores
 {
-    public class LumberGore1 : ModGore
+    /*public class LumberGore1 : ModGore
     {
     }
 
@@ -12,5 +12,5 @@ namespace Fargowiltas.Gores
 
     public class LumberGore3 : ModGore
     {
-    }
+    }*/
 }

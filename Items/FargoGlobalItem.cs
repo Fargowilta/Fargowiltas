@@ -26,6 +26,8 @@ namespace Fargowiltas.Items
 
         public override bool InstancePerEntity => true;
 
+        public override GlobalItem Clone(Item item, Item itemClone) => (FargoGlobalItem)base.Clone(item, itemClone);
+
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
             TooltipLine line;

@@ -19,6 +19,7 @@ namespace Fargowiltas.NPCs
         public static int EaterBoss = -1;
         public static int BrainBoss = -1;
         public static int PlantBoss = -1;
+
         public static int[] Bosses = new int[]
         {
             NPCID.KingSlime,
@@ -636,7 +637,7 @@ namespace Fargowiltas.NPCs
                 {
                     Swarm(npc, ModContent.NPCType<Destroyer.Destroyer>(), -1, ItemID.DestroyerBossBag, ItemID.DestroyerTrophy, "EnergizerDestroy");
                 }
-                
+
                 Mod thorium = Fargowiltas.ModLoaded("ThoriumMod") ? Fargowiltas.LoadedMods["ThoriumMod"] : null;
 
                 if (thorium != null)
@@ -801,6 +802,7 @@ namespace Fargowiltas.NPCs
                     break;
             }
         }*/
+
         public override void /*OnKill*/ NPCLoot(NPC npc)
         {
             switch (npc.type)

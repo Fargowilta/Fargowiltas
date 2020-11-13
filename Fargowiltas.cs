@@ -24,17 +24,20 @@ namespace Fargowiltas
 
         // Hotkeys
         public static ModHotKey QuickUseCustomKey;
+
         public static ModHotKey HomeKey;
         public static ModHotKey RodKey;
 
         // Swarms
         public static bool SwarmActive;
+
         public static int SwarmKills;
         public static int SwarmTotal;
         public static int SwarmSpawned;
 
         // Dictionary for actually getting the mod
         public static Dictionary<string, Mod> LoadedMods;
+
         public static Dictionary<int, string> ModRareEnemies = new Dictionary<int, string>();
 
         public Fargowiltas()

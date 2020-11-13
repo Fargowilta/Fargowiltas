@@ -257,9 +257,9 @@ namespace Fargowiltas.NPCs
                     Dust.NewDust(npc.position, npc.width, npc.height, 5, 2.5f * hitDirection, -2.5f, 0, default, 0.8f);
                 }
 
-                Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<DevianttGore1>());
+                /*Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<DevianttGore1>());
                 Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<DevianttGore2>());
-                Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<DevianttGore3>());
+                Gore.NewGore(npc.position + new Vector2(Main.rand.Next(npc.width - 8), Main.rand.Next(npc.height / 2)), npc.velocity, ModContent.GoreType<DevianttGore3>());*/
             }
             else
             {
