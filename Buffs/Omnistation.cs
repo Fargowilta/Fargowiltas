@@ -10,7 +10,9 @@ namespace Fargowiltas.Buffs
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Omnistation");
+            DisplayName.AddTranslation(GameCulture.Chinese,"增益站");
             Description.SetDefault("Effects of all vanilla stations");
+            Description.AddTranslation(GameCulture.Chinese,"拥有原版所有增益站的效果");
 
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
