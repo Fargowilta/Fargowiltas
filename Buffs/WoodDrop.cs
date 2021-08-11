@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace Fargowiltas.Buffs
 {
@@ -8,6 +9,7 @@ namespace Fargowiltas.Buffs
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Wood Drop");
+            DisplayName.AddTranslation(GameCulture.Chinese,"化木");
             Main.buffNoSave[Type] = true;
         }
     }
