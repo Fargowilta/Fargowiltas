@@ -209,10 +209,10 @@ namespace Fargowiltas.Items
         {
             if (GetInstance<FargoConfig>().UnlimitedPotionBuffsOn120)
             {
-                if (item.stack >= 30 && item.buffType != 0)
+                if (item.stack >= GetInstance<FargoConfig>().PotionStackSize && item.buffType != 0)
                     player.AddBuff(item.buffType, 2);
 
-                if (item.stack >= 15)
+                if (item.stack >= GetInstance<FargoConfig>().StationStackSize)
                 {
                     if (item.type == ItemID.SharpeningStation)
                         player.AddBuff(BuffID.Sharpened, 2);
@@ -351,14 +351,14 @@ namespace Fargowiltas.Items
 
         public override bool ConsumeAmmo(Item item, Player player)
         {
-            if (GetInstance<FargoConfig>().UnlimitedAmmo && Main.hardMode && item.ammo != 0 && item.stack >= 3996)
+            if (GetInstance<FargoConfig>().UnlimitedAmmo && Main.hardMode && item.ammo != 0 && item.stack >= GetInstance<FargoConfig>().AmmoStackSize)
                 return false;
             return true;
         }
 
         public override bool ConsumeItem(Item item, Player player)
         {
-            if (GetInstance<FargoConfig>().UnlimitedConsumableWeapons && Main.hardMode && item.damage > 0 && item.ammo == 0 && item.stack >= 3996)
+            if (GetInstance<FargoConfig>().UnlimitedConsumableWeapons && Main.hardMode && item.damage > 0 && item.ammo == 0 && item.stack >= GetInstance<FargoConfig>().WeaponStackSize)
                 return false;
             return true;
         }

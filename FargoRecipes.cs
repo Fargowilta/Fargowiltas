@@ -230,17 +230,36 @@ namespace Fargowiltas
 
         public void AddRecipes()
         {
-            AddSummonConversions();
-            AddEvilConversions();
-            AddMetalConversions();
-
+            if (ModContent.GetInstance<FargoConfig>().SummonConversion)
+            {
+                AddSummonConversions();
+            }
+            
+            if (ModContent.GetInstance<FargoConfig>().EvilConversion)
+            {
+                AddEvilConversions();
+            }
+            
+            if (ModContent.GetInstance<FargoConfig>().MetalConversion)
+            {
+                AddMetalConversions();
+            }
+            
             if (ModContent.GetInstance<FargoConfig>().BannerRecipes)
             {
                 AddBannerToItemRecipes();
             }
-
-            AddStatueRecipes();
-            AddContainerLootRecipes();
+            
+            if (ModContent.GetInstance<FargoConfig>().StatueRecipes)
+            {
+                AddStatueRecipes();
+            }
+            
+            if (ModContent.GetInstance<FargoConfig>().CrateRecipes)
+            {
+                AddContainerLootRecipes();
+            }
+            
             //AddNPCRecipes();
             //AddTreasureBagRecipes();
             //AddFurnitureRecipes();

@@ -32,18 +32,38 @@ namespace Fargowiltas
         [DefaultValue(false)]
         public bool Christmas;
 
-        [Label("[i:771] Unlimited Ammo at 3996+ in Hardmode")]
+        [Label("[i:771] Unlimited Ammo in Hardmode")]
         [DefaultValue(true)]
         public bool UnlimitedAmmo;
+        
+        [Label("     [i:3104] Ammo stack size")]
+		[Range(3996, 9999)]
+		[DefaultValue(3996)]
+		public int AmmoStackSize;
 
-        [Label("[i:42] Unlimited Consumable Weapons at 3996+ in Hardmode")]
+        [Label("[i:42] Unlimited Consumable Weapons in Hardmode")]
         [DefaultValue(true)]
         public bool UnlimitedConsumableWeapons;
-
-        [Label("[i:292] Unlimited Potion/Class Station Buffs at 30/15+ Stack")]
+        
+        [Label("     [i:168] Weapon stack size")]
+		[Range(3996, 9999)]
+		[DefaultValue(3996)]
+		public int WeaponStackSize;
+        
+        [Label("[i:4479] Unlimited Potion/Class Station Buffs")]
         [DefaultValue(true)]
         public bool UnlimitedPotionBuffsOn120;
-
+        
+        [Label("     [i:296] Potion stack size")]
+		[Range(30, 9999)]
+		[DefaultValue(30)]
+		public int PotionStackSize;
+        
+        [Label("     [i:3198] Station stack size")]
+		[Range(15, 9999)]
+		[DefaultValue(15)]
+		public int StationStackSize;
+        
         [Label("[i:2374] Angler Quest Instant Reset")]
         [DefaultValue(true)]
         public bool AnglerQuestInstantReset;
@@ -71,6 +91,26 @@ namespace Fargowiltas
         [Label("[i:1683] Banner Recipes")]
         [DefaultValue(true)]
         public bool BannerRecipes;
+        
+        [Label("[i:2334] Crate Recipes")]
+        [DefaultValue(true)]
+        public bool CrateRecipes;
+        
+        [Label("[i:476] Statue Recipes")]
+        [DefaultValue(true)]
+        public bool StatueRecipes;
+        
+        [Label("[i:43] Summon Conversion")]
+        [DefaultValue(true)]
+        public bool SummonConversion;
+        
+        [Label("[i:880] Evil Conversion")]
+        [DefaultValue(true)]
+        public bool EvilConversion;
+        
+        [Label("[i:57] Metal Conversion")]
+        [DefaultValue(true)]
+        public bool MetalConversion;
 
         [Label("[i:2] Increased Max Stacks")]
         [DefaultValue(true)]

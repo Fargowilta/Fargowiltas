@@ -1,6 +1,10 @@
 This is a Quality of life mod that adds the Mutant town NPC who sells boss summons of nearly every mod
 There are several other items such as infinite ammos, craftable instant builds for common world infrastructure like skybridges, obsidian underworld bridges, hellevators, unlimited potions, increased spawn rates toggle item, and more!
 
+ALPHA HOTFIX - V 2.5.4.2
+-Added config for recipes
+-Added config for unlimited ammo, consumables and weapons
+
 ALPHA UPDATE - V 2.5.4
 -Added Jelly Crystal and Prismatic Primrose
 -Readded Expert Token but renamed to World Token and it now cycles through Normal, Expert, Master, and Journey
