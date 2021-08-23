@@ -1,6 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace Fargowiltas.Items.Ammos
 {
@@ -20,14 +21,14 @@ namespace Fargowiltas.Items.Ammos
             Item.height = 26;
             Item.consumable = false;
             Item.maxStack = 1;
-            Item.value *= 3996;
+            Item.value *= GetInstance<FargoConfig>().AmmoStackSize;
             Item.rare += 1;
         }
 
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(AmmunitionItem, 3996)
+                .AddIngredient(AmmunitionItem, GetInstance<FargoConfig>().AmmoStackSize)
                 .AddTile(TileID.CrystalBall)
                 .Register();
         }
