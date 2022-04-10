@@ -108,7 +108,6 @@ namespace Fargowiltas.Items.Ammos.Bullets
     public class TungstenPouch : BaseAmmo
     {
         public override int AmmunitionItem => ItemID.TungstenBullet;
-        public override string Texture => "Fargowiltas/Items/Placeholder";
     }
 
     public class VelocityPouch : BaseAmmo
