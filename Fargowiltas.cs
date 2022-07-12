@@ -115,6 +115,10 @@ namespace Fargowiltas
 
             CaughtNPCItem.RegisterItems(this);
 
+            ModLoader.TryGetMod("Wikithis", out Mod wikithis);
+            if (wikithis != null && !Main.dedServ)
+                wikithis.Call(0, this, "terrariamods.fandom.com$Fargo%27s_Mod");
+
             // DD2 Banner Effect hack
             ItemID.Sets.BannerStrength = ItemID.Sets.Factory.CreateCustomSet(new ItemID.BannerEffect(1f));
         }
