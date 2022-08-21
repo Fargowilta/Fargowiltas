@@ -157,27 +157,55 @@ namespace Fargowiltas
                 {
                     FargoGlobalItem.TryUnlimBuff(item, Player);
                 }
-            }
 
-            if (GetInstance<FargoConfig>().PiggyBankAcc)
-            {
-                foreach (Item item in Player.bank.item)
+                foreach (Item item in Player.bank3.item)
                 {
-                    FargoGlobalItem.TryPiggyBankAcc(item, Player);
+                    FargoGlobalItem.TryUnlimBuff(item, Player);
                 }
 
-                foreach (Item item in Player.bank2.item)
+                foreach (Item item in Player.bank4.item)
                 {
-                    FargoGlobalItem.TryPiggyBankAcc(item, Player);
+                    FargoGlobalItem.TryUnlimBuff(item, Player);
                 }
             }
         }
 
         public override void PostUpdateEquips()
         {
+            FargoGlobalItem.ToolbeltEffectApplied = false;
+            FargoGlobalItem.ToolboxEffectApplied = false;
             if (Fargowiltas.SwarmActive)
             {
                 Player.buffImmune[BuffID.Horrified] = true;
+            }
+
+            if (GetInstance<FargoConfig>().PiggyBankAcc)
+            {
+                // This won't work in UpdateInventory, since the equippedAny buffs are set to false after UpdateInventory
+                foreach (Item item in Player.inventory)
+                {
+                    FargoGlobalItem.TryPiggyBankAcc(item, Player, true);
+                }
+
+                foreach (Item item in Player.bank.item)
+                {
+                    FargoGlobalItem.TryPiggyBankAcc(item, Player, false);
+                }
+
+                foreach (Item item in Player.bank2.item)
+                {
+                    FargoGlobalItem.TryPiggyBankAcc(item, Player, false);
+                }
+
+                foreach (Item item in Player.bank3.item)
+                {
+                    FargoGlobalItem.TryPiggyBankAcc(item, Player, false);
+                }
+
+                foreach (Item item in Player.bank4.item)
+                {
+                    FargoGlobalItem.TryPiggyBankAcc(item, Player, false);
+                }
             }
         }
 
