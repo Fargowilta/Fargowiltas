@@ -384,7 +384,7 @@ namespace Fargowiltas.NPCs
 
         private List<int> GetSellableItems()
         {
-            List<int>[] itemCollections = new List<int>[6]; //so they can be grouped by category
+            List<int>[] itemCollections = new List<int>[Enum.GetNames(typeof(ShopGroup)).Length - 1]; //so they can be grouped by category
             for (int i = 0; i < itemCollections.Length; i++)
                 itemCollections[i] = new List<int>();
 
