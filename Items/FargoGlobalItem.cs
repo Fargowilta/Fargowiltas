@@ -17,6 +17,8 @@ namespace Fargowiltas.Items
     {
         private static readonly int[] Hearts = new int[] { ItemID.Heart, ItemID.CandyApple, ItemID.CandyCane };
         private static readonly int[] Stars = new int[] { ItemID.Star, ItemID.SoulCake, ItemID.SugarPlum };
+        public static bool ToolbeltEffectApplied;
+        public static bool ToolboxEffectApplied;
 
         private bool firstTick = true;
 
@@ -126,7 +128,7 @@ namespace Fargowiltas.Items
                             || item.type == ItemID.BewitchingTable
                             || item.type == ItemID.SliceOfCake)
                     {
-                        line = new TooltipLine(Mod, "TooltipUnlim", "[i:87] [c/AAAAAA:Unlimited buff at thirty stack in inventory, Piggy Bank, or Safe]");
+                        line = new TooltipLine(Mod, "TooltipUnlim", "[i:87] [c/AAAAAA:Unlimited buff at fifteen stack in inventory, Piggy Bank, or Safe]");
                         tooltips.Add(line);
                     }
                 }
@@ -278,7 +280,7 @@ namespace Fargowiltas.Items
 
         static int[] Informational = { ItemID.DPSMeter, ItemID.CopperWatch, ItemID.TinWatch, ItemID.TungstenWatch, ItemID.SilverWatch, ItemID.GoldWatch, ItemID.PlatinumWatch, ItemID.DepthMeter, ItemID.Compass, ItemID.Radar, ItemID.LifeformAnalyzer, ItemID.TallyCounter, ItemID.MetalDetector, ItemID.Stopwatch, ItemID.Ruler, ItemID.FishermansGuide, ItemID.Sextant, ItemID.WeatherRadio, ItemID.GPS, ItemID.REK, ItemID.GoblinTech, ItemID.FishFinder, ItemID.PDA, ItemID.CellPhone };
         static int[] Construction = { ItemID.Toolbelt, ItemID.Toolbox, ItemID.ExtendoGrip, ItemID.PaintSprayer, ItemID.BrickLayer, ItemID.PortableCementMixer, ItemID.ActuationAccessory, ItemID.ArchitectGizmoPack };
-        public static void TryPiggyBankAcc(Item item, Player player)
+        public static void TryPiggyBankAcc(Item item, Player player, bool inInventory)
         {
             if (item.IsAir)
                 return;
@@ -286,15 +288,49 @@ namespace Fargowiltas.Items
             if (item.maxStack > 1)
                 return;
 
-            if (Informational.Contains(item.type))
+            // inInventory prevents us from calling VanillaUpdateInventory twice for an item.
+            if (Informational.Contains(item.type) && !inInventory)
             {
                 player.VanillaUpdateInventory(item);
             }
             else if (Construction.Contains(item.type))
             {
-                Item fakeItem = new Item();
-                fakeItem.SetDefaults(item.type);
-                player.VanillaUpdateEquip(fakeItem);
+                if (!inInventory)
+                {
+                    player.VanillaUpdateInventory(item);
+                }
+
+                if (!player.equippedAnyWallSpeedAcc && (item.type == ItemID.PortableCementMixer || item.type == ItemID.ArchitectGizmoPack))
+                {
+                    player.equippedAnyWallSpeedAcc = true;
+                    player.wallSpeed += 0.5f;
+                }
+
+                if (!player.equippedAnyTileSpeedAcc && player.inventory[player.selectedItem].createTile != 4 && (item.type == ItemID.BrickLayer || item.type == ItemID.ArchitectGizmoPack))
+                {
+                    player.equippedAnyTileSpeedAcc = true;
+                    player.tileSpeed += 0.5f;
+                }
+
+                if (!player.equippedAnyTileRangeAcc && player.whoAmI == Main.myPlayer && (item.type == ItemID.ExtendoGrip || item.type == ItemID.ArchitectGizmoPack))
+                {
+                    player.equippedAnyTileRangeAcc = true;
+                    Player.tileRangeX += 3;
+                    Player.tileRangeY += 2;
+                }
+
+                if (!ToolbeltEffectApplied && item.type == ItemID.Toolbelt && !player.armor.Any(a => a.type == ItemID.Toolbelt))
+                {
+                    ToolbeltEffectApplied = true;
+                    player.blockRange++;
+                }
+
+                if (!ToolboxEffectApplied && item.type == ItemID.Toolbox && player.whoAmI == Main.myPlayer && !player.armor.Any(a => a.type == ItemID.Toolbox))
+                {
+                    ToolboxEffectApplied = true;
+                    Player.tileRangeX++;
+                    Player.tileRangeY++;
+                }
             }
         }
 
