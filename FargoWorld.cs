@@ -184,8 +184,10 @@ namespace Fargowiltas
         public override void PostUpdateWorld()
         {
             // seasonals
-            Main.halloween = GetInstance<FargoConfig>().Halloween;
-            Main.xMas = GetInstance<FargoConfig>().Christmas;
+            if (GetInstance<FargoConfig>().Halloween)
+                Main.halloween = true;
+            if (GetInstance<FargoConfig>().Christmas)
+                Main.xMas = true;
             //seeds
             Main.drunkWorld = GetInstance<FargoConfig>().DrunkWorld;
             Main.notTheBeesWorld = GetInstance<FargoConfig>().BeeWorld;
