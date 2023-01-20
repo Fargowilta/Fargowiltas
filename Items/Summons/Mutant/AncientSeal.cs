@@ -60,11 +60,11 @@ namespace Fargowiltas.Items.Summons.Mutant
 
             if (Main.netMode == NetmodeID.Server)
             {
-                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.AncientSeal"), new Color(175, 75, 255));
+                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Every boss has awoken!"), new Color(175, 75, 255));
             }
             else
             {
-                Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.AncientSeal"), new Color(175, 75, 255));
+                Main.NewText("Every boss has awoken!", new Color(175, 75, 255));
             }
 
             SoundEngine.PlaySound(SoundID.Roar, player.position);
@@ -74,7 +74,7 @@ namespace Fargowiltas.Items.Summons.Mutant
 
         public static int SpawnBoss(Player player, int npcID, string name)
         {
-            Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.HasAwoken", name), new Color(175, 75, 255));
+            Main.NewText($"{name} has awoken!", new Color(175, 75, 255));
             return NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-800, 800), (int)player.position.Y + Main.rand.Next(-1000, -250), npcID);
         }
     }

@@ -10,7 +10,7 @@ namespace Fargowiltas.Items.Summons
 
         public override int NPCType => NPCID.EaterofWorldsHead;
 
-        public override string NPCName => LocalizedName("EaterofWorldsHead");
+        public override string NPCName => "Eater of Worlds";
 
         public override void SetStaticDefaults()
         {

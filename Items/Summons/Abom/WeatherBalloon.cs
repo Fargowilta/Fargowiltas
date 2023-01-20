@@ -4,7 +4,6 @@ using Terraria.Audio;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Localization;
 
 namespace Fargowiltas.Items.Summons.Abom
 {
@@ -52,7 +51,7 @@ namespace Fargowiltas.Items.Summons.Abom
                 NetMessage.SendData(MessageID.WorldData);
                 Main.SyncRain();
             }
-            FargoUtils.PrintText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.WeatherBalloon"), new Color(175, 75, 255));
+            FargoUtils.PrintText("Rain clouds cover the sky.", new Color(175, 75, 255));
             SoundEngine.PlaySound(SoundID.Roar, player.position);
 
             return true;

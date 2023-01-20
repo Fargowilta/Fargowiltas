@@ -10,7 +10,7 @@ namespace Fargowiltas.Items.Summons.Mutant
     {
         public override int NPCType => NPCID.HallowBoss;
 
-        public override string NPCName => LocalizedName("HallowBoss");
+        public override string NPCName => "Empress of Light";
 
         public override void SetStaticDefaults()
         {

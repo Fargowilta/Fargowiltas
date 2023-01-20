@@ -1,5 +1,5 @@
 author = Fargowilta and Terry N. Muse
-version = 2.8.7
+version = 2.8.6
 displayName = Fargo's Mutant Mod
 homepage = http://forums.terraria.org/index.php?threads/fargos-mutant-mod-summons-and-souls.42291/
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, lib\*, .git\*

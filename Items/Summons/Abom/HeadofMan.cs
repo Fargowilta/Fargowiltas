@@ -7,7 +7,7 @@ namespace Fargowiltas.Items.Summons.Abom
     {
         public override int NPCType => NPCID.HeadlessHorseman;
 
-        public override string NPCName => LocalizedName("HeadlessHorseman");
+        public override string NPCName => "Headless Horseman";
 
         public override void SetStaticDefaults()
         {

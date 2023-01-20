@@ -7,7 +7,7 @@ namespace Fargowiltas.Items.Summons.Abom
     {
         public override int NPCType => NPCID.SantaNK1;
 
-        public override string NPCName => LocalizedName("SantaNK1");
+        public override string NPCName => "Santa-NK1";
 
         public override void SetStaticDefaults()
         {

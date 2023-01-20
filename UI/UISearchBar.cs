@@ -11,7 +11,7 @@ namespace Fargowiltas.UI
 {
     public class UISearchBar : UIElement
     {
-        public string HintText = FargoUtils.GetTranslation("UI.StatSheet.HintText");
+        public const string HintText = "Search...";
 
         public bool IsEmpty => string.IsNullOrEmpty(Input);
 

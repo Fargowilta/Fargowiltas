@@ -123,39 +123,39 @@ namespace Fargowiltas.NPCs
         {
             List<string> dialogue = new List<string>
             {
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.1"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.2"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.3"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.4"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.5"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.6"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.7"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.8"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.9"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.10"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.11"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.12"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.13"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.14"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.15"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.16"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.17"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.18"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.19"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.20")
+                "Dynasty wood? Between you and me, that stuff ain't real wood!",
+                "Sure cactus isn't wood, but I can still chop it with me trusty axe.",
+                "You wouldn't by chance have any fantasies about me... right?",
+                "I eat a bowl of woodchips for breakfast... without any milk.",
+                "TIIIIIIIIIMMMBEEEEEEEERRR!",
+                "I'm a lumberjack and I'm okay, I sleep all night and I work all day!",
+                "You won't ever need an axe again with me around.",
+                "I have heard of people cutting trees with fish, who does that?",
+                "You wanna see me work without my shirt on? Maybe in 2030.",
+                "You ever seen the world tree?",
+                "You want what? ...Sorry that's not the kind of wood I'm selling.",
+                "Why don't I sell acorns? ...I replant all the trees I chop, don't you?",
+                "What's the best kind of tree? ... Any if I can chop it.",
+                "Can I axe you a question?",
+                "Might take a nap under a tree later, care to join me?",
+                "I'm an expert in all wood types.",
+                "I'm glad there's more trees to chop here at journey's end.",
+                "Red is one of my favourite colors, right after wood.",
+                "It's always flannel season.",
+                "I'm glad my wood put such a big smile on your face."
             };
 
             int nurse = NPC.FindFirstNPC(NPCID.Nurse);
             if (nurse >= 0)
             {
-                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.Nurse", Main.npc[nurse].GivenName));
+                dialogue.Add($"I always see {Main.npc[nurse].GivenName} looking at my biceps when I'm working. Wonder if she wants some of my wood.");
             }
 
             Player player = Main.LocalPlayer;
 
             if (player.HeldItem.type == ItemID.LucyTheAxe)
             {
-                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.LucyTheAxe"));
+                dialogue.Add($"Lucy from that universe.. Interesting things await you.");
             }
 
             return Main.rand.Next(dialogue);
@@ -164,7 +164,7 @@ namespace Fargowiltas.NPCs
         public override void SetChatButtons(ref string button, ref string button2)
         {
             button = Language.GetTextValue("LegacyInterface.28");
-            button2 = Language.GetTextValue("Mods.Fargowiltas.UI.TreeTreasures");
+            button2 = "Tree Treasures";
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref bool shop)
@@ -184,14 +184,14 @@ namespace Fargowiltas.NPCs
 
                 if (player.ZoneDesert && !player.ZoneBeach)
                 {
-                    quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.Desert");
+                    quote = "While I was chopping down a cactus these things leaped at me, why don't you take care of them?";
                     itemType = Main.rand.Next(new int[] { ItemID.Scorpion, ItemID.BlackScorpion });
                     player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
                     player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.Cactus), ItemID.Cactus, 100);
                 }
                 else if (player.ZoneJungle)
                 {
-                    quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.Jungle");
+                    quote = "These mahogany trees are full of life, but a tree only has one purpose: to be chopped. Oh yea these fell out of the last one.";
                     itemType = Main.rand.Next(new int[] { ItemID.Buggy, ItemID.Sluggy, ItemID.Grubby, ItemID.Frog });
                     player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
                     itemType = Main.rand.Next(new int[] { ItemID.Mango, ItemID.Pineapple });
@@ -200,7 +200,7 @@ namespace Fargowiltas.NPCs
                 }
                 else if (player.ZoneHallow)
                 {
-                    quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.Hallow");
+                    quote = "This place is a bit fanciful for my tastes, but the wood's as choppable as any. Nighttime has these cool bugs though, take a few.";
                     for (int i = 0; i < 5; i++)
                     {
                         itemType = Main.rand.Next(new int[] { ItemID.LightningBug, ItemID.FairyCritterBlue, ItemID.FairyCritterGreen, ItemID.FairyCritterPink });
@@ -214,7 +214,7 @@ namespace Fargowiltas.NPCs
                 }
                 else if (player.ZoneGlowshroom && Main.hardMode)
                 {
-                    quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.Glowshroom");
+                    quote = "Whatever causes these to glow is beyond me, you're probably gonna eat them anyway so have this while you're at it.";
                     itemType = Main.rand.Next(new int[] { ItemID.GlowingSnail, ItemID.TruffleWorm });
                     player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
                     player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.GlowingMushroom), ItemID.GlowingMushroom, 50);
@@ -223,7 +223,7 @@ namespace Fargowiltas.NPCs
                 }
                 else if (player.ZoneCorrupt || player.ZoneCrimson)
                 {
-                    quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.EvilBiome");
+                    quote = "The trees here are probably the toughest in this branch of reality.. Sorry, just tree puns. I found these for you here.";
                     for (int i = 0; i < 5; i++)
                     {
                         itemType = Main.rand.Next(new int[] { ItemID.Elderberry, ItemID.BlackCurrant, ItemID.BloodOrange, ItemID.Rambutan });
@@ -233,14 +233,14 @@ namespace Fargowiltas.NPCs
                 else if (player.ZoneSnow)
                 {
                     //penguin
-                    quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.Snow");
+                    quote = "This neck of the woods is pretty eh? Here I've got some of my favorite wood for you.";
                     itemType = Main.rand.Next(new int[] { ItemID.Cherry, ItemID.Plum });
                     player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
                     player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.BorealWood), ItemID.BorealWood, 50);
                 }
                 else if (player.ZoneBeach)
                 {
-                    quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.Beach");
+                    quote = "Even on vacation, I always fit in a little chopping. A couple annoying birds fell out of a palm tree. Take them off my hands.. maybe cook them up?";
                     itemType = Main.rand.Next(new int[] { ItemID.Coconut, ItemID.Banana });
                     player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
                     player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.Seagull), ItemID.Seagull, 5);
@@ -248,7 +248,7 @@ namespace Fargowiltas.NPCs
                 }
                 else if (player.ZoneUnderworldHeight)
                 {
-                    quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.Underworld");
+                    quote = "I looked around here for a while and didn't find any trees. I did find these little guys though. Maybe you'll want them?";
                     for (int i = 0; i < 5; i++)
                     {
                         itemType = Main.rand.Next(new int[] { ItemID.HellButterfly, ItemID.MagmaSnail, ItemID.Lavafly });
@@ -259,7 +259,7 @@ namespace Fargowiltas.NPCs
                 {
 					if (Main.rand.NextBool(2))
 					{
-						quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.Gem");
+						quote = "I certainly didn't expect to find such wonderful trees down here. Check this out.";
 
 						for (int i = 0; i < 5; i++)
 						{
@@ -272,7 +272,8 @@ namespace Fargowiltas.NPCs
 					}
 					else
 					{
-						quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.Mouse");
+						quote = "Went for a long haul today, but there were only so many of those strange trees to go around. I did find a lot of these, why don't you give some of them a new home?";
+						
 						itemType = ItemID.Mouse;
 						player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
 					}
@@ -284,13 +285,13 @@ namespace Fargowiltas.NPCs
                     {
 						if (Main.WindyEnoughForKiteDrops && Main.rand.NextBool(2)) //ladybug
 						{
-							quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.Ladybug");
+							quote = "Seems like the wind brought a bunch of these out of hiding. Some people say they're good luck. All I know is, the only luck I need is a sharp axe!";
 							itemType = ItemID.LadyBug;
 							player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
 						}
                         else if (Main.rand.NextBool(3)) //butterfly
                         {
-                            quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.Butterfly");
+                            quote = "Back in the day, people used to forge butterflies into powerful gear. We try to forget those days... but here have one.";
 							for (int i = 0; i < 5; i++)
                             {
 								itemType = Main.rand.Next(new int[] { ItemID.JuliaButterfly, ItemID.MonarchButterfly, ItemID.PurpleEmperorButterfly, ItemID.RedAdmiralButterfly, ItemID.SulphurButterfly, ItemID.TreeNymphButterfly, ItemID.UlyssesButterfly, ItemID.ZebraSwallowtailButterfly });
@@ -299,12 +300,12 @@ namespace Fargowiltas.NPCs
                         }
                         else if (Main.rand.NextBool(20))
                         {
-                            quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.EucaluptusSap");
+                            quote = "I found this, but I'm not a sappy person. You can have it instead.";
                             player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.EucaluptusSap), ItemID.EucaluptusSap);
                         }
                         else
                         {
-                            quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.DayTime");
+                            quote = "These little critters are always falling out of the trees I cut down. Maybe you can find a use for them?";
 							for (int i = 0; i < 5; i++)
                             {
 								itemType = Main.rand.Next(new int[] { ItemID.Grasshopper, ItemID.Squirrel, ItemID.SquirrelRed, ItemID.Bird, ItemID.BlueJay, ItemID.Cardinal });
@@ -314,7 +315,7 @@ namespace Fargowiltas.NPCs
                     }
                     else
                     {
-                        quote = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.NightTime");
+                        quote = "Chopping trees at night is always relaxing... well except for the flying eyeballs. Have one of these little guys to keep you company.";
                         player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.Firefly), ItemID.Firefly);
                     }
 
@@ -332,7 +333,7 @@ namespace Fargowiltas.NPCs
             }
             else
             {
-                Main.npcChatText = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Lumber.Rest");
+                Main.npcChatText = "I'm resting after a good day of chopping, come back tomorrow and maybe I'll have something else for you.";
             }
         }
 

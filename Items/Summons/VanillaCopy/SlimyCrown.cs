@@ -11,7 +11,7 @@ namespace Fargowiltas.Items.Summons
 
         public override int NPCType => NPCID.KingSlime;
 
-        public override string NPCName => LocalizedName("KingSlime");
+        public override string NPCName => "King Slime";
 
         public override void SetStaticDefaults()
         {

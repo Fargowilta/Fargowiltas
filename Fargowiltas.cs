@@ -23,7 +23,6 @@ using Terraria.DataStructures;
 using Terraria.UI;
 using Terraria.Chat;
 using Fargowiltas.Items.Vanity;
-using static Fargowiltas.FargoUtils;
 
 namespace Fargowiltas
 {
@@ -84,10 +83,11 @@ namespace Fargowiltas
             dialogueTracker = new DevianttDialogueTracker();
             dialogueTracker.AddVanillaDialogue();
 
-            HomeKey = KeybindLoader.RegisterKeybind(this, GetTranslation("Keybind.Home"), "Home");
-            RodKey = KeybindLoader.RegisterKeybind(this, GetTranslation("Keybind.Rod"), "E");
-            CustomKey = KeybindLoader.RegisterKeybind(this, GetTranslation("Keybind.Custom"), "K");
-            StatKey = KeybindLoader.RegisterKeybind(this, GetTranslation("Keybind.Stat"), "M");
+            HomeKey = KeybindLoader.RegisterKeybind(this, "Quick Recall/Mirror", "Home");
+            RodKey = KeybindLoader.RegisterKeybind(this, "Quick Rod of Discord", "E");
+            CustomKey = KeybindLoader.RegisterKeybind(this, "Quick Use Custom (Bottom Left Inventory Slot)", "K");
+
+            StatKey = KeybindLoader.RegisterKeybind(this, "Open Stat Sheet", "M");
 
             _userInterfaceManager = new UIManager();
             _userInterfaceManager.LoadUI();
@@ -107,11 +107,11 @@ namespace Fargowiltas
                 ModLoaded.Add(mod, false);
             }
 
-            AddToggle("Mods.Fargowiltas.Config.Mutant", "{$Mods.Fargowiltas.NPCName.Mutant}{$Mods.Fargowiltas.Config.CanSpawn}", ModContent.ItemType<MutantMask>(), "ffffff");
-            AddToggle("Mods.Fargowiltas.Config.Abom", "{$Mods.Fargowiltas.NPCName.Abominationn}{$Mods.Fargowiltas.Config.CanSpawn}", ModContent.ItemType<AbominationnMask>(), "ffffff");
-            AddToggle("Mods.Fargowiltas.Config.Devi", "{$Mods.Fargowiltas.NPCName.Deviantt}{$Mods.Fargowiltas.Config.CanSpawn}", ModContent.ItemType<DevianttMask>(), "ffffff");
-            AddToggle("Mods.Fargowiltas.Config.Lumber", "{$Mods.Fargowiltas.NPCName.LumberJack}{$Mods.Fargowiltas.Config.CanSpawn}", ModContent.ItemType<LumberjackMask>(), "ffffff");
-            AddToggle("Mods.Fargowiltas.Config.Squirrel", "{$Mods.Fargowiltas.NPCName.Squirrel}{$Mods.Fargowiltas.Config.CanSpawn}", ItemID.TopHat, "ffffff");
+            AddToggle("Mods.Fargowiltas.Config.Mutant", "{$Mods.Fargowiltas.NPCName.Mutant} {$Mods.Fargowiltas.Config.CanSpawn}", ModContent.ItemType<MutantMask>(), "ffffff");
+            AddToggle("Mods.Fargowiltas.Config.Abom", "{$Mods.Fargowiltas.NPCName.Abominationn} {$Mods.Fargowiltas.Config.CanSpawn}", ModContent.ItemType<AbominationnMask>(), "ffffff");
+            AddToggle("Mods.Fargowiltas.Config.Devi", "{$Mods.Fargowiltas.NPCName.Deviantt} {$Mods.Fargowiltas.Config.CanSpawn}", ModContent.ItemType<DevianttMask>(), "ffffff");
+            AddToggle("Mods.Fargowiltas.Config.Lumber", "{$Mods.Fargowiltas.NPCName.LumberJack} {$Mods.Fargowiltas.Config.CanSpawn}", ModContent.ItemType<LumberjackMask>(), "ffffff");
+            AddToggle("Mods.Fargowiltas.Config.Squirrel", "{$Mods.Fargowiltas.NPCName.Squirrel} {$Mods.Fargowiltas.Config.CanSpawn}", ItemID.TopHat, "ffffff");
 
             CaughtNPCItem.RegisterItems(this);
 
@@ -388,38 +388,38 @@ namespace Fargowiltas
                 if (Main.invasionType != 0)
                 {
                     Main.invasionType = 0;
-                    PrintText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.InvadersLeft"), 175, 75, 255);
+                    FargoUtils.PrintText("The invaders have left!", 175, 75, 255);
                 }
 
                 if (Main.pumpkinMoon)
                 {
                     Main.pumpkinMoon = false;
-                    PrintText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.PumpkinMoon"), 175, 75, 255);
+                    FargoUtils.PrintText("The Pumpkin Moon is lowering...", 175, 75, 255);
                 }
 
                 if (Main.snowMoon)
                 {
                     Main.snowMoon = false;
-                    PrintText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.FrostMoon"), 175, 75, 255);
+                    FargoUtils.PrintText("The Frost Moon is lowering...", 175, 75, 255);
                 }
 
                 if (Main.eclipse)
                 {
                     Main.eclipse = false;
-                    PrintText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.Eclipse"), 175, 75, 255);
+                    FargoUtils.PrintText("A solar eclipse is not happening!", 175, 75, 255);
                 }
 
                 if (Main.bloodMoon)
                 {
                     Main.bloodMoon = false;
-                    PrintText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.BloodMoon"), 175, 75, 255);
+                    FargoUtils.PrintText("The blood moon is descending...", 175, 75, 255);
                 }
 
                 if (Main.WindyEnoughForKiteDrops)
                 {
                     Main.windSpeedTarget = 0;
                     Main.windSpeedCurrent = 0;
-                    PrintText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.Windy"), 175, 75, 255);
+                    FargoUtils.PrintText("The wind has ended!", 175, 75, 255);
                 }
 
                 if (Main.slimeRain)
@@ -435,7 +435,7 @@ namespace Fargowiltas
                 if (DD2Event.Ongoing && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     DD2Event.StopInvasion();
-                    PrintText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.OOA"), 175, 75, 255);
+                    FargoUtils.PrintText("The Old One's Army is leaving!", 175, 75, 255);
                 }
 
                 if (Sandstorm.Happening)
@@ -443,7 +443,7 @@ namespace Fargowiltas
                     Sandstorm.Happening = false;
                     Sandstorm.TimeLeft = 0;
                     Sandstorm.IntendedSeverity = 0;
-                    PrintText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.SandStorm"), 175, 75, 255);
+                    FargoUtils.PrintText("The sandstorm has ended!", 175, 75, 255);
                 }
 
                 if (NPC.downedTowers && (NPC.LunarApocalypseIsUp || NPC.ShieldStrengthTowerNebula > 0 || NPC.ShieldStrengthTowerSolar > 0 || NPC.ShieldStrengthTowerStardust > 0 || NPC.ShieldStrengthTowerVortex > 0))
@@ -466,7 +466,7 @@ namespace Fargowiltas
                             Main.npc[i].StrikeNPCNoInteraction(int.MaxValue, 0f, 0);
                         }
                     }
-                    PrintText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.Towers"), 175, 75, 255);
+                    FargoUtils.PrintText("Celestial creatures are not invading!", 175, 75, 255);
                 }
 
                 if (Main.IsItRaining || Main.IsItStorming)
@@ -475,7 +475,7 @@ namespace Fargowiltas
                     Main.cloudAlpha = 0;
                     if (Main.netMode == NetmodeID.Server)
                         Main.SyncRain();
-                    PrintText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.Rain"), 175, 75, 255);
+                    FargoUtils.PrintText("The rain has ended!", 175, 75, 255);
                 }
 
                 FargoWorld.AbomClearCD = 7200;
@@ -535,12 +535,12 @@ namespace Fargowiltas
                     {
                         if (Main.netMode == NetmodeID.SinglePlayer)
                         {
-                            Main.NewText(Language.GetTextValue("Mods.Fargowiltas.HaveAwoken", npcName), 175, 75);
+                            Main.NewText(npcName + " have awoken!", 175, 75);
                         }
                         else
                         if (Main.netMode == NetmodeID.Server)
                         {
-                            ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.HaveAwoken", npcName), new Color(175, 75, 255));
+                            ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(npcName + " have awoken!"), new Color(175, 75, 255));
                         }
                     }
                     else
@@ -552,7 +552,7 @@ namespace Fargowiltas
                         else
                         if (Main.netMode == NetmodeID.Server)
                         {
-                            ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", npcName), new Color(175, 75, 255));
+                            ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[] { NetworkText.FromLiteral(npcName) }), new Color(175, 75, 255));
                         }
                     }
                 }

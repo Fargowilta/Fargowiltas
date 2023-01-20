@@ -12,7 +12,7 @@ namespace Fargowiltas.Items.Summons
 
         public override int NPCType => NPCID.BrainofCthulhu;
 
-        public override string NPCName => LocalizedName("BrainofCthulhu");
+        public override string NPCName => "Brain of Cthulhu";
 
         public override void SetStaticDefaults()
         {

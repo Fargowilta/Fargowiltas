@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
-using Terraria.Localization;
 using Terraria.UI;
 
 namespace Fargowiltas.UI
@@ -18,7 +17,7 @@ namespace Fargowiltas.UI
             Icon.Top.Set(245, 0f);
             Append(Icon);
 
-            IconHighlight = new UIHoverTextImageButton(Fargowiltas.UserInterfaceManager.StatsButton_MouseOverTexture, FargoUtils.GetTranslation("UI.StatSheet.Name"));
+            IconHighlight = new UIHoverTextImageButton(Fargowiltas.UserInterfaceManager.StatsButton_MouseOverTexture, "Stat Sheet");
             IconHighlight.Left.Set(-2, 0f);
             IconHighlight.Top.Set(-2, 0f);
             IconHighlight.SetVisibility(1f, 0f);

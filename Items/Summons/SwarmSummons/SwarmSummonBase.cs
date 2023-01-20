@@ -6,9 +6,6 @@ using Terraria.Chat;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
-using Terraria.IO;
-using System.IO;
 
 namespace Fargowiltas.Items.Summons.SwarmSummons
 {
@@ -19,12 +16,13 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         private int npcType;
         private readonly int maxSpawn; //energizer swarms are this size
-        //private readonly string spawnMessage;
+        private readonly string spawnMessage;
         private readonly string material;
-        protected SwarmSummonBase(int npcType, string spawnMessage, int maxSpawn, string material)// spawnMessage is unused now
+        
+        protected SwarmSummonBase(int npcType, string spawnMessage, int maxSpawn, string material)
         {
             this.npcType = npcType;
-            //this.spawnMessage = spawnMessage;
+            this.spawnMessage = spawnMessage;
             this.maxSpawn = maxSpawn;
             this.material = material;
         }
@@ -111,7 +109,6 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
             // Kill whole stack
             player.inventory[player.selectedItem].stack = 0;
 
-            string spawnMessage = Language.GetTextValue($"Mods.Fargowiltas.MessageInfo.Swarms.{material}");
             if (Main.netMode == NetmodeID.Server)
             {
                 ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(spawnMessage), new Color(175, 75, 255));

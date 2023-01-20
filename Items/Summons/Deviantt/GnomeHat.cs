@@ -6,7 +6,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     {
         public override int NPCType => NPCID.Gnome;
 
-        public override string NPCName => LocalizedName("Gnome");
+        public override string NPCName => "Gnome";
 
         public override void SetStaticDefaults()
         {

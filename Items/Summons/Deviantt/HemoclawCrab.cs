@@ -8,7 +8,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     {
         public override int NPCType => NPCID.GoblinShark;
 
-        public override string NPCName => LocalizedName("GoblinShark");
+        public override string NPCName => "Hemogoblin Shark";
 
         public override void SetStaticDefaults()
         {

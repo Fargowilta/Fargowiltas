@@ -6,7 +6,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     {
         public override int NPCType => NPCID.BigMimicCrimson;
 
-        public override string NPCName => LocalizedName("BigMimicCrimson");
+        public override string NPCName => "Crimson Mimic";
 
         public override void SetStaticDefaults()
         {

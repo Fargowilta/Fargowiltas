@@ -7,7 +7,7 @@ namespace Fargowiltas.Items.Summons.Abom
     {
         public override int NPCType => NPCID.Pumpking;
 
-        public override string NPCName => LocalizedName("Pumpking");
+        public override string NPCName => "Pumpking";
 
         public override void SetStaticDefaults()
         {

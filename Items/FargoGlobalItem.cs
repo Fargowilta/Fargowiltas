@@ -10,7 +10,6 @@ using Fargowiltas.NPCs;
 using Fargowiltas.Items.Ammos.Rockets;
 using System.Text.RegularExpressions;
 using System.Linq;
-using Terraria.Localization;
 
 namespace Fargowiltas.Items
 {
@@ -30,7 +29,7 @@ namespace Fargowiltas.Items
 
         //public override bool CloneNewInstances => true;
 
-        TooltipLine FountainTooltip(string biome) => new TooltipLine(Mod, "Tooltip0", Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.FountainTooltip", biome));
+        TooltipLine FountainTooltip(string biome) => new TooltipLine(Mod, "Tooltip0", $"[i:909] [c/AAAAAA:Forces surrounding biome state to {biome} upon activation]");
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
@@ -44,38 +43,38 @@ namespace Fargowiltas.Items
                 {
                     case ItemID.PureWaterFountain:
                         if (fargoConfig.Fountains)
-                            tooltips.Add(FountainTooltip(Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.Ocean")));
+                            tooltips.Add(FountainTooltip("Ocean"));
                         break;
 
                     case ItemID.OasisFountain:
                     case ItemID.DesertWaterFountain:
                         if (fargoConfig.Fountains)
-                            tooltips.Add(FountainTooltip(Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.Desert")));
+                            tooltips.Add(FountainTooltip("Desert"));
                         break;
 
                     case ItemID.JungleWaterFountain:
                         if (fargoConfig.Fountains)
-                            tooltips.Add(FountainTooltip(Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.Jungle")));
+                            tooltips.Add(FountainTooltip("Jungle"));
                         break;
 
                     case ItemID.IcyWaterFountain:
                         if (fargoConfig.Fountains)
-                            tooltips.Add(FountainTooltip(Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.Snow")));
+                            tooltips.Add(FountainTooltip("Snow"));
                         break;
 
                     case ItemID.CorruptWaterFountain:
                         if (fargoConfig.Fountains)
-                            tooltips.Add(FountainTooltip(Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.Corruption")));
+                            tooltips.Add(FountainTooltip("Corruption"));
                         break;
 
                     case ItemID.CrimsonWaterFountain:
                         if (fargoConfig.Fountains)
-                            tooltips.Add(FountainTooltip(Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.Crimson")));
+                            tooltips.Add(FountainTooltip("Crimson"));
                         break;
 
                     case ItemID.HallowedWaterFountain:
                         if (fargoConfig.Fountains)
-                            tooltips.Add(FountainTooltip(Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.Hallow")));
+                            tooltips.Add(FountainTooltip("Hallow (in hardmode only)"));
                         break;
 
                     //cavern fountain?
@@ -84,7 +83,7 @@ namespace Fargowiltas.Items
                     case ItemID.GoldenBugNet:
                     case ItemID.FireproofBugNet:
                         if (fargoConfig.CatchNPCs)
-                            tooltips.Add(new TooltipLine(Mod, "Tooltip0", Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.CatchNPCs")));
+                            tooltips.Add(new TooltipLine(Mod, "Tooltip0", "[i:1991] [c/AAAAAA:Can also catch townsfolk]"));
                         break;
 
                 }
@@ -93,34 +92,34 @@ namespace Fargowiltas.Items
                 {
                     if (item.type == ItemID.FishingPotion)
                     {
-                        line = new TooltipLine(Mod, "Tooltip1", Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.Lure1"));
+                        line = new TooltipLine(Mod, "Tooltip1", "[i:2373] [c/AAAAAA:Also grants one extra lure]");
                         tooltips.Insert(3, line);
                     }
 
                     if (item.type == ItemID.FiberglassFishingPole || item.type == ItemID.FisherofSouls || item.type == ItemID.Fleshcatcher || item.type == ItemID.ScarabFishingRod || item.type == ItemID.BloodFishingRod)
                     {
-                        line = new TooltipLine(Mod, "Tooltip1", Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.Lure2"));
+                        line = new TooltipLine(Mod, "Tooltip1", "[i:2373] [c/AAAAAA:This rod fires 2 lures]");
                         tooltips.Insert(3, line);
                     }
 
                     if (item.type == ItemID.MechanicsRod || item.type == ItemID.SittingDucksFishingRod)
                     {
-                        line = new TooltipLine(Mod, "Tooltip1", Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.Lure3"));
+                        line = new TooltipLine(Mod, "Tooltip1", "[i:2373] [c/AAAAAA:This rod fires 3 lures]");
                         tooltips.Insert(3, line);
                     }
 
                     if (item.type == ItemID.GoldenFishingRod || item.type == ItemID.HotlineFishingHook)
                     {
-                        line = new TooltipLine(Mod, "Tooltip1", Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.Lure5"));
+                        line = new TooltipLine(Mod, "Tooltip1", "[i:2373] [c/AAAAAA:This rod fires 5 lures]");
                         tooltips.Insert(3, line);
                     }
                 }
 
                 if (fargoConfig.TorchGodEX && item.type == ItemID.TorchGodsFavor)
                 {
-                    line = new TooltipLine(Mod, "TooltipTorchGod1", Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.TorchGod1"));
+                    line = new TooltipLine(Mod, "TooltipTorchGod1", "[i:5043] [c/AAAAAA:Automatically swaps placed torches to boost luck]");
                     tooltips.Add(line);
-                    line = new TooltipLine(Mod, "TooltipTorchGod2", Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.TorchGod2"));
+                    line = new TooltipLine(Mod, "TooltipTorchGod2", "[i:5043] [c/AAAAAA:Obeys true torch luck when replacing torches, which may differ from default choices]");
                     tooltips.Add(line);
                 }
 
@@ -128,7 +127,7 @@ namespace Fargowiltas.Items
                 {
                     if (item.buffType != 0)
                     {
-                        line = new TooltipLine(Mod, "TooltipUnlim", Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.Unlimited30"));
+                        line = new TooltipLine(Mod, "TooltipUnlim", "[i:87] [c/AAAAAA:Unlimited buff at 30 stack in inventory, Piggy Bank, or Safe]");
                         tooltips.Add(line);
                     }
                     else if (item.type == ItemID.SharpeningStation
@@ -137,7 +136,7 @@ namespace Fargowiltas.Items
                             || item.type == ItemID.BewitchingTable
                             || item.type == ItemID.SliceOfCake)
                     {
-                        line = new TooltipLine(Mod, "TooltipUnlim", Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.Unlimited3"));
+                        line = new TooltipLine(Mod, "TooltipUnlim", "[i:87] [c/AAAAAA:Unlimited buff at 3 stack in inventory, Piggy Bank, or Safe]");
                         tooltips.Add(line);
                     }
                 }
@@ -146,16 +145,16 @@ namespace Fargowiltas.Items
                 {
                     if (Informational.Contains(item.type) || Construction.Contains(item.type))
                     {
-                        line = new TooltipLine(Mod, "TooltipUnlim", Language.GetTextValue("Mods.Fargowiltas.ExpandedTooltips.PiggyBankAcc"));
+                        line = new TooltipLine(Mod, "TooltipUnlim", "[i:87] [c/AAAAAA:Works from Piggy Bank and Safe]");
                         tooltips.Add(line);
                     }
                 }
 
                 if (Squirrel.SquirrelSells(item, out Squirrel.SquirrelSellType sellType) != Squirrel.ShopGroup.End)
                 {
-                    string text = Language.GetTextValue($"Mods.Fargowiltas.ExpandedTooltips.{sellType}");
+                    string text = Regex.Replace(sellType.ToString(), "([a-z])([A-Z])", "$1 $2");
                     line = new TooltipLine(Mod, "TooltipSquirrel",
-                    $"[i:{CaughtNPCs.CaughtNPCItem.CaughtTownies[NPCType<Squirrel>()]}] [c/AAAAAA:{text}]");
+                        $"[i:{CaughtNPCs.CaughtNPCItem.CaughtTownies[NPCType<Squirrel>()]}] [c/AAAAAA:{text}]");
                     tooltips.Add(line);
                 }
             }

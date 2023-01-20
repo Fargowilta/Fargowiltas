@@ -16,7 +16,7 @@ namespace Fargowiltas.Items.Summons
 
         public override int NPCType => NPCID.EyeofCthulhu;
 
-        public override string NPCName => LocalizedName("EyeofCthulhu");
+        public override string NPCName => "Eye of Cthulhu";
 
         public override bool ResetTimeWhenUsed => !NPC.downedBoss1;
 

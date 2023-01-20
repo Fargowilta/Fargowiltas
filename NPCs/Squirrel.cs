@@ -155,16 +155,16 @@ namespace Fargowiltas.NPCs
             showCycleShop = GetSellableItems().Count / maxShop > 0 && !ModLoader.TryGetMod("ShopExpander", out _);
 
             if (Main.bloodMoon)
-                return Language.GetTextValue("Mods.Fargowiltas.Dialogues.Squirrel.BloodMoon");
+                return "[c/FF0000:You will suffer.]";
 
             switch (Main.rand.Next(3))
 			{
 				case 0:
-					return Language.GetTextValue("Mods.Fargowiltas.Dialogues.Squirrel.1");
+					return "*squeak*";
 				case 1:
-					return Language.GetTextValue("Mods.Fargowiltas.Dialogues.Squirrel.2");
+					return "*chitter*";
 				default:
-					return Language.GetTextValue("Mods.Fargowiltas.Dialogues.Squirrel.3");
+					return "*crunch crunch*";
 			}
 		}
 
@@ -173,8 +173,8 @@ namespace Fargowiltas.NPCs
             button = Language.GetTextValue("LegacyInterface.28");
             if (showCycleShop)
             {
-                button += $"{Language.GetTextValue("Mods.Fargowiltas.UI.space")}{shopNum + 1}";
-                button2 = Language.GetTextValue("Mods.Fargowiltas.UI.CycleShop");
+                button += $" {shopNum + 1}";
+                button2 = "Cycle Shop";
             }
         }
 

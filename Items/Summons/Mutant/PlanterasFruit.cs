@@ -10,7 +10,7 @@ namespace Fargowiltas.Items.Summons.Mutant
     {
         public override int NPCType => NPCID.Plantera;
 
-        public override string NPCName => LocalizedName("Plantera");
+        public override string NPCName => "Plantera";
 
         public override void SetStaticDefaults()
         {

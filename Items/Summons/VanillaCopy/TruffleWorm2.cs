@@ -12,7 +12,7 @@ namespace Fargowiltas.Items.Summons
 
         public override int NPCType => NPCID.DukeFishron;
 
-        public override string NPCName => LocalizedName("DukeFishron");
+        public override string NPCName => "Duke Fishron";
 
         public override void SetStaticDefaults()
         {

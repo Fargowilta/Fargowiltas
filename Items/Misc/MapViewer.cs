@@ -2,8 +2,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Localization;
-using System.Collections.Generic;
 
 namespace Fargowiltas.Items.Misc
 {
@@ -16,26 +14,6 @@ namespace Fargowiltas.Items.Misc
             DisplayName.SetDefault("The Ancient Master's Map of the Lost King's Great Ancestors");
             Tooltip.SetDefault("Reveals the map");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-            for (int i = 0; i < tooltips.Count; i++)
-            {
-                if (tooltips[i].Text == "Reveals the map")
-                {
-                    tooltips.Remove(tooltips[i]);
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        tooltips.Insert(i, new TooltipLine(Mod, "MapViewerTooltip", Language.GetTextValue("Mods.Fargowiltas.ItemTooltip.MapSingle")));
-                    }
-                    else
-                    {
-                        tooltips.Insert(i, new TooltipLine(Mod, "MapViewerTooltip", Language.GetTextValue("Mods.Fargowiltas.ItemTooltip.MapMulti")));
-                    }
-                    break;
-                }
-            }
         }
 
         public override void SetDefaults()

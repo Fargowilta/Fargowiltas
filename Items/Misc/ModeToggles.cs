@@ -50,25 +50,25 @@ namespace Fargowiltas.Items.Misc
                 case 0:
                     Main.GameMode = 1;
                     player.difficulty = 0;
-                    text = Language.GetTextValue("Mods.Fargowiltas.MessageInfo.Expert");
+                    text = "Expert mode is now enabled!";
                     break;
 
                 case 1:
                     Main.GameMode = 2;
                     player.difficulty = 0;
-                    text = Language.GetTextValue("Mods.Fargowiltas.MessageInfo.Master");
+                    text = "Master mode is now enabled!";
                     break;
 
                 case 2:
                     Main.GameMode = 3;
                     player.difficulty = 3;
-                    text = Language.GetTextValue("Mods.Fargowiltas.MessageInfo.Journey");
+                    text = "Journey mode is now enabled!";
                     break;
 
                 default:
                     Main.GameMode = 0;
                     player.difficulty = 0;
-                    text = Language.GetTextValue("Mods.Fargowiltas.MessageInfo.Normal");
+                    text = "Normal mode is now enabled!";
                     break;
             }
             

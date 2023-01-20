@@ -7,7 +7,7 @@ namespace Fargowiltas.Items.Summons.Abom
     {
         public override int NPCType => NPCID.MartianSaucerCore;
 
-        public override string NPCName => LocalizedName("MartianSaucer");
+        public override string NPCName => "Martian Saucer";
 
         public override void SetStaticDefaults()
         {

@@ -128,51 +128,51 @@ namespace Fargowiltas.NPCs
             if (NPC.homeless && canSayDefeatQuote && Fargowiltas.ModLoaded["FargowiltasSouls"] && (bool)ModLoader.GetMod("FargowiltasSouls").Call("DownedAbom"))
             {
                 canSayDefeatQuote = false;
-                return Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.Defeat");
+                return "You really defeated me... not bad. Now do it again without getting hit. Oh, and Copper Shortsword only.";
             }
 
             if (Fargowiltas.ModLoaded["FargowiltasSouls"] && Main.rand.NextBool(3))
             {
                 if ((bool)ModLoader.GetMod("FargowiltasSouls").Call("StyxArmor"))
-                    return Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.Styx");
+                    return "What nostalgic armor you're wearing... No, it doesn't fit on me anymore. And its battery takes too long to charge.";
             }
 
             List<string> dialogue = new List<string>
             {
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.1") + (!Main.hardMode ? Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.1phm") : Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.1hm")),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.2"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.3"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.4"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.5"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.6"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.7"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.8"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.9"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.10"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.11"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.12"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.13"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.14"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.15"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.16"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.17"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.18"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.19"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.20"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.21"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.22"),
-                Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.23"),
+                "Where'd I get my scythe from? " + (!Main.hardMode ? "Ask me later." : "You'll figure it out."),
+                "I have defeated everything in this land... nothing can beat me.",
+                "Have you ever had a weapon stuck to your hand? It's not very handy.",
+                "What happened to Yoramur? No idea who you're talking about.",
+                "You wish you could dress like me? Ha! Actually yea.. you can.",
+                "You ever read the ancient classics, I love all the fighting in them.",
+                "I'm a world class poet, ever read my piece about impending doom?",
+                "You want swarm summons? Maybe next year.",
+                "Like my wings? Thanks, the thing I got them from didn't like it much.",
+                "Heroism has no place in this world, instead let's just play ping pong.",
+                "Why are you looking at me like that? Your fashion sense isn't going to be winning you any awards either.",
+                "No, you can't have my hat.",
+                "Embrace suffering... Wait what do you mean that's already taken?",
+                "Your attempt to exploit my anger is admirable, but I cannot be angered.",
+                "Is it really a crime if everyone else does it.",
+                "Inflicting suffering upon others is the most amusing thing there is.",
+                "Irony is the best kind of humor, isn't that ironic?",
+                "I like Cat... What do you mean who's Cat?",
+                "Check the wiki if you need anything, the kirb is slowly getting it up to par.",
+                "I've heard tales of a legendary Diver... Anyway what was that about a giant jellyfish?",
+                "Overloaded events...? Yeah, they're pretty cool.",
+                "It's not like I don't enjoy your company, but can you buy something?",
+                "I have slain one thousand humans! Huh? You're a human? There's so much blood on your hands..",
             };
 
             if (Main.LocalPlayer.ZoneGraveyard)
             {
-                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.Graveyard"));
+                dialogue.Add("I hope all these graves lying around don't belong to you.");
             }
 
             int mechanic = NPC.FindFirstNPC(NPCID.Mechanic);
             if (mechanic != -1)
             {
-                dialogue.Add(Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.Mechanic", Main.npc[mechanic].GivenName));
+                dialogue.Add($"Can you please ask {Main.npc[mechanic].GivenName} to stop touching my laser arm please.");
             }
 
             return Main.rand.Next(dialogue);
@@ -181,7 +181,7 @@ namespace Fargowiltas.NPCs
         public override void SetChatButtons(ref string button, ref string button2)
         {
             button = Language.GetTextValue("LegacyInterface.28");
-            button2 = Language.GetTextValue("Mods.Fargowiltas.UI.CancelEvent");
+            button2 = "Cancel Event";
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref bool shop)
@@ -208,11 +208,11 @@ namespace Fargowiltas.NPCs
                         netMessage.Send();
                     }
 
-                    Main.npcChatText = Fargowiltas.TryClearEvents() ? Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.EventOver"): Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.CD", FargoWorld.AbomClearCD / 60);
+                    Main.npcChatText = Fargowiltas.TryClearEvents() ? "Hocus pocus, the event is over" : $"I'm not feeling it right now, come back in {FargoWorld.AbomClearCD / 60} seconds.";
                 }
                 else
                 {
-                    Main.npcChatText = Language.GetTextValue("Mods.Fargowiltas.Dialogues.Abom.NoEvent");
+                    Main.npcChatText = "I don't think there's an event right now.";
                 }
             }
         }

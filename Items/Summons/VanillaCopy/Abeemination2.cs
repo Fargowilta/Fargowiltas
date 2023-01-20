@@ -12,7 +12,7 @@ namespace Fargowiltas.Items.Summons
 
         public override int NPCType => NPCID.QueenBee;
 
-        public override string NPCName => LocalizedName("QueenBee");
+        public override string NPCName => "Queen Bee";
 
         public override void SetStaticDefaults()
         {

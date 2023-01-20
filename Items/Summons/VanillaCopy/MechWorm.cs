@@ -16,7 +16,7 @@ namespace Fargowiltas.Items.Summons
 
         public override int NPCType => NPCID.TheDestroyer;
 
-        public override string NPCName => LocalizedName("TheDestroyer");
+        public override string NPCName => "The Destroyer";
 
         public override bool ResetTimeWhenUsed => !NPC.downedMechBoss1;
 

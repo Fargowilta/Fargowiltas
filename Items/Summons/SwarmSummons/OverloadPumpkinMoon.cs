@@ -44,22 +44,22 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
                 if (Main.netMode == 2)
                 {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadPumpkinMoon1"), new Color(175, 75, 255));
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The Pumpkin Moon fades away!"), new Color(175, 75, 255));
                 }
                 else
                 {
-                    Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.OverloadPumpkinMoon1"), 175, 75, 255);
+                    Main.NewText("The Pumpkin Moon fades away!", 175, 75, 255);
                 }
             }
             else
             {
                 if (Main.netMode == 2)
                 {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadPumpkinMoon2"), new Color(50, 255, 130));
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The Pumpkin Moon is rising..."), new Color(50, 255, 130));
                 }
                 else
                 {
-                    Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.OverloadPumpkinMoon2"), 50, 255, 130);
+                    Main.NewText("The Pumpkin Moon is rising...", 50, 255, 130);
                 }
 
                 Main.pumpkinMoon = true;
@@ -72,11 +72,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
                     if (Main.netMode == 2)
                     {
-                        ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadPumpkinMoonWave"), new Color(175, 75, 255));
+                        ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Wave: 15: Everything"), new Color(175, 75, 255));
                     }
                     else
                     {
-                        Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.OverloadPumpkinMoonWave"), 175, 75, 255);
+                        Main.NewText("Wave: 15: Everything", 175, 75, 255);
                     }
                 }
                 else

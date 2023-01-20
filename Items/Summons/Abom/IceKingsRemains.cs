@@ -7,7 +7,7 @@ namespace Fargowiltas.Items.Summons.Abom
     {
         public override int NPCType => NPCID.IceQueen;
 
-        public override string NPCName => LocalizedName("IceQueen");
+        public override string NPCName => "Ice Queen";
 
         public override void SetStaticDefaults()
         {

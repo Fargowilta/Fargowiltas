@@ -6,7 +6,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     {
         public override int NPCType => NPCID.DungeonSlime;
 
-        public override string NPCName => LocalizedName("DungeonSlime");
+        public override string NPCName => "Dungeon Slime";
 
         public override void SetStaticDefaults()
         {

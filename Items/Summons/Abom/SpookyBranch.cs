@@ -7,7 +7,7 @@ namespace Fargowiltas.Items.Summons.Abom
     {
         public override int NPCType => NPCID.MourningWood;
 
-        public override string NPCName => LocalizedName("MourningWood");
+        public override string NPCName => "Mourning Wood";
 
         public override void SetStaticDefaults()
         {

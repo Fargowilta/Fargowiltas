@@ -14,7 +14,7 @@ namespace Fargowiltas.Items.Summons.Mutant
     {
         public override int NPCType => Main.dayTime ? NPCID.DungeonGuardian : NPCID.SkeletronHead;
 
-        public override string NPCName => Main.dayTime ? LocalizedName("DungeonGuardian") : LocalizedName("SkeletronHead");
+        public override string NPCName => Main.dayTime ? "Dungeon Guardian" : "Skeletron";
 
         public override bool ResetTimeWhenUsed => !Main.dayTime && !NPC.downedBoss3;
 

@@ -12,7 +12,7 @@ namespace Fargowiltas.Items.Summons
 
         public override int NPCType => NPCID.Deerclops;
 
-        public override string NPCName => LocalizedName("Deerclops");
+        public override string NPCName => "Deerclops";
 
         public override void SetStaticDefaults()
         {

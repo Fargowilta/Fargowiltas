@@ -1,7 +1,5 @@
 ﻿using Fargowiltas.Projectiles;
 using Microsoft.Xna.Framework;
-using System;
-using System.Reflection;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
@@ -70,17 +68,16 @@ namespace Fargowiltas.Items.Summons
 
             if (Main.netMode == NetmodeID.Server)
             {
-                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", NPCName), new Color(175, 75, 255));
+                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral($"{NPCName} has awoken!"), new Color(175, 75, 255));
             }
             else if (NPCType != NPCID.KingSlime)
             {
-                Main.NewText(Language.GetTextValue("Announcement.HasAwoken", NPCName), new Color(175, 75, 255));
+                Main.NewText($"{NPCName} has awoken!", new Color(175, 75, 255));
             }
 
             SoundEngine.PlaySound(SoundID.Roar, player.position);
 
             return false;
         }
-        protected static string LocalizedName(string name) => Language.GetTextValue($"NPCName.{name}");
     }
 }

@@ -7,7 +7,7 @@ namespace Fargowiltas.Items.Summons.Abom
     {
         public override int NPCType => NPCID.Everscream;
 
-        public override string NPCName => LocalizedName("Everscream");
+        public override string NPCName => "Everscream";
 
         public override void SetStaticDefaults()
         {

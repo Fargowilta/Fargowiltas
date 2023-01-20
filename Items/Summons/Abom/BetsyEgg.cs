@@ -6,7 +6,7 @@ namespace Fargowiltas.Items.Summons.Abom
     {
         public override int NPCType => NPCID.DD2Betsy;
 
-        public override string NPCName => LocalizedName("DD2Betsy");
+        public override string NPCName => "Betsy";
 
         public override void SetStaticDefaults()
         {

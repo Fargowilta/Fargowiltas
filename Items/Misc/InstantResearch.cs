@@ -1,4 +1,3 @@
-using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -49,7 +48,7 @@ namespace Fargowiltas.Items.Misc
 					}
 				}
 
-				FargoUtils.PrintText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.InstantResearch", count));
+				FargoUtils.PrintText($"researched {count} items");
 			}
 
 			return true;

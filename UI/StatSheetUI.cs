@@ -1,5 +1,4 @@
 ﻿using Fargowiltas.Items.Misc;
-using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using System;
 using System.Linq;
@@ -76,45 +75,45 @@ namespace Fargowiltas.UI
             double Damage(DamageClass damageClass) => Math.Round(player.GetTotalDamage(damageClass).Additive * player.GetTotalDamage(damageClass).Multiplicative * 100 - 100);
             int Crit(DamageClass damageClass) => (int)player.GetTotalCritChance(damageClass);
 
-            AddStat("MeleeDamage", Damage(DamageClass.Melee).ToString(), ItemID.CopperBroadsword);
-            AddStat("MeleeCritical", Crit(DamageClass.Melee), ItemID.CopperBroadsword);
-            AddStat("MeleeSpeed", (int)(1f / player.GetAttackSpeed(DamageClass.Melee) * 100), ItemID.CopperBroadsword);
-            AddStat("RangedDamage", Damage(DamageClass.Ranged), ItemID.CopperBow);
-            AddStat("RangedCritical", Crit(DamageClass.Ranged), ItemID.CopperBow);
-            AddStat("MagicDamage", Damage(DamageClass.Magic), ItemID.WandofSparking);
-            AddStat("MagicCritical", Crit(DamageClass.Magic), ItemID.WandofSparking);
-            AddStat("ManaCostReduction", Math.Round((1.0 - player.manaCost) * 100), ItemID.WandofSparking);
-            AddStat("SummonDamage", Damage(DamageClass.Summon), ItemID.SlimeStaff);
+            AddStat($"Melee Damage: {Damage(DamageClass.Melee)}%", ItemID.CopperBroadsword);
+            AddStat($"Melee Critical: {Crit(DamageClass.Melee)}%", ItemID.CopperBroadsword);
+            AddStat($"Melee Speed: {(int)(1f / player.GetAttackSpeed(DamageClass.Melee) * 100)}%", ItemID.CopperBroadsword);
+            AddStat($"Ranged Damage: {Damage(DamageClass.Ranged)}%", ItemID.CopperBow);
+            AddStat($"Ranged Critical: {Crit(DamageClass.Ranged)}%", ItemID.CopperBow);
+            AddStat($"Magic Damage: {Damage(DamageClass.Magic)}%", ItemID.WandofSparking);
+            AddStat($"Magic Critical: {Crit(DamageClass.Magic)}%", ItemID.WandofSparking);
+            AddStat($"Mana Cost Reduction: {Math.Round((1.0 - player.manaCost) * 100)}%", ItemID.WandofSparking);
+            AddStat($"Summon Damage: {Damage(DamageClass.Summon)}%", ItemID.SlimeStaff);
             if (Fargowiltas.ModLoaded["FargowiltasSouls"])
-                AddStat("SummonCritical", (int)ModLoader.GetMod("FargowiltasSouls").Call("GetSummonCrit"), ItemID.SlimeStaff);
+                AddStat($"Summon Critical: {(int)ModLoader.GetMod("FargowiltasSouls").Call("GetSummonCrit")}%", ItemID.SlimeStaff);
             else
                 AddStat("");
-            AddStat("MaxMinions", player.maxMinions, ItemID.SlimeStaff);
-            AddStat("MaxSentries", player.maxTurrets, ItemID.SlimeStaff);
+            AddStat($"Max Minions: {player.maxMinions}", ItemID.SlimeStaff);
+            AddStat($"Max Sentries: {player.maxTurrets}", ItemID.SlimeStaff);
 
-            AddStat("ArmorPenetration", player.GetArmorPenetration(DamageClass.Generic), ItemID.SharkToothNecklace);
-            AddStat("Aggro", player.aggro, ItemID.FleshKnuckles);
+            AddStat($"Armor Penetration: {player.GetArmorPenetration(DamageClass.Generic)}", ItemID.SharkToothNecklace);
+            AddStat($"Aggro: {player.aggro}", ItemID.FleshKnuckles);
 
 
-            AddStat("Life", player.statLifeMax2, ItemID.LifeCrystal);
-            AddStat("LifeRegen", player.lifeRegen / 2, ItemID.BandofRegeneration);
-            AddStat("Mana", player.statManaMax2, ItemID.ManaCrystal);
-            AddStat("ManaRegen", player.manaRegen / 2, ItemID.ManaCrystal);
-            AddStat("Defense", player.statDefense, ItemID.CobaltShield);
-            AddStat("DamageReduction", Math.Round(player.endurance * 100), ItemID.WormScarf);
-            AddStat("Luck", Math.Round(player.luck, 2), ItemID.Torch);
-            AddStat("FishingQuests", player.anglerQuestsFinished, ItemID.AnglerEarring);
-            AddStat("BattleCry", modPlayer.BattleCry ? $"[c/ff0000:{StatSheetText("Battle")}]" : (modPlayer.CalmingCry ? $"[c/00ffff:${StatSheetText("Calming")}]" : StatSheetText("None")), ModContent.ItemType<BattleCry>());
-            AddStat("MaxSpeed", (int)((player.accRunSpeed + player.maxRunSpeed) / 2f * player.moveSpeed * 6), ItemID.HermesBoots);
+            AddStat($"Life: {player.statLifeMax2}", ItemID.LifeCrystal);
+            AddStat($"Life Regen: {player.lifeRegen / 2}/sec", ItemID.BandofRegeneration);
+            AddStat($"Mana: {player.statManaMax2}", ItemID.ManaCrystal);
+            AddStat($"Mana Regen: {player.manaRegen / 2}/sec", ItemID.ManaCrystal);
+            AddStat($"Defense: {player.statDefense}", ItemID.CobaltShield);
+            AddStat($"Damage Reduction: {Math.Round(player.endurance * 100)}%", ItemID.WormScarf);
+            AddStat($"Luck: {Math.Round(player.luck, 2)}", ItemID.Torch);
+            AddStat($"Fishing Quests: {player.anglerQuestsFinished}", ItemID.AnglerEarring);
+            AddStat($"Battle Cry: {(modPlayer.BattleCry ? "[c/ff0000:Battle]" : (modPlayer.CalmingCry ? "[c/00ffff:Calming]" : "None"))}", ModContent.ItemType<BattleCry>());
+            AddStat($"Max Speed: {(int)((player.accRunSpeed + player.maxRunSpeed) / 2f * player.moveSpeed * 6)} mph", ItemID.HermesBoots);
 
-            string RenderWingStat(double stat) => stat <= 0 ? StatSheetText("???") : stat.ToString();
-            AddStat("WingTime", player.wingTimeMax / 60 > 60 || player.empressBrooch ? StatSheetText("WingTimeInfinite") : StatSheetText("WingTimeSec", RenderWingStat(Math.Round(player.wingTimeMax / 60.0, 2))), ItemID.AngelWings);
-            AddStat("WingMaxSpeed", RenderWingStat(Math.Round(modPlayer.StatSheetWingSpeed * 32 / 6.25)), ItemID.AngelWings);
-            AddStat("WindAscentModifier", RenderWingStat(Math.Round(modPlayer.StatSheetMaxAscentMultiplier * 100)), ItemID.AngelWings);
-            AddStat("WingCanHover", modPlayer.CanHover == null ? StatSheetText("???") : StatSheetText(modPlayer.CanHover.ToString()), ItemID.AngelWings);
+            string RenderWingStat(double stat) => stat <= 0 ? "???" : stat.ToString();
+            AddStat(player.wingTimeMax / 60 > 60 || player.empressBrooch ? "Wing Time: Yes" : $"Wing Time: {RenderWingStat(Math.Round(player.wingTimeMax / 60.0, 2))} sec", ItemID.AngelWings);
+            AddStat($"Wing Max Speed: {RenderWingStat(Math.Round(modPlayer.StatSheetWingSpeed * 32 / 6.25))} mph", ItemID.AngelWings);
+            AddStat($"Wing Ascent Modifier: {RenderWingStat(Math.Round(modPlayer.StatSheetMaxAscentMultiplier * 100))}%", ItemID.AngelWings);
+            AddStat($"Wing Can Hover: {(modPlayer.CanHover == null ? "???" : modPlayer.CanHover)}", ItemID.AngelWings);
         }
 
-        public void AddStat(string key, object value = null, int item = -1)
+        public void AddStat(string text, int item = -1)
         {
             int left = 8 + ColumnCounter * ((BackWidth - 8) / HowManyColumns);
             int top = 8 + LineCounter * (23); // I don't know why but 23 works perfectly
@@ -123,9 +122,7 @@ namespace Fargowiltas.UI
                 ColumnCounter++;
                 LineCounter = 0;
             }
-            string text = "";
-            if (key != "")
-                text = Language.GetTextValue($"Mods.Fargowiltas.UI.StatSheet.{key}", value);
+
             UIText ui = new UIText(item > -1 ? $"[i:{item}] {text}" : text);
             ui.Left.Set(left, 0f);
             ui.Top.Set(top, 0f);
@@ -147,7 +144,6 @@ namespace Fargowiltas.UI
             InnerPanel.Append(ui);
         }
 
-        private static string StatSheetText(string key, object value = null) => Language.GetTextValue($"Mods.Fargowiltas.UI.StatSheet.{key}", value);
         /*public void SetPositionToPoint(Point point)
         {
             BackPanel.Left.Set(point.X, 0f);

@@ -10,7 +10,7 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
     {
         public override int NPCType => NPCID.Golem;
 
-        public override string NPCName => LocalizedName("Golem");
+        public override string NPCName => "Golem";
 
         public override void SetStaticDefaults()
         {

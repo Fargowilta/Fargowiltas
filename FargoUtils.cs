@@ -5,7 +5,6 @@ using Terraria;
 using Terraria.Chat;
 using Terraria.ID;
 using Terraria.Localization;
-using Terraria.ModLoader;
 
 namespace Fargowiltas
 {
@@ -46,8 +45,7 @@ namespace Fargowiltas
 
             if (update)
             {
-                seller = Language.GetTextValue($"Mods.Fargowiltas.NPCName.{seller}");
-                string text = Language.GetTextValue("Mods.Fargowiltas.MessageInfo.ItemUnlocked", seller);
+                string text = $"A new item has been unlocked in {seller}'s shop!";
                 if (Main.netMode == NetmodeID.SinglePlayer)
                 {
                     if (conditions)
@@ -59,7 +57,6 @@ namespace Fargowiltas
                         ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(text), color);
                     NetMessage.SendData(MessageID.WorldData); //sync world
                 }
-
             }
         }
 
@@ -81,9 +78,5 @@ namespace Fargowiltas
         }
 
         public static void PrintText(string text, int r, int g, int b) => PrintText(text, new Color(r, g, b));
-
-        public static bool IsChinese => Language.ActiveCulture.LegacyId == (int)GameCulture.CultureName.Chinese;
-
-        public static string GetTranslation(string key, bool fargoKey = true) => LocalizationLoader.GetOrCreateTranslation(fargoKey ? $"Mods.Fargowiltas.{key}" : key).GetTranslation(Language.ActiveCulture);
     }
 }

@@ -7,7 +7,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     {
         public override int NPCType => Main.LocalPlayer.ZoneSnow ? NPCID.IceMimic : NPCID.Mimic;
 
-        public override string NPCName => LocalizedName("Mimic");
+        public override string NPCName => "Mimic";
 
         public override void SetStaticDefaults()
         {

@@ -45,11 +45,11 @@ namespace Fargowiltas.Items.Summons.Deviantt
 
             if (Main.netMode == NetmodeID.Server)
             {
-                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.Pinky"), new Color(175, 75, 255));
+                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Pinky has awoken!"), new Color(175, 75, 255));
             }
             else
             {
-                Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.Pinky"), new Color(175, 75, 255));
+                Main.NewText("Pinky has awoken!", new Color(175, 75, 255));
             }
 
             return true;
