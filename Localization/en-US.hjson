@@ -114,6 +114,10 @@ Mods: {
 			NPCSales: "[i:267] Extra Town NPC sales"
 			SaferBoundNPCs: "[i:1274] Rescuable Town NPCs take no contact damage"
 
+			SeasonSelectionNormal: Normal
+			SeasonSelectionAlwaysOn: Always On
+			SeasonSelectionAlwaysOff: Always Off
+
 			SeasonsHeader: Seasons
 			Halloween: "[i:1774] Halloween Season"
 			Christmas: "[i:1869] Christmas Season"
