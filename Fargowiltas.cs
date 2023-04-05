@@ -75,6 +75,16 @@ namespace Fargowiltas
             LocalizationLoader.AddTranslation(text);
         }
 
+        private void RegisterWiki()
+        {
+            ModLoader.TryGetMod("Wikithis", out Mod wikithis);
+            
+            if (wikithis != null && !main.dedServ)
+            {
+                wikithis.Call("AddModURL", this, "https://terrariamods.wiki.gg/wiki/Fargo's_Mod/{}");
+            }
+        }
+
         public override void Load()
         {
             Instance = this;
@@ -112,7 +122,8 @@ namespace Fargowiltas
             AddToggle("Mods.Fargowiltas.Config.Devi", "{$Mods.Fargowiltas.NPCName.Deviantt} {$Mods.Fargowiltas.Config.CanSpawn}", ModContent.ItemType<DevianttMask>(), "ffffff");
             AddToggle("Mods.Fargowiltas.Config.Lumber", "{$Mods.Fargowiltas.NPCName.LumberJack} {$Mods.Fargowiltas.Config.CanSpawn}", ModContent.ItemType<LumberjackMask>(), "ffffff");
             AddToggle("Mods.Fargowiltas.Config.Squirrel", "{$Mods.Fargowiltas.NPCName.Squirrel} {$Mods.Fargowiltas.Config.CanSpawn}", ItemID.TopHat, "ffffff");
-
+            
+            RegisterWiki();
             CaughtNPCItem.RegisterItems(this);
 
             // DD2 Banner Effect hack
