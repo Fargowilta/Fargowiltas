@@ -255,9 +255,6 @@ namespace Fargowiltas
             group = new RecipeGroup(() => AnyItem("CaughtNPC"), CaughtNPCItem.CaughtTownies.Values.ToArray());
             RecipeGroup.RegisterGroup("Fargowiltas:AnyCaughtNPC", group);
 
-            group = new RecipeGroup(() => AnyItem(ModContent.ItemType<Omnistation>()), ModContent.ItemType<Omnistation>(), ModContent.ItemType<Omnistation2>());
-            RecipeGroup.RegisterGroup("Fargowiltas:AnyOmnistation", group);
-
             group = new RecipeGroup(() => AnyItem(ItemID.CookingPot), ItemID.CookingPot, ItemID.Cauldron);
             RecipeGroup.RegisterGroup("Fargowiltas:AnyCookingPot", group);
 
