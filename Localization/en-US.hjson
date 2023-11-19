@@ -763,6 +763,10 @@ Mods: {
 			ModeToggle: {
 				DisplayName: World Token
 				Tooltip: Cycles difficulty modes
+				Journey: Journey mode is now enabled!
+				Normal: Normal mode is now enabled!
+				Expert: Expert mode is now enabled!
+				Master: Master mode is now enabled!
 			}
 
 			PortableSundial: {
@@ -1888,7 +1892,7 @@ Mods: {
 					Can be reused infinitely
 					Effects of all vanilla buff stations
 					Grants Honey when touched
-					Greatly increases luck when nearby
+					Greatly increases luck and provides Sugar Rush when nearby
 					'''
 			}
 
@@ -2379,6 +2383,7 @@ Mods: {
 				}
 
 				Census.SpawnCondition: Conditions unknown
+				CancelEvent: Cancel Event
 			}
 
 			Deviantt: {
@@ -2404,6 +2409,7 @@ Mods: {
 				}
 
 				Census.SpawnCondition: Conditions unknown
+				HelpButton: Help
 			}
 
 			LumberJack: {
@@ -2426,6 +2432,7 @@ Mods: {
 				}
 
 				Census.SpawnCondition: Conditions unknown
+				TreeTreasures: Tree Treasures
 			}
 
 			Mutant: {
@@ -2450,6 +2457,11 @@ Mods: {
 				}
 
 				Census.SpawnCondition: Conditions unknown
+
+				CycleShop: Cycle Shop
+				PreHM: Pre Hardmode:
+				HM: Hardmode
+				PostML: Post Moon Lord
 			}
 
 			Squirrel: {
@@ -2590,6 +2602,21 @@ Mods: {
 			"Open Stat Sheet.DisplayName": Open Stat Sheet
 			"Dash Key.DisplayName": Dash Key
 			"Set Bonus (Double Tap Up/Down) Key.DisplayName": Set Bonus Key
+		}
+		ExpandedTooltips: {
+			CatchNPCs: Can also catch townsfolk
+			ExtraLure1: Also grants one extra lure
+			Lures2: This rod fires 2 lures
+			Lures3: This rod fires 3 lures
+			Lures5: This rod fires 5 lures
+			AutoTorch: Automatically swaps placed torches to boost luck
+			TrueTorchLuck: Obeys true torch luck when replacing torches, which may differ from default choices
+			UnlimitedBuff30: Unlimited buff at 30 stack in inventory, Piggy Bank, or Safe
+			UnlimitedUse30: Unlimited use at 30 stack
+			PermanentEffectNearby: Permanently provides effect to nearby players
+			WorksFromBanks: Works from Piggy Bank and Safe
+			SoldBy: Sold By
+			SeveralVendors: several vendors
 		}
 	}
 }

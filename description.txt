@@ -4,6 +4,12 @@ There are several other items such as infinite ammos, craftable instant builds f
 Fargo Discord: https://discord.gg/Rgen4Vv
 Fargo Wiki: https://terrariamods.wiki.gg/wiki/Fargo%27s_Mod
 
+NEW UPDATE - V 3.2.1.1
+-Fixed some incorrect tooltips
+-Fixed issue with the Friendly Projectile Transparency config with some projectiles
+-Moved several instances of explicitly defined text to localization file
+-A few resprites
+
 NEW UPDATE - V 3.2.1
 -Added new "sold by" tooltips to ALL sold items, including modded
 -Buff stations now passively provide effects while nearby 
@@ -26,18 +32,3 @@ Other mods can now add stats to the stat sheet with the "AddStat" mod call
 -Fixed Pirate vanity banner recipes
 -Fixed some other minor bugs and issues
 -Several resprites
-
-NEW UPDATE - V 3.2
--Updated to Tmod's October update
--Added Dash Key and Set Bonus Key
--Added config to disable the double-click trigger for Dashes and Set Bonuses
--Removed "Unlimited use" tooltip for stations
--Made sure Super Dummy life can never go above integer limit
--Fixed gore loading errors
--Caught NPC item can only be used if they wouldn't collide with a tile when spawned
--Fixed Squirrel spawn conditions
--Lumberjack Tree Treasures gives Spicy Pepper or Pomegranate in Underworld
--Added WikiThis support
--Resprited Instapond
--Made Calamity abyss gravel and voidstone indestructible by Insta items
--Safeguarded against index errors in HandlePacket method

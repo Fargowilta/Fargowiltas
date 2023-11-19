@@ -15,6 +15,7 @@ using Fargowiltas.Common.Configs;
 using Fargowiltas.Items.Ammos.Coins;
 using Fargowiltas.Items.CaughtNPCs;
 using static System.Net.Mime.MediaTypeNames;
+using Terraria.Localization;
 
 namespace Fargowiltas.Items
 {
@@ -26,6 +27,8 @@ namespace Fargowiltas.Items
         private bool firstTick = true;
 
         public override bool InstancePerEntity => true;
+
+        static string ExpandedTooltipLoc(string line) => Language.GetTextValue($"Mods.Fargowiltas.ExpandedTooltips.{line}");
 
         public override GlobalItem Clone(Item item, Item itemClone)
         {
@@ -162,8 +165,8 @@ namespace Fargowiltas.Items
                         i++;
                     }
                     if (i > 5)
-                        names = "several vendors";
-                    string text = $"[i:{id}] [c/AAAAAA:Sold By {names}{tooltip.Condition}]";
+                        names = ExpandedTooltipLoc("SeveralVendors");
+                    string text = $"[i:{id}] [c/AAAAAA:{ExpandedTooltipLoc("SoldBy")} {names}{tooltip.Condition}]";
                     line = new TooltipLine(Mod, "TooltipNPCSold", text);
                     tooltips.Add(line);
                 }
@@ -212,7 +215,7 @@ namespace Fargowiltas.Items
                     case ItemID.GoldenBugNet:
                     case ItemID.FireproofBugNet:
                         if (fargoServerConfig.CatchNPCs)
-                            tooltips.Add(new TooltipLine(Mod, "Tooltip0", "[i:1991] [c/AAAAAA:Can also catch townsfolk]"));
+                            tooltips.Add(new TooltipLine(Mod, "Tooltip0", $"[i:1991] [c/AAAAAA:{ExpandedTooltipLoc("CatchNPCs")}]"));
                         break;
 
                 }
@@ -221,34 +224,34 @@ namespace Fargowiltas.Items
                 {
                     if (item.type == ItemID.FishingPotion)
                     {
-                        line = new TooltipLine(Mod, "Tooltip1", "[i:2373] [c/AAAAAA:Also grants one extra lure]");
+                        line = new TooltipLine(Mod, "Tooltip1", $"[i:2373] [c/AAAAAA:{ExpandedTooltipLoc("ExtraLure1")}]");
                         tooltips.Insert(3, line);
                     }
 
                     if (item.type == ItemID.FiberglassFishingPole || item.type == ItemID.FisherofSouls || item.type == ItemID.Fleshcatcher || item.type == ItemID.ScarabFishingRod || item.type == ItemID.BloodFishingRod)
                     {
-                        line = new TooltipLine(Mod, "Tooltip1", "[i:2373] [c/AAAAAA:This rod fires 2 lures]");
+                        line = new TooltipLine(Mod, "Tooltip1", $"[i:2373] [c/AAAAAA:{ExpandedTooltipLoc("Lures2")}]");
                         tooltips.Insert(3, line);
                     }
 
                     if (item.type == ItemID.MechanicsRod || item.type == ItemID.SittingDucksFishingRod)
                     {
-                        line = new TooltipLine(Mod, "Tooltip1", "[i:2373] [c/AAAAAA:This rod fires 3 lures]");
+                        line = new TooltipLine(Mod, "Tooltip1", $"[i:2373] [c/AAAAAA:{ExpandedTooltipLoc("Lures3")}]");
                         tooltips.Insert(3, line);
                     }
 
                     if (item.type == ItemID.GoldenFishingRod || item.type == ItemID.HotlineFishingHook)
                     {
-                        line = new TooltipLine(Mod, "Tooltip1", "[i:2373] [c/AAAAAA:This rod fires 5 lures]");
+                        line = new TooltipLine(Mod, "Tooltip1", $"[i:2373] [c/AAAAAA:{ExpandedTooltipLoc("Lures5")}]");
                         tooltips.Insert(3, line);
                     }
                 }
 
                 if (fargoServerConfig.TorchGodEX && item.type == ItemID.TorchGodsFavor)
                 {
-                    line = new TooltipLine(Mod, "TooltipTorchGod1", "[i:5043] [c/AAAAAA:Automatically swaps placed torches to boost luck]");
+                    line = new TooltipLine(Mod, "TooltipTorchGod1", $"[i:5043] [c/AAAAAA:{ExpandedTooltipLoc("AutoTorch")}]");
                     tooltips.Add(line);
-                    line = new TooltipLine(Mod, "TooltipTorchGod2", "[i:5043] [c/AAAAAA:Obeys true torch luck when replacing torches, which may differ from default choices]");
+                    line = new TooltipLine(Mod, "TooltipTorchGod2", $"[i:5043] [c/AAAAAA:{ExpandedTooltipLoc("TrueTorchLuck")}]");
                     tooltips.Add(line);
                 }
 
@@ -256,18 +259,18 @@ namespace Fargowiltas.Items
                 {
                     if (item.buffType != 0)
                     {
-                        line = new TooltipLine(Mod, "TooltipUnlim", "[i:87] [c/AAAAAA:Unlimited buff at 30 stack in inventory, Piggy Bank, or Safe]");
+                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:87] [c/AAAAAA:{ExpandedTooltipLoc("UnlimitedBuff30")}]");
                         tooltips.Add(line);
                     }
                     else if (item.bait > 0)
                     {
-                        line = new TooltipLine(Mod, "TooltipUnlim", "[i:5139] [c/AAAAAA:Unlimited use at 30 stack]");
+                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:5139] [c/AAAAAA:{ExpandedTooltipLoc("UnlimitedUse30")}]");
                         tooltips.Add(line);
                     }
                     
                     else if (BuffStations.Contains(item.type))
                     {
-                        line = new TooltipLine(Mod, "TooltipUnlim", "[i:87] [c/AAAAAA:Permanently provides effect to nearby players]");
+                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:87] [c/AAAAAA:{ExpandedTooltipLoc("PermanentEffectNearby")}]");
                         tooltips.Add(line);
                     }
                     
@@ -277,7 +280,7 @@ namespace Fargowiltas.Items
                 {
                     if (Informational.Contains(item.type) || Construction.Contains(item.type))
                     {
-                        line = new TooltipLine(Mod, "TooltipUnlim", "[i:87] [c/AAAAAA:Works from Piggy Bank and Safe]");
+                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:87] [c/AAAAAA:{ExpandedTooltipLoc("WorksFromBanks")}]");
                         tooltips.Add(line);
                     }
                 }

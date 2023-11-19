@@ -54,31 +54,33 @@ namespace Fargowiltas.Items.Misc
         {
             string text; ;
 
+            static string DiffText(string difficulty) => Language.GetTextValue($"Mods.Fargowiltas.Items.ModeToggle.{difficulty}");
+
             switch (Main.GameMode)
             {
                 case 0:
                     Main.GameMode = 1;
                     ChangeAllPlayerDifficulty(0);
                     player.difficulty = 0;
-                    text = "Expert mode is now enabled!";
+                    text = DiffText("Expert");
                     break;
 
                 case 1:
                     Main.GameMode = 2;
                     ChangeAllPlayerDifficulty(0);
-                    text = "Master mode is now enabled!";
+                    text = DiffText("Master");
                     break;
 
                 case 2:
                     Main.GameMode = 3;
                     ChangeAllPlayerDifficulty(3);
-                    text = "Journey mode is now enabled!";
+                    text = DiffText("Journey");
                     break;
 
                 default:
                     Main.GameMode = 0;
                     ChangeAllPlayerDifficulty(0);
-                    text = "Normal mode is now enabled!";
+                    text = DiffText("Normal");
                     break;
             }
             

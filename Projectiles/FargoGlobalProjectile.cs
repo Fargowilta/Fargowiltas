@@ -165,10 +165,10 @@ namespace Fargowiltas.Projectiles
             int p = Projectile.NewProjectile(source, pos, vel, type, damage, knockback, owner, ai0, ai1);
             return (p < Main.maxProjectiles) ? Main.projectile[p] : null;
         }
-
         public override Color? GetAlpha(Projectile projectile, Color lightColor)
         {
-            if (lowRender && !projectile.hostile && GetInstance<FargoClientConfig>().TransparentFriendlyProjectiles < 1)
+            float opacityConfig = GetInstance<FargoClientConfig>().TransparentFriendlyProjectiles;
+            if (lowRender && !projectile.hostile && opacityConfig < 1)
             {
                 Color? color = projectile.ModProjectile?.GetAlpha(lightColor);
                 if (color != null)
@@ -176,7 +176,6 @@ namespace Fargowiltas.Projectiles
                     return color.Value * GetInstance<FargoClientConfig>().TransparentFriendlyProjectiles;
                 }
                 lightColor *= GetInstance<FargoClientConfig>().TransparentFriendlyProjectiles;
-                return lightColor;
             }
 
             return base.GetAlpha(projectile, lightColor);
