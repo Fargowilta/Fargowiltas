@@ -4,6 +4,10 @@ There are several other items such as infinite ammos, craftable instant builds f
 Fargo Discord: https://discord.gg/Rgen4Vv
 Fargo Wiki: https://terrariamods.wiki.gg/wiki/Fargo%27s_Mod
 
+NEW UPDATE - V 3.2.1.2
+-Fixed issues with Friendly Projectile Transparency config
+-Fixed localization issues
+
 NEW UPDATE - V 3.2.1.1
 -Fixed some incorrect tooltips
 -Fixed issue with the Friendly Projectile Transparency config with some projectiles

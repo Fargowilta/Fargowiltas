@@ -2457,9 +2457,8 @@ Mods: {
 				}
 
 				Census.SpawnCondition: Conditions unknown
-
 				CycleShop: Cycle Shop
-				PreHM: Pre Hardmode:
+				PreHM: Pre Hardmode
 				HM: Hardmode
 				PostML: Post Moon Lord
 			}
@@ -2603,6 +2602,7 @@ Mods: {
 			"Dash Key.DisplayName": Dash Key
 			"Set Bonus (Double Tap Up/Down) Key.DisplayName": Set Bonus Key
 		}
+
 		ExpandedTooltips: {
 			CatchNPCs: Can also catch townsfolk
 			ExtraLure1: Also grants one extra lure
