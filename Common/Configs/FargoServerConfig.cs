@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.Serialization;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader.Config;
 
 namespace Fargowiltas.Common.Configs
@@ -9,7 +10,7 @@ namespace Fargowiltas.Common.Configs
     {
         public override ConfigScope Mode => ConfigScope.ServerSide;
 
-        public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref string message) => false;
+        public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref NetworkText message) => false;
 
         [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.TownNPCs")]
         [DefaultValue(true)]

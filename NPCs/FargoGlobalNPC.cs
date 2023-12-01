@@ -331,7 +331,7 @@ namespace Fargowiltas.NPCs
             Condition angler5 = new Condition("Finish 5 angler quests", () => Main.LocalPlayer.anglerQuestsFinished >= 5);
             Condition angler10 = new Condition("Finish 10 angler quests", () => Main.LocalPlayer.anglerQuestsFinished >= 10);
             Condition angler15 = new Condition("Finish 15 angler quests", () => Main.LocalPlayer.anglerQuestsFinished >= 15);
-            Condition angler20 = new Condition("Finish 25 angler quests", () => Main.LocalPlayer.anglerQuestsFinished >= 25);
+            Condition angler20 = new Condition("Finish 20 angler quests", () => Main.LocalPlayer.anglerQuestsFinished >= 20);
             Condition angler25 = new Condition("Finish 25 angler quests", () => Main.LocalPlayer.anglerQuestsFinished >= 25);
             Condition angler30 = new Condition("Finish 30 angler quests", () => Main.LocalPlayer.anglerQuestsFinished >= 30);
             Condition InRockOrDirtLayerHeight = new Condition("While underground", () => Condition.InDirtLayerHeight.IsMet() || Condition.InRockLayerHeight.IsMet());

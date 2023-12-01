@@ -149,7 +149,7 @@ namespace Fargowiltas.NPCs
             if (showCycleShop)
             {
                 button += $" {shopNum + 1}";
-                button2 = "Mods.Fargowiltas.NPCs.Mutant.CycleShop";
+                button2 = Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.CycleShop");
             }
         }
 
