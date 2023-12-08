@@ -16,6 +16,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using System;
 
 namespace Fargowiltas.NPCs
 {
@@ -172,158 +173,44 @@ namespace Fargowiltas.NPCs
 
             if (dayOver && nightOver)
             {
-                string quote = "";
-                int itemType;
+                string finalQuote = "";
+                bool givenBiomeTreasure = false;
 
-                if (player.ZoneDesert && !player.ZoneBeach)
+                foreach (var (condition, spawn, quote) in BiomeTreeTreasures)
                 {
-                    quote = LumberChat("Desert");
-                    itemType = Main.rand.Next(new int[] { ItemID.Scorpion, ItemID.BlackScorpion });
-                    player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
-                    player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.Cactus), ItemID.Cactus, 100);
-                }
-                else if (player.ZoneJungle)
-                {
-                    quote = LumberChat("Jungle");
-                    itemType = Main.rand.Next(new int[] { ItemID.Buggy, ItemID.Sluggy, ItemID.Grubby, ItemID.Frog });
-                    player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
-                    itemType = Main.rand.Next(new int[] { ItemID.Mango, ItemID.Pineapple });
-                    player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
-                    player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.RichMahogany), ItemID.RichMahogany, 50);
-                }
-                else if (player.ZoneHallow)
-                {
-                    quote = LumberChat("Hallow");
-                    for (int i = 0; i < 5; i++)
+                    if (condition())
                     {
-                        itemType = Main.rand.Next(new int[] { ItemID.LightningBug, ItemID.FairyCritterBlue, ItemID.FairyCritterGreen, ItemID.FairyCritterPink });
-                        player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType);
+                        spawn();
+                        finalQuote = quote;
+                        givenBiomeTreasure = true;
+                        break; // break true; in c# when
                     }
-                    itemType = Main.rand.Next(new int[] { ItemID.Starfruit, ItemID.Dragonfruit });
-                    player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
-                    player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.Pearlwood), ItemID.Pearlwood, 50);
+                }
 
-                    //add prismatic lacewing if post plantera
-                    player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.EmpressButterfly), ItemID.EmpressButterfly, 1);
-                }
-                else if (player.ZoneGlowshroom && Main.hardMode)
+                if (!givenBiomeTreasure)
                 {
-                    quote = LumberChat("GlowshroomHM");
-                    itemType = Main.rand.Next(new int[] { ItemID.GlowingSnail, ItemID.TruffleWorm });
-                    player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
-                    player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.GlowingMushroom), ItemID.GlowingMushroom, 50);
-                    //add mushroom grass seeds
-
-                }
-                else if (player.ZoneCorrupt || player.ZoneCrimson)
-                {
-                    quote = LumberChat("Evil");
-                    for (int i = 0; i < 5; i++)
-                    {
-                        itemType = Main.rand.Next(new int[] { ItemID.Elderberry, ItemID.BlackCurrant, ItemID.BloodOrange, ItemID.Rambutan });
-                        player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType);
-                    }
-                }
-                else if (player.ZoneSnow)
-                {
-                    //penguin
-                    quote = LumberChat("Snow");
-                    itemType = Main.rand.Next(new int[] { ItemID.Cherry, ItemID.Plum });
-                    player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
-                    player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.BorealWood), ItemID.BorealWood, 50);
-                }
-                else if (player.ZoneBeach)
-                {
-                    quote = LumberChat("Beach");
-                    itemType = Main.rand.Next(new int[] { ItemID.Coconut, ItemID.Banana });
-                    player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
-                    player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.Seagull), ItemID.Seagull, 5);
-                    player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.PalmWood), ItemID.PalmWood, 50);
-                }
-                else if (player.ZoneUnderworldHeight)
-                {
-                    quote = LumberChat("Underworld");
-                    for (int i = 0; i < 5; i++)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.AshWood), ItemID.AshWood, 50);
-                        itemType = Main.rand.Next(new int[] { ItemID.HellButterfly, ItemID.MagmaSnail, ItemID.Lavafly });
-                        itemType = Main.rand.Next(new int[] { ItemID.SpicyPepper, ItemID.Pomegranate});
-                        player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType);
-                    }
-                }
-                else if (player.ZoneRockLayerHeight || player.ZoneDirtLayerHeight)
-                {
-					if (Main.rand.NextBool(2))
-					{
-						quote = LumberChat("DirtRockGem");
-
-						for (int i = 0; i < 5; i++)
-						{
-							itemType = Main.rand.Next(new int[] { ItemID.Diamond, ItemID.Ruby, ItemID.Amethyst, ItemID.Emerald, ItemID.Sapphire, ItemID.Topaz, ItemID.Amber });
-							player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 3);
-							
-							itemType = Main.rand.Next(new int[] { ItemID.GemSquirrelDiamond, ItemID.GemSquirrelAmber, ItemID.GemSquirrelAmethyst, ItemID.GemSquirrelEmerald, ItemID.GemSquirrelRuby, ItemID.GemSquirrelSapphire, ItemID.GemSquirrelTopaz, ItemID.GemBunnyAmber, ItemID.GemBunnyAmethyst, ItemID.GemBunnyDiamond, ItemID.GemBunnyEmerald, ItemID.GemBunnyRuby, ItemID.GemBunnySapphire, ItemID.GemBunnyTopaz });
-							player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 1);
-						}
-					}
-					else
-					{
-						quote = LumberChat("DirtRockMouse");
-						
-						itemType = ItemID.Mouse;
-						player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
-					}
-                }
-                //purity, most common option likely
-                else// if (player.position.Y > Main.worldSurface)
-                {
-                    if (Main.dayTime)
-                    {
-						if (Main.WindyEnoughForKiteDrops && Main.rand.NextBool(2)) //ladybug
-						{
-							quote = LumberChat("CommonDayTimeWindy");
-							itemType = ItemID.LadyBug;
-							player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType, 5);
-						}
-                        else if (Main.rand.NextBool(3)) //butterfly
-                        {
-                            quote = LumberChat("CommonDayTimeButterfly");
-							for (int i = 0; i < 5; i++)
-                            {
-								itemType = Main.rand.Next(new int[] { ItemID.JuliaButterfly, ItemID.MonarchButterfly, ItemID.PurpleEmperorButterfly, ItemID.RedAdmiralButterfly, ItemID.SulphurButterfly, ItemID.TreeNymphButterfly, ItemID.UlyssesButterfly, ItemID.ZebraSwallowtailButterfly });
-								player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType);
-							}
-                        }
-                        else if (Main.rand.NextBool(20))
-                        {
-                            quote = LumberChat("CommonDayTimeEucaluptusSap");
-                            player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.EucaluptusSap), ItemID.EucaluptusSap);
-                        }
-                        else
-                        {
-                            quote = LumberChat("CommonDayTimeCritter");
-							for (int i = 0; i < 5; i++)
-                            {
-								itemType = Main.rand.Next(new int[] { ItemID.Grasshopper, ItemID.Squirrel, ItemID.SquirrelRed, ItemID.Bird, ItemID.BlueJay, ItemID.Cardinal });
-								player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType);
-							}
-                        }
-                    }
-                    else
-                    {
-                        quote = LumberChat("CommonNightTime");
-                        player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.Firefly), ItemID.Firefly);
-                    }
+                    // purity things, put in a separate list to make the biome list easier to use.
 
                     for (int i = 0; i < 5; i++)
                     {
-                        itemType = Main.rand.Next(new int[] { ItemID.Lemon, ItemID.Peach, ItemID.Apricot, ItemID.Grapefruit, ItemID.Apple });
+                        int itemType = Main.rand.Next(new int[] { ItemID.Lemon, ItemID.Peach, ItemID.Apricot, ItemID.Grapefruit, ItemID.Apple });
                         player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType);
                     }
                     player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.Wood), ItemID.Wood, 50);
+
+                    foreach (var (condition, spawn, quote) in PurityTreeTreasures)
+                    {
+                        if (condition())
+                        {
+                            spawn();
+                            finalQuote = quote;
+                            givenBiomeTreasure = true;
+                            break;
+                        }
+                    }
                 }
 
-                Main.npcChatText = quote;
+                Main.npcChatText = finalQuote;
                 dayOver = false;
                 nightOver = false;
             }
@@ -331,6 +218,143 @@ namespace Fargowiltas.NPCs
             {
                 Main.npcChatText = LumberChat("Rest");
             }
+        }
+
+        private readonly static List<Tuple<Func<bool>, Action, string>> BiomeTreeTreasures = new();
+        private readonly static List<Tuple<Func<bool>, Action, string>> PurityTreeTreasures = new();
+        public static void AddTreeTreasure(Func<bool> condition, Action items, string quote, int insertIndex = -1)
+        {
+            if (insertIndex == -1)
+            {
+                BiomeTreeTreasures.Add(new(condition, items, quote));
+            }
+            else 
+            {
+                BiomeTreeTreasures.Insert(insertIndex, new(condition, items, quote));
+            }
+        }
+
+        internal static void AddVanillaTreeTreasures()
+        {
+            // if-else loop advanced edition
+            AddTreeTreasure(() => Main.LocalPlayer.ZoneDesert && !Main.LocalPlayer.ZoneBeach, () =>
+            {
+                int itemType = Main.rand.Next(new int[] { ItemID.Scorpion, ItemID.BlackScorpion });
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType, 5);
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(ItemID.Cactus), ItemID.Cactus, 100);
+            }, LumberChat("Desert"));
+            AddTreeTreasure(() => Main.LocalPlayer.ZoneJungle, () =>
+            {
+                int itemType = Main.rand.Next(new int[] { ItemID.Buggy, ItemID.Sluggy, ItemID.Grubby, ItemID.Frog });
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType, 5);
+                itemType = Main.rand.Next(new int[] { ItemID.Mango, ItemID.Pineapple });
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType, 5);
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(ItemID.RichMahogany), ItemID.RichMahogany, 50);
+            }, LumberChat("Jungle"));
+            AddTreeTreasure(() => Main.LocalPlayer.ZoneHallow, () =>
+            {
+                int itemType;
+                for (int i = 0; i < 5; i++)
+                {
+                    itemType = Main.rand.Next(new int[] { ItemID.LightningBug, ItemID.FairyCritterBlue, ItemID.FairyCritterGreen, ItemID.FairyCritterPink });
+                    Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType);
+                }
+                itemType = Main.rand.Next(new int[] { ItemID.Starfruit, ItemID.Dragonfruit });
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType, 5);
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(ItemID.Pearlwood), ItemID.Pearlwood, 50);
+
+                //add prismatic lacewing if post plantera
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(ItemID.EmpressButterfly), ItemID.EmpressButterfly, 1);
+            }, LumberChat("Hallow"));
+            AddTreeTreasure(() => Main.LocalPlayer.ZoneGlowshroom && Main.hardMode, () =>
+            {
+                int itemType = Main.rand.Next(new int[] { ItemID.GlowingSnail, ItemID.TruffleWorm });
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType, 5);
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(ItemID.GlowingMushroom), ItemID.GlowingMushroom, 50);
+                //add mushroom grass seeds
+            }, LumberChat("GlowshroomHM"));
+            AddTreeTreasure(() => Main.LocalPlayer.ZoneCorrupt || Main.LocalPlayer.ZoneCrimson, () =>
+            {
+                int itemType;
+                for (int i = 0; i < 5; i++)
+                {
+                    itemType = Main.rand.Next(new int[] { ItemID.Elderberry, ItemID.BlackCurrant, ItemID.BloodOrange, ItemID.Rambutan });
+                    Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType);
+                }
+            }, LumberChat("Evil"));
+            AddTreeTreasure(() => Main.LocalPlayer.ZoneSnow, () =>
+            {
+                int itemType;
+                itemType = Main.rand.Next(new int[] { ItemID.Cherry, ItemID.Plum });
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType, 5);
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(ItemID.BorealWood), ItemID.BorealWood, 50);
+            }, LumberChat("Snow"));
+            AddTreeTreasure(() => Main.LocalPlayer.ZoneBeach, () =>
+            {
+                int itemType;
+                itemType = Main.rand.Next(new int[] { ItemID.Coconut, ItemID.Banana });
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType, 5);
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(ItemID.Seagull), ItemID.Seagull, 5);
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(ItemID.PalmWood), ItemID.PalmWood, 50);
+            }, LumberChat("Beach"));
+            AddTreeTreasure(() => Main.LocalPlayer.ZoneUnderworldHeight, () =>
+            {
+                int itemType;
+                for (int i = 0; i < 5; i++)
+                {
+                    Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(ItemID.AshWood), ItemID.AshWood, 50);
+                    itemType = Main.rand.Next(new int[] { ItemID.HellButterfly, ItemID.MagmaSnail, ItemID.Lavafly });
+                    itemType = Main.rand.Next(new int[] { ItemID.SpicyPepper, ItemID.Pomegranate });
+                    Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType);
+                }
+            }, LumberChat("Underworld"));
+            AddTreeTreasure(() => (Main.LocalPlayer.ZoneRockLayerHeight || Main.LocalPlayer.ZoneDirtLayerHeight) && Main.rand.NextBool(2), () =>
+            {
+                int itemType;
+                for (int i = 0; i < 5; i++)
+                {
+                    itemType = Main.rand.Next(new int[] { ItemID.Diamond, ItemID.Ruby, ItemID.Amethyst, ItemID.Emerald, ItemID.Sapphire, ItemID.Topaz, ItemID.Amber });
+                    Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType, 3);
+
+                    itemType = Main.rand.Next(new int[] { ItemID.GemSquirrelDiamond, ItemID.GemSquirrelAmber, ItemID.GemSquirrelAmethyst, ItemID.GemSquirrelEmerald, ItemID.GemSquirrelRuby, ItemID.GemSquirrelSapphire, ItemID.GemSquirrelTopaz, ItemID.GemBunnyAmber, ItemID.GemBunnyAmethyst, ItemID.GemBunnyDiamond, ItemID.GemBunnyEmerald, ItemID.GemBunnyRuby, ItemID.GemBunnySapphire, ItemID.GemBunnyTopaz });
+                    Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType, 1);
+                }
+            }, LumberChat("DirtRockGem"));
+            AddTreeTreasure(() => Main.LocalPlayer.ZoneRockLayerHeight || Main.LocalPlayer.ZoneDirtLayerHeight, () =>
+            {
+                int itemType = ItemID.Mouse;
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType, 5);
+            }, LumberChat("DirtRockMouse"));
+
+            PurityTreeTreasures.Add(new(() => Main.dayTime && Main.WindyEnoughForKiteDrops && Main.rand.NextBool(2), () =>
+            {
+                int itemType = ItemID.LadyBug;
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType, 5);
+            }, LumberChat("CommonDayTimeWindy")));
+            PurityTreeTreasures.Add(new(() => Main.dayTime && Main.rand.NextBool(3), () =>
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    int itemType = Main.rand.Next(new int[] { ItemID.JuliaButterfly, ItemID.MonarchButterfly, ItemID.PurpleEmperorButterfly, ItemID.RedAdmiralButterfly, ItemID.SulphurButterfly, ItemID.TreeNymphButterfly, ItemID.UlyssesButterfly, ItemID.ZebraSwallowtailButterfly });
+                    Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType);
+                }
+            }, LumberChat("CommonDayTimeButterfly")));
+            PurityTreeTreasures.Add(new(() => Main.dayTime && Main.rand.NextBool(20), () =>
+            {
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(ItemID.EucaluptusSap), ItemID.EucaluptusSap);
+            }, LumberChat("CommonDayTimeEucaluptusSap")));
+            PurityTreeTreasures.Add(new(() => Main.dayTime, () =>
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    int itemType = Main.rand.Next(new int[] { ItemID.Grasshopper, ItemID.Squirrel, ItemID.SquirrelRed, ItemID.Bird, ItemID.BlueJay, ItemID.Cardinal });
+                    Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType);
+                }
+            }, LumberChat("CommonDayTimeCritter")));
+            PurityTreeTreasures.Add(new(() => !Main.dayTime, () =>
+            {
+                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(ItemID.Firefly), ItemID.Firefly);
+            }, LumberChat("CommonNightTime")));
         }
 
         public override void AddShops()
