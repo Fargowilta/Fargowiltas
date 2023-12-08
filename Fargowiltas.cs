@@ -404,10 +404,11 @@ namespace Fargowiltas
                             throw new Exception($"Call Error (Fargo Mutant Mod AddTreeTreasure): args[2] must be of type Action");
                         if (args[3].GetType() != typeof(string))
                             throw new Exception($"Call Error (Fargo Mutant Mod AddTreeTreasure): args[3] must be of type string");
-                        if (args.Length < 5 || args[4].GetType() != typeof(int))
+                        if ((args.Length < 5 || args[4] != null) && args[4].GetType() != typeof(int))
                             throw new Exception($"Call Error (Fargo Mutant Mod AddTreeTreasure): args[4] must be of type int if present");
 
-                        LumberJack.AddTreeTreasure((Func<bool>)args[1], (Action)args[2], (string)args[3], (int)args[4]);
+                        int index = (args.Length < 5 || args[4] != null) ? args[4] : -1;
+                        LumberJack.AddTreeTreasure((Func<bool>)args[1], (Action)args[2], (string)args[3], index);
                         break;
                 }
 
