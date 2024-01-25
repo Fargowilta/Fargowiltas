@@ -7,9 +7,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class Eggplant : BaseSummon
     {
         public override int NPCType => NPCID.DoctorBones;
-
-        public override string NPCName => "Doctor Bones";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

@@ -15,9 +15,7 @@ namespace Fargowiltas.Items.Summons
         public override string Texture => "Terraria/Images/Item_556";
 
         public override int NPCType => NPCID.TheDestroyer;
-
-        public override string NPCName => "The Destroyer";
-
+        
         public override bool ResetTimeWhenUsed => !NPC.downedMechBoss1;
 
         public override void SetStaticDefaults()

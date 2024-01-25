@@ -39,11 +39,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
                 if (Main.netMode == 2)
                 {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The martians have calmed down!"), new Color(175, 75, 255));
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadMartiansStop"), new Color(175, 75, 255));
                 }
                 else
                 {
-                    Main.NewText("The martians have calmed down!", 175, 75, 255);
+                    Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.OverloadMartiansStop"), 175, 75, 255);
                 }
             }
             else

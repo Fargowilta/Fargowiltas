@@ -43,13 +43,16 @@ namespace Fargowiltas.Items.Summons.Deviantt
 
             SoundEngine.PlaySound(SoundID.Roar, player.position);
 
+            LocalizedText text = Language.GetText("Announcement.HasAwoken");
+            string pinky = Lang.GetNPCNameValue(NPCID.Pinky);
+
             if (Main.netMode == NetmodeID.Server)
             {
-                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Pinky has awoken!"), new Color(175, 75, 255));
+                ChatHelper.BroadcastChatMessage(text.ToNetworkText(pinky), new Color(175, 75, 255));
             }
             else
             {
-                Main.NewText("Pinky has awoken!", new Color(175, 75, 255));
+                Main.NewText(text.Format(pinky), new Color(175, 75, 255));
             }
 
             return true;

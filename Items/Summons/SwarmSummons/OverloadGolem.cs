@@ -9,7 +9,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 {
     public class OverloadGolem : SwarmSummonBase
     {
-        public OverloadGolem() : base(NPCID.Golem, "Ancient automatons come crashing down!", 25, "LihzahrdPowerCell2")
+        public OverloadGolem() : base(NPCID.Golem, nameof(OverloadGolem), 25, "LihzahrdPowerCell2")
         {
         }
 

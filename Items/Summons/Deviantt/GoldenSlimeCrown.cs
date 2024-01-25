@@ -14,9 +14,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class GoldenSlimeCrown : BaseSummon
     {
         public override int NPCType => NPCID.GoldenSlime;
-
-        public override string NPCName => "Golden Slime";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

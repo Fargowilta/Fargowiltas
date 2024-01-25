@@ -6,9 +6,7 @@ namespace Fargowiltas.Items.Summons.Abom
     public class SpookyBranch : BaseSummon
     {
         public override int NPCType => NPCID.MourningWood;
-
-        public override string NPCName => "Mourning Wood";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

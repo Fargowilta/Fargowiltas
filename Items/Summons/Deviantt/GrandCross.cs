@@ -6,9 +6,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class GrandCross : BaseSummon
     {
         public override int NPCType => NPCID.Paladin;
-
-        public override string NPCName => "Paladin";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

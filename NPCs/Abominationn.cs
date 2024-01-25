@@ -43,7 +43,7 @@ namespace Fargowiltas.NPCs
             NPCID.Sets.AttackAverageChance[NPC.type] = 30;
             NPCID.Sets.HatOffsetY[NPC.type] = 2;
 
-            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = -1f,
                 Direction = -1
@@ -129,7 +129,7 @@ namespace Fargowiltas.NPCs
             if (NPC.homeless && canSayDefeatQuote && Fargowiltas.ModLoaded["FargowiltasSouls"] && (bool)ModLoader.GetMod("FargowiltasSouls").Call("DownedAbom"))
             {
                 canSayDefeatQuote = false;
-                return "You really defeated me... not bad. Now do it again without getting hit. Oh, and Copper Shortsword only.";
+                return AbomChat("Defeat");
             }
 
             int mutant = NPC.FindFirstNPC(ModContent.NPCType<Mutant>());
@@ -140,7 +140,7 @@ namespace Fargowiltas.NPCs
                     if (canSayMutantShimmerQuote)
                     {
                         canSayMutantShimmerQuote = false;
-                        return "He turned into a squirrel. Funniest thing I've ever seen.";
+                        return AbomChat("MutantShimmer");
                     }
 
                 }
@@ -149,45 +149,25 @@ namespace Fargowiltas.NPCs
             if (Fargowiltas.ModLoaded["FargowiltasSouls"] && Main.rand.NextBool(3))
             {
                 if ((bool)ModLoader.GetMod("FargowiltasSouls").Call("StyxArmor"))
-                    return "What nostalgic armor you're wearing... No, it doesn't fit on me anymore. And its battery takes too long to charge.";
+                    return AbomChat("StyxArmor");
             }
 
-            List<string> dialogue = new List<string>
+            List<string> dialogue = new List<string>();
+            dialogue.Add(AbomChat("Normal1", !Main.hardMode ? AbomChat("Normal1PHM") : AbomChat("Normal1HM")));
+            for (int i = 2; i <= 23; i++)
             {
-                "Where'd I get my scythe from? " + (!Main.hardMode ? "Ask me later." : "You'll figure it out."),
-                "I have defeated everything in this land... nothing can beat me.",
-                "Have you ever had a weapon stuck to your hand? It's not very handy.",
-                "What happened to Yoramur? No idea who you're talking about.",
-                "You wish you could dress like me? Ha! Actually yea.. you can.",
-                "You ever read the ancient classics, I love all the fighting in them.",
-                "I'm a world class poet, ever read my piece about impending doom?",
-                "You want swarm summons? Maybe next year.",
-                "Like my wings? Thanks, the thing I got them from didn't like it much.",
-                "Heroism has no place in this world, instead let's just play ping pong.",
-                "Why are you looking at me like that? Your fashion sense isn't going to be winning you any awards either.",
-                "No, you can't have my hat.",
-                "Embrace suffering... Wait what do you mean that's already taken?",
-                "Your attempt to exploit my anger is admirable, but I cannot be angered.",
-                "Is it really a crime if everyone else does it.",
-                "Inflicting suffering upon others is the most amusing thing there is.",
-                "Irony is the best kind of humor, isn't that ironic?",
-                "I like Cat... What do you mean who's Cat?",
-                "Check the wiki if you need anything, the kirb is slowly getting it up to par.",
-                "I've heard tales of a legendary Diver... Anyway what was that about a giant jellyfish?",
-                "Overloaded events...? Yeah, they're pretty cool.",
-                "It's not like I don't enjoy your company, but can you buy something?",
-                "I have slain one thousand humans! Huh? You're a human? There's so much blood on your hands..",
-            };
+                dialogue.Add(AbomChat($"Normal{i}"));
+            }
 
             if (Main.LocalPlayer.ZoneGraveyard)
             {
-                dialogue.Add("I hope all these graves lying around don't belong to you.");
+                dialogue.Add(AbomChat("Graveyard"));
             }
 
             int mechanic = NPC.FindFirstNPC(NPCID.Mechanic);
             if (mechanic != -1)
             {
-                dialogue.Add($"Can you please ask {Main.npc[mechanic].GivenName} to stop touching my laser arm please.");
+                dialogue.Add(AbomChat("Mechanic", Main.npc[mechanic].GivenName));
             }
 
             return Main.rand.Next(dialogue);
@@ -225,11 +205,11 @@ namespace Fargowiltas.NPCs
                         netMessage.Send();
                     }
 
-                    Main.npcChatText = Fargowiltas.TryClearEvents() ? "Hocus pocus, the event is over" : $"I'm not feeling it right now, come back in {FargoWorld.AbomClearCD / 60} seconds.";
+                    Main.npcChatText = Fargowiltas.TryClearEvents() ? AbomChat("Canceled") : AbomChat("CancelCD", FargoWorld.AbomClearCD / 60);
                 }
                 else
                 {
-                    Main.npcChatText = "I don't think there's an event right now.";
+                    Main.npcChatText = AbomChat("NoEvent");
                 }
             }
         }
@@ -327,5 +307,7 @@ namespace Fargowiltas.NPCs
                 }
             }
         }
+
+        private static string AbomChat(string key, params object[] args) => Language.GetTextValue($"Mods.Fargowiltas.NPCs.Abominationn.Chat.{key}", args);
     }
 }

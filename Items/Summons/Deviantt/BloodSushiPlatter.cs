@@ -7,9 +7,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class BloodSushiPlatter : BaseSummon
     {
         public override int NPCType => NPCID.BloodNautilus;
-
-        public override string NPCName => "Dreadnautilus";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

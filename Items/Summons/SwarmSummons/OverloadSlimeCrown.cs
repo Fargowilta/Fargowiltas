@@ -9,7 +9,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 {
     public class OverloadSlimeCrown : SwarmSummonBase
     {
-        public OverloadSlimeCrown() : base(NPCID.KingSlime, "Welcome to the true slime rain!", 50, "SlimyCrown")
+        public OverloadSlimeCrown() : base(NPCID.KingSlime, nameof(OverloadSlimeCrown), 50, "SlimyCrown")
         {
         }
 

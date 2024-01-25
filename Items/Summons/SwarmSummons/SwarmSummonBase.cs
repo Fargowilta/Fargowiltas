@@ -16,13 +16,13 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         private int npcType;
         private readonly int maxSpawn; //energizer swarms are this size
-        private readonly string spawnMessage;
+        private readonly string spawnMessageKey;
         private readonly string material;
         
-        protected SwarmSummonBase(int npcType, string spawnMessage, int maxSpawn, string material)
+        protected SwarmSummonBase(int npcType, string spawnMessageKey, int maxSpawn, string material)
         {
             this.npcType = npcType;
-            this.spawnMessage = spawnMessage;
+            this.spawnMessageKey = spawnMessageKey;
             this.maxSpawn = maxSpawn;
             this.material = material;
         }
@@ -111,12 +111,12 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
             if (Main.netMode == NetmodeID.Server)
             {
-                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(spawnMessage), new Color(175, 75, 255));
+                ChatHelper.BroadcastChatMessage(NetworkText.FromKey($"Mods.Fargowiltas.MessageInfo.{spawnMessageKey}"), new Color(175, 75, 255));
                 NetMessage.SendData(MessageID.WorldData);
             }
             else if (Main.netMode == NetmodeID.SinglePlayer)
             {
-                Main.NewText(spawnMessage, 175, 75, 255);
+                Main.NewText(Language.GetTextValue($"Mods.Fargowiltas.MessageInfo.{spawnMessageKey}"), 175, 75, 255);
             }
 
             SoundEngine.PlaySound(SoundID.Roar, player.position);

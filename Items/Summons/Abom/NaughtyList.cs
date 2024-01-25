@@ -6,9 +6,7 @@ namespace Fargowiltas.Items.Summons.Abom
     public class NaughtyList : BaseSummon
     {
         public override int NPCType => NPCID.SantaNK1;
-
-        public override string NPCName => "Santa-NK1";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

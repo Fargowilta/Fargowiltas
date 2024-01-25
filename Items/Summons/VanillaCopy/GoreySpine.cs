@@ -11,9 +11,7 @@ namespace Fargowiltas.Items.Summons
         public override string Texture => "Terraria/Images/Item_1331";
 
         public override int NPCType => NPCID.BrainofCthulhu;
-
-        public override string NPCName => "Brain of Cthulhu";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

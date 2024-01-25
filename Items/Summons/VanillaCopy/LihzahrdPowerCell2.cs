@@ -9,9 +9,7 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
     public class LihzahrdPowerCell2 : BaseSummon
     {
         public override int NPCType => NPCID.Golem;
-
-        public override string NPCName => "Golem";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

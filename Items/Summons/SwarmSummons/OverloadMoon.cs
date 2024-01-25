@@ -9,7 +9,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 {
     public class OverloadMoon : SwarmSummonBase
     {
-        public OverloadMoon() : base(NPCID.MoonLordCore, "The wind whispers of death's approach!", 20, "CelestialSigil2")
+        public OverloadMoon() : base(NPCID.MoonLordCore, nameof(OverloadMoon), 20, "CelestialSigil2")
         {
         }
 

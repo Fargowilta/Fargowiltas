@@ -61,7 +61,7 @@ namespace Fargowiltas.NPCs
 
             NPCID.Sets.ShimmerTownTransform[Type] = true; // Allows for this NPC to have a different texture after touching the Shimmer liquid.
 
-            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = -1f,
                 Direction = -1
@@ -169,174 +169,131 @@ namespace Fargowiltas.NPCs
                 canSayDefeatQuote = false;
 
                 if ((bool)ModLoader.GetMod("FargowiltasSouls").Call("EternityMode"))
-                    return "Congratulations. You truly embraced eternity... at least, I think you did? So what happens next? Ascend from this plane of existence? Fight a transcendant cat-like entity? Destroy the world? All the power's in your hands now.";
+                    return MutantChat("EternityDefeat");
                 else
-                    return "Good work beating me, I guess. I still feel like stretching my wings... Why don't we go at it for real next time?";
+                    return MutantChat("Defeat");
             }
 
             if (Fargowiltas.ModLoaded["FargowiltasSouls"] && Main.rand.NextBool(4))
             {
                 if ((bool)ModLoader.GetMod("FargowiltasSouls").Call("MutantArmor"))
-                    return "Nice armor you have, very realistic skin. As a matter of fact, mind if I borrow it? Your skin, that is.";
+                    return MutantChat("MutantArmor");
             }
 
-            List<string> dialogue = new List<string>
+            List<string> dialogue = new List<string>();
+            for (int i = 1; i <= 45; i++)
             {
-                "Savagery, barbarism, bloodthirst, that's what I like seeing in people.",
-                "The stronger you get, the more stuff I sell. Makes sense, right?",
-                "There's something all of you have that I don't... Death perception, I think it's called?",
-                "It would be pretty cool if I sold a summon for myself...",
-                "The only way to get stronger is to keep buying from me and in bulk too!",
-                "Why are you looking at me like that, all I did was eat an apple.",
-                "Don't bother with anyone else, all you'll ever need is right here.",
-                "You're lucky I'm on your side.",
-                "Why yes I would love a ham and swiss sandwich.",
-                "Should I start wearing clothes? ...Nah.",
-                "It's not like I can actually use all the gold you're spending.",
-                "Violence for violence is the law of the beast.",
-                "Those guys really need to get more creative. All of their first bosses are desert themed!",
-                "You say you want to know how a Mutant and Abominationn are brothers? You're better off not knowing.",
-                "I'm all you need for a calamity.",
-                "Everything shall bow before me! ...after you make this purchase.",
-                "It's clear that I'm helping you out, but uh.. what's in this for me? A house you say? I eat zombies for breakfast.",
-                "Can I jump? No, I don't have something called a 'spacebar'.",
-                "Got your nose, I needed one to replace mine.",
-                "What's a Terry?",
-                "Why do so many creatures carry around a weird looking blue doll? The world may never know.",
-                "Impending doom approaches. ...If you don't buy anything of course.",
-                "I've heard of a '3rd dimension', I wonder what that looks like.",
-                "Boy don't I look fabulous today.",
-                "You have fewer friends than I do eyes.",
-                "The ocean is a dangerous place, I wonder where Diver is?",
-                "Do you know what an Ee-arth is?",
-                "I can't even spell 'apotheosis', do you expect me to know what it is?",
-                "Where do monsters get their gold from? ...I don't have pockets you know.",
-                "Dogs are cool and all, but cats don't try to bite my brain.",
-                "Beware the green dragon... What's that face mean?",
-                "Where is this O-hi-o I keep hearing about.",
-                "I've told you 56 times already, I'm busy... Oh wait you want to buy something, I suppose I have time.",
-                "I've heard of a 'Soul of Souls' that only exists in 2015.",
-                "Adding EX after everything makes it way more difficult.",
-                "I think that all modern art looks great, especially the bloody stuff.",
-                "How many guides does it take to change a lightbulb? ... I don't know, how about you ask him.",
-                "Good thing I don't have a bed, I'd probably never leave it.",
-                "What's this about an update? Sounds rare.",
-                "If you need me I'll be slacking off somewhere.",
-                "What do you mean who is Fargo!",
-                "Have you seen the ech cat?",
-                "I don't understand music nowadays, I prefer some smooth jazz... or the dying screams of monsters.",
-                "Cthulhu's got nothing on me!",
-                "I heard of a rumor of infinite use boss summons. Makes me sick.."
-            };
+                dialogue.Add(MutantChat($"Normal{i}"));
+            }
 
             if (Fargowiltas.ModLoaded["FargowiltasSouls"])
             {
-                dialogue.AddWithCondition("Now that you've defeated the big guy, I'd say it's time to start collecting those materials!", NPC.downedMoonlord);
+                dialogue.AddWithCondition(MutantChat("SoulsPostML"), NPC.downedMoonlord);
 
                 if ((bool)ModLoader.GetMod("FargowiltasSouls").Call("DownedMutant"))
                 {
-                    dialogue.Add("What's that? You want to fight me? ...sure, I guess.");
+                    dialogue.Add(MutantChat("DefeatCommon"));
                 }
                 else if ((bool)ModLoader.GetMod("FargowiltasSouls").Call("DownedFishronEX") || (bool)ModLoader.GetMod("FargowiltasSouls").Call("DownedAbom"))
                 {
-                    dialogue.Add("What's that? You want to fight me? ...maybe if I had a reason.");
+                    dialogue.Add(MutantChat("DefeatAbom"));
                 }
             }
             else
             {
-                dialogue.Add("What's that? You want to fight me? ...you're not worthy you rat.");
+                dialogue.Add(MutantChat("SoulsModDisabled"));
             }
 
             //dialogue.AddWithCondition("Why would you do this.", Fargowiltas.ModLoaded["CalamityMod"]);
             //dialogue.AddWithCondition("I feel a great imbalance in this world.", Fargowiltas.ModLoaded["CalamityMod"] && Fargowiltas.ModLoaded["ThoriumMod"]);
             //dialogue.AddWithCondition("A great choice, shame about that first desert boss thing though.", Fargowiltas.ModLoaded["ThoriumMod"]);
-            dialogue.AddWithCondition("A bit spooky tonight, isn't it.", Main.pumpkinMoon);
-            dialogue.AddWithCondition("I'd ask for a coat, but I don't think you have any my size.", Main.snowMoon);
-            dialogue.AddWithCondition("Weather seems odd today, wouldn't you agree?", Main.slimeRain);
-            dialogue.AddWithCondition("Lovely night, isn't it?", Main.bloodMoon);
-            dialogue.AddWithCondition("I hope the constant arguing I'm hearing isn't my fault.", Main.bloodMoon);
-            dialogue.AddWithCondition("I'd follow and help, but I'd much rather sit around right now.", !Main.dayTime);
+            dialogue.AddWithCondition(MutantChat("PumpkinMoon"), Main.pumpkinMoon);
+            dialogue.AddWithCondition(MutantChat("FrostMoon"), Main.snowMoon);
+            dialogue.AddWithCondition(MutantChat("SlimeRain"), Main.slimeRain);
+            dialogue.AddWithCondition(MutantChat("BloodMoon1"), Main.bloodMoon);
+            dialogue.AddWithCondition(MutantChat("BloodMoon2"), Main.bloodMoon);
+            dialogue.AddWithCondition(MutantChat("NightTime"), !Main.dayTime);
 
             int partyGirl = NPC.FindFirstNPC(NPCID.PartyGirl);
             if (BirthdayParty.PartyIsUp)
             {
                 if (partyGirl >= 0)
                 {
-                    dialogue.Add($"{Main.npc[partyGirl].GivenName} is the one who invited me, I don't understand why though.");
+                    dialogue.Add(MutantChat("Party", Main.npc[partyGirl].GivenName));
                 }
                 
-                dialogue.Add("I don't know what everyone's so happy about, but as long as nobody mistakes me for a Pigronata, I'm happy too.");
+                dialogue.Add(MutantChat("PartyWithoutPartyGirl"));
             }
 
             int nurse = NPC.FindFirstNPC(NPCID.Nurse);
             if (nurse >= 0)
             {
-                dialogue.Add($"Whenever we're alone, {Main.npc[nurse].GivenName} keeps throwing syringes at me, no matter how many times I tell her to stop!");
+                dialogue.Add(MutantChat("Nurse", Main.npc[nurse].GivenName));
             }
 
             int witchDoctor = NPC.FindFirstNPC(NPCID.WitchDoctor);
             if (witchDoctor >= 0)
             {
-                dialogue.Add($"Please go tell {Main.npc[witchDoctor].GivenName} to drop the 'mystical' shtick, I mean, come on! I get it, you make tainted water or something.");
+                dialogue.Add(MutantChat("WitchDoctor", Main.npc[witchDoctor].GivenName));
             }
 
             int dryad = NPC.FindFirstNPC(NPCID.Dryad);
             if (dryad >= 0)
             {
-                dialogue.Add($"Why does {Main.npc[dryad].GivenName}'s outfit make my wings flutter?");
+                dialogue.Add(MutantChat("Dryad", Main.npc[dryad].GivenName));
             }
 
             int stylist = NPC.FindFirstNPC(NPCID.Stylist);
             if (stylist >= 0)
             {
-                dialogue.Add($"{Main.npc[stylist].GivenName} once gave me a wig... I look hideous with long hair.");
+                dialogue.Add(MutantChat("Stylist", Main.npc[stylist].GivenName));
             }
 
             int truffle = NPC.FindFirstNPC(NPCID.Truffle);
             if (truffle >= 0)
             {
-                dialogue.Add("That mutated mushroom seems like my type of fella.");
+                dialogue.Add(MutantChat("Truffle"));
             }
 
             int tax = NPC.FindFirstNPC(NPCID.TaxCollector);
             if (tax >= 0)
             {
-                dialogue.Add($"{Main.npc[tax].GivenName} keeps asking me for money, but he won't accept my spawners!");
+                dialogue.Add(MutantChat("TaxCollector", Main.npc[tax].GivenName));
             }
 
             int guide = NPC.FindFirstNPC(NPCID.Guide);
             if (guide >= 0)
             {
-                dialogue.Add($"Any idea why {Main.npc[guide].GivenName} is always cowering in fear when I get near him?");
+                dialogue.Add(MutantChat("Guide", Main.npc[guide].GivenName));
             }
 
             int cyborg = NPC.FindFirstNPC(NPCID.Cyborg);
             if (truffle >= 0 && witchDoctor >= 0 && cyborg >= 0 && Main.rand.NextBool(52))
             {
-                dialogue.Add($"If any of us could play instruments, I'd totally start a band with {Main.npc[witchDoctor].GivenName}, {Main.npc[truffle].GivenName}, and {Main.npc[cyborg].GivenName}.");
+                dialogue.Add(MutantChat("WitchDoctorTruffleCyborg", Main.npc[witchDoctor].GivenName, Main.npc[truffle].GivenName, Main.npc[cyborg].GivenName));
             }
 
             if (partyGirl >= 0)
             {
-                dialogue.Add($"Man, {Main.npc[partyGirl].GivenName}'s confetti keeps getting stuck to my wings");
+                dialogue.Add(MutantChat("PartyGirl", Main.npc[partyGirl].GivenName));
             }
 
             int demoman = NPC.FindFirstNPC(NPCID.Demolitionist);
             if (demoman >= 0)
             {
-                dialogue.Add($"I'm surprised {Main.npc[demoman].GivenName} hasn't blown a hole in the floor yet, on second thought that sounds fun.");
+                dialogue.Add(MutantChat("Demolitionist", Main.npc[demoman].GivenName));
             }
 
             int tavernkeep = NPC.FindFirstNPC(NPCID.DD2Bartender);
             if (tavernkeep >= 0)
             {
-                dialogue.Add($"{Main.npc[tavernkeep].GivenName} keeps suggesting I drink some beer, something tells me he wouldn't like me when I'm drunk though.");
+                dialogue.Add(MutantChat("Tavernkeep", Main.npc[tavernkeep].GivenName));
             }
 
             int dyeTrader = NPC.FindFirstNPC(NPCID.DyeTrader);
             if (dyeTrader >= 0)
             {
-                dialogue.Add($"{Main.npc[dyeTrader].GivenName} wants to see what I would look like in blue... I don't know how to feel.");
+                dialogue.Add(MutantChat("DyeTrader", Main.npc[dyeTrader].GivenName));
             }
 
             return Main.rand.Next(dialogue);
@@ -431,7 +388,7 @@ namespace Fargowiltas.NPCs
                 //phm
                 if (summon.progression <= MutantSummonTracker.WallOfFlesh)
                 {
-                    npcShop1.Add(new Item(summon.itemId) { shopCustomPrice = Item.buyPrice(copper: summon.price) }, new Condition("After the boss has been defeated", summon.downed));
+                    npcShop1.Add(new Item(summon.itemId) { shopCustomPrice = Item.buyPrice(copper: summon.price) }, new Condition("Mods.Fargowiltas.Conditions.DownedTheBoss", summon.downed));
                 }
             }
 
@@ -442,7 +399,7 @@ namespace Fargowiltas.NPCs
                 //hm
                 if (summon.progression > MutantSummonTracker.WallOfFlesh && summon.progression <= MutantSummonTracker.Moonlord)
                 {
-                    npcShop2.Add(new Item(summon.itemId) { shopCustomPrice = Item.buyPrice(copper: summon.price) }, new Condition("After the boss has been defeated", summon.downed));
+                    npcShop2.Add(new Item(summon.itemId) { shopCustomPrice = Item.buyPrice(copper: summon.price) }, new Condition("Mods.Fargowiltas.Conditions.DownedTheBoss", summon.downed));
                 }
             }
 
@@ -453,7 +410,7 @@ namespace Fargowiltas.NPCs
                 //post ml
                 if (summon.progression > MutantSummonTracker.Moonlord)
                 {
-                    npcShop3.Add(new Item(summon.itemId) { shopCustomPrice = Item.buyPrice(copper: summon.price) }, new Condition("After the boss has been defeated", summon.downed));
+                    npcShop3.Add(new Item(summon.itemId) { shopCustomPrice = Item.buyPrice(copper: summon.price) }, new Condition("Mods.Fargowiltas.Conditions.DownedTheBoss", summon.downed));
                 }
             }
 
@@ -647,7 +604,7 @@ namespace Fargowiltas.NPCs
             return false;
         }
 
-        
+        private static string MutantChat(string key, params object[] args) => Language.GetTextValue($"Mods.Fargowiltas.NPCs.Mutant.Chat.{key}", args);
     }
 
     public class MutantProfile : ITownNPCProfile

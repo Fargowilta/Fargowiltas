@@ -9,7 +9,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 {
     public class OverloadEmpress : SwarmSummonBase
     {
-        public OverloadEmpress() : base(NPCID.HallowBoss, "Bullet heaven is descending!", 25, "PrismaticPrimrose")
+        public OverloadEmpress() : base(NPCID.HallowBoss, nameof(OverloadEmpress), 25, "PrismaticPrimrose")
         {
         }
 

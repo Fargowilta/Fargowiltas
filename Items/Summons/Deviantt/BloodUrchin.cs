@@ -7,9 +7,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class BloodUrchin : BaseSummon
     {
         public override int NPCType => NPCID.BloodEelHead;
-
-        public override string NPCName => "Blood Eel";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

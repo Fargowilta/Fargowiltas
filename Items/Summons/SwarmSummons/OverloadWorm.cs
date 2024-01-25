@@ -9,7 +9,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 {
     public class OverloadWorm : SwarmSummonBase
     {
-        public OverloadWorm() : base(NPCID.EaterofWorldsHead, "The ground shifts with formulated precision!", 25, "WormyFood")
+        public OverloadWorm() : base(NPCID.EaterofWorldsHead, nameof(OverloadWorm), 25, "WormyFood")
         {
         }
 

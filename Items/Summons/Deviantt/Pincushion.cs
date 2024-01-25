@@ -6,9 +6,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class Pincushion : BaseSummon
     {
         public override int NPCType => NPCID.Nailhead;
-
-        public override string NPCName => "Nailhead";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

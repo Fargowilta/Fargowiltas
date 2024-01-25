@@ -11,9 +11,7 @@ namespace Fargowiltas.Items.Summons.Mutant
         public override string Texture => "Terraria/Images/Item_4988";
 
         public override int NPCType => NPCID.QueenSlimeBoss;
-
-        public override string NPCName => "Queen Slime";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

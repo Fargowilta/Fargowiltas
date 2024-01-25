@@ -6,9 +6,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class DemonicPlushie : BaseSummon
     {
         public override int NPCType => NPCID.RedDevil;
-
-        public override string NPCName => "Red Devil";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

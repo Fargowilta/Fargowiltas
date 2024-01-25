@@ -7,9 +7,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class HemoclawCrab : BaseSummon
     {
         public override int NPCType => NPCID.GoblinShark;
-
-        public override string NPCName => "Hemogoblin Shark";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

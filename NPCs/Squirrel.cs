@@ -45,7 +45,7 @@ namespace Fargowiltas.NPCs
 
             NPCID.Sets.CannotSitOnFurniture[Type] = true;
 
-            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = -1f,
                 Direction = -1
@@ -132,14 +132,14 @@ namespace Fargowiltas.NPCs
 
             if (Main.bloodMoon)
             {
-                return "[c/FF0000:You will suffer.]";
+                return SquirrelChat("BloodMoon");
             }
 
             return Main.rand.Next(3) switch
             {
-                0 => "*squeak*",
-                1 => "*chitter*",
-                _ => "*crunch crunch*",
+                0 => SquirrelChat("Normal1"),
+                1 => SquirrelChat("Normal2"),
+                _ => SquirrelChat("Normal3"),
             };
         }
 
@@ -533,5 +533,8 @@ namespace Fargowiltas.NPCs
 
             spriteBatch.Draw(EyesAsset.Value, position, frame, Color.White * NPC.Opacity, NPC.rotation, frame.Size() / 2f, NPC.scale, effects, 0f);
         }
+
+
+        private static string SquirrelChat(string key) => Language.GetTextValue($"Mods.Fargowiltas.NPCs.Squirrel.Chat.{key}");
     }
 }

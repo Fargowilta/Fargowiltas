@@ -6,9 +6,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class ClownLicense : BaseSummon
     {
         public override int NPCType => NPCID.Clown;
-
-        public override string NPCName => "Clown";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

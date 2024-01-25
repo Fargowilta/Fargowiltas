@@ -328,13 +328,13 @@ namespace Fargowiltas.NPCs
 
             #region Conditions
             //TODO: localization/proper text on conditions
-            Condition angler5 = new Condition("Finish 5 angler quests", () => Main.LocalPlayer.anglerQuestsFinished >= 5);
-            Condition angler10 = new Condition("Finish 10 angler quests", () => Main.LocalPlayer.anglerQuestsFinished >= 10);
-            Condition angler15 = new Condition("Finish 15 angler quests", () => Main.LocalPlayer.anglerQuestsFinished >= 15);
-            Condition angler20 = new Condition("Finish 20 angler quests", () => Main.LocalPlayer.anglerQuestsFinished >= 20);
-            Condition angler25 = new Condition("Finish 25 angler quests", () => Main.LocalPlayer.anglerQuestsFinished >= 25);
-            Condition angler30 = new Condition("Finish 30 angler quests", () => Main.LocalPlayer.anglerQuestsFinished >= 30);
-            Condition InRockOrDirtLayerHeight = new Condition("While underground", () => Condition.InDirtLayerHeight.IsMet() || Condition.InRockLayerHeight.IsMet());
+            Condition angler5 = new Condition("Mods.Fargowiltas.Conditions.Angler5", () => Main.LocalPlayer.anglerQuestsFinished >= 5);
+            Condition angler10 = new Condition("Mods.Fargowiltas.Conditions.Angler10", () => Main.LocalPlayer.anglerQuestsFinished >= 10);
+            Condition angler15 = new Condition("Mods.Fargowiltas.Conditions.Angler15", () => Main.LocalPlayer.anglerQuestsFinished >= 15);
+            Condition angler20 = new Condition("Mods.Fargowiltas.Conditions.Angler20", () => Main.LocalPlayer.anglerQuestsFinished >= 20);
+            Condition angler25 = new Condition("Mods.Fargowiltas.Conditions.Angler25", () => Main.LocalPlayer.anglerQuestsFinished >= 25);
+            Condition angler30 = new Condition("Mods.Fargowiltas.Conditions.Angler30", () => Main.LocalPlayer.anglerQuestsFinished >= 30);
+            Condition InRockOrDirtLayerHeight = new Condition("Mods.Fargowiltas.Conditions.InRockOrDirtLayerHeight", () => Condition.InDirtLayerHeight.IsMet() || Condition.InRockLayerHeight.IsMet());
             #endregion
             
 
@@ -395,7 +395,7 @@ namespace Fargowiltas.NPCs
                         AddItem(ItemType<UnsafePinkSlabWall>(), Item.buyPrice(copper: 25));
                         AddItem(ItemType<UnsafePinkTileWall>(), Item.buyPrice(copper: 25));
 
-                        AddItem(ItemType<Items.Ammos.BrittleBone>(), condition: new Condition("Have a weapon that uses Brittle Bones as ammunition in your inventory", () => Main.LocalPlayer.inventory.Any(i => !i.IsAir && i.useAmmo == ItemID.Bone)));
+                        AddItem(ItemType<Items.Ammos.BrittleBone>(), condition: new Condition("Mods.Fargowiltas.Conditions.BrittleBone", () => Main.LocalPlayer.inventory.Any(i => !i.IsAir && i.useAmmo == ItemID.Bone)));
                         break;
 
                     case NPCID.Merchant:
@@ -413,7 +413,7 @@ namespace Fargowiltas.NPCs
                         AddItem(ItemID.HotlineFishingHook, conditions: new Condition[] { angler25, Condition.Hardmode });
                         AddItem(ItemID.GoldenFishingRod, conditions: new Condition[] { angler30, Condition.Hardmode });
 
-                        AddItem(ItemID.Seed, 3, condition: new Condition("Have a weapon that uses seeds as ammunition in your inventory", () => Main.LocalPlayer.inventory.Any(i => !i.IsAir && i.useAmmo == AmmoID.Dart)));
+                        AddItem(ItemID.Seed, 3, condition: new Condition("Mods.Fargowiltas.Conditions.Seeds", () => Main.LocalPlayer.inventory.Any(i => !i.IsAir && i.useAmmo == AmmoID.Dart)));
                         break;
 
                     case NPCID.Painter:
@@ -502,19 +502,18 @@ namespace Fargowiltas.NPCs
                         break;
 
                     case NPCID.WitchDoctor:
-                        
-                            bool alreadySellsTable = false;
-                            foreach(NPCShop.Entry entry in shop.Entries)
+                        bool alreadySellsTable = false;
+                        foreach(NPCShop.Entry entry in shop.Entries)
+                        {
+                            if (!entry.Item.IsAir && entry.Item.type == ItemID.BewitchingTable)
                             {
-                                if (!entry.Item.IsAir && entry.Item.type == ItemID.BewitchingTable)
-                                {
-                                    alreadySellsTable = true;
-                                    break;
-                                }
+                                alreadySellsTable = true;
+                                break;
                             }
+                        }
 
-                            if (!alreadySellsTable)
-                                AddItem(ItemID.BewitchingTable, condition: Condition.DownedSkeletron);
+                        if (!alreadySellsTable)
+                            AddItem(ItemID.BewitchingTable, condition: Condition.DownedSkeletron);
                         break;
 
                     case NPCID.Steampunker:
@@ -523,19 +522,19 @@ namespace Fargowiltas.NPCs
                         break;
 
                     case NPCID.DyeTrader:
-                        AddItem(ItemID.RedHusk, condition: new Condition("After having picked up a Red Husk", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["RedHusk"]));
-                        AddItem(ItemID.OrangeBloodroot, condition: new Condition("After having picked up an Orange Bloodroot", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["OrangeBloodroot"]));
-                        AddItem(ItemID.YellowMarigold, condition: new Condition("After having picked up a Yellow Marigold", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["YellowMarigold"]));
-                        AddItem(ItemID.LimeKelp, condition: new Condition("After having picked up a Lime Kelp", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["LimeKelp"]));
-                        AddItem(ItemID.GreenMushroom, condition: new Condition("After having picked up a Green Mushroom", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["GreenMushroom"]));
-                        AddItem(ItemID.TealMushroom, condition: new Condition("After having picked up a Teal Mushroom", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["TealMushroom"]));
-                        AddItem(ItemID.CyanHusk, condition: new Condition("After having picked up a Cyan Husk", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["CyanHusk"]));
-                        AddItem(ItemID.SkyBlueFlower, condition: new Condition("After having picked up a Sky Blue Flower", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["SkyBlueFlower"]));
-                        AddItem(ItemID.BlueBerries, condition: new Condition("After having picked up Blueberries", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["BlueBerries"]));
-                        AddItem(ItemID.PurpleMucos, condition: new Condition("After having picked up Purple Mucos", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["PurpleMucos"]));
-                        AddItem(ItemID.VioletHusk, condition: new Condition("After having picked up a Violet Husk", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["VioletHusk"]));
-                        AddItem(ItemID.PinkPricklyPear, condition: new Condition("After having picked up a Pink Prickly Pear", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["PinkPricklyPear"]));
-                        AddItem(ItemID.BlackInk, condition: new Condition("After having picked up Black Ink", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["BlackInk"]));
+                        AddItem(ItemID.RedHusk, condition: new Condition("Mods.Fargowiltas.Conditions.RedHusk", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["RedHusk"]));
+                        AddItem(ItemID.OrangeBloodroot, condition: new Condition("Mods.Fargowiltas.Conditions.OrangeBloodroot", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["OrangeBloodroot"]));
+                        AddItem(ItemID.YellowMarigold, condition: new Condition("Mods.Fargowiltas.Conditions.YellowMarigold", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["YellowMarigold"]));
+                        AddItem(ItemID.LimeKelp, condition: new Condition("Mods.Fargowiltas.Conditions.LimeKelp", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["LimeKelp"]));
+                        AddItem(ItemID.GreenMushroom, condition: new Condition("Mods.Fargowiltas.Conditions.GreenMushroom", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["GreenMushroom"]));
+                        AddItem(ItemID.TealMushroom, condition: new Condition("Mods.Fargowiltas.Conditions.TealMushroom", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["TealMushroom"]));
+                        AddItem(ItemID.CyanHusk, condition: new Condition("Mods.Fargowiltas.Conditions.CyanHusk", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["CyanHusk"]));
+                        AddItem(ItemID.SkyBlueFlower, condition: new Condition("Mods.Fargowiltas.Conditions.SkyBlueFlower", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["SkyBlueFlower"]));
+                        AddItem(ItemID.BlueBerries, condition: new Condition("Mods.Fargowiltas.Conditions.BlueBerries", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["BlueBerries"]));
+                        AddItem(ItemID.PurpleMucos, condition: new Condition("Mods.Fargowiltas.Conditions.PurpleMucos", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["PurpleMucos"]));
+                        AddItem(ItemID.VioletHusk, condition: new Condition("Mods.Fargowiltas.Conditions.VioletHusk", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["VioletHusk"]));
+                        AddItem(ItemID.PinkPricklyPear, condition: new Condition("Mods.Fargowiltas.Conditions.PinkPricklyPear", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["PinkPricklyPear"]));
+                        AddItem(ItemID.BlackInk, condition: new Condition("Mods.Fargowiltas.Conditions.BlackInk", () => Main.LocalPlayer.GetModPlayer<FargoPlayer>().FirstDyeIngredients["BlackInk"]));
 
                         break;
 
@@ -554,9 +553,8 @@ namespace Fargowiltas.NPCs
                         break;
                     
                 }
-            }
+            }        
         }
-
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
             FargoPlayer fargoPlayer = player.GetFargoPlayer();
@@ -569,8 +567,21 @@ namespace Fargowiltas.NPCs
 
             if (fargoPlayer.CalmingCry)
             {
-                spawnRate = (int)(spawnRate * 10f);
-                maxSpawns = (int)(maxSpawns * 0.1);
+                float cryStrength = 1.15f; // 1 + strength of spawn rate decrease
+                const float strPerBoss = 0.15f;
+                if (Main.hardMode)
+                    cryStrength += strPerBoss;
+                if (NPC.downedMechBossAny)
+                    cryStrength += strPerBoss;
+                if (NPC.downedPlantBoss)
+                    cryStrength += strPerBoss;
+                if (NPC.downedGolemBoss)
+                    cryStrength += strPerBoss;
+                if (NPC.downedAncientCultist)
+                    cryStrength += strPerBoss;
+
+                spawnRate = (int)(spawnRate * cryStrength);
+                maxSpawns = (int)(maxSpawns * (1 / cryStrength));
             }
 
             if ((FargoWorld.OverloadGoblins || FargoWorld.OverloadPirates) && player.position.X > Main.invasionX * 16.0 - 3000 && player.position.X < Main.invasionX * 16.0 + 3000)
@@ -1018,7 +1029,7 @@ namespace Fargowiltas.NPCs
                     npcLoot.Add(ItemDropRule.Common(ItemID.Ale, 2, 4, 4));
                     break;
 
-                case NPCID.ArmsDealer:
+                case NPCID.Cyborg:
                     npcLoot.Add(ItemDropRule.Common(ItemID.NanoBullet, 4, 30, 30));
                     break;
 
@@ -1326,7 +1337,7 @@ namespace Fargowiltas.NPCs
 
             if (npc.type == NPCID.DD2Betsy && !PandoraActive)
             {
-                FargoUtils.PrintText("Betsy has been defeated!", new Color(175, 75, 0));
+                FargoUtils.PrintText(Language.GetTextValue("Announcement.HasBeenDefeated_Single", Lang.GetNPCNameValue(NPCID.DD2Betsy)), new Color(175, 75, 0));
                 FargoWorld.DownedBools["betsy"] = true;
             }
 
@@ -1460,13 +1471,13 @@ namespace Fargowiltas.NPCs
 
             if (Main.netMode == NetmodeID.Server)
             {
-                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Killed: " + Fargowiltas.SwarmKills), new Color(206, 12, 15));
-                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Total: " + Fargowiltas.SwarmTotal), new Color(206, 12, 15));
+                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.SwarmKilled", Fargowiltas.SwarmKills), new Color(206, 12, 15));
+                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.SwarmTotal", Fargowiltas.SwarmTotal), new Color(206, 12, 15));
             }
             else
             {
-                Main.NewText("Killed: " + Fargowiltas.SwarmKills, new Color(206, 12, 15));
-                Main.NewText("Total: " + Fargowiltas.SwarmTotal, new Color(206, 12, 15));
+                Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.SwarmKilled", Fargowiltas.SwarmKills), new Color(206, 12, 15));
+                Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.SwarmTotal", Fargowiltas.SwarmTotal), new Color(206, 12, 15));
             }
 
             if (minion != -1 && NPC.CountNPCS(minion) >= Fargowiltas.SwarmSpawned)
@@ -1535,11 +1546,11 @@ namespace Fargowiltas.NPCs
             {
                 if (Main.netMode == NetmodeID.Server)
                 {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The swarm has been defeated!"), new Color(206, 12, 15));
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.SwarmDefeated"), new Color(206, 12, 15));
                 }
                 else
                 {
-                    Main.NewText("The swarm has been defeated!", new Color(206, 12, 15));
+                    Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.SwarmDefeated"), new Color(206, 12, 15));
                 }
 
                 for (int i = 0; i < Main.maxNPCs; i++)

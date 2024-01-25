@@ -6,9 +6,7 @@ namespace Fargowiltas.Items.Summons.Abom
     public class HeadofMan : BaseSummon
     {
         public override int NPCType => NPCID.HeadlessHorseman;
-
-        public override string NPCName => "Headless Horseman";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

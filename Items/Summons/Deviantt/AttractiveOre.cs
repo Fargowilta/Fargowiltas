@@ -7,9 +7,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class AttractiveOre : BaseSummon
     {
         public override int NPCType => NPCID.UndeadMiner;
-
-        public override string NPCName => "Undead Miner";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

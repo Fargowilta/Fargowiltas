@@ -9,7 +9,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 {
     public class OverloadTwins : SwarmSummonBase
     {
-        public OverloadTwins() : base(NPCID.Retinazer, "A legion of glowing iris sing a dreadful song!", 25, "MechEye")
+        public OverloadTwins() : base(NPCID.Retinazer, nameof(OverloadTwins), 25, "MechEye")
         {
         }
 

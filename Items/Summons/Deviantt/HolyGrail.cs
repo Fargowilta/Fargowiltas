@@ -6,9 +6,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class HolyGrail : BaseSummon
     {
         public override int NPCType => NPCID.Tim;
-
-        public override string NPCName => "Tim";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

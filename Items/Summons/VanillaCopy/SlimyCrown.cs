@@ -10,9 +10,7 @@ namespace Fargowiltas.Items.Summons
         public override string Texture => "Terraria/Images/Item_560";
 
         public override int NPCType => NPCID.KingSlime;
-
-        public override string NPCName => "King Slime";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

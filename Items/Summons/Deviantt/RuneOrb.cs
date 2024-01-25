@@ -7,9 +7,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class RuneOrb : BaseSummon
     {
         public override int NPCType => NPCID.RuneWizard;
-
-        public override string NPCName => "Rune Wizard";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

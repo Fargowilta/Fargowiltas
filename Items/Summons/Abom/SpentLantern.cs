@@ -28,7 +28,7 @@ namespace Fargowiltas.Items.Summons.Abom
         public override bool? UseItem(Player player)
         {
             FargoWorld.Matsuri = false;
-            FargoUtils.PrintText("Lantern Night rate restored to default.", new Color(175, 75, 255));
+            FargoUtils.PrintLocalization("MessageInfo.StopLanternNight", new Color(175, 75, 255));
             
             if (Main.netMode == NetmodeID.Server)
                 NetMessage.SendData(MessageID.WorldData);

@@ -52,7 +52,7 @@ namespace Fargowiltas
 
             if (update)
             {
-                string text = $"A new item has been unlocked in {seller}'s shop!";
+                string text = Language.GetTextValue("Mods.Fargowiltas.MessageInfo.NewItemUnlocked", seller);
                 if (Main.netMode == NetmodeID.SinglePlayer)
                 {
                     if (conditions)
@@ -85,6 +85,10 @@ namespace Fargowiltas
         }
 
         public static void PrintText(string text, int r, int g, int b) => PrintText(text, new Color(r, g, b));
+
+        public static void PrintLocalization(string fargoKey, params object[] args) => PrintText(Language.GetTextValue($"Mods.Fargowiltas.{fargoKey}", args));
+
+        public static void PrintLocalization(string fargoKey, Color color, params object[] args) => PrintText(Language.GetTextValue($"Mods.Fargowiltas.{fargoKey}", args), color);
 
         public static void SpawnBossNetcoded(Player player, int bossType)
         {

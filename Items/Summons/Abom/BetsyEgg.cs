@@ -5,9 +5,7 @@ namespace Fargowiltas.Items.Summons.Abom
     public class BetsyEgg : BaseSummon
     {
         public override int NPCType => NPCID.DD2Betsy;
-
-        public override string NPCName => "Betsy";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

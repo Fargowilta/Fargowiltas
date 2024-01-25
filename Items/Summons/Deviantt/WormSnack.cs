@@ -6,9 +6,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class WormSnack : BaseSummon
     {
         public override int NPCType => Main.hardMode ? NPCID.DiggerHead : NPCID.GiantWormHead;
-
-        public override string NPCName => Main.hardMode ? "Digger" : "Giant Worm";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

@@ -61,11 +61,11 @@ namespace Fargowiltas.Items.Summons
 
                 if (Main.netMode == NetmodeID.Server)
                 {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The Twins have awoken!"), new Color(175, 75, 255));
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("LegacyMisc.48"), new Color(175, 75, 255));
                 }
                 else
                 {
-                    Main.NewText("The Twins have awoken!", new Color(175, 75, 255));
+                    Main.NewText(Language.GetTextValue("LegacyMisc.48"), new Color(175, 75, 255));
                 }
             }
 

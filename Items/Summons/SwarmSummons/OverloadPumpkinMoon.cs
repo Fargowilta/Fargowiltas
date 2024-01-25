@@ -44,22 +44,22 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
                 if (Main.netMode == 2)
                 {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The Pumpkin Moon fades away!"), new Color(175, 75, 255));
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadPumpkinMoonStop"), new Color(175, 75, 255));
                 }
                 else
                 {
-                    Main.NewText("The Pumpkin Moon fades away!", 175, 75, 255);
+                    Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.OverloadPumpkinMoonStop"), 175, 75, 255);
                 }
             }
             else
             {
                 if (Main.netMode == 2)
                 {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The Pumpkin Moon is rising..."), new Color(50, 255, 130));
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadPumpkinMoonStart"), new Color(50, 255, 130));
                 }
                 else
                 {
-                    Main.NewText("The Pumpkin Moon is rising...", 50, 255, 130);
+                    Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.OverloadPumpkinMoonStart"), 50, 255, 130);
                 }
 
                 Main.pumpkinMoon = true;
@@ -72,11 +72,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
                     if (Main.netMode == 2)
                     {
-                        ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Wave: 15: Everything"), new Color(175, 75, 255));
+                        ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadPumpkinMoonWave15"), new Color(175, 75, 255));
                     }
                     else
                     {
-                        Main.NewText("Wave: 15: Everything", 175, 75, 255);
+                        Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.OverloadPumpkinMoonWave15"), 175, 75, 255);
                     }
                 }
                 else

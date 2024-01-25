@@ -7,9 +7,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class CoreoftheFrostCore : BaseSummon
     {
         public override int NPCType => NPCID.IceGolem;
-
-        public override string NPCName => "Ice Golem";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

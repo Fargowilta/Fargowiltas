@@ -13,9 +13,7 @@ namespace Fargowiltas.Items.Summons.Mutant
     public class SuspiciousSkull : BaseSummon
     {
         public override int NPCType => Main.dayTime ? NPCID.DungeonGuardian : NPCID.SkeletronHead;
-
-        public override string NPCName => Main.dayTime ? "Dungeon Guardian" : "Skeletron";
-
+        
         public override bool ResetTimeWhenUsed => !Main.dayTime && !NPC.downedBoss3;
 
         public override void SetStaticDefaults()

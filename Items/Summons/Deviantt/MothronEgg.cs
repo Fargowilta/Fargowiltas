@@ -6,9 +6,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class MothronEgg : BaseSummon
     {
         public override int NPCType => NPCID.Mothron;
-
-        public override string NPCName => "Mothron";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

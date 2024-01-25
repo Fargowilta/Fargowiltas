@@ -15,9 +15,7 @@ namespace Fargowiltas.Items.Summons
         public override string Texture => "Terraria/Images/Item_557";
 
         public override int NPCType => NPCID.SkeletronPrime;
-
-        public override string NPCName => "Skeletron Prime";
-
+        
         public override bool ResetTimeWhenUsed => !NPC.downedMechBoss3;
 
         public override void SetStaticDefaults()

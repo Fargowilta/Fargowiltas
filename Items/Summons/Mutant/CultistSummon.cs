@@ -5,9 +5,7 @@ namespace Fargowiltas.Items.Summons.Mutant
     public class CultistSummon : BaseSummon
     {
         public override int NPCType => NPCID.CultistBoss;
-
-        public override string NPCName => "Lunatic Cultist";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

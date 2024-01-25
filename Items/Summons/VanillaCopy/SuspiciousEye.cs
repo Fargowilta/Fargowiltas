@@ -15,9 +15,7 @@ namespace Fargowiltas.Items.Summons
         public override string Texture => "Terraria/Images/Item_43";
 
         public override int NPCType => NPCID.EyeofCthulhu;
-
-        public override string NPCName => "Eye of Cthulhu";
-
+        
         public override bool ResetTimeWhenUsed => !NPC.downedBoss1;
 
         public override void SetStaticDefaults()

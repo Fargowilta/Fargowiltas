@@ -5,9 +5,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
     public class SlimyLockBox : BaseSummon
     {
         public override int NPCType => NPCID.DungeonSlime;
-
-        public override string NPCName => "Dungeon Slime";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

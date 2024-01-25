@@ -6,12 +6,13 @@ using Terraria.UI;
 using Terraria.GameInput;
 using Terraria.GameContent.UI.Elements;
 using System.Reflection;
+using Terraria.Localization;
 
 namespace Fargowiltas.UI
 {
     public class UISearchBar : UIElement
     {
-        public const string HintText = "Search...";
+        public string HintText => Language.GetTextValue("Mods.Fargowiltas.UI.SearchText");
 
         public bool IsEmpty => string.IsNullOrEmpty(Input);
 

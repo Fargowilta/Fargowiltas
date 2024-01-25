@@ -14,7 +14,10 @@ namespace Fargowiltas.Items.Summons
     {
         public abstract int NPCType { get; }
 
-        public abstract string NPCName { get; }
+        /// <summary>
+        /// Used when <see cref="Lang.GetNPCNameValue"/> or <see cref="ModNPC.DisplayName"/> can't get its name properly
+        /// </summary>
+        public virtual string NPCName { get; }
 
         public virtual bool ResetTimeWhenUsed => false;
 
@@ -66,13 +69,16 @@ namespace Fargowiltas.Items.Summons
 
             Projectile.NewProjectile(player.GetSource_ItemUse(source.Item), pos, Vector2.Zero, ModContent.ProjectileType<SpawnProj>(), 0, 0, Main.myPlayer, NPCType);
 
+            LocalizedText text = NPCType == NPCID.MoonLordCore ? Language.GetText("LegacyMisc.47") : Language.GetText("Announcement.HasAwoken");
+            string npcName = NPCName ?? (ModContent.GetModNPC(NPCType) == null ? Lang.GetNPCNameValue(NPCType) : ModContent.GetModNPC(NPCType).DisplayName.Value);
+
             if (Main.netMode == NetmodeID.Server)
             {
-                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral($"{NPCName} has awoken!"), new Color(175, 75, 255));
+                ChatHelper.BroadcastChatMessage(text.ToNetworkText(npcName), new Color(175, 75, 255));
             }
             else if (NPCType != NPCID.KingSlime)
             {
-                Main.NewText($"{NPCName} has awoken!", new Color(175, 75, 255));
+                Main.NewText(text.Format(npcName), new Color(175, 75, 255));
             }
 
             SoundEngine.PlaySound(SoundID.Roar, player.position);

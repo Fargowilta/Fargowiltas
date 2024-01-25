@@ -9,9 +9,7 @@ namespace Fargowiltas.Items.Summons.Mutant
     public class PrismaticPrimrose : BaseSummon
     {
         public override int NPCType => NPCID.HallowBoss;
-
-        public override string NPCName => "Empress of Light";
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

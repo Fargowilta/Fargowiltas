@@ -54,7 +54,7 @@ namespace Fargowiltas.NPCs
 
             NPCID.Sets.ShimmerTownTransform[Type] = true; // Allows for this NPC to have a different texture after touching the Shimmer liquid.
 
-            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = -1f,
                 Direction = -1
@@ -228,88 +228,72 @@ namespace Fargowiltas.NPCs
                 && !(bool)ModLoader.GetMod("FargowiltasSouls").Call("GiftsReceived"))
             {
                 ModLoader.GetMod("FargowiltasSouls").Call("GiveDevianttGifts");
-                return Main.npcChatText = "This world looks tougher than usual, so you can have these on the house just this once! Talk to me if you need any tips, yeah?";
+                return Main.npcChatText = DeviChat("GiveGifts");
             }
 
             if (Main.notTheBeesWorld)
             {
-                string text = "IT'S THE FUNNY BEE WORLD!";
+                string text = DeviChat("NTB");
                 int max = Main.rand.Next(10, 50);
                 for (int i = 0; i < max; i++)
-                    text += " " + Main.rand.Next(new string[] { "HA", "HA", "HEE", "HOO", "HEH", "HAH" });
-                text += "!";
+                    text += DeviChat("NTB" + Main.rand.Next(new string[] { "HA", "HA", "HEE", "HOO", "HEH", "HAH" }));
+                text += Language.GetTextValue("Mods.Fargowiltas.MessageInfo.Common.Exclamation");
                 return text;
             }
 
             if (Fargowiltas.ModLoaded["FargowiltasSouls"] && Main.rand.NextBool())
             {
                 if ((bool)ModLoader.GetMod("FargowiltasSouls").Call("EridanusArmor"))
-                    return "UWAH! Please don't hurt... wait, it's just you. Don't scare me like that! And why is that THING following you?!";
+                    return DeviChat("EridanusArmor");
 
                 if ((bool)ModLoader.GetMod("FargowiltasSouls").Call("NekomiArmor"))
-                    return "Ooh, that's my hoodie! So how is it? Comfy and great for gaming, right? Maybe you'll even go beat a boss without taking damage!";
+                    return DeviChat("NekomiArmor");
             }
 
             if (NPC.homeless && canSayDefeatQuote && Fargowiltas.ModLoaded["FargowiltasSouls"] && (bool)ModLoader.GetMod("FargowiltasSouls").Call("DownedDevi"))
             {
                 canSayDefeatQuote = false;
-                return "Good work getting one over on me! Hope I didn't make you sweat too much. Keep at the grind - I wanna see how far you can go!";
+                return DeviChat("Defeat");
             }
 
             if (Main.rand.NextBool())
             {
                 if (Main.LocalPlayer.stinky)
-                    return "Wow, you smell rancid. When's the last time you took a shower, stinky?";
+                    return DeviChat("Stinky");
 
                 if (Main.LocalPlayer.loveStruck)
-                    return $"You're making too many hearts at me! Sorry, we're only at bond level {Main.rand.Next(2, 8)} right now!";
+                    return DeviChat("LoveStruck", Main.rand.Next(2, 8));
 
                 if (Main.bloodMoon)
-                    return "The blood moon's effects? I'm not human anymore, so nope!";
+                    return DeviChat("BloodMoon");
             }
 
-            List<string> dialogue = new List<string>
-            {
-                "Did you know? The only real music genres are death metal and artcore.",
-                "I'll have you know I'm over a hundred Fargo years old! Don't ask me how long a Fargo year is.",
-                "I might be able to afford a taller body if you keep buying!",
-                "Where's that screm cat?",
-                $"{Main.LocalPlayer.name}! I saw something rodent-y just now! You don't have a hamster infestation, right? Right!?",
-                "You're the Terrarian? Honestly, I was expecting someone a little... taller.",
-                "Don't look at me like that! The only thing I've deviated from is my humanity.",
-                "Rip and tear and buy from me for more things to rip and tear!",
-                "What's a chee-bee doe-goe?",
-                "Wait a second. Are you sure this house isn't what they call 'prison?'",
-                "Deviantt has awoken! Quick, give her all your money to defeat her!",
-                "One day, I'll sell a summon for myself! ...Just kidding.",
-                "Hmm, I can tell! You've killed a lot, but you haven't killed enough!",
-                "Why the extra letter, you ask? Only the strongest sibling is allowed to remove their own!",
-                "The more rare things you kill, the more stuff I sell! Simple, right?",
-                "Oh, hi! I, uh, definitely don't have any Stink Potions on me right now! Not that I normally would!",
-                "No, I'm totally not throwing Love Potions while you're not looking! Um, I mean... oh, just buy something!",
-            };
+            List<string> dialogue = new List<string>();
+            dialogue.Add(DeviChat("Normal1", Main.LocalPlayer.name));
+            for (int i = 2; i <= 17; i++)
+                dialogue.Add(DeviChat($"Normal{i}"));
 
             if (Main.hardMode)
             {
-                dialogue.Add("Shower thought. If I put you in a meat grinder and all that's left is two Dye... I'd probably be rich! Not that I would, not to you, specifically, I mean... never mind!");
+                dialogue.Add(DeviChat("HM"));
             }
 
             int mutant = NPC.FindFirstNPC(NPCType<Mutant>());
             if (mutant != -1)
             {
-                dialogue.Add($"Can you tell {Main.npc[mutant].GivenName} to put some clothes on?");
-                dialogue.Add($"One day, I'll sell a summon for myself! ...Just kidding. That's {Main.npc[mutant].GivenName}'s job.");
+                dialogue.Add(DeviChat("Mutant1", Main.npc[mutant].GivenName));
+                dialogue.Add(DeviChat("Mutant2", Main.npc[mutant].GivenName));
             }
 
             int lumberjack = NPC.FindFirstNPC(NPCType<LumberJack>());
             if (lumberjack != -1)
             {
-                dialogue.Add($"What's that? You want to fight {Main.npc[lumberjack].GivenName}? ...even I know better than to try.");
+                dialogue.Add(DeviChat("Lumber", Main.npc[lumberjack].GivenName));
             }
 
             if (Fargowiltas.ModLoaded["FargowiltasSouls"] && (bool)ModLoader.GetMod("FargowiltasSouls").Call("EternityMode"))
             {
-                dialogue.Add("Embrace suffering... and while you're at it, embrace another purchase!");
+                dialogue.Add(DeviChat("EternityMode"));
             }
 
             return Main.rand.Next(dialogue);
@@ -339,6 +323,11 @@ namespace Fargowiltas.NPCs
         }
 
         public override void AddShops()
+        {
+            AddVanillaShop();
+        }
+
+        public void AddVanillaShop()
         {
             var npcShop = new NPCShop(Type, ShopName);
 
@@ -383,7 +372,7 @@ namespace Fargowiltas.NPCs
                 .Add(new Item(ItemType<LeesHeadband>()) { shopCustomPrice = Item.buyPrice(copper: 150000) }, new Condition("Mods.Fargowiltas.Conditions.LeeDown", () => NPC.downedPlantBoss && FargoWorld.DownedBools["boneLee"]))
                 .Add(new Item(ItemType<GrandCross>()) { shopCustomPrice = Item.buyPrice(copper: 150000) }, new Condition("Mods.Fargowiltas.Conditions.PaladinDown", () => NPC.downedPlantBoss && FargoWorld.DownedBools["paladin"]))
                 .Add(new Item(ItemType<AmalgamatedSkull>()) { shopCustomPrice = Item.buyPrice(copper: 300000) }, new Condition("Mods.Fargowiltas.Conditions.SkeleGunDown", () => NPC.downedPlantBoss && FargoWorld.DownedBools["skeletonGun"]))
-                .Add(new Item(ItemType<AmalgamatedSpirit>()) { shopCustomPrice = Item.buyPrice(copper: 300000) }, new Condition("Mods.Fargowiltas.Conditions.SkeleGunDown", () => NPC.downedPlantBoss && FargoWorld.DownedBools["skeletonMage"]))
+                .Add(new Item(ItemType<AmalgamatedSpirit>()) { shopCustomPrice = Item.buyPrice(copper: 300000) }, new Condition("Mods.Fargowiltas.Conditions.SkeleMagesDown", () => NPC.downedPlantBoss && FargoWorld.DownedBools["skeletonMage"]))
                 .Add(new Item(ItemType<SiblingPylon>()), Condition.HappyEnoughToSellPylons, Condition.NpcIsPresent(NPCType<Mutant>()), Condition.NpcIsPresent(NPCType<Abominationn>()))
             ;
 
@@ -499,6 +488,8 @@ namespace Fargowiltas.NPCs
             //Main.EntitySpriteDraw(texture2D13, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), NPC.GetAlpha(drawColor), NPC.rotation, origin2, NPC.scale, effects, 0);
             return true;
         }
+
+        private static string DeviChat(string key, params object[] args) => Language.GetTextValue($"Mods.Fargowiltas.NPCs.Deviantt.Chat.{key}", args);
     }
     public class DevianttProfile : ITownNPCProfile
     {

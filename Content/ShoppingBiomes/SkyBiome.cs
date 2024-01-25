@@ -6,7 +6,7 @@ namespace Fargowiltas.Content.Biomes
 {
     public class SkyBiome : IShoppingBiome, ILoadable
     {
-        public string NameKey => "Sky";
+        public string NameKey => "Mods.Fargowiltas.Biome.Sky";
 
         public bool IsInBiome(Player player) => player.ZoneSkyHeight;
 

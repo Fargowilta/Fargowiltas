@@ -48,7 +48,7 @@ namespace Fargowiltas.Items.Misc
 					}
 				}
 
-				FargoUtils.PrintText($"researched {count} items");
+				FargoUtils.PrintLocalization("Items.InstantResearch.ResearchText", count);
 			}
 
 			return true;

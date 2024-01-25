@@ -44,22 +44,22 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
                 if (Main.netMode == 2)
                 {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The Frost Moon fades away!"), new Color(175, 75, 255));
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadFrostMoonStop"), new Color(175, 75, 255));
                 }
                 else
                 {
-                    Main.NewText("The Frost Moon fades away!", 175, 75, 255);
+                    Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.OverloadFrostMoonStop"), 175, 75, 255);
                 }
             }
             else
             {
                 if (Main.netMode == 2)
                 {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The Frost Moon is rising..."), new Color(50, 255, 130));
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadFrostMoonStart"), new Color(50, 255, 130));
                 }
                 else
                 {
-                    Main.NewText("The Frost Moon is rising...", 50, 255, 130);
+                    Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.OverloadFrostMoonStart"), 50, 255, 130);
                 }
 
                 Main.snowMoon = true;
@@ -72,11 +72,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
                     if (Main.netMode == 2)
                     {
-                        ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Wave: 20: Everything"), new Color(175, 75, 255));
+                        ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadFrostMoonWave20"), new Color(175, 75, 255));
                     }
                     else
                     {
-                        Main.NewText("Wave: 20: Everything", 175, 75, 255);
+                        Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.OverloadFrostMoonWave20"), 175, 75, 255);
                     }
                 }
                 else

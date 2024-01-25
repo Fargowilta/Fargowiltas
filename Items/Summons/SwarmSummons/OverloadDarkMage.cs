@@ -9,7 +9,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 {
     public class OverloadDarkMage : SwarmSummonBase
     {
-        public OverloadDarkMage() : base(NPCID.DD2DarkMageT1, "You feel like you're in a library!", 50, "ForbiddenTome")
+        public OverloadDarkMage() : base(NPCID.DD2DarkMageT1, nameof(OverloadDarkMage), 50, "ForbiddenTome")
         {
         }
 

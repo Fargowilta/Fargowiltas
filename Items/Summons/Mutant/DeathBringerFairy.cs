@@ -47,11 +47,11 @@ namespace Fargowiltas.Items.Summons.Mutant
 
             if (Main.netMode == NetmodeID.Server)
             {
-                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Several bosses have awoken!"), new Color(175, 75, 255));
+                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.SeveralBossesAwoken"), new Color(175, 75, 255));
             }
             else
             {
-                Main.NewText("Several bosses have awoken!", new Color(175, 75, 255));
+                Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.SeveralBossesAwoken"), new Color(175, 75, 255));
             }
 
             SoundEngine.PlaySound(SoundID.Roar, player.position);

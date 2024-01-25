@@ -57,7 +57,7 @@ namespace Fargowiltas.Items.Summons.Abom
                 Projectile.NewProjectile(player.GetSource_ItemUse(source.Item), pos, Vector2.Zero, type, 0, 0, Main.myPlayer, pillars[i]);
             }
 
-            FargoUtils.PrintText("The Celestial Pillars have awoken!", new Color(175, 75, 255));
+            FargoUtils.PrintLocalization("MessageInfo.StartLunarEvent", new Color(175, 75, 255));
 
             SoundEngine.PlaySound(SoundID.Roar, player.position);
 
