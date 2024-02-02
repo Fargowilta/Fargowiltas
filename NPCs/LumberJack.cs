@@ -195,6 +195,10 @@ namespace Fargowiltas.NPCs
                     for (int i = 0; i < 5; i++)
                     {
                         int itemType = Main.rand.Next(new int[] { ItemID.Lemon, ItemID.Peach, ItemID.Apricot, ItemID.Grapefruit, ItemID.Apple });
+                        player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.AshWood), ItemID.AshWood, 50);
+                        itemType = Main.rand.Next(new int[] { ItemID.HellButterfly, ItemID.MagmaSnail, ItemID.Lavafly });
+                        player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType);
+                        itemType = Main.rand.Next(new int[] { ItemID.SpicyPepper, ItemID.Pomegranate});
                         player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType);
                     }
                     player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.Wood), ItemID.Wood, 50);
