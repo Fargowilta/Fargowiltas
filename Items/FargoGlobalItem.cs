@@ -83,9 +83,7 @@ namespace Fargowiltas.Items
             if (GetInstance<FargoClientConfig>().ExpandedTooltips)
             {
                 TooltipLine line;
-
                 //Shop sale tooltips. Very engineered. Adds tooltips to ALL npc shop sales. Aims to handle any edge case as well as possible.
-                
                 List<ShopTooltip> registeredShopTooltips = new();
                 foreach (var shop in NPCShopDatabase.AllShops)
                 {
@@ -113,8 +111,6 @@ namespace Fargowiltas.Items
                         }
                         string conditionLine = i > 0 ? ": " + conditions : "";
                         string npcName = ContentSamples.NpcsByNetId[shop.NpcType].FullName;
-
-
                         
                         if (registeredShopTooltips.Any(t => t.NpcNames.Any(n => n == npcName) && t.Condition == conditionLine)) //sometimes it makes duplicates otherwise
                             continue;

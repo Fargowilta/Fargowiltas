@@ -133,7 +133,7 @@ namespace Fargowiltas.UI
             AddStat("MaxSpeed", ItemID.HermesBoots, (int)((player.accRunSpeed + player.maxRunSpeed) / 2f * player.moveSpeed * 3));
 
             string RenderWingStat(double stat) => stat <= 0 ? Language.GetTextValue("Mods.Fargowiltas.UI.WingNull") : stat.ToString();
-            AddStat("WingTime", ItemID.AngelWings, player.wingTimeMax / 60 > 60 || player.empressBrooch ? 
+            AddStat("WingTime", ItemID.AngelWings, player.wingTimeMax / 60 > 60 || (player.empressBrooch && !Fargowiltas.ModLoaded["CalamityMod"]) ? 
                 Language.GetTextValue("Mods.Fargowiltas.UI.WingTimeMoreThan60Sec") : Language.GetTextValue("Mods.Fargowiltas.UI.WingTimeActual", RenderWingStat(Math.Round(player.wingTimeMax / 60.0, 2))));
             AddStat("WingMaxSpeed", ItemID.AngelWings, RenderWingStat(Math.Round(modPlayer.StatSheetWingSpeed * 32 / 6.25)));
             AddStat("WingAscentModifier", ItemID.AngelWings, RenderWingStat(Math.Round(modPlayer.StatSheetMaxAscentMultiplier * 100)));

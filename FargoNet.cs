@@ -151,9 +151,8 @@ namespace Fargowiltas
             WriteToPacket(ModContent.GetInstance<Fargowiltas>().GetPacket(), (byte)msg, param).Send();
         }
 
-        public static void HandlePacket(BinaryReader bb)
+        public static void HandlePacket(BinaryReader bb, byte msg)
         {
-            byte msg = bb.ReadByte();
             if (Debug)
             {
                 ModContent.GetInstance<Fargowiltas>().Logger.Error((Main.netMode == NetmodeID.Server ? "--SERVER-- " : "--CLIENT-- ") + "HANDING MESSAGE: " + msg);

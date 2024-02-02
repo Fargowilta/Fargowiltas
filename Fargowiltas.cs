@@ -11,10 +11,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using Terraria;
 using Terraria.Chat;
 using Terraria.GameContent.Events;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.Graphics;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -68,6 +69,7 @@ namespace Fargowiltas
 //            HookIntoLoad();
         }
 
+
         public override void Load()
         {
             Instance = this;
@@ -81,7 +83,7 @@ namespace Fargowiltas
 
             HomeKey = KeybindLoader.RegisterKeybind(this, "Home", "Home");
 
-            StatKey = KeybindLoader.RegisterKeybind(this, "Stat", "M");
+            StatKey = KeybindLoader.RegisterKeybind(this, "Stat", "RightShift");
 
             DashKey = KeybindLoader.RegisterKeybind(this, "Dash", "C");
 
@@ -243,7 +245,7 @@ namespace Fargowiltas
 
             if (ModLoader.TryGetMod("Wikithis", out Mod wikithis) && !Main.dedServ)
             {
-                wikithis.Call("AddModURL", this, "https://terrariamods.wiki.gg/wiki/Fargo%27s_Mod/{}");
+                wikithis.Call("AddModURL", this, "https://fargosmods.wiki.gg/wiki/{}");
 
                 // You can also use call ID for some calls!
                 //wikithis.Call(0, this, "https://examplemod.wiki.gg/wiki/{}");
@@ -383,11 +385,11 @@ namespace Fargowiltas
                     //                            return true;
                     //                        return false;
                     case "AddDevianttHelpDialogue":
-                        dialogueTracker.AddDialogue(
-                            args[1] as string,
-                            (byte)args[2],
-                            args[3] as Predicate<string>
-                        );
+                        if (args[4].GetType() == typeof(string) && args[4].ToString().Length > 0)
+                            dialogueTracker.AddDialogue(args[1] as string, (byte)args[2], args[3] as Predicate<string>, args[4] as string);
+                        else
+                            dialogueTracker.AddDialogue(args[1] as string, (byte)args[2], args[3] as Predicate<string>);
+
                         break;
 
                     case "LowRenderProj":
@@ -427,6 +429,9 @@ namespace Fargowiltas
 
             switch (messageType)
             {
+                case 0:
+                    FargoNet.HandlePacket(reader, messageType);
+                    break;
                 // Regal statue
                 case 1:
                     {
@@ -890,3 +895,4 @@ namespace Fargowiltas
         //        }
     }
 }
+

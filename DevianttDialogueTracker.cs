@@ -43,9 +43,9 @@ namespace Fargowiltas
             PossibleDialogue = new List<HelpDialogue>();
         }
 
-        public void AddDialogue(string messageKey, byte type, Predicate<string> predicate)
+        public void AddDialogue(string messageKey, byte type, Predicate<string> predicate, string keyPath = "Fargowiltas.NPCs.Deviantt.HelpDialogue")
         {
-            LocalizedText message = Language.GetText($"Mods.Fargowiltas.NPCs.Deviantt.HelpDialogue.{messageKey}");
+            LocalizedText message = Language.GetText($"Mods.{keyPath}.{messageKey}");
             PossibleDialogue.Add(new HelpDialogue(message, type, predicate));
         }
 
@@ -172,6 +172,12 @@ namespace Fargowiltas
                 (name) => true);
 
             AddDialogue("SoulToggle", HelpDialogueType.Misc,
+                (name) => true);
+
+            AddDialogue("CactusDamage", HelpDialogueType.Environment,
+                (name) => true);
+
+            AddDialogue("RainLightning", HelpDialogueType.Environment,
                 (name) => true);
 
             //AddDialogue("Just so you know, ammos are less effective. Only a bit of their damage contributes to your total output!",

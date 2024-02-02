@@ -2,40 +2,23 @@ This is a Quality of life mod that adds the Mutant town NPC who sells boss summo
 There are several other items such as infinite ammos, craftable instant builds for common world infrastructure like skybridges, obsidian underworld bridges, hellevators, unlimited potions, increased spawn rates toggle item, and more!
 
 Fargo Discord: https://discord.gg/Rgen4Vv
-Fargo Wiki: https://terrariamods.wiki.gg/wiki/Fargo%27s_Mod
+Fargo Wiki: https://fargosmods.wiki.gg
+
+NEW UPDATE - v3.2.2
+-Updated wiki links to lead to the brand new dedicated wiki at https://fargosmods.wiki.gg
+-Added new Deviantt help dialogue for the new Eternity Mode changes for Cacti and lightning
+-Lumberjack has a 33% chance to drop a Lumberjack Hat (previously unobtainable)
+-Nerfed Calming Cry: Now upgrades through progression
+-Changed default Stat Sheet key to RightShift
+-Tattered Bee Wings banner recipe now uses Moss Hornet banner instead of Hornet banner
+-Removed Lumberjack "Wanna see me work without my shirt on? Maybe in 2030." quote
+-Internally cleaned up and improved localization 
+-Resprited Weather Balloon
+-Fixed issue where Arms Dealer dropped Nano Bullets instead of Cyborg
+-Fixed incorrect shop condition description for Amalgamated Skull
+-Fixed Lumberjack not dropping hell critters
+-Stat Sheet no longer displays "yes" wing time with Soaring Insignia when Calamity is enabled, since it removes its infinite flight
+-Fixed AddDevianttHelpDialogue modcall to allow mods calling to provide localization path for the added text string
 
 NEW UPDATE - V3.2.1.3
 -Updated to TModLoader december version
-
-NEW UPDATE - V 3.2.1.2
--Fixed issues with Friendly Projectile Transparency config
--Fixed localization issues
-
-NEW UPDATE - V 3.2.1.1
--Fixed some incorrect tooltips
--Fixed issue with the Friendly Projectile Transparency config with some projectiles
--Moved several instances of explicitly defined text to localization file
--A few resprites
-
-NEW UPDATE - V 3.2.1
--Added new "sold by" tooltips to ALL sold items, including modded
--Buff stations now passively provide effects while nearby 
--Stat Sheet changes: 
-Now dynamically resizes to fit amount of stats
-Other mods can now add stats to the stat sheet with the "AddStat" mod call
-
--Squirrel can now spawn naturally after killing King Slime if Fargo's Souls is disabled
--Added DR cap to stat sheet
--Added Discord and Wiki links in mod description
--Added Celestial Magnet crate recipe
--Added Slice of Cake to Omnistation
--Mutant now unlocks Cycle Shop button when any Hardmode boss is killed, regardless of world Hardmode state
--Made Shellphone (Home) usable with Magic Mirror Auto-Use
--Elemental Assembler now includes Tea Kettle
--Added recipe groups for Tables, Chairs and Sinks and made Multitask Center use them
--Fixed Set Bonus doubletap disable config not working for modded effects
--Fixed angler quest-locked and dye trader ingredient sales not working correctly
--Added Armored Viking banner recipe for Viking Helmet
--Fixed Pirate vanity banner recipes
--Fixed some other minor bugs and issues
--Several resprites

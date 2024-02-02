@@ -555,7 +555,6 @@ namespace Fargowiltas.NPCs
                 }
             }        
         }
-
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
             FargoPlayer fargoPlayer = player.GetFargoPlayer();
@@ -568,8 +567,21 @@ namespace Fargowiltas.NPCs
 
             if (fargoPlayer.CalmingCry)
             {
-                spawnRate = (int)(spawnRate * 10f);
-                maxSpawns = (int)(maxSpawns * 0.1);
+                float cryStrength = 1.15f; // 1 + strength of spawn rate decrease
+                const float strPerBoss = 0.15f;
+                if (Main.hardMode)
+                    cryStrength += strPerBoss;
+                if (NPC.downedMechBossAny)
+                    cryStrength += strPerBoss;
+                if (NPC.downedPlantBoss)
+                    cryStrength += strPerBoss;
+                if (NPC.downedGolemBoss)
+                    cryStrength += strPerBoss;
+                if (NPC.downedAncientCultist)
+                    cryStrength += strPerBoss;
+
+                spawnRate = (int)(spawnRate * cryStrength);
+                maxSpawns = (int)(maxSpawns * (1 / cryStrength));
             }
 
             if ((FargoWorld.OverloadGoblins || FargoWorld.OverloadPirates) && player.position.X > Main.invasionX * 16.0 - 3000 && player.position.X < Main.invasionX * 16.0 + 3000)
@@ -1017,7 +1029,7 @@ namespace Fargowiltas.NPCs
                     npcLoot.Add(ItemDropRule.Common(ItemID.Ale, 2, 4, 4));
                     break;
 
-                case NPCID.ArmsDealer:
+                case NPCID.Cyborg:
                     npcLoot.Add(ItemDropRule.Common(ItemID.NanoBullet, 4, 30, 30));
                     break;
 

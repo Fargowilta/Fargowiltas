@@ -11,6 +11,7 @@ using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
@@ -304,6 +305,7 @@ namespace Fargowiltas.NPCs
                 {
                     Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(ItemID.AshWood), ItemID.AshWood, 50);
                     itemType = Main.rand.Next(new int[] { ItemID.HellButterfly, ItemID.MagmaSnail, ItemID.Lavafly });
+                    player.QuickSpawnItem(player.GetSource_OpenItem(itemType), itemType);
                     itemType = Main.rand.Next(new int[] { ItemID.SpicyPepper, ItemID.Pomegranate });
                     Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_OpenItem(itemType), itemType);
                 }
@@ -415,6 +417,11 @@ namespace Fargowiltas.NPCs
         public override void OnKill()
         {
             FargoWorld.DownedBools["lumberjack"] = true;
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LumberHat>(), 3));
         }
 
         public override void HitEffect(NPC.HitInfo hit)

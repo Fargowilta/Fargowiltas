@@ -1,2 +1,15 @@
-NEW UPDATE - V 3.2.1.3
--Updated to TModLoader december version
+NEW UPDATE - V 3.2.2
+-Updated wiki links to lead to the brand new dedicated wiki at https://fargosmods.wiki.gg
+-Added new Deviantt help dialogue for the new Eternity Mode changes for Cacti and lightning
+-Lumberjack has a 33% chance to drop a Lumberjack Hat (previously unobtainable)
+-Nerfed Calming Cry: Now upgrades through progression
+-Changed default Stat Sheet key to RightShift
+-Tattered Bee Wings banner recipe now uses Moss Hornet banner instead of Hornet banner
+-Removed Lumberjack "Wanna see me work without my shirt on? Maybe in 2030." quote
+-Internally cleaned up and improved localization 
+-Resprited Weather Balloon
+-Fixed issue where Arms Dealer dropped Nano Bullets instead of Cyborg
+-Fixed incorrect shop condition description for Amalgamated Skull
+-Fixed Lumberjack not dropping hell critters
+-Stat Sheet no longer displays "yes" wing time with Soaring Insignia when Calamity is enabled, since it removes its infinite flight
+-Fixed AddDevianttHelpDialogue modcall to allow mods calling to provide localization path for the added text string
