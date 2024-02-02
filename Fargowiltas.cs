@@ -262,6 +262,8 @@ namespace Fargowiltas
                 //wikithis.Call(3, this, ModContent.Request<Texture2D>(pathToIcon));
             }
 
+            LumberJack.AddVanillaTreeTreasures();
+
             //            Mod censusMod = ModLoader.GetMod("Census");
             //            if (censusMod != null)
             //            {
@@ -396,6 +398,20 @@ namespace Fargowiltas
 
                     case "DoubleTapDashDisabled":
                         return ModContent.GetInstance<FargoClientConfig>().DoubleTapDashDisabled;
+
+                    case "AddTreeTreasure":
+                        if (args[1].GetType() != typeof(Func<bool>))
+                            throw new Exception($"Call Error (Fargo Mutant Mod AddTreeTreasure): args[1] must be of type Func<bool>");
+                        if (args[2].GetType() != typeof(Action))
+                            throw new Exception($"Call Error (Fargo Mutant Mod AddTreeTreasure): args[2] must be of type Action");
+                        if (args[3].GetType() != typeof(string))
+                            throw new Exception($"Call Error (Fargo Mutant Mod AddTreeTreasure): args[3] must be of type string");
+                        if ((args.Length < 5 || args[4] != null) && args[4].GetType() != typeof(int))
+                            throw new Exception($"Call Error (Fargo Mutant Mod AddTreeTreasure): args[4] must be of type int if present");
+
+                        int index = (args.Length < 5 || args[4] != null) ? args[4] : -1;
+                        LumberJack.AddTreeTreasure((Func<bool>)args[1], (Action)args[2], (string)args[3], index);
+                        break;
                 }
 
             }
