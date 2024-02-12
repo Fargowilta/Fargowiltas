@@ -105,7 +105,7 @@ namespace Fargowiltas.NPCs
 
         public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
-            if (FargoGlobalNPC.AnyBossAlive() || !ModContent.GetInstance<FargoServerConfig>().Squirrel)
+            if (FargoGlobalNPC.AnyBossAlive() || !FargoServerConfig.Instance.Squirrel)
             {
                 return false;
             }
@@ -509,9 +509,9 @@ namespace Fargowiltas.NPCs
             //glow
             for (int j = 0; j < 12; j++)
             {
-                Vector2 afterimageOffset = (MathHelper.TwoPi * j / 12f).ToRotationVector2() * 4f;
+                Vector2 afterimageOffset = (MathHelper.TwoPi * j / 12f).ToRotationVector2() * 4f + Vector2.UnitY * 3;
                 Color glowColor = Color.Red with { A = 0 };
-                Texture2D texture = (Texture2D)ModContent.Request<Texture2D>(Texture);
+                Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
                 Main.EntitySpriteDraw(texture, NPC.Center + afterimageOffset - screenPos + (Vector2.UnitY * NPC.gfxOffY), NPC.frame, glowColor, NPC.rotation, new Vector2(texture.Width / 2, texture.Height / 2 / Main.npcFrameCount[NPC.type]), NPC.scale, effects, 0f);
             }
             /*
@@ -529,7 +529,7 @@ namespace Fargowiltas.NPCs
 
             Rectangle frame = NPC.frame;
             SpriteEffects effects = NPC.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-            Vector2 position = NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY + 2);
+            Vector2 position = NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY + 3);
 
             spriteBatch.Draw(EyesAsset.Value, position, frame, Color.White * NPC.Opacity, NPC.rotation, frame.Size() / 2f, NPC.scale, effects, 0f);
         }

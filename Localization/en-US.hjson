@@ -19,99 +19,6 @@ Mods: {
 		// Used for TownNPCMood "{BiomeName}" Format (unused now)
 		Biome.Sky: Sky
 
-		#This is what displays during all of an NPC's happiness levels. Note that the localization key for these should always be "TownNPCMood.*NPCName*.*Mood*" or else it won't display properly.
-		TownNPCMood: {
-			Deviantt: {
-				Content: I'm feeling good!
-				NoHome: Do you have any spare housing? Please? Anything? Even a jail cell is fine with me!
-				LoveSpace: Peace and quiet means I get to live it up!
-				FarFromHome: I think my house was that way... unless you're taking me somewhere?
-				DislikeCrowded: The more the merrier and all, but I'm starting to feel a lil' overcrowded.
-				HateCrowded: I can't kick my legs out and relax without hitting someone...
-				LikeBiome: Ha ha ha, something about {BiomeName} just makes me laugh uncontrollably for some reason!
-				LoveBiome: The stars above are so pretty, I love watching them go by so much!
-				DislikeBiome: Can we go somewhere warmer than this?
-				HateBiome: I wanna live elsewhere! This is awful, I'm sweating up a storm!
-				LikeNPC: "{NPCName} is my big-but-not-biggest bro. He's pretty cool!"
-				LikeNPC_Princess: I gotta visit {NPCName} again sometime, there's a girl who gets me!
-				LoveNPC: "{NPCName} is here! That's my big bro, isn't he just the coolest?!"
-				DislikeNPC: I can't stand girls like {NPCName}, feels like she's just here for a certain audience.
-				HateNPC: Just between us. Have you ever considered throwing {NPCName} back where you found him?
-			}
-
-			Abominationn: {
-				Content: I am content.
-				NoHome: Give me a home and I'll lower my prices.
-				LoveSpace: Not being crowded around is good.
-				FarFromHome: I'd fly back to my house, but I don't really feel like being watched.
-				DislikeCrowded: There's too many humans around, they keep poking at my face.
-				HateCrowded: Do you know how hard it is to carry a scythe and not cut anyone with this many people around?
-				LikeBiome: I like {BiomeName}, it's home to a fine opponent with my brother's wings.
-				LoveBiome: I like Space a lot, we came here first before landing.
-				DislikeBiome: Too many weak enemies live in {BiomeName}.
-				HateBiome: I dislike {BiomeName} a lot.
-				LikeNPC: "{NPCName} is my sister... I've defeated more events than her, but she's okay."
-				LikeNPC_Princess: "{NPCName} is okay."
-				LoveNPC: "{NPCName} is my brother... I've fought more bosses than him, but he's strong."
-				DislikeNPC: I do not like {NPCName}.
-				HateNPC: "{NPCName} ruins the glory of battle, I don't want her near me."
-			}
-
-			Mutant: {
-				Content: Thanks for the house, I guess.
-				NoHome: A house wouldn't hurt, but I don't mind either way.
-				LoveSpace: Downtime between boss fights is nice. I don't get that with lots of humans around.
-				FarFromHome: I'll eat slimes and zombies, but eating human food at home would be good too.
-				DislikeCrowded: There's too many people here. And they seem upset I keep winning our staring contests.
-				HateCrowded: If one more human in this cramped town bumps into my brain again... never mind.
-				LikeBiome: We all start in {BiomeName}, it's a good place.
-				LoveBiome: Living up here is comfortable, but when are you going to find my temple?
-				DislikeBiome: Is {BiomeName} supposed to impress me? The big fairy doesn't, that's for sure.
-				HateBiome: Do you want pricier summons? Making me live in {BiomeName} means pricier summons.
-				LikeNPC: I forget when {NPCName} joined the family, but she's earned her place.
-				LikeNPC_Princess: "{NPCName} seems friendly."
-				LoveNPC: "{NPCName} and I fought through many battles, too bad there's no opportunity to do it again."
-				DislikeNPC: Why is {NPCName} here? It's okay, me, just don't look him in the eye and he can't scare you...
-				HateNPC: "{NPCName} needs to leave before my Penetrator makes it happen."
-			}
-
-			LumberJack: {
-				Content: I'm happy as long as the world has wood that needs chopping.
-				NoHome: No lumberjack is complete without a log cabin to call home!
-				LoveSpace: Fewer people around means I can swing my axe all I want with nobody in the way.
-				FarFromHome: This is too far from my cabin. I should get back and sharpen my axe.
-				DislikeCrowded: I think it's getting crowded around here.
-				HateCrowded: Too many people around. Nothing ruins a good chopping session more than chopping down someone.
-				LikeBiome: Plenty of trees to chop in {BiomeName} makes for a happy lumberjack.
-				LoveBiome: There's nothing like good old fashioned woodchopping in {BiomeName}!
-				DislikeBiome: There's nothing to chop in {BiomeName}!
-				HateBiome: There's nothing to chop in {BiomeName}!
-				LikeNPC: I chop down trees, {NPCName} plants more, we're the perfect duo.
-				LikeNPC_Princess: "{NPCName} is better with an axe than I expected!"
-				LoveNPC: I'm glad {NPCName} understands the beauty of felling a big tree.
-				DislikeNPC: "{NPCName} told me to start hugging trees... so I taught my axe to hug trees for me."
-				HateNPC: "{NPCName} doesn't get me at all. Bombing a forest isn't woodchopping!"
-			}
-
-			Squirrel: {
-				Content: *content squeak*
-				NoHome: *sad homeless squeak*
-				LoveSpace: *happy uncrowded squeak*
-				FarFromHome: *sad lost squeak*
-				DislikeCrowded: *sad crowded squeak*
-				HateCrowded: *very sad crowded squeak*
-				LikeBiome: *happy squeak about {BiomeName}*
-				LoveBiome: *very happy squeak about {BiomeName}*
-				DislikeBiome: *sad squeak about {BiomeName}*
-				HateBiome: *very sad squeak about {BiomeName}*
-				LikeNPC: *happy squeak about {NPCName}*
-				LikeNPC_Princess: *happy squeak about {NPCName}*
-				LoveNPC: *very happy squeak about {NPCName}*
-				DislikeNPC: *angry squeak about {NPCName}*
-				HateNPC: *very angry squeak about {NPCName}*
-			}
-		}
-
 		Configs: {
 			FargoServerConfig: {
 				DisplayName: Server Config
@@ -276,7 +183,33 @@ Mods: {
 					Seasons: Seasons
 					Seeds: Seeds
 					Unlimited: Unlimited
+					StatMultipliers: Stat Multipliers
 					Misc: Miscellaneous
+				}
+
+				EnemyHealth: {
+					Label: "[i:29] Enemy Health"
+					Tooltip: Multiplies the health of all enemies.
+				}
+
+				BossHealth: {
+					Label: "[i:29] Boss Health"
+					Tooltip: Multiplies the health of all bosses. Highest multiplier between this or Enemy Health is applied.
+				}
+
+				EnemyDamage: {
+					Label: "[i:3507] Enemy Damage"
+					Tooltip: Multiplies post-mitigation damage of all enemies and projectiles.
+				}
+
+				BossDamage: {
+					Label: "[i:3507] Boss Damage"
+					Tooltip: Multiplies post-mitigation damage of all bosses. Highest multiplier between this or Enemy Damage is applied.
+				}
+
+				BossApplyToAllWhenAlive: {
+					Label: Boss Multipliers Apply Universally
+					Tooltip: Boss Health and Boss Damage configs apply to all enemies while a boss is alive, rather than just bosses themselves.
 				}
 			}
 
@@ -2114,11 +2047,6 @@ Mods: {
 				Tooltip: "'Kien R. Oco'"
 			}
 
-			WiresPainting: {
-				DisplayName: Wires Painting
-				Tooltip: "'Look inside'"
-			}
-
 			WoodenToken: {
 				DisplayName: Wooden Token
 				Tooltip: "'The sign of a true wood lover'"
@@ -2264,7 +2192,7 @@ Mods: {
 			}
 
 			LumberJack: {
-				DisplayName: Lumber Jack
+				DisplayName: LumberJack
 				Tooltip: "'I eat a bowl of woodchips for breakfast... without any milk.'"
 			}
 
@@ -2479,32 +2407,36 @@ Mods: {
 				DisplayName: Abominationn
 
 				TownNPCMood: {
-					Content: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.Content}"
-					NoHome: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.NoHome}"
-					FarFromHome: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.FarFromHome}"
-					LoveSpace: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.LoveSpace}"
-					DislikeCrowded: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.DislikeCrowded}"
-					HateCrowded: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.HateCrowded}"
-					LoveBiome: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.LoveBiome}"
-					LikeBiome: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.LikeBiome}"
-					DislikeBiome: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.DislikeBiome}"
-					HateBiome: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.HateBiome}"
-					LoveNPC: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.LoveNPC}"
-					LikeNPC: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.LikeNPC}"
-					HateNPC: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.HateNPC}"
-					LikeNPC_Princess: "{$Mods.Fargowiltas.TownNPCMood.Abominationn.LikeNPC_Princess}"
-					Princess_LovesNPC: "{$TownNPCMood_Princess.LoveNPC_Fargowiltas/Abominationn}"
+					Content: I am content.
+					NoHome: Give me a home and I'll lower my prices.
+					LoveSpace: Not being crowded around is good.
+					FarFromHome: I'd fly back to my house, but I don't really feel like being watched.
+					DislikeCrowded: There's too many humans around, they keep poking at my face.
+					HateCrowded: Do you know how hard it is to carry a scythe and not cut anyone with this many people around?
+					LikeBiome: I like {BiomeName}, it's home to a fine opponent with my brother's wings.
+					LoveBiome: I like Space a lot, we came here first before landing.
+					DislikeBiome: Too many weak enemies live in {BiomeName}.
+					HateBiome: I dislike {BiomeName} a lot.
+					LikeNPC: "{NPCName} is my sister... I've defeated more events than her, but she's okay."
+					LoveNPC: "{NPCName} is my brother... I've fought more bosses than him, but he's strong."
+					DislikeNPC: I do not like {NPCName}.
+					HateNPC: "{NPCName} ruins the glory of battle, I don't want her near me."
+					LikeNPC_Princess: "{NPCName} is okay."
+					Princess_LovesNPC: "{NPCName} tells great stories about his battles!"
 				}
 
 				Chat: {
+					// Special
 					Defeat: You really defeated me... not bad. Now do it again without getting hit. Oh, and Copper Shortsword only.
 					MutantShimmer: He turned into a squirrel. Funniest thing I've ever seen.
 					StyxArmor: What nostalgic armor you're wearing... No, it doesn't fit on me anymore. And its battery takes too long to charge.
 					Graveyard: I hope all these graves lying around don't belong to you.
 					Mechanic: Can you please ask {0} to stop touching my laser arm please.
-					Normal1: Where'd I get my scythe from? {0}
-					Normal1PHM: Ask me later.
-					Normal1HM: You'll figure it out.
+					// Normal
+					Formattable1: Where'd I get my scythe from? {0}
+					Formatter1PHM: Ask me later.
+					Formatter1HM: You'll figure it out.
+					Normal1: I have slain one thousand humans! Huh? You're a human? There's so much blood on your hands..
 					Normal2: I have defeated everything in this land... nothing can beat me.
 					Normal3: Have you ever had a weapon stuck to your hand? It's not very handy.
 					Normal4: What happened to Yoramur? No idea who you're talking about.
@@ -2526,7 +2458,6 @@ Mods: {
 					Normal20: I've heard tales of a legendary Diver... Anyway what was that about a giant jellyfish?
 					Normal21: Overloaded events...? Yeah, they're pretty cool.
 					Normal22: It's not like I don't enjoy your company, but can you buy something?
-					Normal23: I have slain one thousand humans! Huh? You're a human? There's so much blood on your hands..
 					// Cancel Event
 					Canceled: Hocus pocus, the event is over.
 					CancelCD: I'm not feeling it right now, come back in {0} seconds.
@@ -2541,25 +2472,26 @@ Mods: {
 				DisplayName: Deviantt
 
 				TownNPCMood: {
-					Content: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.Content}"
-					NoHome: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.NoHome}"
-					FarFromHome: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.FarFromHome}"
-					LoveSpace: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.LoveSpace}"
-					DislikeCrowded: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.DislikeCrowded}"
-					HateCrowded: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.HateCrowded}"
-					LoveBiome: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.LoveBiome}"
-					LikeBiome: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.LikeBiome}"
-					DislikeBiome: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.DislikeBiome}"
-					HateBiome: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.HateBiome}"
-					LoveNPC: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.LoveNPC}"
-					LikeNPC: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.LikeNPC}"
-					DislikeNPC: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.DislikeNPC}"
-					HateNPC: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.HateNPC}"
-					LikeNPC_Princess: "{$Mods.Fargowiltas.TownNPCMood.Deviantt.LikeNPC_Princess}"
-					Princess_LovesNPC: "{$TownNPCMood_Princess.LoveNPC_Fargowiltas/Deviantt}"
+					Content: I'm feeling good!
+					NoHome: Do you have any spare housing? Please? Anything? Even a jail cell is fine with me!
+					LoveSpace: Peace and quiet means I get to live it up!
+					FarFromHome: I think my house was that way... unless you're taking me somewhere?
+					DislikeCrowded: The more the merrier and all, but I'm starting to feel a lil' overcrowded.
+					HateCrowded: I can't kick my legs out and relax without hitting someone...
+					LikeBiome: Ha ha ha, something about {BiomeName} just makes me laugh uncontrollably for some reason!
+					LoveBiome: The stars above are so pretty, I love watching them go by so much!
+					DislikeBiome: Can we go somewhere warmer than this?
+					HateBiome: I wanna live elsewhere! This is awful, I'm sweating up a storm!
+					LikeNPC: "{NPCName} is my big-but-not-biggest bro. He's pretty cool!"
+					LoveNPC: "{NPCName} is here! That's my big bro, isn't he just the coolest?!"
+					DislikeNPC: I can't stand girls like {NPCName}, feels like she's just here for a certain audience.
+					HateNPC: Just between us. Have you ever considered throwing {NPCName} back where you found him?
+					LikeNPC_Princess: I gotta visit {NPCName} again sometime, there's a girl who gets me!
+					Princess_LovesNPC: "{NPCName} is so fun, we could talk for hours!"
 				}
 
 				Chat: {
+					// Special
 					GiveGifts: This world looks tougher than usual, so you can have these on the house just this once! Talk to me if you need any tips, yeah?
 					NTB: IT'S THE FUNNY BEE WORLD!
 					NTBHA: " HA"
@@ -2578,7 +2510,9 @@ Mods: {
 					Mutant2: One day, I'll sell a summon for myself! ...Just kidding. That's {0}'s job.
 					Lumber: What's that? You want to fight {0}? ...even I know better than to try.
 					EternityMode: Embrace suffering... and while you're at it, embrace another purchase!
-					Normal1: "{0}! I saw something rodent-y just now! You don't have a hamster infestation, right? Right!?"
+					// Normal
+					Formattable1: "{0}! I saw something rodent-y just now! You don't have a hamster infestation, right? Right!?"
+					Normal1: No, I'm totally not throwing Love Potions while you're not looking! Um, I mean... oh, just buy something!
 					Normal2: Did you know? The only real music genres are death metal and artcore.
 					Normal3: I'll have you know I'm over a hundred Fargo years old! Don't ask me how long a Fargo year is.
 					Normal4: I might be able to afford a taller body if you keep buying!
@@ -2594,7 +2528,6 @@ Mods: {
 					Normal14: Why the extra letter, you ask? Only the strongest sibling is allowed to remove their own!
 					Normal15: The more rare things you kill, the more stuff I sell! Simple, right?
 					Normal16: Oh, hi! I, uh, definitely don't have any Stink Potions on me right now! Not that I normally would!
-					Normal17: No, I'm totally not throwing Love Potions while you're not looking! Um, I mean... oh, just buy something!
 				}
 
 				HelpDialogue: {
@@ -2634,7 +2567,7 @@ Mods: {
 					UndergroundHallow: That's a funny face you're making... Is the underground Hallow too disorienting? Try controlling gravity on your own and maybe it can't flip you by force!
 					LifeFruit: If you ask me, Plantera is really letting herself go. A diet of Chlorophyte Ore and Life Fruit isn't THAT healthy! Why don't you help her slim down?
 					CactusDamage: Those cacti can be pretty prickly! Feeling prickled? Try enchanting yourself with cactus essence and see how it goes!
-					RainLightning: Watch out for the lightning when it rains. It's good to pack an umbrella so you're not caught out and end up all wet! 
+					RainLightning: Watch out for the lightning when it rains. It's good to pack an umbrella so you're not caught out and end up all wet!
 				}
 
 				Census.SpawnCondition: Conditions unknown
@@ -2645,24 +2578,29 @@ Mods: {
 				DisplayName: LumberJack
 
 				TownNPCMood: {
-					Content: "{$Mods.Fargowiltas.TownNPCMood.LumberJack.Content}"
-					NoHome: "{$Mods.Fargowiltas.TownNPCMood.LumberJack.NoHome}"
-					FarFromHome: "{$Mods.Fargowiltas.TownNPCMood.LumberJack.FarFromHome}"
-					LoveSpace: "{$Mods.Fargowiltas.TownNPCMood.LumberJack.LoveSpace}"
-					DislikeCrowded: "{$Mods.Fargowiltas.TownNPCMood.LumberJack.DislikeCrowded}"
-					HateCrowded: "{$Mods.Fargowiltas.TownNPCMood.LumberJack.HateCrowded}"
-					LoveBiome: "{$Mods.Fargowiltas.TownNPCMood.LumberJack.LoveBiome}"
-					HateBiome: "{$Mods.Fargowiltas.TownNPCMood.LumberJack.HateBiome}"
-					LikeNPC: "{$Mods.Fargowiltas.TownNPCMood.LumberJack.LikeNPC}"
-					DislikeNPC: "{$Mods.Fargowiltas.TownNPCMood.LumberJack.DislikeNPC}"
-					HateNPC: "{$Mods.Fargowiltas.TownNPCMood.LumberJack.HateNPC}"
-					LikeNPC_Princess: "{$Mods.Fargowiltas.TownNPCMood.LumberJack.LikeNPC_Princess}"
-					Princess_LovesNPC: "{$TownNPCMood_Princess.LoveNPC_Fargowiltas/LumberJack}"
+					Content: I'm happy as long as the world has wood that needs chopping.
+					NoHome: No lumberjack is complete without a log cabin to call home!
+					LoveSpace: Fewer people around means I can swing my axe all I want with nobody in the way.
+					FarFromHome: This is too far from my cabin. I should get back and sharpen my axe.
+					DislikeCrowded: I think it's getting crowded around here.
+					HateCrowded: Too many people around. Nothing ruins a good chopping session more than chopping down someone.
+					LikeBiome: Plenty of trees to chop in {BiomeName} makes for a happy lumberjack.
+					LoveBiome: There's nothing like good old fashioned woodchopping in {BiomeName}!
+					DislikeBiome: There's nothing to chop in {BiomeName}!
+					HateBiome: There's nothing to chop in {BiomeName}!
+					LikeNPC: I chop down trees, {NPCName} plants more, we're the perfect duo.
+					LoveNPC: I'm glad {NPCName} understands the beauty of felling a big tree.
+					DislikeNPC: "{NPCName} told me to start hugging trees... so I taught my axe to hug trees for me."
+					HateNPC: "{NPCName} doesn't get me at all. Bombing a forest isn't woodchopping!"
+					LikeNPC_Princess: "{NPCName} is better with an axe than I expected!"
+					Princess_LovesNPC: "{NPCName} is so strong, I want to try chopping wood some time!"
 				}
 
 				Chat: {
+					// Special
 					Nurse: I always see {0} looking at my biceps when I'm working. Wonder if she wants some of my wood.
 					LucyTheAxe: Lucy from that universe.. Interesting things await you.
+					// Normal
 					Normal1: Dynasty wood? Between you and me, that stuff ain't real wood!
 					Normal2: Sure cactus isn't wood, but I can still chop it with me trusty axe.
 					Normal3: You wouldn't by chance have any fantasies about me... right?
@@ -2709,24 +2647,26 @@ Mods: {
 				DisplayName: Mutant
 
 				TownNPCMood: {
-					Content: "{$Mods.Fargowiltas.TownNPCMood.Mutant.Content}"
-					NoHome: "{$Mods.Fargowiltas.TownNPCMood.Mutant.NoHome}"
-					FarFromHome: "{$Mods.Fargowiltas.TownNPCMood.Mutant.FarFromHome}"
-					LoveSpace: "{$Mods.Fargowiltas.TownNPCMood.Mutant.LoveSpace}"
-					DislikeCrowded: "{$Mods.Fargowiltas.TownNPCMood.Mutant.DislikeCrowded}"
-					HateCrowded: "{$Mods.Fargowiltas.TownNPCMood.Mutant.HateCrowded}"
-					LoveBiome: "{$Mods.Fargowiltas.TownNPCMood.Mutant.LoveBiome}"
-					LikeBiome: "{$Mods.Fargowiltas.TownNPCMood.Mutant.LikeBiome}"
-					DislikeBiome: "{$Mods.Fargowiltas.TownNPCMood.Mutant.DislikeBiome}"
-					HateBiome: "{$Mods.Fargowiltas.TownNPCMood.Mutant.HateBiome}"
-					LoveNPC: "{$Mods.Fargowiltas.TownNPCMood.Mutant.LoveNPC}"
-					LikeNPC: "{$Mods.Fargowiltas.TownNPCMood.Mutant.LikeNPC}"
-					DislikeNPC: "{$Mods.Fargowiltas.TownNPCMood.Mutant.DislikeNPC}"
-					LikeNPC_Princess: "{$Mods.Fargowiltas.TownNPCMood.Mutant.LikeNPC_Princess}"
-					Princess_LovesNPC: "{$TownNPCMood_Princess.LoveNPC_Fargowiltas/Mutant}"
+					Content: Thanks for the house, I guess.
+					NoHome: A house wouldn't hurt, but I don't mind either way.
+					LoveSpace: Downtime between boss fights is nice. I don't get that with lots of humans around.
+					FarFromHome: I'll eat slimes and zombies, but eating human food at home would be good too.
+					DislikeCrowded: There's too many people here. And they seem upset I keep winning our staring contests.
+					HateCrowded: If one more human in this cramped town bumps into my brain again... never mind.
+					LikeBiome: We all start in {BiomeName}, it's a good place.
+					LoveBiome: Living up here is comfortable, but when are you going to find my temple?
+					DislikeBiome: Is {BiomeName} supposed to impress me? The big fairy doesn't, that's for sure.
+					HateBiome: Do you want pricier summons? Making me live in {BiomeName} means pricier summons.
+					LikeNPC: I forget when {NPCName} joined the family, but she's earned her place.
+					LoveNPC: "{NPCName} and I fought through many battles, too bad there's no opportunity to do it again."
+					DislikeNPC: Why is {NPCName} here? It's okay, me, just don't look him in the eye and he can't scare you...
+					HateNPC: "{NPCName} needs to leave before my Penetrator makes it happen."
+					LikeNPC_Princess: "{NPCName} seems friendly."
+					Princess_LovesNPC: "{NPCName} has some amazing items, they're great for meeting new friends!"
 				}
 
 				Chat: {
+					// Special
 					EternityDefeat: Congratulations. You truly embraced eternity... at least, I think you did? So what happens next? Ascend from this plane of existence? Fight a transcendent cat-like entity? Destroy the world? All the power's in your hands now.
 					Defeat: Good work beating me, I guess. I still feel like stretching my wings... Why don't we go at it for real next time?
 					MutantArmor: Nice armor you have, very realistic skin. As a matter of fact, mind if I borrow it? Your skin, that is.
@@ -2754,6 +2694,7 @@ Mods: {
 					Demolitionist: I'm surprised {0} hasn't blown a hole in the floor yet, on second thought that sounds fun.
 					Tavernkeep: "{0} keeps suggesting I drink some beer, something tells me he wouldn't like me when I'm drunk though."
 					DyeTrader: "{0} wants to see what I would look like in blue... I don't know how to feel."
+					// Normal
 					Normal1: Savagery, barbarism, bloodthirst, that's what I like seeing in people.
 					Normal2: The stronger you get, the more stuff I sell. Makes sense, right?
 					Normal3: There's something all of you have that I don't... Death perception, I think it's called?
@@ -2812,21 +2753,28 @@ Mods: {
 				DisplayName: Squirrel
 
 				TownNPCMood: {
-					Content: "{$Mods.Fargowiltas.TownNPCMood.Squirrel.Content}"
-					NoHome: "{$Mods.Fargowiltas.TownNPCMood.Squirrel.NoHome}"
-					FarFromHome: "{$Mods.Fargowiltas.TownNPCMood.Squirrel.FarFromHome}"
-					LoveSpace: "{$Mods.Fargowiltas.TownNPCMood.Squirrel.LoveSpace}"
-					DislikeCrowded: "{$Mods.Fargowiltas.TownNPCMood.Squirrel.DislikeCrowded}"
-					HateCrowded: "{$Mods.Fargowiltas.TownNPCMood.Squirrel.HateCrowded}"
-					LoveBiome: "{$Mods.Fargowiltas.TownNPCMood.Squirrel.LoveBiome}"
-					HateBiome: "{$Mods.Fargowiltas.TownNPCMood.Squirrel.HateBiome}"
-					LikeNPC: "{$Mods.Fargowiltas.TownNPCMood.Squirrel.LikeNPC}"
-					LikeNPC_Princess: "{$Mods.Fargowiltas.TownNPCMood.Squirrel.LikeNPC_Princess}"
-					Princess_LovesNPC: "{$TownNPCMood_Princess.LoveNPC_Fargowiltas/Squirrel}"
+					Content: *content squeak*
+					NoHome: *sad homeless squeak*
+					LoveSpace: *happy uncrowded squeak*
+					FarFromHome: *sad lost squeak*
+					DislikeCrowded: *sad crowded squeak*
+					HateCrowded: *very sad crowded squeak*
+					LikeBiome: *happy squeak about {BiomeName}*
+					LoveBiome: *very happy squeak about {BiomeName}*
+					DislikeBiome: *sad squeak about {BiomeName}*
+					HateBiome: *very sad squeak about {BiomeName}*
+					LikeNPC: *happy squeak about {NPCName}*
+					LoveNPC: *very happy squeak about {NPCName}*
+					DislikeNPC: *angry squeak about {NPCName}*
+					HateNPC: *very angry squeak about {NPCName}*
+					LikeNPC_Princess: *happy squeak about {NPCName}*
+					Princess_LovesNPC: "{NPCName} is really adorable!"
 				}
 
 				Chat: {
+					// Special
 					BloodMoon: "[c/FF0000:You will suffer.]"
+					// Normal
 					Normal1: *squeak*
 					Normal2: *chitter*
 					Normal3: *crunch crunch*
@@ -3006,13 +2954,4 @@ Mods: {
 			SeveralVendors: several vendors
 		}
 	}
-}
-
-# this doesnt work rn
-TownNPCMood_Princess: {
-	LoveNPC_Fargowiltas/Abominationn: "{NPCName} tells great stories about his battles!"
-	LoveNPC_Fargowiltas/Deviantt: "{NPCName} is so fun, we could talk for hours!"
-	LoveNPC_Fargowiltas/Mutant: "{NPCName} has some amazing items, they're great for meeting new friends!"
-	LoveNPC_Fargowiltas/Squirrel: "{NPCName} is really adorable!"
-	LoveNPC_Fargowiltas/LumberJack: "{NPCName} is so strong, I want to try chopping wood some time!"
 }

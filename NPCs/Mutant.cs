@@ -105,7 +105,7 @@ namespace Fargowiltas.NPCs
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.Guide;
 
-            if (GetInstance<FargoServerConfig>().CatchNPCs)
+            if (FargoServerConfig.Instance.CatchNPCs)
             {
                 Main.npcCatchable[NPC.type] = true;
             //    NPC.catchItem = (short)Mod.ItemType("Mutant");
@@ -152,7 +152,7 @@ namespace Fargowiltas.NPCs
                 return false;
             }
 
-            return GetInstance<FargoServerConfig>().Mutant && FargoWorld.DownedBools["boss"] && !FargoGlobalNPC.AnyBossAlive();
+            return FargoServerConfig.Instance.Mutant && FargoWorld.DownedBools["boss"] && !FargoGlobalNPC.AnyBossAlive();
         }
 
         public override List<string> SetNPCNameList()
@@ -180,11 +180,7 @@ namespace Fargowiltas.NPCs
                     return MutantChat("MutantArmor");
             }
 
-            List<string> dialogue = new List<string>();
-            for (int i = 1; i <= 45; i++)
-            {
-                dialogue.Add(MutantChat($"Normal{i}"));
-            }
+            List<string> dialogue = Language.FindAll(Lang.CreateDialogFilter("Mods.Fargowiltas.NPCs.Mutant.Chat.Normal")).Select(item => item.Value).ToList();
 
             if (Fargowiltas.ModLoaded["FargowiltasSouls"])
             {
@@ -295,7 +291,7 @@ namespace Fargowiltas.NPCs
             {
                 dialogue.Add(MutantChat("DyeTrader", Main.npc[dyeTrader].GivenName));
             }
-
+            
             return Main.rand.Next(dialogue);
         }
 

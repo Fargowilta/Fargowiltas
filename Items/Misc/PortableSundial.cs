@@ -28,7 +28,7 @@ namespace Fargowiltas.Items.Misc
             Item.useAnimation = 30;
             Item.useTime = 30;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.mana = 50;
+            Item.mana = 25;
             Item.UseSound = SoundID.Item4;
         }
 

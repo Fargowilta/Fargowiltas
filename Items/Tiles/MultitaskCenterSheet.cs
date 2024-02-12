@@ -14,10 +14,11 @@ namespace Fargowiltas.Items.Tiles
         {
             Main.tileLighted[Type] = true;
             Main.tileSolidTop[Type] = true;
+            Main.tileTable[Type] = true;
             Main.tileFrameImportant[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.Width = 4;
-            Main.tileNoAttach[Type] = true;
+            Main.tileNoAttach[Type] = false;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();

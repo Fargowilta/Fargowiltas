@@ -219,6 +219,21 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.DisableDecraft();
             recipe.Register();
 
+            recipe = Recipe.Create(ItemID.BabyBirdStaff);
+            recipe.AddIngredient(ItemID.Wood, 10);
+            recipe.AddIngredient(ItemID.Bird, 1);
+            recipe.AddTile(TileID.LivingLoom);
+            recipe.DisableDecraft();
+            recipe.Register();
+
+            recipe = Recipe.Create(ItemID.LifeCrystal);
+            recipe.AddIngredient(ItemID.GlowingMushroom, 15);
+            recipe.AddIngredient(ItemID.HealingPotion, 3);
+            recipe.AddIngredient(ItemID.JungleSpores, 3);
+            recipe.AddTile(TileID.DemonAltar);
+            recipe.DisableDecraft();
+            recipe.Register();
+
             recipe = Recipe.Create(ItemID.JungleRose);
             recipe.AddIngredient(ItemID.NaturesGift);
             recipe.AddIngredient(ItemID.RedHusk);

@@ -93,11 +93,11 @@ namespace Fargowiltas
 
         public override void PreWorldGen()
         {
-            SetWorldBool(GetInstance<FargoServerConfig>().DrunkWorld, ref Main.drunkWorld) ;
-            SetWorldBool(GetInstance<FargoServerConfig>().BeeWorld, ref Main.notTheBeesWorld);
-            SetWorldBool(GetInstance<FargoServerConfig>().WorthyWorld, ref Main.getGoodWorld);
-            SetWorldBool(GetInstance<FargoServerConfig>().CelebrationWorld, ref Main.tenthAnniversaryWorld);
-            SetWorldBool(GetInstance<FargoServerConfig>().ConstantWorld, ref Main.dontStarveWorld);
+            SetWorldBool(FargoServerConfig.Instance.DrunkWorld, ref Main.drunkWorld) ;
+            SetWorldBool(FargoServerConfig.Instance.BeeWorld, ref Main.notTheBeesWorld);
+            SetWorldBool(FargoServerConfig.Instance.WorthyWorld, ref Main.getGoodWorld);
+            SetWorldBool(FargoServerConfig.Instance.CelebrationWorld, ref Main.tenthAnniversaryWorld);
+            SetWorldBool(FargoServerConfig.Instance.ConstantWorld, ref Main.dontStarveWorld);
 
             foreach (string tag in tags)
             {
@@ -213,15 +213,15 @@ namespace Fargowiltas
             //SeasonSelections xmas = GetInstance<FargoConfig>().Christmas;
 
 
-            SetWorldBool(GetInstance<FargoServerConfig>().Halloween, ref Main.halloween);
-            SetWorldBool(GetInstance<FargoServerConfig>().Christmas, ref Main.xMas);
+            SetWorldBool(FargoServerConfig.Instance.Halloween, ref Main.halloween);
+            SetWorldBool(FargoServerConfig.Instance.Christmas, ref Main.xMas);
 
             //seeds
-            SetWorldBool(GetInstance<FargoServerConfig>().DrunkWorld, ref Main.drunkWorld);
-            SetWorldBool(GetInstance<FargoServerConfig>().BeeWorld, ref Main.notTheBeesWorld);
-            SetWorldBool(GetInstance<FargoServerConfig>().WorthyWorld, ref Main.getGoodWorld);
-            SetWorldBool(GetInstance<FargoServerConfig>().CelebrationWorld, ref Main.tenthAnniversaryWorld);
-            SetWorldBool(GetInstance<FargoServerConfig>().ConstantWorld, ref Main.dontStarveWorld);
+            SetWorldBool(FargoServerConfig.Instance.DrunkWorld, ref Main.drunkWorld);
+            SetWorldBool(FargoServerConfig.Instance.BeeWorld, ref Main.notTheBeesWorld);
+            SetWorldBool(FargoServerConfig.Instance.WorthyWorld, ref Main.getGoodWorld);
+            SetWorldBool(FargoServerConfig.Instance.CelebrationWorld, ref Main.tenthAnniversaryWorld);
+            SetWorldBool(FargoServerConfig.Instance.ConstantWorld, ref Main.dontStarveWorld);
 
             if (Matsuri)
             {
@@ -283,7 +283,7 @@ namespace Fargowiltas
 
             if (Main.netMode == NetmodeID.MultiplayerClient && current != oldSpawnRateTile)
             {
-                ModPacket packet = ModContent.GetInstance<Fargowiltas>().GetPacket();
+                ModPacket packet = Fargowiltas.Instance.GetPacket();
                 packet.Write((byte)1);
                 packet.Write(current);
                 packet.Send();

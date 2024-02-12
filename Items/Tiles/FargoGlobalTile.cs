@@ -33,7 +33,7 @@ namespace Fargowiltas.Tiles
 
         public override void MouseOver(int i, int j, int type)
         {
-            if (type == TileID.Extractinator)
+            if (type == TileID.Extractinator || type == TileID.ChlorophyteExtractinator)
             {
                 Main.player[Main.myPlayer].GetModPlayer<FargoPlayer>().extractSpeed = true;
             }
@@ -100,7 +100,7 @@ namespace Fargowiltas.Tiles
                 //check for == is so that all torches can update on the same tick
                 LastTorchUpdate = Main.GameUpdateCount;
 
-                if (ModContent.GetInstance<FargoServerConfig>().TorchGodEX
+                if (FargoServerConfig.Instance.TorchGodEX
                     && Main.LocalPlayer.ShoppingZone_BelowSurface //torch luck only applies underground
                     && !Main.LocalPlayer.ZoneDungeon && !Main.LocalPlayer.ZoneLihzhardTemple //torch luck doesnt apply here
                     )

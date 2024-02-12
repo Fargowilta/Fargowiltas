@@ -14,6 +14,7 @@ using Terraria.GameContent.Personalities;
 using Fargowiltas.Items.Tiles;
 using Fargowiltas.Common.Configs;
 using Fargowiltas.Content.Biomes;
+using System.Linq;
 
 namespace Fargowiltas.NPCs
 {
@@ -95,7 +96,7 @@ namespace Fargowiltas.NPCs
             {
                 return false;
             }
-            return GetInstance<FargoServerConfig>().Abom && NPC.downedGoblins && !FargoGlobalNPC.AnyBossAlive();
+            return FargoServerConfig.Instance.Abom && NPC.downedGoblins && !FargoGlobalNPC.AnyBossAlive();
         }
 
         public override bool CanGoToStatue(bool toKingStatue) => toKingStatue;
@@ -152,12 +153,8 @@ namespace Fargowiltas.NPCs
                     return AbomChat("StyxArmor");
             }
 
-            List<string> dialogue = new List<string>();
-            dialogue.Add(AbomChat("Normal1", !Main.hardMode ? AbomChat("Normal1PHM") : AbomChat("Normal1HM")));
-            for (int i = 2; i <= 23; i++)
-            {
-                dialogue.Add(AbomChat($"Normal{i}"));
-            }
+            List<string> dialogue = Language.FindAll(Lang.CreateDialogFilter("Mods.Fargowiltas.NPCs.Abominationn.Chat.Normal")).Select(item => item.Value).ToList();
+            dialogue.Add(AbomChat("Formattable1", !Main.hardMode ? AbomChat("Formatter1PHM") : AbomChat("Formatter1HM")));
 
             if (Main.LocalPlayer.ZoneGraveyard)
             {

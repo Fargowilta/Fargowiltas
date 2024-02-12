@@ -14,5 +14,14 @@ namespace Fargowiltas.Items.Summons.Deviantt
             /* Tooltip.SetDefault("Summons Mimic"
             + "\nSummons Ice Mimic when in snow biome"); */
         }
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+                    .AddRecipeGroup(RecipeGroupID.IronBar, 10)
+                    .AddIngredient(ItemID.RecallPotion, 5)
+                    .AddIngredient(ItemID.Chest, 1)
+                    .AddTile(TileID.DemonAltar)
+                    .Register();
+        }
     }
 }

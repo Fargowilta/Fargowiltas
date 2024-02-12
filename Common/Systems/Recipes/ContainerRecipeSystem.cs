@@ -164,13 +164,13 @@ namespace Fargowiltas.Common.Systems.Recipes
             // Dark Mage
             CreateTreasureGroupRecipe(ItemID.BossTrophyDarkmage,
                 ItemID.DD2PetDragon,
-                ItemID.DD2PetGato
+                ItemID.DD2PetGato,
+                ItemID.SquireShield,
+                ItemID.ApprenticeScarf
             );
 
             // Ogre
             CreateTreasureGroupRecipe(ItemID.BossTrophyOgre,
-                ItemID.ApprenticeScarf,
-                ItemID.SquireShield,
                 ItemID.HuntressBuckler,
                 ItemID.MonkBelt,
                 ItemID.DD2PhoenixBow,
@@ -310,7 +310,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             CreateCrateRecipe(ItemID.Spear, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
             CreateCrateRecipe(ItemID.Blowpipe, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
             CreateCrateRecipe(ItemID.PortableStool, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
-            CreateCrateRecipe(ItemID.BabyBirdStaff, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
+            //CreateCrateRecipe(ItemID.BabyBirdStaff, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
             CreateCrateRecipe(ItemID.SunflowerMinecart, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
             CreateCrateRecipe(ItemID.LadybugMinecart, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
             CreateCrateRecipe(ItemID.Anchor, -1, 3, ItemID.WoodenCrateHard);

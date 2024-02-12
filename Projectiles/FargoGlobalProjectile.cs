@@ -1,5 +1,7 @@
 using Fargowiltas.Common.Configs;
+using Fargowiltas.NPCs;
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
@@ -20,6 +22,8 @@ namespace Fargowiltas.Projectiles
         public static HashSet<int> CannotDestroyTileTypes = new HashSet<int>();
         public static HashSet<int> CannotDestroyWallTypes = new HashSet<int>();
         public static HashSet<Rectangle> CannotDestroyRectangle = new HashSet<Rectangle>();
+
+        public float DamageMultiplier = 1;
 
         public override void SetDefaults(Projectile projectile)
         {
@@ -45,10 +49,25 @@ namespace Fargowiltas.Projectiles
             if (projectile.friendly)
                 lowRender = true;
         }
-
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
-            if (projectile.bobber && projectile.owner == Main.myPlayer && GetInstance<FargoServerConfig>().ExtraLures && source is EntitySource_ItemUse)
+            FargoServerConfig config = FargoServerConfig.Instance;
+            if (config.EnemyDamage != 1 || config.BossDamage != 1)
+            {
+                bool boss = source is EntitySource_Parent parent && parent.Entity is NPC npc && config.BossDamage > config.EnemyDamage && // only relevant if boss health is higher than enemy health
+                (npc.boss || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsTail || (config.BossApplyToAllWhenAlive && FargoGlobalNPC.AnyBossAlive()));
+                if (boss)
+                    DamageMultiplier = config.BossDamage;
+                else
+                {
+                    if (source is EntitySource_Parent parentt && parentt.Entity is Projectile parentProj && parentProj.TryGetGlobalProjectile(out FargoGlobalProjectile parentFGP) && parentFGP.DamageMultiplier > config.EnemyDamage)
+                        DamageMultiplier = parentFGP.DamageMultiplier;
+                    else
+                        DamageMultiplier = config.EnemyDamage;
+                }
+            }
+                
+            if (projectile.bobber && projectile.owner == Main.myPlayer && FargoServerConfig.Instance.ExtraLures && source is EntitySource_ItemUse)
             {
                 int split = 1;
                 int itemType = Main.player[Main.myPlayer].HeldItem.type;
@@ -87,7 +106,7 @@ namespace Fargowiltas.Projectiles
 
         public override bool PreAI(Projectile projectile)
         {
-            if (projectile.type == ProjectileID.FlyingPiggyBank && GetInstance<FargoServerConfig>().StalkerMoneyTrough)
+            if (projectile.type == ProjectileID.FlyingPiggyBank && FargoServerConfig.Instance.StalkerMoneyTrough)
             {
                 Player player = Main.player[projectile.owner];
                 float dist = Vector2.Distance(projectile.Center, player.Center);
@@ -114,7 +133,7 @@ namespace Fargowiltas.Projectiles
                     lowRender = true;
             }
 
-            if (projectile.bobber && projectile.lavaWet && GetInstance<FargoServerConfig>().FasterLavaFishing)
+            if (projectile.bobber && projectile.lavaWet && FargoServerConfig.Instance.FasterLavaFishing)
             {
                 if (projectile.ai[0] == 0 && projectile.ai[1] == 0 && projectile.localAI[1] < 600)
                     projectile.localAI[1]++;
@@ -125,12 +144,17 @@ namespace Fargowiltas.Projectiles
 
         public override void OnKill(Projectile projectile, int timeLeft)
         {
-            if (projectile.type == ProjectileID.FlyingPiggyBank && GetInstance<FargoServerConfig>().StalkerMoneyTrough)
+            if (projectile.type == ProjectileID.FlyingPiggyBank && FargoServerConfig.Instance.StalkerMoneyTrough)
             {
                 //functionally, this makes money trough toggle the piggy bank on/off
                 foreach (Projectile p in Main.projectile.Where(p => p.active && p.type == projectile.type && p.owner == projectile.owner))
                     p.timeLeft = 0;
             }
+        }
+
+        public override void ModifyHitPlayer(Projectile projectile, Player target, ref Player.HurtModifiers modifiers)
+        {
+            modifiers.FinalDamage *= DamageMultiplier;
         }
 
         public static void SplitProj(Projectile projectile, int number)
@@ -167,16 +191,16 @@ namespace Fargowiltas.Projectiles
         }
         public override Color? GetAlpha(Projectile projectile, Color lightColor)
         {
-            if (lowRender && !projectile.hostile && GetInstance<FargoClientConfig>().TransparentFriendlyProjectiles < 1)
+            if (lowRender && !projectile.hostile && FargoClientConfig.Instance.TransparentFriendlyProjectiles < 1)
             {
                 
                 
                 Color? color = projectile.ModProjectile?.GetAlpha(lightColor);
                 if (color != null)
                 {
-                    return color.Value * GetInstance<FargoClientConfig>().TransparentFriendlyProjectiles;
+                    return color.Value * FargoClientConfig.Instance.TransparentFriendlyProjectiles;
                 }
-                lightColor *= projectile.Opacity * GetInstance<FargoClientConfig>().TransparentFriendlyProjectiles;
+                lightColor *= projectile.Opacity * FargoClientConfig.Instance.TransparentFriendlyProjectiles;
                 return lightColor;
 
             }

@@ -1,12 +1,18 @@
 ﻿using System.ComponentModel;
 using System.Runtime.Serialization;
 using Terraria;
+using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 
 namespace Fargowiltas.Common.Configs
 {
     public sealed class FargoClientConfig : ModConfig
     {
+        public static FargoClientConfig Instance;
+        public override void OnLoaded()
+        {
+            Instance = this;
+        }
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
         [DefaultValue(true)]

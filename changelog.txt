@@ -1,15 +1,26 @@
-NEW UPDATE - V 3.2.2
--Updated wiki links to lead to the brand new dedicated wiki at https://fargosmods.wiki.gg
--Added new Deviantt help dialogue for the new Eternity Mode changes for Cacti and lightning
--Lumberjack has a 33% chance to drop a Lumberjack Hat (previously unobtainable)
--Nerfed Calming Cry: Now upgrades through progression
--Changed default Stat Sheet key to RightShift
--Tattered Bee Wings banner recipe now uses Moss Hornet banner instead of Hornet banner
--Removed Lumberjack "Wanna see me work without my shirt on? Maybe in 2030." quote
--Internally cleaned up and improved localization 
--Resprited Weather Balloon
--Fixed issue where Arms Dealer dropped Nano Bullets instead of Cyborg
--Fixed incorrect shop condition description for Amalgamated Skull
--Fixed Lumberjack not dropping hell critters
--Stat Sheet no longer displays "yes" wing time with Soaring Insignia when Calamity is enabled, since it removes its infinite flight
--Fixed AddDevianttHelpDialogue modcall to allow mods calling to provide localization path for the added text string
+NEW UPDATE - V 3.3
+Added new Stat Slider configs for:
+Enemy health
+Boss health
+Enemy damage
+Boss damage
+Boss multipliers only apply to bosses, or with another config, every enemy when bosses are alive.
+Sliders go between 1-10x.
+
+New recipes:
+-Life Crystal
+-Finch Staff
+-Suspicious Looking Chest
+
+Squire's Shield and Apprentice's Scarf bag recipes moved from Ogre to Dark Mage
+Removed Finch Staff crate recipe
+Removed Jungle Chest item recipe
+Jungle Chest item now drops from Jungle Creepers, Giant Tortoises, Angry Trappers and Moss Hornets at a 2% chance and from Moths at a 10% chance, in Hardmode
+Cultist skips most of his spawn animation when spawned manually
+Super Dummy health changed to 1 million
+Resprited Prismatic Primrose
+
+Fixed Super Dummies not spawning in multiplayer
+Fixed Squirrel blood moon glow offset
+Fixed Princess loveNPC dialogue for the mod's npcs
+Increased Extractinator Speed now works with Chlorophyte Extractinator

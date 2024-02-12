@@ -123,7 +123,7 @@ namespace Fargowiltas.NPCs
             if (Fargowiltas.ModLoaded["FargowiltasSouls"] && (bool)ModLoader.GetMod("FargowiltasSouls").Call("DevianttAlive"))
                 return false;
 
-            return GetInstance<FargoServerConfig>().Devi && !FargoGlobalNPC.AnyBossAlive() 
+            return FargoServerConfig.Instance.Devi && !FargoGlobalNPC.AnyBossAlive() 
                 && ((FargoWorld.DownedBools.TryGetValue("rareEnemy", out bool value) && value)
                 || (Fargowiltas.ModLoaded["FargowiltasSouls"] && (bool)ModLoader.GetMod("FargowiltasSouls").Call("EternityMode")));
         }
@@ -268,10 +268,8 @@ namespace Fargowiltas.NPCs
                     return DeviChat("BloodMoon");
             }
 
-            List<string> dialogue = new List<string>();
-            dialogue.Add(DeviChat("Normal1", Main.LocalPlayer.name));
-            for (int i = 2; i <= 17; i++)
-                dialogue.Add(DeviChat($"Normal{i}"));
+            List<string> dialogue = Language.FindAll(Lang.CreateDialogFilter("Mods.Fargowiltas.NPCs.Deviantt.Chat.Normal")).Select(item => item.Value).ToList();
+            dialogue.Add(DeviChat("Formattable1", Main.LocalPlayer.name));
 
             if (Main.hardMode)
             {

@@ -30,7 +30,7 @@ namespace Fargowiltas
             }
             else
             {
-                if (ModContent.GetInstance<FargoClientConfig>().DoubleTapSetBonusDisabled)
+                if (FargoClientConfig.Instance.DoubleTapSetBonusDisabled)
                     Main.LocalPlayer.doubleTapCardinalTimer[0] = Main.LocalPlayer.doubleTapCardinalTimer[1] = 0;
             }
             if (Main.LocalPlayer.controlLeft && !LeftLastPressed)

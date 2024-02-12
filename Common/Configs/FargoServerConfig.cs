@@ -2,12 +2,18 @@
 using System.Runtime.Serialization;
 using Terraria;
 using Terraria.Localization;
+using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 
 namespace Fargowiltas.Common.Configs
 {
     public sealed class FargoServerConfig : ModConfig
     {
+        public static FargoServerConfig Instance;
+        public override void OnLoaded()
+        {
+            Instance = this;
+        }
         public override ConfigScope Mode => ConfigScope.ServerSide;
 
         public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref NetworkText message) => false;
@@ -79,6 +85,32 @@ namespace Fargowiltas.Common.Configs
         public bool UnlimitedPotionBuffsOn120;
 
         private const uint maxExtraBuffSlots = 99;
+
+        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.StatMultipliers")]
+
+        [Range(1f, 10f)]
+        [Increment(.1f)]
+        [DefaultValue(1f)]
+        public float EnemyHealth;
+
+        [Range(1f, 10f)]
+        [Increment(.1f)]
+        [DefaultValue(1f)]
+        public float BossHealth;
+
+        [Range(1f, 10f)]
+        [Increment(.1f)]
+        [DefaultValue(1f)]
+        public float EnemyDamage;
+
+        [Range(1f, 10f)]
+        [Increment(.1f)]
+        [DefaultValue(1f)]
+        public float BossDamage;
+
+        [DefaultValue(true)]
+        public bool BossApplyToAllWhenAlive;
+
         [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Misc")]
         [Range(0, maxExtraBuffSlots)]
         [DefaultValue(22)]

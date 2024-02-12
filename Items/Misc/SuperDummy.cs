@@ -42,9 +42,9 @@ namespace Fargowiltas.Items.Misc
 
         public override bool? UseItem(Player player)
         {
-            if (player.whoAmI == Main.myPlayer)
+            if (player.altFunctionUse == ItemAlternativeFunctionID.ActivatedAndUsed)
             {
-                if (player.altFunctionUse == ItemAlternativeFunctionID.ActivatedAndUsed)
+                if (player.whoAmI == Main.myPlayer)
                 {
                     if (Main.netMode == NetmodeID.SinglePlayer)
                     {
@@ -67,13 +67,13 @@ namespace Fargowiltas.Items.Misc
                         netMessage.Send();
                     }
                 }
-                else if (NPC.CountNPCS(ModContent.NPCType<NPCs.SuperDummy>()) < 50)
-                {
-                    Vector2 pos = new Vector2((int)Main.MouseWorld.X - 9, (int)Main.MouseWorld.Y - 20);
-                    Projectile.NewProjectile(player.GetSource_ItemUse(Item), pos, Vector2.Zero, ModContent.ProjectileType<SpawnProj>(), 0, 0, player.whoAmI, ModContent.NPCType<NPCs.SuperDummy>());
+            }
+            else if (NPC.CountNPCS(ModContent.NPCType<NPCs.SuperDummy>()) < 50)// && Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                Vector2 pos = new((int)Main.MouseWorld.X - 9, (int)Main.MouseWorld.Y - 20);
+                Projectile.NewProjectile(player.GetSource_ItemUse(Item), pos, Vector2.Zero, ModContent.ProjectileType<SpawnProj>(), 0, 0, player.whoAmI, ModContent.NPCType<NPCs.SuperDummy>());
 
-                    //NPC.NewNPC((int)pos.X, (int)pos.Y, ModContent.NPCType<NPCs.SuperDummy>());
-                }
+                //NPC.NewNPC((int)pos.X, (int)pos.Y, ModContent.NPCType<NPCs.SuperDummy>());
             }
 
             return true;

@@ -18,6 +18,7 @@ using static Terraria.ModLoader.ModContent;
 using Fargowiltas.Items.Explosives;
 using Fargowiltas.Items.Summons.Abom;
 using Fargowiltas.Common.Configs;
+using Fargowiltas.Items.Summons.Deviantt;
 
 namespace Fargowiltas.NPCs
 {
@@ -95,12 +96,26 @@ namespace Fargowiltas.NPCs
             if (target.dontTakeDamage && target.type == NPCType<Squirrel>())
                 return false;
             
-            if (target.friendly && GetInstance<FargoServerConfig>().SaferBoundNPCs && (target.type == NPCID.BoundGoblin || target.type == NPCID.BoundMechanic || target.type == NPCID.BoundWizard || target.type == NPCID.BartenderUnconscious || target.type == NPCID.GolferRescue))
+            if (target.friendly && FargoServerConfig.Instance.SaferBoundNPCs && (target.type == NPCID.BoundGoblin || target.type == NPCID.BoundMechanic || target.type == NPCID.BoundWizard || target.type == NPCID.BartenderUnconscious || target.type == NPCID.GolferRescue))
                 return false;
             
             return base.CanHitNPC(npc, target);
         }
-
+        public override void SetDefaults(NPC npc)
+        {
+            #region Stat Sliders
+            FargoServerConfig config = FargoServerConfig.Instance;
+            if (config.EnemyHealth != 1 || config.BossHealth != 1)
+            {
+                bool boss = config.BossHealth > config.EnemyHealth && // only relevant if boss health is higher than enemy health
+                    (npc.boss || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsTail || (config.BossApplyToAllWhenAlive && AnyBossAlive()));
+                if (boss)
+                    npc.lifeMax = (int)Math.Round(npc.lifeMax * config.BossHealth);
+                else
+                    npc.lifeMax = (int)Math.Round(npc.lifeMax * config.EnemyHealth);
+            }
+            #endregion
+        }
         public override bool PreAI(NPC npc)
         {
             if (npc.boss)
@@ -124,6 +139,18 @@ namespace Fargowiltas.NPCs
 
                 case NPCID.QueenBee:
                     beeBoss = npc.whoAmI;
+                    break;
+
+                case NPCID.CultistBoss:
+                    if (npc.ai[0] == -1 && npc.ai[1] == 1) //just after spawning
+                    {
+                        bool foundTabletNearby = Main.npc.Any(n => n.active && n.type == NPCID.CultistTablet && npc.Distance(n.Center) < 400);
+                        if (!foundTabletNearby)
+                        {
+                            npc.ai[1] = 360;
+                            npc.netUpdate = true;
+                        }
+                    }
                     break;
 
                 //                case NPCID.TheDestroyer:
@@ -338,7 +365,7 @@ namespace Fargowiltas.NPCs
             #endregion
             
 
-            if (GetInstance<FargoServerConfig>().NPCSales)
+            if (FargoServerConfig.Instance.NPCSales)
             {
                 //Only use "condition" if the item has a single condition, otherwise use the "conditions" array.
                 void AddItem(int itemID, int customPrice = -1, Condition condition = null, Condition[] conditions = null)
@@ -609,7 +636,7 @@ namespace Fargowiltas.NPCs
                 maxSpawns = (int)(maxSpawns * 30f);
             }
 
-            if (AnyBossAlive() && GetInstance<FargoServerConfig>().BossZen && player.Distance(Main.npc[boss].Center) < 6000)
+            if (AnyBossAlive() && FargoServerConfig.Instance.BossZen && player.Distance(Main.npc[boss].Center) < 6000)
             {
                 maxSpawns = 0;
             }
@@ -1000,7 +1027,18 @@ namespace Fargowiltas.NPCs
                 case NPCID.Penguin:
                 case NPCID.IceSlime:
                 case NPCID.SpikedIceSlime:
-                    npcLoot.Add(ItemDropRule.OneFromOptions(10, ItemID.EskimoHood, ItemID.EskimoCoat, ItemID.EskimoPants));
+                    npcLoot.Add(ItemDropRule.OneFromOptions(20, ItemID.EskimoHood, ItemID.EskimoCoat, ItemID.EskimoPants));
+                    break;
+
+                case NPCID.MossHornet:
+                case NPCID.JungleCreeper:
+                case NPCID.JungleCreeperWall:
+                case NPCID.AngryTrapper:
+                case NPCID.GiantTortoise:
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsHardmode(), ItemType<JungleChest>(), 50));
+                    break;
+                case NPCID.Moth:
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsHardmode(), ItemType<JungleChest>(), 10));
                     break;
 
                 case NPCID.GreekSkeleton:
@@ -1351,7 +1389,7 @@ namespace Fargowiltas.NPCs
 
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
         {
-            if (GetInstance<FargoServerConfig>().RottenEggs && projectile.type == ProjectileID.RottenEgg && npc.townNPC)
+            if (FargoServerConfig.Instance.RottenEggs && projectile.type == ProjectileID.RottenEgg && npc.townNPC)
             {
                 modifiers.FinalDamage *= 20;
                 //damage *= 20;
@@ -1361,7 +1399,7 @@ namespace Fargowiltas.NPCs
         public override void OnChatButtonClicked(NPC npc, bool firstButton)
         {
             // No angler check enables luiafk compatibility
-            if (GetInstance<FargoServerConfig>().AnglerQuestInstantReset && Main.anglerQuestFinished)
+            if (FargoServerConfig.Instance.AnglerQuestInstantReset && Main.anglerQuestFinished)
             {
                 if (Main.netMode == NetmodeID.SinglePlayer)
                 {

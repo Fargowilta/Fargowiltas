@@ -24,7 +24,7 @@ namespace Fargowiltas.NPCs
         public override void SetDefaults()
         {
             NPC.CloneDefaults(NPCID.TargetDummy);
-            NPC.lifeMax = int.MaxValue;
+            NPC.lifeMax = 1000000;
             NPC.aiStyle = -1;
             NPC.width = 28;
             NPC.height = 50;
@@ -36,11 +36,11 @@ namespace Fargowiltas.NPCs
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position) => false;
         public override void OnSpawn(IEntitySource source)
         {
-            NPC.life = NPC.lifeMax = int.MaxValue;
+            NPC.life = NPC.lifeMax = 1000000;
         }
         public override void AI()
         {
-            NPC.life = NPC.lifeMax = int.MaxValue;
+            NPC.life = NPC.lifeMax = 1000000;
 
             if (FargoGlobalNPC.AnyBossAlive())
             {

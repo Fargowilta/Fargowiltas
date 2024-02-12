@@ -183,7 +183,7 @@ namespace Fargowiltas.Items.CaughtNPCs
         public override void SetDefaults(NPC npc)
         {
             int type = npc.type;
-            if (CaughtNPCItem.CaughtTownies.ContainsKey(type) && ModContent.GetInstance<FargoServerConfig>().CatchNPCs)
+            if (CaughtNPCItem.CaughtTownies.ContainsKey(type) && FargoServerConfig.Instance.CatchNPCs)
             {
                 npc.catchItem = (short)CaughtNPCItem.CaughtTownies.FirstOrDefault(x => x.Key.Equals(type)).Value;
                 if (!Main.npcCatchable[type])

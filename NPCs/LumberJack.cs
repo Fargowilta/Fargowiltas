@@ -103,7 +103,7 @@ namespace Fargowiltas.NPCs
 
         public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
-            return GetInstance<FargoServerConfig>().Lumber && FargoWorld.DownedBools.TryGetValue("lumberjack", out bool down) && down;
+            return FargoServerConfig.Instance.Lumber && FargoWorld.DownedBools.TryGetValue("lumberjack", out bool down) && down;
         }
 
 
@@ -131,12 +131,8 @@ namespace Fargowiltas.NPCs
 
         public override string GetChat()
         {
-            List<string> dialogue = new List<string>();
-            for (int i = 1; i <= 20; i++)
-            {
-                dialogue.Add(LumberChat($"Normal{i}"));
-            }
-
+            List<string> dialogue = Language.FindAll(Lang.CreateDialogFilter("Mods.Fargowiltas.NPCs.LumberJack.Chat.Normal")).Select(item => item.Value).ToList();
+            
             int nurse = NPC.FindFirstNPC(NPCID.Nurse);
             if (nurse >= 0)
             {
@@ -144,7 +140,6 @@ namespace Fargowiltas.NPCs
             }
 
             Player player = Main.LocalPlayer;
-
             if (player.HeldItem.type == ItemID.LucyTheAxe)
             {
                 dialogue.Add(LumberChat("LucyTheAxe"));

@@ -13,7 +13,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
             // DisplayName.SetDefault("Jungle Chest");
             // Tooltip.SetDefault("Summons Jungle Mimic");
         }
-
+        /*
         public override void AddRecipes()
         {
             if (ModContent.TryFind("Fargowiltas/Deviantt", out ModItem modItem))
@@ -27,5 +27,6 @@ namespace Fargowiltas.Items.Summons.Deviantt
                   .Register();
             }
         }
+        */
     }
 }

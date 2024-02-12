@@ -177,7 +177,7 @@ namespace Fargowiltas
 
         public override void PostUpdateBuffs()
         {
-            if (GetInstance<FargoServerConfig>().UnlimitedPotionBuffsOn120)
+            if (FargoServerConfig.Instance.UnlimitedPotionBuffsOn120)
             {
                 foreach (Item item in Player.bank.item)
                 {
@@ -190,7 +190,7 @@ namespace Fargowiltas
                 }
             }
 
-            if (GetInstance<FargoServerConfig>().PiggyBankAcc)
+            if (FargoServerConfig.Instance.PiggyBankAcc)
             {
                 foreach (Item item in Player.bank.item)
                 {
@@ -226,6 +226,22 @@ namespace Fargowiltas
             ForceBiomes();
         }
 
+        public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers)
+        {
+            #region Stat Sliders
+            FargoServerConfig config = FargoServerConfig.Instance;
+            if (config.EnemyDamage != 1 || config.BossDamage != 1)
+            {
+                bool boss = config.BossDamage > config.EnemyDamage && // only relevant if boss health is higher than enemy health
+                    (npc.boss || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsTail || (config.BossApplyToAllWhenAlive && FargoGlobalNPC.AnyBossAlive()));
+                if (boss)
+                    modifiers.FinalDamage *= config.BossDamage;
+                else
+                    modifiers.FinalDamage *= config.EnemyDamage;
+            }
+            #endregion
+        }
+
         public void ResetStatSheetWings()
         {
             StatSheetMaxAscentMultiplier = 0;
@@ -255,7 +271,7 @@ namespace Fargowiltas
                 Player.ZoneJungle = true;
             }
 
-            if (GetInstance<FargoServerConfig>().Fountains)
+            if (FargoServerConfig.Instance.Fountains)
             {
                 switch (Main.SceneMetrics.ActiveFountainColor)
                 {
