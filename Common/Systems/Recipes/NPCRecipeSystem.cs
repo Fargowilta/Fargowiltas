@@ -44,6 +44,24 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.DisableDecraft();
             recipe.Register();
 
+            recipe = Recipe.Create(ItemID.WallSkeleton);
+            recipe.AddRecipeGroup(AnyCaughtNPC);
+            recipe.AddTile(TileID.BoneWelder);
+            recipe.DisableDecraft();
+            recipe.Register();
+
+            recipe = Recipe.Create(ItemID.HangingSkeleton);
+            recipe.AddRecipeGroup(AnyCaughtNPC);
+            recipe.AddTile(TileID.BoneWelder);
+            recipe.DisableDecraft();
+            recipe.Register();
+
+            recipe = Recipe.Create(ItemID.Catacomb);
+            recipe.AddRecipeGroup(AnyCaughtNPC);
+            recipe.AddTile(TileID.BoneWelder);
+            recipe.DisableDecraft();
+            recipe.Register();
+
             recipe = Recipe.Create(ItemID.BluePaint, 20);
             recipe.AddIngredient(CaughtNPCItem.CaughtTownies[NPCID.Truffle]);
             recipe.AddTile(TileID.DyeVat);

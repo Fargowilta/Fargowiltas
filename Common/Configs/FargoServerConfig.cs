@@ -154,6 +154,9 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(true)]
         public bool TorchGodEX;
 
+        [DefaultValue(true)]
+        public bool PylonsIgnoreEvents;
+
         [OnDeserialized]
         internal void OnDeserializedMethod(StreamingContext context)
         {

@@ -105,7 +105,7 @@ namespace Fargowiltas.NPCs
         {
             #region Stat Sliders
             FargoServerConfig config = FargoServerConfig.Instance;
-            if (config.EnemyHealth != 1 || config.BossHealth != 1)
+            if ((config.EnemyHealth != 1 || config.BossHealth != 1) && !npc.townNPC && !npc.CountsAsACritter && npc.life > 10)
             {
                 bool boss = config.BossHealth > config.EnemyHealth && // only relevant if boss health is higher than enemy health
                     (npc.boss || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsTail || (config.BossApplyToAllWhenAlive && AnyBossAlive()));
@@ -121,6 +121,17 @@ namespace Fargowiltas.NPCs
             if (npc.boss)
             {
                 boss = npc.whoAmI;
+            }
+
+            if (npc.townNPC && npc.homeTileX == -1 && npc.homeTileY == -1)
+            {
+                bool hasRoom = WorldGen.TownManager.HasRoom(npc.type, out Point homePoint);
+                if (hasRoom)
+                {
+                    int x = homePoint.X;
+                    int y = homePoint.Y - 2;
+                    WorldGen.moveRoom(x, y, npc.whoAmI);
+                }
             }
 
             switch (npc.type)
@@ -148,6 +159,18 @@ namespace Fargowiltas.NPCs
                         if (!foundTabletNearby)
                         {
                             npc.ai[1] = 360;
+                            npc.netUpdate = true;
+                        }
+                    }
+                    break;
+
+                case NPCID.MoonLordCore:
+                    if (npc.ai[0] == 2)
+                    {
+                        int skipPoint = 600 - 60;
+                        if (npc.ai[1] < skipPoint && npc.ai[1] % 60 == 30 && NPC.CountNPCS(npc.type) > 1)
+                        {
+                            npc.ai[1] = skipPoint;
                             npc.netUpdate = true;
                         }
                     }
@@ -1167,21 +1190,21 @@ namespace Fargowiltas.NPCs
 
                 case NPCID.GiantWormHead:
                 case NPCID.DiggerHead:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, "worm");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, "worm");
                     break;
 
                 case NPCID.DD2OgreT2:
                 case NPCID.DD2OgreT3:
-                    FargoUtils.TryDowned(npc, "Abominationn", Color.Orange, "ogre");
+                    FargoUtils.TryDowned("Abominationn", Color.Orange, "ogre");
                     break;
 
                 case NPCID.DD2DarkMageT1:
                 case NPCID.DD2DarkMageT3:
-                    FargoUtils.TryDowned(npc, "Abominationn", Color.Orange, "darkMage");
+                    FargoUtils.TryDowned("Abominationn", Color.Orange, "darkMage");
                     break;
 
                 case NPCID.Clown:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "clown");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "clown");
 
                     break;
 
@@ -1189,108 +1212,108 @@ namespace Fargowiltas.NPCs
                     if (npc.netID == NPCID.Pinky)
                     {
 
-                        FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, "rareEnemy", "pinky");
+                        FargoUtils.TryDowned("Deviantt", Color.HotPink, "rareEnemy", "pinky");
 
                     }
                     break;
 
                 case NPCID.UndeadMiner:
 
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, "rareEnemy", "undeadMiner");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, "rareEnemy", "undeadMiner");
                     break;
 
                 case NPCID.Tim:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, "rareEnemy", "tim");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, "rareEnemy", "tim");
                     break;
 
                 case NPCID.DoctorBones:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, "rareEnemy", "doctorBones");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, "rareEnemy", "doctorBones");
                     break;
 
                 case NPCID.Mimic:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "mimic");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "mimic");
                     break;
 
                 case NPCID.WyvernHead:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "wyvern");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "wyvern");
                     break;
 
                 case NPCID.RuneWizard:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "runeWizard");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "runeWizard");
                     break;
 
                 case NPCID.Nymph:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, "rareEnemy", "nymph");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, "rareEnemy", "nymph");
                     break;
 
                 case NPCID.Moth:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "moth");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "moth");
                     break;
 
                 case NPCID.RainbowSlime:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "rainbowSlime");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "rainbowSlime");
                     break;
 
                 case NPCID.Paladin:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, NPC.downedPlantBoss, "rareEnemy", "paladin");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, NPC.downedPlantBoss, "rareEnemy", "paladin");
                     break;
 
                 case NPCID.Medusa:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "medusa");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "medusa");
                     break;
 
                 case NPCID.IceGolem:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "iceGolem");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "iceGolem");
                     break;
 
                 case NPCID.SandElemental:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "sandElemental");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "sandElemental");
                     break;
 
                 case NPCID.Nailhead:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, NPC.downedPlantBoss, "rareEnemy", "nailhead");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, NPC.downedPlantBoss, "rareEnemy", "nailhead");
                     break;
 
                 case NPCID.Mothron:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3, "rareEnemy", "mothron");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3, "rareEnemy", "mothron");
                     break;
 
                 case NPCID.BigMimicCorruption:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "mimicCorrupt");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "mimicCorrupt");
                     break;
 
                 case NPCID.BigMimicHallow:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "mimicHallow");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "mimicHallow");
                     break;
 
                 case NPCID.BigMimicCrimson:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "mimicCrimson");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "mimicCrimson");
                     break;
 
                 case NPCID.BigMimicJungle:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "mimicJungle");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "mimicJungle");
                     break;
 
                 case NPCID.GoblinSummoner:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode && NPC.downedGoblins, "rareEnemy", "goblinSummoner");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode && NPC.downedGoblins, "rareEnemy", "goblinSummoner");
                     break;
 
                 case NPCID.PirateShip:
-                    FargoUtils.TryDowned(npc, "Abominationn", Color.Orange, NPC.downedPirates, "flyingDutchman");
+                    FargoUtils.TryDowned("Abominationn", Color.Orange, NPC.downedPirates, "flyingDutchman");
                     break;
 
                 case NPCID.DungeonSlime:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, NPC.downedBoss3, "rareEnemy", "dungeonSlime");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, NPC.downedBoss3, "rareEnemy", "dungeonSlime");
                     break;
 
                 case NPCID.PirateCaptain:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode && NPC.downedPirates, "rareEnemy", "pirateCaptain");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode && NPC.downedPirates, "rareEnemy", "pirateCaptain");
                     break;
 
                 case NPCID.SkeletonSniper:
                 case NPCID.TacticalSkeleton:
                 case NPCID.SkeletonCommando:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, NPC.downedPlantBoss, "rareEnemy", "skeletonGun");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, NPC.downedPlantBoss, "rareEnemy", "skeletonGun");
                     break;
 
                 case NPCID.Necromancer:
@@ -1299,68 +1322,68 @@ namespace Fargowiltas.NPCs
                 case NPCID.DiabolistWhite:
                 case NPCID.RaggedCaster:
                 case NPCID.RaggedCasterOpenCoat:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, NPC.downedPlantBoss, "rareEnemy", "skeletonMage");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, NPC.downedPlantBoss, "rareEnemy", "skeletonMage");
                     break;
 
                 case NPCID.BoneLee:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, NPC.downedPlantBoss, "rareEnemy", "boneLee");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, NPC.downedPlantBoss, "rareEnemy", "boneLee");
                     break;
 
                 case NPCID.HeadlessHorseman:
-                    FargoUtils.TryDowned(npc, "Abominationn", Color.Orange, "headlessHorseman");
+                    FargoUtils.TryDowned("Abominationn", Color.Orange, "headlessHorseman");
                     break;
 
                 case NPCID.Pumpking:
-                    FargoUtils.TryDowned(npc, "Abominationn", Color.Orange, NPC.downedHalloweenKing, "pumpking");
+                    FargoUtils.TryDowned("Abominationn", Color.Orange, NPC.downedHalloweenKing, "pumpking");
                     break;
 
                 case NPCID.MourningWood:
-                    FargoUtils.TryDowned(npc, "Abominationn", Color.Orange, NPC.downedHalloweenTree, "mourningWood");
+                    FargoUtils.TryDowned("Abominationn", Color.Orange, NPC.downedHalloweenTree, "mourningWood");
                     break;
 
                 case NPCID.IceQueen:
-                    FargoUtils.TryDowned(npc, "Abominationn", Color.Orange, NPC.downedChristmasIceQueen, "iceQueen");
+                    FargoUtils.TryDowned("Abominationn", Color.Orange, NPC.downedChristmasIceQueen, "iceQueen");
                     break;
 
                 case NPCID.SantaNK1:
-                    FargoUtils.TryDowned(npc, "Abominationn", Color.Orange, NPC.downedChristmasSantank, "santank");
+                    FargoUtils.TryDowned("Abominationn", Color.Orange, NPC.downedChristmasSantank, "santank");
                     break;
 
                 case NPCID.Everscream:
-                    FargoUtils.TryDowned(npc, "Abominationn", Color.Orange, NPC.downedChristmasTree, "everscream");
+                    FargoUtils.TryDowned("Abominationn", Color.Orange, NPC.downedChristmasTree, "everscream");
                     break;
 
                 case NPCID.ZombieMerman:
                 case NPCID.EyeballFlyingFish:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, "rareEnemy", "zombieMerman", "eyeFish");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, "rareEnemy", "zombieMerman", "eyeFish");
                     break;
 
                 case NPCID.BloodEelHead:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "bloodEel");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "bloodEel");
                     break;
 
                 case NPCID.GoblinShark:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "goblinShark");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "goblinShark");
                     break;
 
                 case NPCID.BloodNautilus:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, "rareEnemy", "dreadnautilus");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, "rareEnemy", "dreadnautilus");
                     break;
 
                 case NPCID.Gnome:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, "rareEnemy", "gnome");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, "rareEnemy", "gnome");
                     break;
 
                 case NPCID.RedDevil:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, "rareEnemy", "redDevil");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, "rareEnemy", "redDevil");
                     break;
 
                 case NPCID.GoldenSlime:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, "rareEnemy", "goldenSlime");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, "rareEnemy", "goldenSlime");
                     break;
 
                 case NPCID.GoblinScout:
-                    FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, "rareEnemy", "goblinScout");
+                    FargoUtils.TryDowned("Deviantt", Color.HotPink, "rareEnemy", "goblinScout");
                     break;
 
                 default:
@@ -1369,7 +1392,7 @@ namespace Fargowiltas.NPCs
 
             if (Fargowiltas.ModRareEnemies.ContainsKey(npc.type))
             {
-                FargoUtils.TryDowned(npc, "Deviantt", Color.HotPink, "rareEnemy", Fargowiltas.ModRareEnemies[npc.type]);
+                FargoUtils.TryDowned("Deviantt", Color.HotPink, "rareEnemy", Fargowiltas.ModRareEnemies[npc.type]);
 
             }
 

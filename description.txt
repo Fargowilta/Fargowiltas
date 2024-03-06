@@ -4,6 +4,24 @@ There are several other items such as infinite ammos, craftable instant builds f
 Fargo Discord: https://discord.gg/Rgen4Vv
 Fargo Wiki: https://fargosmods.wiki.gg
 
+NEW UPDATE - v3.3.1
+-New item: Koha Crystal
+
+-New recipes:
+Wall Skeleton
+Hanging Skeleton
+Catacomb
+
+-Moon Lord death animation speeds up when multiple are alive
+-Added Moondial to Portable Sundial recipe
+-Reduced Portable Sundial mana cost from 25 to 15
+-Prismatic Primrose resets night when Empress isn't beaten
+-Town NPCs remember their home when bug netted
+-Mining a Garden Gnome counts for unlocking Gnomes in Deviantt shop
+-Added Config option for pylons to allow use even during events
+-Multitask Center recipe is now crafted by hand
+-Critters and town NPCS are now unaffected by enemy health multiplier config
+
 NEW UPDATE - v3.3
 Added new Stat Slider configs for:
 Enemy health

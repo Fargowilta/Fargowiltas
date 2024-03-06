@@ -1,5 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Fargowiltas.Projectiles;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Chat;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -23,6 +26,23 @@ namespace Fargowiltas.Items.Summons.Mutant
                .AddIngredient(ItemID.EmpressButterfly)
                .AddTile(TileID.WorkBenches)
                .Register();
+        }
+
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            if (!Main.dayTime)
+            {
+                if (!NPC.downedEmpressOfLight)
+                {
+                    Main.dayTime = false;
+                    Main.time = 0;
+
+                    if (Main.netMode == NetmodeID.Server) //sync time
+                        NetMessage.SendData(MessageID.WorldData, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
+                }
+            }
+
+            return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
     }
 }

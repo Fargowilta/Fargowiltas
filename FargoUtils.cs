@@ -29,15 +29,15 @@ namespace Fargowiltas
                 NPCID.Sets.SpecificDebuffImmunity[npc.type][buffType] = true;
             }
         }
-        public static void TryDowned(NPC npc, string seller, Color color, params string[] names)
+        public static void TryDowned(string seller, Color color, params string[] names)
         {
-            TryDowned(npc, seller, color, true, names);
+            TryDowned(seller, color, true, names);
         }
 
         // condition is so that display text is hidden if the kill is done early, BUT the kill is still counted
         // e.g. kill an enemy early, whose spawner is sold in hm, then get into hm, then spawner is unlocked
         // however, text is hidden on that first kill so people don't think it's sold right away
-        public static void TryDowned(NPC npc, string seller, Color color, bool conditions, params string[] names)
+        public static void TryDowned(string seller, Color color, bool conditions, params string[] names)
         {
             bool update = false;
 
@@ -52,6 +52,7 @@ namespace Fargowiltas
 
             if (update)
             {
+                seller = Language.GetTextValue($"Mods.Fargowiltas.NPCs.{seller}.DisplayName");
                 string text = Language.GetTextValue("Mods.Fargowiltas.MessageInfo.NewItemUnlocked", seller);
                 if (Main.netMode == NetmodeID.SinglePlayer)
                 {

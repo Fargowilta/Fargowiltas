@@ -1,26 +1,17 @@
-NEW UPDATE - V 3.3
-Added new Stat Slider configs for:
-Enemy health
-Boss health
-Enemy damage
-Boss damage
-Boss multipliers only apply to bosses, or with another config, every enemy when bosses are alive.
-Sliders go between 1-10x.
+NEW UPDATE - V 3.3.1
+-New item: Koha Crystal
 
-New recipes:
--Life Crystal
--Finch Staff
--Suspicious Looking Chest
+-New recipes:
+Wall Skeleton
+Hanging Skeleton
+Catacomb
 
-Squire's Shield and Apprentice's Scarf bag recipes moved from Ogre to Dark Mage
-Removed Finch Staff crate recipe
-Removed Jungle Chest item recipe
-Jungle Chest item now drops from Jungle Creepers, Giant Tortoises, Angry Trappers and Moss Hornets at a 2% chance and from Moths at a 10% chance, in Hardmode
-Cultist skips most of his spawn animation when spawned manually
-Super Dummy health changed to 1 million
-Resprited Prismatic Primrose
-
-Fixed Super Dummies not spawning in multiplayer
-Fixed Squirrel blood moon glow offset
-Fixed Princess loveNPC dialogue for the mod's npcs
-Increased Extractinator Speed now works with Chlorophyte Extractinator
+-Moon Lord death animation speeds up when multiple are alive
+-Added Moondial to Portable Sundial recipe
+-Reduced Portable Sundial mana cost from 25 to 15
+-Prismatic Primrose resets night when Empress isn't beaten
+-Town NPCs remember their home when bug netted
+-Mining a Garden Gnome counts for unlocking Gnomes in Deviantt shop
+-Added Config option for pylons to allow use even during events
+-Multitask Center recipe is now crafted by hand
+-Critters and town NPCS are now unaffected by enemy health multiplier config

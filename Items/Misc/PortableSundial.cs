@@ -28,7 +28,7 @@ namespace Fargowiltas.Items.Misc
             Item.useAnimation = 30;
             Item.useTime = 30;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.mana = 25;
+            Item.mana = 15;
             Item.UseSound = SoundID.Item4;
         }
 
@@ -115,6 +115,7 @@ namespace Fargowiltas.Items.Misc
         {
             CreateRecipe()
                 .AddIngredient(ItemID.Sundial)
+                .AddIngredient(ItemID.Moondial)
                 .AddTile(TileID.SkyMill)
                 .Register();
         }

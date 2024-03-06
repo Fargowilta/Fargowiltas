@@ -61,6 +61,11 @@ namespace Fargowiltas.Tiles
                     FargoWorld.DownedBools["lumberjack"] = true;
                 }
             }
+
+            if (type == TileID.GardenGnome && !fail)
+            {
+                FargoUtils.TryDowned("Deviantt", Color.HotPink, "rareEnemy", "gnome");
+            }
         }
 
         private static uint LastTorchUpdate;

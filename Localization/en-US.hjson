@@ -178,6 +178,11 @@ Mods: {
 					Tooltip: Obeys true torch luck, which may differ from Torch God's Favor
 				}
 
+				PylonsIgnoreEvents: {
+					Label: Pylons Ignore Events
+					Tooltip: ""
+				}
+
 				Headers: {
 					TownNPCs: Town NPCs
 					Seasons: Seasons
@@ -2399,6 +2404,11 @@ Mods: {
 					Drops a bomb that creates a 150x50 body of water below it
 					Do not use if any important building is below
 					'''
+			}
+
+			KohaCrystal: {
+				DisplayName: Koha Crystal
+				Tooltip: Decreases the amount of Mana Crystals you have by 1
 			}
 		}
 
