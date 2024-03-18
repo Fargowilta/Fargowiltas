@@ -46,6 +46,14 @@ namespace Fargowiltas.Common.Systems.Recipes
             {
                 recipe.DisableDecraft();
             }
+            //fill list with all whitelisted ingredients of all items that are whitelisted
+            foreach (Recipe recipe in Main.recipe.Where(recipe => Fargowiltas.UncraftingAllowedItems.Contains(recipe.createItem.type)))
+            {
+                foreach (Item ingredient in recipe.requiredItem.Where(ingredient => Fargowiltas.UncraftingAllowedItems.Contains(ingredient.type)))
+                {
+                    Fargowiltas.UncraftingRecipes[recipe.createItem.type].Add(ingredient.type);
+                }
+            }
         }
 
         private static void AddStatueRecipes()

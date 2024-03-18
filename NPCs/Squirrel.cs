@@ -400,6 +400,7 @@ namespace Fargowiltas.NPCs
             itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeRubySeed);
             itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeSapphireSeed);
             itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeTopazSeed);
+            itemCollections[SquirrelShopGroup.Acorn].Add(ModContent.ItemType<Fargonium>());
 
             return itemCollections.OrderBy(kv => kv.Key).SelectMany(kv => kv.Value).ToList();
         }

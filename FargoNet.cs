@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Fargowiltas.Items.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace Fargowiltas
 {
@@ -92,7 +94,18 @@ namespace Fargowiltas
 
             SendFargoNetMessage(1, ai2);
         }
-
+        /*
+         * Writes and sends relevant data about an item and its CraftingTreeItemBehavior globalItem data from a client
+         */
+        //public static void SyncCraftingTreeBehavior(Item item, CraftingTreeItemBehavior moditem, bool makeItem = false)
+        //{
+        //    ModPacket packet = WriteToPacket(Fargowiltas.Instance.GetPacket(), 9, makeItem, item.whoAmI, item.type, item.stack, item.position.X, item.position.Y, //base item
+        //        moditem.PartOfTree, moditem.CameFromTree, moditem.Split, //bools
+        //        moditem.OriginalItem, moditem.FromItem, moditem.timer, moditem.DragTimer, moditem.playerDragging, //ints
+        //        moditem.opacity, moditem.PositionInTree.X, moditem.PositionInTree.Y, moditem.HomeTilePos.X, moditem.HomeTilePos.Y, //floats
+        //        moditem.Ingredients.Count, moditem.Ingredients.ToArray()); //list
+        //    packet.Send();
+        //}
         /*
          * Writes a vector2 array to an obj[] array that can be sent via netmessaging.
          */
@@ -204,7 +217,7 @@ namespace Fargowiltas
                 ModContent.GetInstance<Fargowiltas>().Logger.Info("--SERVER-- PLAYER JOINED!");
             }
         }
-
+        
         public static void SendNetMessage(int msg, params object[] param)
         {
             SendNetMessageClient(msg, -1, param);

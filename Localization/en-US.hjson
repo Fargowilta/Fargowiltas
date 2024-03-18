@@ -2434,6 +2434,21 @@ Mods: {
 				DisplayName: Big Suck Potion
 				Tooltip: Makes you suck everything
 			}
+
+			Fargonium: {
+				DisplayName: Fargonium
+				Tooltip: A mythical fertilizer for a certain mystical tree
+			}
+
+			CraftingTree: {
+				DisplayName: Crafting Tree
+				Tooltip:
+					'''
+					Capable of separating the essence of an item into its ingredients
+					You can pick items from the resulting tree by dragging them with your mouse
+					Fargonium is required to duplicate items
+					'''
+			}
 		}
 
 		NPCs: {

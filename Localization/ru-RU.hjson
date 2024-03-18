@@ -182,7 +182,7 @@ Mods: {
 					Label: Пилоны Игнорируют События
 					Tooltip: ""
 				}
-				
+
 				Headers: {
 					TownNPCs: Городские НИПы
 					Seasons: Сезоны
@@ -225,12 +225,12 @@ Mods: {
 					Label: "[i:171] Больше Описаний Об Изменениях Мода Mutant"
 					Tooltip: ""
 				}
-				
+
 				HideUnlimitedBuffs: {
 					Label: "[i:292] Прятать бесконечные баффы из списка"
 					Tooltip: ""
 				}
-				
+
 				DoubleTapDashDisabled: {
 					Label: "[i:3097] Отключить Двойное Нажатие для Рывков"
 					Tooltip: Предотвращает рывки от использования стандартного двойного нажатие. Клавиша Рывка работает вне зависимости от этой конфигурации.
@@ -357,7 +357,7 @@ Mods: {
 			OverloadDarkMage: Вы чувствуешь себя как в библиотеке!
 			OverloadDeer: Константа начинает брать верх!
 			OverloadDestroyer: Планета трясётся от самого ядра!
-			OverloadEmpress: 'Рай пуль' опускается за горизонт!
+			OverloadEmpress: "'Рай пуль' опускается за горизонт!"
 			OverloadEye: Неисчисляемые глаза проникают чрез занавес, уставившись на вас!
 			OverloadFish: Океан переполняется свирепыми свиньями!
 			OverloadGolem: Древние аппараты падают с небес, разрушая землю!
@@ -796,7 +796,7 @@ Mods: {
 				Calming: Успокаивающий Плач
 				Activated: активирован
 				Deactivated: деактивирован
-				// {Battle / Calming} {activated / deactivated} for {playerName}{punctuation}
+				// {Battle / Calming} Cry {activated / deactivated} for {playerName}{punctuation}
 				CryText: "{0} был {1} для игрока {2}{3}"
 			}
 
@@ -1023,13 +1023,13 @@ Mods: {
 					'''
 			}
 
-			PartyCone: {
-				DisplayName: Праздничный Колпак
-				Tooltip:
+			PartyInvite: {
+				// DisplayName: Party Invite
+				/* Tooltip:
 					'''
-					Начинает Вечеринку!
-					Можно использовать только если в мире есть хотя бы 5 НИПов
-					'''
+					Starts a Party!
+					Needs at least 5 town NPCs to use
+					''' */
 			}
 
 			PillarSummon: {
@@ -1931,6 +1931,11 @@ Mods: {
 				Tooltip: ""
 			}
 
+			MutantToilet: {
+				// DisplayName: Mutant Toilet
+				// Tooltip: Don't.
+			}
+
 			EchPainting: {
 				DisplayName: Картина Ech
 				Tooltip: "'авт. Groalt W. Fai'"
@@ -1974,8 +1979,12 @@ Mods: {
 			}
 
 			RegalStatue: {
-				DisplayName: Королевская Статуя
-				Городские НИПы респавнятся гораздо быстрее, когда игрок находится рядом
+				DisplayName:
+					'''
+					Королевская Статуя
+					Городские НИПы респавнятся гораздо быстрее, когда игрок находится рядом
+					'''
+				// Tooltip: Town NPCs respawn extremely quickly when nearby
 			}
 
 			Semistation: {
@@ -2065,7 +2074,7 @@ Mods: {
 				DisplayName: Идущий Рик
 				Tooltip: "'авт. Kien R. Oco'"
 			}
-			
+
 			WoodenToken: {
 				DisplayName: Деревянный Жетон
 				Tooltip: "'Знак истинного любителя дерева'"
@@ -2392,7 +2401,7 @@ Mods: {
 			}
 
 			Rocket2Box: {
-				DisplayName: Бесконечная Коробка Ракет II 
+				DisplayName: Бесконечная Коробка Ракет II
 				Tooltip: ""
 			}
 
@@ -2428,6 +2437,21 @@ Mods: {
 			BigSuckPotion: {
 				DisplayName: Зелье Большого Засоса
 				Tooltip: Заставляет тебя засасывать всё
+			}
+
+			Fargonium: {
+				// DisplayName: Fargonium
+				// Tooltip: A mythical fertilizer for a certain mystical tree
+			}
+
+			CraftingTree: {
+				// DisplayName: Crafting Tree
+				/* Tooltip:
+					'''
+					Capable of separating the essence of an item into its ingredients
+					You can pick items from the resulting tree by dragging them with your mouse
+					Fargonium is required to duplicate items
+					''' */
 			}
 		}
 
@@ -2618,10 +2642,10 @@ Mods: {
 					DislikeBiome: Здесь нечего рубить в {BiomeName}!
 					HateBiome: Здесь нечего рубить в {BiomeName}!
 					LikeNPC: Я рублю деревья, {NPCName} сажает больше, мы - идеальный дуэт.
-					LikeNPC_Princess: "{NPCName} обращается с топором лучше, чем я ожидал!"
 					LoveNPC: Я рад, что {NPCName} понимает все красоты падения огромного дерева.
 					DislikeNPC: "{NPCName} сказала мне начать обнимать деревья... потому я научил свой топор обнимать их за меня."
 					HateNPC: "{NPCName} совсем не понимает меня. Бомбардировка леса - это не лесорубство!"
+					LikeNPC_Princess: "{NPCName} обращается с топором лучше, чем я ожидал!"
 					Princess_LovesNPC: "{NPCName} такой сильный, я хочу попробовать рубить деревья с ним когда-нибудь!"
 				}
 
@@ -2662,7 +2686,7 @@ Mods: {
 					DirtRockMouse: Сегодня был довольно длинный день, не смог найти много тех странных деревьев. Однако нашёл много этих ребят, может, ты сможешь найти им новый дом?
 					CommonDayTimeWindy: Похоже, что ветер призвал целую кучу этих мальков из укрытий. Некоторые говорят, что они удачливые. Всё, что нужно для удачи мне - это наточенный топор!
 					CommonDayTimeButterfly: Давным-давно, люди использовали бабочек, чтобы превратить их в сильную экипировку. Мы стараемся забыть те времена... но держи одну.
-					CommonDayTimeEucaluptusSap: Я нашёл это, но я не смолистый парень. Если хочешь,	то вот.
+					CommonDayTimeEucaluptusSap: '''Я нашёл это, но я не смолистый парень. Если хочешь,	то вот.'''
 					CommonDayTimeCritter: Эти маленькие зверьки вечно вываливаются из деревьев, что я рублю. Может, сможешь найти им какое-нибудь применение?
 					CommonNightTime: Рубка деревьев ночью очень успокаивает... ну, за исключением летающих глаз. Вот, маленький друг, чтоб не было одиноко.
 					Rest: Я сегодня срубил много деревьев, и сейчас отдыхаю, приходи завтра, может, у меня что-то да будет для тебя.
@@ -2687,10 +2711,10 @@ Mods: {
 					DislikeBiome: Должен ли {BiomeName} впечатлить меня? Огромная фея не впечатляет меня, это уж точно.
 					HateBiome: Хочешь предметы призыва подороже? Если ты заставляешь меня жить в {BiomeName}, значит я повышаю свои цены.
 					LikeNPC: Я не помню, когда {NPCName} присоединилась к семье, но она заслужила своё место.
-					LikeNPC_Princess: "{NPCName} выглядит дружелюбной."
 					LoveNPC: "{NPCName} и я прошли через множество сражений, жаль, что ещё одной такой возможности уже не выпадет."
 					DislikeNPC: Почему {NPCName} здесь? Всё хорошо, я, просто не смотри ему в глаз и он тебя не напугает...
 					HateNPC: "{NPCName} должен уйти, пока я не сделал это своим Проникателем."
+					LikeNPC_Princess: "{NPCName} выглядит дружелюбной."
 					Princess_LovesNPC: "{NPCName} держит столько предметов в карманах, очень помогают заводить новых друзей!"
 				}
 
@@ -2793,10 +2817,10 @@ Mods: {
 					DislikeBiome: *грустный писк о {BiomeName}*
 					HateBiome: *очень грустный писк о {BiomeName}*
 					LikeNPC: *счастливый писк о {NPCName}*
-					LikeNPC_Princess: *счастливый писк о {NPCName}*
 					LoveNPC: *очень счастливый писк о {NPCName}*
 					DislikeNPC: *злой писк о {NPCName}*
 					HateNPC: *очень злой писк о {NPCName}*
+					LikeNPC_Princess: *счастливый писк о {NPCName}*
 					Princess_LovesNPC: "{NPCName} очень милый!"
 				}
 
@@ -2913,7 +2937,7 @@ Mods: {
 			BloodFishDown: После победы над Блуждающим Рыбьим Глазом или Зомби-тритоном
 			BloodEelDown: После победы над Кровавым Угрём, В Сложном режиме
 			BloodGoblinDown: После победы над Гемоглобиновой Акулой, В Сложном режиме
-			BloodNautDown: После победы над Грознаутилусом, В Сложном режиме 
+			BloodNautDown: После победы над Грознаутилусом, В Сложном режиме
 			SummonerDown: После победы над Гоблином-чернокнижником и Армией Гоблинов, В Сложном режиме
 			PirateDown: После победы над Капитаном Пиратов и Нашествием Пиратов, В Сложном режиме
 			NailheadDown: После победы над Гвоздеголовом и всеми Механическими боссами

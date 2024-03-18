@@ -27,6 +27,7 @@
     <None Remove="Items\Ammos\Rockets\WetRocketBox.png" />
     <None Remove="Items\Explosives\CityBuster.png" />
     <None Remove="Items\Explosives\InstaPond.png" />
+    <None Remove="Items\Misc\Fargonium.png" />
     <None Remove="Items\Misc\KohaCrystal.png" />
     <None Remove="Items\Misc\ModeToggle_0.png" />
     <None Remove="Items\Misc\ModeToggle_1.png" />
@@ -42,6 +43,8 @@
     <None Remove="Items\Summons\Deviantt\mutant_icon.png" />
     <None Remove="Items\Summons\Mutant\AncientSeal.png" />
     <None Remove="Items\Summons\SwarmSummons\OverloadDarkMage.png" />
+    <None Remove="Items\Tiles\CraftingTree.png" />
+    <None Remove="Items\Tiles\CraftingTreeSheet.png" />
     <None Remove="Items\Tiles\PurityTotem.png" />
     <None Remove="Items\Tiles\PurityTotemSheet.png" />
     <None Remove="Items\Tiles\SiblingPylonTile_Crystal.png" />

@@ -51,6 +51,9 @@ namespace Fargowiltas
 
         public List<StatSheetUI.Stat> ModStats;
 
+        public static List<int> UncraftingAllowedItems;
+        public static List<List<int>> UncraftingRecipes;
+
         private string[] mods;
 
         internal static Fargowiltas Instance;
@@ -242,6 +245,71 @@ namespace Fargowiltas
             {
                 Logger.Error("Fargowiltas PostSetupContent Error: " + e.StackTrace + e.Message);
             }
+
+            //items that can be duped by crafting tree
+            UncraftingAllowedItems = new List<int>
+                {
+
+
+                    ////Vanilla items, comment them out if we end up deciding not to include them
+                    ItemID.Shellphone,
+                    ItemID.ShellphoneDummy,
+                    ItemID.ShellphoneHell,
+                    ItemID.ShellphoneOcean,
+                    ItemID.ShellphoneSpawn,
+                    ItemID.Zenith,
+                    ItemID.TerrasparkBoots,
+                    ItemID.TerraBlade,
+                    ItemID.CopperShortsword,
+                    ItemID.Meowmere,
+                    ItemID.EnchantedSword,
+                    ItemID.StarWrath,
+                    ItemID.Starfury,
+                    ItemID.InfluxWaver,
+                    ItemID.TheHorsemansBlade,
+                    ItemID.Seedler,
+                    ItemID.BeeKeeper,
+                    ItemID.AnkhShield,
+                    ItemID.AmphibianBoots,
+                    ItemID.SandBoots,
+                    ItemID.FairyBoots,
+                    ItemID.BalloonHorseshoeFart,
+
+                };
+            if (ModLoader.HasMod("FargowiltasSouls"))
+            {
+                List<string> soulsItems = new List<string>() {
+                "HeartoftheMasochist",
+                "BionomicCluster",
+                "AeolusBoots",
+                "ZephyrBoots",
+                "EureusSock",
+                "ChaliceoftheMoon",
+                "DubiousCircuitry",
+                "LumpOfFlesh",
+                "PureHeart",
+                "SinisterIcon",
+                "SupremeDeathbringerFairy"
+                };
+                for (int i = 0; i < soulsItems.Count; i++)
+                {
+                    if (ModContent.TryFind("FargowiltasSouls", soulsItems[i], out ModItem soulsItem))
+                        UncraftingAllowedItems.Add(soulsItem.Type);
+                }
+
+
+                //auto add all enchants souls forces and essences
+                for (int i = 0; i < ItemLoader.ItemCount; i++)
+                {
+                    if (i >= ItemID.Count && (ModContent.GetModItem(i).Name.EndsWith("Enchant") || ModContent.GetModItem(i).Name.EndsWith("Soul") || ModContent.GetModItem(i).Name.EndsWith("Force") || ModContent.GetModItem(i).Name.EndsWith("Essence")))
+                    {
+                        UncraftingAllowedItems.Add(i);
+                    }
+                }
+            }
+            //entries cant be null when i try to add something to them later
+            UncraftingRecipes = new List<List<int>>();
+            for (int i = 0; i < ItemLoader.ItemCount; i++) UncraftingRecipes.Add(new List<int>());
 
             if (ModLoader.TryGetMod("Wikithis", out Mod wikithis) && !Main.dedServ)
             {
@@ -504,7 +572,51 @@ namespace Fargowiltas
                         Main.player[p].GetModPlayer<FargoPlayer>().CalmingCry = reader.ReadBoolean();
                     }
                     break;
+                    //sync item crafting tree behavior fields
+                //case 9:
+                //    {
+                //        Item item;
+                //        if (reader.ReadBoolean())
+                //        {
+                //            int whoami = reader.ReadInt32();
+                //            int type = reader.ReadInt32();
+                //            int stack = reader.ReadInt32();
 
+                //            item = Main.item[Item.NewItem(Item.GetSource_None(), new Rectangle((int)reader.ReadSingle(), (int)reader.ReadSingle(), 0, 0), type, stack)];
+
+                //        }
+                //        else
+                //        {
+                //            item = Main.item[reader.ReadInt32()];
+                //            item.type = reader.ReadInt32();
+                //            item.stack = reader.ReadInt32();
+                //            item.active = true;
+                            
+                //            item.position = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+                //        }
+                //        CraftingTreeItemBehavior ctree = item.GetGlobalItem<CraftingTreeItemBehavior>();
+                //        ctree.PartOfTree = reader.ReadBoolean();
+                //        ctree.CameFromTree = reader.ReadBoolean();
+                //        ctree.Split = reader.ReadBoolean();
+                //        ctree.OriginalItem = reader.ReadInt32();
+                //        ctree.FromItem = reader.ReadInt32();
+                //        ctree.timer = reader.ReadInt32();
+                //        ctree.DragTimer = reader.ReadInt32();
+                //        ctree.playerDragging = reader.ReadInt32();
+                //        ctree.opacity = reader.ReadSingle();
+                //        ctree.PositionInTree = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+                //        ctree.HomeTilePos = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+                //        int ingredientCount = reader.ReadInt32();
+                //        ctree.Ingredients = new List<int>();
+                //        for (int i = 0; i < ingredientCount; i++)
+                //        {
+                //            ctree.Ingredients.Add(reader.ReadInt32());
+                //        }
+
+                //        NetMessage.SendData(MessageID.SyncItem, number: item.whoAmI);
+
+                //    }
+                //    break;
                 default:
                     break;
             }
