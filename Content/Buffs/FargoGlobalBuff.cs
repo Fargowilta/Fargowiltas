@@ -77,13 +77,7 @@ namespace Fargowiltas.Buffs
 
         public override bool PreDraw(SpriteBatch spriteBatch, int type, int buffIndex, ref BuffDrawParams drawParams)
         {
-            Player player = Main.LocalPlayer;
-            bool canBeHidden =
-                player.buffTime[buffIndex] <= 2
-                && !Main.debuff[type]
-                && !Main.buffNoTimeDisplay[type]
-                && !BuffID.Sets.TimeLeftDoesNotDecrease[type];
-            if (canBeHidden && FargoClientConfig.Instance.HideUnlimitedBuffs)
+            if (BuffCanBeHidden(Main.LocalPlayer, buffIndex) && FargoClientConfig.Instance.HideUnlimitedBuffs)
             {
                 return false;
             }

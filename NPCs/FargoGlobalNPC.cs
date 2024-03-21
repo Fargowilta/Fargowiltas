@@ -959,7 +959,7 @@ namespace Fargowiltas.NPCs
                 case NPCID.HeadlessHorseman:
                     if (!Main.dayTime && !Main.pumpkinMoon)
                     {
-                        if (Main.rand.NextBool(20))
+                        if (Main.rand.NextBool(10))
                             Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, ItemID.JackOLanternMask);
                     }
                     break;
@@ -969,70 +969,65 @@ namespace Fargowiltas.NPCs
                     {
                         Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, ItemID.SpookyWood, 30);
 
-                        if (Main.rand.NextBool(3))
-                            Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
-                                ItemID.SpookyHook,
-                                ItemID.SpookyTwig,
-                                ItemID.StakeLauncher,
-                                ItemID.CursedSapling,
-                                ItemID.NecromanticScroll,
-                                Main.expertMode ? ItemID.WitchBroom : ItemID.SpookyWood
-                            }));
+                        Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
+                            ItemID.SpookyHook,
+                            ItemID.SpookyTwig,
+                            ItemID.StakeLauncher,
+                            ItemID.CursedSapling,
+                            ItemID.NecromanticScroll,
+                            Main.expertMode ? ItemID.WitchBroom : ItemID.SpookyWood
+                        }));
                     }
                     break;
 
                 case NPCID.Pumpking:
                     if (!Main.dayTime && !Main.pumpkinMoon)
                     {
-                        if (Main.rand.NextBool(3))
-                            Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
-                                ItemID.TheHorsemansBlade,
-                                ItemID.BatScepter,
-                                ItemID.BlackFairyDust,
-                                ItemID.SpiderEgg,
-                                ItemID.RavenStaff,
-                                ItemID.CandyCornRifle,
-                                ItemID.JackOLanternLauncher,
-                                ItemID.ScytheWhip
-                            }));
+                        Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
+                            ItemID.TheHorsemansBlade,
+                            ItemID.BatScepter,
+                            ItemID.BlackFairyDust,
+                            ItemID.SpiderEgg,
+                            ItemID.RavenStaff,
+                            ItemID.CandyCornRifle,
+                            ItemID.JackOLanternLauncher,
+                            ItemID.ScytheWhip
+                        }));
                     }
                     break;
 
                 case NPCID.Everscream:
                     if (!Main.dayTime && !Main.snowMoon)
                     {
-                        if (Main.rand.NextBool(3))
-                            Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
-                                ItemID.ChristmasTreeSword,
-                                ItemID.ChristmasHook,
-                                ItemID.Razorpine,
-                                ItemID.FestiveWings
-                            }));
+                        Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
+                            ItemID.ChristmasTreeSword,
+                            ItemID.ChristmasHook,
+                            ItemID.Razorpine,
+                            ItemID.FestiveWings
+                        }));
                     }
                     break;
 
                 case NPCID.SantaNK1:
                     if (!Main.dayTime && !Main.snowMoon)
                     {
-                        if (Main.rand.NextBool(3))
-                            Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
-                                ItemID.ElfMelter,
-                                ItemID.ChainGun
-                            }));
+                        Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
+                            ItemID.ElfMelter,
+                            ItemID.ChainGun
+                        }));
                     }
                     break;
 
                 case NPCID.IceQueen:
                     if (!Main.dayTime && !Main.snowMoon)
                     {
-                        if (Main.rand.NextBool(3))
-                            Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
-                                ItemID.BlizzardStaff,
-                                ItemID.SnowmanCannon,
-                                ItemID.NorthPole,
-                                ItemID.BabyGrinchMischiefWhistle,
-                                ItemID.ReindeerBells
-                            }));
+                        Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
+                            ItemID.BlizzardStaff,
+                            ItemID.SnowmanCannon,
+                            ItemID.NorthPole,
+                            ItemID.BabyGrinchMischiefWhistle,
+                            ItemID.ReindeerBells
+                        }));
                     }
                     break;
 

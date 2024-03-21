@@ -179,7 +179,7 @@ Mods: {
 				}
 
 				PylonsIgnoreEvents: {
-					Label: Пилоны Игнорируют События
+					Label: "[i:4876] Пилоны Игнорируют События"
 					Tooltip: ""
 				}
 
@@ -227,17 +227,17 @@ Mods: {
 				}
 
 				HideUnlimitedBuffs: {
-					Label: "[i:292] Прятать бесконечные баффы из списка"
+					Label: "[i:292] Прятать Бесконечные Баффы Из Списка"
 					Tooltip: ""
 				}
 
 				DoubleTapDashDisabled: {
-					Label: "[i:3097] Отключить Двойное Нажатие для Рывков"
+					Label: "[i:3097] Отключить Двойное Нажатие Для Рывков"
 					Tooltip: Предотвращает рывки от использования стандартного двойного нажатие. Клавиша Рывка работает вне зависимости от этой конфигурации.
 				}
 
 				DoubleTapSetBonusDisabled: {
-					Label: "[i:3776] Отключить Двойное Нажатие для Бонусов Сетов"
+					Label: "[i:3776] Отключить Двойное Нажатие Для Бонусов Сетов"
 					Tooltip: Предотвращает бонусы сетов от использования стандартного двойного нажатие. Клавиша Бонуса Сета работает вне зависимости от этой конфигурации.
 				}
 
@@ -1024,12 +1024,12 @@ Mods: {
 			}
 
 			PartyInvite: {
-				// DisplayName: Party Invite
-				/* Tooltip:
+				DisplayName: Приглашение на Вечеринку
+				Tooltip:
 					'''
-					Starts a Party!
-					Needs at least 5 town NPCs to use
-					''' */
+					Начинает Вечеринку!
+					Можно использовать только если в мире есть хотя бы 5 НИПов
+					'''
 			}
 
 			PillarSummon: {
@@ -1178,7 +1178,7 @@ Mods: {
 			}
 
 			DilutedRainbowMatter: {
-				DisplayName: Разведённая Радужная Материя
+				DisplayName: Разбавленная Радужная Материя
 				Tooltip: Призывает Радужного Слизня
 			}
 
@@ -1932,8 +1932,8 @@ Mods: {
 			}
 
 			MutantToilet: {
-				// DisplayName: Mutant Toilet
-				// Tooltip: Don't.
+				DisplayName: Туалет Мутант
+				Tooltip: Не смей.
 			}
 
 			EchPainting: {
@@ -1979,12 +1979,8 @@ Mods: {
 			}
 
 			RegalStatue: {
-				DisplayName:
-					'''
-					Королевская Статуя
-					Городские НИПы респавнятся гораздо быстрее, когда игрок находится рядом
-					'''
-				// Tooltip: Town NPCs respawn extremely quickly when nearby
+				DisplayName: Королевская Статуя
+				Tooltip: Городские НИПы респавнятся гораздо быстрее, когда игрок находится рядом
 			}
 
 			Semistation: {
@@ -2437,21 +2433,6 @@ Mods: {
 			BigSuckPotion: {
 				DisplayName: Зелье Большого Засоса
 				Tooltip: Заставляет тебя засасывать всё
-			}
-
-			Fargonium: {
-				// DisplayName: Fargonium
-				// Tooltip: A mythical fertilizer for a certain mystical tree
-			}
-
-			CraftingTree: {
-				// DisplayName: Crafting Tree
-				/* Tooltip:
-					'''
-					Capable of separating the essence of an item into its ingredients
-					You can pick items from the resulting tree by dragging them with your mouse
-					Fargonium is required to duplicate items
-					''' */
 			}
 		}
 

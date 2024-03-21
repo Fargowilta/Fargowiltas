@@ -31,7 +31,7 @@ namespace Fargowiltas.Common.Configs
         [Slider]
         public float TransparentFriendlyProjectiles;
 
-        [DefaultValue(1f)]
+        [DefaultValue(0.75f)]
         [Slider]
         public float DebuffOpacity;
 

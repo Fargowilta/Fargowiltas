@@ -179,7 +179,7 @@ Mods: {
 				}
 
 				PylonsIgnoreEvents: {
-					Label: Pylons Ignore Events
+					Label: "[i:4876] Pylons Ignore Events"
 					Tooltip: ""
 				}
 
@@ -2432,7 +2432,11 @@ Mods: {
 
 			BigSuckPotion: {
 				DisplayName: Big Suck Potion
-				Tooltip: Makes you suck everything
+				Tooltip:
+					'''
+					Makes you suck everything
+					Must be consumed manually
+					'''
 			}
 
 			Fargonium: {
