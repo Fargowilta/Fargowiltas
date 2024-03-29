@@ -27,7 +27,7 @@
     <None Remove="Items\Ammos\Rockets\WetRocketBox.png" />
     <None Remove="Items\Explosives\CityBuster.png" />
     <None Remove="Items\Explosives\InstaPond.png" />
-    <None Remove="Items\Misc\Fargonium.png" />
+    <None Remove="Items\Misc\EnchantedAcorn.png" />
     <None Remove="Items\Misc\KohaCrystal.png" />
     <None Remove="Items\Misc\ModeToggle_0.png" />
     <None Remove="Items\Misc\ModeToggle_1.png" />

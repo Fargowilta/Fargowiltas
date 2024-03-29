@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Fargowiltas.Items.Misc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -29,6 +31,16 @@ namespace Fargowiltas.Items.Tiles
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<CraftingTreeSheet>();
+        }
+        public override void AddRecipes()
+        {
+            Recipe.Create(Type, 1)
+                .AddIngredient(ItemID.TreeStatue)
+                .AddIngredient(ItemID.StoneBlock, 100)
+                .AddIngredient(ModContent.ItemType<EnchantedAcorn>(), 10)
+                .AddIngredient(ItemID.MeteoriteBar, 5)
+                .AddTile(TileID.DemonAltar)
+                .Register();
         }
     }
 }

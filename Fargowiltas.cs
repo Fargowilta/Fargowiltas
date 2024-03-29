@@ -1,5 +1,6 @@
 ﻿using Fargowilta;
 using Fargowiltas.Common.Configs;
+using Fargowiltas.Content.TileEntities;
 using Fargowiltas.Items.CaughtNPCs;
 using Fargowiltas.Items.Misc;
 using Fargowiltas.Items.Tiles;
@@ -19,6 +20,7 @@ using Terraria.Graphics;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace Fargowiltas
 {
@@ -274,6 +276,15 @@ namespace Fargowiltas
                     ItemID.SandBoots,
                     ItemID.FairyBoots,
                     ItemID.BalloonHorseshoeFart,
+                    ItemID.RodofDiscord,
+                    ItemID.TorchGodsFavor,
+                    ModContent.ItemType<Omnistation>(),
+            ModContent.ItemType<Omnistation2>(),
+            ModContent.ItemType<CrucibleCosmos>(),
+            ModContent.ItemType<ElementalAssembler>(),
+            ModContent.ItemType<MultitaskCenter>(),
+            ModContent.ItemType<PortableSundial>(),
+            ModContent.ItemType<BattleCry>()
 
                 };
             if (ModLoader.HasMod("FargowiltasSouls"))
@@ -572,51 +583,21 @@ namespace Fargowiltas
                         Main.player[p].GetModPlayer<FargoPlayer>().CalmingCry = reader.ReadBoolean();
                     }
                     break;
-                    //sync item crafting tree behavior fields
-                //case 9:
-                //    {
-                //        Item item;
-                //        if (reader.ReadBoolean())
-                //        {
-                //            int whoami = reader.ReadInt32();
-                //            int type = reader.ReadInt32();
-                //            int stack = reader.ReadInt32();
-
-                //            item = Main.item[Item.NewItem(Item.GetSource_None(), new Rectangle((int)reader.ReadSingle(), (int)reader.ReadSingle(), 0, 0), type, stack)];
-
-                //        }
-                //        else
-                //        {
-                //            item = Main.item[reader.ReadInt32()];
-                //            item.type = reader.ReadInt32();
-                //            item.stack = reader.ReadInt32();
-                //            item.active = true;
-                            
-                //            item.position = new Vector2(reader.ReadSingle(), reader.ReadSingle());
-                //        }
-                //        CraftingTreeItemBehavior ctree = item.GetGlobalItem<CraftingTreeItemBehavior>();
-                //        ctree.PartOfTree = reader.ReadBoolean();
-                //        ctree.CameFromTree = reader.ReadBoolean();
-                //        ctree.Split = reader.ReadBoolean();
-                //        ctree.OriginalItem = reader.ReadInt32();
-                //        ctree.FromItem = reader.ReadInt32();
-                //        ctree.timer = reader.ReadInt32();
-                //        ctree.DragTimer = reader.ReadInt32();
-                //        ctree.playerDragging = reader.ReadInt32();
-                //        ctree.opacity = reader.ReadSingle();
-                //        ctree.PositionInTree = new Vector2(reader.ReadSingle(), reader.ReadSingle());
-                //        ctree.HomeTilePos = new Vector2(reader.ReadSingle(), reader.ReadSingle());
-                //        int ingredientCount = reader.ReadInt32();
-                //        ctree.Ingredients = new List<int>();
-                //        for (int i = 0; i < ingredientCount; i++)
-                //        {
-                //            ctree.Ingredients.Add(reader.ReadInt32());
-                //        }
-
-                //        NetMessage.SendData(MessageID.SyncItem, number: item.whoAmI);
-
-                //    }
-                //    break;
+                //sync crafting tree tile entity
+                case 9:
+                    {
+                        int type = reader.ReadInt32();
+                        int prefix = reader.ReadInt32();
+                        int ID = reader.ReadInt32();
+                        int X = reader.ReadInt32();
+                        int Y = reader.ReadInt32();
+                        FargoUtils.TryGetTileEntityAs<CraftingTreeTileEntity>(X, Y, out CraftingTreeTileEntity t);
+                        t.ItemType = type;
+                        t.Prefix = prefix;
+                        NetMessage.SendData(MessageID.TileEntitySharing, number: ID, number2: X, number3: Y);
+                    }
+                    break;
+                   
                 default:
                     break;
             }

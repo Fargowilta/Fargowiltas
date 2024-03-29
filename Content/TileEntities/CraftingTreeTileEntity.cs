@@ -1,4 +1,5 @@
 ﻿using Fargowiltas.Common.Configs;
+using Fargowiltas.Items.Tiles;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,13 +12,15 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
-namespace Fargowiltas.Items.Tiles
+namespace Fargowiltas.Content.TileEntities
 {
     public class CraftingTreeTileEntity : ModTileEntity
     {
         public override bool IsTileValidForEntity(int x, int y)
         {
             Tile tile = Main.tile[x, y];
+            Console.WriteLine(tile.HasTile);
+
             return tile.HasTile && tile.TileType == ModContent.TileType<CraftingTreeSheet>();
         }
         public override int Hook_AfterPlacement(int i, int j, int type, int style, int direction, int alternate)
@@ -28,65 +31,44 @@ namespace Fargowiltas.Items.Tiles
                 int height = 8;
                 NetMessage.SendTileSquare(Main.myPlayer, i, j, width, height);
                 NetMessage.SendData(MessageID.TileEntityPlacement, number: i, number2: j, number3: Type);
+                return -1;
             }
-            Point16 tileOrigin = new Point16(1, 2);
-            int placedEntity = Place(i - tileOrigin.X, j - tileOrigin.Y);
+
+            int placedEntity = Place(i, j);
             return placedEntity;
         }
         public override void OnNetPlace()
         {
             if (Main.netMode == NetmodeID.Server)
             {
+
                 NetMessage.SendData(MessageID.TileEntitySharing, number: ID, number2: Position.X, number3: Position.Y);
             }
         }
-        public Item Item = null;
+        public int ItemType = -1;
+        public int Prefix = 0;
         public override void SaveData(TagCompound tag)
         {
             //dont save item if its null because ItemIO.Save will fuck up
-            if (Item == null)
-            {
-                tag["hasItem"] = false;
-            }
-            else
-            {
-                tag["hasItem"] = true;
-                tag["treeItem"] = ItemIO.Save(Item);
-            }
+            tag["ItemID"] = ItemType;
+            tag["Prefix"] = Prefix;
         }
         public override void LoadData(TagCompound tag)
         {
             //only load if the bool sent indicated item is not null
-            bool item = tag.Get<bool>("hasItem");
-            if (item)
-            {
-                Item = ItemIO.Load((TagCompound)tag["treeItem"]);
-            }
+            ItemType = tag.GetAsInt("ItemID");
+            Prefix = tag.GetAsInt("Prefix");
         }
         //same concept as save and load
         public override void NetSend(BinaryWriter writer)
         {
-            if (Item == null)
-            {
-                writer.Write(false);
-            }
-            else
-            {
-                writer.Write(true);
-                ItemIO.Send(Item, writer);
-            }
+            writer.Write7BitEncodedInt(ItemType);
+            writer.Write7BitEncodedInt(Prefix);
         }
         public override void NetReceive(BinaryReader reader)
         {
-            bool realItem = reader.ReadBoolean();
-            if (realItem)
-            {
-                Item = ItemIO.Receive(reader);
-            }
-            else
-            {
-                Item = null;
-            }
+            ItemType = reader.Read7BitEncodedInt();
+            Prefix = reader.Read7BitEncodedInt();
         }
     }
 }

@@ -9,7 +9,7 @@ using Terraria;
 
 namespace Fargowiltas.Items.Misc
 {
-    public class Fargonium : ModItem
+    public class EnchantedAcorn : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -18,8 +18,8 @@ namespace Fargowiltas.Items.Misc
         public override void SetDefaults()
         {
             Item.maxStack = 9999;
-            Item.rare = ItemRarityID.Cyan;
-            Item.value = Item.buyPrice(gold: 5);
+            Item.rare = ItemRarityID.Blue;
+            Item.value = Item.buyPrice(gold: 2);
         }
     }
 }

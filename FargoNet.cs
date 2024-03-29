@@ -94,21 +94,11 @@ namespace Fargowiltas
 
             SendFargoNetMessage(1, ai2);
         }
-        /*
-         * Writes and sends relevant data about an item and its CraftingTreeItemBehavior globalItem data from a client
-         */
-        //public static void SyncCraftingTreeBehavior(Item item, CraftingTreeItemBehavior moditem, bool makeItem = false)
-        //{
-        //    ModPacket packet = WriteToPacket(Fargowiltas.Instance.GetPacket(), 9, makeItem, item.whoAmI, item.type, item.stack, item.position.X, item.position.Y, //base item
-        //        moditem.PartOfTree, moditem.CameFromTree, moditem.Split, //bools
-        //        moditem.OriginalItem, moditem.FromItem, moditem.timer, moditem.DragTimer, moditem.playerDragging, //ints
-        //        moditem.opacity, moditem.PositionInTree.X, moditem.PositionInTree.Y, moditem.HomeTilePos.X, moditem.HomeTilePos.Y, //floats
-        //        moditem.Ingredients.Count, moditem.Ingredients.ToArray()); //list
-        //    packet.Send();
-        //}
-        /*
-         * Writes a vector2 array to an obj[] array that can be sent via netmessaging.
-         */
+        public static void SyncCraftingTreeTileEntity(int itemType, int prefix, int ID, int X, int Y)
+        {
+            ModPacket packet = WriteToPacket(Fargowiltas.Instance.GetPacket(), 9, itemType, prefix, ID, X, Y);
+            packet.Send();
+        }
         public static object[] WriteVector2Array(Vector2[] array)
         {
             List<object> list = new List<object>

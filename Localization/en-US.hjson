@@ -2439,9 +2439,9 @@ Mods: {
 					'''
 			}
 
-			Fargonium: {
-				DisplayName: Fargonium
-				Tooltip: A mythical fertilizer for a certain mystical tree
+			EnchantedAcorn: {
+				DisplayName: Enchanted Acorn
+				Tooltip: A mythical nut of a certain mystical tree
 			}
 
 			CraftingTree: {
@@ -2450,7 +2450,7 @@ Mods: {
 					'''
 					Capable of separating the essence of an item into its ingredients
 					You can pick items from the resulting tree by dragging them with your mouse
-					Fargonium is required to duplicate items
+					Enchanted Acorns are required to duplicate items
 					'''
 			}
 		}
