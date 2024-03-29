@@ -27,8 +27,8 @@ namespace Fargowiltas.Content.TileEntities
         {
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                int width = 6;
-                int height = 8;
+                int width = 3;
+                int height = 4;
                 NetMessage.SendTileSquare(Main.myPlayer, i, j, width, height);
                 NetMessage.SendData(MessageID.TileEntityPlacement, number: i, number2: j, number3: Type);
                 return -1;

@@ -28,12 +28,12 @@ namespace Fargowiltas.Items.Tiles
             AddMapEntry(Color.DarkGray);
             Main.tileFrameImportant[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
-            TileObjectData.newTile.Width = 6;
-            TileObjectData.newTile.Height = 8;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16, 16, 16, 18 };
+            TileObjectData.newTile.Width = 3;
+            TileObjectData.newTile.Height = 4;
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 18 };
             TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(ModContent.GetInstance<CraftingTreeTileEntity>().Hook_AfterPlacement, -1, 0, true);
             TileObjectData.newTile.UsesCustomCanPlace = true;
-            TileObjectData.newTile.Origin = new Point16(0, 7);
+            TileObjectData.newTile.Origin = new Point16(0, 3);
             TileObjectData.addTile(Type);
         }
         public override void RandomUpdate(int i, int j)
@@ -48,10 +48,11 @@ namespace Fargowiltas.Items.Tiles
         {
             //drop item currently inside it
             
-            if (FargoUtils.TryGetTileEntityAs<CraftingTreeTileEntity>(i, j, out CraftingTreeTileEntity entity) == true && entity.ItemType >= 0)
+            if (FargoUtils.TryGetTileEntityAs<CraftingTreeTileEntity>(i, j, out CraftingTreeTileEntity entity) == true && entity.ItemType >= 0 && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 
-                int item = Item.NewItem(Item.GetSource_NaturalSpawn(), new Rectangle(i*16 + 50, j*16 + 50, 1, 1), entity.ItemType, 1, prefixGiven:entity.Prefix);
+                int item = Item.NewItem(Item.GetSource_NaturalSpawn(), new Rectangle(i*16 + 16, j*16 + 30, 1, 1), entity.ItemType, 1, prefixGiven:entity.Prefix);
+                
                 NetMessage.SendData(MessageID.SyncItem, item);
             }
             ModContent.GetInstance<CraftingTreeTileEntity>().Kill(i, j);
@@ -98,13 +99,15 @@ namespace Fargowiltas.Items.Tiles
             //needed for animated item sprites
             Rectangle frame;
             Main.GetItemDrawFrame(entity.ItemType, out Texture2D useless, out frame);
+            float scale = 35f / frame.Height;
+            if (scale > 1) scale = 1;
             //disco backglow
             for (int n = 0; n < 5; n++)
             {
-                Main.EntitySpriteDraw(item.Value, new Vector2(i, j).ToWorldCoordinates() - Main.screenPosition + new Vector2(230 + (float)Math.Sin(drawTimer + n*2f)*3, 280 + MathHelper.Lerp(-10, 10, lerper) + (float)Math.Cos(drawTimer + n*3f)*3), frame, Main.DiscoColor * 0.5f, 0, new Vector2(frame.Width, frame.Height) / 2, 1, SpriteEffects.None, 0);
+                Main.EntitySpriteDraw(item.Value, new Vector2(i, j).ToWorldCoordinates() - Main.screenPosition + new Vector2(208 + (float)Math.Sin(drawTimer + n*2f)*3, 230 + MathHelper.Lerp(-5, 10, lerper) + (float)Math.Cos(drawTimer + n*3f)*3), frame, Main.DiscoColor * 0.5f, 0, new Vector2(frame.Width, frame.Height) / 2, scale, SpriteEffects.None, 0);
             }
             //real item
-            Main.EntitySpriteDraw(item.Value, new Vector2(i, j).ToWorldCoordinates() - Main.screenPosition + new Vector2(230, 280 + MathHelper.Lerp(-10, 10, lerper)), frame, Color.White, 0, new Vector2(frame.Width, frame.Height)/2, 1, SpriteEffects.None, 0);
+            Main.EntitySpriteDraw(item.Value, new Vector2(i, j).ToWorldCoordinates() - Main.screenPosition + new Vector2(208, 230 + MathHelper.Lerp(-5, 10, lerper)), frame, Color.White, 0, new Vector2(frame.Width, frame.Height)/2, scale, SpriteEffects.None, 0);
             
 
             base.SpecialDraw(i, j, spriteBatch);
@@ -161,8 +164,8 @@ namespace Fargowiltas.Items.Tiles
                         CraftingTreeItemBehavior farg = fard.GetGlobalItem<CraftingTreeItemBehavior>();
                         farg.CameFromTree = true;
                         farg.PartOfTree = true;
-                        farg.PositionInTree = entity.Position.ToWorldCoordinates() + new Vector2(40, -50);
-                        fard.position = entity.Position.ToWorldCoordinates() + new Vector2(30, 80);
+                        farg.PositionInTree = entity.Position.ToWorldCoordinates() + new Vector2(16, -80);
+                        fard.Center = entity.Position.ToWorldCoordinates() + new Vector2(16, 40);
                         farg.HomeTilePos = FargoUtils.GetTopLeftTileInMultitile(i, j).ToVector2();
                         farg.OriginalItem = entity.ItemType;
                         fard.velocity *= 0;
