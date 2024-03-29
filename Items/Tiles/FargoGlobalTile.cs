@@ -149,19 +149,24 @@ namespace Fargowiltas.Tiles
             switch (type)
             {
                 case TileID.SharpeningStation:
-                    Main.LocalPlayer.AddBuff(BuffID.Sharpened, 2);
+                    if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost)
+                        Main.LocalPlayer.AddBuff(BuffID.Sharpened, 2);
                     break;
                 case TileID.AmmoBox:
-                    Main.LocalPlayer.AddBuff(BuffID.AmmoBox, 2);
+                    if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost) 
+                        Main.LocalPlayer.AddBuff(BuffID.AmmoBox, 2);
                     break;
                 case TileID.CrystalBall:
-                    Main.LocalPlayer.AddBuff(BuffID.Clairvoyance, 2);
+                    if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost) 
+                        Main.LocalPlayer.AddBuff(BuffID.Clairvoyance, 2);
                     break;
                 case TileID.BewitchingTable:
-                    Main.LocalPlayer.AddBuff(BuffID.Bewitched, 2);
+                    if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost) 
+                        Main.LocalPlayer.AddBuff(BuffID.Bewitched, 2);
                     break;
                 case TileID.WarTable:
-                    Main.LocalPlayer.AddBuff(BuffID.WarTable, 2);
+                    if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost)
+                        Main.LocalPlayer.AddBuff(BuffID.WarTable, 2);
                     break;
             }
                             

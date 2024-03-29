@@ -23,6 +23,7 @@ NEW UPDATE
 -Replaced Party Cone with Party Invite
 -Fixed Hide Unlimited Buffs not hiding Tipsy
 -Increased drop rates for Pumpkin/Frost Moon bosses outside the event
+-Fixed tile buffs e.g. Sharpening Station attempting to buff dead players
 
 NEW UPDATE - v3.3.1.2
 -Fixed Hide Unlimited Buffs causing buffs to "float"
