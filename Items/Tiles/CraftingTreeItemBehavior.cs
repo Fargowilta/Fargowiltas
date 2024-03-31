@@ -55,7 +55,6 @@ namespace Fargowiltas.Items.Tiles
         //the item whoamis that are ingredients to this item. used for drawing lines
         public List<int> Ingredients = new List<int>();
         
-        
         public override void NetSend(Item item, BinaryWriter writer)
         {
             writer.Write(PartOfTree);
@@ -110,7 +109,14 @@ namespace Fargowiltas.Items.Tiles
             Rectangle frame;
             Main.GetItemDrawFrame(item.type, out Texture2D useless, out frame);
             Vector2 itemCenter = item.Bottom - new Vector2(0, frame.Height / 2);
-
+            //fade in done in predraw because if player has increased grab range the update method doesnt run or something and the item stays invinsible
+            if (!PartOfTree)
+            {
+                if (opacity < 1)
+                {
+                    opacity += 0.05f;
+                }
+            }
             if (PartOfTree)
             {
                 //drawing lines from item to its ingredients. dont draw from FromItem to this item because it will draw in front of the fromitem which looks bad, even though that drawcode would be simpler
@@ -135,7 +141,21 @@ namespace Fargowiltas.Items.Tiles
                         }
 
                     }
+
+                    
                 }
+                int fargonium = item.value / 100000 * 4;
+                fargonium += fargonium == 0 ? 1 : 0;
+                int digits = fargonium.ToString().Length;
+                
+                Vector2 topleft = item.Bottom - new Vector2(frame.Width / 2, frame.Height);
+                if (new Rectangle((int)Main.MouseWorld.X, (int)Main.MouseWorld.Y, 1, 1).Intersects(new Rectangle((int)topleft.X, (int)topleft.Y, frame.Width, frame.Height)) && !Main.LocalPlayer.GetModPlayer<FargoPlayer>().HoveringOverTreeItem)
+                {
+                    Main.LocalPlayer.GetModPlayer<FargoPlayer>().HoveringOverTreeItem = true;
+                    Utils.DrawBorderString(spriteBatch, fargonium.ToString(), Main.MouseWorld + new Vector2(20, 50) / Main.GameZoomTarget - Main.screenPosition, Color.Cyan, scale: 1f/Main.GameZoomTarget);
+                    Main.EntitySpriteDraw(TextureAssets.Item[ModContent.ItemType<EnchantedAcorn>()].Value, Main.MouseWorld +  new Vector2( 40 + (digits + 1.3f) * 7, 60)/Main.GameZoomTarget - Main.screenPosition, null, Color.White, 0, TextureAssets.Item[ModContent.ItemType<EnchantedAcorn>()].Size() / 2, 1f / Main.GameZoomTarget, SpriteEffects.None);
+                }
+                
                 //draw tile to item if there is no valid from item
                 //turned off because it draws over the floating tile drawn item
                 //if (FromItem < 0 || Main.item[FromItem] == null || !Main.item[FromItem].active || !Main.item[FromItem].GetGlobalItem<CraftingTreeItemBehavior>().PartOfTree)
@@ -178,6 +198,7 @@ namespace Fargowiltas.Items.Tiles
             base.Update(item, ref gravity, ref maxFallSpeed);
             if (!CameFromTree) return;
             Vector2 center = TrueCenter + item.Top;
+            
             if (Main.netMode != NetmodeID.Server && TrueCenter == Vector2.Zero)
             {
                 //true item center and offset from "real" center
@@ -229,13 +250,7 @@ namespace Fargowiltas.Items.Tiles
                 //if holding and mouse close enough and part of tree (items that only came from tree are not draggable once released) and drag timer is at 0 or already being dragged and the player is not dragging a different item
                 if (((player.controlUseItem && Main.MouseWorld.Distance(center) < 20 && PartOfTree && DragTimer == 0) || DragTimer == -1) && !playerIsDraggingSomethingAlready)
                 {
-                    //combat text of cost on first frame of drag
-                    if (DragTimer != -1)
-                    {
-                        int fargonium = item.value / 100000 * 4;
-                        fargonium += fargonium == 0 ? 1 : 0;
-                        CombatText.NewText(new Rectangle((int)center.X, (int)center.Y, 0, 0), Color.Cyan, fargonium);
-                    }
+
                     DragTimer = -1;
                     //move to mouse
                     item.Center = Vector2.Lerp(item.Center, Main.MouseWorld - (center - item.Center), 0.06f);
@@ -308,14 +323,6 @@ namespace Fargowiltas.Items.Tiles
                 if (FromItem != -1 && !Main.item[FromItem].active)
                 {
                     timer = 10001;
-                }
-            }
-            //same fade in code but for items that arent part of tree
-            if (CameFromTree && !PartOfTree)
-            {
-                if (opacity < 1)
-                {
-                    opacity += 0.05f;
                 }
             }
             //move to its position. will fight against dragging movement but dragging is stronger (intended)
