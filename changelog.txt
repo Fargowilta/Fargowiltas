@@ -1,20 +1,2 @@
-NEW UPDATE - V 3.3.3
--Fixed Hide Unlimited Buffs only preventing their rendering (and not mousetext and clickability), and made it only affect the buff display under your hotbar, and not the display under the mount/pet tab
--Insta items now check for vanilla protection areas, such as the spawn
-Instahouse and Grave Buster are exceptions to this
--Changed tooltips of Insta items alongside above change
--Following added item recipes and drops are now disabled in Don't Dig Up worlds: Katana, Wand of Sparking, Flower of Fire, Aqua Scepter, Snowball Cannon, Chain Knife.
--Added permanent Shimmer upgrades to Stat Sheet UI, along with a mod call for other mods adding their permanent upgrades to this system
--World Token now toggles Journey Mode with right click, and cycles normal modes with left click
--Changes to permanent buff station feature:
---Plays their click sound when giving you the effect
---Tooltip now shows the station item instead of piggy bank
---Tooltip clarifies that effect takes place when placed
--Changed Piggy Bank Accessory lists to be completely identical to vanilla's list of accessories that work from inventory, and greatly optimized this feature's code
--Optimized tile checks, improving the performance of Insta items
--Removed Extra Buff Slots config
--Disabled decraft for Big Suck Potion
--Lihzahrd Instactuation Bomb now properly centers on the altar's center
--Fixed bug where some modded accessory and prefix changes were triggered by Piggy Bank info accessory config
--Fixed Lumberjack dropping from trees despite the Lumberjack config being disabled
--Fixed Mutant Toilet duplicating when mined
+NEW UPDATE - V 3.3.3.2
+-Fixed critical null error for Insta items and they can now break the area around spawn

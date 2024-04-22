@@ -113,6 +113,11 @@ Mods: {
 					Tooltip: 30+ для зелий и наживки
 				}
 
+				ExtraBuffSlots: {
+					Label: "[i:3000] Дополнительные слоты для баффов"
+					Tooltip: ""
+				}
+
 				AnglerQuestInstantReset: {
 					Label: "[i:2374] Мгновенный ресет заданий Рыбака"
 					Tooltip: ""

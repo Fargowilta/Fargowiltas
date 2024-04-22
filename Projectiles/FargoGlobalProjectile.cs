@@ -233,21 +233,25 @@ namespace Fargowiltas.Projectiles
         }
         public static bool OkayToDestroyTileAt(int x, int y, bool bypassVanillaCanPlace = false) // Testing for blocks that should not be destroyed
         {
+            if (!WorldGen.InWorld(x, y))
+                return false;
             Tile tile = Main.tile[x, y];
             if (tile == null)
             {
                 return false;
             }
-            
-            foreach (Rectangle rect in CannotDestroyRectangle)
+            if (CannotDestroyRectangle != null && CannotDestroyRectangle.Any())
             {
-                if (rect.Contains(x * 16, y * 16))
+                foreach (Rectangle rect in CannotDestroyRectangle)
                 {
-                    return false;
+                    if (rect.Contains(x * 16, y * 16))
+                    {
+                        return false;
+                    }
                 }
             }
             Rectangle area = new(x, y, 3, 3);
-            if (!bypassVanillaCanPlace && !GenVars.structures.CanPlace(area))
+            if (!bypassVanillaCanPlace && GenVars.structures != null && !GenVars.structures.CanPlace(area))
             {
                 return false;
             }
