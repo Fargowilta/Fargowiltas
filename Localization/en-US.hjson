@@ -1948,7 +1948,7 @@ Mods: {
 			}
 
 			WiresPainting: {
-				Tooltip: ""
+				Tooltip: "Look inside"
 				DisplayName: Wires Painting
 			}
 
