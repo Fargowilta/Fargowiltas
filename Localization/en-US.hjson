@@ -1952,6 +1952,11 @@ Mods: {
 				Tooltip: "'Groalt W. Fai'"
 			}
 
+			WiresPainting: {
+				Tooltip: Look inside
+				DisplayName: Wires Painting
+			}
+
 			ElementalAssembler: {
 				DisplayName: Elemental Assembler
 				Tooltip: Functions as several basic crafting stations
