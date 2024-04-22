@@ -18,6 +18,7 @@ using static System.Net.Mime.MediaTypeNames;
 using Terraria.Localization;
 using Fargowiltas.Items.Misc;
 using System.Security.AccessControl;
+using Fargowiltas.Items.Tiles;
 
 namespace Fargowiltas.Items
 {
@@ -37,9 +38,42 @@ namespace Fargowiltas.Items
             return base.Clone(item, itemClone);
         }
 
-        //public override bool CloneNewInstances => true;
+        public override void HoldItem(Item item, Player player)
+        {
+            if (item.type == ItemID.Binoculars) //the amount of nesting here exists to prevent excessive lag
+            {
+                if (NPC.AnyNPCs(NPCID.TownCat))
+                {
+                    for (int j = 0; j < Main.maxNPCs; j++)
+                    {
+                        if (Main.npc[j].active && Main.npc[j].type == NPCID.TownCat)
+                        {
+                            NPC cat = Main.npc[j];
+                            for (int i = 0; i < Main.maxItems; i++)
+                            {
+                                if (Main.item[i].active && Main.item[i].type == ItemID.CellPhone)
+                                {
+                                    if (cat.Distance(Main.item[i].Center) < cat.Size.Length() && Main.MouseWorld.Distance(cat.Center) < cat.Size.Length())
+                                    {
+                                        Item.NewItem(player.GetSource_ItemUse(item), cat.Center, ModContent.ItemType<WiresPainting>());
+                                        Main.item[i].active = false;
+                                        cat.active = false;
+                                        return;
+                                    }
+                                }
 
-        TooltipLine FountainTooltip(string biome) => new TooltipLine(Mod, "Tooltip0", $"[i:909] [c/AAAAAA:{ExpandedTooltipLoc($"Fountain{biome}")}]");
+                            }
+                        }
+                    }
+                }
+                base.HoldItem(item, player);
+
+            }
+
+            //public override bool CloneNewInstances => true;
+
+        }  
+         TooltipLine FountainTooltip(string biome) => new TooltipLine(Mod, "Tooltip0", $"[i:909] [c/AAAAAA:{ExpandedTooltipLoc($"Fountain{biome}")}]");
         public override void PickAmmo(Item weapon, Item ammo, Player player, ref int type, ref float speed, ref StatModifier damage, ref float knockback)
         {
             //coin gun is broken as fucking shit codingwise so i'm fixing it
