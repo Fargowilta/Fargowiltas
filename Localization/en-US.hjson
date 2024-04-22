@@ -113,11 +113,6 @@ Mods: {
 					Tooltip: 30+ for potions and bait
 				}
 
-				ExtraBuffSlots: {
-					Label: "[i:3000] Additional Buff Slots"
-					Tooltip: ""
-				}
-
 				AnglerQuestInstantReset: {
 					Label: "[i:2374] Angler Quest Instant Reset"
 					Tooltip: ""
@@ -684,7 +679,7 @@ Mods: {
 					'''
 					Destroys a large area
 					Will not remove background walls
-					Avoids breaking areas denoted as important
+					Avoids breaking areas denoted as important, such as the area around spawn
 					Use at your own risk
 					'''
 			}
@@ -696,7 +691,7 @@ Mods: {
 					Creates 2 bridges of obsidian platforms across the whole world
 					Also clears the area between and above the platforms
 					The bottom bridge appears at your cursor
-					Avoids breaking areas denoted as important
+					Avoids breaking areas denoted as important, such as the area around spawn
 					Use at your own risk
 					'''
 			}
@@ -712,7 +707,7 @@ Mods: {
 					'''
 					Drops a bomb that creates half a hellevator instantly
 					Will not dig below a certain depth
-					Avoids breaking areas denoted as important
+					Avoids breaking areas denoted as important, such as the area around spawn
 					Use at your own risk
 					'''
 			}
@@ -724,7 +719,7 @@ Mods: {
 					Creates a bridge of platforms across the whole world
 					Also clears the area right above the platforms
 					The bridge appears at your cursor
-					Avoids breaking areas denoted as important
+					Avoids breaking areas denoted as important, such as the area around spawn
 					Use at your own risk
 					'''
 			}
@@ -736,7 +731,7 @@ Mods: {
 					Creates a minecart track across the whole world
 					Also clears the area right above the tracks
 					The track appears at your cursor
-					Avoids breaking areas denoted as important
+					Avoids breaking areas denoted as important, such as the area around spawn
 					Use at your own risk
 					'''
 			}
@@ -746,7 +741,7 @@ Mods: {
 				Tooltip:
 					'''
 					Drops a bomb that creates a hellevator instantly
-					Avoids breaking areas denoted as important
+					Avoids breaking areas denoted as important, such as the area around spawn
 					Use at your own risk
 					'''
 			}
@@ -777,7 +772,7 @@ Mods: {
 					Creates a bridge of obsidian platforms across the whole world
 					Also clears the area right above the platforms
 					The bridge appears at your cursor
-					Avoids breaking areas denoted as important
+					Avoids breaking areas denoted as important, such as the area around spawn
 					Use at your own risk
 					'''
 			}
@@ -1952,6 +1947,11 @@ Mods: {
 				Tooltip: "'Groalt W. Fai'"
 			}
 
+			WiresPainting: {
+				Tooltip: "Look inside"
+				DisplayName: Wires Painting
+			}
+
 			ElementalAssembler: {
 				DisplayName: Elemental Assembler
 				Tooltip: Functions as several basic crafting stations
@@ -2432,7 +2432,7 @@ Mods: {
 				Tooltip:
 					'''
 					Drops a bomb that creates a 150x50 body of water below it
-					Avoids breaking areas denoted as important
+					Avoids breaking areas denoted as important, such as the area around spawn
 					Use at your own risk
 					'''
 			}
