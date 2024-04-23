@@ -27,7 +27,7 @@ namespace Fargowiltas.Items.Tiles
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
             Main.spriteBatch.Draw(Request<Texture2D>(Texture + "_Glow").Value, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-            AnimateTile;
+           
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
