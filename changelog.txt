@@ -1,2 +1,2 @@
-NEW UPDATE - V 3.3.3.2
--Fixed critical null error for Insta items and they can now break the area around spawn
+NEW UPDATE - V 3.3.3.3
+-Readded Extra Buff Slots config

@@ -18,7 +18,6 @@ Instahouse and Grave Buster are exceptions to this
 --Tooltip clarifies that effect takes place when placed
 -Changed Piggy Bank Accessory lists to be completely identical to vanilla's list of accessories that work from inventory, and greatly optimized this feature's code
 -Optimized tile checks, improving the performance of Insta items
--Removed Extra Buff Slots config
 -Disabled decraft for Big Suck Potion
 -Lihzahrd Instactuation Bomb now properly centers on the altar's center
 -Fixed bug where some modded accessory and prefix changes were triggered by Piggy Bank info accessory config
