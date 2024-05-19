@@ -17,7 +17,7 @@ namespace Fargowiltas
     {
         public override bool IsHeadLayer => false;
 
-        private readonly int[] debuffsToIgnore = {
+        private readonly int[] debuffsToIgnore = [
             BuffID.Campfire,
             BuffID.HeartLamp,
             BuffID.Sunflower,
@@ -30,7 +30,7 @@ namespace Fargowiltas
             BuffID.CatBast,
             BuffID.BrainOfConfusionBuff,
             BuffID.NeutralHunger
-        };
+        ];
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
             => !Main.hideUI 

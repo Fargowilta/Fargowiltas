@@ -154,7 +154,7 @@ namespace Fargowiltas.NPCs
 
         public override List<string> SetNPCNameList()
         {
-            string[] names = { "Griff", "Jack", "Bruce", "Larry", "Will", "Jerry", "Liam", "Stan", "Lee", "Woody", "Leif", "Paul" };
+            string[] names = ["Griff", "Jack", "Bruce", "Larry", "Will", "Jerry", "Liam", "Stan", "Lee", "Woody", "Leif", "Paul"];
 
             return new List<string>(names);
         }

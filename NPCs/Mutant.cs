@@ -157,7 +157,7 @@ namespace Fargowiltas.NPCs
 
         public override List<string> SetNPCNameList()
         {
-            string[] names = { "Flacken", "Dorf", "Bingo", "Hans", "Fargo", "Grim", "Mike", "Fargu", "Terrance", "Catty N. Pem", "Tom", "Weirdus", "Polly" };
+            string[] names = ["Flacken", "Dorf", "Bingo", "Hans", "Fargo", "Grim", "Mike", "Fargu", "Terrance", "Catty N. Pem", "Tom", "Weirdus", "Polly"];
 
             return new List<string>(names);
         }

@@ -18,7 +18,7 @@ namespace Fargowiltas.Tiles
         {
             if (type == TileID.HeavyWorkBench)
             {
-                int[] adjTiles = new int[] { TileID.WorkBenches, TileID.HeavyWorkBench };
+                int[] adjTiles = [TileID.WorkBenches, TileID.HeavyWorkBench];
 
                 return adjTiles;
             }
@@ -66,8 +66,8 @@ namespace Fargowiltas.Tiles
         }
 
         private static uint LastTorchUpdate;
-        private readonly int[] TorchesToReplace = new int[]
-        {
+        private readonly int[] TorchesToReplace =
+        [
             //13,   //bone, but there's never a penalty for using this, so its ok to place and not remove
             7,      //demon, but this never gives a bonus for some reason
             20,     //hallow
@@ -78,7 +78,7 @@ namespace Fargowiltas.Tiles
             16,     //desert
             17,     //coral - not actually on the default torch rotation for some reason???
             0,      //regular torch
-        };
+        ];
 
         private enum TorchStyle : int
         {

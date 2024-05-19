@@ -101,15 +101,15 @@ namespace Fargowiltas
             _userInterfaceManager = new UIManager();
             _userInterfaceManager.LoadUI();
 
-            mods = new string[]
-            {
+            mods =
+            [
                 "FargowiltasSouls", // Fargo's Souls
                 "FargowiltasSoulsDLC",
                 "ThoriumMod",
                 "CalamityMod",
                 "MagicStorage",
                 "WikiThis"
-            };
+            ];
 
             ModLoaded = new Dictionary<string, bool>();
             foreach (string mod in mods)

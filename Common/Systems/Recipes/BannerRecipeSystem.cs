@@ -507,7 +507,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             AddBannerToItemRecipe(ItemID.BlackRecluseBanner, ItemID.PoisonStaff, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.BloodZombieBanner, ItemID.KOCannon, bannerAmount: 4, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.ClownBanner, ItemID.KOCannon, bannerAmount: 4, conditions: Condition.Hardmode);
-            AddBannerToItemRecipe(ItemID.GiantBatBanner, ItemID.ChainKnife, conditions: new Condition[] { Condition.Hardmode, Condition.NotRemixWorld });
+            AddBannerToItemRecipe(ItemID.GiantBatBanner, ItemID.ChainKnife, conditions: [Condition.Hardmode, Condition.NotRemixWorld]);
             AddBannerToItemRecipe(ItemID.IcyMermanBanner, ItemID.FrostStaff, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.MedusaBanner, ItemID.MedusaHead, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.MimicBanner, ItemID.FlowerofFrost, conditions: Condition.Hardmode);

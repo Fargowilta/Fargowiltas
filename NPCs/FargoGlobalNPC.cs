@@ -24,7 +24,7 @@ namespace Fargowiltas.NPCs
 {
     public class FargoGlobalNPC : GlobalNPC
     {
-        internal static int[] Bosses = { 
+        internal static int[] Bosses = [ 
             NPCID.KingSlime,
             NPCID.EyeofCthulhu,
             //NPCID.EaterofWorldsHead,
@@ -55,7 +55,7 @@ namespace Fargowiltas.NPCs
             NPCID.SantaNK1,
             NPCID.HeadlessHorseman,
             NPCID.PirateShip 
-        };
+        ];
 
         public static int LastWoFIndex = -1;
         public static int WoFDirection = 0;
@@ -398,7 +398,7 @@ namespace Fargowiltas.NPCs
                 {
                     if (condition != null)
                     {
-                        conditions = new Condition[] { condition };
+                        conditions = [condition];
                     }
                     if (conditions != null)
                     {
@@ -460,11 +460,11 @@ namespace Fargowiltas.NPCs
                         AddItem(ItemID.GoldenBugNet, condition: angler10);
                         AddItem(ItemID.FishHook, condition: angler10);
 
-                        AddItem(ItemID.FinWings, conditions: new Condition[] { angler10, Condition.Hardmode });
-                        AddItem(ItemID.SuperAbsorbantSponge, conditions: new Condition[] { angler10, Condition.Hardmode }); ;
-                        AddItem(ItemID.BottomlessBucket, conditions: new Condition[] { angler10, Condition.Hardmode });
-                        AddItem(ItemID.HotlineFishingHook, conditions: new Condition[] { angler25, Condition.Hardmode });
-                        AddItem(ItemID.GoldenFishingRod, conditions: new Condition[] { angler30, Condition.Hardmode });
+                        AddItem(ItemID.FinWings, conditions: [angler10, Condition.Hardmode]);
+                        AddItem(ItemID.SuperAbsorbantSponge, conditions: [angler10, Condition.Hardmode]); ;
+                        AddItem(ItemID.BottomlessBucket, conditions: [angler10, Condition.Hardmode]);
+                        AddItem(ItemID.HotlineFishingHook, conditions: [angler25, Condition.Hardmode]);
+                        AddItem(ItemID.GoldenFishingRod, conditions: [angler30, Condition.Hardmode]);
 
                         AddItem(ItemID.Seed, 3, condition: new Condition("Mods.Fargowiltas.Conditions.Seeds", () => Main.LocalPlayer.inventory.Any(i => !i.IsAir && i.useAmmo == AmmoID.Dart)));
                         break;

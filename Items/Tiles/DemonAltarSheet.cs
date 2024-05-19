@@ -16,14 +16,14 @@ namespace Fargowiltas.Items.Tiles
             Main.tileFrameImportant[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             Main.tileNoAttach[Type] = true;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16};
+            TileObjectData.newTile.CoordinateHeights = [16, 16];
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Demon Altar");
             AddMapEntry(new Color(200, 200, 200), name);
             TileID.Sets.DisableSmartCursor[Type] = true;
             //counts as
-            AdjTiles = new int[] { TileID.DemonAltar };
+            AdjTiles = [TileID.DemonAltar];
         }
 
         //public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
@@ -53,14 +53,14 @@ namespace Fargowiltas.Items.Tiles
             Main.tileFrameImportant[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             Main.tileNoAttach[Type] = true;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
+            TileObjectData.newTile.CoordinateHeights = [16, 16];
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Crimson Altar");
             AddMapEntry(new Color(200, 200, 200), name);
             TileID.Sets.DisableSmartCursor[Type] = true;
             //counts as
-            AdjTiles = new int[] { TileID.DemonAltar };
+            AdjTiles = [TileID.DemonAltar];
         }
 
         //public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

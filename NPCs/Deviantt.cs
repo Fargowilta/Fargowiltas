@@ -217,7 +217,7 @@ namespace Fargowiltas.NPCs
 
         public override List<string> SetNPCNameList()
         {
-            string[] names = { "Akira", "Remi", "Saku", "Seira", "Koi", "Elly", "Lori", "Calia", "Teri", "Artt", "Flan", "Shion", "Tewi" };
+            string[] names = ["Akira", "Remi", "Saku", "Seira", "Koi", "Elly", "Lori", "Calia", "Teri", "Artt", "Flan", "Shion", "Tewi"];
 
             return new List<string>(names);
         }

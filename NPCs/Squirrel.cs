@@ -421,8 +421,8 @@ namespace Fargowiltas.NPCs
                 if (item.makeNPC != 0)
                 {
                     price = Item.buyPrice(gold: 10);
-                    int[] pricier = new int[]
-                    {
+                    int[] pricier =
+                    [
                         ItemID.TruffleWorm,
                         ItemID.EmpressButterfly,
                         ItemID.GoldBird,
@@ -438,7 +438,7 @@ namespace Fargowiltas.NPCs
                         ItemID.SquirrelGold,
                         ItemID.GoldWaterStrider,
                         ItemID.GoldWorm
-                    };
+                    ];
 
                     if (pricier.Contains(item.type))
                     {
