@@ -158,6 +158,9 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(true)]
         public bool PylonsIgnoreEvents;
 
+        [DefaultValue(false)]
+        public bool SafeTerraformers;
+
         [OnDeserialized]
         internal void OnDeserializedMethod(StreamingContext context)
         {
