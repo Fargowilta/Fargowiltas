@@ -1930,8 +1930,8 @@ Mods: {
 			}
 
 			WormyFood: {
-				DisplayName: Wormy Food
-				Tooltip: Rotting Bait
+				DisplayName: Rotting Bait
+				Tooltip: Summons the Eater of Worlds in any biome
 			}
 
 			CrimsonAltar: {
