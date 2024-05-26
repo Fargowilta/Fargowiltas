@@ -164,6 +164,7 @@ namespace Fargowiltas
         {
             if (FargoServerConfig.Instance.DisableTombstones)
                 return;
+
             orig(self, coinsOwned, deathText, hitDirection);
         }
 
