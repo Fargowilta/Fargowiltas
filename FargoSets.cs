@@ -92,6 +92,7 @@ namespace Fargowiltas
                 ItemID.RodofDiscord,
                 ItemID.TerrasparkBoots,
                 ItemID.TorchGodsFavor,
+                ItemID.HandOfCreation,
                 ItemType<Omnistation>(),
                 ItemType<Omnistation2>(),
                 ItemType<CrucibleCosmos>(),
