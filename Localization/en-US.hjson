@@ -184,7 +184,7 @@ Mods: {
 				}
 
 				SafeTerraformers: {
-					Label: "[i:Fargowiltas/Instabridge] Safe Terraformers"
+					Label: "[i:Fargowiltas/InstaBridge] Safe Terraformers"
 					Tooltip:
 						'''
 						Terraformers such as Instabridge and City Buster avoid destroying any areas added to the Important Structures list.
@@ -224,6 +224,14 @@ Mods: {
 				BossApplyToAllWhenAlive: {
 					Label: Boss Multipliers Apply Universally
 					Tooltip: Boss Health and Boss Damage configs apply to all enemies while a boss is alive, rather than just bosses themselves.
+				}
+
+				DisableTombstones: {
+					Label: "[i:Fargowiltas/GraveBuster] Disable Tombstones"
+					Tooltip: 
+						'''
+						Makes Tombstones not spawn when players die.
+						'''
 				}
 			}
 

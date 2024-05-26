@@ -161,6 +161,9 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(false)]
         public bool SafeTerraformers;
 
+        [DefaultValue(false)]
+        public bool DisableTombstones;
+
         [OnDeserialized]
         internal void OnDeserializedMethod(StreamingContext context)
         {

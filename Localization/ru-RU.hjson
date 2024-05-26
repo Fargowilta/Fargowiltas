@@ -225,6 +225,11 @@ Mods: {
 					Label: Множители Боссов Применяются Универсально
 					Tooltip: Конфигурации Здоровье Боссов и Урон боссов применяются ко всем врагам, пока босс жив, а не только к боссам.
 				}
+
+				DisableTombstones: {
+					// Label: Disable Tombstones
+					// Tooltip: ""
+				}
 			}
 
 			FargoClientConfig: {

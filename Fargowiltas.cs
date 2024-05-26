@@ -130,6 +130,7 @@ namespace Fargowiltas
             Terraria.On_SceneMetrics.ExportTileCountsToMain += ExportTileCountsToMain_PurityTotemHack;
             Terraria.On_Player.HasUnityPotion += OnHasUnityPotion;
             Terraria.On_Player.TakeUnityPotion += OnTakeUnityPotion;
+            Terraria.On_Player.DropTombstone += DisableTombstones;
         }
 
         private static IEnumerable<Item> GetWormholes(Player self) =>
@@ -157,6 +158,13 @@ namespace Fargowiltas
 
             if (pot.stack <= 0)
                 pot.SetDefaults(0, false);
+        }
+
+        private static void DisableTombstones(Terraria.On_Player.orig_DropTombstone orig, Player self, long coinsOwned, NetworkText deathText, int hitDirection)
+        {
+            if (FargoServerConfig.Instance.DisableTombstones)
+                return;
+            orig(self, coinsOwned, deathText, hitDirection);
         }
 
         private static bool OnHasUnityPotion(Terraria.On_Player.orig_HasUnityPotion orig, Player self)
@@ -226,6 +234,7 @@ namespace Fargowiltas
             Terraria.On_SceneMetrics.ExportTileCountsToMain -= ExportTileCountsToMain_PurityTotemHack;
             Terraria.On_Player.HasUnityPotion -= OnHasUnityPotion;
             Terraria.On_Player.TakeUnityPotion -= OnTakeUnityPotion;
+            Terraria.On_Player.DropTombstone -= DisableTombstones;
 
             summonTracker = null;
             dialogueTracker = null;
