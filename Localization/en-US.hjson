@@ -184,14 +184,12 @@ Mods: {
 				}
 
 				SafeTerraformers: {
-					Label: [i:Fargowiltas/Instabridge] Safe Terraformers
+					Label: "[i:Fargowiltas/Instabridge] Safe Terraformers"
 					Tooltip:
-					'''
-					Terraformers such as Instabridge and City Buster avoid destroying any areas added to the Important Structures list.
-					This option is overly safe and will often avoid destroying even common things, such as cavern houses.
-					'''
-
-
+						'''
+						Terraformers such as Instabridge and City Buster avoid destroying any areas added to the Important Structures list.
+						This option is overly safe and will often avoid destroying even common things, such as cavern houses.
+						'''
 				}
 
 				Headers: {
