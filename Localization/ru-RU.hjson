@@ -184,7 +184,7 @@ Mods: {
 				}
 
 				SafeTerraformers: {
-					// Label: "[i:Fargowiltas/Instabridge] Safe Terraformers"
+					// Label: "[i:Fargowiltas/InstaBridge] Safe Terraformers"
 					/* Tooltip:
 						'''
 						Terraformers such as Instabridge and City Buster avoid destroying any areas added to the Important Structures list.
@@ -227,8 +227,8 @@ Mods: {
 				}
 
 				DisableTombstones: {
-					// Label: Disable Tombstones
-					// Tooltip: ""
+					// Label: "[i:Fargowiltas/GraveBuster] Disable Tombstones"
+					// Tooltip: Makes Tombstones not spawn when players die.
 				}
 			}
 
