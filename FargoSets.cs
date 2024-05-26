@@ -79,7 +79,9 @@ namespace Fargowiltas
                 ItemID.WeatherRadio,
                 ItemID.Sextant,
                 ItemID.Radar,
-                ItemID.TallyCounter);
+                ItemID.TallyCounter,
+                ItemID.FishFinder,
+                ItemID.REK);
 
             Items.SquirrelSellsDirectly = itemFactory.CreateBoolSet(false,
                 ItemID.CellPhone,

@@ -381,11 +381,8 @@ namespace Fargowiltas.Items
             if (item.IsAir || item.maxStack > 1 || !FargoServerConfig.Instance.PiggyBankAcc)
                 return;
 
-            if (FargoSets.Items.InfoAccessory[item.type])
-                player.RefreshInfoAccsFromItemType(item);
-
-            if (FargoSets.Items.MechanicalAccessory[item.type])
-                player.RefreshMechanicalAccsFromItemType(item.type);
+            player.RefreshInfoAccsFromItemType(item);
+            player.RefreshMechanicalAccsFromItemType(item.type);
         }
         public override void UpdateInventory(Item item, Player player)
         {
