@@ -71,6 +71,7 @@ namespace Fargowiltas
                     drawPos = drawPos.RotatedBy(-player.fullRotation); //correct for player rotation????
                     drawPos += player.MountedCenter;
                     drawPos -= Main.screenPosition;
+                    drawPos += Vector2.UnitY * player.gfxOffY;
 
                     if (!TextureAssets.Buff[debuffID].IsLoaded)
                         continue;
