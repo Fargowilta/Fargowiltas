@@ -14,6 +14,7 @@ using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Config;
 using Terraria.ObjectData;
 namespace Fargowiltas.Items.Tiles
 {
@@ -93,21 +94,23 @@ namespace Fargowiltas.Items.Tiles
             {
                 return;
             }
-            
-            Asset<Texture2D> item = TextureAssets.Item[entity.ItemType];
-            Main.instance.LoadItem(entity.ItemType);
+            ItemID.Search.TryGetId(entity.ItemName, out int id);
+            int idToUse = entity.ItemType;
+            if (id > 0) idToUse = id;
+            Asset<Texture2D> item = TextureAssets.Item[idToUse];
+            Main.instance.LoadItem(idToUse);
             //needed for animated item sprites
             Rectangle frame;
-            Main.GetItemDrawFrame(entity.ItemType, out Texture2D useless, out frame);
+            Main.GetItemDrawFrame(idToUse, out Texture2D useless, out frame);
             float scale = 35f / frame.Height;
             if (scale > 1) scale = 1;
             //disco backglow
             for (int n = 0; n < 5; n++)
             {
-                Main.EntitySpriteDraw(item.Value, new Vector2(i, j).ToWorldCoordinates() - Main.screenPosition + new Vector2(208 + (float)Math.Sin(drawTimer + n*2f)*3, 230 + MathHelper.Lerp(-5, 10, lerper) + (float)Math.Cos(drawTimer + n*3f)*3), frame, Main.DiscoColor * 0.5f, 0, new Vector2(frame.Width, frame.Height) / 2, scale, SpriteEffects.None, 0);
+                Main.EntitySpriteDraw(item.Value, new Vector2(i, j).ToWorldCoordinates() - Main.screenPosition + new Vector2(208 + (float)Math.Sin(drawTimer + n*2f)*3, 160 + MathHelper.Lerp(-5, 10, lerper) + (float)Math.Cos(drawTimer + n*3f)*3), frame, Main.DiscoColor * 0.5f, 0, new Vector2(frame.Width, frame.Height) / 2, scale, SpriteEffects.None, 0);
             }
             //real item
-            Main.EntitySpriteDraw(item.Value, new Vector2(i, j).ToWorldCoordinates() - Main.screenPosition + new Vector2(208, 230 + MathHelper.Lerp(-5, 10, lerper)), frame, Color.White, 0, new Vector2(frame.Width, frame.Height)/2, scale, SpriteEffects.None, 0);
+            Main.EntitySpriteDraw(item.Value, new Vector2(i, j).ToWorldCoordinates() - Main.screenPosition + new Vector2(208, 160 + MathHelper.Lerp(-5, 10, lerper)), frame, Color.White, 0, new Vector2(frame.Width, frame.Height)/2, scale, SpriteEffects.None, 0);
             
 
             base.SpecialDraw(i, j, spriteBatch);
@@ -124,22 +127,34 @@ namespace Fargowiltas.Items.Tiles
                 {
                     entity.ItemType = player.HeldItem.type;
                     entity.Prefix = player.HeldItem.prefix;
+                    if (player.HeldItem.ModItem != null)
+                    {
+                        entity.ItemName = ItemID.Search.GetName(player.HeldItem.type);
+                    }
+                    else
+                    {
+                        entity.ItemName = "";
+                    }
                     player.HeldItem.stack -= 1;
                     if (Main.netMode == NetmodeID.MultiplayerClient)
                     {
-                        FargoNet.SyncCraftingTreeTileEntity(entity.ItemType, entity.Prefix, entity.ID, (int)entity.Position.X, (int)entity.Position.Y);
+                        FargoNet.SyncCraftingTreeTileEntity(entity.ItemType, entity.Prefix, entity.ID, entity.ItemName, (int)entity.Position.X, (int)entity.Position.Y);
                     }
                 }
                 //if the entity has item already drop it and set it to null
                 else if (entity != null && entity.ItemType >= 0)
                 {
-                    int it = Item.NewItem(player.GetSource_TileInteraction(i, j), new Vector2(i, j).ToWorldCoordinates(), entity.ItemType, 1, prefixGiven: entity.Prefix);
+                    ItemID.Search.TryGetId(entity.ItemName, out int id);
+                    int idToUse = entity.ItemType;
+                    if (id > 0) idToUse = id;
+                    int it = Item.NewItem(player.GetSource_TileInteraction(i, j), new Vector2(i, j).ToWorldCoordinates(), idToUse, 1, prefixGiven: entity.Prefix);
                     
                     entity.ItemType = -1;
+                    entity.ItemName = "";
                     if (Main.netMode == NetmodeID.MultiplayerClient)
                     {
                         NetMessage.SendData(MessageID.SyncItem, player.whoAmI, number: it, number2: 1f);
-                        FargoNet.SyncCraftingTreeTileEntity(entity.ItemType, entity.Prefix, entity.ID, (int)entity.Position.X, entity.Position.Y);
+                        FargoNet.SyncCraftingTreeTileEntity(entity.ItemType, entity.Prefix, entity.ID, entity.ItemName, (int)entity.Position.X, entity.Position.Y);
                     }
                 }
                 //spawning first item in the tree
@@ -164,8 +179,8 @@ namespace Fargowiltas.Items.Tiles
                         CraftingTreeItemBehavior farg = fard.GetGlobalItem<CraftingTreeItemBehavior>();
                         farg.CameFromTree = true;
                         farg.PartOfTree = true;
-                        farg.PositionInTree = entity.Position.ToWorldCoordinates() + new Vector2(16, -80);
-                        fard.Center = entity.Position.ToWorldCoordinates() + new Vector2(16, 40);
+                        farg.PositionInTree = entity.Position.ToWorldCoordinates() + new Vector2(16, -120);
+                        fard.Center = entity.Position.ToWorldCoordinates() + new Vector2(16, -20);
                         farg.HomeTilePos = FargoUtils.GetTopLeftTileInMultitile(i, j).ToVector2();
                         farg.OriginalItem = entity.ItemType;
                         fard.velocity *= 0;

@@ -98,9 +98,9 @@ namespace Fargowiltas
 
             SendFargoNetMessage(1, ai2);
         }
-        public static void SyncCraftingTreeTileEntity(int itemType, int prefix, int ID, int X, int Y)
+        public static void SyncCraftingTreeTileEntity(int itemType, int prefix, int ID, string name, int X, int Y)
         {
-            ModPacket packet = WriteToPacket(Fargowiltas.Instance.GetPacket(), 9, itemType, prefix, ID, X, Y);
+            ModPacket packet = WriteToPacket(Fargowiltas.Instance.GetPacket(), 10, itemType, prefix, ID, name, X, Y);
             packet.Send();
         }
         public static object[] WriteVector2Array(Vector2[] array)

@@ -629,16 +629,18 @@ namespace Fargowiltas
                     }
                     break;
                 //sync crafting tree tile entity
-                case 9:
+                case 10:
                     {
                         int type = reader.ReadInt32();
                         int prefix = reader.ReadInt32();
                         int ID = reader.ReadInt32();
+                        string name = reader.ReadString();
                         int X = reader.ReadInt32();
                         int Y = reader.ReadInt32();
                         FargoUtils.TryGetTileEntityAs<CraftingTreeTileEntity>(X, Y, out CraftingTreeTileEntity t);
                         t.ItemType = type;
                         t.Prefix = prefix;
+                        t.ItemName = name;
                         NetMessage.SendData(MessageID.TileEntitySharing, number: ID, number2: X, number3: Y);
                     }
                     break;

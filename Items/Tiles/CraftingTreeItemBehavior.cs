@@ -282,6 +282,34 @@ namespace Fargowiltas.Items.Tiles
 
                             }
                         }
+                        //despawn items from adjacent parts of the tree to prevent clutter. also allow those parts to be expanded again.
+                        
+                        if (FromItem >= 0)
+                        {
+                            Item from = Main.item[FromItem];
+                            CraftingTreeItemBehavior fromT = from.GetGlobalItem<CraftingTreeItemBehavior>();
+                            if (fromT.Ingredients.Count > 0)
+                            {
+                                for (int i = 0; i < fromT.Ingredients.Count; i++)
+                                {
+                                    if (fromT.Ingredients[i] != item.whoAmI)
+                                    {
+                                        
+                                        Item ing = Main.item[fromT.Ingredients[i]];
+                                        CraftingTreeItemBehavior ingT = ing.GetGlobalItem<CraftingTreeItemBehavior>();
+                                        if (ingT.Ingredients.Count > 0)
+                                        {
+                                            for (int j = 0; j < ingT.Ingredients.Count; j++)
+                                            {
+                                                Main.item[ingT.Ingredients[j]].GetGlobalItem<CraftingTreeItemBehavior>().timer = 10001;
+                                            }
+                                        }
+                                        ingT.Split = false;
+                                        ingT.Ingredients = new List<int>();
+                                    }
+                                }
+                            }
+                        }
                     }
                     if (Main.netMode == NetmodeID.MultiplayerClient)
                     {
@@ -337,7 +365,15 @@ namespace Fargowiltas.Items.Tiles
                 fargonium += fargonium == 0 ? 1 : 0;
                 Player player = Main.player[playerDragging];
                 //only dupe if player has the coin on hand
-                if (player != null && player.active && player.CountItem(ModContent.ItemType<EnchantedAcorn>()) >= fargonium)
+                int amountoffargo = 0;
+                for (int i = 0; i < player.inventory.Length; i++)
+                {
+                    if (player.inventory[i].type == ModContent.ItemType<EnchantedAcorn>())
+                    {
+                        amountoffargo += player.inventory[i].stack;
+                    }
+                }
+                if (player != null && player.active && amountoffargo >= fargonium)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
