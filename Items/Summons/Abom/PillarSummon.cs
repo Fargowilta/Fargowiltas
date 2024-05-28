@@ -34,7 +34,7 @@ namespace Fargowiltas.Items.Summons.Abom
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            int[] pillars = new int[] { NPCID.LunarTowerNebula, NPCID.LunarTowerSolar, NPCID.LunarTowerStardust, NPCID.LunarTowerVortex };
+            int[] pillars = [NPCID.LunarTowerNebula, NPCID.LunarTowerSolar, NPCID.LunarTowerStardust, NPCID.LunarTowerVortex];
             if (!NPC.AnyNPCs(NPCID.LunarTowerSolar))
             {
                 NPC.ShieldStrengthTowerSolar = 0;

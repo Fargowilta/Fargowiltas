@@ -42,6 +42,7 @@ namespace Fargowiltas.Items.Misc
                 .AddIngredient(ItemID.Meteorite)
                 .AddIngredient(ItemID.FallenStar)
                 .AddTile(TileID.Bottles) 
+                .DisableDecraft()
                 .Register();
         }
     }

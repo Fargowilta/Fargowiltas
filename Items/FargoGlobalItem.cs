@@ -17,13 +17,14 @@ using Fargowiltas.Items.CaughtNPCs;
 using static System.Net.Mime.MediaTypeNames;
 using Terraria.Localization;
 using Fargowiltas.Items.Misc;
+using System.Security.AccessControl;
 
 namespace Fargowiltas.Items
 {
     public class FargoGlobalItem : GlobalItem
     {
-        private static readonly int[] Hearts = new int[] { ItemID.Heart, ItemID.CandyApple, ItemID.CandyCane };
-        private static readonly int[] Stars = new int[] { ItemID.Star, ItemID.SoulCake, ItemID.SugarPlum };
+        private static readonly int[] Hearts = [ItemID.Heart, ItemID.CandyApple, ItemID.CandyCane];
+        private static readonly int[] Stars = [ItemID.Star, ItemID.SoulCake, ItemID.SugarPlum];
 
         private bool firstTick = true;
 
@@ -62,14 +63,6 @@ namespace Fargowiltas.Items
                 }
             }
         }
-        public static List<int> BuffStations = new List<int>
-        {
-            ItemID.SharpeningStation,
-            ItemID.AmmoBox,
-            ItemID.CrystalBall,
-            ItemID.BewitchingTable,
-            ItemID.WarTable,
-        };
         //For the shop sale tooltip system.
         internal class ShopTooltip
         {
@@ -265,9 +258,9 @@ namespace Fargowiltas.Items
                         tooltips.Add(line);
                     }
                     
-                    else if (BuffStations.Contains(item.type))
+                    else if (FargoSets.Items.BuffStation[item.type])
                     {
-                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:87] [c/AAAAAA:{ExpandedTooltipLoc("PermanentEffectNearby")}]");
+                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:{item.type}] [c/AAAAAA:{ExpandedTooltipLoc("PermanentEffectNearby")}]");
                         tooltips.Add(line);
                     }
                     
@@ -275,7 +268,7 @@ namespace Fargowiltas.Items
 
                 if (fargoServerConfig.PiggyBankAcc)
                 {
-                    if (Informational.Contains(item.type) || Construction.Contains(item.type))
+                    if (FargoSets.Items.InfoAccessory[item.type] || FargoSets.Items.MechanicalAccessory[item.type])
                     {
                         line = new TooltipLine(Mod, "TooltipUnlim", $"[i:87] [c/AAAAAA:{ExpandedTooltipLoc("WorksFromBanks")}]");
                         tooltips.Add(line);
@@ -311,15 +304,13 @@ namespace Fargowiltas.Items
                     break;
 
                 case ItemID.WoodenCrate:
-                    if (!Main.remixWorld && !Main.zenithWorld)
-                    {
-                        itemLoot.Add(ItemDropRule.OneFromOptions(40, ItemID.Spear, ItemID.Blowpipe, ItemID.WandofSparking, ItemID.WoodenBoomerang));
-                    }
-                    else
-                    {
-                        itemLoot.Add(ItemDropRule.OneFromOptions(40, ItemID.Spear, ItemID.Blowpipe, ItemID.WoodenBoomerang));
-                    }
-
+                    
+                    var leadingRule = new LeadingConditionRule(new Conditions.NotRemixSeed());
+                    var dropRuleNormal = ItemDropRule.OneFromOptions(40, ItemID.Spear, ItemID.Blowpipe, ItemID.WoodenBoomerang, ItemID.WandofSparking);
+                    var dropRuleRemix = ItemDropRule.OneFromOptions(40, ItemID.Spear, ItemID.Blowpipe, ItemID.WoodenBoomerang);
+                    leadingRule.OnSuccess(dropRuleNormal);
+                    leadingRule.OnFailedConditions(dropRuleRemix);
+                    itemLoot.Add(leadingRule);
                     break;
 
                 case ItemID.GoldenCrate:
@@ -385,29 +376,18 @@ namespace Fargowiltas.Items
             }
             
         }
-
-        static int[] Informational = { ItemID.DPSMeter, ItemID.CopperWatch, ItemID.TinWatch, ItemID.TungstenWatch, ItemID.SilverWatch, ItemID.GoldWatch, ItemID.PlatinumWatch, ItemID.DepthMeter, ItemID.Compass, ItemID.Radar, ItemID.LifeformAnalyzer, ItemID.TallyCounter, ItemID.MetalDetector, ItemID.Stopwatch, ItemID.Ruler, ItemID.FishermansGuide, ItemID.Sextant, ItemID.WeatherRadio, ItemID.GPS, ItemID.REK, ItemID.GoblinTech, ItemID.FishFinder, ItemID.PDA, ItemID.CellPhone, ItemID.Shellphone, ItemID.ShellphoneDummy, ItemID.ShellphoneHell, ItemID.ShellphoneOcean, ItemID.ShellphoneSpawn };
-        static int[] Construction = { ItemID.Toolbelt, ItemID.Toolbox, ItemID.ExtendoGrip, ItemID.PaintSprayer, ItemID.BrickLayer, ItemID.PortableCementMixer, ItemID.ActuationAccessory, ItemID.ArchitectGizmoPack };
         public static void TryPiggyBankAcc(Item item, Player player)
         {
             if (item.IsAir || item.maxStack > 1 || !FargoServerConfig.Instance.PiggyBankAcc)
                 return;
 
-            if (Informational.Contains(item.type))
-            {
-                player.RefreshInfoAccsFromItemType(item);
-            }
-            else if (Construction.Contains(item.type))
-            {
-                player.ApplyEquipFunctional(item, true);
-            }
+            player.RefreshInfoAccsFromItemType(item);
+            player.RefreshMechanicalAccsFromItemType(item.type);
         }
-
         public override void UpdateInventory(Item item, Player player)
         {
             TryUnlimBuff(item, player);
         }
-
         public override void UpdateAccessory(Item item, Player player, bool hideVisual)
         {
             if (item.type == ItemID.MusicBox && Main.curMusic > 0 && Main.curMusic <= 41)
@@ -435,7 +415,7 @@ namespace Fargowiltas.Items
                     case 6:
                         itemId = 3 + 562;
                         break;
-                    case 7:
+                        case 7:
                         itemId = 6 + 562;
                         break;
                     case 8:
@@ -532,19 +512,11 @@ namespace Fargowiltas.Items
             return base.CanConsumeBait(player, bait);
         }
 
-        public static List<int> NonBuffPotions = new List<int>
-        {
-            ItemID.RecallPotion,
-            ItemID.PotionOfReturn,
-            ItemID.WormholePotion,
-            ItemID.TeleportationPotion,
-            ItemType<BigSuckPotion>()
-        };
         public override bool ConsumeItem(Item item, Player player)
         {
             if (FargoServerConfig.Instance.UnlimitedConsumableWeapons && Main.hardMode && item.damage > 0 && item.ammo == 0 && item.stack >= 3996)
                 return false;
-            if (FargoServerConfig.Instance.UnlimitedPotionBuffsOn120 && (item.buffType > 0 || NonBuffPotions.Contains(item.type)) && (item.stack >= 30 || player.inventory.Any(i => i.type == item.type && !i.IsAir && i.stack >= 30)))
+            if (FargoServerConfig.Instance.UnlimitedPotionBuffsOn120 && ((item.buffType > 0 || FargoSets.Items.NonBuffPotion[item.type]) && (item.stack >= 30 || player.inventory.Any(i => i.type == item.type && !i.IsAir && i.stack >= 30))))
                 return false;
             return true;
         }
@@ -631,7 +603,7 @@ namespace Fargowiltas.Items
 
         public override bool GrabStyle(Item item, Player player)
         {
-            if (player.GetFargoPlayer().bigSuck)
+            if (player.GetFargoPlayer().bigSuck && !Hearts.Contains(item.type) && !Stars.Contains(item.type))
             {
                 item.position += (player.MountedCenter - item.Center) / 15f;
                 item.position += player.position - player.oldPosition;

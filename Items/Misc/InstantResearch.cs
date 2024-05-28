@@ -35,7 +35,7 @@ namespace Fargowiltas.Items.Misc
 			{
 				int count = 0;
 
-				for (int i = 0; i < ContentSamples.ItemsByType.Count; i++)
+				for (int i = 0; i < ItemLoader.ItemCount; i++)
 				{
 					if (CreativeItemSacrificesCatalog.Instance.TryGetSacrificeCountCapToUnlockInfiniteItems(i, out int amountNeeded))
 					{

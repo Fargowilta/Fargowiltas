@@ -112,6 +112,7 @@ namespace Fargowiltas.Common.Configs
         public bool BossApplyToAllWhenAlive;
 
         [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Misc")]
+
         [Range(0, maxExtraBuffSlots)]
         [DefaultValue(22)]
         [ReloadRequired]
@@ -156,6 +157,12 @@ namespace Fargowiltas.Common.Configs
 
         [DefaultValue(true)]
         public bool PylonsIgnoreEvents;
+
+        [DefaultValue(false)]
+        public bool SafeTerraformers;
+
+        [DefaultValue(false)]
+        public bool DisableTombstones;
 
         [OnDeserialized]
         internal void OnDeserializedMethod(StreamingContext context)

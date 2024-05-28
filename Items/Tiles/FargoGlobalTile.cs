@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +18,7 @@ namespace Fargowiltas.Tiles
         {
             if (type == TileID.HeavyWorkBench)
             {
-                int[] adjTiles = new int[] { TileID.WorkBenches, TileID.HeavyWorkBench };
+                int[] adjTiles = [TileID.WorkBenches, TileID.HeavyWorkBench];
 
                 return adjTiles;
             }
@@ -65,8 +66,8 @@ namespace Fargowiltas.Tiles
         }
 
         private static uint LastTorchUpdate;
-        private readonly int[] TorchesToReplace = new int[]
-        {
+        private readonly int[] TorchesToReplace =
+        [
             //13,   //bone, but there's never a penalty for using this, so its ok to place and not remove
             7,      //demon, but this never gives a bonus for some reason
             20,     //hallow
@@ -77,7 +78,7 @@ namespace Fargowiltas.Tiles
             16,     //desert
             17,     //coral - not actually on the default torch rotation for some reason???
             0,      //regular torch
-        };
+        ];
 
         private enum TorchStyle : int
         {
@@ -145,32 +146,41 @@ namespace Fargowiltas.Tiles
                     }
                 }
             }
-            
+            int buff = 0;
+            SoundStyle? sound = null;
             switch (type)
             {
                 case TileID.SharpeningStation:
-                    if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost)
-                        Main.LocalPlayer.AddBuff(BuffID.Sharpened, 2);
+                    buff = BuffID.Sharpened;
+                    sound = SoundID.Item37;
                     break;
                 case TileID.AmmoBox:
-                    if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost) 
-                        Main.LocalPlayer.AddBuff(BuffID.AmmoBox, 2);
+                    buff = BuffID.AmmoBox;
+                    sound = SoundID.Item149;
                     break;
                 case TileID.CrystalBall:
-                    if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost) 
-                        Main.LocalPlayer.AddBuff(BuffID.Clairvoyance, 2);
+                    buff = BuffID.Clairvoyance;
+                    sound = SoundID.Item4;
                     break;
                 case TileID.BewitchingTable:
-                    if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost) 
-                        Main.LocalPlayer.AddBuff(BuffID.Bewitched, 2);
+                    buff = BuffID.Bewitched;
+                    sound = SoundID.Item4;
                     break;
                 case TileID.WarTable:
-                    if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost)
-                        Main.LocalPlayer.AddBuff(BuffID.WarTable, 2);
+                    buff = BuffID.WarTable;
+                    sound = SoundID.Item4; 
                     break;
             }
-                            
-
+            if (buff != 0 && Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost)
+            {
+                bool noAlchemistNPC = !(ModLoader.HasMod("AlchemistNPC") || ModLoader.HasMod("AlchemistNPCLite")); // because it fucks with buffs for some reason and makes the sound spam WHY WHY WHY WHY WHAT'S WRONG WITH YOU WHY WHY WHY
+                if (!Main.LocalPlayer.HasBuff(buff) && sound.HasValue && noAlchemistNPC && Main.LocalPlayer.GetModPlayer<FargoPlayer>().StationSoundCooldown <= 0)
+                {
+                    SoundEngine.PlaySound(sound.Value, new Vector2(i, j) * 16);
+                    Main.LocalPlayer.GetModPlayer<FargoPlayer>().StationSoundCooldown = 60 * 60;
+                }
+                Main.LocalPlayer.AddBuff(buff, 2);
+            }
         }
 
         internal static void DestroyChest(int x, int y)

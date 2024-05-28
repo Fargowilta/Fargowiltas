@@ -8,11 +8,10 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace Fargowiltas.Items.Summons
+namespace Fargowiltas.Items.Summons.VanillaCopy
 {
     public class MechSkull : BaseSummon
     {
-        public override string Texture => "Terraria/Images/Item_557";
 
         public override int NPCType => NPCID.SkeletronPrime;
         

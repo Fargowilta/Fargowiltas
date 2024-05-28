@@ -15,11 +15,11 @@ namespace Fargowiltas.Items.Tiles
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3Wall);
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Height = 2;
-            TileObjectData.newTile.CoordinateHeights = new int[]
-            {
+            TileObjectData.newTile.CoordinateHeights =
+            [
                 16,
                 16,
-            };
+            ];
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.StyleWrapLimit = 36;
             TileObjectData.addTile(Type);

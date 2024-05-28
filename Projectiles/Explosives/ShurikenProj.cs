@@ -60,6 +60,9 @@ namespace Fargowiltas.Projectiles.Explosives
 
                     Tile tile = Main.tile[xPosition, yPosition];
 
+                    if (Main.tileNoFail[tile.TileType] || Main.tileHammer[tile.TileType] || Main.tileAxe[tile.TileType])
+                        continue;
+
                     // Circle
                     if ((x * x + y * y) <= radius)
                     {

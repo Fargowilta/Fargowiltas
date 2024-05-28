@@ -1,14 +1,61 @@
 using Fargowiltas.Common.Configs;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.Map;
 using Terraria.ModLoader;
 
 namespace Fargowiltas.Buffs
 {
     public class FargoGlobalBuff : GlobalBuff
     {
+        public override void Load()
+        {
+            On_Main.DrawInterface_Resources_Buffs += InterfaceResourcesCheck;
+        }
+        public override void Unload()
+        {
+            On_Main.DrawInterface_Resources_Buffs -= InterfaceResourcesCheck;
+        }
+        public static void InterfaceResourcesCheck(On_Main.orig_DrawInterface_Resources_Buffs orig, Main self)
+        {
+            // Store actual current buff types and times in temporary arrays, to be restored after draw call.
+            // Doing the same operations on buff time is needed for proper buff display.
+            int[] buffTypes = (int[])Main.LocalPlayer.buffType.Clone();
+            int[] buffTimes = ((int[])Main.LocalPlayer.buffTime.Clone());
+            // Remove all hidden buffs. They'll be readded at the end of the method.
+            for (int i = 0; i < Player.MaxBuffs; i++)
+            {
+                if (FargoClientConfig.Instance.HideUnlimitedBuffs && Main.LocalPlayer.buffType[i] > 0 && BuffCanBeHidden(Main.LocalPlayer, i))
+                {
+                    Main.LocalPlayer.buffType[i] = 0;
+                    Main.LocalPlayer.buffTime[i] = 0;
+                }
+            }
+            // Reshuffle array order to have non-hidden buffs first.
+            int[] sortedTimes = Main.LocalPlayer.buffTime.Where(x => x != 0).ToArray();
+            Array.Resize(ref sortedTimes, Main.LocalPlayer.buffTime.Length);
+            Main.LocalPlayer.buffTime = (int[])sortedTimes.Clone();
+
+            int[] sortedTypes = Main.LocalPlayer.buffType.Where(x => x != 0).ToArray();
+            Array.Resize(ref sortedTypes, Main.LocalPlayer.buffType.Length);
+            Main.LocalPlayer.buffType = (int[])sortedTypes.Clone();
+
+            orig(self);
+            // Store types that were removed from the array during the orig call. These were manually removed (usually by being right clicked, usually just one, but this covers all possible cases).
+            var removedTypes = sortedTypes.Except(Main.LocalPlayer.buffType);
+
+            // Restore the arrays.
+            Main.LocalPlayer.buffType = buffTypes;
+            Main.LocalPlayer.buffTime = buffTimes;
+            // Remove manually-removed buffs.
+            foreach (var type in removedTypes)
+                Main.LocalPlayer.ClearBuff(type);
+        }
         static bool BuffCanBeHidden(Player player, int buffIndex)
         {
             int buffTime = player.buffTime[buffIndex];
@@ -25,63 +72,6 @@ namespace Fargowiltas.Buffs
             {
                 player.buffTime[buffIndex] = 2;
             }
-
-            //basically all of this is to reorganize buffs with hidden unlims
-            //if unorganized, the hidden buffs are just hidden and leaves open gaps in the buff tray
-            //yes, this causes the swapped visible buff to be skipped for a tick
-            //there has to be a better way to do this...
-            if (player.whoAmI == Main.myPlayer)
-            {
-                bool canBeHidden = BuffCanBeHidden(player, buffIndex);
-                if (canBeHidden && FargoClientConfig.Instance.HideUnlimitedBuffs)
-                {
-                    if (buffIndex + 1 < player.buffType.Length) //check it's not end of array
-                    {
-                        //check if next buff can be hidden
-                        int nextBuffIndex = buffIndex + 1;
-                        bool nextBuffCanBeHidden = BuffCanBeHidden(player, nextBuffIndex);
-
-                        //if next buff is a visible buff
-                        if (!nextBuffCanBeHidden)
-                        {
-                            //look for somewhere to put it
-                            int indexToSwap = buffIndex;
-                            while (indexToSwap >= 0) //end of array check
-                            {
-                                //keep walking backwards through the buffs until you find another visible one
-                                bool indexCanBeHidden = BuffCanBeHidden(player, indexToSwap);
-
-                                //found another visible buff or reached first index (they are all invisible)
-                                if (!indexCanBeHidden || indexToSwap == 0)
-                                {
-                                    //swap the leftmost hidden unlim buff with the "floating" visible buff
-                                    if (!indexCanBeHidden)
-                                        indexToSwap++;
-                                    int tempBuffType = player.buffType[indexToSwap];
-                                    int tempBuffTime = player.buffTime[indexToSwap];
-                                    player.buffType[indexToSwap] = player.buffType[buffIndex + 1];
-                                    player.buffTime[indexToSwap] = player.buffTime[buffIndex + 1];
-                                    player.buffType[buffIndex + 1] = tempBuffType;
-                                    player.buffTime[buffIndex + 1] = tempBuffTime;
-                                    //buffIndex = indexToSwap;
-                                    break;
-                                }
-
-                                indexToSwap--;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        public override bool PreDraw(SpriteBatch spriteBatch, int type, int buffIndex, ref BuffDrawParams drawParams)
-        {
-            if (BuffCanBeHidden(Main.LocalPlayer, buffIndex) && FargoClientConfig.Instance.HideUnlimitedBuffs)
-            {
-                return false;
-            }
-            return true;
         }
     }
 }

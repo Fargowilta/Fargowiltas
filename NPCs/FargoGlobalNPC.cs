@@ -24,7 +24,7 @@ namespace Fargowiltas.NPCs
 {
     public class FargoGlobalNPC : GlobalNPC
     {
-        internal static int[] Bosses = { 
+        internal static int[] Bosses = [ 
             NPCID.KingSlime,
             NPCID.EyeofCthulhu,
             //NPCID.EaterofWorldsHead,
@@ -55,7 +55,7 @@ namespace Fargowiltas.NPCs
             NPCID.SantaNK1,
             NPCID.HeadlessHorseman,
             NPCID.PirateShip 
-        };
+        ];
 
         public static int LastWoFIndex = -1;
         public static int WoFDirection = 0;
@@ -70,6 +70,8 @@ namespace Fargowiltas.NPCs
         public static int brainBoss = -1;
         public static int plantBoss = -1;
         public static int beeBoss = -1;
+
+        public bool FirstFrame = true;
 
         public override bool InstancePerEntity => true;
 
@@ -98,26 +100,27 @@ namespace Fargowiltas.NPCs
             
             if (target.friendly && FargoServerConfig.Instance.SaferBoundNPCs && (target.type == NPCID.BoundGoblin || target.type == NPCID.BoundMechanic || target.type == NPCID.BoundWizard || target.type == NPCID.BartenderUnconscious || target.type == NPCID.GolferRescue))
                 return false;
-            
             return base.CanHitNPC(npc, target);
-        }
-        public override void SetDefaults(NPC npc)
-        {
-            #region Stat Sliders
-            FargoServerConfig config = FargoServerConfig.Instance;
-            if ((config.EnemyHealth != 1 || config.BossHealth != 1) && !npc.townNPC && !npc.CountsAsACritter && npc.life > 10)
-            {
-                bool boss = config.BossHealth > config.EnemyHealth && // only relevant if boss health is higher than enemy health
-                    (npc.boss || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsTail || (config.BossApplyToAllWhenAlive && AnyBossAlive()));
-                if (boss)
-                    npc.lifeMax = (int)Math.Round(npc.lifeMax * config.BossHealth);
-                else
-                    npc.lifeMax = (int)Math.Round(npc.lifeMax * config.EnemyHealth);
-            }
-            #endregion
         }
         public override bool PreAI(NPC npc)
         {
+            if (FirstFrame)
+            {
+                FirstFrame = false;
+                #region Stat Sliders
+                FargoServerConfig config = FargoServerConfig.Instance;
+                if ((config.EnemyHealth != 1 || config.BossHealth != 1) && !npc.townNPC && !npc.CountsAsACritter && npc.life > 10)
+                {
+                    bool boss = config.BossHealth > config.EnemyHealth && // only relevant if boss health is higher than enemy health
+                        (npc.boss || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsTail || (config.BossApplyToAllWhenAlive && AnyBossAlive()));
+                    if (boss)
+                        npc.lifeMax = (int)Math.Round(npc.lifeMax * config.BossHealth);
+                    else
+                        npc.lifeMax = (int)Math.Round(npc.lifeMax * config.EnemyHealth);
+                    npc.life = npc.lifeMax;
+                }
+                #endregion
+            }
             if (npc.boss)
             {
                 boss = npc.whoAmI;
@@ -395,7 +398,7 @@ namespace Fargowiltas.NPCs
                 {
                     if (condition != null)
                     {
-                        conditions = new Condition[] { condition };
+                        conditions = [condition];
                     }
                     if (conditions != null)
                     {
@@ -457,11 +460,11 @@ namespace Fargowiltas.NPCs
                         AddItem(ItemID.GoldenBugNet, condition: angler10);
                         AddItem(ItemID.FishHook, condition: angler10);
 
-                        AddItem(ItemID.FinWings, conditions: new Condition[] { angler10, Condition.Hardmode });
-                        AddItem(ItemID.SuperAbsorbantSponge, conditions: new Condition[] { angler10, Condition.Hardmode }); ;
-                        AddItem(ItemID.BottomlessBucket, conditions: new Condition[] { angler10, Condition.Hardmode });
-                        AddItem(ItemID.HotlineFishingHook, conditions: new Condition[] { angler25, Condition.Hardmode });
-                        AddItem(ItemID.GoldenFishingRod, conditions: new Condition[] { angler30, Condition.Hardmode });
+                        AddItem(ItemID.FinWings, conditions: [angler10, Condition.Hardmode]);
+                        AddItem(ItemID.SuperAbsorbantSponge, conditions: [angler10, Condition.Hardmode]); ;
+                        AddItem(ItemID.BottomlessBucket, conditions: [angler10, Condition.Hardmode]);
+                        AddItem(ItemID.HotlineFishingHook, conditions: [angler25, Condition.Hardmode]);
+                        AddItem(ItemID.GoldenFishingRod, conditions: [angler30, Condition.Hardmode]);
 
                         AddItem(ItemID.Seed, 3, condition: new Condition("Mods.Fargowiltas.Conditions.Seeds", () => Main.LocalPlayer.inventory.Any(i => !i.IsAir && i.useAmmo == AmmoID.Dart)));
                         break;

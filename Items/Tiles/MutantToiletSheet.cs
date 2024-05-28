@@ -33,14 +33,14 @@ namespace Fargowiltas.Items.Tiles
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
 
             DustType = DustID.LunarOre;
-            AdjTiles = new int[] { TileID.Chairs, TileID.Toilets }; // Condider adding TileID.Chairs to AdjTiles to mirror "(regular) Toilet" and "Golden Toilet" behavior for crafting stations
+            AdjTiles = [TileID.Chairs, TileID.Toilets]; // Condider adding TileID.Chairs to AdjTiles to mirror "(regular) Toilet" and "Golden Toilet" behavior for crafting stations
 
             // Names
             AddMapEntry(new Color(200, 200, 200), Language.GetText("MapObject.Toilet"));
 
             // Placement
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
-            TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
+            TileObjectData.newTile.CoordinateHeights = [16, 18];
             TileObjectData.newTile.CoordinatePaddingFix = new Point16(0, 2);
             TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
             // The following 3 lines are needed if you decide to add more styles and stack them vertically
@@ -57,11 +57,6 @@ namespace Fargowiltas.Items.Tiles
         public override void NumDust(int i, int j, bool fail, ref int num)
         {
             num = fail ? 1 : 3;
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<MutantToilet>());
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -165,6 +160,16 @@ namespace Fargowiltas.Items.Tiles
             if (Wiring.CheckMech(spawnX, spawnY, 60))
             {
                 Projectile.NewProjectile(Wiring.GetProjectileSource(spawnX, spawnY), spawnX * 16 + 8, spawnY * 16 + 12, 0f, 0f, ProjectileID.ToiletEffect, 0, 0f, Main.myPlayer);
+            }
+
+            if (Main.rand.NextBool(10)
+                && Fargowiltas.ModLoaded["FargowiltasSouls"]
+                && ModContent.TryFind("FargowiltasSouls/MutantBoss", out ModNPC modNPC)
+                && Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                int p = Player.FindClosest(new Vector2(spawnX * 16 + 8, spawnY * 16 + 12), 0, 0);
+                if (p != -1 && !NPC.AnyNPCs(modNPC.Type))
+                    NPC.SpawnOnPlayer(p, modNPC.Type);
             }
         }
     }

@@ -46,12 +46,14 @@ namespace Fargowiltas
         public int DeathFruitHealth;
         public bool bigSuck;
 
+        public int StationSoundCooldown;
+
         public bool HoveringOverTreeItem;
 
         internal Dictionary<string, bool> FirstDyeIngredients = new Dictionary<string, bool>();
 
-        private readonly string[] tags = new string[]
-        {
+        private readonly string[] tags =
+        [
             "RedHusk",
             "OrangeBloodroot",
             "YellowMarigold",
@@ -65,7 +67,7 @@ namespace Fargowiltas
             "VioletHusk",
             "PinkPricklyPear",
             "BlackInk"
-        };
+        ];
 
         public override void SaveData(TagCompound tag)
         {
@@ -118,6 +120,7 @@ namespace Fargowiltas
         public override void SyncPlayer(int toWho, int fromWho, bool newPlayer)
         {
             ModPacket packet = Mod.GetPacket();
+            packet.Write((byte)9);
             packet.Write((byte)Player.whoAmI);
             packet.Write((byte)DeathFruitHealth);
             packet.Send(toWho, fromWho);
@@ -216,7 +219,10 @@ namespace Fargowiltas
                 Player.buffImmune[BuffID.Horrified] = true;
             }
         }
-
+        public override void UpdateDead()
+        {
+            StationSoundCooldown = 0;
+        }
         public override void PostUpdateMiscEffects()
         {
             if (ElementalAssemblerNearby > 0)
@@ -224,6 +230,8 @@ namespace Fargowiltas
                 ElementalAssemblerNearby -= 1;
                 Player.alchemyTable = true;
             }
+            if (StationSoundCooldown > 0)
+                StationSoundCooldown--;
 
             if (Player.equippedWings == null)
                 ResetStatSheetWings();
@@ -349,7 +357,7 @@ namespace Fargowiltas
         {
             int type = NPCID.GreenSlime;
 
-            int[] slimes = { NPCID.SlimeSpiked, NPCID.SandSlime, NPCID.IceSlime, NPCID.SpikedIceSlime, NPCID.MotherSlime, NPCID.SpikedJungleSlime, NPCID.DungeonSlime, NPCID.UmbrellaSlime, NPCID.ToxicSludge, NPCID.CorruptSlime, NPCID.Crimslime, NPCID.IlluminantSlime };
+            int[] slimes = [NPCID.SlimeSpiked, NPCID.SandSlime, NPCID.IceSlime, NPCID.SpikedIceSlime, NPCID.MotherSlime, NPCID.SpikedJungleSlime, NPCID.DungeonSlime, NPCID.UmbrellaSlime, NPCID.ToxicSludge, NPCID.CorruptSlime, NPCID.Crimslime, NPCID.IlluminantSlime];
 
             int rand = Main.rand.Next(50);
 

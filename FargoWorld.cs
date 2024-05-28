@@ -35,8 +35,8 @@ namespace Fargowiltas
         internal static Dictionary<string, bool> DownedBools = new Dictionary<string, bool>();
 
         // Do not change the order or name of any of these value names, it will fuck up loading. Any new additions should be added at the end.
-        private readonly string[] tags = new string[]
-        {
+        private readonly string[] tags =
+        [
             "lumberjack",
             "betsy",
             "boss",
@@ -89,7 +89,7 @@ namespace Fargowiltas
             "iceQueen",
             "santank",
             "everscream"
-       };
+       ];
 
         public override void PreWorldGen()
         {
@@ -151,8 +151,6 @@ namespace Fargowiltas
         public override void OnWorldUnload()
         {
             FargoGlobalProjectile.CannotDestroyRectangle.Clear();
-            FargoGlobalProjectile.CannotDestroyTileTypes.Clear();
-            FargoGlobalProjectile.CannotDestroyWallTypes.Clear();
             ResetFlags();
         }
 

@@ -1,4 +1,6 @@
-﻿using Fargowiltas.Projectiles.Explosives;
+﻿using Fargowiltas.Common.Systems;
+using Fargowiltas.Projectiles.Explosives;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -29,7 +31,15 @@ namespace Fargowiltas.Items.Explosives
             Item.shoot = ModContent.ProjectileType<InstaPondProj>();
             Item.shootSpeed = 5f;
         }
-
+        public override void HoldItem(Player player)
+        {
+            if (player.whoAmI == Main.myPlayer)
+            {
+                Vector2 mouse = Main.MouseWorld;
+                InstaVisual.DrawOrigin drawOrigin = InstaVisual.DrawOrigin.Top;
+                InstaVisual.DrawInstaVisual(player, mouse, new(1000, 5), drawOrigin);
+            }
+        }
         public override void AddRecipes()
         {
             CreateRecipe()

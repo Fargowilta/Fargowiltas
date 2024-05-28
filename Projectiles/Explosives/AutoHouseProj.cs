@@ -24,7 +24,7 @@ namespace Fargowiltas.Projectiles.Explosives
             Tile tile = Main.tile[xPosition, yPosition];
 
             // Testing for blocks that should not be destroyed
-            if (!FargoGlobalProjectile.OkayToDestroyTileAt(xPosition, yPosition))
+            if (!FargoGlobalProjectile.OkayToDestroyTileAt(xPosition, yPosition, true))
                 return;
 
             int wallType = WallID.Wood;
@@ -150,7 +150,7 @@ namespace Fargowiltas.Projectiles.Explosives
 
             Tile tile = Main.tile[xPosition, yPosition];
             // Testing for blocks that should not be destroyed
-            if (!FargoGlobalProjectile.OkayToDestroyTileAt(xPosition, yPosition))
+            if (!FargoGlobalProjectile.OkayToDestroyTileAt(xPosition, yPosition, true))
                 return;
 
             if (y == -1)

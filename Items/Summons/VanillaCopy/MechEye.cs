@@ -8,11 +8,10 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace Fargowiltas.Items.Summons
+namespace Fargowiltas.Items.Summons.VanillaCopy
 {
     public class MechEye : ModItem
     {
-        public override string Texture => "Terraria/Images/Item_544";
 
         public override void SetStaticDefaults()
         {

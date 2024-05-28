@@ -201,13 +201,13 @@ namespace Fargowiltas.NPCs
             //    return SquirrelShopGroup.Other;
             //}
 
-            if (item.makeNPC != 0 || ItemsSoldDirectly.Contains(item.type))
+            if (item.makeNPC != 0 || FargoSets.Items.SquirrelSellsDirectly[item.type])
             {
                 sellType = SquirrelSellType.SoldBySquirrel;
                 return SquirrelShopGroup.Other;
             }
 
-            bool Potion = (item.buffType != 0 && item.type != ItemID.GrilledSquirrel) || FargoGlobalItem.NonBuffPotions.Contains(item.type);
+            bool Potion = (item.buffType != 0 && item.type != ItemID.GrilledSquirrel) || FargoSets.Items.NonBuffPotion[item.type];
             if (Potion && item.maxStack >= 30)
             {
                 sellType = SquirrelSellType.SoldAtThirtyStack;
@@ -443,8 +443,8 @@ namespace Fargowiltas.NPCs
                 if (item.makeNPC != 0)
                 {
                     price = Item.buyPrice(gold: 10);
-                    int[] pricier = new int[]
-                    {
+                    int[] pricier =
+                    [
                         ItemID.TruffleWorm,
                         ItemID.EmpressButterfly,
                         ItemID.GoldBird,
@@ -460,7 +460,7 @@ namespace Fargowiltas.NPCs
                         ItemID.SquirrelGold,
                         ItemID.GoldWaterStrider,
                         ItemID.GoldWorm
-                    };
+                    ];
 
                     if (pricier.Contains(item.type))
                     {

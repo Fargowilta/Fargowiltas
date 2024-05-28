@@ -17,7 +17,7 @@ namespace Fargowiltas
     {
         public override bool IsHeadLayer => false;
 
-        private readonly int[] debuffsToIgnore = {
+        private readonly int[] debuffsToIgnore = [
             BuffID.Campfire,
             BuffID.HeartLamp,
             BuffID.Sunflower,
@@ -30,7 +30,7 @@ namespace Fargowiltas
             BuffID.CatBast,
             BuffID.BrainOfConfusionBuff,
             BuffID.NeutralHunger
-        };
+        ];
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
             => !Main.hideUI 
@@ -52,7 +52,7 @@ namespace Fargowiltas
         protected override void Draw(ref PlayerDrawSet drawInfo)
         {
             Player player = drawInfo.drawPlayer;
-            List<int> debuffs = player.buffType.Where(d => Main.debuff[d] && !debuffsToIgnore.Contains(d)).ToList();
+            List<int> debuffs = player.buffType.Where(d => Main.debuff[d]).Except(debuffsToIgnore).ToList();
             const int maxPerLine = 10;
             int yOffset = 0;
             for (int j = 0; j < debuffs.Count; j += maxPerLine)
@@ -71,6 +71,7 @@ namespace Fargowiltas
                     drawPos = drawPos.RotatedBy(-player.fullRotation); //correct for player rotation????
                     drawPos += player.MountedCenter;
                     drawPos -= Main.screenPosition;
+                    drawPos += Vector2.UnitY * player.gfxOffY;
 
                     if (!TextureAssets.Buff[debuffID].IsLoaded)
                         continue;
