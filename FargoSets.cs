@@ -37,7 +37,7 @@ namespace Fargowiltas
         public override void PostSetupContent()
         {
             #region Items
-            SetFactory itemFactory = new(ItemLoader.ItemCount);
+            SetFactory itemFactory = ItemID.Sets.Factory;
 
             Items.MechanicalAccessory = itemFactory.CreateBoolSet(false,
                 ItemID.MechanicalLens,
@@ -118,7 +118,7 @@ namespace Fargowiltas
                 ItemID.WarTable);
             #endregion
             #region Tiles
-            SetFactory tileFactory = new(TileLoader.TileCount);
+            SetFactory tileFactory = TileID.Sets.Factory;
 
             Tiles.InstaCannotDestroy = tileFactory.CreateBoolSet(false);
 
@@ -136,7 +136,7 @@ namespace Fargowiltas
                 TileID.Titanium);
             #endregion
             #region Walls
-            SetFactory wallFactory = new(WallLoader.WallCount); 
+            SetFactory wallFactory = WallID.Sets.Factory;
 
             Walls.InstaCannotDestroy = wallFactory.CreateBoolSet(false);
 
