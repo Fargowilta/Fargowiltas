@@ -64,7 +64,7 @@ namespace Fargowiltas.Items
             }
         }
         //For the shop sale tooltip system.
-        internal class ShopTooltip
+        public class ShopTooltip
         {
             public List<int> NpcItemIDs = new();
             public List<string> NpcNames = new();
@@ -78,62 +78,67 @@ namespace Fargowiltas.Items
             {
                 TooltipLine line;
                 //Shop sale tooltips. Very engineered. Adds tooltips to ALL npc shop sales. Aims to handle any edge case as well as possible.
-                List<ShopTooltip> registeredShopTooltips = new();
-                foreach (var shop in NPCShopDatabase.AllShops)
+                if (FargoSets.Items.RegisteredShopTooltips[item.type] == null)
                 {
-                    foreach (var entry in shop.ActiveEntries.Where(e => !e.Item.IsAir && e.Item.type == item.type))
+                    List<ShopTooltip> registeredShopTooltips = [];
+                    foreach (var shop in NPCShopDatabase.AllShops)
                     {
-                        Item npcItem = null;
-                        foreach (var tryNPCItem in ContentSamples.ItemsByType.Where(i => i.Value.ModItem != null && i.Value.ModItem is CaughtNPCItem modItem && modItem.AssociatedNpcId == shop.NpcType))
+                        foreach (var entry in shop.ActiveEntries.Where(e => !e.Item.IsAir && e.Item.type == item.type))
                         {
-                            npcItem = tryNPCItem.Value;
-                            break;
-                        }
-                        
-                        if (npcItem == null)
-                        {
-                            npcItem = item;
-                        }
-                        
-                        string conditions = "";
-                        int i = 0;
-                        foreach (var condition in entry.Conditions)
-                        {
-                            string grammar = i > 0 ? ", " : "";
-                            conditions += grammar + condition.Description.Value;
-                            i++;
-                        }
-                        string conditionLine = i > 0 ? ": " + conditions : "";
-                        string npcName = ContentSamples.NpcsByNetId[shop.NpcType].FullName;
-                        
-                        if (registeredShopTooltips.Any(t => t.NpcNames.Any(n => n == npcName) && t.Condition == conditionLine)) //sometimes it makes duplicates otherwise
-                            continue;
-
-                        bool registered = false;
-                        
-                        foreach (ShopTooltip regTooltip in registeredShopTooltips)
-                        {
-                            if (regTooltip.Condition == conditionLine && !regTooltip.NpcNames.Contains(npcName))
+                            Item npcItem = null;
+                            foreach (var tryNPCItem in ContentSamples.ItemsByType.Where(i => i.Value.ModItem != null && i.Value.ModItem is CaughtNPCItem modItem && modItem.AssociatedNpcId == shop.NpcType))
                             {
-                                regTooltip.NpcNames.Add(npcName);
-                                regTooltip.NpcItemIDs.Add(npcItem.type);
-                                registered = true;
+                                npcItem = tryNPCItem.Value;
                                 break;
                             }
+
+                            if (npcItem == null)
+                            {
+                                npcItem = item;
+                            }
+
+                            string conditions = "";
+                            int i = 0;
+                            foreach (var condition in entry.Conditions)
+                            {
+                                string grammar = i > 0 ? ", " : "";
+                                conditions += grammar + condition.Description.Value;
+                                i++;
+                            }
+                            string conditionLine = i > 0 ? ": " + conditions : "";
+                            string npcName = ContentSamples.NpcsByNetId[shop.NpcType].FullName;
+
+                            if (registeredShopTooltips.Any(t => t.NpcNames.Any(n => n == npcName) && t.Condition == conditionLine)) //sometimes it makes duplicates otherwise
+                                continue;
+
+                            bool registered = false;
+
+                            foreach (ShopTooltip regTooltip in registeredShopTooltips)
+                            {
+                                if (regTooltip.Condition == conditionLine && !regTooltip.NpcNames.Contains(npcName))
+                                {
+                                    regTooltip.NpcNames.Add(npcName);
+                                    regTooltip.NpcItemIDs.Add(npcItem.type);
+                                    registered = true;
+                                    break;
+                                }
+                            }
+                            if (!registered)
+                            {
+                                ShopTooltip tooltip = new();
+                                tooltip.NpcItemIDs.Add(npcItem.type);
+                                tooltip.NpcNames.Add(npcName);
+                                tooltip.Condition = conditionLine;
+                                registeredShopTooltips.Add(tooltip);
+                            }
+
+                            break; //only one line per npc
                         }
-                        if (!registered)
-                        {
-                            ShopTooltip tooltip = new();
-                            tooltip.NpcItemIDs.Add(npcItem.type);
-                            tooltip.NpcNames.Add(npcName);
-                            tooltip.Condition = conditionLine;
-                            registeredShopTooltips.Add(tooltip);
-                        }
-                        
-                        break; //only one line per npc
                     }
+                    FargoSets.Items.RegisteredShopTooltips[item.type] = registeredShopTooltips;
                 }
-                foreach (ShopTooltip tooltip in registeredShopTooltips)
+                
+                foreach (ShopTooltip tooltip in FargoSets.Items.RegisteredShopTooltips[item.type])
                 {
 
                     List<int> displayIDs = tooltip.NpcItemIDs.Where(i => i != item.type)?.ToList();
