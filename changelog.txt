@@ -1,12 +1,5 @@
-NEW UPDATE - V 3.3.4
--Non-bomb Insta items now display a rectangular indicator for what they're placing
--Half Instavator and Instavator are now placed at mouse instead of being bombs
--New config to disable Tombstones dropping on death
--Terraformers (Instabridge, City Buster etc) avoiding the vanilla CanPlace check is now dictated by a config (Safe Terraformers), disabled by default.
--Replaced several Deviantt dialogue lines
--Boom Shuriken now ONLY affects pickaxe-mined tiles; cannot break hammered tiles such as Altars or axed tiles such as trees
--Raised Anemometer max wind speed to be usable to be equal to the wind speed it sets (you can always use it if the speed is less)
--Nuke Boxes no longer stack at 2
--Squirrel now sells Hand of Creation
--Adding missing Foods to recipe groups
--Fixed Rotting Bait name and description being incorrect
+NEW UPDATE - V 3.3.4.1
+-Optimized NPC sale tooltips
+-Permanent buff stations now has its own config
+-Fixed Buff display not accounting for player.gfxOffY making it lag behind on slopes
+-Updated text and localization
