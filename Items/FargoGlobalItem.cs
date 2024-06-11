@@ -14,10 +14,8 @@ using Terraria.GameContent.ItemDropRules;
 using Fargowiltas.Common.Configs;
 using Fargowiltas.Items.Ammos.Coins;
 using Fargowiltas.Items.CaughtNPCs;
-using static System.Net.Mime.MediaTypeNames;
 using Terraria.Localization;
 using Fargowiltas.Items.Misc;
-using System.Security.AccessControl;
 
 namespace Fargowiltas.Items
 {
@@ -262,13 +260,14 @@ namespace Fargowiltas.Items
                         line = new TooltipLine(Mod, "TooltipUnlim", $"[i:5139] [c/AAAAAA:{ExpandedTooltipLoc("UnlimitedUse30")}]");
                         tooltips.Add(line);
                     }
+                   
                     
-                    else if (FargoSets.Items.BuffStation[item.type])
-                    {
-                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:{item.type}] [c/AAAAAA:{ExpandedTooltipLoc("PermanentEffectNearby")}]");
-                        tooltips.Add(line);
-                    }
-                    
+                }
+
+                if (fargoServerConfig.PermanentStationsNearby && FargoSets.Items.BuffStation[item.type])
+                {
+                    line = new TooltipLine(Mod, "TooltipUnlim", $"[i:{item.type}] [c/AAAAAA:{ExpandedTooltipLoc("PermanentEffectNearby")}]");
+                    tooltips.Add(line);
                 }
 
                 if (fargoServerConfig.PiggyBankAcc)

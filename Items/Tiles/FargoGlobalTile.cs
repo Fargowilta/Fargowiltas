@@ -146,40 +146,44 @@ namespace Fargowiltas.Tiles
                     }
                 }
             }
-            int buff = 0;
-            SoundStyle? sound = null;
-            switch (type)
+
+            if (FargoServerConfig.Instance.PermanentStationsNearby)
             {
-                case TileID.SharpeningStation:
-                    buff = BuffID.Sharpened;
-                    sound = SoundID.Item37;
-                    break;
-                case TileID.AmmoBox:
-                    buff = BuffID.AmmoBox;
-                    sound = SoundID.Item149;
-                    break;
-                case TileID.CrystalBall:
-                    buff = BuffID.Clairvoyance;
-                    sound = SoundID.Item4;
-                    break;
-                case TileID.BewitchingTable:
-                    buff = BuffID.Bewitched;
-                    sound = SoundID.Item4;
-                    break;
-                case TileID.WarTable:
-                    buff = BuffID.WarTable;
-                    sound = SoundID.Item4; 
-                    break;
-            }
-            if (buff != 0 && Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost)
-            {
-                bool noAlchemistNPC = !(ModLoader.HasMod("AlchemistNPC") || ModLoader.HasMod("AlchemistNPCLite")); // because it fucks with buffs for some reason and makes the sound spam WHY WHY WHY WHY WHAT'S WRONG WITH YOU WHY WHY WHY
-                if (!Main.LocalPlayer.HasBuff(buff) && sound.HasValue && noAlchemistNPC && Main.LocalPlayer.GetModPlayer<FargoPlayer>().StationSoundCooldown <= 0)
+                int buff = 0;
+                SoundStyle? sound = null;
+                switch (type)
                 {
-                    SoundEngine.PlaySound(sound.Value, new Vector2(i, j) * 16);
-                    Main.LocalPlayer.GetModPlayer<FargoPlayer>().StationSoundCooldown = 60 * 60;
+                    case TileID.SharpeningStation:
+                        buff = BuffID.Sharpened;
+                        sound = SoundID.Item37;
+                        break;
+                    case TileID.AmmoBox:
+                        buff = BuffID.AmmoBox;
+                        sound = SoundID.Item149;
+                        break;
+                    case TileID.CrystalBall:
+                        buff = BuffID.Clairvoyance;
+                        sound = SoundID.Item4;
+                        break;
+                    case TileID.BewitchingTable:
+                        buff = BuffID.Bewitched;
+                        sound = SoundID.Item4;
+                        break;
+                    case TileID.WarTable:
+                        buff = BuffID.WarTable;
+                        sound = SoundID.Item4;
+                        break;
                 }
-                Main.LocalPlayer.AddBuff(buff, 2);
+                if (buff != 0 && Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost)
+                {
+                    bool noAlchemistNPC = !(ModLoader.HasMod("AlchemistNPC") || ModLoader.HasMod("AlchemistNPCLite")); // because it fucks with buffs for some reason and makes the sound spam WHY WHY WHY WHY WHAT'S WRONG WITH YOU WHY WHY WHY
+                    if (!Main.LocalPlayer.HasBuff(buff) && sound.HasValue && noAlchemistNPC && Main.LocalPlayer.GetModPlayer<FargoPlayer>().StationSoundCooldown <= 0)
+                    {
+                        SoundEngine.PlaySound(sound.Value, new Vector2(i, j) * 16);
+                        Main.LocalPlayer.GetModPlayer<FargoPlayer>().StationSoundCooldown = 60 * 60;
+                    }
+                    Main.LocalPlayer.AddBuff(buff, 2);
+                }
             }
         }
 

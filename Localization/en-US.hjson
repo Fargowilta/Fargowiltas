@@ -158,6 +158,11 @@ Mods: {
 					Tooltip: ""
 				}
 
+				PermanentStationsNearby: {
+					Label: "[i:3198] Automatic Station Buffs When Nearby"
+					Tooltip: ""
+				}
+
 				BossZen: {
 					Label: "[i:3117] No enemies spawn during boss fights"
 					Tooltip: ""

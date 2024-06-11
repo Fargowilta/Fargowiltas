@@ -144,6 +144,9 @@ namespace Fargowiltas.Common.Configs
         public bool Fountains;
 
         [DefaultValue(true)]
+        public bool PermanentStationsNearby;
+
+        [DefaultValue(true)]
         public bool BossZen;
 
         [DefaultValue(true)]
