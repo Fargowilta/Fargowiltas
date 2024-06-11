@@ -1,5 +1,6 @@
 ﻿using Fargowilta;
 using Fargowiltas.Common.Configs;
+using Fargowiltas.Content.TileEntities;
 using Fargowiltas.Items.CaughtNPCs;
 using Fargowiltas.Items.Misc;
 using Fargowiltas.Items.Tiles;
@@ -20,6 +21,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using static Fargowiltas.FargoSets;
+using Terraria.ModLoader.IO;
 
 namespace Fargowiltas
 {
@@ -52,6 +54,9 @@ namespace Fargowiltas
 
         public List<StatSheetUI.Stat> ModStats;
         public List<StatSheetUI.PermaUpgrade> PermaUpgrades;
+
+        public static List<int> UncraftingAllowedItems;
+        public static List<List<int>> UncraftingRecipes;
 
         private string[] mods;
 
@@ -261,6 +266,80 @@ namespace Fargowiltas
             {
                 Logger.Error("Fargowiltas PostSetupContent Error: " + e.StackTrace + e.Message);
             }
+
+            //items that can be duped by crafting tree
+            UncraftingAllowedItems = new List<int>
+                {
+
+
+                    ////Vanilla items, comment them out if we end up deciding not to include them
+                    ItemID.Shellphone,
+                    ItemID.ShellphoneDummy,
+                    ItemID.ShellphoneHell,
+                    ItemID.ShellphoneOcean,
+                    ItemID.ShellphoneSpawn,
+                    ItemID.Zenith,
+                    ItemID.TerrasparkBoots,
+                    ItemID.TerraBlade,
+                    ItemID.CopperShortsword,
+                    ItemID.Meowmere,
+                    ItemID.EnchantedSword,
+                    ItemID.StarWrath,
+                    ItemID.Starfury,
+                    ItemID.InfluxWaver,
+                    ItemID.TheHorsemansBlade,
+                    ItemID.Seedler,
+                    ItemID.BeeKeeper,
+                    ItemID.AnkhShield,
+                    ItemID.AmphibianBoots,
+                    ItemID.SandBoots,
+                    ItemID.FairyBoots,
+                    ItemID.BalloonHorseshoeFart,
+                    ItemID.RodofDiscord,
+                    ItemID.TorchGodsFavor,
+                    ModContent.ItemType<Omnistation>(),
+            ModContent.ItemType<Omnistation2>(),
+            ModContent.ItemType<CrucibleCosmos>(),
+            ModContent.ItemType<ElementalAssembler>(),
+            ModContent.ItemType<MultitaskCenter>(),
+            ModContent.ItemType<PortableSundial>(),
+            ModContent.ItemType<BattleCry>()
+
+                };
+            if (ModLoader.HasMod("FargowiltasSouls"))
+            {
+                List<string> soulsItems = new List<string>() {
+                "HeartoftheMasochist",
+                "BionomicCluster",
+                "AeolusBoots",
+                "ZephyrBoots",
+                "EureusSock",
+                "ChaliceoftheMoon",
+                "DubiousCircuitry",
+                "LumpOfFlesh",
+                "PureHeart",
+                "SinisterIcon",
+                "SupremeDeathbringerFairy"
+                };
+                for (int i = 0; i < soulsItems.Count; i++)
+                {
+                    if (ModContent.TryFind("FargowiltasSouls", soulsItems[i], out ModItem soulsItem))
+                        UncraftingAllowedItems.Add(soulsItem.Type);
+                }
+
+
+                //auto add all enchants souls forces and essences
+                for (int i = 0; i < ItemLoader.ItemCount; i++)
+                {
+                    if (i >= ItemID.Count && (ModContent.GetModItem(i).Name.EndsWith("Enchant") || ModContent.GetModItem(i).Name.EndsWith("Soul") || ModContent.GetModItem(i).Name.EndsWith("Force") || ModContent.GetModItem(i).Name.EndsWith("Essence")))
+                    {
+                        UncraftingAllowedItems.Add(i);
+                    }
+                }
+            }
+            //entries cant be null when i try to add something to them later
+            UncraftingRecipes = new List<List<int>>();
+            for (int i = 0; i < ItemLoader.ItemCount; i++) UncraftingRecipes.Add(new List<int>());
 
             if (ModLoader.TryGetMod("Wikithis", out Mod wikithis) && !Main.dedServ)
             {
@@ -549,6 +628,23 @@ namespace Fargowiltas
                         }
                     }
                     break;
+                //sync crafting tree tile entity
+                case 10:
+                    {
+                        int type = reader.ReadInt32();
+                        int prefix = reader.ReadInt32();
+                        int ID = reader.ReadInt32();
+                        string name = reader.ReadString();
+                        int X = reader.ReadInt32();
+                        int Y = reader.ReadInt32();
+                        FargoUtils.TryGetTileEntityAs<CraftingTreeTileEntity>(X, Y, out CraftingTreeTileEntity t);
+                        t.ItemType = type;
+                        t.Prefix = prefix;
+                        t.ItemName = name;
+                        NetMessage.SendData(MessageID.TileEntitySharing, number: ID, number2: X, number3: Y);
+                    }
+                    break;
+                   
                 default:
                     break;
             }

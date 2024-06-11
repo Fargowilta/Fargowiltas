@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Fargowiltas.Items.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace Fargowiltas
 {
@@ -96,10 +98,11 @@ namespace Fargowiltas
 
             SendFargoNetMessage(1, ai2);
         }
-
-        /*
-         * Writes a vector2 array to an obj[] array that can be sent via netmessaging.
-         */
+        public static void SyncCraftingTreeTileEntity(int itemType, int prefix, int ID, string name, int X, int Y)
+        {
+            ModPacket packet = WriteToPacket(Fargowiltas.Instance.GetPacket(), 10, itemType, prefix, ID, name, X, Y);
+            packet.Send();
+        }
         public static object[] WriteVector2Array(Vector2[] array)
         {
             List<object> list = new List<object>
@@ -207,7 +210,7 @@ namespace Fargowiltas
                 ModContent.GetInstance<Fargowiltas>().Logger.Info("--SERVER-- PLAYER JOINED!");
             }
         }
-
+        
         public static void SendNetMessage(int msg, params object[] param)
         {
             SendNetMessageClient(msg, -1, param);

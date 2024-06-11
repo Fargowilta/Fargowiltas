@@ -2453,6 +2453,21 @@ Mods: {
 				DisplayName: Зелье Большого Засоса
 				Tooltip: Заставляет тебя засасывать всё
 			}
+
+			EnchantedAcorn: {
+				// DisplayName: Enchanted Acorn
+				// Tooltip: A mythical nut of a certain mystical tree
+			}
+
+			CraftingTree: {
+				// DisplayName: Crafting Tree
+				/* Tooltip:
+					'''
+					Capable of separating the essence of an item into its ingredients
+					You can pick items from the resulting tree by dragging them with your mouse
+					Enchanted Acorns are required to duplicate items
+					''' */
+			}
 		}
 
 		NPCs: {

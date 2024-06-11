@@ -48,6 +48,8 @@ namespace Fargowiltas
 
         public int StationSoundCooldown;
 
+        public bool HoveringOverTreeItem;
+
         internal Dictionary<string, bool> FirstDyeIngredients = new Dictionary<string, bool>();
 
         private readonly string[] tags =
@@ -161,6 +163,7 @@ namespace Fargowiltas
             extractSpeed = false;
             HasDrawnDebuffLayer = false;
             bigSuck = false;
+            HoveringOverTreeItem = false;
         }
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
@@ -232,7 +235,7 @@ namespace Fargowiltas
 
             if (Player.equippedWings == null)
                 ResetStatSheetWings();
-
+            
             ForceBiomes();
         }
 
@@ -344,7 +347,6 @@ namespace Fargowiltas
                     autoRevertSelectedItem = false;
                 }
             }
-
             if (FargoWorld.OverloadedSlimeRain && Main.rand.NextBool(20))
             {
                 SlimeRainSpawns();
@@ -425,6 +427,7 @@ namespace Fargowiltas
             else if (magicMirror != -1)
                 QuickUseItemAt(magicMirror);
         }
+        
         public override void ModifyMaxStats(out StatModifier health, out StatModifier mana)
         {
             health = StatModifier.Default with { Base = -(DeathFruitHealth) };
@@ -447,6 +450,7 @@ namespace Fargowiltas
                 }
             }
         }
+        
 
         //        /*public override void clientClone(ModPlayer clientClone)
         //        {

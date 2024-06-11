@@ -86,24 +86,25 @@ namespace Fargowiltas
                 ItemID.REK);
 
             Items.SquirrelSellsDirectly = itemFactory.CreateBoolSet(false,
-                ItemID.CellPhone,
-                ItemID.Shellphone,
-                ItemID.ShellphoneDummy,
-                ItemID.ShellphoneHell,
-                ItemID.ShellphoneOcean,
-                ItemID.ShellphoneSpawn,
-                ItemID.AnkhShield,
-                ItemID.RodofDiscord,
-                ItemID.TerrasparkBoots,
-                ItemID.TorchGodsFavor,
-                ItemID.HandOfCreation,
-                ItemType<Omnistation>(),
-                ItemType<Omnistation2>(),
-                ItemType<CrucibleCosmos>(),
-                ItemType<ElementalAssembler>(),
-                ItemType<MultitaskCenter>(),
-                ItemType<PortableSundial>(),
-                ItemType<BattleCry>());
+                //ItemID.CellPhone,
+                //ItemID.Shellphone,
+                //ItemID.ShellphoneDummy,
+                //ItemID.ShellphoneHell,
+                //ItemID.ShellphoneOcean,
+                //ItemID.ShellphoneSpawn,
+                //ItemID.AnkhShield,
+                //ItemID.RodofDiscord,
+                //ItemID.TerrasparkBoots,
+                ItemID.TorchGodsFavor
+                //ItemID.HandOfCreation,
+                //ItemType<Omnistation>(),
+                //ItemType<Omnistation2>(),
+                //ItemType<CrucibleCosmos>(),
+                //ItemType<ElementalAssembler>(),
+                //ItemType<MultitaskCenter>(),
+                //ItemType<PortableSundial>(),
+                //ItemType<BattleCry>()
+                );
 
             Items.NonBuffPotion = itemFactory.CreateBoolSet(false,
                 ItemID.RecallPotion,
