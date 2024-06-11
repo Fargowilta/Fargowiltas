@@ -159,8 +159,8 @@ Mods: {
 				}
 
 				PermanentStationsNearby: {
-					// Label: "[i:3198] Automatic Station Buffs When Nearby"
-					// Tooltip: ""
+					Label: [i:3198] Automatic Station Buffs When Nearby Автоматические Станции с Баффами Рядом
+					Tooltip: Станции с баффами по типу Точильного камня автоматически накладывают баффы всем игрокам рядом с ними
 				}
 
 				BossZen: {
@@ -2998,7 +2998,7 @@ Mods: {
 			UnlimitedBuff30: Безлимитный бафф при стаке из 30 в инвентаре, Свинке-копилке или Сейфе
 			UnlimitedUse30: Безлимитное использование при стаке из 30
 			PermanentEffectNearby: Навсегда предоставляет эффект игрокам поблизости
-			WorksFromBanks: Работает из Свинки-копилки и Сейфе
+			WorksFromBanks: Эффекты из инвентаря также работают из Свинки-копилки и Сейфе
 			SoldBySquirrel: Продаётся у Бельчонок
 			SomeMaterialsSold: Некоторые материалы продаются
 			CraftableMaterialsSold: Создаваемые материалы продаются
