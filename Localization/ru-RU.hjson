@@ -159,7 +159,7 @@ Mods: {
 				}
 
 				PermanentStationsNearby: {
-					Label: [i:3198] Automatic Station Buffs When Nearby Автоматические Станции с Баффами Рядом
+					Label: "[i:3198] Automatic Station Buffs When Nearby Автоматические Станции с Баффами Рядом"
 					Tooltip: Станции с баффами по типу Точильного камня автоматически накладывают баффы всем игрокам рядом с ними
 				}
 
@@ -1353,6 +1353,7 @@ Mods: {
 					Призывает Мимика
 					Призывает Ледяного Мимика при использовании в Снежном биоме
 					'''
+				// HardmodeLock: Only usable in Hardmode
 			}
 
 			SuspiciousLookingLure: {

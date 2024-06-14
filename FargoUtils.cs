@@ -7,12 +7,15 @@ using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace Fargowiltas
 {
     internal static class FargoUtils
     {
         public static readonly BindingFlags UniversalBindingFlags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public;
+
+        public static bool EternityMode => Fargowiltas.ModLoaded["FargowiltasSouls"] && (bool) ModLoader.GetMod("FargowiltasSouls").Call("EternityMode");
         public static bool HasAnyItem(this Player player, params int[] itemIDs) => itemIDs.Any(itemID => player.HasItem(itemID));
 
         public static FargoPlayer GetFargoPlayer(this Player player) => player.GetModPlayer<FargoPlayer>();

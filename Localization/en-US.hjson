@@ -1364,6 +1364,7 @@ Mods: {
 					Summons Mimic
 					Summons Ice Mimic when in snow biome
 					'''
+				HardmodeLock: Only usable in Hardmode
 			}
 
 			SuspiciousLookingLure: {

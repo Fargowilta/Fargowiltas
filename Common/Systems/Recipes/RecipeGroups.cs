@@ -26,6 +26,10 @@ namespace Fargowiltas.Common.Systems.Recipes
             group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ItemID.GoldBar), ItemID.GoldBar, ItemID.PlatinumBar);
             AnyGoldBar = RecipeGroup.RegisterGroup("Fargowiltas:AnyGoldBar", group);
 
+            //demonite bar
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ItemID.DemoniteBar), ItemID.DemoniteBar, ItemID.CrimtaneBar);
+            AnyGoldBar = RecipeGroup.RegisterGroup("Fargowiltas:AnyDemoniteBar", group);
+
             //demon altar
             group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ModContent.ItemType<DemonAltar>()), ModContent.ItemType<DemonAltar>(), ModContent.ItemType<CrimsonAltar>());
             AnyDemonAltar = RecipeGroup.RegisterGroup("Fargowiltas:AnyDemonAltar", group);
