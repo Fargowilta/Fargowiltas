@@ -601,13 +601,13 @@ namespace Fargowiltas.Items
 
         public override void GrabRange(Item item, Player player, ref int grabRange)
         {
-            if (player.GetFargoPlayer().bigSuck)
+            if (player.GetFargoPlayer().bigSuck && !ItemID.Sets.IsAPickup[item.type])
                 grabRange += 9000 * 16; //corner to corner diagonally across a large world is 8736 units
         }
 
         public override bool GrabStyle(Item item, Player player)
         {
-            if (player.GetFargoPlayer().bigSuck && !Hearts.Contains(item.type) && !Stars.Contains(item.type))
+            if (player.GetFargoPlayer().bigSuck && !ItemID.Sets.IsAPickup[item.type])
             {
                 item.position += (player.MountedCenter - item.Center) / 15f;
                 item.position += player.position - player.oldPosition;
