@@ -3016,10 +3016,10 @@ Mods: {
 			UnlimitedUse30: Unlimited use at 30 stack
 			PermanentEffectNearby: Permanently provides effect to nearby players when placed
 			WorksFromBanks: Inventory effects also work from Piggy Bank and Safe
-			SoldBySquirrel: Sold By Squirrel
-			SomeMaterialsSold: Some Materials Sold
-			CraftableMaterialsSold: Craftable Materials Sold
-			SoldAtThirtyStack: Sold At Thirty Stack
+			SoldBySquirrel: Sold By Squirrel: When obtained
+			SomeMaterialsSold: Some Materials Sold By Squirrel: When obtained
+			CraftableMaterialsSold: Craftable Materials Sold By Squirrel: When obtained
+			SoldAtThirtyStack: Sold By Squirrel: When obtained at 30-stack
 			SoldBy: Sold By
 			SeveralVendors: several vendors
 		}
