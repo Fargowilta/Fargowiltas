@@ -1353,7 +1353,7 @@ Mods: {
 					Призывает Мимика
 					Призывает Ледяного Мимика при использовании в Снежном биоме
 					'''
-				// HardmodeLock: Only usable in Hardmode
+				HardmodeLock: Можно использовать только в Хардмоде
 			}
 
 			SuspiciousLookingLure: {
@@ -2798,8 +2798,8 @@ Mods: {
 
 				Census.SpawnCondition: Условия неизвестны
 				CycleShop: Сменить магазин
-				PreHM: Простой
-				HM: Сложный
+				PreHM: Обычный
+				HM: Хардмод
 				PostML: Пост Лунный Лорд
 			}
 
@@ -3000,10 +3000,10 @@ Mods: {
 			UnlimitedUse30: Безлимитное использование при стаке из 30
 			PermanentEffectNearby: Навсегда предоставляет эффект игрокам поблизости
 			WorksFromBanks: Эффекты из инвентаря также работают из Свинки-копилки и Сейфа
-			SoldBySquirrel: Продаётся у Бельчонок
-			SomeMaterialsSold: Некоторые материалы продаются
-			CraftableMaterialsSold: Создаваемые материалы продаются
-			SoldAtThirtyStack: Продаются при стаке из 30
+			SoldBySquirrel: Продаётся у Бельчонок: При получении
+			SomeMaterialsSold: Некоторые материалы продаются у Бельчонок: При получении
+			CraftableMaterialsSold: Создаваемые материалы продаются у Бельчонок: При получении
+			SoldAtThirtyStack: Продаются у Бельчонок: При получении в стаке из 30
 			SoldBy: Продаётся у
 			SeveralVendors: нескольких продавцов
 		}
