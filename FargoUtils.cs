@@ -18,16 +18,6 @@ namespace Fargowiltas
         public static bool EternityMode => Fargowiltas.ModLoaded["FargowiltasSouls"] && (bool) ModLoader.GetMod("FargowiltasSouls").Call("EternityMode");
         public static bool HasAnyItem(this Player player, params int[] itemIDs) => itemIDs.Any(itemID => player.HasItem(itemID));
 
-        public static bool IsFargoSoulsItem(Item item)
-        {
-            if (item.ModItem is not null)
-            {
-                string modName = item.ModItem.Mod.Name;
-                return modName.Equals("FargowiltasSouls") || modName.Equals("FargowiltasSoulsDLC");
-            }
-
-            return false;
-        }
 
         public static FargoPlayer GetFargoPlayer(this Player player) => player.GetModPlayer<FargoPlayer>();
 

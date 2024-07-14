@@ -209,7 +209,7 @@ namespace Fargowiltas.NPCs
             }
             bool soulsEnabled = ModLoader.TryGetMod("FargowiltasSouls", out Mod soulsMod);
 
-            if (FargoUtils.IsFargoSoulsItem(item))
+            if (IsFargoSoulsItem(item))
             {
                 if (item.ModItem.Name.EndsWith("Enchant"))
                 {
@@ -379,7 +379,16 @@ namespace Fargowiltas.NPCs
 
             return itemCollections.OrderBy(kv => kv.Key).SelectMany(kv => kv.Value).ToList();
         }
+        public static bool IsFargoSoulsItem(Item item)
+        {
+            if (item.ModItem is not null)
+            {
+                string modName = item.ModItem.Mod.Name;
+                return modName.Equals("FargowiltasSouls") || modName.Equals("FargowiltasSoulsDLC");
+            }
 
+            return false;
+        }
         public override void AddShops()
         {
             var npcShop = new NPCShop(Type, ShopName);
