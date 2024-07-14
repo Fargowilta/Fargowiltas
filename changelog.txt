@@ -1,6 +1,6 @@
 NEW UPDATE - V {ModVersion}
 
--Suspicious Looking Chest recipe: Iron Bars -> Demonite/Crimtane Bars, 5 Recall Potions -> 10 Gold Coins-
+-Suspicious Looking Chest recipe: Iron Bars -> Demonite/Crimtane Bars, 5 Recall Potions -> 10 Gold Coins.
 Can now only be used in Hardmode, outside of Eternity Mode.
 
 -Bone banner recipes now require Skeletron to be defeated
