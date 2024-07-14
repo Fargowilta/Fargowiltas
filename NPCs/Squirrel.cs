@@ -128,7 +128,7 @@ namespace Fargowiltas.NPCs
 
         public override string GetChat()
         {
-            showCycleShop = GetSellableItems().Count / Chest.maxItems > 0 && !ModLoader.TryGetMod("ShopExpander", out _);
+            showCycleShop = GetSellableItems().Count / Chest.maxItems > 0; // && !ModLoader.TryGetMod("ShopExpander", out _);
 
             if (Main.bloodMoon)
             {
