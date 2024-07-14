@@ -367,7 +367,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             AddBannerToItemRecipe(ItemID.AngryBonesBanner, ItemID.Bone, resultAmount: 100, conditions: Condition.DownedSkeletron);
             AddBannerToItemRecipe(ItemID.CursedSkullBanner, ItemID.Bone, resultAmount: 100, conditions: Condition.DownedSkeletron);
             AddBannerToItemRecipe(ItemID.SkeletonMageBanner, ItemID.Bone, resultAmount: 100, conditions: Condition.DownedSkeletron);
-            AddBannerToItemRecipe(ItemID.SkeletonBanner, ItemID.Bone, resultAmount: 100, conditions: Condition.DownedSkeletron);
+            //AddBannerToItemRecipe(ItemID.SkeletonBanner, ItemID.Bone, resultAmount: 100, conditions: Condition.DownedSkeletron);
             AddBannerToItemRecipe(ItemID.GemBunnyAmber, ItemID.Amber, resultAmount: 5);
             AddBannerToItemRecipe(ItemID.GemBunnyAmethyst, ItemID.Amethyst, resultAmount: 5);
             AddBannerToItemRecipe(ItemID.GemBunnyDiamond, ItemID.Diamond, resultAmount: 5);
