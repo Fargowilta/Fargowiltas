@@ -1,3 +1,2 @@
 NEW UPDATE - V {ModVersion}
-
--Fixed mod not loading with Fargo's Souls DLC
+-Fixed Squirrel not selling 30-stack Potions
