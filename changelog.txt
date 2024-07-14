@@ -1,5 +1,15 @@
-NEW UPDATE - V 3.3.4.1
--Optimized NPC sale tooltips
--Permanent buff stations now has its own config
--Fixed Buff display not accounting for player.gfxOffY making it lag behind on slopes
--Updated text and localization
+NEW UPDATE - V {ModVersion}
+
+-Suspicious Looking Chest recipe: Iron Bars -> Demonite/Crimtane Bars, 5 Recall Potions -> 10 Gold Coins-
+Can now only be used in Hardmode, outside of Eternity Mode.
+
+-Bone banner recipes now require Skeletron to be defeated
+-Removed Skeleton Banner -> Bones recipe
+
+-Reduced lag of Boom Shurikens; can now hit axe/hammer tiles again
+-Fixed Big Suck Potion affecting pickups
+-Renamed Deer Thing to Unusual Deer Skull and resprited it
+
+-Clarified Squirrel sale tooltips and their conditions
+-All Squirrel sale "owned" conditions are now based on if anyone has owned the item ever. Changed some Squirrel sold item lists.
+-Fixed Squirrel shops breaking with the Shop Expander mod
