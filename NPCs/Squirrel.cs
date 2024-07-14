@@ -128,7 +128,7 @@ namespace Fargowiltas.NPCs
 
         public override string GetChat()
         {
-            showCycleShop = GetSellableItems().Count / Chest.maxItems > 0; // && !ModLoader.TryGetMod("ShopExpander", out _);
+            showCycleShop = GetSellableItems().Count / MaxItems > 0; // && !ModLoader.TryGetMod("ShopExpander", out _);
 
             if (Main.bloodMoon)
             {
@@ -165,7 +165,7 @@ namespace Fargowiltas.NPCs
             }
 
             //check this when just opening shop too in case shop shrinks
-            if (shopNum > GetSellableItems().Count / Chest.maxItems)
+            if (shopNum > GetSellableItems().Count / MaxItems)
             {
                 shopNum = 0;
             }
@@ -386,12 +386,12 @@ namespace Fargowiltas.NPCs
 
             npcShop.Register();
         }
-
+        public static int MaxItems = ModLoader.HasMod("ShopExpander") ? Chest.maxItems - 2 : Chest.maxItems;
         public override void ModifyActiveShop(string shopName, Item[] items)
         {
             int nextSlot = 0; //ignore pylon and anything else inserted into shop ( how does this work in new system?
             int index = 0;
-            int startOffset = shopNum * Chest.maxItems;
+            int startOffset = shopNum * MaxItems;
 
             List<int> sellableItems = GetSellableItems();
             if (shopNum == 0 && ModContent.TryFind("FargowiltasSouls", "TopHatSquirrelCaught", out ModItem modItem)) //only on page 1
@@ -406,7 +406,7 @@ namespace Fargowiltas.NPCs
                     continue;
                 }
 
-                if (nextSlot >= Chest.maxItems) //only fill shop up to capacity
+                if (nextSlot >= MaxItems) //only fill shop up to capacity
                 {
                     break;
                 }
