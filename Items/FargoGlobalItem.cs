@@ -577,6 +577,8 @@ namespace Fargowiltas.Items
                 player.GetModPlayer<FargoPlayer>().FirstDyeIngredients[dye] = true;
             }
 
+            player.GetModPlayer<FargoPlayer>().ItemHasBeenOwned[item.type] = true;
+
             return base.OnPickup(item, player);
         }
 

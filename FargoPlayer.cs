@@ -48,7 +48,9 @@ namespace Fargowiltas
 
         public int StationSoundCooldown;
 
-        internal Dictionary<string, bool> FirstDyeIngredients = new Dictionary<string, bool>();
+        internal Dictionary<string, bool> FirstDyeIngredients = [];
+
+        public bool[] ItemHasBeenOwned; // If you've owned this item type ever
 
         private readonly string[] tags =
         [
@@ -66,17 +68,19 @@ namespace Fargowiltas
             "PinkPricklyPear",
             "BlackInk"
         ];
-
+        public override void Initialize()
+        {
+            ItemHasBeenOwned = ItemID.Sets.Factory.CreateBoolSet(false);
+        }
         public override void SaveData(TagCompound tag)
         {
             string name = "FargoDyes" + Player.name;
-            List<string> dyes = new List<string>();
+            List<string> dyes = [];
 
             foreach (string tagString in tags)
             {
-                bool value;
 
-                if (FirstDyeIngredients.TryGetValue(tagString, out value))
+                if (FirstDyeIngredients.TryGetValue(tagString, out bool value))
                 {
                     dyes.AddWithCondition(tagString, FirstDyeIngredients[tagString]);
                 }
@@ -94,13 +98,30 @@ namespace Fargowiltas
 
             if (CalmingCry)
                 tag.Add($"FargoCalmingCry{Player.name}", true);
+
+            List<string> ownedItemsData = [];
+            for (int i = 0; i < ItemHasBeenOwned.Length; i++)
+            {
+                if (ItemHasBeenOwned[i])
+                {
+                    if (i >= ItemID.Count) // modded item, variable type, add name instead
+                    {
+                        if (ItemLoader.GetItem(i) is ModItem modItem && modItem != null)
+                            ownedItemsData.Add($"{modItem.FullName}");
+                    }
+                    else // vanilla item
+                    {
+                        ownedItemsData.Add($"{i}");
+                    }
+                }
+            }
+            tag.Add("OwnedItemsList", ownedItemsData);
         }
 
         //        public override void Initialize()
         //        {
         //            //Toggler.Load(this);
         //        }
-
         public override void LoadData(TagCompound tag)
         {
             string name = "FargoDyes" + Player.name;
@@ -114,6 +135,21 @@ namespace Fargowiltas
             DeathFruitHealth = tag.GetInt("DeathFruitHealth");
             BattleCry = tag.ContainsKey($"FargoBattleCry{Player.name}");
             CalmingCry = tag.ContainsKey($"FargoCalmingCry{Player.name}");
+
+            ItemHasBeenOwned = ItemID.Sets.Factory.CreateBoolSet(false);
+            var ownedItemsData = tag.GetList<string>("OwnedItemsList");
+            foreach (var entry in ownedItemsData)
+            {
+                if (int.TryParse(entry, out int type) && type < ItemID.Count)
+                {
+                    ItemHasBeenOwned[type] = true;
+                }
+                else
+                {
+                    ModItem item = ModContent.Find<ModItem>(entry);
+                    ItemHasBeenOwned[item.Type] = true;
+                }
+            }
         }
         public override void SyncPlayer(int toWho, int fromWho, bool newPlayer)
         {
@@ -208,7 +244,6 @@ namespace Fargowiltas
                 }
             }
         }
-
         public override void PostUpdateEquips()
         {
             if (Fargowiltas.SwarmActive)
