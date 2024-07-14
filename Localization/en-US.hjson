@@ -1111,7 +1111,7 @@ Mods: {
 			}
 
 			DeerThing2: {
-				DisplayName: Thing Deer
+				DisplayName: Unusual Deer Skull
 				Tooltip: Summons Deerclops in any biome
 			}
 
