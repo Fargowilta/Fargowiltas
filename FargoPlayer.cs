@@ -51,6 +51,7 @@ namespace Fargowiltas
         internal Dictionary<string, bool> FirstDyeIngredients = [];
 
         public bool[] ItemHasBeenOwned; // If you've owned this item type ever
+        public bool[] ItemHasBeenOwnedAtThirtyStack; // If you've owned this 30 of this item type ever
 
         private readonly string[] tags =
         [
@@ -71,6 +72,7 @@ namespace Fargowiltas
         public override void Initialize()
         {
             ItemHasBeenOwned = ItemID.Sets.Factory.CreateBoolSet(false);
+            ItemHasBeenOwnedAtThirtyStack = ItemID.Sets.Factory.CreateBoolSet(false);
         }
         public override void SaveData(TagCompound tag)
         {

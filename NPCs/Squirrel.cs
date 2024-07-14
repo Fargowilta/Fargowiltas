@@ -312,11 +312,11 @@ namespace Fargowiltas.NPCs
                     break;
 
                 case SquirrelSellType.SoldAtThirtyStack:
-                    if (item.stack >= 30)
+                    foreach (Player player in Main.player.Where(p => p.active))
                     {
-                        itemCollections[shopGroup].Add(item.type);
+                        if (player.GetFargoPlayer().ItemHasBeenOwnedAtThirtyStack[item.type])
+                            itemCollections[shopGroup].Add(item.type);
                     }
-
                     break;
 
                 default:
@@ -337,11 +337,25 @@ namespace Fargowiltas.NPCs
                 FargoPlayer modPlayer = player.GetFargoPlayer();
 
                 foreach (var item in player.inventory)
+                {
                     modPlayer.ItemHasBeenOwned[item.type] = true;
+                    if (item.stack >= 30)
+                        modPlayer.ItemHasBeenOwnedAtThirtyStack[item.type] = true;
+                }
+                    
                 foreach (var item in player.bank.item)
+                {
                     modPlayer.ItemHasBeenOwned[item.type] = true;
+                    if (item.stack >= 30)
+                        modPlayer.ItemHasBeenOwnedAtThirtyStack[item.type] = true;
+                }
+                   
                 foreach (var item in player.armor)
+                {
                     modPlayer.ItemHasBeenOwned[item.type] = true;
+                    if (item.stack >= 30)
+                        modPlayer.ItemHasBeenOwnedAtThirtyStack[item.type] = true;
+                }
 
                 foreach (var item in ContentSamples.ItemsByType)
                 {

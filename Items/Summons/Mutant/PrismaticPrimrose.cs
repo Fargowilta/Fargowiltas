@@ -37,7 +37,6 @@ namespace Fargowiltas.Items.Summons.Mutant
                 if (Main.netMode == NetmodeID.Server) //sync time
                     NetMessage.SendData(MessageID.WorldData, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
             }
-
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
     }
