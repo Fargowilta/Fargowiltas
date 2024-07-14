@@ -386,7 +386,7 @@ namespace Fargowiltas.NPCs
 
             npcShop.Register();
         }
-        public static int MaxItems = ModLoader.HasMod("ShopExpander") ? Chest.maxItems - 2 : Chest.maxItems;
+        public static int MaxItems => ModLoader.HasMod("ShopExpander") ? Chest.maxItems - 2 : Chest.maxItems;
         public override void ModifyActiveShop(string shopName, Item[] items)
         {
             int nextSlot = 0; //ignore pylon and anything else inserted into shop ( how does this work in new system?
