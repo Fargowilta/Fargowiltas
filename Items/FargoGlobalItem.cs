@@ -81,6 +81,9 @@ namespace Fargowiltas.Items
                     List<ShopTooltip> registeredShopTooltips = [];
                     foreach (var shop in NPCShopDatabase.AllShops)
                     {
+                        if (shop.NpcType == ModContent.NPCType<Squirrel>())
+                            continue;
+
                         foreach (var entry in shop.ActiveEntries.Where(e => !e.Item.IsAir && e.Item.type == item.type))
                         {
                             Item npcItem = null;
@@ -576,6 +579,8 @@ namespace Fargowiltas.Items
             {
                 player.GetModPlayer<FargoPlayer>().FirstDyeIngredients[dye] = true;
             }
+
+            player.GetModPlayer<FargoPlayer>().ItemHasBeenOwned[item.type] = true;
 
             return base.OnPickup(item, player);
         }

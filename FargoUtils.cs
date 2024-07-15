@@ -18,6 +18,7 @@ namespace Fargowiltas
         public static bool EternityMode => Fargowiltas.ModLoaded["FargowiltasSouls"] && (bool) ModLoader.GetMod("FargowiltasSouls").Call("EternityMode");
         public static bool HasAnyItem(this Player player, params int[] itemIDs) => itemIDs.Any(itemID => player.HasItem(itemID));
 
+
         public static FargoPlayer GetFargoPlayer(this Player player) => player.GetModPlayer<FargoPlayer>();
 
         public static void AddWithCondition<T>(this List<T> list, T type, bool condition)

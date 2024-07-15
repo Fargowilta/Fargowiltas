@@ -1,5 +1,2 @@
-NEW UPDATE - V 3.3.4.1
--Optimized NPC sale tooltips
--Permanent buff stations now has its own config
--Fixed Buff display not accounting for player.gfxOffY making it lag behind on slopes
--Updated text and localization
+NEW UPDATE - V {ModVersion}
+-Fixed Squirrel not selling 30-stack Potions

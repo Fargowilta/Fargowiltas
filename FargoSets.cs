@@ -1,5 +1,6 @@
 ﻿using Fargowiltas.Items.Misc;
 using Fargowiltas.Items.Tiles;
+using Fargowiltas.NPCs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace Fargowiltas
             public static bool[] MechanicalAccessory;
             public static bool[] InfoAccessory;
             public static bool[] SquirrelSellsDirectly;
+
             public static bool[] NonBuffPotion;
             public static bool[] BuffStation;
             public static List<ShopTooltip>[] RegisteredShopTooltips;
@@ -97,6 +99,7 @@ namespace Fargowiltas
                 ItemID.TerrasparkBoots,
                 ItemID.TorchGodsFavor,
                 ItemID.HandOfCreation,
+                ItemID.Zenith,
                 ItemType<Omnistation>(),
                 ItemType<Omnistation2>(),
                 ItemType<CrucibleCosmos>(),

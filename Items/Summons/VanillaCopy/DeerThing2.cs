@@ -8,8 +8,6 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
 {
     public class DeerThing2 : BaseSummon
     {
-        public override string Texture => "Terraria/Images/Item_5120";
-
         public override int NPCType => NPCID.Deerclops;
 
         public override void SetStaticDefaults()
