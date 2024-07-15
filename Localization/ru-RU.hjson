@@ -1100,7 +1100,7 @@ Mods: {
 			}
 
 			DeerThing2: {
-				DisplayName: Штуко-олень
+				DisplayName: Необычный Олений Черп
 				Tooltip: Призывает Циклоленя в любом биоме
 			}
 
