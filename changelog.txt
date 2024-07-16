@@ -1,2 +1,2 @@
 NEW UPDATE - V {ModVersion}
--Fixed Squirrel not selling 30-stack Potions
+-Fixed characters failing to load after adding an item from another mod to their inventory and then disabling that mod

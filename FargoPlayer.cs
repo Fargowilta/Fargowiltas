@@ -148,8 +148,8 @@ namespace Fargowiltas
                 }
                 else
                 {
-                    ModItem item = ModContent.Find<ModItem>(entry);
-                    ItemHasBeenOwned[item.Type] = true;
+                    if (ModContent.TryFind<ModItem>(entry, out ModItem item))
+                        ItemHasBeenOwned[item.Type] = true;
                 }
             }
         }

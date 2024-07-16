@@ -338,6 +338,8 @@ namespace Fargowiltas.NPCs
 
                 foreach (var item in player.inventory)
                 {
+                    if (SquirrelSells(item, out SquirrelSellType _) == SquirrelShopGroup.End)
+                        continue;
                     modPlayer.ItemHasBeenOwned[item.type] = true;
                     if (item.stack >= 30)
                         modPlayer.ItemHasBeenOwnedAtThirtyStack[item.type] = true;
@@ -345,6 +347,8 @@ namespace Fargowiltas.NPCs
                     
                 foreach (var item in player.bank.item)
                 {
+                    if (SquirrelSells(item, out SquirrelSellType _) == SquirrelShopGroup.End)
+                        continue;
                     modPlayer.ItemHasBeenOwned[item.type] = true;
                     if (item.stack >= 30)
                         modPlayer.ItemHasBeenOwnedAtThirtyStack[item.type] = true;
@@ -352,6 +356,8 @@ namespace Fargowiltas.NPCs
                    
                 foreach (var item in player.armor)
                 {
+                    if (SquirrelSells(item, out SquirrelSellType _) == SquirrelShopGroup.End)
+                        continue;
                     modPlayer.ItemHasBeenOwned[item.type] = true;
                     if (item.stack >= 30)
                         modPlayer.ItemHasBeenOwnedAtThirtyStack[item.type] = true;
