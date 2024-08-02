@@ -34,15 +34,15 @@ namespace Fargowiltas.NPCs
 
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[Type] = 6;         
-            NPCID.Sets.ExtraFramesCount[Type] = 9;           
+            Main.npcFrameCount[Type] = 6;
+            NPCID.Sets.ExtraFramesCount[Type] = 9;
             NPCID.Sets.AttackFrameCount[Type] = 4;
 
             NPCID.Sets.DangerDetectRange[Type] = 700;
             NPCID.Sets.AttackType[Type] = 0;
             NPCID.Sets.AttackTime[Type] = 90;
             NPCID.Sets.AttackAverageChance[Type] = 30;
-            
+
             NPCID.Sets.HatOffsetY[Type] = 4;
 
             NPCID.Sets.CannotSitOnFurniture[Type] = true;
@@ -65,7 +65,7 @@ namespace Fargowiltas.NPCs
         {
             NPC.townNPC = true;
             NPC.friendly = true;
-            NPC.width = 34;
+            NPC.width = 32;
             NPC.height = 42;
             NPC.damage = 0;
             NPC.defense = 0;
@@ -73,6 +73,7 @@ namespace Fargowiltas.NPCs
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = .25f;
+
             AnimationType = NPCID.Squirrel;
             NPC.aiStyle = NPCAIStyleID.Passive;
         }
@@ -108,7 +109,7 @@ namespace Fargowiltas.NPCs
         public override void AI()
         {
             NPC.dontTakeDamage = Main.bloodMoon;
-            DrawOffsetY = -2;          
+            DrawOffsetY = -2;
         }
 
         public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
@@ -158,7 +159,7 @@ namespace Fargowiltas.NPCs
             {
                 button += $" {shopNum + 1}";
                 button2 = Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.CycleShop");
-            }          
+            }
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
@@ -429,8 +430,8 @@ namespace Fargowiltas.NPCs
                 if (item.makeNPC != 0)
                 {
                     price = Item.buyPrice(gold: 10);
-                    int[] pricier =
-                    [
+                    int[] pricier = new int[]
+                    {
                         ItemID.TruffleWorm,
                         ItemID.EmpressButterfly,
                         ItemID.GoldBird,
@@ -446,7 +447,7 @@ namespace Fargowiltas.NPCs
                         ItemID.SquirrelGold,
                         ItemID.GoldWaterStrider,
                         ItemID.GoldWorm
-                    ];
+                    };
 
                     if (pricier.Contains(item.type))
                     {
@@ -497,6 +498,7 @@ namespace Fargowiltas.NPCs
                 return true;
             }
 
+            
             Rectangle frame = NPC.frame;
             SpriteEffects effects = NPC.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             //Vector2 position = NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY + 2);
@@ -507,7 +509,7 @@ namespace Fargowiltas.NPCs
                 Vector2 afterimageOffset = (MathHelper.TwoPi * j / 12f).ToRotationVector2() * 4f + Vector2.UnitY * 3;
                 Color glowColor = Color.Red with { A = 0 };
                 Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
-                Main.EntitySpriteDraw(texture, NPC.Center + afterimageOffset - screenPos + (Vector2.UnitY * (NPC.gfxOffY - 1)), NPC.frame, glowColor, NPC.rotation, new Vector2(texture.Width / 2, texture.Height / 2 / Main.npcFrameCount[NPC.type]), NPC.scale, effects, 0f);
+                Main.EntitySpriteDraw(texture, NPC.Center + afterimageOffset - screenPos + (Vector2.UnitY * NPC.gfxOffY), NPC.frame, glowColor, NPC.rotation, new Vector2(texture.Width / 2, texture.Height / 2 / Main.npcFrameCount[NPC.type]), NPC.scale, effects, 0f);
             }
             /*
             spriteBatch.Draw(GlowAsset.Value, position, frame, Color.White * NPC.Opacity, NPC.rotation, frame.Size() / 2f, scale, effects, 0f);
@@ -524,8 +526,7 @@ namespace Fargowiltas.NPCs
 
             Rectangle frame = NPC.frame;
             SpriteEffects effects = NPC.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-            Vector2 position = NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY + 2);
-            DrawOffsetY = -2;
+            Vector2 position = NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY + 3);
 
             spriteBatch.Draw(EyesAsset.Value, position, frame, Color.White * NPC.Opacity, NPC.rotation, frame.Size() / 2f, NPC.scale, effects, 0f);
         }
