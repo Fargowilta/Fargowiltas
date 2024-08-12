@@ -604,7 +604,10 @@ namespace Fargowiltas.NPCs
                     case NPCID.Wizard:
                         AddItem(ItemID.SuperManaPotion, condition: Condition.DownedGolem);
                         break;
-                    
+
+                    case NPCID.Pirate:
+                        AddItem(ItemType<GoldenDippingVat>(), Item.buyPrice(gold: 35), condition: Condition.Hardmode);
+                        break;
                 }
             }        
         }
