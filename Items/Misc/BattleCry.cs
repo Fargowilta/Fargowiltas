@@ -1,10 +1,14 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.WorldBuilding;
 
 namespace Fargowiltas.Items.Misc
 {
@@ -18,6 +22,7 @@ namespace Fargowiltas.Items.Misc
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
+        int drawTimer = 0;
         public override void SetDefaults()
         {
             Item.width = 28;
@@ -98,12 +103,44 @@ namespace Fargowiltas.Items.Misc
 
                     ToggleCry(true, player, ref modPlayer.BattleCry);
                 }
+
             }
 
             if (!Main.dedServ)
                 SoundEngine.PlaySound(new SoundStyle("Fargowiltas/Assets/Sounds/Horn"), player.Center);
 
             return true;
+        }
+
+        public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
+        {
+            Player player = Main.LocalPlayer;
+            FargoPlayer modPlayer = player.GetFargoPlayer();
+            float glowscale = (Main.mouseTextColor / 400f - 0.35f) * 0.3f + 0.9f;
+            float modifier = 0.5f + ((float)Math.Sin(drawTimer / 30f) / 3);
+            Texture2D texture = ModContent.Request<Texture2D>("Fargowiltas/Items/Misc/BattleCry_Glow").Value;
+            if (player.whoAmI == Main.myPlayer)
+            {
+                if (modPlayer.CalmingCry)
+                {
+                    for (int j = 0; j < 12; j++)
+                    {
+                        Vector2 afterimageOffset = (MathHelper.TwoPi * j / 12f).ToRotationVector2() + (Vector2.UnitX * 1.8f);
+                        Color glowColor = Color.Lerp(Color.SkyBlue, Color.CornflowerBlue, modifier) * 0.5f;
+                        Main.EntitySpriteDraw(texture, position + afterimageOffset, null, glowColor, 0, texture.Size() * 0.55f, glowscale, SpriteEffects.None, 0f);
+                    }
+                }
+                else if (modPlayer.BattleCry)
+                {
+                    for (int j = 0; j < 12; j++)
+                    {
+                        Vector2 afterimageOffset = (MathHelper.TwoPi * j / 12f).ToRotationVector2() + (Vector2.UnitX * 1.8f);
+                        Color glowColor = Color.Lerp(Color.Red, Color.PaleVioletRed, modifier) * 0.5f;
+                        Main.EntitySpriteDraw(texture, position + afterimageOffset, null, glowColor, 0, texture.Size() * 0.55f, glowscale, SpriteEffects.None, 0f);
+                    }
+                }
+            }   drawTimer++;
+            return base.PreDrawInInventory(spriteBatch, position, frame, drawColor, itemColor, origin, scale);
         }
 
         public override void AddRecipes()
