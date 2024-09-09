@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Fargowiltas.Common.Systems.Recipes;
+using Terraria.GameContent;
 
 namespace Fargowiltas.Items.Tiles
 {
@@ -33,14 +34,6 @@ namespace Fargowiltas.Items.Tiles
 
         public override void AddRecipes()
         {
-            CreateRecipe()
-                .AddRecipeGroup(RecipeGroups.AnyCookingPot)
-                .AddRecipeGroup(RecipeGroups.AnyGoldBar, 25)
-                .AddIngredient(ItemID.GoldCoin, 25)
-                .AddIngredient(ItemID.GoldDust, 250)
-                .AddTile(TileID.MythrilAnvil)
-                .Register();
-
             AddCritter(ItemID.Bird, ItemID.GoldBird);
             AddCritter(ItemID.Bunny, ItemID.GoldBunny);
             AddCritter(ItemID.Frog, ItemID.GoldFrog);
