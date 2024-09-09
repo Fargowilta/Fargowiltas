@@ -344,6 +344,15 @@ namespace Fargowiltas
                             }
                         }
                         break;
+                    case "AddEvilAltar":
+                        {
+                            if (args[1].GetType() == typeof(int))
+                            {
+                                int tile = (int)args[1];
+                                FargoSets.Tiles.EvilAltars[tile] = true;
+                            }
+                        }
+                        break;
                     case "AddStat":
                         {
                             if (args[1].GetType() != typeof(int))
