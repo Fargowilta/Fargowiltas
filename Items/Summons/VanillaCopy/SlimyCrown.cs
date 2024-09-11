@@ -3,11 +3,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Fargowiltas.Items.Summons
+namespace Fargowiltas.Items.Summons.VanillaCopy
 {
     public class SlimyCrown : BaseSummon
     {
-        public override string Texture => "Terraria/Images/Item_560";
 
         public override int NPCType => NPCID.KingSlime;
         

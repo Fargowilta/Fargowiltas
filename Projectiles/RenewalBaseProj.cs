@@ -50,8 +50,8 @@ namespace Fargowiltas.Projectiles
             SoundEngine.PlaySound(SoundID.Shatter, Projectile.Center);
 
             int radius = 150;
-            float[] speedX = { 0, 0, 5, 5, 5, -5, -5, -5 };
-            float[] speedY = { 5, -5, 0, 5, -5, 0, 5, -5 };
+            float[] speedX = [0, 0, 5, 5, 5, -5, -5, -5];
+            float[] speedY = [5, -5, 0, 5, -5, 0, 5, -5];
 
             //because these projs may apparently delete blocks if spawned in unloaded chunks far away from players in mp
             if (Main.netMode == NetmodeID.SinglePlayer)

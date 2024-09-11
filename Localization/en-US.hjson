@@ -158,6 +158,11 @@ Mods: {
 					Tooltip: ""
 				}
 
+				PermanentStationsNearby: {
+					Label: "[i:3198] Automatic Station Buffs When Nearby"
+					Tooltip: ""
+				}
+
 				BossZen: {
 					Label: "[i:3117] No enemies spawn during boss fights"
 					Tooltip: ""
@@ -181,6 +186,15 @@ Mods: {
 				PylonsIgnoreEvents: {
 					Label: "[i:4876] Pylons Ignore Events"
 					Tooltip: ""
+				}
+
+				SafeTerraformers: {
+					Label: "[i:Fargowiltas/InstaBridge] Safe Terraformers"
+					Tooltip:
+						'''
+						Terraformers such as Instabridge and City Buster avoid destroying any areas added to the Important Structures list.
+						This option is overly safe and will often avoid destroying even common things, such as cavern houses.
+						'''
 				}
 
 				Headers: {
@@ -215,6 +229,11 @@ Mods: {
 				BossApplyToAllWhenAlive: {
 					Label: Boss Multipliers Apply Universally
 					Tooltip: Boss Health and Boss Damage configs apply to all enemies while a boss is alive, rather than just bosses themselves.
+				}
+
+				DisableTombstones: {
+					Label: "[i:Fargowiltas/GraveBuster] Disable Tombstones"
+					Tooltip: Makes Tombstones not spawn when players die.
 				}
 			}
 
@@ -1092,7 +1111,7 @@ Mods: {
 			}
 
 			DeerThing2: {
-				DisplayName: Thing Deer
+				DisplayName: Unusual Deer Skull
 				Tooltip: Summons Deerclops in any biome
 			}
 
@@ -1345,6 +1364,7 @@ Mods: {
 					Summons Mimic
 					Summons Ice Mimic when in snow biome
 					'''
+				HardmodeLock: Only usable in Hardmode
 			}
 
 			SuspiciousLookingLure: {
@@ -1367,7 +1387,7 @@ Mods: {
 			}
 
 			GoreySpine: {
-				DisplayName: Red Stained Spine
+				DisplayName: Brain Matter
 				Tooltip: Summons the Brain of Cthulhu in any biome
 			}
 
@@ -1416,7 +1436,7 @@ Mods: {
 			}
 
 			FleshyDoll: {
-				DisplayName: Fleshy Doll
+				DisplayName: Guide Doll and Match Kit
 				Tooltip:
 					'''
 					Summons the Wall of Flesh
@@ -1463,12 +1483,12 @@ Mods: {
 			}
 
 			SlimyCrown: {
-				DisplayName: Slimy Crown
+				DisplayName: Slimy Decree
 				Tooltip: Summons King Slime
 			}
 
 			SuspiciousEye: {
-				DisplayName: Eye That Could Be Seen As Suspicious
+				DisplayName: Suspicious Looking Eyedrops
 				Tooltip: Summons the Eye of Cthulhu
 			}
 
@@ -1919,7 +1939,7 @@ Mods: {
 			}
 
 			WormyFood: {
-				DisplayName: Wormy Food
+				DisplayName: Rotting Bait
 				Tooltip: Summons the Eater of Worlds in any biome
 			}
 
@@ -2564,13 +2584,13 @@ Mods: {
 					Formattable1: "{0}! I saw something rodent-y just now! You don't have a hamster infestation, right? Right!?"
 					Normal1: No, I'm totally not throwing Love Potions while you're not looking! Um, I mean... oh, just buy something!
 					Normal2: Did you know? The only real music genres are death metal and artcore.
-					Normal3: I'll have you know I'm over a hundred Fargo years old! Don't ask me how long a Fargo year is.
+					Normal3: I'm morally bankrupt? No, the bank loves me.
 					Normal4: I might be able to afford a taller body if you keep buying!
-					Normal5: Where's that screm cat?
+					Normal5: My size deceives you! I may be 4'6'' but I'm 7'11'' when I stand on my money!
 					Normal6: You're the Terrarian? Honestly, I was expecting someone a little... taller.
 					Normal7: Don't look at me like that! The only thing I've deviated from is my humanity.
 					Normal8: Rip and tear and buy from me for more things to rip and tear!
-					Normal9: What's a chee-bee doe-goe?
+					Normal9: It's not the height that matters, but your credit score!
 					Normal10: Wait a second. Are you sure this house isn't what they call 'prison?'
 					Normal11: Deviantt has awoken! Quick, give her all your money to defeat her!
 					Normal12: One day, I'll sell a summon for myself! ...Just kidding.
@@ -2995,11 +3015,11 @@ Mods: {
 			UnlimitedBuff30: Unlimited buff at 30 stack in inventory, Piggy Bank, or Safe
 			UnlimitedUse30: Unlimited use at 30 stack
 			PermanentEffectNearby: Permanently provides effect to nearby players when placed
-			WorksFromBanks: Works from Piggy Bank and Safe
-			SoldBySquirrel: Sold By Squirrel
-			SomeMaterialsSold: Some Materials Sold
-			CraftableMaterialsSold: Craftable Materials Sold
-			SoldAtThirtyStack: Sold At Thirty Stack
+			WorksFromBanks: Inventory effects also work from Piggy Bank and Safe
+			SoldBySquirrel: Sold By Squirrel: When obtained
+			SomeMaterialsSold: Some Materials Sold By Squirrel: When obtained
+			CraftableMaterialsSold: Craftable Materials Sold By Squirrel: When obtained
+			SoldAtThirtyStack: Sold By Squirrel: When obtained at 30-stack
 			SoldBy: Sold By
 			SeveralVendors: several vendors
 		}

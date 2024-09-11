@@ -112,7 +112,7 @@ namespace Fargowiltas.NPCs
         public static void OnTreeShake(Terraria.On_WorldGen.orig_ShakeTree orig, int i, int j)
         {
             orig(i, j);
-            if (!(FargoServerConfig.Instance.Lumber && Main.rand.NextBool(10) && FargoWorld.WoodChopped >= 250 && !(FargoWorld.DownedBools.TryGetValue("lumberjack", out bool down) && down)))
+            if (!(FargoServerConfig.Instance.Lumber && Main.rand.NextBool(10) && FargoWorld.WoodChopped >= 400 && !(FargoWorld.DownedBools.TryGetValue("lumberjack", out bool down) && down)))
                 return;
             WorldGen.GetTreeBottom(i, j, out var x, out var y);
             TreeTypes treeType = WorldGen.GetTreeType(Main.tile[x, y].TileType);
@@ -154,7 +154,7 @@ namespace Fargowiltas.NPCs
 
         public override List<string> SetNPCNameList()
         {
-            string[] names = { "Griff", "Jack", "Bruce", "Larry", "Will", "Jerry", "Liam", "Stan", "Lee", "Woody", "Leif", "Paul" };
+            string[] names = ["Griff", "Jack", "Bruce", "Larry", "Will", "Jerry", "Liam", "Stan", "Lee", "Woody", "Leif", "Paul"];
 
             return new List<string>(names);
         }

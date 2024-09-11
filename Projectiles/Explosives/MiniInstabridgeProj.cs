@@ -46,13 +46,13 @@ namespace Fargowiltas.Projectiles.Explosives
             int min = goLeft ? -length : 0;
             int max = goLeft ? 0 : length;
 
-            int[] deletableTiles = { 
+            int[] deletableTiles = [ 
                 TileID.Cactus,
                 TileID.Trees,
                 TileID.CorruptThorns,
                 TileID.CrimsonThorns,
                 TileID.JungleThorns
-            };
+            ];
 
             for (int x = min; x < max; x++)
             {

@@ -1,4 +1,5 @@
-﻿using Fargowiltas.Projectiles.Explosives;
+﻿using Fargowiltas.Common.Systems;
+using Fargowiltas.Projectiles.Explosives;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -34,6 +35,17 @@ namespace Fargowiltas.Items.Explosives
             Item.noUseGraphic = true;
             Item.noMelee = true;
             Item.shoot = ModContent.ProjectileType<InstabridgeProj>();
+        }
+
+        public override void HoldItem(Player player)
+        {
+            if (player.whoAmI == Main.myPlayer)
+            {
+                Vector2 mouse = Main.MouseWorld;
+                mouse += Vector2.UnitY * 16;
+                InstaVisual.DrawOrigin drawOrigin = InstaVisual.DrawOrigin.Bottom;
+                InstaVisual.DrawInstaVisual(player, mouse, new(2000, 6), drawOrigin);
+            }
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

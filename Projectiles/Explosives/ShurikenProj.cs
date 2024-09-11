@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using System.Security.Principal;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Achievements;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -46,8 +48,10 @@ namespace Fargowiltas.Projectiles.Explosives
             int radius = 16;     // bigger = boomer
 
             Player player = Main.player[Projectile.owner];
-            Item bestPickaxe = player.GetBestPickaxe();
 
+            NetMessage.SendData(MessageID.KillProjectile, -1, -1, null, Projectile.identity, Projectile.owner);
+
+            AchievementsHelper.CurrentlyMining = true;
             for (int x = -radius; x <= radius; x++)
             {
                 for (int y = -radius; y <= radius; y++)
@@ -60,18 +64,22 @@ namespace Fargowiltas.Projectiles.Explosives
 
                     Tile tile = Main.tile[xPosition, yPosition];
 
+
                     // Circle
                     if ((x * x + y * y) <= radius)
                     {
                         if (Projectile.owner == Main.myPlayer)
                         {
-                            // Hit the tile 6 times, most tiles that you can break will break in 1-3 hits.
-                            for (int i = 0; i < 6; i++)
-                            {
-                                if (tile.IsActuated || FargoGlobalProjectile.TileIsLiterallyAir(tile) || FargoGlobalProjectile.TileBelongsToMagicStorage(tile))
-                                    break;
+                            if (tile.IsActuated || FargoGlobalProjectile.TileIsLiterallyAir(tile) || FargoGlobalProjectile.TileBelongsToMagicStorage(tile))
+                                continue;
 
-                                player.PickTile(xPosition, yPosition, bestPickaxe != null ? bestPickaxe.pick : 35);
+                            if (player.HasEnoughPickPowerToHurtTile(xPosition, yPosition) && WorldGen.CanKillTile(xPosition, yPosition))
+                            {
+                                WorldGen.KillTile(xPosition, yPosition);
+                                if (Main.netMode != NetmodeID.SinglePlayer)
+                                {
+                                    NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 20, xPosition, yPosition);
+                                }
                             }
                         }
 
@@ -79,6 +87,7 @@ namespace Fargowiltas.Projectiles.Explosives
                     }
                 }
             }
+            AchievementsHelper.CurrentlyMining = false;
         }
     }
 }

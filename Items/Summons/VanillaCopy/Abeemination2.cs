@@ -4,11 +4,10 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace Fargowiltas.Items.Summons
+namespace Fargowiltas.Items.Summons.VanillaCopy
 {
     public class Abeemination2 : BaseSummon
     {
-        public override string Texture => "Terraria/Images/Item_1133";
 
         public override int NPCType => NPCID.QueenBee;
         

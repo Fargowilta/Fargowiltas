@@ -4,11 +4,10 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace Fargowiltas.Items.Summons
+namespace Fargowiltas.Items.Summons.VanillaCopy
 {
     public class GoreySpine : BaseSummon
     {
-        public override string Texture => "Terraria/Images/Item_1331";
 
         public override int NPCType => NPCID.BrainofCthulhu;
         

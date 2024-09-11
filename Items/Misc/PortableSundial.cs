@@ -72,7 +72,6 @@ namespace Fargowiltas.Items.Misc
                     Main.fastForwardTimeToDusk = true;
                 else
                     Main.fastForwardTimeToDawn = true;
-                NetMessage.SendData(MessageID.WorldData);
             }
             else
             {
@@ -107,7 +106,7 @@ namespace Fargowiltas.Items.Misc
                     }
                 }
             }
-
+            NetMessage.SendData(MessageID.WorldData);
             return true;
         }
 

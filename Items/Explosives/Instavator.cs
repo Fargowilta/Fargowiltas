@@ -1,5 +1,8 @@
+using Fargowiltas.Common.Systems;
 using Fargowiltas.Projectiles.Explosives;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -32,6 +35,24 @@ namespace Fargowiltas.Items.Explosives
             Item.shootSpeed = 5f;
         }
 
+        public override void HoldItem(Player player)
+        {
+            if (player.whoAmI == Main.myPlayer)
+            {
+                Vector2 mouse = Main.MouseWorld;
+                mouse += Vector2.UnitY * 16;
+                InstaVisual.DrawOrigin drawOrigin = InstaVisual.DrawOrigin.Top;
+                InstaVisual.DrawInstaVisual(player, mouse, new(7, 1000), drawOrigin);
+            }
+        }
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            Vector2 mouse = Main.MouseWorld;
+
+            Projectile.NewProjectile(player.GetSource_ItemUse(source.Item), mouse, Vector2.Zero, type, 0, 0, player.whoAmI);
+
+            return false;
+        }
         public override void AddRecipes()
         {
             CreateRecipe()

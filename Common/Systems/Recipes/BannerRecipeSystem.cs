@@ -364,10 +364,10 @@ namespace Fargowiltas.Common.Systems.Recipes
 
         private static void AddBannerToMaterialRecipes()
         {
-            AddBannerToItemRecipe(ItemID.AngryBonesBanner, ItemID.Bone, resultAmount: 100);
-            AddBannerToItemRecipe(ItemID.CursedSkullBanner, ItemID.Bone, resultAmount: 100);
-            AddBannerToItemRecipe(ItemID.SkeletonMageBanner, ItemID.Bone, resultAmount: 100);
-            AddBannerToItemRecipe(ItemID.SkeletonBanner, ItemID.Bone, resultAmount: 100);
+            AddBannerToItemRecipe(ItemID.AngryBonesBanner, ItemID.Bone, resultAmount: 100, conditions: Condition.DownedSkeletron);
+            AddBannerToItemRecipe(ItemID.CursedSkullBanner, ItemID.Bone, resultAmount: 100, conditions: Condition.DownedSkeletron);
+            AddBannerToItemRecipe(ItemID.SkeletonMageBanner, ItemID.Bone, resultAmount: 100, conditions: Condition.DownedSkeletron);
+            //AddBannerToItemRecipe(ItemID.SkeletonBanner, ItemID.Bone, resultAmount: 100, conditions: Condition.DownedSkeletron);
             AddBannerToItemRecipe(ItemID.GemBunnyAmber, ItemID.Amber, resultAmount: 5);
             AddBannerToItemRecipe(ItemID.GemBunnyAmethyst, ItemID.Amethyst, resultAmount: 5);
             AddBannerToItemRecipe(ItemID.GemBunnyDiamond, ItemID.Diamond, resultAmount: 5);
@@ -507,7 +507,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             AddBannerToItemRecipe(ItemID.BlackRecluseBanner, ItemID.PoisonStaff, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.BloodZombieBanner, ItemID.KOCannon, bannerAmount: 4, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.ClownBanner, ItemID.KOCannon, bannerAmount: 4, conditions: Condition.Hardmode);
-            AddBannerToItemRecipe(ItemID.GiantBatBanner, ItemID.ChainKnife, conditions: new Condition[] { Condition.Hardmode, Condition.NotRemixWorld });
+            AddBannerToItemRecipe(ItemID.GiantBatBanner, ItemID.ChainKnife, conditions: [Condition.Hardmode, Condition.NotRemixWorld]);
             AddBannerToItemRecipe(ItemID.IcyMermanBanner, ItemID.FrostStaff, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.MedusaBanner, ItemID.MedusaHead, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.MimicBanner, ItemID.FlowerofFrost, conditions: Condition.Hardmode);

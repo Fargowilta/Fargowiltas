@@ -1,5 +1,6 @@
 ﻿using Fargowiltas.Items.Misc;
 using Fargowiltas.Items.Tiles;
+using Fargowiltas.NPCs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Fargowiltas.Items.FargoGlobalItem;
 using static Terraria.ModLoader.ModContent;
 
 namespace Fargowiltas
@@ -19,14 +21,17 @@ namespace Fargowiltas
             public static bool[] MechanicalAccessory;
             public static bool[] InfoAccessory;
             public static bool[] SquirrelSellsDirectly;
+
             public static bool[] NonBuffPotion;
             public static bool[] BuffStation;
+            public static List<ShopTooltip>[] RegisteredShopTooltips;
         }
         public class Tiles
         {
             public static bool[] InstaCannotDestroy;
             public static bool[] DungeonTile;
             public static bool[] HardmodeOre;
+            public static bool[] EvilAltars;
         }
         public class Walls
         {
@@ -37,7 +42,7 @@ namespace Fargowiltas
         public override void PostSetupContent()
         {
             #region Items
-            SetFactory itemFactory = new(ItemLoader.ItemCount);
+            SetFactory itemFactory = ItemID.Sets.Factory;
 
             Items.MechanicalAccessory = itemFactory.CreateBoolSet(false,
                 ItemID.MechanicalLens,
@@ -79,7 +84,9 @@ namespace Fargowiltas
                 ItemID.WeatherRadio,
                 ItemID.Sextant,
                 ItemID.Radar,
-                ItemID.TallyCounter);
+                ItemID.TallyCounter,
+                ItemID.FishFinder,
+                ItemID.REK);
 
             Items.SquirrelSellsDirectly = itemFactory.CreateBoolSet(false,
                 ItemID.CellPhone,
@@ -92,6 +99,8 @@ namespace Fargowiltas
                 ItemID.RodofDiscord,
                 ItemID.TerrasparkBoots,
                 ItemID.TorchGodsFavor,
+                ItemID.HandOfCreation,
+                ItemID.Zenith,
                 ItemType<Omnistation>(),
                 ItemType<Omnistation2>(),
                 ItemType<CrucibleCosmos>(),
@@ -113,9 +122,10 @@ namespace Fargowiltas
                 ItemID.CrystalBall,
                 ItemID.BewitchingTable,
                 ItemID.WarTable);
+            Items.RegisteredShopTooltips = itemFactory.CreateCustomSet<List<ShopTooltip>>(null);
             #endregion
             #region Tiles
-            SetFactory tileFactory = new(TileLoader.TileCount);
+            SetFactory tileFactory = TileID.Sets.Factory;
 
             Tiles.InstaCannotDestroy = tileFactory.CreateBoolSet(false);
 
@@ -131,9 +141,12 @@ namespace Fargowiltas
                 TileID.Orichalcum,
                 TileID.Adamantite,
                 TileID.Titanium);
+
+            Tiles.EvilAltars = tileFactory.CreateBoolSet(false, 
+                TileID.DemonAltar);
             #endregion
             #region Walls
-            SetFactory wallFactory = new(WallLoader.WallCount); 
+            SetFactory wallFactory = WallID.Sets.Factory;
 
             Walls.InstaCannotDestroy = wallFactory.CreateBoolSet(false);
 

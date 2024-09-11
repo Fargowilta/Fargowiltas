@@ -8,11 +8,10 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace Fargowiltas.Items.Summons
+namespace Fargowiltas.Items.Summons.VanillaCopy
 {
     public class MechWorm : BaseSummon
     {
-        public override string Texture => "Terraria/Images/Item_556";
 
         public override int NPCType => NPCID.TheDestroyer;
         

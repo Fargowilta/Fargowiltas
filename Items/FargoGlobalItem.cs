@@ -14,17 +14,15 @@ using Terraria.GameContent.ItemDropRules;
 using Fargowiltas.Common.Configs;
 using Fargowiltas.Items.Ammos.Coins;
 using Fargowiltas.Items.CaughtNPCs;
-using static System.Net.Mime.MediaTypeNames;
 using Terraria.Localization;
 using Fargowiltas.Items.Misc;
-using System.Security.AccessControl;
 
 namespace Fargowiltas.Items
 {
     public class FargoGlobalItem : GlobalItem
     {
-        private static readonly int[] Hearts = new int[] { ItemID.Heart, ItemID.CandyApple, ItemID.CandyCane };
-        private static readonly int[] Stars = new int[] { ItemID.Star, ItemID.SoulCake, ItemID.SugarPlum };
+        private static readonly int[] Hearts = [ItemID.Heart, ItemID.CandyApple, ItemID.CandyCane];
+        private static readonly int[] Stars = [ItemID.Star, ItemID.SoulCake, ItemID.SugarPlum];
 
         private bool firstTick = true;
 
@@ -64,7 +62,7 @@ namespace Fargowiltas.Items
             }
         }
         //For the shop sale tooltip system.
-        internal class ShopTooltip
+        public class ShopTooltip
         {
             public List<int> NpcItemIDs = new();
             public List<string> NpcNames = new();
@@ -78,62 +76,70 @@ namespace Fargowiltas.Items
             {
                 TooltipLine line;
                 //Shop sale tooltips. Very engineered. Adds tooltips to ALL npc shop sales. Aims to handle any edge case as well as possible.
-                List<ShopTooltip> registeredShopTooltips = new();
-                foreach (var shop in NPCShopDatabase.AllShops)
+                if (FargoSets.Items.RegisteredShopTooltips[item.type] == null)
                 {
-                    foreach (var entry in shop.ActiveEntries.Where(e => !e.Item.IsAir && e.Item.type == item.type))
+                    List<ShopTooltip> registeredShopTooltips = [];
+                    foreach (var shop in NPCShopDatabase.AllShops)
                     {
-                        Item npcItem = null;
-                        foreach (var tryNPCItem in ContentSamples.ItemsByType.Where(i => i.Value.ModItem != null && i.Value.ModItem is CaughtNPCItem modItem && modItem.AssociatedNpcId == shop.NpcType))
-                        {
-                            npcItem = tryNPCItem.Value;
-                            break;
-                        }
-                        
-                        if (npcItem == null)
-                        {
-                            npcItem = item;
-                        }
-                        
-                        string conditions = "";
-                        int i = 0;
-                        foreach (var condition in entry.Conditions)
-                        {
-                            string grammar = i > 0 ? ", " : "";
-                            conditions += grammar + condition.Description.Value;
-                            i++;
-                        }
-                        string conditionLine = i > 0 ? ": " + conditions : "";
-                        string npcName = ContentSamples.NpcsByNetId[shop.NpcType].FullName;
-                        
-                        if (registeredShopTooltips.Any(t => t.NpcNames.Any(n => n == npcName) && t.Condition == conditionLine)) //sometimes it makes duplicates otherwise
+                        if (shop.NpcType == ModContent.NPCType<Squirrel>())
                             continue;
 
-                        bool registered = false;
-                        
-                        foreach (ShopTooltip regTooltip in registeredShopTooltips)
+                        foreach (var entry in shop.ActiveEntries.Where(e => !e.Item.IsAir && e.Item.type == item.type))
                         {
-                            if (regTooltip.Condition == conditionLine && !regTooltip.NpcNames.Contains(npcName))
+                            Item npcItem = null;
+                            foreach (var tryNPCItem in ContentSamples.ItemsByType.Where(i => i.Value.ModItem != null && i.Value.ModItem is CaughtNPCItem modItem && modItem.AssociatedNpcId == shop.NpcType))
                             {
-                                regTooltip.NpcNames.Add(npcName);
-                                regTooltip.NpcItemIDs.Add(npcItem.type);
-                                registered = true;
+                                npcItem = tryNPCItem.Value;
                                 break;
                             }
+
+                            if (npcItem == null)
+                            {
+                                npcItem = item;
+                            }
+
+                            string conditions = "";
+                            int i = 0;
+                            foreach (var condition in entry.Conditions)
+                            {
+                                string grammar = i > 0 ? ", " : "";
+                                conditions += grammar + condition.Description.Value;
+                                i++;
+                            }
+                            string conditionLine = i > 0 ? ": " + conditions : "";
+                            string npcName = ContentSamples.NpcsByNetId[shop.NpcType].FullName;
+
+                            if (registeredShopTooltips.Any(t => t.NpcNames.Any(n => n == npcName) && t.Condition == conditionLine)) //sometimes it makes duplicates otherwise
+                                continue;
+
+                            bool registered = false;
+
+                            foreach (ShopTooltip regTooltip in registeredShopTooltips)
+                            {
+                                if (regTooltip.Condition == conditionLine && !regTooltip.NpcNames.Contains(npcName))
+                                {
+                                    regTooltip.NpcNames.Add(npcName);
+                                    regTooltip.NpcItemIDs.Add(npcItem.type);
+                                    registered = true;
+                                    break;
+                                }
+                            }
+                            if (!registered)
+                            {
+                                ShopTooltip tooltip = new();
+                                tooltip.NpcItemIDs.Add(npcItem.type);
+                                tooltip.NpcNames.Add(npcName);
+                                tooltip.Condition = conditionLine;
+                                registeredShopTooltips.Add(tooltip);
+                            }
+
+                            break; //only one line per npc
                         }
-                        if (!registered)
-                        {
-                            ShopTooltip tooltip = new();
-                            tooltip.NpcItemIDs.Add(npcItem.type);
-                            tooltip.NpcNames.Add(npcName);
-                            tooltip.Condition = conditionLine;
-                            registeredShopTooltips.Add(tooltip);
-                        }
-                        
-                        break; //only one line per npc
                     }
+                    FargoSets.Items.RegisteredShopTooltips[item.type] = registeredShopTooltips;
                 }
-                foreach (ShopTooltip tooltip in registeredShopTooltips)
+                
+                foreach (ShopTooltip tooltip in FargoSets.Items.RegisteredShopTooltips[item.type])
                 {
 
                     List<int> displayIDs = tooltip.NpcItemIDs.Where(i => i != item.type)?.ToList();
@@ -257,13 +263,14 @@ namespace Fargowiltas.Items
                         line = new TooltipLine(Mod, "TooltipUnlim", $"[i:5139] [c/AAAAAA:{ExpandedTooltipLoc("UnlimitedUse30")}]");
                         tooltips.Add(line);
                     }
+                   
                     
-                    else if (FargoSets.Items.BuffStation[item.type])
-                    {
-                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:{item.type}] [c/AAAAAA:{ExpandedTooltipLoc("PermanentEffectNearby")}]");
-                        tooltips.Add(line);
-                    }
-                    
+                }
+
+                if (fargoServerConfig.PermanentStationsNearby && FargoSets.Items.BuffStation[item.type])
+                {
+                    line = new TooltipLine(Mod, "TooltipUnlim", $"[i:{item.type}] [c/AAAAAA:{ExpandedTooltipLoc("PermanentEffectNearby")}]");
+                    tooltips.Add(line);
                 }
 
                 if (fargoServerConfig.PiggyBankAcc)
@@ -381,11 +388,8 @@ namespace Fargowiltas.Items
             if (item.IsAir || item.maxStack > 1 || !FargoServerConfig.Instance.PiggyBankAcc)
                 return;
 
-            if (FargoSets.Items.InfoAccessory[item.type])
-                player.RefreshInfoAccsFromItemType(item);
-
-            if (FargoSets.Items.MechanicalAccessory[item.type])
-                player.RefreshMechanicalAccsFromItemType(item.type);
+            player.RefreshInfoAccsFromItemType(item);
+            player.RefreshMechanicalAccsFromItemType(item.type);
         }
         public override void UpdateInventory(Item item, Player player)
         {
@@ -519,7 +523,7 @@ namespace Fargowiltas.Items
         {
             if (FargoServerConfig.Instance.UnlimitedConsumableWeapons && Main.hardMode && item.damage > 0 && item.ammo == 0 && item.stack >= 3996)
                 return false;
-            if (FargoServerConfig.Instance.UnlimitedPotionBuffsOn120 && (item.buffType > 0 || FargoSets.Items.NonBuffPotion[item.type] && (item.stack >= 30 || player.inventory.Any(i => i.type == item.type && !i.IsAir && i.stack >= 30))))
+            if (FargoServerConfig.Instance.UnlimitedPotionBuffsOn120 && ((item.buffType > 0 || FargoSets.Items.NonBuffPotion[item.type]) && (item.stack >= 30 || player.inventory.Any(i => i.type == item.type && !i.IsAir && i.stack >= 30))))
                 return false;
             return true;
         }
@@ -576,6 +580,9 @@ namespace Fargowiltas.Items
                 player.GetModPlayer<FargoPlayer>().FirstDyeIngredients[dye] = true;
             }
 
+            if (Squirrel.SquirrelSells(item, out SquirrelSellType _) != SquirrelShopGroup.End)
+                player.GetModPlayer<FargoPlayer>().ItemHasBeenOwned[item.type] = true;
+
             return base.OnPickup(item, player);
         }
 
@@ -600,13 +607,13 @@ namespace Fargowiltas.Items
 
         public override void GrabRange(Item item, Player player, ref int grabRange)
         {
-            if (player.GetFargoPlayer().bigSuck)
+            if (player.GetFargoPlayer().bigSuck && !ItemID.Sets.IsAPickup[item.type])
                 grabRange += 9000 * 16; //corner to corner diagonally across a large world is 8736 units
         }
 
         public override bool GrabStyle(Item item, Player player)
         {
-            if (player.GetFargoPlayer().bigSuck)
+            if (player.GetFargoPlayer().bigSuck && !ItemID.Sets.IsAPickup[item.type])
             {
                 item.position += (player.MountedCenter - item.Center) / 15f;
                 item.position += player.position - player.oldPosition;

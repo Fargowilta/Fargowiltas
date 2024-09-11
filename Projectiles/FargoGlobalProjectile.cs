@@ -251,6 +251,8 @@ namespace Fargowiltas.Projectiles
                 }
             }
             Rectangle area = new(x, y, 3, 3);
+            if (!FargoServerConfig.Instance.SafeTerraformers)
+                bypassVanillaCanPlace = true;
             if (!bypassVanillaCanPlace && GenVars.structures != null && !GenVars.structures.CanPlace(area))
             {
                 return false;

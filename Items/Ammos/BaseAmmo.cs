@@ -30,7 +30,7 @@ namespace Fargowiltas.Items.Ammos
 
         public override void AddRecipes()
         {
-            int amount = Item.type == ModContent.ItemType<MiniNuke1Box>() || Item.type == ModContent.ItemType<MiniNuke2Box>() ? 2 : 1;
+            int amount = 1;
             CreateRecipe(amount)
                 .AddIngredient(AmmunitionItem, 3996)
                 .AddTile(TileID.CrystalBall)

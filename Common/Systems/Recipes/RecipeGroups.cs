@@ -26,6 +26,10 @@ namespace Fargowiltas.Common.Systems.Recipes
             group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ItemID.GoldBar), ItemID.GoldBar, ItemID.PlatinumBar);
             AnyGoldBar = RecipeGroup.RegisterGroup("Fargowiltas:AnyGoldBar", group);
 
+            //demonite bar
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ItemID.DemoniteBar), ItemID.DemoniteBar, ItemID.CrimtaneBar);
+            AnyGoldBar = RecipeGroup.RegisterGroup("Fargowiltas:AnyDemoniteBar", group);
+
             //demon altar
             group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ModContent.ItemType<DemonAltar>()), ModContent.ItemType<DemonAltar>(), ModContent.ItemType<CrimsonAltar>());
             AnyDemonAltar = RecipeGroup.RegisterGroup("Fargowiltas:AnyDemonAltar", group);
@@ -203,14 +207,35 @@ namespace Fargowiltas.Common.Systems.Recipes
                 ItemID.MonsterLasagna,
                 ItemID.PrismaticPunch,
                 ItemID.RoastedDuck,
-                ItemID.SeafoodDinner
+                ItemID.SeafoodDinner,
+                ItemID.BananaSplit,
+                ItemID.ChickenNugget,
+                ItemID.ChocolateChipCookie,
+                ItemID.CreamSoda,
+                ItemID.FriedEgg,
+                ItemID.Fries,
+                ItemID.IceCream,
+                ItemID.Nachos,
+                ItemID.ShrimpPoBoy,
+                ItemID.CoffeeCup
             );
             AnyFoodT2 = RecipeGroup.RegisterGroup("Fargowiltas:AnyFoodT2", group);
 
             //t3 foods
             group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("FoodT3"),
                 ItemID.GoldenDelight,
-                ItemID.GrapeJuice
+                ItemID.GrapeJuice,
+                ItemID.Milkshake,
+                ItemID.Pizza,
+                ItemID.Spaghetti,
+                ItemID.Steak,
+                ItemID.Hotdog,
+                ItemID.ApplePie,
+                ItemID.Bacon,
+                ItemID.GingerbreadCookie,
+                ItemID.BBQRibs,
+                ItemID.SugarCookie,
+                ItemID.ChristmasPudding
             );
             AnyFoodT3 = RecipeGroup.RegisterGroup("Fargowiltas:AnyFoodT3", group);
 
