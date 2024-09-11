@@ -117,6 +117,7 @@ namespace Fargowiltas.Items.Misc
             Player player = Main.LocalPlayer;
             FargoPlayer modPlayer = player.GetFargoPlayer();
             float glowscale = (Main.mouseTextColor / 400f - 0.35f) * 0.3f + 0.9f;
+            glowscale *= scale;
             float modifier = 0.5f + ((float)Math.Sin(drawTimer / 30f) / 3);
             Texture2D texture = ModContent.Request<Texture2D>("Fargowiltas/Items/Misc/BattleCry_Glow").Value;
             if (player.whoAmI == Main.myPlayer)
@@ -125,18 +126,18 @@ namespace Fargowiltas.Items.Misc
                 {
                     for (int j = 0; j < 12; j++)
                     {
-                        Vector2 afterimageOffset = (MathHelper.TwoPi * j / 12f).ToRotationVector2() + (Vector2.UnitX * 1.8f);
+                        Vector2 afterimageOffset = (MathHelper.TwoPi * j / 12f).ToRotationVector2() * 2;// + (Vector2.UnitX * 1.8f);
                         Color glowColor = Color.Lerp(Color.SkyBlue, Color.CornflowerBlue, modifier) * 0.5f;
-                        Main.EntitySpriteDraw(texture, position + afterimageOffset, null, glowColor, 0, texture.Size() * 0.55f, glowscale, SpriteEffects.None, 0f);
+                        Main.EntitySpriteDraw(texture, position + afterimageOffset, frame, glowColor, 0, texture.Size() * 0.55f, glowscale, SpriteEffects.None, 0f);
                     }
                 }
                 else if (modPlayer.BattleCry)
                 {
                     for (int j = 0; j < 12; j++)
                     {
-                        Vector2 afterimageOffset = (MathHelper.TwoPi * j / 12f).ToRotationVector2() + (Vector2.UnitX * 1.8f);
+                        Vector2 afterimageOffset = (MathHelper.TwoPi * j / 12f).ToRotationVector2() * 2; // + (Vector2.UnitX * 1.8f);
                         Color glowColor = Color.Lerp(Color.Red, Color.PaleVioletRed, modifier) * 0.5f;
-                        Main.EntitySpriteDraw(texture, position + afterimageOffset, null, glowColor, 0, texture.Size() * 0.55f, glowscale, SpriteEffects.None, 0f);
+                        Main.EntitySpriteDraw(texture, position + afterimageOffset, frame, glowColor, 0, texture.Size() * 0.55f, glowscale, SpriteEffects.None, 0f);
                     }
                 }
             }   drawTimer++;

@@ -1,2 +1,11 @@
 NEW UPDATE - V {ModVersion}
--Fixed characters failing to load after adding an item from another mod to their inventory and then disabling that mod
+
+-Added ModCall for other mods registering Evil altars to be deleted by Altar Exterminator (requested by Exxo Avalon)
+-Pirate NPC now sells Golden Dipping Vat and removed its recipe
+-New glow visuals for Battle Cry
+-The Stat Sheet now shows Artisan Loaf consumption
+-Boom Shurikens now check WorldGen.CanKillTile before breakage
+
+-Fixed Squirrel being offset into the floor by 2 pixels
+-Moved Squirrel's chatbox to be closer to him
+-Russian localization updates
