@@ -31,6 +31,7 @@ namespace Fargowiltas
             public static bool[] InstaCannotDestroy;
             public static bool[] DungeonTile;
             public static bool[] HardmodeOre;
+            public static bool[] EvilAltars;
         }
         public class Walls
         {
@@ -140,6 +141,9 @@ namespace Fargowiltas
                 TileID.Orichalcum,
                 TileID.Adamantite,
                 TileID.Titanium);
+
+            Tiles.EvilAltars = tileFactory.CreateBoolSet(false, 
+                TileID.DemonAltar);
             #endregion
             #region Walls
             SetFactory wallFactory = WallID.Sets.Factory;

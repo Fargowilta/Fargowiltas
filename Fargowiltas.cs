@@ -83,7 +83,8 @@ namespace Fargowiltas
                 new(ContentSamples.ItemsByType[ItemID.ArcaneCrystal], () => Main.LocalPlayer.usedArcaneCrystal),
                 new(ContentSamples.ItemsByType[ItemID.Ambrosia], () => Main.LocalPlayer.usedAmbrosia),
                 new(ContentSamples.ItemsByType[ItemID.GummyWorm], () => Main.LocalPlayer.usedGummyWorm),
-                new(ContentSamples.ItemsByType[ItemID.GalaxyPearl], () => Main.LocalPlayer.usedGalaxyPearl)
+                new(ContentSamples.ItemsByType[ItemID.GalaxyPearl], () => Main.LocalPlayer.usedGalaxyPearl),
+                new(ContentSamples.ItemsByType[ItemID.ArtisanLoaf], () => Main.LocalPlayer.ateArtisanBread),
             };
 
             summonTracker = new MutantSummonTracker();
@@ -341,6 +342,15 @@ namespace Fargowiltas
                             {
                                 int wall = (int)args[1];
                                 FargoSets.Walls.InstaCannotDestroy[wall] = true;
+                            }
+                        }
+                        break;
+                    case "AddEvilAltar":
+                        {
+                            if (args[1].GetType() == typeof(int))
+                            {
+                                int tile = (int)args[1];
+                                FargoSets.Tiles.EvilAltars[tile] = true;
                             }
                         }
                         break;

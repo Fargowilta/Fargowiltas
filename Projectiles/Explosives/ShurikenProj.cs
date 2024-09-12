@@ -73,7 +73,7 @@ namespace Fargowiltas.Projectiles.Explosives
                             if (tile.IsActuated || FargoGlobalProjectile.TileIsLiterallyAir(tile) || FargoGlobalProjectile.TileBelongsToMagicStorage(tile))
                                 continue;
 
-                            if (player.HasEnoughPickPowerToHurtTile(xPosition, yPosition))
+                            if (player.HasEnoughPickPowerToHurtTile(xPosition, yPosition) && WorldGen.CanKillTile(xPosition, yPosition))
                             {
                                 WorldGen.KillTile(xPosition, yPosition);
                                 if (Main.netMode != NetmodeID.SinglePlayer)
