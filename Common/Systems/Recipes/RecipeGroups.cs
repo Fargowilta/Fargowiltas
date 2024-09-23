@@ -251,7 +251,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             );
             AnyGemRobe = RecipeGroup.RegisterGroup("Fargowiltas:AnyGemRobe", group);
 
-            group = new RecipeGroup(() => RecipeHelper.ItemXOrY(ItemID.WoodenCrate, ItemID.WoodenCrateHard), ItemID.WoodenCrate, ItemID.WoodenCrateHard)
+            group = new RecipeGroup(() => RecipeHelper.ItemXOrY(ItemID.WoodenCrate, ItemID.WoodenCrateHard), ItemID.WoodenCrate, ItemID.WoodenCrateHard);
         }
     }
 }

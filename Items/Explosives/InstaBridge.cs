@@ -36,7 +36,7 @@ namespace Fargowiltas.Items.Explosives
             Item.noMelee = true;
             Item.shoot = ModContent.ProjectileType<InstabridgeProj>();
         }
-
+        public override bool AltFunctionUse(Player player) => true;
         public override void HoldItem(Player player)
         {
             if (player.whoAmI == Main.myPlayer)
@@ -51,8 +51,7 @@ namespace Fargowiltas.Items.Explosives
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 mouse = Main.MouseWorld;
-
-            Projectile.NewProjectile(player.GetSource_ItemUse(source.Item), mouse, Vector2.Zero, type, 0, 0, player.whoAmI );
+            Projectile.NewProjectile(player.GetSource_ItemUse(source.Item), mouse, Vector2.Zero, type, 0, 0, player.whoAmI, ai2: player.altFunctionUse);
 
             return false;
         }

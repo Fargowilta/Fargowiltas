@@ -745,6 +745,7 @@ Mods: {
 					Also clears the area right above the platforms
 					The bridge appears at your cursor
 					Avoids breaking areas denoted as important
+					Right Click to clear the area without placing a bridge
 					Use at your own risk
 					'''
 			}
