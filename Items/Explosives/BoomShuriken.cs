@@ -17,7 +17,7 @@ namespace Fargowiltas.Items.Explosives
         {
             Item.width = 11;
             Item.height = 11;
-            Item.damage = 16;
+            Item.damage = 20;
             Item.noMelee = true;
             Item.consumable = true;
             Item.noUseGraphic = true;
@@ -36,8 +36,8 @@ namespace Fargowiltas.Items.Explosives
 
         public override void AddRecipes()
         {
-            CreateRecipe(20)
-                .AddIngredient(ItemID.Shuriken, 20)
+            CreateRecipe(10)
+                .AddIngredient(ItemID.Shuriken, 10)
                 .AddIngredient(ItemID.Dynamite, 1)
                 .AddTile(TileID.Anvils)
                 .Register();

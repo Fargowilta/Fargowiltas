@@ -529,7 +529,7 @@ namespace Fargowiltas.NPCs
                         break;
 
                     case NPCID.Demolitionist:
-                        AddItem(ItemType<BoomShuriken>(), Item.buyPrice(0, 0, 1, 25));
+                        AddItem(ItemType<BoomShuriken>(), Item.buyPrice(0, 0, 2, 50));
                         AddItem(ItemID.CopperOre, condition: Condition.Hardmode);
                         AddItem(ItemID.TinOre, condition: Condition.Hardmode);
                         AddItem(ItemID.IronOre, condition: Condition.Hardmode);
