@@ -1402,8 +1402,8 @@ namespace Fargowiltas.NPCs
                 FargoUtils.PrintText(Language.GetTextValue("Announcement.HasBeenDefeated_Single", Lang.GetNPCNameValue(NPCID.DD2Betsy)), new Color(175, 75, 0));
                 FargoWorld.DownedBools["betsy"] = true;
             }
-
-            if (npc.boss)
+            bool trojan = Fargowiltas.ModLoaded["FargowiltasSouls"] && ModContent.TryFind("FargowiltasSouls", "TrojanSquirrel", out ModNPC trojanSqurrel) && npc.type == trojanSqurrel.Type;
+            if (npc.boss && !trojan)
             {
                 FargoWorld.DownedBools["boss"] = true;
             }
