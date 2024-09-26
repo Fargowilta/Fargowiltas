@@ -23,6 +23,7 @@ namespace Fargowiltas
             public static bool[] SquirrelSellsDirectly;
 
             public static bool[] NonBuffPotion;
+            public static bool[] PotionCannotBeInfinite;
             public static bool[] BuffStation;
             public static List<ShopTooltip>[] RegisteredShopTooltips;
         }
@@ -116,12 +117,16 @@ namespace Fargowiltas
                 ItemID.TeleportationPotion,
                 ItemType<BigSuckPotion>());
 
+            Items.PotionCannotBeInfinite = itemFactory.CreateBoolSet(false,
+                ItemID.BottledHoney);
+
             Items.BuffStation = itemFactory.CreateBoolSet(false,
                 ItemID.SharpeningStation,
                 ItemID.AmmoBox,
                 ItemID.CrystalBall,
                 ItemID.BewitchingTable,
                 ItemID.WarTable);
+
             Items.RegisteredShopTooltips = itemFactory.CreateCustomSet<List<ShopTooltip>>(null);
             #endregion
             #region Tiles

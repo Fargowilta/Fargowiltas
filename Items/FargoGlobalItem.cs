@@ -253,18 +253,19 @@ namespace Fargowiltas.Items
 
                 if (fargoServerConfig.UnlimitedPotionBuffsOn120 && item.maxStack > 1)
                 {
-                    if (item.buffType != 0)
+                    if (!FargoSets.Items.PotionCannotBeInfinite[item.type])
                     {
-                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:87] [c/AAAAAA:{ExpandedTooltipLoc("UnlimitedBuff30")}]");
-                        tooltips.Add(line);
+                        if (item.buffType != 0)
+                        {
+                            line = new TooltipLine(Mod, "TooltipUnlim", $"[i:87] [c/AAAAAA:{ExpandedTooltipLoc("UnlimitedBuff30")}]");
+                            tooltips.Add(line);
+                        }
+                        else if (item.bait > 0)
+                        {
+                            line = new TooltipLine(Mod, "TooltipUnlim", $"[i:5139] [c/AAAAAA:{ExpandedTooltipLoc("UnlimitedUse30")}]");
+                            tooltips.Add(line);
+                        }
                     }
-                    else if (item.bait > 0)
-                    {
-                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:5139] [c/AAAAAA:{ExpandedTooltipLoc("UnlimitedUse30")}]");
-                        tooltips.Add(line);
-                    }
-                   
-                    
                 }
 
                 if (fargoServerConfig.PermanentStationsNearby && FargoSets.Items.BuffStation[item.type])
@@ -369,6 +370,9 @@ namespace Fargowiltas.Items
         public static void TryUnlimBuff(Item item, Player player)
         {
             if (item.IsAir || !FargoServerConfig.Instance.UnlimitedPotionBuffsOn120)
+                return;
+
+            if (FargoSets.Items.PotionCannotBeInfinite[item.type])
                 return;
 
             if (item.stack >= 30 && item.buffType != 0)
