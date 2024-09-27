@@ -8,7 +8,6 @@ namespace Fargowiltas.Items.Summons.Mutant
 {
     public class JellyCrystal : BaseSummon
     {
-        public override string Texture => "Terraria/Images/Item_4988";
 
         public override int NPCType => NPCID.QueenSlimeBoss;
         
