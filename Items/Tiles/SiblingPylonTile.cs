@@ -80,8 +80,9 @@ namespace Fargowiltas.Items.Tiles
 
 		public override bool RightClick(int i, int j)
 		{
-			Main.mapFullscreen = true;
-			SoundEngine.PlaySound(SoundID.MenuOpen);
+			//Main.mapFullscreen = true;
+			//SoundEngine.PlaySound(SoundID.MenuOpen);
+			Main.LocalPlayer.TryOpeningFullscreenMap();
 			return true;
 		}
 
