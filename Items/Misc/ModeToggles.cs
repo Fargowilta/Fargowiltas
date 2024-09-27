@@ -132,6 +132,15 @@ namespace Fargowiltas.Items.Misc
             
         }
 
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+                .AddRecipeGroup(RecipeGroupID.IronBar, 5)
+                .AddTile(TileID.WorkBenches)
+                .DisableDecraft()
+                .Register();
+        }
+
         /*
         public override void Update(ref float gravity, ref float maxFallSpeed)
         {
@@ -144,7 +153,7 @@ namespace Fargowiltas.Items.Misc
             base.UpdateInventory(player);
         }
         */
-        
+
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
             Texture2D texture = (Texture2D)ModContent.Request<Texture2D>($"Fargowiltas/Items/Misc/ModeToggle_{Main.GameMode}");
