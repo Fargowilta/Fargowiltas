@@ -274,6 +274,11 @@ Mods: {
 					Label: "[i:1309] Transparent Friendly Projectiles"
 					Tooltip: Use with vanilla setting for Quality at Medium or Low for best results
 				}
+
+				MultiplayerDeathSpectate: {
+					Label: Multiplayer Death Spectate
+					Tooltip: ""
+				}
 			}
 
 			SeasonSelections: {

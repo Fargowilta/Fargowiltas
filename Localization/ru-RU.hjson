@@ -274,6 +274,11 @@ Mods: {
 					Label: "[i:1309] Прозрачность Дружелюбных Снарядов"
 					Tooltip: Используйте с ванильной настройкой Качества на Среднем или Низком для лучших результатов
 				}
+
+				MultiplayerDeathSpectate: {
+					// Label: Multiplayer Death Spectate
+					// Tooltip: ""
+				}
 			}
 
 			SeasonSelections: {

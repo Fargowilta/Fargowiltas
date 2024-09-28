@@ -16,6 +16,7 @@ using Fargowiltas.Items;
 using Terraria.GameContent.Events;
 using System.IO;
 using Fargowiltas.Common.Configs;
+using System.Runtime.InteropServices.JavaScript;
 
 ////using Fargowiltas.Toggler;
 
@@ -256,6 +257,8 @@ namespace Fargowiltas
         public override void UpdateDead()
         {
             StationSoundCooldown = 0;
+            if (FargoClientConfig.Instance.MultiplayerDeathSpectate && Player.dead && Main.netMode != NetmodeID.SinglePlayer && Main.player.Any(p => p != null && !p.dead && !p.ghost))
+                Player.Center = Main.player.First(p => p != null && !p.dead && !p.ghost).Center;
         }
         public override void PostUpdateMiscEffects()
         {
@@ -427,7 +430,13 @@ namespace Fargowiltas
 
             luckPotionBoost = 0; //look nowhere else works ok
         }
-
+        public override void ModifyScreenPosition()
+        {
+            
+            if (FargoClientConfig.Instance.MultiplayerDeathSpectate && Main.LocalPlayer.dead && Main.netMode != NetmodeID.SinglePlayer &&  Main.player.Any(p => p != null && !p.dead && !p.ghost))
+                Main.screenPosition = Main.player.First(p => p != null && !p.dead && !p.ghost).Center - (new Vector2(Main.screenWidth, Main.screenHeight) / 2);
+            
+        }
         public void AutoUseMirror()
         {
             int potionofReturn = -1;
