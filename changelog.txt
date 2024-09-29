@@ -1,11 +1,3 @@
 NEW UPDATE - V {ModVersion}
 
--Added ModCall for other mods registering Evil altars to be deleted by Altar Exterminator (requested by Exxo Avalon)
--Pirate NPC now sells Golden Dipping Vat and removed its recipe
--New glow visuals for Battle Cry
--The Stat Sheet now shows Artisan Loaf consumption
--Boom Shurikens now check WorldGen.CanKillTile before breakage
-
--Fixed Squirrel being offset into the floor by 2 pixels
--Moved Squirrel's chatbox to be closer to him
--Russian localization updates
+-Added ModCall for other mods registering Events to be affected by Abominationn
