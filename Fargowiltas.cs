@@ -48,7 +48,9 @@ namespace Fargowiltas
 
         // Mod loaded bools
         internal static Dictionary<string, bool> ModLoaded;
-        internal static Dictionary<int, string> ModRareEnemies = new Dictionary<int, string>();
+        internal static Dictionary<int, string> ModRareEnemies = [];
+        internal static List<Action> ModEventActions = [];
+        internal static List<Func<bool>> ModEventActiveFuncs = [];
 
         public List<StatSheetUI.Stat> ModStats;
         public List<StatSheetUI.PermaUpgrade> PermaUpgrades;
@@ -409,6 +411,20 @@ namespace Fargowiltas
                         }
                         break;
 
+                    case "AddAbominationnEvent":
+                        {
+                            if (args[1].GetType() != typeof(Action))
+                                throw new Exception("\"Call Error (Fargo Mutant Mod AddAbominationnEvent): args[1] must be of type Action");
+
+                            ModEventActions.Add((Action)args[1]);
+
+                            if (args[2].GetType() != typeof(Func<bool>))
+                                throw new Exception("\"Call Error (Fargo Mutant Mod AddAbominationnEvent): args[2] must be of type Func<bool>");
+
+                            ModEventActiveFuncs.Add((Func<bool>)args[2]);
+                        }
+                        break;
+
                     //                    case "AddEventSummon":
                     //                        if (summonTracker.SummonsFinalized)
                     //                            throw new Exception($"Call Error: Event summons must be added before AddRecipes");
@@ -577,7 +593,8 @@ namespace Fargowiltas
             || BirthdayParty.PartyIsUp
             || DD2Event.Ongoing
             || Sandstorm.Happening
-            || (NPC.downedTowers && (NPC.LunarApocalypseIsUp || NPC.ShieldStrengthTowerNebula > 0 || NPC.ShieldStrengthTowerSolar > 0 || NPC.ShieldStrengthTowerStardust > 0 || NPC.ShieldStrengthTowerVortex > 0));
+            || (NPC.downedTowers && (NPC.LunarApocalypseIsUp || NPC.ShieldStrengthTowerNebula > 0 || NPC.ShieldStrengthTowerSolar > 0 || NPC.ShieldStrengthTowerStardust > 0 || NPC.ShieldStrengthTowerVortex > 0))
+            || ModEventActiveFuncs.Any(f => f.Invoke());
 
         internal static bool TryClearEvents()
         {
@@ -679,6 +696,11 @@ namespace Fargowiltas
                 }
 
                 FargoWorld.AbomClearCD = 7200;
+
+                foreach (Action action in ModEventActions)
+                {
+                    action.Invoke();
+                }
             }
 
             //foreach (MutantSummonInfo summon in summonTracker.EventSummons)
