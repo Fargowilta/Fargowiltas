@@ -25,7 +25,7 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
             // Tooltip.SetDefault("Summons the Eye of Cthulhu");
         }
 
-        public override bool CanUseItem(Player player) => !Main.dayTime;
+        public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight;
 
         public override void AddRecipes()
         {

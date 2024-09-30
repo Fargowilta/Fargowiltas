@@ -42,7 +42,7 @@ namespace Fargowiltas.Items.Summons.Mutant
 
         public override bool CanUseItem(Player player)
         {
-            return Main.dayTime != true;
+            return FargoUtils.ActuallyNight;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

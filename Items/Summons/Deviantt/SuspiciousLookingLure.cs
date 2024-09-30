@@ -21,7 +21,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
 
         public override bool CanUseItem(Player player)
         {
-            return !Main.dayTime;
+            return FargoUtils.ActuallyNight;
         }
 
         public override void SetDefaults()

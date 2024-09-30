@@ -963,7 +963,7 @@ namespace Fargowiltas.NPCs
                     break;
 
                 case NPCID.HeadlessHorseman:
-                    if (!Main.dayTime && !Main.pumpkinMoon)
+                    if (FargoUtils.ActuallyNight && !Main.pumpkinMoon)
                     {
                         if (Main.rand.NextBool(10))
                             Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, ItemID.JackOLanternMask);
@@ -971,7 +971,7 @@ namespace Fargowiltas.NPCs
                     break;
 
                 case NPCID.MourningWood:
-                    if (!Main.dayTime && !Main.pumpkinMoon)
+                    if (FargoUtils.ActuallyNight && !Main.pumpkinMoon)
                     {
                         Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, ItemID.SpookyWood, 30);
 
@@ -987,7 +987,7 @@ namespace Fargowiltas.NPCs
                     break;
 
                 case NPCID.Pumpking:
-                    if (!Main.dayTime && !Main.pumpkinMoon)
+                    if (FargoUtils.ActuallyNight && !Main.pumpkinMoon)
                     {
                         Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
                             ItemID.TheHorsemansBlade,
@@ -1003,7 +1003,7 @@ namespace Fargowiltas.NPCs
                     break;
 
                 case NPCID.Everscream:
-                    if (!Main.dayTime && !Main.snowMoon)
+                    if (FargoUtils.ActuallyNight && !Main.snowMoon)
                     {
                         Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
                             ItemID.ChristmasTreeSword,
@@ -1015,7 +1015,7 @@ namespace Fargowiltas.NPCs
                     break;
 
                 case NPCID.SantaNK1:
-                    if (!Main.dayTime && !Main.snowMoon)
+                    if (FargoUtils.ActuallyNight && !Main.snowMoon)
                     {
                         Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
                             ItemID.ElfMelter,
@@ -1025,7 +1025,7 @@ namespace Fargowiltas.NPCs
                     break;
 
                 case NPCID.IceQueen:
-                    if (!Main.dayTime && !Main.snowMoon)
+                    if (FargoUtils.ActuallyNight && !Main.snowMoon)
                     {
                         Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
                             ItemID.BlizzardStaff,
