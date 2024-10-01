@@ -17,7 +17,7 @@ namespace Fargowiltas.Items.Explosives
         {
             Item.width = 11;
             Item.height = 11;
-            Item.damage = 20;
+            Item.damage = 10;
             Item.noMelee = true;
             Item.consumable = true;
             Item.noUseGraphic = true;
