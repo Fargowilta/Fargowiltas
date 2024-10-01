@@ -145,16 +145,24 @@ namespace Fargowiltas.Projectiles.Explosives
                             if (player.HasEnoughPickPowerToHurtTile(xPosition, yPosition) && WorldGen.CanKillTile(xPosition, yPosition))
                             {
                                 WorldGen.KillTile(xPosition, yPosition);
+                                /*
                                 if (Main.netMode != NetmodeID.SinglePlayer)
                                 {
+                                    NetMessage.SendTileSquare(-1 , ,,,,)
                                     NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 20, xPosition, yPosition);
                                 }
+                                */
                             }
                         }
 
                         Dust.NewDust(position, 22, 22, DustID.Smoke, 0.0f, 0.0f, 120);
                     }
                 }
+            }
+            if (Main.netMode != NetmodeID.SinglePlayer)
+            {
+                Point center = position.ToTileCoordinates();
+                NetMessage.SendTileSquare(-1, center.X - radius, center.Y - radius, (int)(2 * radius));
             }
             AchievementsHelper.CurrentlyMining = false;
         }
