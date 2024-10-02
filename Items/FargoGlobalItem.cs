@@ -274,13 +274,10 @@ namespace Fargowiltas.Items
                     tooltips.Add(line);
                 }
 
-                if (fargoServerConfig.PiggyBankAcc)
+                if (fargoServerConfig.PiggyBankAcc && (FargoSets.Items.InfoAccessory[item.type] || FargoSets.Items.MechanicalAccessory[item.type]))
                 {
-                    if (FargoSets.Items.InfoAccessory[item.type] || FargoSets.Items.MechanicalAccessory[item.type])
-                    {
-                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:87] [c/AAAAAA:{ExpandedTooltipLoc("WorksFromBanks")}]");
-                        tooltips.Add(line);
-                    }
+                    line = new TooltipLine(Mod, "TooltipUnlim", $"[i:87] [c/AAAAAA:{ExpandedTooltipLoc("WorksFromBanks")}]");
+                    tooltips.Add(line);
                 }
 
                 if (Squirrel.SquirrelSells(item, out SquirrelSellType sellType) != SquirrelShopGroup.End)
@@ -389,11 +386,15 @@ namespace Fargowiltas.Items
         }
         public static void TryPiggyBankAcc(Item item, Player player)
         {
-            if (item.IsAir || item.maxStack > 1 || !FargoServerConfig.Instance.PiggyBankAcc)
+            if (item.IsAir || item.maxStack > 1)
                 return;
-
-            player.RefreshInfoAccsFromItemType(item);
-            player.RefreshMechanicalAccsFromItemType(item.type);
+            if (FargoServerConfig.Instance.PiggyBankAcc)
+            {
+                player.RefreshInfoAccsFromItemType(item);
+                player.RefreshMechanicalAccsFromItemType(item.type);
+            }
+            if (FargoServerConfig.Instance.ModdedPiggyBankAcc && item.ModItem is ModItem modItem && modItem != null)
+                modItem.UpdateInventory(player);
         }
         public override void UpdateInventory(Item item, Player player)
         {

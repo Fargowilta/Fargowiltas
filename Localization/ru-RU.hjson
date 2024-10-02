@@ -173,6 +173,11 @@ Mods: {
 					Tooltip: ""
 				}
 
+				ModdedPiggyBankAcc: {
+					// Label: "[i:87] Modded item inventory effects work in Piggy Bank and Safe"
+					// Tooltip: ""
+				}
+
 				FasterLavaFishing: {
 					Label: "[i:4881] Ускоренная Рыбалка в Лаве"
 					Tooltip: ""

@@ -169,7 +169,12 @@ Mods: {
 				}
 
 				PiggyBankAcc: {
-					Label: "[i:87] Informational and Construction Accessories work in Piggy Bank"
+					Label: "[i:87] Informational and Construction item inventory effects work in Piggy Bank"
+					Tooltip: ""
+				}
+
+				ModdedPiggyBankAcc: {
+					Label: "[i:87] Modded item inventory effects work in Piggy Bank"
 					Tooltip: ""
 				}
 

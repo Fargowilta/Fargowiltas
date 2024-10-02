@@ -237,7 +237,7 @@ namespace Fargowiltas
                 }
             }
 
-            if (FargoServerConfig.Instance.PiggyBankAcc)
+            if (FargoServerConfig.Instance.PiggyBankAcc || FargoServerConfig.Instance.ModdedPiggyBankAcc)
             {
                 foreach (Item item in Player.bank.item)
                 {
