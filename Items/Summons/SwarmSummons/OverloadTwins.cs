@@ -21,7 +21,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override bool CanUseItem(Player player)
         {
-            return !Fargowiltas.SwarmActive && !Main.dayTime;
+            return !Fargowiltas.SwarmActive && FargoUtils.ActuallyNight;
         }
     }
 }

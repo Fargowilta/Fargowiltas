@@ -205,6 +205,9 @@ namespace Fargowiltas
 
             //AddDialogue("Why not go hunting for some rare monsters every once in a while? Plenty of treasure to be looted and all that.", HelpDialogueType.Misc, (name) => Main.hardMode);
 
+            //AddDialogue("UndergroundShadowHands", HelpDialogueType.Environment,
+            //    (name) => !NPC.downedDeerclops && !(bool)(ModLoader.GetMod("FargowiltasSouls").Call("PureHeart") ?? false));
+
             AddDialogue("UndergroundHallow", HelpDialogueType.Environment,
                 (name) => Main.hardMode && !(bool)(ModLoader.GetMod("FargowiltasSouls").Call("PureHeart") ?? false));
 

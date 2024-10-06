@@ -153,6 +153,9 @@ namespace Fargowiltas.Common.Configs
         public bool PiggyBankAcc;
 
         [DefaultValue(true)]
+        public bool ModdedPiggyBankAcc;
+
+        [DefaultValue(true)]
         public bool FasterLavaFishing;
 
         [DefaultValue(true)]

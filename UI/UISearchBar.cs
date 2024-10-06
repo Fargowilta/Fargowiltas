@@ -54,7 +54,7 @@ namespace Fargowiltas.UI
                 }
             }
 
-            if (PlayerInput.Triggers.Current.MouseRight)
+            if (PlayerInput.Triggers.Current.MouseRight && ContainsPoint(Main.MouseScreen))
             {
                 Focused = true;
                 Input = "";

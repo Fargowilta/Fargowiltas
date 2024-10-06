@@ -24,7 +24,7 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
             // Tooltip.SetDefault("Summons the Destroyer");
         }
 
-        public override bool CanUseItem(Player player) => !Main.dayTime && !NPC.AnyNPCs(NPCType);
+        public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight && !NPC.AnyNPCs(NPCType);
 
         public override bool? UseItem(Player player)
         {
@@ -34,6 +34,10 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
+            Main.time = 0;
+
+            if (Main.netMode == NetmodeID.Server) //sync time
+                NetMessage.SendData(MessageID.WorldData, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
             return false;
         }
 
