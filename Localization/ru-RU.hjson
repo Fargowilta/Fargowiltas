@@ -174,7 +174,7 @@ Mods: {
 				}
 
 				ModdedPiggyBankAcc: {
-					// Label: "[i:87] Modded item inventory effects work in Piggy Bank and Safe"
+					// Label: "[i:87] Modded item inventory effects work in Piggy Bank"
 					// Tooltip: ""
 				}
 
@@ -304,7 +304,7 @@ Mods: {
 			FoodT2: еда полного удовлетворения
 			FoodT3: еда изысканного удовлетворения
 			GemRobe: роба из камней
-      Or: или
+			Or: или
 		}
 
 		UI: {
@@ -338,6 +338,7 @@ Mods: {
 			// Battle & Calming are in Items.BattleCry
 			BattleCryNone: Выкл.
 			MaxSpeed: Макс. скорость: {0} миль в час
+			// AttackSpeed: Attack Speed: {0}%
 			WingNull: ???
 			WingTime: Время полёта: {0}
 			WingTimeMoreThan60Sec: Да
