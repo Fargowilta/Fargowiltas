@@ -338,6 +338,7 @@ Mods: {
 			// Battle & Calming are in Items.BattleCry
 			BattleCryNone: None
 			MaxSpeed: Max Speed: {0} mph
+			AttackSpeed: Attack Speed: {0}%
 			WingNull: ???
 			WingTime: Wing Time: {0}
 			WingTimeMoreThan60Sec: Yes
