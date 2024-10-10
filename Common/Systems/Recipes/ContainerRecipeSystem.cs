@@ -17,25 +17,13 @@ namespace Fargowiltas.Common.Systems.Recipes
             AddBiomeKeyRecipes();
 
             // Treasure magnet I HATE TREASURE MAGNET TEAR OFF ALL OF YOUR FLESH
-            if (!Main.zenithWorld && !Main.remixWorld)
-            {
-                CreateTreasureGroupRecipe(ItemID.TreasureMagnet,
-                ItemID.DarkLance,
-                ItemID.HellwingBow,
-                ItemID.Flamelash,
-                ItemID.FlowerofFire,
-                ItemID.Sunfury
-            );
-            }
-            else
-            {
-                CreateTreasureGroupRecipe(ItemID.TreasureMagnet,
+            CreateTreasureGroupRecipe(ItemID.TreasureMagnet,
                 ItemID.DarkLance,
                 ItemID.HellwingBow,
                 ItemID.Flamelash,
                 ItemID.Sunfury
             );
-            }
+            RecipeHelper.CreateSimpleRecipe(ItemID.TreasureMagnet, ItemID.FlowerofFire, TileID.Solidifier, disableDecraft: true, conditions: Condition.NotRemixWorld);
         }
 
         private static void AddPreHMTreasureBagRecipes()
@@ -303,10 +291,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             CreateCrateRecipe(ItemID.ClimbingClaws, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
             CreateCrateRecipe(ItemID.Radar, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
             CreateCrateRecipe(ItemID.WoodenBoomerang, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
-            if (!Main.remixWorld && !Main.zenithWorld)
-            {
-                CreateCrateRecipe(ItemID.WandofSparking, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
-            }
+            CreateCrateRecipe(ItemID.WandofSparking, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard, conditions: Condition.NotRemixWorld);
             CreateCrateRecipe(ItemID.Spear, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
             CreateCrateRecipe(ItemID.Blowpipe, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
             CreateCrateRecipe(ItemID.PortableStool, ItemID.WoodenCrate, 3, ItemID.WoodenCrateHard);
@@ -375,10 +360,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             CreateCrateRecipe(ItemID.Muramasa, ItemID.DungeonFishingCrate, 1, ItemID.DungeonFishingCrateHard, ItemID.GoldenKey);
             CreateCrateRecipe(ItemID.CobaltShield, ItemID.DungeonFishingCrate, 1, ItemID.DungeonFishingCrateHard, ItemID.GoldenKey);
             CreateCrateRecipe(ItemID.MagicMissile, ItemID.DungeonFishingCrate, 1, ItemID.DungeonFishingCrateHard, ItemID.GoldenKey);
-            if (!Main.zenithWorld && !Main.remixWorld)
-            {
-                CreateCrateRecipe(ItemID.AquaScepter, ItemID.DungeonFishingCrate, 1, ItemID.DungeonFishingCrateHard, ItemID.GoldenKey);
-            }
+            CreateCrateRecipe(ItemID.AquaScepter, ItemID.DungeonFishingCrate, 1, ItemID.DungeonFishingCrateHard, ItemID.GoldenKey, conditions: Condition.NotRemixWorld);
             CreateCrateRecipe(ItemID.Valor, ItemID.DungeonFishingCrate, 1, ItemID.DungeonFishingCrateHard, ItemID.GoldenKey);
             CreateCrateRecipe(ItemID.Handgun, ItemID.DungeonFishingCrate, 1, ItemID.DungeonFishingCrateHard, ItemID.GoldenKey);
             CreateCrateRecipe(ItemID.ShadowKey, ItemID.DungeonFishingCrate, 1, ItemID.DungeonFishingCrateHard, ItemID.GoldenKey);
@@ -388,10 +370,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             CreateCrateRecipe(ItemID.BewitchingTable, ItemID.DungeonFishingCrate, 1, ItemID.DungeonFishingCrateHard, ItemID.GoldenKey);
 
             //frozen crate
-            if (!Main.zenithWorld && !Main.remixWorld)
-            {
-                CreateCrateRecipe(ItemID.SnowballCannon, ItemID.FrozenCrate, 1, ItemID.FrozenCrateHard);
-            }
+            CreateCrateRecipe(ItemID.SnowballCannon, ItemID.FrozenCrate, 1, ItemID.FrozenCrateHard, conditions: Condition.NotRemixWorld);
             CreateCrateRecipe(ItemID.BlizzardinaBottle, ItemID.FrozenCrate, 1, ItemID.FrozenCrateHard);
             CreateCrateRecipe(ItemID.IceBlade, ItemID.FrozenCrate, 1, ItemID.FrozenCrateHard);
             CreateCrateRecipe(ItemID.IceSkates, ItemID.FrozenCrate, 1, ItemID.FrozenCrateHard);
@@ -419,10 +398,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             CreateCrateRecipe(ItemID.DarkLance, ItemID.LavaCrate, 1, ItemID.LavaCrateHard, ItemID.ShadowKey);
             CreateCrateRecipe(ItemID.HellwingBow, ItemID.LavaCrate, 1, ItemID.LavaCrateHard, ItemID.ShadowKey);
             CreateCrateRecipe(ItemID.Flamelash, ItemID.LavaCrate, 1, ItemID.LavaCrateHard, ItemID.ShadowKey);
-            if (!Main.zenithWorld && !Main.remixWorld)
-            {
-                CreateCrateRecipe(ItemID.FlowerofFire, ItemID.LavaCrate, 1, ItemID.LavaCrateHard, ItemID.ShadowKey);
-            }
+            CreateCrateRecipe(ItemID.FlowerofFire, ItemID.LavaCrate, 1, ItemID.LavaCrateHard, ItemID.ShadowKey, conditions: Condition.NotRemixWorld);
             CreateCrateRecipe(ItemID.Sunfury, ItemID.LavaCrate, 1, ItemID.LavaCrateHard, ItemID.ShadowKey);
             CreateCrateRecipe(ItemID.TreasureMagnet, ItemID.LavaCrate, 1, ItemID.LavaCrateHard, ItemID.ShadowKey);
 
@@ -445,7 +421,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             CreateCrateRecipe(ItemID.SharkBait, ItemID.OceanCrate, 5, ItemID.OceanCrateHard);
         }
 
-        private static void CreateCrateRecipe(int result, int crate, int crateAmount, int hardmodeCrate, int extraItem = -1)
+        private static void CreateCrateRecipe(int result, int crate, int crateAmount, int hardmodeCrate, int extraItem = -1, params Condition[] conditions)
         {
             if (crate != -1)
             {
@@ -456,6 +432,10 @@ namespace Fargowiltas.Common.Systems.Recipes
                     recipe.AddIngredient(extraItem);
                 }
                 recipe.AddTile(TileID.WorkBenches);
+                foreach (Condition condition in conditions)
+                {
+                    recipe.AddCondition(condition);
+                }
                 recipe.DisableDecraft();
                 recipe.Register();
             }
@@ -469,6 +449,10 @@ namespace Fargowiltas.Common.Systems.Recipes
                     recipe.AddIngredient(extraItem);
                 }
                 recipe.AddTile(TileID.WorkBenches);
+                foreach (Condition condition in conditions)
+                {
+                    recipe.AddCondition(condition);
+                }
                 recipe.DisableDecraft();
                 recipe.Register();
             }

@@ -1,5 +1,7 @@
 ﻿using Fargowiltas.Projectiles.Explosives;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -35,24 +37,30 @@ Only works in the Jungle Temple and after Plantera is defeated"); */
             Item.shoot = ModContent.ProjectileType<LihzahrdInstactuationBombProj>();
         }
 
-        Vector2 NearbyAltar(Player player)
+        private static Vector2 NearbyAltar(Player player)
         {
             Vector2 startPos = player.Bottom;
             startPos.Y -= 8;
-
-            for (int i = 0; i <= 8; i++) //check up to this many blocks away
+            List<Vector2> positions = new();
+            for (int i = 0; i <= 2; i++) //check up to this many blocks away
             {
                 for (int j = -1; j <= 1; j += 2) //check on both sides
                 {
                     Vector2 pos = startPos;
                     pos.X += 16 * i * j;
                     Tile tile = Framing.GetTileSafely(pos);
-                    if (tile.TileType == TileID.LihzahrdAltar && tile.WallType == WallID.LihzahrdBrickUnsafe
-                        && Collision.CanHitLine(player.Center, 0, 0, pos, 0, 0))
-                        return pos;
+                    if (tile.TileType == TileID.LihzahrdAltar && tile.WallType == WallID.LihzahrdBrickUnsafe && Collision.CanHitLine(player.Center, 0, 0, pos, 0, 0))
+                        positions.Add(pos);
+                    if (positions.Count == 3) // when exactly 3 positions are found (one altar), return mean of positions (center)
+                    {
+                        Vector2 center = Vector2.Zero;
+                        foreach (Vector2 p in positions)
+                            center += p;
+                        center /= positions.Count;
+                        return center;
+                    }
                 }
             }
-
             return default;
         }
 

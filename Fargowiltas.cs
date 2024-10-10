@@ -19,6 +19,7 @@ using Terraria.Graphics;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static Fargowiltas.FargoSets;
 
 namespace Fargowiltas
 {
@@ -50,13 +51,13 @@ namespace Fargowiltas
         internal static Dictionary<int, string> ModRareEnemies = new Dictionary<int, string>();
 
         public List<StatSheetUI.Stat> ModStats;
+        public List<StatSheetUI.PermaUpgrade> PermaUpgrades;
 
         private string[] mods;
 
         internal static Fargowiltas Instance;
 
         public override uint ExtraPlayerBuffSlots => FargoServerConfig.Instance.ExtraBuffSlots;
-
 
         public Fargowiltas()
         {
@@ -75,7 +76,16 @@ namespace Fargowiltas
             Instance = this;
 
             ModStats = new();
-            
+            PermaUpgrades = new List<StatSheetUI.PermaUpgrade>
+            {
+                new(ContentSamples.ItemsByType[ItemID.AegisCrystal], () => Main.LocalPlayer.usedAegisCrystal),
+                new(ContentSamples.ItemsByType[ItemID.AegisFruit], () => Main.LocalPlayer.usedAegisFruit),
+                new(ContentSamples.ItemsByType[ItemID.ArcaneCrystal], () => Main.LocalPlayer.usedArcaneCrystal),
+                new(ContentSamples.ItemsByType[ItemID.Ambrosia], () => Main.LocalPlayer.usedAmbrosia),
+                new(ContentSamples.ItemsByType[ItemID.GummyWorm], () => Main.LocalPlayer.usedGummyWorm),
+                new(ContentSamples.ItemsByType[ItemID.GalaxyPearl], () => Main.LocalPlayer.usedGalaxyPearl),
+                new(ContentSamples.ItemsByType[ItemID.ArtisanLoaf], () => Main.LocalPlayer.ateArtisanBread),
+            };
 
             summonTracker = new MutantSummonTracker();
             dialogueTracker = new DevianttDialogueTracker();
@@ -92,15 +102,15 @@ namespace Fargowiltas
             _userInterfaceManager = new UIManager();
             _userInterfaceManager.LoadUI();
 
-            mods = new string[]
-            {
+            mods =
+            [
                 "FargowiltasSouls", // Fargo's Souls
                 "FargowiltasSoulsDLC",
                 "ThoriumMod",
                 "CalamityMod",
                 "MagicStorage",
                 "WikiThis"
-            };
+            ];
 
             ModLoaded = new Dictionary<string, bool>();
             foreach (string mod in mods)
@@ -121,6 +131,7 @@ namespace Fargowiltas
             Terraria.On_SceneMetrics.ExportTileCountsToMain += ExportTileCountsToMain_PurityTotemHack;
             Terraria.On_Player.HasUnityPotion += OnHasUnityPotion;
             Terraria.On_Player.TakeUnityPotion += OnTakeUnityPotion;
+            Terraria.On_Player.DropTombstone += DisableTombstones;
         }
 
         private static IEnumerable<Item> GetWormholes(Player self) =>
@@ -148,6 +159,14 @@ namespace Fargowiltas
 
             if (pot.stack <= 0)
                 pot.SetDefaults(0, false);
+        }
+
+        private static void DisableTombstones(Terraria.On_Player.orig_DropTombstone orig, Player self, long coinsOwned, NetworkText deathText, int hitDirection)
+        {
+            if (FargoServerConfig.Instance.DisableTombstones)
+                return;
+
+            orig(self, coinsOwned, deathText, hitDirection);
         }
 
         private static bool OnHasUnityPotion(Terraria.On_Player.orig_HasUnityPotion orig, Player self)
@@ -217,6 +236,7 @@ namespace Fargowiltas
             Terraria.On_SceneMetrics.ExportTileCountsToMain -= ExportTileCountsToMain_PurityTotemHack;
             Terraria.On_Player.HasUnityPotion -= OnHasUnityPotion;
             Terraria.On_Player.TakeUnityPotion -= OnTakeUnityPotion;
+            Terraria.On_Player.DropTombstone -= DisableTombstones;
 
             summonTracker = null;
             dialogueTracker = null;
@@ -312,14 +332,26 @@ namespace Fargowiltas
                             if (args[1].GetType() == typeof(int))
                             {
                                 int tile = (int)args[1];
-                                FargoGlobalProjectile.CannotDestroyTileTypes.Add(tile);
+                                FargoSets.Tiles.InstaCannotDestroy[tile] = true;
                             }
                         }
                         break;
                     case "AddIndestructibleWallType":
                         {
-                            int wall = (int)args[1];
-                            FargoGlobalProjectile.CannotDestroyWallTypes.Add(wall);
+                            if (args[1].GetType() == typeof(int))
+                            {
+                                int wall = (int)args[1];
+                                FargoSets.Walls.InstaCannotDestroy[wall] = true;
+                            }
+                        }
+                        break;
+                    case "AddEvilAltar":
+                        {
+                            if (args[1].GetType() == typeof(int))
+                            {
+                                int tile = (int)args[1];
+                                FargoSets.Tiles.EvilAltars[tile] = true;
+                            }
                         }
                         break;
                     case "AddStat":
@@ -332,6 +364,18 @@ namespace Fargowiltas
                             int itemID = (int)args[1];
                             Func<string> TextFunction = (Func<string>)args[2];
                             ModStats.Add(new StatSheetUI.Stat(itemID, TextFunction));
+                        }
+                        break;
+                    case "AddPermaUpgrade":
+                        {
+                            if (args[1].GetType() != typeof(Item))
+                                throw new Exception($"Call Error (Fargo Mutant Mod AddStat): args[1] must be of type Item");
+                            if (args[2].GetType() != typeof(Func<bool>))
+                                throw new Exception($"Call Error (Fargo Mutant Mod AddStat): args[2] must be of type Func<bool>");
+
+                            Item item = (Item)args[1];
+                            Func<bool> ConsumedFunction = (Func<bool>)args[2];
+                            PermaUpgrades.Add(new StatSheetUI.PermaUpgrade(item, ConsumedFunction));
                         }
                         break;
                     case "SwarmActive":
@@ -505,6 +549,16 @@ namespace Fargowiltas
                     }
                     break;
 
+                case 9: // sync death fruit health
+                    {
+                        int p = (int)reader.ReadByte();
+                        int deathFruitHealth = reader.ReadByte();
+                        if (p >= 0 && p < Main.maxPlayers && Main.player[p].active)
+                        {
+                            Main.player[p].GetModPlayer<FargoPlayer>().DeathFruitHealth = deathFruitHealth;
+                        }
+                    }
+                    break;
                 default:
                     break;
             }
@@ -705,8 +759,7 @@ namespace Fargowiltas
             }
             else
             {
-                // I have no idea how to convert this to the standard system so im gonna post this method too lol
-                FargoNet.SendNetMessage(FargoNet.SummonNPCFromClient, (byte)player.whoAmI, (short)bossType, spawnMessage, npcCenter.X, npcCenter.Y, overrideDisplayName, namePlural);
+                FargoNet.SendNetMessage(FargoNet.SummonNPCFromClient, (byte)player.whoAmI, (short)bossType, spawnMessage, (int)npcCenter.X, (int)npcCenter.Y, overrideDisplayName, namePlural);
             }
 
             return 200;
@@ -749,14 +802,16 @@ namespace Fargowiltas
                 {
                     dir = -1;
                 }
-                else if (modPlayer.latestXDirReleased != 0)
-                {
-                    dir = modPlayer.latestXDirReleased;
-                }
-                else
-                {
-                    dir = player.direction;
-                }
+                if (dir == 0) // this + commented out below because changed to not have an effect when not holding any movement keys; primarily so it's affected by stun effects
+                    return;
+                //else if (modPlayer.latestXDirReleased != 0)
+                //{
+                //    dir = modPlayer.latestXDirReleased;
+                //}
+                //else
+                //{
+                //    dir = player.direction;
+                //}
                 player.direction = dir;
                 dashing = true;
                 if (player.dashTime > 0)

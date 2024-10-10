@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace Fargowiltas.Items.Summons.Abom
 {
-    public class PartyCone : ModItem
+    public class PartyInvite : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -32,7 +32,7 @@ namespace Fargowiltas.Items.Summons.Abom
 
         public override bool CanUseItem(Player player)
         {
-            return Main.dayTime && !BirthdayParty.PartyIsUp && Main.npc.Count(n => n.active && n.townNPC && n.aiStyle != 0 && n.type != NPCID.OldMan && n.type != NPCID.SkeletonMerchant && n.type != NPCID.TaxCollector && !NPCID.Sets.IsTownPet[n.type]) >= 5;
+            return (Main.dayTime || Main.remixWorld) && !BirthdayParty.PartyIsUp && Main.npc.Count(n => n.active && n.townNPC && n.aiStyle != 0 && n.type != NPCID.OldMan && n.type != NPCID.SkeletonMerchant && n.type != NPCID.TaxCollector && !NPCID.Sets.IsTownPet[n.type]) >= 5;
         }
 
         public override bool? UseItem(Player player)

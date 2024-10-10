@@ -1,3 +1,4 @@
+using Fargowiltas.Common.Systems.Recipes;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,20 +19,16 @@ namespace Fargowiltas.Items.Summons.Deviantt
 
         public override bool CanUseItem(Player player)
         {
-            return !Main.dayTime || player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight || player.ZoneUnderworldHeight;
+            return FargoUtils.ActuallyNight || player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight || player.ZoneUnderworldHeight;
         }
 
         public override void AddRecipes()
         {
-            if (ModContent.TryFind("Fargowiltas/Deviantt", out ModItem modItem))
-            {
-                CreateRecipe()
+            CreateRecipe()
                   .AddIngredient(ItemID.LifeCrystal)
-                  .AddIngredient(ItemID.GoldCoin, 10)
-                  .AddIngredient(modItem.Type)
+                  .AddRecipeGroup(RecipeGroups.AnyFoodT2)
                   .AddTile(TileID.CookingPots)
                   .Register();
-            }
         }
     }
 }

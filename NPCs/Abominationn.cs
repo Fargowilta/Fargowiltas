@@ -94,7 +94,7 @@ namespace Fargowiltas.NPCs
             NPC.aiStyle = 7;
             NPC.damage = 10;
             NPC.defense = NPC.downedMoonlord ? 50 : 15;
-            NPC.lifeMax = NPC.downedMoonlord ? 5000 : 250;
+            NPC.lifeMax = NPC.downedMoonlord ? 5000 : Main.hardMode ? 1000 : 250;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
@@ -132,7 +132,7 @@ namespace Fargowiltas.NPCs
 
         public override List<string> SetNPCNameList()
         {
-            string[] names = { "Wilta", "Jack", "Harley", "Reaper", "Stevenn", "Doof", "Baroo", "Fergus", "Entev", "Catastrophe", "Bardo", "Betson" };
+            string[] names = ["Wilta", "Jack", "Harley", "Reaper", "Stevenn", "Doof", "Baroo", "Fergus", "Entev", "Catastrophe", "Bardo", "Betson"];
 
             return new List<string>(names);
         }
@@ -226,7 +226,7 @@ namespace Fargowiltas.NPCs
         public override void AddShops()
         {
             var npcShop = new NPCShop(Type, ShopName)
-                .Add(new Item(ItemType<PartyCone>()) { shopCustomPrice = Item.buyPrice(copper: 10000) })
+                .Add(new Item(ItemType<PartyInvite>()) { shopCustomPrice = Item.buyPrice(copper: 10000) })
                 .Add(new Item(ItemType<WeatherBalloon>()) { shopCustomPrice = Item.buyPrice(copper: 20000) })
                 .Add(new Item(ItemType<Anemometer>()) { shopCustomPrice = Item.buyPrice(copper: 30000) })
                 .Add(new Item(ItemType<ForbiddenScarab>()) { shopCustomPrice = Item.buyPrice(copper: 30000) })

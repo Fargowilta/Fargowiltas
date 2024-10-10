@@ -25,7 +25,7 @@ namespace Fargowiltas.UI
         public UIDragablePanel BackPanel;
         public UIPanel InnerPanel;
 
-        public class Stat
+        public struct Stat
         {
             public int ItemID;
             public Func<string> TextFunction;
@@ -34,6 +34,18 @@ namespace Fargowiltas.UI
             {
                 ItemID = itemID;
                 TextFunction = textFunction;
+            }
+        }
+
+        public struct PermaUpgrade
+        {
+            public Item Item;
+            public Func<bool> ConsumedBool;
+
+            public PermaUpgrade(Item item, Func<bool> consumedBool)
+            {
+                Item = item;
+                ConsumedBool = consumedBool;
             }
         }
 
@@ -104,6 +116,11 @@ namespace Fargowiltas.UI
             AddStat("MaxMinions", ItemID.SlimeStaff, player.maxMinions);
             AddStat("MaxSentries", ItemID.SlimeStaff, player.maxTurrets);
 
+            if (Fargowiltas.ModLoaded["FargowiltasSouls"])
+                AddStat("AttackSpeed", ModLoader.GetMod("FargowiltasSouls").Find<ModItem>("MythrilEnchant").Type, (int)Math.Round((float)ModLoader.GetMod("FargowiltasSouls").Call("GetAttackSpeed") * 100));
+            else
+                AddStat("");
+
             AddStat("ArmorPenetration", ItemID.SharkToothNecklace, player.GetArmorPenetration(DamageClass.Generic));
             AddStat("Aggro", ItemID.FleshKnuckles, player.aggro);
 
@@ -143,6 +160,12 @@ namespace Fargowiltas.UI
             foreach (Stat stat in Fargowiltas.Instance.ModStats)
             {
                 AddStat(stat.TextFunction.Invoke(), stat.ItemID);
+            }
+
+            foreach (PermaUpgrade upgrade in Fargowiltas.Instance.PermaUpgrades)
+            {
+                if (upgrade.ConsumedBool.Invoke())
+                    AddStat(upgrade.Item.Name, upgrade.Item.type);         
             }
         }
 

@@ -1,66 +1,47 @@
-This is a Quality of life mod that adds the Mutant town NPC who sells boss summons of nearly every mod
-There are several other items such as infinite ammos, craftable instant builds for common world infrastructure like skybridges, obsidian underworld bridges, hellevators, unlimited potions, increased spawn rates toggle item, and more!
+A Quality of Life mod that makes various adjustments and additions across the game to provide information and convenience.
+Adds the Mutant town NPC, who sells boss summons of nearly every mod, along several others.
+Other features include:
+-Infinite ammos, potions, etc at high enough stack
+-Craftable instant builds for common world infrastructure like skybridges, obsidian underworld bridges, hellevators
+-Powerful explosives for clearing out large parts of the world
+-Spawn rate increase/decrease items
+-Helpful extra tooltips, showing things such as which items are sold by which NPCs
+-Several configs for shaping the game and mod to your wishes
+And much more!
 
 Fargo Discord: https://discord.gg/Rgen4Vv
 Fargo Wiki: https://fargosmods.wiki.gg
 
-NEW UPDATE - v3.3.1
--New item: Koha Crystal
+NEW UPDATE - v3.3.4
+-Non-bomb Insta items now display a rectangular indicator for what they're placing
+-Half Instavator and Instavator are now placed at mouse instead of being bombs
+-New config to disable Tombstones dropping on death
+-Terraformers (Instabridge, City Buster etc) avoiding the vanilla CanPlace check is now dictated by a config (Safe Terraformers), disabled by default.
+-Replaced several Deviantt dialogue lines
+-Boom Shuriken now ONLY affects pickaxe-mined tiles; cannot break hammered tiles such as Altars or axed tiles such as trees
+-Raised Anemometer max wind speed to be usable to be equal to the wind speed it sets (you can always use it if the speed is less)
+-Nuke Boxes no longer stack at 2
+-Squirrel now sells Hand of Creation
+-Adding missing Foods to recipe groups
+-Fixed Rotting Bait name and description being incorrect
 
--New recipes:
-Wall Skeleton
-Hanging Skeleton
-Catacomb
 
--Moon Lord death animation speeds up when multiple are alive
--Added Moondial to Portable Sundial recipe
--Reduced Portable Sundial mana cost from 25 to 15
--Prismatic Primrose resets night when Empress isn't beaten
--Town NPCs remember their home when bug netted
--Mining a Garden Gnome counts for unlocking Gnomes in Deviantt shop
--Added Config option for pylons to allow use even during events
--Multitask Center recipe is now crafted by hand
--Critters and town NPCS are now unaffected by enemy health multiplier config
-
-NEW UPDATE - v3.3
-Added new Stat Slider configs for:
-Enemy health
-Boss health
-Enemy damage
-Boss damage
-Boss multipliers only apply to bosses, or with another config, every enemy when bosses are alive.
-Sliders go between 1-10x.
-
-New recipes:
--Life Crystal
--Finch Staff
--Suspicious Looking Chest
-
-Squire's Shield and Apprentice's Scarf bag recipes moved from Ogre to Dark Mage
-Removed Finch Staff crate recipe
-Removed Jungle Chest item recipe
-Jungle Chest item now drops from Jungle Creepers, Giant Tortoises, Angry Trappers and Moss Hornets at a 2% chance and from Moths at a 10% chance, in Hardmode
-Cultist skips most of his spawn animation when spawned manually
-Super Dummy health changed to 1 million
-Resprited Prismatic Primrose
-
-Fixed Super Dummies not spawning in multiplayer
-Fixed Squirrel blood moon glow offset
-Fixed Princess loveNPC dialogue for the mod's npcs
-Increased Extractinator Speed now works with Chlorophyte Extractinator
-
-NEW UPDATE - v3.2.2
--Updated wiki links to lead to the brand new dedicated wiki at https://fargosmods.wiki.gg
--Added new Deviantt help dialogue for the new Eternity Mode changes for Cacti and lightning
--Lumberjack has a 33% chance to drop a Lumberjack Hat (previously unobtainable)
--Nerfed Calming Cry: Now upgrades through progression
--Changed default Stat Sheet key to RightShift
--Tattered Bee Wings banner recipe now uses Moss Hornet banner instead of Hornet banner
--Removed Lumberjack "Wanna see me work without my shirt on? Maybe in 2030." quote
--Internally cleaned up and improved localization 
--Resprited Weather Balloon
--Fixed issue where Arms Dealer dropped Nano Bullets instead of Cyborg
--Fixed incorrect shop condition description for Amalgamated Skull
--Fixed Lumberjack not dropping hell critters
--Stat Sheet no longer displays "yes" wing time with Soaring Insignia when Calamity is enabled, since it removes its infinite flight
--Fixed AddDevianttHelpDialogue modcall to allow mods calling to provide localization path for the added text string
+NEW UPDATE - v3.3.3
+-Fixed Hide Unlimited Buffs only preventing their rendering (and not mousetext and clickability), and made it only affect the buff display under your hotbar, and not the display under the mount/pet tab
+-Insta items now check for vanilla protection areas, such as the spawn
+Instahouse and Grave Buster are exceptions to this
+-Changed tooltips of Insta items alongside above change
+-Following added item recipes and drops are now disabled in Don't Dig Up worlds: Katana, Wand of Sparking, Flower of Fire, Aqua Scepter, Snowball Cannon, Chain Knife.
+-Added permanent Shimmer upgrades to Stat Sheet UI, along with a mod call for other mods adding their permanent upgrades to this system
+-World Token now toggles Journey Mode with right click, and cycles normal modes with left click
+-Changes to permanent buff station feature:
+--Plays their click sound when giving you the effect
+--Tooltip now shows the station item instead of piggy bank
+--Tooltip clarifies that effect takes place when placed
+-Changed Piggy Bank Accessory lists to be completely identical to vanilla's list of accessories that work from inventory, and greatly optimized this feature's code
+-Optimized tile checks, improving the performance of Insta items
+-Disabled decraft for Big Suck Potion
+-Lihzahrd Instactuation Bomb now properly centers on the altar's center
+-Fixed bug where some modded accessory and prefix changes were triggered by Piggy Bank info accessory config
+-Fixed Lumberjack dropping from trees despite the Lumberjack config being disabled
+-Fixed Mutant Toilet duplicating when mined

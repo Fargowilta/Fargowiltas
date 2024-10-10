@@ -43,7 +43,7 @@ namespace Fargowiltas.Projectiles.Explosives
                     if (WorldGen.InWorld(i, j))
                     {
                         Tile tile = Framing.GetTileSafely(i, j);
-                        if (tile.TileType == TileID.DemonAltar)
+                        if (FargoSets.Tiles.EvilAltars[tile.TileType])
                         {
                             WorldGen.KillTile(i, j);
                             if (Main.netMode == NetmodeID.Server)

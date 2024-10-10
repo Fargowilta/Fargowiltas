@@ -30,7 +30,7 @@ namespace Fargowiltas.Items.Summons.Abom
 
         public override bool CanUseItem(Player player)
         {
-            return Main.windSpeedTarget <= 0.4f; //wind threshold
+            return Main.windSpeedTarget <= 0.8f; //wind threshold
         }
 
         public override bool? UseItem(Player player)

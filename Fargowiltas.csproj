@@ -1,62 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\tModLoader.targets" />
   <PropertyGroup>
     <AssemblyName>Fargowiltas</AssemblyName>
-    <TargetFramework>net6.0</TargetFramework>
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="changelog.txt" />
-    <None Remove="Items\Ammos\Coins\CopperCoinBag.png" />
-    <None Remove="Items\Ammos\Coins\GoldCoinBag.png" />
-    <None Remove="Items\Ammos\Coins\PlatinumCoinBag.png" />
-    <None Remove="Items\Ammos\Coins\SilverCoinBag.png" />
-    <None Remove="Items\Ammos\Rockets\ClusterRocket1Box.png" />
-    <None Remove="Items\Ammos\Rockets\ClusterRocket2Box.png" />
-    <None Remove="Items\Ammos\Rockets\DryRocketBox.png" />
-    <None Remove="Items\Ammos\Rockets\HoneyRocketBox.png" />
-    <None Remove="Items\Ammos\Rockets\LavaRocketBox.png" />
-    <None Remove="Items\Ammos\Rockets\MiniNuke1Box.png" />
-    <None Remove="Items\Ammos\Rockets\MiniNuke2Box.png" />
-    <None Remove="Items\Ammos\Rockets\Rocket1Box.png" />
-    <None Remove="Items\Ammos\Rockets\Rocket2Box.png" />
-    <None Remove="Items\Ammos\Rockets\Rocket3Box.png" />
-    <None Remove="Items\Ammos\Rockets\Rocket4Box.png" />
-    <None Remove="Items\Ammos\Rockets\WetRocketBox.png" />
-    <None Remove="Items\Explosives\CityBuster.png" />
-    <None Remove="Items\Explosives\InstaPond.png" />
-    <None Remove="Items\Misc\KohaCrystal.png" />
-    <None Remove="Items\Misc\ModeToggle_0.png" />
-    <None Remove="Items\Misc\ModeToggle_1.png" />
-    <None Remove="Items\Misc\ModeToggle_2.png" />
-    <None Remove="Items\Misc\ModeToggle_3.png" />
-    <None Remove="Items\Renewals\DirtRenewal.png" />
-    <None Remove="Items\Renewals\DirtRenewalSupreme.png" />
-    <None Remove="Items\Renewals\SandRenewal.png" />
-    <None Remove="Items\Renewals\SandRenewalSupreme.png" />
-    <None Remove="Items\Renewals\SnowRenewal.png" />
-    <None Remove="Items\Renewals\SnowRenewalSupreme.png" />
-    <None Remove="Items\Summons\Abom\OverloadDarkMage.png" />
-    <None Remove="Items\Summons\Deviantt\mutant_icon.png" />
-    <None Remove="Items\Summons\Mutant\AncientSeal.png" />
-    <None Remove="Items\Summons\SwarmSummons\OverloadDarkMage.png" />
-    <None Remove="Items\Tiles\PurityTotem.png" />
-    <None Remove="Items\Tiles\PurityTotemSheet.png" />
-    <None Remove="Items\Tiles\SiblingPylonTile_Crystal.png" />
-    <None Remove="Items\Tiles\SiblingPylonTile_MapIcon.png" />
-    <None Remove="NPCs\Deviantt_Shimmer.png" />
-    <None Remove="NPCs\Lumberjack_Shimmer.png" />
-    <None Remove="NPCs\Lumberjack_Shimmer_Party.png" />
-    <None Remove="NPCs\Mutant_Shimmer.png" />
-    <None Remove="NPCs\Mutant_Shimmer_Party.png" />
-    <None Remove="NPCs\Squirrel.png" />
-    <None Remove="NPCs\Squirrel_Eyes.png" />
-    <None Remove="NPCs\Squirrel_Party.png" />
-    <None Remove="Projectiles\Explosives\CityBuster.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
   </ItemGroup>
 </Project>

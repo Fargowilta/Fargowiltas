@@ -12,7 +12,7 @@ namespace Fargowiltas
     public static class FargoNet
     {
         public const byte SummonNPCFromClient = 0;
-        private const bool Debug = true;
+        private const bool Debug = false;
 
         public static void SendData(int dataType, int dataA, int dataB, string text, int playerID, float dataC, float dataD, float dataE, int clientType)
         {
@@ -56,6 +56,10 @@ namespace Fargowiltas
 
                     case float _:
                         packet.Write((float)obj);
+                        break;
+
+                    case string _:
+                        packet.Write((string)obj);
                         break;
                 }
             }
@@ -155,23 +159,22 @@ namespace Fargowiltas
         {
             if (Debug)
             {
-                ModContent.GetInstance<Fargowiltas>().Logger.Error((Main.netMode == NetmodeID.Server ? "--SERVER-- " : "--CLIENT-- ") + "HANDING MESSAGE: " + msg);
+                ModContent.GetInstance<Fargowiltas>().Logger.Error((Main.netMode == NetmodeID.Server ? "--SERVER-- " : "--CLIENT-- ") + "HANDLING MESSAGE: " + msg);
             }
 
             try
             {
                 if (msg == SummonNPCFromClient)
                 {
+                    int playerID = bb.ReadByte();
+                    int bossType = bb.ReadInt16();
+                    bool spawnMessage = bb.ReadBoolean();
+                    int npcCenterX = bb.ReadInt32();
+                    int npcCenterY = bb.ReadInt32();
+                    string overrideDisplayName = bb.ReadString();
+                    bool namePlural = bb.ReadBoolean();
                     if (Main.netMode == NetmodeID.Server)
                     {
-                        int playerID = bb.ReadByte();
-                        int bossType = bb.ReadInt16();
-                        bool spawnMessage = bb.ReadBoolean();
-                        int npcCenterX = bb.ReadInt32();
-                        int npcCenterY = bb.ReadInt32();
-                        string overrideDisplayName = bb.ReadString();
-                        bool namePlural = bb.ReadBoolean();
-
                         Fargowiltas.SpawnBoss(Main.player[playerID], bossType, spawnMessage, new Vector2(npcCenterX, npcCenterY), overrideDisplayName, namePlural);
                     }
                 }

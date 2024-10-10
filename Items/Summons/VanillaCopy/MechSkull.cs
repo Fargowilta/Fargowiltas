@@ -8,11 +8,10 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace Fargowiltas.Items.Summons
+namespace Fargowiltas.Items.Summons.VanillaCopy
 {
     public class MechSkull : BaseSummon
     {
-        public override string Texture => "Terraria/Images/Item_557";
 
         public override int NPCType => NPCID.SkeletronPrime;
         
@@ -25,7 +24,7 @@ namespace Fargowiltas.Items.Summons
             // Tooltip.SetDefault("Summons Skeletron Prime");
         }
 
-        public override bool CanUseItem(Player player) => !Main.dayTime;
+        public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight;
 
         public override void AddRecipes()
         {

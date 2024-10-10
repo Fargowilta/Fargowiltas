@@ -158,13 +158,23 @@ Mods: {
 					Tooltip: ""
 				}
 
+				PermanentStationsNearby: {
+					Label: "[i:3198] Automatic Station Buffs When Nearby"
+					Tooltip: ""
+				}
+
 				BossZen: {
 					Label: "[i:3117] No enemies spawn during boss fights"
 					Tooltip: ""
 				}
 
 				PiggyBankAcc: {
-					Label: "[i:87] Informational and Construction Accessories work in Piggy Bank"
+					Label: "[i:87] Informational and Construction item inventory effects work in Piggy Bank"
+					Tooltip: ""
+				}
+
+				ModdedPiggyBankAcc: {
+					Label: "[i:87] Modded item inventory effects work in Piggy Bank"
 					Tooltip: ""
 				}
 
@@ -179,8 +189,17 @@ Mods: {
 				}
 
 				PylonsIgnoreEvents: {
-					Label: Pylons Ignore Events
+					Label: "[i:4876] Pylons Ignore Events"
 					Tooltip: ""
+				}
+
+				SafeTerraformers: {
+					Label: "[i:Fargowiltas/InstaBridge] Safe Terraformers"
+					Tooltip:
+						'''
+						Terraformers such as Instabridge and City Buster avoid destroying any areas added to the Important Structures list.
+						This option is overly safe and will often avoid destroying even common things, such as cavern houses.
+						'''
 				}
 
 				Headers: {
@@ -216,6 +235,11 @@ Mods: {
 					Label: Boss Multipliers Apply Universally
 					Tooltip: Boss Health and Boss Damage configs apply to all enemies while a boss is alive, rather than just bosses themselves.
 				}
+
+				DisableTombstones: {
+					Label: "[i:Fargowiltas/GraveBuster] Disable Tombstones"
+					Tooltip: Makes Tombstones not spawn when players die.
+				}
 			}
 
 			FargoClientConfig: {
@@ -223,6 +247,11 @@ Mods: {
 
 				ExpandedTooltips: {
 					Label: "[i:171] More tooltips indicate Mutant Mod changes"
+					Tooltip: ""
+				}
+
+				HideUnlimitedBuffs: {
+					Label: "[i:292] Hide unlimited buffs in tray"
 					Tooltip: ""
 				}
 
@@ -250,6 +279,11 @@ Mods: {
 					Label: "[i:1309] Transparent Friendly Projectiles"
 					Tooltip: Use with vanilla setting for Quality at Medium or Low for best results
 				}
+
+				MultiplayerDeathSpectate: {
+					Label: Multiplayer Death Spectate
+					Tooltip: ""
+				}
 			}
 
 			SeasonSelections: {
@@ -267,6 +301,10 @@ Mods: {
 			CommonFish: Common Fish
 			CaughtNPC: Caught Town NPC
 			ArmoredBonesBanner: Armored Bones Banner
+			FoodT2: Plenty Satisfying Food
+			FoodT3: Exquisitively Stuffing Food
+			GemRobe: Gem Robe
+			Or: Or
 		}
 
 		UI: {
@@ -300,6 +338,7 @@ Mods: {
 			// Battle & Calming are in Items.BattleCry
 			BattleCryNone: None
 			MaxSpeed: Max Speed: {0} mph
+			AttackSpeed: Attack Speed: {0}%
 			WingNull: ???
 			WingTime: Wing Time: {0}
 			WingTimeMoreThan60Sec: Yes
@@ -392,6 +431,11 @@ Mods: {
 			WoodDrop: {
 				DisplayName: Wood Drop
 				Description: Mods.Fargowiltas.BuffDescription.WoodDrop
+			}
+
+			BigSuckBuff: {
+				DisplayName: Big Suck
+				Description: You are sucking everything
 			}
 		}
 
@@ -671,6 +715,7 @@ Mods: {
 					'''
 					Destroys a large area
 					Will not remove background walls
+					Avoids breaking areas denoted as important
 					Use at your own risk
 					'''
 			}
@@ -682,7 +727,8 @@ Mods: {
 					Creates 2 bridges of obsidian platforms across the whole world
 					Also clears the area between and above the platforms
 					The bottom bridge appears at your cursor
-					Do not use if any important building is nearby
+					Avoids breaking areas denoted as important
+					Use at your own risk
 					'''
 			}
 
@@ -697,7 +743,8 @@ Mods: {
 					'''
 					Drops a bomb that creates half a hellevator instantly
 					Will not dig below a certain depth
-					Do not use if any important building is below
+					Avoids breaking areas denoted as important
+					Use at your own risk
 					'''
 			}
 
@@ -708,7 +755,9 @@ Mods: {
 					Creates a bridge of platforms across the whole world
 					Also clears the area right above the platforms
 					The bridge appears at your cursor
-					Do not use if any important building is nearby
+					Avoids breaking areas denoted as important
+					Right Click to clear the area without placing a bridge
+					Use at your own risk
 					'''
 			}
 
@@ -719,7 +768,8 @@ Mods: {
 					Creates a minecart track across the whole world
 					Also clears the area right above the tracks
 					The track appears at your cursor
-					Do not use if any important building is nearby
+					Avoids breaking areas denoted as important
+					Use at your own risk
 					'''
 			}
 
@@ -728,7 +778,8 @@ Mods: {
 				Tooltip:
 					'''
 					Drops a bomb that creates a hellevator instantly
-					Do not use if any important building is below
+					Avoids breaking areas denoted as important
+					Use at your own risk
 					'''
 			}
 
@@ -758,7 +809,8 @@ Mods: {
 					Creates a bridge of obsidian platforms across the whole world
 					Also clears the area right above the platforms
 					The bridge appears at your cursor
-					Do not use if any important building is nearby
+					Avoids breaking areas denoted as important
+					Use at your own risk
 					'''
 			}
 
@@ -814,7 +866,11 @@ Mods: {
 
 			ModeToggle: {
 				DisplayName: World Token
-				Tooltip: Cycles difficulty modes
+				Tooltip:
+					'''
+					Cycles difficulty modes with left click
+					Toggles Journey Mode with right click (can cause issues in multiplayer)
+					'''
 				Journey: Journey mode is now enabled!
 				Normal: Normal mode is now enabled!
 				Expert: Expert mode is now enabled!
@@ -828,6 +884,7 @@ Mods: {
 					Left click to instantly change time
 					Time cycles between dawn, noon, dusk, and midnight
 					Right click to activate the Enchanted Sundial effect
+					Slower use speed when a boss is alive
 					Cycling to dawn will reset travelling merchant's shops
 					'''
 			}
@@ -949,7 +1006,7 @@ Mods: {
 			}
 
 			BetsyEgg: {
-				DisplayName: Dragon's Egg
+				DisplayName: Old Dragon Egg
 				Tooltip: Summons Betsy
 			}
 
@@ -1009,8 +1066,8 @@ Mods: {
 					'''
 			}
 
-			PartyCone: {
-				DisplayName: Party Cone
+			PartyInvite: {
+				DisplayName: Party Invite
 				Tooltip:
 					'''
 					Starts a Party!
@@ -1067,7 +1124,7 @@ Mods: {
 			}
 
 			DeerThing2: {
-				DisplayName: Thing Deer
+				DisplayName: Unusual Deer Skull
 				Tooltip: Summons Deerclops in any biome
 			}
 
@@ -1320,6 +1377,7 @@ Mods: {
 					Summons Mimic
 					Summons Ice Mimic when in snow biome
 					'''
+				HardmodeLock: Only usable in Hardmode
 			}
 
 			SuspiciousLookingLure: {
@@ -1342,7 +1400,7 @@ Mods: {
 			}
 
 			GoreySpine: {
-				DisplayName: Red Stained Spine
+				DisplayName: Brain Matter
 				Tooltip: Summons the Brain of Cthulhu in any biome
 			}
 
@@ -1391,7 +1449,7 @@ Mods: {
 			}
 
 			FleshyDoll: {
-				DisplayName: Fleshy Doll
+				DisplayName: Guide Doll and Match Kit
 				Tooltip:
 					'''
 					Summons the Wall of Flesh
@@ -1400,7 +1458,7 @@ Mods: {
 			}
 
 			JellyCrystal: {
-				DisplayName: Jelly Crystal
+				DisplayName: Royal Slime Crown
 				Tooltip: Summons Queen Slime
 			}
 
@@ -1438,12 +1496,12 @@ Mods: {
 			}
 
 			SlimyCrown: {
-				DisplayName: Slimy Crown
+				DisplayName: Slimy Decree
 				Tooltip: Summons King Slime
 			}
 
 			SuspiciousEye: {
-				DisplayName: Eye That Could Be Seen As Suspicious
+				DisplayName: Suspicious Looking Eyedrops
 				Tooltip: Summons the Eye of Cthulhu
 			}
 
@@ -1894,7 +1952,7 @@ Mods: {
 			}
 
 			WormyFood: {
-				DisplayName: Wormy Food
+				DisplayName: Rotting Bait
 				Tooltip: Summons the Eater of Worlds in any biome
 			}
 
@@ -1915,6 +1973,11 @@ Mods: {
 			DemonAltar: {
 				DisplayName: Demon Altar
 				Tooltip: ""
+			}
+
+			MutantToilet: {
+				DisplayName: Mutant Toilet
+				Tooltip: Don't.
 			}
 
 			EchPainting: {
@@ -2402,13 +2465,23 @@ Mods: {
 				Tooltip:
 					'''
 					Drops a bomb that creates a 150x50 body of water below it
-					Do not use if any important building is below
+					Avoids breaking areas denoted as important
+					Use at your own risk
 					'''
 			}
 
 			KohaCrystal: {
 				DisplayName: Koha Crystal
 				Tooltip: Decreases the amount of Mana Crystals you have by 1
+			}
+
+			BigSuckPotion: {
+				DisplayName: Big Suck Potion
+				Tooltip:
+					'''
+					Makes you suck everything
+					Must be consumed manually
+					'''
 			}
 		}
 
@@ -2524,13 +2597,13 @@ Mods: {
 					Formattable1: "{0}! I saw something rodent-y just now! You don't have a hamster infestation, right? Right!?"
 					Normal1: No, I'm totally not throwing Love Potions while you're not looking! Um, I mean... oh, just buy something!
 					Normal2: Did you know? The only real music genres are death metal and artcore.
-					Normal3: I'll have you know I'm over a hundred Fargo years old! Don't ask me how long a Fargo year is.
+					Normal3: I'm morally bankrupt? No, the bank loves me.
 					Normal4: I might be able to afford a taller body if you keep buying!
-					Normal5: Where's that screm cat?
+					Normal5: My size deceives you! I may be 4'6'' but I'm 7'11'' when I stand on my money!
 					Normal6: You're the Terrarian? Honestly, I was expecting someone a little... taller.
 					Normal7: Don't look at me like that! The only thing I've deviated from is my humanity.
 					Normal8: Rip and tear and buy from me for more things to rip and tear!
-					Normal9: What's a chee-bee doe-goe?
+					Normal9: It's not the height that matters, but your credit score!
 					Normal10: Wait a second. Are you sure this house isn't what they call 'prison?'
 					Normal11: Deviantt has awoken! Quick, give her all your money to defeat her!
 					Normal12: One day, I'll sell a summon for myself! ...Just kidding.
@@ -2573,8 +2646,9 @@ Mods: {
 					Fish: Watch out for those fish! Sharks will leave you alone if you leave them alone, but piranhas go wild when they smell blood. They can jump out of water to get you!
 					Underwater: The water is bogging you down? Never had an issue with it, personally... Have you tried breathing water instead of air?
 					Underworld: The underworld has gotten a lot hotter since the last time I visited. I hear an obsidian skull is a good luck charm against burning alive, though!
-					SpaceSuffocation: Want to have a breath-holding contest? The empty vacuum of space would be perfect. No, I won't cheat by breathing water instead of air!
-					UndergroundHallow: That's a funny face you're making... Is the underground Hallow too disorienting? Try controlling gravity on your own and maybe it can't flip you by force!
+					SpaceSuffocation: Want to have a breath-holding contest? The empty vacuum of space would be perfect. No, I won't cheat by breathing water instead of air, or using diving gear!
+					UndergroundShadowHands: I've heard of some weird shadow hands stalking helpless victims in the dark underground... Stay in the light and they can't get you!
+					UndergroundHallow: That's a funny face you're making... Is the underground Hallow too blinding? Remain in darker areas and its volatile effects are reduced!
 					LifeFruit: If you ask me, Plantera is really letting herself go. A diet of Chlorophyte Ore and Life Fruit isn't THAT healthy! Why don't you help her slim down?
 					CactusDamage: Those cacti can be pretty prickly! Feeling prickled? Try enchanting yourself with cactus essence and see how it goes!
 					RainLightning: Watch out for the lightning when it rains. It's good to pack an umbrella so you're not caught out and end up all wet!
@@ -2954,12 +3028,12 @@ Mods: {
 			TrueTorchLuck: Obeys true torch luck when replacing torches, which may differ from default choices
 			UnlimitedBuff30: Unlimited buff at 30 stack in inventory, Piggy Bank, or Safe
 			UnlimitedUse30: Unlimited use at 30 stack
-			PermanentEffectNearby: Permanently provides effect to nearby players
-			WorksFromBanks: Works from Piggy Bank and Safe
-			SoldBySquirrel: Sold By Squirrel
-			SomeMaterialsSold: Some Materials Sold
-			CraftableMaterialsSold: Craftable Materials Sold
-			SoldAtThirtyStack: Sold At Thirty Stack
+			PermanentEffectNearby: Permanently provides effect to nearby players when placed
+			WorksFromBanks: Inventory effects also work from Piggy Bank and Safe
+			SoldBySquirrel: Sold By Squirrel: When obtained
+			SomeMaterialsSold: Some Materials Sold By Squirrel: When obtained
+			CraftableMaterialsSold: Craftable Materials Sold By Squirrel: When obtained
+			SoldAtThirtyStack: Sold By Squirrel: When obtained at 30-stack
 			SoldBy: Sold By
 			SeveralVendors: several vendors
 		}

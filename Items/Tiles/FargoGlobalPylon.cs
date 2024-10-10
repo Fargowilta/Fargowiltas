@@ -1,5 +1,6 @@
 using Fargowiltas.Common.Configs;
 using Fargowiltas.Items.Tiles;
+using Fargowiltas.NPCs;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Fargowiltas.Tiles
     {
         public override bool? ValidTeleportCheck_PreAnyDanger(TeleportPylonInfo pylonInfo)
         {
-            if (FargoServerConfig.Instance.PylonsIgnoreEvents)
+            if (FargoServerConfig.Instance.PylonsIgnoreEvents && !FargoGlobalNPC.AnyBossAlive())
                 return true;
             
             return base.ValidTeleportCheck_PreAnyDanger(pylonInfo);

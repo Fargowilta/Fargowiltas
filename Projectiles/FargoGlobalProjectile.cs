@@ -19,8 +19,6 @@ namespace Fargowiltas.Projectiles
         private bool firstTick = true;
         public bool lowRender;
 
-        public static HashSet<int> CannotDestroyTileTypes = new HashSet<int>();
-        public static HashSet<int> CannotDestroyWallTypes = new HashSet<int>();
         public static HashSet<Rectangle> CannotDestroyRectangle = new HashSet<Rectangle>();
 
         public float DamageMultiplier = 1;
@@ -213,52 +211,53 @@ namespace Fargowiltas.Projectiles
             {
                 return false;
             }
-            bool noDungeon = !NPC.downedBoss3 &&
-                (tile.TileType == TileID.BlueDungeonBrick || tile.TileType == TileID.GreenDungeonBrick || tile.TileType == TileID.PinkDungeonBrick
-                || tile.WallType == WallID.BlueDungeonSlabUnsafe || tile.WallType == WallID.BlueDungeonTileUnsafe || tile.WallType == WallID.BlueDungeonUnsafe
-                || tile.WallType == WallID.GreenDungeonSlabUnsafe || tile.WallType == WallID.GreenDungeonTileUnsafe || tile.WallType == WallID.GreenDungeonUnsafe
-                || tile.WallType == WallID.PinkDungeonSlabUnsafe || tile.WallType == WallID.PinkDungeonTileUnsafe || tile.WallType == WallID.PinkDungeonUnsafe
-            );
-            bool noHMOre = (tile.TileType == TileID.Cobalt || tile.TileType == TileID.Palladium || tile.TileType == TileID.Mythril || tile.TileType == TileID.Orichalcum || tile.TileType == TileID.Adamantite || tile.TileType == TileID.Titanium) && !NPC.downedMechBossAny;
+            bool noDungeon = !NPC.downedBoss3 && (FargoSets.Walls.DungeonWall[tile.WallType] || FargoSets.Tiles.DungeonTile[tile.TileType]);
+
+            bool noHMOre = FargoSets.Tiles.HardmodeOre[tile.TileType] && !NPC.downedMechBossAny;
             bool noChloro = tile.TileType == TileID.Chlorophyte && !(NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3);
             bool noLihzahrd = (tile.TileType == TileID.LihzahrdBrick || tile.WallType == WallID.LihzahrdBrickUnsafe) && !NPC.downedGolemBoss;
             bool noAbyss = false;
 
             if (ModLoader.TryGetMod("CalamityMod", out Mod calamity))
             {
-                calamity.TryFind("AbyssGravel", out ModTile gravel);
-                calamity.TryFind("Voidstone", out ModTile voidstone);
-                noAbyss = tile.TileType == gravel.Type || tile.TileType == voidstone.Type;
+                if (calamity.TryFind("AbyssGravel", out ModTile gravel) && calamity.TryFind("Voidstone", out ModTile voidstone))
+                    noAbyss = tile.TileType == gravel.Type || tile.TileType == voidstone.Type;
             }
-            
+
             if (noDungeon || noHMOre || noChloro || noLihzahrd || noAbyss || TileBelongsToMagicStorage(tile) ||
-                CannotDestroyTileTypes.Contains(tile.TileType) ||
-                CannotDestroyWallTypes.Contains(tile.WallType))
+                FargoSets.Tiles.InstaCannotDestroy[tile.TileType] ||
+                FargoSets.Walls.InstaCannotDestroy[tile.WallType])
                 return false;
 
             return true;
         }
-        public static bool OkayToDestroyTileAt(int x, int y) // Testing for blocks that should not be destroyed
+        public static bool OkayToDestroyTileAt(int x, int y, bool bypassVanillaCanPlace = false) // Testing for blocks that should not be destroyed
         {
+            if (!WorldGen.InWorld(x, y))
+                return false;
             Tile tile = Main.tile[x, y];
             if (tile == null)
             {
                 return false;
             }
-            foreach (Rectangle rect in CannotDestroyRectangle)
+            if (CannotDestroyRectangle != null && CannotDestroyRectangle.Any())
             {
-                if (rect.Contains(x * 16, y * 16))
+                foreach (Rectangle rect in CannotDestroyRectangle)
                 {
-                    return false;
+                    if (rect.Contains(x * 16, y * 16))
+                    {
+                        return false;
+                    }
                 }
             }
-            //TODO: look at this again. would be great if we could check against protected structures
-            /*
-            if (!GenVars.structures.CanPlace(new(x, y, 1, 1), 0))
+            Rectangle area = new(x, y, 3, 3);
+            if (!FargoServerConfig.Instance.SafeTerraformers)
+                bypassVanillaCanPlace = true;
+            if (!bypassVanillaCanPlace && GenVars.structures != null && !GenVars.structures.CanPlace(area))
             {
                 return false;
             }
-            */
+            
             return OkayToDestroyTile(tile);
         }
 

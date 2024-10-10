@@ -1,17 +1,3 @@
-NEW UPDATE - V 3.3.1
--New item: Koha Crystal
+NEW UPDATE - V {ModVersion}
 
--New recipes:
-Wall Skeleton
-Hanging Skeleton
-Catacomb
-
--Moon Lord death animation speeds up when multiple are alive
--Added Moondial to Portable Sundial recipe
--Reduced Portable Sundial mana cost from 25 to 15
--Prismatic Primrose resets night when Empress isn't beaten
--Town NPCs remember their home when bug netted
--Mining a Garden Gnome counts for unlocking Gnomes in Deviantt shop
--Added Config option for pylons to allow use even during events
--Multitask Center recipe is now crafted by hand
--Critters and town NPCS are now unaffected by enemy health multiplier config
+-Added ModCall for other mods registering Events to be affected by Abominationn

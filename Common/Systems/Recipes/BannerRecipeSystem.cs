@@ -63,7 +63,8 @@ namespace Fargowiltas.Common.Systems.Recipes
                 ItemID.PiranhaBanner, ItemID.SnatcherBanner, ItemID.JungleBatBanner, ItemID.JungleSlimeBanner,
                 ItemID.DoctorBonesBanner, ItemID.AnglerFishBanner, ItemID.ArapaimaBanner, ItemID.TortoiseBanner,
                 ItemID.AngryTrapperBanner, ItemID.DerplingBanner, ItemID.GiantFlyingFoxBanner, ItemID.HornetBanner,
-                ItemID.SpikedJungleSlimeBanner, ItemID.JungleCreeperBanner, ItemID.MothBanner, ItemID.ManEaterBanner
+                ItemID.SpikedJungleSlimeBanner, ItemID.JungleCreeperBanner, ItemID.MothBanner, ItemID.ManEaterBanner,
+                ItemID.MossHornetBanner
             );
             AnyJungleBanner = RecipeGroup.RegisterGroup("Fargowiltas:AnyJungles", group);
 
@@ -363,10 +364,10 @@ namespace Fargowiltas.Common.Systems.Recipes
 
         private static void AddBannerToMaterialRecipes()
         {
-            AddBannerToItemRecipe(ItemID.AngryBonesBanner, ItemID.Bone, resultAmount: 100);
-            AddBannerToItemRecipe(ItemID.CursedSkullBanner, ItemID.Bone, resultAmount: 100);
-            AddBannerToItemRecipe(ItemID.SkeletonMageBanner, ItemID.Bone, resultAmount: 100);
-            AddBannerToItemRecipe(ItemID.SkeletonBanner, ItemID.Bone, resultAmount: 100);
+            AddBannerToItemRecipe(ItemID.AngryBonesBanner, ItemID.Bone, resultAmount: 100, conditions: Condition.DownedSkeletron);
+            AddBannerToItemRecipe(ItemID.CursedSkullBanner, ItemID.Bone, resultAmount: 100, conditions: Condition.DownedSkeletron);
+            AddBannerToItemRecipe(ItemID.SkeletonMageBanner, ItemID.Bone, resultAmount: 100, conditions: Condition.DownedSkeletron);
+            //AddBannerToItemRecipe(ItemID.SkeletonBanner, ItemID.Bone, resultAmount: 100, conditions: Condition.DownedSkeletron);
             AddBannerToItemRecipe(ItemID.GemBunnyAmber, ItemID.Amber, resultAmount: 5);
             AddBannerToItemRecipe(ItemID.GemBunnyAmethyst, ItemID.Amethyst, resultAmount: 5);
             AddBannerToItemRecipe(ItemID.GemBunnyDiamond, ItemID.Diamond, resultAmount: 5);
@@ -474,10 +475,7 @@ namespace Fargowiltas.Common.Systems.Recipes
         private static void AddBannerToWeaponRecipes()
         {
             AddBannerGroupToItemRecipe(AnyBatBanner, ItemID.BatBat);
-            if (!Main.zenithWorld && !Main.remixWorld)
-            {
-                AddBannerToItemRecipe(ItemID.BatBanner, ItemID.ChainKnife);
-            }
+            AddBannerToItemRecipe(ItemID.BatBanner, ItemID.ChainKnife, conditions: Condition.NotRemixWorld);
             AddBannerToItemRecipe(ItemID.BloodCrawlerBanner, ItemID.TentacleSpike, bannerAmount: 2);
             AddBannerToItemRecipe(ItemID.CrawdadBanner, ItemID.Rally);
             AddBannerToItemRecipe(ItemID.CrimeraBanner, ItemID.TentacleSpike, bannerAmount: 2);
@@ -509,10 +507,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             AddBannerToItemRecipe(ItemID.BlackRecluseBanner, ItemID.PoisonStaff, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.BloodZombieBanner, ItemID.KOCannon, bannerAmount: 4, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.ClownBanner, ItemID.KOCannon, bannerAmount: 4, conditions: Condition.Hardmode);
-            if (!Main.zenithWorld && !Main.remixWorld)
-            {
-                AddBannerToItemRecipe(ItemID.GiantBatBanner, ItemID.ChainKnife, conditions: Condition.Hardmode);
-            }
+            AddBannerToItemRecipe(ItemID.GiantBatBanner, ItemID.ChainKnife, conditions: [Condition.Hardmode, Condition.NotRemixWorld]);
             AddBannerToItemRecipe(ItemID.IcyMermanBanner, ItemID.FrostStaff, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.MedusaBanner, ItemID.MedusaHead, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.MimicBanner, ItemID.FlowerofFrost, conditions: Condition.Hardmode);

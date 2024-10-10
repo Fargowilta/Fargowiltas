@@ -104,7 +104,7 @@ namespace Fargowiltas.NPCs
             NPC.aiStyle = 7;
             NPC.damage = 10;
             NPC.defense = NPC.downedMoonlord ? 50 : 15;
-            NPC.lifeMax = NPC.downedMoonlord ? 2500 : 250;
+            NPC.lifeMax = NPC.downedMoonlord ? 2500 : Main.hardMode ? 1000 : 250;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
@@ -217,7 +217,7 @@ namespace Fargowiltas.NPCs
 
         public override List<string> SetNPCNameList()
         {
-            string[] names = { "Akira", "Remi", "Saku", "Seira", "Koi", "Elly", "Lori", "Calia", "Teri", "Artt", "Flan", "Shion", "Tewi" };
+            string[] names = ["Akira", "Remi", "Saku", "Seira", "Koi", "Elly", "Lori", "Calia", "Teri", "Artt", "Flan", "Shion", "Tewi"];
 
             return new List<string>(names);
         }

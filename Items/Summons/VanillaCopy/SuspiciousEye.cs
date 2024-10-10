@@ -8,11 +8,11 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace Fargowiltas.Items.Summons
+namespace Fargowiltas.Items.Summons.VanillaCopy
 {
     public class SuspiciousEye : BaseSummon
     {
-        public override string Texture => "Terraria/Images/Item_43";
+       // public override string Texture => "Terraria/Images/Item_43";
 
         public override int NPCType => NPCID.EyeofCthulhu;
         
@@ -25,7 +25,7 @@ namespace Fargowiltas.Items.Summons
             // Tooltip.SetDefault("Summons the Eye of Cthulhu");
         }
 
-        public override bool CanUseItem(Player player) => !Main.dayTime;
+        public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight;
 
         public override void AddRecipes()
         {

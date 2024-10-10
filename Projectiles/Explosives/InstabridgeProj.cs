@@ -61,7 +61,7 @@ namespace Fargowiltas.Projectiles.Explosives
 
                     FargoGlobalTile.ClearEverything(xPosition, yPosition);
 
-                    if (y == 0)
+                    if (y == 0 && Projectile.ai[2] != 2)
                     {
                         FargoGlobalTile.ClearEverything(xPosition, yPosition, false);
                         // Spawn platforms

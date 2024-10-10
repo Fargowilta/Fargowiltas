@@ -19,16 +19,22 @@ namespace Fargowiltas.Common.Configs
         public bool ExpandedTooltips;
 
         [DefaultValue(false)]
+        public bool HideUnlimitedBuffs;
+
+        [DefaultValue(false)]
         public bool DoubleTapDashDisabled;
 
         [DefaultValue(false)]
         public bool DoubleTapSetBonusDisabled;
 
+        [DefaultValue(true)]
+        public bool MultiplayerDeathSpectate;
+
         [DefaultValue(1f)]
         [Slider]
         public float TransparentFriendlyProjectiles;
 
-        [DefaultValue(1f)]
+        [DefaultValue(0.75f)]
         [Slider]
         public float DebuffOpacity;
 

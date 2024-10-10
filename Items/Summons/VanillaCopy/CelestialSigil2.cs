@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.Localization;
 
-namespace Fargowiltas.Items.Summons
+namespace Fargowiltas.Items.Summons.VanillaCopy
 {
     public class CelestialSigil2 : BaseSummon
     {

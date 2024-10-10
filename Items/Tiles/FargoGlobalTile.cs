@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +18,7 @@ namespace Fargowiltas.Tiles
         {
             if (type == TileID.HeavyWorkBench)
             {
-                int[] adjTiles = new int[] { TileID.WorkBenches, TileID.HeavyWorkBench };
+                int[] adjTiles = [TileID.WorkBenches, TileID.HeavyWorkBench];
 
                 return adjTiles;
             }
@@ -46,20 +47,16 @@ namespace Fargowiltas.Tiles
                 return;
             }
 
-            if (type == TileID.Trees && !fail && !(FargoWorld.DownedBools.TryGetValue("lumberjack", out bool down) && down))
+            if (type == TileID.Trees || type == TileID.TreeAsh && !fail && !(FargoWorld.DownedBools.TryGetValue("lumberjack", out bool down) && down))
             {
-                //if (!FargoWorld.DownedBools["lumberjack"])
-                //{
-                //    NPC.NewNPC(NPC.GetSource_TownSpawn, );
-
-                //    FargoWorld.DownedBools["lumberjack"] = true;
-                //}
                 FargoWorld.WoodChopped++;
 
+                /*
                 if (FargoWorld.WoodChopped > 500)
                 {
                     FargoWorld.DownedBools["lumberjack"] = true;
                 }
+                */
             }
 
             if (type == TileID.GardenGnome && !fail)
@@ -69,8 +66,8 @@ namespace Fargowiltas.Tiles
         }
 
         private static uint LastTorchUpdate;
-        private readonly int[] TorchesToReplace = new int[]
-        {
+        private readonly int[] TorchesToReplace =
+        [
             //13,   //bone, but there's never a penalty for using this, so its ok to place and not remove
             7,      //demon, but this never gives a bonus for some reason
             20,     //hallow
@@ -81,7 +78,7 @@ namespace Fargowiltas.Tiles
             16,     //desert
             17,     //coral - not actually on the default torch rotation for some reason???
             0,      //regular torch
-        };
+        ];
 
         private enum TorchStyle : int
         {
@@ -149,27 +146,45 @@ namespace Fargowiltas.Tiles
                     }
                 }
             }
-            
-            switch (type)
-            {
-                case TileID.SharpeningStation:
-                    Main.LocalPlayer.AddBuff(BuffID.Sharpened, 2);
-                    break;
-                case TileID.AmmoBox:
-                    Main.LocalPlayer.AddBuff(BuffID.AmmoBox, 2);
-                    break;
-                case TileID.CrystalBall:
-                    Main.LocalPlayer.AddBuff(BuffID.Clairvoyance, 2);
-                    break;
-                case TileID.BewitchingTable:
-                    Main.LocalPlayer.AddBuff(BuffID.Bewitched, 2);
-                    break;
-                case TileID.WarTable:
-                    Main.LocalPlayer.AddBuff(BuffID.WarTable, 2);
-                    break;
-            }
-                            
 
+            if (FargoServerConfig.Instance.PermanentStationsNearby)
+            {
+                int buff = 0;
+                SoundStyle? sound = null;
+                switch (type)
+                {
+                    case TileID.SharpeningStation:
+                        buff = BuffID.Sharpened;
+                        sound = SoundID.Item37;
+                        break;
+                    case TileID.AmmoBox:
+                        buff = BuffID.AmmoBox;
+                        sound = SoundID.Item149;
+                        break;
+                    case TileID.CrystalBall:
+                        buff = BuffID.Clairvoyance;
+                        sound = SoundID.Item4;
+                        break;
+                    case TileID.BewitchingTable:
+                        buff = BuffID.Bewitched;
+                        sound = SoundID.Item4;
+                        break;
+                    case TileID.WarTable:
+                        buff = BuffID.WarTable;
+                        sound = SoundID.Item4;
+                        break;
+                }
+                if (buff != 0 && Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost)
+                {
+                    bool noAlchemistNPC = !(ModLoader.HasMod("AlchemistNPC") || ModLoader.HasMod("AlchemistNPCLite")); // because it fucks with buffs for some reason and makes the sound spam WHY WHY WHY WHY WHAT'S WRONG WITH YOU WHY WHY WHY
+                    if (!Main.LocalPlayer.HasBuff(buff) && sound.HasValue && noAlchemistNPC && Main.LocalPlayer.GetModPlayer<FargoPlayer>().StationSoundCooldown <= 0)
+                    {
+                        SoundEngine.PlaySound(sound.Value, new Vector2(i, j) * 16);
+                        Main.LocalPlayer.GetModPlayer<FargoPlayer>().StationSoundCooldown = 60 * 60;
+                    }
+                    Main.LocalPlayer.AddBuff(buff, 2);
+                }
+            }
         }
 
         internal static void DestroyChest(int x, int y)

@@ -19,6 +19,9 @@ namespace Fargowiltas.Items.Summons.Mutant
                                "\nCan only be used at night" +
                                "\nCertain bosses will only spawn if you're in their specific biome"); */
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(8, 3));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override void SetDefaults()
@@ -37,7 +40,7 @@ namespace Fargowiltas.Items.Summons.Mutant
 
         public override bool CanUseItem(Player player)
         {
-            return !Main.dayTime;
+            return FargoUtils.ActuallyNight;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

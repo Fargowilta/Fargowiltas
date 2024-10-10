@@ -14,6 +14,7 @@ namespace Fargowiltas.Common.Systems.Recipes
         internal static int AnyGoldBar;
         internal static int AnyDemonAltar, AnyAnvil, AnyHMAnvil, AnyForge, AnyBookcase, AnyCookingPot, AnyTombstone, AnyWoodenTable, AnyWoodenChair, AnyWoodenSink;
         internal static int AnyButterfly, AnySquirrel, AnyCommonFish, AnyDragonfly, AnyBird, AnyDuck;
+        internal static int AnyFoodT2, AnyFoodT3, AnyGemRobe;
 
         public override void AddRecipeGroups()
         {
@@ -24,6 +25,10 @@ namespace Fargowiltas.Common.Systems.Recipes
             //gold bar
             group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ItemID.GoldBar), ItemID.GoldBar, ItemID.PlatinumBar);
             AnyGoldBar = RecipeGroup.RegisterGroup("Fargowiltas:AnyGoldBar", group);
+
+            //demonite bar
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ItemID.DemoniteBar), ItemID.DemoniteBar, ItemID.CrimtaneBar);
+            AnyGoldBar = RecipeGroup.RegisterGroup("Fargowiltas:AnyDemoniteBar", group);
 
             //demon altar
             group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ModContent.ItemType<DemonAltar>()), ModContent.ItemType<DemonAltar>(), ModContent.ItemType<CrimsonAltar>());
@@ -188,6 +193,65 @@ namespace Fargowiltas.Common.Systems.Recipes
                 ItemID.BambooSink
             );
             AnyWoodenSink = RecipeGroup.RegisterGroup("Fargowiltas:AnyWoodenSink", group);
+
+            //t2 foods
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("FoodT2"),
+                ItemID.BowlofSoup,
+                ItemID.CookedShrimp,
+                ItemID.PumpkinPie,
+                ItemID.Sashimi,
+                ItemID.Escargot,
+                ItemID.FroggleBunwich,
+                ItemID.GrubSoup,
+                ItemID.LobsterTail,
+                ItemID.MonsterLasagna,
+                ItemID.PrismaticPunch,
+                ItemID.RoastedDuck,
+                ItemID.SeafoodDinner,
+                ItemID.BananaSplit,
+                ItemID.ChickenNugget,
+                ItemID.ChocolateChipCookie,
+                ItemID.CreamSoda,
+                ItemID.FriedEgg,
+                ItemID.Fries,
+                ItemID.IceCream,
+                ItemID.Nachos,
+                ItemID.ShrimpPoBoy,
+                ItemID.CoffeeCup
+            );
+            AnyFoodT2 = RecipeGroup.RegisterGroup("Fargowiltas:AnyFoodT2", group);
+
+            //t3 foods
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("FoodT3"),
+                ItemID.GoldenDelight,
+                ItemID.GrapeJuice,
+                ItemID.Milkshake,
+                ItemID.Pizza,
+                ItemID.Spaghetti,
+                ItemID.Steak,
+                ItemID.Hotdog,
+                ItemID.ApplePie,
+                ItemID.Bacon,
+                ItemID.GingerbreadCookie,
+                ItemID.BBQRibs,
+                ItemID.SugarCookie,
+                ItemID.ChristmasPudding
+            );
+            AnyFoodT3 = RecipeGroup.RegisterGroup("Fargowiltas:AnyFoodT3", group);
+
+            //gem robes
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("GemRobe"),
+                ItemID.AmberRobe,
+                ItemID.AmethystRobe,
+                ItemID.DiamondRobe,
+                ItemID.EmeraldRobe,
+                ItemID.RubyRobe,
+                ItemID.SapphireRobe,
+                ItemID.TopazRobe
+            );
+            AnyGemRobe = RecipeGroup.RegisterGroup("Fargowiltas:AnyGemRobe", group);
+
+            group = new RecipeGroup(() => RecipeHelper.ItemXOrY(ItemID.WoodenCrate, ItemID.WoodenCrateHard), ItemID.WoodenCrate, ItemID.WoodenCrateHard);
         }
     }
 }

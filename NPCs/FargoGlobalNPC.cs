@@ -24,7 +24,7 @@ namespace Fargowiltas.NPCs
 {
     public class FargoGlobalNPC : GlobalNPC
     {
-        internal static int[] Bosses = { 
+        internal static int[] Bosses = [ 
             NPCID.KingSlime,
             NPCID.EyeofCthulhu,
             //NPCID.EaterofWorldsHead,
@@ -55,7 +55,7 @@ namespace Fargowiltas.NPCs
             NPCID.SantaNK1,
             NPCID.HeadlessHorseman,
             NPCID.PirateShip 
-        };
+        ];
 
         public static int LastWoFIndex = -1;
         public static int WoFDirection = 0;
@@ -70,6 +70,8 @@ namespace Fargowiltas.NPCs
         public static int brainBoss = -1;
         public static int plantBoss = -1;
         public static int beeBoss = -1;
+
+        public bool FirstFrame = true;
 
         public override bool InstancePerEntity => true;
 
@@ -98,26 +100,27 @@ namespace Fargowiltas.NPCs
             
             if (target.friendly && FargoServerConfig.Instance.SaferBoundNPCs && (target.type == NPCID.BoundGoblin || target.type == NPCID.BoundMechanic || target.type == NPCID.BoundWizard || target.type == NPCID.BartenderUnconscious || target.type == NPCID.GolferRescue))
                 return false;
-            
             return base.CanHitNPC(npc, target);
-        }
-        public override void SetDefaults(NPC npc)
-        {
-            #region Stat Sliders
-            FargoServerConfig config = FargoServerConfig.Instance;
-            if ((config.EnemyHealth != 1 || config.BossHealth != 1) && !npc.townNPC && !npc.CountsAsACritter && npc.life > 10)
-            {
-                bool boss = config.BossHealth > config.EnemyHealth && // only relevant if boss health is higher than enemy health
-                    (npc.boss || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsTail || (config.BossApplyToAllWhenAlive && AnyBossAlive()));
-                if (boss)
-                    npc.lifeMax = (int)Math.Round(npc.lifeMax * config.BossHealth);
-                else
-                    npc.lifeMax = (int)Math.Round(npc.lifeMax * config.EnemyHealth);
-            }
-            #endregion
         }
         public override bool PreAI(NPC npc)
         {
+            if (FirstFrame)
+            {
+                FirstFrame = false;
+                #region Stat Sliders
+                FargoServerConfig config = FargoServerConfig.Instance;
+                if ((config.EnemyHealth != 1 || config.BossHealth != 1) && !npc.townNPC && !npc.CountsAsACritter && npc.life > 10)
+                {
+                    bool boss = config.BossHealth > config.EnemyHealth && // only relevant if boss health is higher than enemy health
+                        (npc.boss || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsTail || (config.BossApplyToAllWhenAlive && AnyBossAlive()));
+                    if (boss)
+                        npc.lifeMax = (int)Math.Round(npc.lifeMax * config.BossHealth);
+                    else
+                        npc.lifeMax = (int)Math.Round(npc.lifeMax * config.EnemyHealth);
+                    npc.life = npc.lifeMax;
+                }
+                #endregion
+            }
             if (npc.boss)
             {
                 boss = npc.whoAmI;
@@ -126,7 +129,7 @@ namespace Fargowiltas.NPCs
             if (npc.townNPC && npc.homeTileX == -1 && npc.homeTileY == -1)
             {
                 bool hasRoom = WorldGen.TownManager.HasRoom(npc.type, out Point homePoint);
-                if (hasRoom)
+                if (hasRoom && homePoint.X > 0 && homePoint.Y > 0)
                 {
                     int x = homePoint.X;
                     int y = homePoint.Y - 2;
@@ -395,7 +398,7 @@ namespace Fargowiltas.NPCs
                 {
                     if (condition != null)
                     {
-                        conditions = new Condition[] { condition };
+                        conditions = [condition];
                     }
                     if (conditions != null)
                     {
@@ -457,11 +460,11 @@ namespace Fargowiltas.NPCs
                         AddItem(ItemID.GoldenBugNet, condition: angler10);
                         AddItem(ItemID.FishHook, condition: angler10);
 
-                        AddItem(ItemID.FinWings, conditions: new Condition[] { angler10, Condition.Hardmode });
-                        AddItem(ItemID.SuperAbsorbantSponge, conditions: new Condition[] { angler10, Condition.Hardmode }); ;
-                        AddItem(ItemID.BottomlessBucket, conditions: new Condition[] { angler10, Condition.Hardmode });
-                        AddItem(ItemID.HotlineFishingHook, conditions: new Condition[] { angler25, Condition.Hardmode });
-                        AddItem(ItemID.GoldenFishingRod, conditions: new Condition[] { angler30, Condition.Hardmode });
+                        AddItem(ItemID.FinWings, conditions: [angler10, Condition.Hardmode]);
+                        AddItem(ItemID.SuperAbsorbantSponge, conditions: [angler10, Condition.Hardmode]); ;
+                        AddItem(ItemID.BottomlessBucket, conditions: [angler10, Condition.Hardmode]);
+                        AddItem(ItemID.HotlineFishingHook, conditions: [angler25, Condition.Hardmode]);
+                        AddItem(ItemID.GoldenFishingRod, conditions: [angler30, Condition.Hardmode]);
 
                         AddItem(ItemID.Seed, 3, condition: new Condition("Mods.Fargowiltas.Conditions.Seeds", () => Main.LocalPlayer.inventory.Any(i => !i.IsAir && i.useAmmo == AmmoID.Dart)));
                         break;
@@ -526,7 +529,7 @@ namespace Fargowiltas.NPCs
                         break;
 
                     case NPCID.Demolitionist:
-                        AddItem(ItemType<BoomShuriken>(), Item.buyPrice(0, 0, 1, 25));
+                        AddItem(ItemType<BoomShuriken>(), Item.buyPrice(0, 0, 2, 50));
                         AddItem(ItemID.CopperOre, condition: Condition.Hardmode);
                         AddItem(ItemID.TinOre, condition: Condition.Hardmode);
                         AddItem(ItemID.IronOre, condition: Condition.Hardmode);
@@ -601,7 +604,10 @@ namespace Fargowiltas.NPCs
                     case NPCID.Wizard:
                         AddItem(ItemID.SuperManaPotion, condition: Condition.DownedGolem);
                         break;
-                    
+
+                    case NPCID.Pirate:
+                        AddItem(ItemType<GoldenDippingVat>(), Item.buyPrice(gold: 35), condition: Condition.Hardmode);
+                        break;
                 }
             }        
         }
@@ -957,82 +963,77 @@ namespace Fargowiltas.NPCs
                     break;
 
                 case NPCID.HeadlessHorseman:
-                    if (!Main.dayTime && !Main.pumpkinMoon)
+                    if (FargoUtils.ActuallyNight && !Main.pumpkinMoon)
                     {
-                        if (Main.rand.NextBool(20))
+                        if (Main.rand.NextBool(10))
                             Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, ItemID.JackOLanternMask);
                     }
                     break;
 
                 case NPCID.MourningWood:
-                    if (!Main.dayTime && !Main.pumpkinMoon)
+                    if (FargoUtils.ActuallyNight && !Main.pumpkinMoon)
                     {
                         Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, ItemID.SpookyWood, 30);
 
-                        if (Main.rand.NextBool(3))
-                            Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
-                                ItemID.SpookyHook,
-                                ItemID.SpookyTwig,
-                                ItemID.StakeLauncher,
-                                ItemID.CursedSapling,
-                                ItemID.NecromanticScroll,
-                                Main.expertMode ? ItemID.WitchBroom : ItemID.SpookyWood
-                            }));
+                        Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
+                            ItemID.SpookyHook,
+                            ItemID.SpookyTwig,
+                            ItemID.StakeLauncher,
+                            ItemID.CursedSapling,
+                            ItemID.NecromanticScroll,
+                            Main.expertMode ? ItemID.WitchBroom : ItemID.SpookyWood
+                        }));
                     }
                     break;
 
                 case NPCID.Pumpking:
-                    if (!Main.dayTime && !Main.pumpkinMoon)
+                    if (FargoUtils.ActuallyNight && !Main.pumpkinMoon)
                     {
-                        if (Main.rand.NextBool(3))
-                            Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
-                                ItemID.TheHorsemansBlade,
-                                ItemID.BatScepter,
-                                ItemID.BlackFairyDust,
-                                ItemID.SpiderEgg,
-                                ItemID.RavenStaff,
-                                ItemID.CandyCornRifle,
-                                ItemID.JackOLanternLauncher,
-                                ItemID.ScytheWhip
-                            }));
+                        Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
+                            ItemID.TheHorsemansBlade,
+                            ItemID.BatScepter,
+                            ItemID.BlackFairyDust,
+                            ItemID.SpiderEgg,
+                            ItemID.RavenStaff,
+                            ItemID.CandyCornRifle,
+                            ItemID.JackOLanternLauncher,
+                            ItemID.ScytheWhip
+                        }));
                     }
                     break;
 
                 case NPCID.Everscream:
-                    if (!Main.dayTime && !Main.snowMoon)
+                    if (FargoUtils.ActuallyNight && !Main.snowMoon)
                     {
-                        if (Main.rand.NextBool(3))
-                            Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
-                                ItemID.ChristmasTreeSword,
-                                ItemID.ChristmasHook,
-                                ItemID.Razorpine,
-                                ItemID.FestiveWings
-                            }));
+                        Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
+                            ItemID.ChristmasTreeSword,
+                            ItemID.ChristmasHook,
+                            ItemID.Razorpine,
+                            ItemID.FestiveWings
+                        }));
                     }
                     break;
 
                 case NPCID.SantaNK1:
-                    if (!Main.dayTime && !Main.snowMoon)
+                    if (FargoUtils.ActuallyNight && !Main.snowMoon)
                     {
-                        if (Main.rand.NextBool(3))
-                            Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
-                                ItemID.ElfMelter,
-                                ItemID.ChainGun
-                            }));
+                        Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
+                            ItemID.ElfMelter,
+                            ItemID.ChainGun
+                        }));
                     }
                     break;
 
                 case NPCID.IceQueen:
-                    if (!Main.dayTime && !Main.snowMoon)
+                    if (FargoUtils.ActuallyNight && !Main.snowMoon)
                     {
-                        if (Main.rand.NextBool(3))
-                            Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
-                                ItemID.BlizzardStaff,
-                                ItemID.SnowmanCannon,
-                                ItemID.NorthPole,
-                                ItemID.BabyGrinchMischiefWhistle,
-                                ItemID.ReindeerBells
-                            }));
+                        Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, Main.rand.Next(new int[] {
+                            ItemID.BlizzardStaff,
+                            ItemID.SnowmanCannon,
+                            ItemID.NorthPole,
+                            ItemID.BabyGrinchMischiefWhistle,
+                            ItemID.ReindeerBells
+                        }));
                     }
                     break;
 
@@ -1401,8 +1402,8 @@ namespace Fargowiltas.NPCs
                 FargoUtils.PrintText(Language.GetTextValue("Announcement.HasBeenDefeated_Single", Lang.GetNPCNameValue(NPCID.DD2Betsy)), new Color(175, 75, 0));
                 FargoWorld.DownedBools["betsy"] = true;
             }
-
-            if (npc.boss)
+            bool trojan = Fargowiltas.ModLoaded["FargowiltasSouls"] && ModContent.TryFind("FargowiltasSouls", "TrojanSquirrel", out ModNPC trojanSqurrel) && npc.type == trojanSqurrel.Type;
+            if (npc.boss && !trojan)
             {
                 FargoWorld.DownedBools["boss"] = true;
             }

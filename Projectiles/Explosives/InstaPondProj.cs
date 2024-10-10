@@ -23,7 +23,7 @@ namespace Fargowiltas.Projectiles.Explosives
             Projectile.aiStyle = 16;
             Projectile.friendly = true;
             Projectile.penetrate = -1;
-            Projectile.timeLeft = 170;
+            Projectile.timeLeft = 1;
         }
 
         public override bool? CanDamage()

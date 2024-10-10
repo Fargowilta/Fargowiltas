@@ -1,3 +1,4 @@
+using Fargowiltas.Common.Systems;
 using Fargowiltas.Projectiles.Explosives;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -32,10 +33,11 @@ namespace Fargowiltas.Items.Explosives
 
         public override void HoldItem(Player player)
         {
-            if (player.whoAmI == Main.myPlayer && player.ownedProjectileCounts[ModContent.ProjectileType<InstaHouseVisual>()] < 1)
+            if (player.whoAmI == Main.myPlayer)
             {
-                Vector2 mouse = Main.MouseWorld;
-                Projectile.NewProjectile(player.GetSource_ItemUse(Item), mouse, Vector2.Zero, ModContent.ProjectileType<InstaHouseVisual>(), 0, 0, player.whoAmI);
+                Vector2 mouse = Main.MouseWorld - Vector2.UnitY * 16;
+                InstaVisual.DrawOrigin origin = mouse.X - player.Center.X > 0 ? InstaVisual.DrawOrigin.Left : InstaVisual.DrawOrigin.Right;
+                InstaVisual.DrawInstaVisual(player, mouse, new(10, 6), origin);
             }
         }
 

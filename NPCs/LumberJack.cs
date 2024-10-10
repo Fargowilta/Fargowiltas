@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Fargowiltas.Common.Configs;
 using Fargowiltas.Items.Tiles;
 using Fargowiltas.Items.Vanity;
@@ -9,6 +10,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.Enums;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -88,7 +90,7 @@ namespace Fargowiltas.NPCs
             NPC.aiStyle = 7;
             NPC.damage = 10;
             NPC.defense = 15;
-            NPC.lifeMax = 250;
+            NPC.lifeMax = Main.hardMode ? 1000 : 250;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
@@ -104,6 +106,33 @@ namespace Fargowiltas.NPCs
         public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
             return FargoServerConfig.Instance.Lumber && FargoWorld.DownedBools.TryGetValue("lumberjack", out bool down) && down;
+        }
+
+        // Tree Shake spawn method
+        public static void OnTreeShake(Terraria.On_WorldGen.orig_ShakeTree orig, int i, int j)
+        {
+            orig(i, j);
+            if (!(FargoServerConfig.Instance.Lumber && Main.rand.NextBool(10) && FargoWorld.WoodChopped >= 400 && !(FargoWorld.DownedBools.TryGetValue("lumberjack", out bool down) && down)))
+                return;
+            WorldGen.GetTreeBottom(i, j, out var x, out var y);
+            TreeTypes treeType = WorldGen.GetTreeType(Main.tile[x, y].TileType);
+            if (treeType == TreeTypes.None)
+                return;
+            y--;
+            while (y > 10 && Main.tile[x, y].HasTile && TileID.Sets.IsShakeable[Main.tile[x, y].TileType])
+            {
+                y--;
+            }
+            y++;
+            if (!WorldGen.IsTileALeafyTreeTop(x, y) || Collision.SolidTiles(x - 2, x + 2, y - 2, y + 2))
+                return;
+
+            FargoWorld.DownedBools["lumberjack"] = true;
+            NPC.NewNPC(NPC.GetBossSpawnSource(Main.myPlayer), x * 16, y * 16, NPCType<LumberJack>());
+        }
+        public override void Load()
+        {
+            On_WorldGen.ShakeTree += OnTreeShake;
         }
 
 
@@ -122,9 +151,10 @@ namespace Fargowiltas.NPCs
             }
         }
 
+
         public override List<string> SetNPCNameList()
         {
-            string[] names = { "Griff", "Jack", "Bruce", "Larry", "Will", "Jerry", "Liam", "Stan", "Lee", "Woody", "Leif", "Paul" };
+            string[] names = ["Griff", "Jack", "Bruce", "Larry", "Will", "Jerry", "Liam", "Stan", "Lee", "Woody", "Leif", "Paul"];
 
             return new List<string>(names);
         }

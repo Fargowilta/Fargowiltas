@@ -4,11 +4,10 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Fargowiltas.Items.Summons
+namespace Fargowiltas.Items.Summons.VanillaCopy
 {
     public class WormyFood : BaseSummon
     {
-        public override string Texture => "Terraria/Images/Item_70";
 
         public override int NPCType => NPCID.EaterofWorldsHead;
         

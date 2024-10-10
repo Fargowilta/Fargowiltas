@@ -8,11 +8,10 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace Fargowiltas.Items.Summons
+namespace Fargowiltas.Items.Summons.VanillaCopy
 {
     public class MechEye : ModItem
     {
-        public override string Texture => "Terraria/Images/Item_544";
 
         public override void SetStaticDefaults()
         {
@@ -38,14 +37,14 @@ namespace Fargowiltas.Items.Summons
 
         public override bool CanUseItem(Player player)
         {
-            return Main.dayTime != true;
+            return FargoUtils.ActuallyNight;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Vector2 pos = new Vector2((int)player.position.X + Main.rand.Next(-800, 800), (int)player.position.Y + Main.rand.Next(-1000, -250));
+            Vector2 pos = new((int)player.position.X + Main.rand.Next(-800, 800), (int)player.position.Y + Main.rand.Next(-1000, -250));
 
-            if (!Main.dayTime)
+            if (FargoUtils.ActuallyNight)
             {
                 if (!NPC.downedMechBoss2)
                 {
