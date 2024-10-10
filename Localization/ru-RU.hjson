@@ -173,6 +173,11 @@ Mods: {
 					Tooltip: ""
 				}
 
+				ModdedPiggyBankAcc: {
+					// Label: "[i:87] Modded item inventory effects work in Piggy Bank"
+					// Tooltip: ""
+				}
+
 				FasterLavaFishing: {
 					Label: "[i:4881] Ускоренная Рыбалка в Лаве"
 					Tooltip: ""
@@ -274,6 +279,11 @@ Mods: {
 					Label: "[i:1309] Прозрачность Дружелюбных Снарядов"
 					Tooltip: Используйте с ванильной настройкой Качества на Среднем или Низком для лучших результатов
 				}
+
+				MultiplayerDeathSpectate: {
+					// Label: Multiplayer Death Spectate
+					// Tooltip: ""
+				}
 			}
 
 			SeasonSelections: {
@@ -294,6 +304,7 @@ Mods: {
 			FoodT2: Еда Полного Удовлетворения
 			FoodT3: Еда Изысканного Удовлетворения
 			GemRobe: Роба из Камней
+			// Or: Or
 		}
 
 		UI: {
@@ -327,6 +338,7 @@ Mods: {
 			// Battle & Calming are in Items.BattleCry
 			BattleCryNone: Выкл.
 			MaxSpeed: Макс. Скорость: {0} mph
+			// AttackSpeed: Attack Speed: {0}%
 			WingNull: ???
 			WingTime: Время Полёта: {0}
 			WingTimeMoreThan60Sec: Да
@@ -2618,6 +2630,7 @@ Mods: {
 					Underwater: Что, увязаешь в воде? Лично я таких проблем никогда не испытывала... Может, стоит попробовать дышать водой вместо воздуха?
 					Underworld: В Преисподней стало гораздо горячее, чем когда я была там в прошлый раз. К счастью, я слышала, что череп из обсидиана хорошо помогает не сгореть заживо!
 					SpaceSuffocation: Хочешь поспорить, кто дольше сможет задержать дыхание? Пустой вакуум космоса отлично подойдёт. Нет, я не буду мухлевать и дышать водой вместо воздуха!
+					// UndergroundShadowHands: I've heard of some weird shadow hands stalking helpless victims in the dark underground... Stay in the light and they can't get you!
 					UndergroundHallow: У тебя забавное лицо... Неужто подземное Освящение так дизориентирует? Попробуй взять контроль над гравитацией, и, может, тебя не будет вертеть туда-сюда!
 					LifeFruit: Дам тебе знать, Плантера вообще за собой не следит. Диета из Хлорофита и Фруктов Жизни не ТАКАЯ УЖ здоровая! Почему бы тебе не помочь ей похудеть?
 					CactusDamage: Эти кактусы иногда могут колоться! Хочешь также? Зачаруй себя эссенцией кактуса и посмотри, каково это!
