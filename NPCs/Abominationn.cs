@@ -15,6 +15,9 @@ using Fargowiltas.Items.Tiles;
 using Fargowiltas.Common.Configs;
 using Fargowiltas.Content.Biomes;
 using System.Linq;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria.GameContent;
 
 namespace Fargowiltas.NPCs
 {
@@ -31,6 +34,11 @@ namespace Fargowiltas.NPCs
         //    return mod.Properties.Autoload;
         //}
 
+        public override ITownNPCProfile TownNPCProfile()
+        {
+            return new AbomProfile();
+        }
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Abominationn");
@@ -43,6 +51,10 @@ namespace Fargowiltas.NPCs
             NPCID.Sets.AttackTime[NPC.type] = 90;
             NPCID.Sets.AttackAverageChance[NPC.type] = 30;
             NPCID.Sets.HatOffsetY[NPC.type] = 2;
+
+            NPCID.Sets.ShimmerTownTransform[NPC.type] = true; // This set says that the Town NPC has a Shimmered form. Otherwise, the Town NPC will become transparent when touching Shimmer like other enemies.
+
+            NPCID.Sets.ShimmerTownTransform[Type] = true; // Allows for this NPC to have a different texture after touching the Shimmer liquid.
 
             NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
@@ -306,5 +318,26 @@ namespace Fargowiltas.NPCs
         }
 
         private static string AbomChat(string key, params object[] args) => Language.GetTextValue($"Mods.Fargowiltas.NPCs.Abominationn.Chat.{key}", args);
+    }
+
+    public class AbomProfile : ITownNPCProfile
+    {
+        public int RollVariation() => 0;
+        public string GetNameForVariant(NPC npc) => npc.getNewNPCName();
+
+        public Asset<Texture2D> GetTextureNPCShouldUse(NPC npc)
+        {
+            if (npc.IsABestiaryIconDummy)
+                return ModContent.Request<Texture2D>("Fargowiltas/NPCs/Abominationn");
+
+            if (npc.IsShimmerVariant)
+            {
+                return ModContent.Request<Texture2D>("Fargowiltas/NPCs/Abominationn_Shimmer");
+            }
+
+            return ModContent.Request<Texture2D>("Fargowiltas/NPCs/Abominationn");
+        }
+
+        public int GetHeadTextureIndex(NPC npc) => ModContent.GetModHeadSlot("Fargowiltas/NPCs/Abominationn_Head");
     }
 }
