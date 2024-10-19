@@ -1468,7 +1468,7 @@ Mods: {
 			}
 
 			MutantVoodoo: {
-				DisplayName: Mutant Voodoo Doll
+				DisplayName: Mutant Plushie
 				Tooltip:
 					'''
 					Summons ALL the bosses
@@ -1797,7 +1797,7 @@ Mods: {
 			}
 
 			OverloadFish: {
-				DisplayName: Truffle Worm Clump
+				DisplayName: Can of Truffle Worms
 				Tooltip:
 					'''
 					Summons several Duke Fishrons
@@ -1942,7 +1942,7 @@ Mods: {
 			}
 
 			TruffleWorm2: {
-				DisplayName: Truffly Worm
+				DisplayName: Concentrated Truffle Worm Oil
 				Tooltip: Summons Duke Fishron without fishing
 			}
 
@@ -2483,6 +2483,15 @@ Mods: {
 					Must be consumed manually
 					'''
 			}
+
+			MiniDirtInstaBridge: {
+				DisplayName: Mini Dirt Instabridge
+				Tooltip:
+					'''
+					Creates a small bridge of dirt at your cursor
+					Will not break any blocks
+					'''
+			}
 		}
 
 		NPCs: {
@@ -2915,6 +2924,7 @@ Mods: {
 			SnowNukeSupremeProj.DisplayName: SnowRenewalSupreme
 			WorldTokenProj.DisplayName: World Token Proj
 			InstaPondProj.DisplayName: Insta Pond Proj
+			MiniDirtInstabridgeProj.DisplayName: Mini Dirt Instabridge Proj
 		}
 
 		Tiles: {
