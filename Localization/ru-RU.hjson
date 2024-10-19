@@ -2468,12 +2468,17 @@ Mods: {
 			}
 
 			MiniDirtInstaBridge: {
-				// DisplayName: Dirt Instabridge
+				// DisplayName: Mini Dirt Instabridge
 				/* Tooltip:
 					'''
-					Creates a long bridge of dirt at your cursor
+					Creates a small bridge of dirt at your cursor
 					Will not break any blocks
 					''' */
+			}
+
+			WiresPainting: {
+				// DisplayName: Wires Painting
+				// Tooltip: Look inside
 			}
 		}
 
