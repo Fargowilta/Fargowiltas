@@ -2466,6 +2466,15 @@ Mods: {
 				DisplayName: Зелье Большого Засоса
 				Tooltip: Заставляет тебя засасывать всё
 			}
+
+			MiniDirtInstaBridge: {
+				// DisplayName: Dirt Instabridge
+				/* Tooltip:
+					'''
+					Creates a long bridge of dirt at your cursor
+					Will not break any blocks
+					''' */
+			}
 		}
 
 		NPCs: {
@@ -2898,6 +2907,7 @@ Mods: {
 			SnowNukeSupremeProj.DisplayName: СнегПреобразователь
 			WorldTokenProj.DisplayName: Мир Токен Снар
 			InstaPondProj.DisplayName: МоментОзеро Снар
+			// MiniDirtInstabridgeProj.DisplayName: Mini Dirt Instabridge Proj
 		}
 
 		Tiles: {

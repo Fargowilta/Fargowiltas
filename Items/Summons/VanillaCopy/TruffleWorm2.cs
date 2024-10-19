@@ -8,7 +8,6 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
 {
     public class TruffleWorm2 : BaseSummon
     {
-        public override string Texture => "Terraria/Images/Item_2673";
 
         public override int NPCType => NPCID.DukeFishron;
         
@@ -17,6 +16,13 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Truffly Worm");
             // Tooltip.SetDefault("Summons Duke Fishron without fishing");
+        }
+
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Item.useStyle = ItemUseStyleID.DrinkLiquid;
+            Item.UseSound = SoundID.Item3;
         }
 
         public override void AddRecipes()
