@@ -2737,7 +2737,7 @@ Mods: {
 					Rest: I'm resting after a good day of chopping, come back tomorrow and maybe I'll have something else for you.
 				}
 
-				Census.SpawnCondition: 10% chance to fall out of trees after 400 wood has been chopped.
+				Census.SpawnCondition: Can fall out of trees after 400 wood has been chopped.
 				TreeTreasures: Tree Treasures
 			}
 
@@ -2840,7 +2840,7 @@ Mods: {
 					Normal45: I heard of a rumor of infinite use boss summons. Makes me sick..
 				}
 
-				Census.SpawnCondition: When any Boss has been defeated.
+				Census.SpawnCondition: When any boss has been defeated.
 				CycleShop: Cycle Shop
 				PreHM: Pre Hardmode
 				HM: Hardmode
