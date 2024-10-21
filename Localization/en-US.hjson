@@ -383,22 +383,22 @@ Mods: {
 			// Swarm Summons
 			OverloadBee: A deafening buzz pierces through you!
 			OverloadBetsy: The real Old One's Army is attacking!
-			OverloadBrain: You feel dumb among so many brains!
+			OverloadBrain: The galaxy brain descends from the stars!
 			OverloadCultist: Deafening chants fill your ears!
-			OverloadDarkMage: You feel like you're in a library!
+			OverloadDarkMage: You feel like you've enraged a librarian!
 			OverloadDeer: The Constant takes over!
 			OverloadDestroyer: The planet trembles from the core!
 			OverloadEmpress: Bullet heaven is descending!
-			OverloadEye: Countless eyes pierce the veil staring in your direction!
-			OverloadFish: The ocean swells with ferocious pigs!
-			OverloadGolem: Ancient automatons come crashing down!
+			OverloadEye: Countless staring eyes pierce the veil as they amalgamate into one!
+			OverloadFish: The ocean convulses in terror!
+			OverloadGolem: You feel like you're going to have a bad time!
 			OverloadMoon: The wind whispers of death's approach!
 			OverloadPlant: The jungle beats as one!
 			OverloadPrime: A sickly chill envelops the world!
 			OverloadQueenSlime: Welcome to the truer slime rain!
 			OverloadSkele: A great clammering of bones rises from the dungeon!
 			OverloadSlimeCrown: Welcome to the true slime rain!
-			OverloadTwins: A legion of glowing iris sing a dreadful song!
+			OverloadTwins: The eyes are filled with determination!
 			OverloadWall: A fortress of flesh arises from the depths!
 			OverloadWorm: The ground shifts with formulated precision!
 			// Swarm Events
@@ -412,9 +412,7 @@ Mods: {
 			OverloadMartiansStop: The martians have calmed down!
 			OverloadPiratesStop: The pirates have calmed down!
 			// Swarm Misc
-			SwarmKilled: Killed: {0}
-			SwarmTotal: Total: {0}
-			SwarmDefeated: The swarm has been defeated!
+			SwarmDefeated: The energized boss has been defeated!
 		}
 
 		Buffs: {

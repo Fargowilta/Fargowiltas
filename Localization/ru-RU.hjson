@@ -412,8 +412,6 @@ Mods: {
 			OverloadMartiansStop: Марсиане нашли покой!
 			OverloadPiratesStop: Пираты наши покой!
 			// Swarm Misc
-			SwarmKilled: Убито: {0}
-			SwarmTotal: Всего: {0}
 			SwarmDefeated: Рой был повержен!
 		}
 
