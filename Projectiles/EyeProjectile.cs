@@ -28,11 +28,11 @@ namespace Fargowiltas.Projectiles
         {
             for (int i = 0; i < 20; i++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 60, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, Scale: 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.RedTorch, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, Scale: 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
 
-                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 60, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, Scale: 1f);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.RedTorch, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, Scale: 1f);
                 Main.dust[num469].velocity *= 2f;
             }
         }

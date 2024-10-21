@@ -46,7 +46,7 @@ namespace Fargowiltas.Items.Renewals
             Item.value = Item.buyPrice(0, 0, 3);
             Item.noUseGraphic = true;
             Item.noMelee = true;
-            Item.shoot = 1;
+            Item.shoot = ProjectileID.WoodenArrowFriendly;
             Item.shootSpeed = 5f;
         }
 

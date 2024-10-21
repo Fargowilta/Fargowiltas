@@ -428,7 +428,7 @@ namespace Fargowiltas.NPCs
             {
                 for (int k = 0; k < 8; k++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * (float)hit.HitDirection, -2.5f, 0, default, 0.8f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * (float)hit.HitDirection, -2.5f, 0, default, 0.8f);
                 }
 
                 if (!Main.dedServ)
@@ -447,7 +447,7 @@ namespace Fargowiltas.NPCs
             {
                 for (int k = 0; k < hit.Damage / NPC.lifeMax * 50.0; k++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, hit.HitDirection, -1f, 0, default, 0.6f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, hit.HitDirection, -1f, 0, default, 0.6f);
                 }
             }
         }

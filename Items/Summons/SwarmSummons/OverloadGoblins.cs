@@ -22,10 +22,10 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
             Item.height = 20;
             Item.maxStack = 1;
             Item.value = 1000;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.useAnimation = 30;
             Item.useTime = 30;
-            Item.useStyle = 4;
+            Item.useStyle = ItemUseStyleID.HoldUp;
             Item.consumable = false;
         }
 
@@ -37,7 +37,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
                 Main.invasionSize = 1;
                 FargoWorld.OverloadGoblins = false;
 
-                if (Main.netMode == 2)
+                if (Main.netMode == NetmodeID.Server)
                 {
                     ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadGoblinsStop"), new Color(175, 75, 255));
                 }
@@ -48,7 +48,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
             }
             else
             {
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     Main.invasionDelay = 0;
                     Main.StartInvasion(1);
@@ -57,7 +57,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
                 }
                 else
                 {
-                    NetMessage.SendData(61, -1, -1, null, player.whoAmI, -1f);
+                    NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, -1, -1, null, player.whoAmI, -1f);
                 }
 
                 FargoWorld.OverloadGoblins = true;
