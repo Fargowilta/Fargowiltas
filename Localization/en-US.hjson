@@ -1642,7 +1642,7 @@ Mods: {
 				DisplayName: Crystalline Energizer
 				Tooltip:
 					'''
-					Formed after using 10 Swarm Crystals
+					Formed after using 10 Overloaded Crystals
 					'It feels very slimy'
 					'''
 			}
@@ -1660,7 +1660,7 @@ Mods: {
 				DisplayName: Slimy Energizer
 				Tooltip:
 					'''
-					Formed after using 10 Swarm Crowns
+					Formed after using 10 Overloaded Crowns
 					'It feels a bit slimy'
 					'''
 			}
@@ -1696,8 +1696,7 @@ Mods: {
 				DisplayName: Overstuffed Larva
 				Tooltip:
 					'''
-					Summons several Queen Bees
-					Only Treasure Bags will be dropped
+					Summons an energized Queen Bee
 					'''
 			}
 
@@ -1705,8 +1704,7 @@ Mods: {
 				DisplayName: Dragon Egg Tray
 				Tooltip:
 					'''
-					Summons several Betsys
-					Only Treasure Bags will be dropped
+					Summons an energized Betsy
 					'''
 			}
 
@@ -1714,8 +1712,7 @@ Mods: {
 				DisplayName: Brain Storm
 				Tooltip:
 					'''
-					Summons several Brains of Cthulhu
-					Only Treasure Bags will be dropped
+					Summons an energized Brain of Cthulhu
 					'''
 			}
 
@@ -1723,8 +1720,7 @@ Mods: {
 				DisplayName: Zealot's Madness
 				Tooltip:
 					'''
-					Summons several Lunatic Cultists
-					Only Treasure Bags will be dropped
+					Summons an energized Lunatic Cultist
 					'''
 			}
 
@@ -1732,8 +1728,7 @@ Mods: {
 				DisplayName: Really Forbidden Tome
 				Tooltip:
 					'''
-					Summons several Dark Mages
-					Only Treasure Bags will be dropped
+					Summons an energized Dark Mage
 					'''
 			}
 
@@ -1741,8 +1736,7 @@ Mods: {
 				DisplayName: Deer Amalgamation
 				Tooltip:
 					'''
-					Summons several Deerclops
-					Only Treasure Bags will be dropped
+					Summons an energized Deerclop
 					'''
 			}
 
@@ -1750,8 +1744,7 @@ Mods: {
 				DisplayName: Seismic Actuator
 				Tooltip:
 					'''
-					Summons several Destroyers
-					Only Treasure Bags will be dropped
+					Summons an energized Destroyer
 					'''
 			}
 
@@ -1768,8 +1761,7 @@ Mods: {
 				DisplayName: Jar of Lacewings
 				Tooltip:
 					'''
-					Summons several Empresses of Light
-					Only Treasure Bags will be dropped
+					Summons an energized Empress of Light
 					'''
 			}
 
@@ -1777,11 +1769,13 @@ Mods: {
 				DisplayName: Overloader
 				Tooltip:
 					'''
-					Used to craft swarm summons
+					Used to craft energized summons
 					When used, all summons in the stack will be consumed
-					The more consumed, the more bosses will spawn
-					A Trophy will drop every 10 kills
-					An Energizer will drop every 100 kills
+					The more consumed, the stronger the boss will be
+					If more than 5 are consumed, the boss is faster
+					5 Treasure Bags will drop per consumed item
+					A Trophy will drop for every 3 consumed items
+					An Energizer will drop for every 10 consumed items
 					'''
 			}
 
@@ -1789,8 +1783,7 @@ Mods: {
 				DisplayName: Eyemalgamation
 				Tooltip:
 					'''
-					Summons several Eyes of Cthulhu
-					Only Treasure Bags will be dropped
+					Summons an energized Eye of Cthulhu
 					'''
 			}
 
@@ -1798,8 +1791,7 @@ Mods: {
 				DisplayName: Can of Truffle Worms
 				Tooltip:
 					'''
-					Summons several Duke Fishrons
-					Only Treasure Bags will be dropped
+					Summons an energized Duke Fishron
 					'''
 			}
 
@@ -1825,8 +1817,7 @@ Mods: {
 				DisplayName: Runic Power Cell
 				Tooltip:
 					'''
-					Summons several Golems
-					Only Treasure Bags will be dropped
+					Summons an energized Golem
 					'''
 			}
 
@@ -1843,8 +1834,7 @@ Mods: {
 				DisplayName: Runic Inscription
 				Tooltip:
 					'''
-					Summons several Moon Lords
-					Only Treasure Bags will be dropped
+					Summons an energized Moon Lord
 					'''
 			}
 
@@ -1861,8 +1851,7 @@ Mods: {
 				DisplayName: Heart of the Jungle
 				Tooltip:
 					'''
-					Summons several Planteras
-					Only Treasure Bags will be dropped
+					Summons an energized Plantera
 					'''
 			}
 
@@ -1870,8 +1859,7 @@ Mods: {
 				DisplayName: Primal Control Chip
 				Tooltip:
 					'''
-					Summons several Skeletron Primes
-					Only Treasure Bags will be dropped
+					Summons an energized Skeletron Prime
 					'''
 			}
 
@@ -1885,11 +1873,10 @@ Mods: {
 			}
 
 			OverloadQueenSlime: {
-				DisplayName: Swarm Crystal
+				DisplayName: Overloaded Crystal
 				Tooltip:
 					'''
-					Summons several Queen Slimes
-					Only Treasure Bags will be dropped
+					Summons an energized Queen Slime
 					'''
 			}
 
@@ -1897,18 +1884,16 @@ Mods: {
 				DisplayName: Skull Chain Necklace
 				Tooltip:
 					'''
-					Summons several Skeletrons during the night
-					Summons several Dungeon Guardians during the day
-					Only Treasure Bags will be dropped
+					Summons an energized Skeletron during the night
+					Summons an energized Dungeon Guardian during the day
 					'''
 			}
 
 			OverloadSlimeCrown: {
-				DisplayName: Swarm Crown
+				DisplayName: Overloaded Crown
 				Tooltip:
 					'''
-					Summons several King Slimes
-					Only Treasure Bags will be dropped
+					Summons an energized King Slime
 					'''
 			}
 
@@ -1916,8 +1901,7 @@ Mods: {
 				DisplayName: Omnifocal Lens
 				Tooltip:
 					'''
-					Summons several sets of Twins
-					Only Treasure Bags will be dropped
+					Summons an energized set of Twins
 					'''
 			}
 
@@ -1925,8 +1909,7 @@ Mods: {
 				DisplayName: Bundle of Dolls
 				Tooltip:
 					'''
-					Summons several Walls of Flesh
-					Only Treasure Bags will be dropped
+					Summons an energized Wall of Flesh
 					'''
 			}
 
@@ -1934,8 +1917,7 @@ Mods: {
 				DisplayName: Worm Chicken
 				Tooltip:
 					'''
-					Summons several Eater of Worlds
-					Only Treasure Bags will be dropped
+					Summons an energized Eater of Worlds
 					'''
 			}
 

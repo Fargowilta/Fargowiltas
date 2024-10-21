@@ -678,7 +678,7 @@ namespace Fargowiltas.NPCs
                         break;
                 }
 
-                return false;
+                //return false;
             }
 
             if (!PandoraActive)
@@ -1255,22 +1255,21 @@ namespace Fargowiltas.NPCs
         {
             if (bossbag >= 0 && bossbag != ItemID.DefenderMedal)
             {
-                npc.DropItemInstanced(npc.Center, npc.Size, bossbag);
+                npc.DropItemInstanced(npc.Center, npc.Size, bossbag, itemStack: (Fargowiltas.SwarmItemsUsed * 5) - 1);
             }
             else if (bossbag >= 0 && bossbag == ItemID.DefenderMedal)
             {
-                npc.DropItemInstanced(npc.Center, npc.Size, bossbag, 5);
+                npc.DropItemInstanced(npc.Center, npc.Size, bossbag, itemStack: 5 * ((Fargowiltas.SwarmItemsUsed * 5) - 1));
             }
 
             // Drop swarm reward for every 10 items used
             if (Fargowiltas.SwarmItemsUsed >= 10)
-                for (int i = 0; i < Fargowiltas.SwarmItemsUsed / 10; i++)
-                    Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, reward);
+                Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, reward, Stack: Fargowiltas.SwarmItemsUsed / 10);
+                    
 
             //drop trophy for every 3 items
             if (Fargowiltas.SwarmItemsUsed >= 3)
-                for (int i = 0; i < Fargowiltas.SwarmItemsUsed / 3; i++)
-                    Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, trophy);
+                Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, trophy, Stack: Fargowiltas.SwarmItemsUsed / 3);
 
             if (minion != -1)
             {
