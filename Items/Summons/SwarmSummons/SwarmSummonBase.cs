@@ -52,6 +52,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
             Fargowiltas.SwarmSetDefaults = true;
 
             Fargowiltas.SwarmActive = true;
+            Fargowiltas.SwarmNoHyperActive = false;
             Fargowiltas.SwarmItemsUsed = player.inventory[player.selectedItem].stack;
 
             //DG special case

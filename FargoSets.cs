@@ -39,6 +39,10 @@ namespace Fargowiltas
             public static bool[] InstaCannotDestroy;
             public static bool[] DungeonWall;
         }
+        public class NPCs
+        {
+            public static int[] SwarmHealth;
+        }
 
         public override void PostSetupContent()
         {
@@ -165,6 +169,11 @@ namespace Fargowiltas
                 WallID.PinkDungeonSlabUnsafe, 
                 WallID.PinkDungeonTileUnsafe, 
                 WallID.PinkDungeonUnsafe);
+            #endregion
+            #region NPCs
+            SetFactory npcFactory = NPCID.Sets.Factory;
+
+            NPCs.SwarmHealth = npcFactory.CreateIntSet(0);
             #endregion
         }
     }

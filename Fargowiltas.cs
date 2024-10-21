@@ -42,9 +42,24 @@ namespace Fargowiltas
 
         // Swarms (Energized bosses) 
         public static bool SwarmActive;
+        public static bool HardmodeSwarmActive;
+        public static bool SwarmNoHyperActive;
         public static int SwarmItemsUsed;
         public static bool SwarmSetDefaults;
-        public static int SwarmMinDamage => (int)((60 + (1 * SwarmItemsUsed)));
+        public static int SwarmMinDamage
+        { 
+            get
+            {
+                float dmg;
+                if (HardmodeSwarmActive)
+                    dmg = 60 + 40 * SwarmItemsUsed;
+                else
+                    dmg = 56 + 3 * SwarmItemsUsed;
+
+                return (int)dmg;
+            }
+                
+        }
 
         // Mod loaded bools
         internal static Dictionary<string, bool> ModLoaded;

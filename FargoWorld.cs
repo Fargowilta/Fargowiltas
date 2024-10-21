@@ -189,6 +189,8 @@ namespace Fargowiltas
             WoodChopped = reader.ReadInt32();
             Matsuri = reader.ReadBoolean();
             Fargowiltas.SwarmActive = reader.ReadBoolean();
+            Fargowiltas.HardmodeSwarmActive = reader.ReadBoolean();
+            Fargowiltas.SwarmNoHyperActive = reader.ReadBoolean();
         }
 
         public override void NetSend(BinaryWriter writer)
@@ -202,6 +204,8 @@ namespace Fargowiltas
             writer.Write(WoodChopped);
             writer.Write(Matsuri);
             writer.Write(Fargowiltas.SwarmActive);
+            writer.Write(Fargowiltas.HardmodeSwarmActive);
+            writer.Write(Fargowiltas.SwarmNoHyperActive);
         }
 
         public override void PostUpdateWorld()
@@ -231,6 +235,8 @@ namespace Fargowiltas
                 && NoBosses() && !NPC.AnyNPCs(NPCID.EaterofWorldsHead) && !NPC.AnyNPCs(NPCID.DungeonGuardian) && !NPC.AnyNPCs(NPCID.DD2DarkMageT1))
             {
                 Fargowiltas.SwarmActive = false;
+                Fargowiltas.HardmodeSwarmActive = false;
+                Fargowiltas.SwarmNoHyperActive = false;
                 FargoGlobalNPC.LastWoFIndex = -1;
                 FargoGlobalNPC.WoFDirection = 0;
                 if (Main.netMode == NetmodeID.Server)

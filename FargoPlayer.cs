@@ -252,10 +252,12 @@ namespace Fargowiltas
         }
         public override void PostUpdateEquips()
         {
+            /*
             if (Fargowiltas.SwarmActive)
             {
                 Player.buffImmune[BuffID.Horrified] = true;
             }
+            */
         }
         public override void UpdateDead()
         {
