@@ -1466,7 +1466,7 @@ Mods: {
 			}
 
 			MutantVoodoo: {
-				DisplayName: Mutant Voodoo Doll
+				DisplayName: Mutant Plushie
 				Tooltip:
 					'''
 					Summons ALL the bosses
@@ -1795,7 +1795,7 @@ Mods: {
 			}
 
 			OverloadFish: {
-				DisplayName: Truffle Worm Clump
+				DisplayName: Can of Truffle Worms
 				Tooltip:
 					'''
 					Summons several Duke Fishrons
@@ -1940,7 +1940,7 @@ Mods: {
 			}
 
 			TruffleWorm2: {
-				DisplayName: Truffly Worm
+				DisplayName: Concentrated Truffle Worm Oil
 				Tooltip: Summons Duke Fishron without fishing
 			}
 
@@ -2481,6 +2481,20 @@ Mods: {
 					Must be consumed manually
 					'''
 			}
+
+			MiniDirtInstaBridge: {
+				DisplayName: Mini Dirt Instabridge
+				Tooltip:
+					'''
+					Creates a small bridge of dirt at your cursor
+					Will not break any blocks
+					'''
+			}
+
+			WiresPainting: {
+				DisplayName: Wires Painting
+				Tooltip: Look inside
+			}
 		}
 
 		NPCs: {
@@ -2545,7 +2559,7 @@ Mods: {
 					NoEvent: I don't think there's an event right now.
 				}
 
-				Census.SpawnCondition: Conditions unknown
+				Census.SpawnCondition: When the Goblin Army has been defeated.
 				CancelEvent: Cancel Event
 			}
 
@@ -2652,7 +2666,7 @@ Mods: {
 					RainLightning: Watch out for the lightning when it rains. It's good to pack an umbrella so you're not caught out and end up all wet!
 				}
 
-				Census.SpawnCondition: Conditions unknown
+				Census.SpawnCondition: When any rare enemy has been defeated.
 				HelpButton: Help
 			}
 
@@ -2721,7 +2735,7 @@ Mods: {
 					Rest: I'm resting after a good day of chopping, come back tomorrow and maybe I'll have something else for you.
 				}
 
-				Census.SpawnCondition: Conditions unknown
+				Census.SpawnCondition: Can fall out of trees after 400 wood has been chopped.
 				TreeTreasures: Tree Treasures
 			}
 
@@ -2824,7 +2838,7 @@ Mods: {
 					Normal45: I heard of a rumor of infinite use boss summons. Makes me sick..
 				}
 
-				Census.SpawnCondition: Conditions unknown
+				Census.SpawnCondition: When any boss has been defeated.
 				CycleShop: Cycle Shop
 				PreHM: Pre Hardmode
 				HM: Hardmode
@@ -2862,7 +2876,7 @@ Mods: {
 					Normal3: *crunch crunch*
 				}
 
-				Census.SpawnCondition: Conditions unknown
+				Census.SpawnCondition: Have a Top Hat Squirrel in your inventory.
 			}
 
 			SuperDummy.DisplayName: Super Dummy
@@ -2913,6 +2927,7 @@ Mods: {
 			SnowNukeSupremeProj.DisplayName: SnowRenewalSupreme
 			WorldTokenProj.DisplayName: World Token Proj
 			InstaPondProj.DisplayName: Insta Pond Proj
+			MiniDirtInstabridgeProj.DisplayName: Mini Dirt Instabridge Proj
 		}
 
 		Tiles: {
