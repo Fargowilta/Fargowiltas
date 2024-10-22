@@ -52,8 +52,8 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
             Fargowiltas.SwarmSetDefaults = true;
 
             Fargowiltas.SwarmActive = true;
-            Fargowiltas.SwarmNoHyperActive = false;
             Fargowiltas.SwarmItemsUsed = player.inventory[player.selectedItem].stack;
+            Fargowiltas.SwarmNoHyperActive = Fargowiltas.SwarmItemsUsed < 5;
 
             //DG special case
             if (npcType == NPCID.SkeletronHead && Main.dayTime)

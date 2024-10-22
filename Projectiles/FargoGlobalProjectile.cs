@@ -137,7 +137,7 @@ namespace Fargowiltas.Projectiles
                     projectile.localAI[1]++;
             }
 
-            if (Fargowiltas.SwarmActive && projectile.hostile && projectile.damage < Fargowiltas.SwarmMinDamage)
+            if (Fargowiltas.SwarmActive && projectile.hostile && projectile.damage > 0 && projectile.damage < Fargowiltas.SwarmMinDamage)
                 projectile.damage = Fargowiltas.SwarmMinDamage;
 
             return true;

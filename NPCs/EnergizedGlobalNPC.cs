@@ -80,7 +80,7 @@ namespace Fargowiltas.NPCs
                         break;
 
                     case NPCID.EaterofWorldsHead:
-                        npc.lifeMax = baseHealth;
+                        npc.lifeMax = baseHealth / 3;
                         break;
 
                     case NPCID.BrainofCthulhu:
@@ -113,7 +113,7 @@ namespace Fargowiltas.NPCs
                         break;
 
                     case NPCID.TheDestroyer:
-                        npc.lifeMax = baseHealthHM * 2;
+                        npc.lifeMax = (int)(baseHealthHM * 1.5f);
                         Fargowiltas.HardmodeSwarmActive = true;
                         break;
 
@@ -158,19 +158,20 @@ namespace Fargowiltas.NPCs
                         break;
 
                     case NPCID.CultistBoss:
-                        npc.lifeMax = baseHealthHM / 2;
+                        npc.lifeMax = baseHealthHM / 4;
                         Fargowiltas.HardmodeSwarmActive = true;
-                        Fargowiltas.SwarmNoHyperActive = true;
+                        //Fargowiltas.SwarmNoHyperActive = true;
                         break;
 
                     case NPCID.MoonLordCore:
                         npc.lifeMax = baseHealthHM / 2;
                         Fargowiltas.HardmodeSwarmActive = true;
-                        Fargowiltas.SwarmNoHyperActive = true;
+                        //Fargowiltas.SwarmNoHyperActive = true;
                         break;
 
                     case NPCID.DungeonGuardian:
                         //npc.lifeMax = baseHealth;
+                        Fargowiltas.SwarmNoHyperActive = true;
                         break;
 
                     default:
@@ -193,7 +194,7 @@ namespace Fargowiltas.NPCs
 
                         case NPCID.EaterofWorldsBody:
                         case NPCID.EaterofWorldsTail:
-                            npc.lifeMax = baseHealth;
+                            npc.lifeMax = baseHealth / 3;
                             break;
 
                         case NPCID.SkeletronHand:
@@ -208,7 +209,7 @@ namespace Fargowiltas.NPCs
                             break;
 
                         case NPCID.Probe:
-                            npc.lifeMax = baseHealthHM / 40;
+                            npc.lifeMax = baseHealthHM / 50;
                             break;
 
                         case NPCID.PlanterasHook:
@@ -257,6 +258,12 @@ namespace Fargowiltas.NPCs
         {
             if (Fargowiltas.SwarmNoHyperActive)
                 return true;
+            if (Fargowiltas.HardmodeSwarmActive && Main.GameUpdateCount % 2 == 0)
+                return true;
+
+            if (npc.type == NPCID.MoonLordFreeEye)
+                return true;
+
             if (Fargowiltas.SwarmActive && !npc.townNPC && npc.lifeMax > 1 && go < 2)
             {
                 go++;
