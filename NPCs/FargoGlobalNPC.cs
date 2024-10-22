@@ -179,171 +179,6 @@ namespace Fargowiltas.NPCs
                     }
                     break;
 
-                //                case NPCID.TheDestroyer:
-                //                    if (SwarmActive)
-                //                    {
-                //                        if (npc.ai[0] == 0)
-                //                        {
-                //                            if (Main.netMode == NetmodeID.MultiplayerClient)
-                //                                return false;
-
-                //                            for (int i = 0; i < Main.maxNPCs; i++) //purge segments i shouldn't have
-                //                            {
-                //                                if (Main.npc[i].active && (Main.npc[i].type == NPCID.TheDestroyerBody || Main.npc[i].type == NPCID.TheDestroyerTail) && Main.npc[i].realLife == npc.whoAmI)
-                //                                {
-                //                                    npc.life = 0;
-                //                                    npc.HitEffect();
-                //                                    npc.active = false;
-                //                                    if (Main.netMode == NetmodeID.Server)
-                //                                        NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
-                //                                }
-                //                            }
-
-                //                            npc.lifeMax /= 4;
-                //                            if (npc.life > npc.lifeMax)
-                //                                npc.life = npc.lifeMax;
-                //                            npc.ai[3] = npc.whoAmI;
-                //                            npc.realLife = npc.whoAmI;
-                //                            int prev = npc.whoAmI;
-                //                            int bodySegments = 9;
-                //                            for (int j = 0; j < bodySegments; j++)
-                //                            {
-                //                                int type = NPCID.TheDestroyerBody;
-                //                                if (j == bodySegments - 1)
-                //                                {
-                //                                    type = NPCID.TheDestroyerTail;
-                //                                }
-
-                //                                int n = NPC.NewNPC((int)(npc.position.X + (float)(npc.width / 2)), (int)(npc.position.Y + npc.height), type, npc.whoAmI);
-                //                                Main.npc[n].ai[3] = npc.whoAmI;
-                //                                Main.npc[n].realLife = npc.whoAmI;
-                //                                Main.npc[n].ai[1] = prev;
-                //                                Main.npc[prev].ai[0] = n;
-                //                                Main.npc[n].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
-                //                                if (Main.netMode == NetmodeID.Server)
-                //                                    NetMessage.SendData(MessageID.SyncNPC, number: n);
-                //                                prev = n;
-                //                            }
-                //                            if (Main.netMode == NetmodeID.Server)
-                //                            {
-                //                                NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
-                //                                var netMessage = mod.GetPacket();
-                //                                netMessage.Write((byte)4);
-                //                                netMessage.Write(npc.whoAmI);
-                //                                netMessage.Write(npc.lifeMax);
-                //                                netMessage.Send();
-                //                            }
-                //                            return false;
-                //                        }
-                //                        else if (Main.netMode != NetmodeID.MultiplayerClient)
-                //                        {
-                //                            int count = 0;
-                //                            for (int i = 0; i < Main.maxNPCs; i++) //confirm i have exactly the right number of segments behind me
-                //                            {
-                //                                if (Main.npc[i].active && (Main.npc[i].type == NPCID.TheDestroyerBody || Main.npc[i].type == NPCID.TheDestroyerTail) && Main.npc[i].realLife == npc.whoAmI)
-                //                                {
-                //                                    count++;
-                //                                    if (count > 9)
-                //                                        break;
-                //                                }
-                //                            }
-
-                //                            if (count != 9) //if not exactly the right pieces, die
-                //                            {
-                //                                npc.life = 0;
-                //                                npc.HitEffect();
-                //                                npc.active = false;
-                //                                if (Main.netMode == NetmodeID.Server)
-                //                                {
-                //                                    //NetMessage.BroadcastChatMessage(NetworkText.FromLiteral("head killed by wrong count, " + count.ToString()), Color.White);
-                //                                    NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
-                //                                }
-                //                                else
-                //                                {
-                //                                    //Main.NewText("head killed by wrong count, " + count.ToString());
-                //                                }
-                //                            }
-                //                        }
-                //                    }
-                //                    break;
-
-                //                case NPCID.TheDestroyerBody:
-                //                case NPCID.TheDestroyerTail:
-                //                    if (SwarmActive)// && Main.netMode != NetmodeID.MultiplayerClient)
-                //                    {
-                //                        //kill if real life is invalid
-                //                        if (!(npc.realLife > -1 && npc.realLife < Main.maxNPCs && Main.npc[npc.realLife].active && Main.npc[npc.realLife].type == NPCID.TheDestroyer))
-                //                        {
-                //                            //Main.NewText("body realLife invalid, die");
-                //                            npc.life = 0;
-                //                            npc.HitEffect();
-                //                            npc.active = false;
-                //                            if (Main.netMode == NetmodeID.Server)
-                //                                NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
-                //                            return false;
-                //                        }
-
-                //                        int prev = npc.whoAmI;
-                //                        int segment = (int)npc.ai[1];
-                //                        int i = 0;
-                //                        const int maxLength = 9;
-                //                        for (; i < maxLength; i++) //iterate upwards along destroyer's body
-                //                        {
-                //                            if (segment > -1 && segment < Main.maxNPCs && Main.npc[segment].active && Main.npc[segment].type == NPCID.TheDestroyerBody
-                //                                && Main.npc[segment].ai[3] == npc.ai[3] && Main.npc[segment].ai[0] == Main.npc[prev].whoAmI)
-                //                            {
-                //                                prev = segment;
-                //                                segment = (int)Main.npc[segment].ai[1]; //continue if next is a valid BODY segment
-                //                            }
-                //                            else
-                //                            {
-                //                                break; //stop otherwise (this includes if head is found early, which is okay!)
-                //                            }
-                //                        }
-
-                //                        //if last segment seen is indeed destroyer head
-                //                        if (segment > -1 && segment < Main.maxNPCs && Main.npc[segment].active && Main.npc[segment].type == NPCID.TheDestroyer)
-                //                        {
-                //                            if (i == maxLength && npc.type != NPCID.TheDestroyerTail) //i am the furthest possible segment, become tail
-                //                            {
-                //                                //Main.NewText("body: become tail");
-                //                                npc.type = NPCID.TheDestroyerTail;
-                //                                npc.ai[0] = 0f;
-                //                                npc.ai[2] = 0f;
-                //                                npc.localAI[0] = 0f;
-                //                                npc.localAI[1] = 0f;
-                //                                npc.localAI[2] = 0f;
-                //                                npc.localAI[3] = 0f;
-                //                                if (Main.netMode == NetmodeID.Server)
-                //                                    NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
-                //                            }
-                //                        }
-                //                        else //last segment seen isn't destroyer head, die
-                //                        {
-                //                            //Main.NewText("body killed by wrong lead");
-                //                            npc.life = 0;
-                //                            npc.HitEffect();
-                //                            npc.active = false;
-                //                            if (Main.netMode == NetmodeID.Server)
-                //                                NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
-                //                            return false;
-                //                        }
-                //                    }
-                //                    break;
-
-                //                case NPCID.BlueSlime:
-                //                    if (FargoWorld.OverloadedSlimeRain && npc.netID == NPCID.GreenSlime)
-                //                    {
-                //                        int[] slimes = { NPCID.BlueSlime, NPCID.RedSlime, NPCID.PurpleSlime, NPCID.YellowSlime, NPCID.BlackSlime, NPCID.JungleSlime };
-
-                //                        npc.SetDefaults(slimes[Main.rand.Next(slimes.Length)]);
-
-                //                        if (Main.netMode == NetmodeID.Server)
-                //                            NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, npc.whoAmI);
-                //                    }
-
-                //                    break;
-
                 default:
                     break;
             }
@@ -358,22 +193,6 @@ namespace Fargowiltas.NPCs
             {
                 npc.dontTakeDamage = false;
             }
-
-            //if (Fargowiltas.SwarmActive && Fargowiltas.ModLoaded["ThoriumMod"])
-            //{
-            //    Mod thorium = ModLoader.GetMod("ThoriumMod");
-
-            //    if (npc.type == thorium.NPCType("BoreanStriderPopped") || npc.type == thorium.NPCType("FallenDeathBeholder2") || npc.type == thorium.NPCType("LichHeadless") || npc.type == thorium.NPCType("AbyssionReleased"))
-            //    {
-            //        SwarmActive = true;
-            //    }
-            //}
-        }
-
-        public override void PostAI(NPC npc)
-        {
-            if (SwarmActive && npc.type == NPCID.Golem)
-                npc.dontTakeDamage = false; //always vulnerable in swarm
         }
 
         public override void ModifyShop(NPCShop shop)
@@ -859,62 +678,7 @@ namespace Fargowiltas.NPCs
                         break;
                 }
 
-
-
-
-                //if (Fargowiltas.ModLoaded["ThoriumMod"])
-                //{
-                //    Mod thorium = ModLoader.GetMod("ThoriumMod");
-
-                //    if (npc.type == thorium.NPCType("TheGrandThunderBirdv2"))
-                //    {
-                //        Swarm(npc, thorium.NPCType("TheGrandThunderBirdv2"), thorium.NPCType("Hatchling"), thorium.ItemType("ThunderBirdBag"), -1, string.Empty);
-                //    }
-                //    else if (npc.type == thorium.NPCType("QueenJelly"))
-                //    {
-                //        Swarm(npc, thorium.NPCType("QueenJelly"), thorium.NPCType("ZealousJelly"), thorium.ItemType("JellyFishBag"), -1, string.Empty);
-                //    }
-                //    else if (npc.type == thorium.NPCType("GraniteEnergyStorm"))
-                //    {
-                //        Swarm(npc, thorium.NPCType("GraniteEnergyStorm"), thorium.NPCType("EncroachingEnergy"), thorium.ItemType("GraniteBag"), -1, string.Empty);
-                //    }
-                //    else if (npc.type == thorium.NPCType("TheBuriedWarrior"))
-                //    {
-                //        Swarm(npc, thorium.NPCType("TheBuriedWarrior"), -1, thorium.ItemType("HeroBag"), -1, string.Empty);
-                //    }
-                //    else if (npc.type == thorium.NPCType("Viscount"))
-                //    {
-                //        Swarm(npc, thorium.NPCType("Viscount"), -1, thorium.ItemType("CountBag"), -1, string.Empty);
-                //    }
-                //    else if (npc.type == thorium.NPCType("ThePrimeScouter"))
-                //    {
-                //        Swarm(npc, thorium.NPCType("ThePrimeScouter"), -1, thorium.ItemType("ScouterBag"), -1, string.Empty);
-                //    }
-                //    else if (npc.type == thorium.NPCType("BoreanStriderPopped"))
-                //    {
-                //        Swarm(npc, thorium.NPCType("BoreanStrider"), thorium.ItemType("BoreanMyte1"), thorium.ItemType("BoreanBag"), -1, string.Empty);
-                //    }
-                //    else if (npc.type == thorium.NPCType("FallenDeathBeholder2"))
-                //    {
-                //        Swarm(npc, thorium.NPCType("FallenDeathBeholder"), thorium.ItemType("EnemyBeholder"), thorium.ItemType("BeholderBag"), -1, string.Empty);
-                //    }
-                //    else if (npc.type == thorium.NPCType("LichHeadless"))
-                //    {
-                //        Swarm(npc, thorium.NPCType("Lich"), -1, thorium.ItemType("LichBag"), -1, string.Empty);
-                //    }
-                //    else if (npc.type == thorium.NPCType("AbyssionReleased"))
-                //    {
-                //        Swarm(npc, thorium.NPCType("Abyssion"), thorium.NPCType("AbyssalSpawn"), thorium.ItemType("AbyssionBag"), -1, string.Empty);
-                //    }
-                //    else if (npc.type == thorium.NPCType("RealityBreaker"))
-                //    {
-                //        Swarm(npc, thorium.NPCType("Aquaius"), thorium.NPCType("AquaiusBubble"), thorium.ItemType("RagBag"), -1, string.Empty);
-                //        Swarm(npc, thorium.NPCType("Omnicide"), -1, -1, -1, string.Empty);
-                //        Swarm(npc, thorium.NPCType("SlagFury"), -1, -1, -1, string.Empty);
-                //    }
-                //}
-
-                return false;
+                //return false;
             }
 
             if (!PandoraActive)
@@ -1491,58 +1255,23 @@ namespace Fargowiltas.NPCs
         {
             if (bossbag >= 0 && bossbag != ItemID.DefenderMedal)
             {
-                npc.DropItemInstanced(npc.Center, npc.Size, bossbag);
+                npc.DropItemInstanced(npc.Center, npc.Size, bossbag, itemStack: (Fargowiltas.SwarmItemsUsed * 5) - 1);
             }
             else if (bossbag >= 0 && bossbag == ItemID.DefenderMedal)
             {
-                npc.DropItemInstanced(npc.Center, npc.Size, bossbag, 5);
+                npc.DropItemInstanced(npc.Center, npc.Size, bossbag, itemStack: 5 * ((Fargowiltas.SwarmItemsUsed * 5) - 1));
             }
 
-            int count = 0;
-            if (SwarmActive)
-            {
-                count = NPC.CountNPCS(boss) - 1; // Since this one is about to be dead
-            }
-            else
-            {
-                // Pandora
-                for (int i = 0; i < Main.maxNPCs; i++)
-                {
-                    if (Main.npc[i].active && Array.IndexOf(Bosses, Main.npc[i].type) > -1)
-                    {
-                        count++;
-                    }
-                }
-            }
+            // Drop swarm reward for every 10 items used
+            if (Fargowiltas.SwarmItemsUsed >= 10)
+                Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, reward, Stack: Fargowiltas.SwarmItemsUsed / 10);
+                    
 
-            int missing = Fargowiltas.SwarmSpawned - count;
+            //drop trophy for every 3 items
+            if (Fargowiltas.SwarmItemsUsed >= 3)
+                Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, trophy, Stack: Fargowiltas.SwarmItemsUsed / 3);
 
-            Fargowiltas.SwarmKills++;
-
-            // Drop swarm reward every 100 kills
-            if (Fargowiltas.SwarmKills % 100 == 0 && reward > 0)
-            {
-                Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, reward);
-            }
-
-            //drop trphy every 10 killa
-            if (Fargowiltas.SwarmKills % 10 == 0 && trophy != -1)
-            {
-                Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, trophy);
-            }
-
-            if (Main.netMode == NetmodeID.Server)
-            {
-                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.SwarmKilled", Fargowiltas.SwarmKills), new Color(206, 12, 15));
-                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.SwarmTotal", Fargowiltas.SwarmTotal), new Color(206, 12, 15));
-            }
-            else
-            {
-                Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.SwarmKilled", Fargowiltas.SwarmKills), new Color(206, 12, 15));
-                Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.SwarmTotal", Fargowiltas.SwarmTotal), new Color(206, 12, 15));
-            }
-
-            if (minion != -1 && NPC.CountNPCS(minion) >= Fargowiltas.SwarmSpawned)
+            if (minion != -1)
             {
                 for (int i = 0; i < Main.maxNPCs; i++)
                 {
@@ -1551,145 +1280,6 @@ namespace Fargowiltas.NPCs
                         Main.npc[i].SimpleStrikeNPC(Main.npc[i].lifeMax, -Main.npc[i].direction, true, 0, null, false, 0, true);
                         //Main.npc[i].StrikeNPCNoInteraction(Main.npc[i].lifeMax, 0f, -Main.npc[i].direction, true);
                     }
-                }
-            }
-
-            // If theres still more to spawn
-            if (Fargowiltas.SwarmKills <= Fargowiltas.SwarmTotal - Fargowiltas.SwarmSpawned)
-            {
-                int spawned = 0;
-
-                for (int i = 0; i < Main.maxNPCs; i++)
-                {
-                    // Count NPCs
-                    int num = 0;
-                    for (int j = 0; j < Main.maxNPCs; j++)
-                    {
-                        if (Main.npc[j].active)
-                        {
-                            num++;
-                        }
-                    }
-
-                    // Kill a minion and spawn boss if too many npcs
-                    if (num >= Main.maxNPCs)
-                    {
-                        if (SwarmActive && minion > 0 && i < Main.maxNPCs - 1)
-                        {
-                            if (Main.npc[i].type == minion)
-                            {
-                                Main.npc[i].SimpleStrikeNPC(Main.npc[i].lifeMax, -Main.npc[i].direction, true, 0, null, false, 0, true);
-                                //Main.npc[i].StrikeNPCNoInteraction(Main.npc[i].lifeMax, 0f, -Main.npc[i].direction, true);
-                            }
-                        }
-                        else
-                        {
-                            // Pandora
-                            if (Array.IndexOf(Bosses, Main.npc[i].type) == -1 && !Main.npc[i].boss)
-                            {
-                                Main.npc[i].SimpleStrikeNPC(Main.npc[i].lifeMax, -Main.npc[i].direction, true, 0, null, false, 0, true);
-                                //Main.npc[i].StrikeNPCNoInteraction(Main.npc[i].lifeMax, 0f, -Main.npc[i].direction, true);
-                            }
-                        }
-                    }
-
-                    SpawnBoss(npc, boss);
-                    spawned++;
-
-                    if (spawned <= missing)
-                    {
-                        continue;
-                    }
-
-                    break;
-                }
-            }
-            else if (Fargowiltas.SwarmKills >= Fargowiltas.SwarmTotal)
-            {
-                if (Main.netMode == NetmodeID.Server)
-                {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.SwarmDefeated"), new Color(206, 12, 15));
-                }
-                else
-                {
-                    Main.NewText(Language.GetTextValue("Mods.Fargowiltas.MessageInfo.SwarmDefeated"), new Color(206, 12, 15));
-                }
-
-                for (int i = 0; i < Main.maxNPCs; i++)
-                {
-                    NPC kill = Main.npc[i];
-                    if (kill.active && !kill.friendly && kill.type != NPCID.LunarTowerNebula && kill.type != NPCID.LunarTowerSolar && kill.type != NPCID.LunarTowerStardust && kill.type != NPCID.LunarTowerVortex)
-                    {
-                        Main.npc[i].GetGlobalNPC<FargoGlobalNPC>().NoLoot = true;
-                        Main.npc[i].SimpleStrikeNPC(Main.npc[i].lifeMax, -Main.npc[i].direction, true, 0, null, false, 0, true);
-                        //Main.npc[i].StrikeNPCNoInteraction(Main.npc[i].lifeMax, 0f, -Main.npc[i].direction, true);
-                    }
-                }
-
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                {
-                    Fargowiltas.SwarmActive = false;
-                    LastWoFIndex = -1;
-                    WoFDirection = 0;
-                    if (Main.netMode == NetmodeID.Server)
-                        NetMessage.SendData(MessageID.WorldData);
-                }
-            }
-
-            // Make sure theres enough left to beat it
-            else
-            {
-                // Spawn more if needed
-                if (count >= Fargowiltas.SwarmSpawned || Fargowiltas.SwarmTotal <= 20)
-                {
-                    return;
-                }
-
-                int extraSpawn = 0;
-
-                for (int i = 0; i < Main.maxNPCs; i++)
-                {
-                    // Count NPCs
-                    int num = 0;
-                    for (int j = 0; j < Main.maxNPCs; j++)
-                    {
-                        if (Main.npc[j].active)
-                        {
-                            num++;
-                        }
-                    }
-
-                    // Kill a minion and spawn boss if too many NPCs
-                    if (num >= Main.maxNPCs)
-                    {
-                        if (SwarmActive && minion > 0 && i < Main.maxNPCs - 1)
-                        {
-                            if (Main.npc[i].type == minion)
-                            {
-                                Main.npc[i].SimpleStrikeNPC(Main.npc[i].lifeMax, -Main.npc[i].direction, true, 0, null, false, 0, true);
-                                //Main.npc[i].StrikeNPCNoInteraction(Main.npc[i].lifeMax, 0f, -Main.npc[i].direction, true);
-                            }
-                        }
-                        else
-                        {
-                            // Pandora
-                            if (Array.IndexOf(Bosses, Main.npc[i].type) == -1 && !Main.npc[i].boss)
-                            {
-                                Main.npc[i].SimpleStrikeNPC(Main.npc[i].lifeMax, -Main.npc[i].direction, true, 0, null, false, 0, true);
-                                //Main.npc[i].StrikeNPCNoInteraction(Main.npc[i].lifeMax, 0f, -Main.npc[i].direction, true);
-                            }
-                        }
-                    }
-
-                    SpawnBoss(npc, boss);
-                    extraSpawn++;
-
-                    if (extraSpawn < 5)
-                    {
-                        continue;
-                    }
-
-                    break;
                 }
             }
         }

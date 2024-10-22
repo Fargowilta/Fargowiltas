@@ -21,8 +21,8 @@ namespace Fargowiltas.Items.Misc
 			Item.width = 18;
 			Item.height = 18;
 			Item.maxStack = 99;
-			Item.rare = 1;
-			Item.useStyle = 4;
+			Item.rare = ItemRarityID.Blue;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.useAnimation = 30;
 			Item.useTime = 30;
 			Item.consumable = true;

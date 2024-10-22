@@ -49,60 +49,37 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override bool? UseItem(Player player)
         {
-            Fargowiltas.SwarmActive = true;
-            Fargowiltas.SwarmTotal = 10 * player.inventory[player.selectedItem].stack;
-            Fargowiltas.SwarmKills = 0;
+            Fargowiltas.SwarmSetDefaults = true;
 
-            if (Fargowiltas.SwarmTotal < 100)
-            {
-                Fargowiltas.SwarmSpawned = 10;
-            }
-            else
-            {
-                //energizer swarms
-                Fargowiltas.SwarmSpawned = maxSpawn;
-            }
+            Fargowiltas.SwarmActive = true;
+            Fargowiltas.SwarmNoHyperActive = false;
+            Fargowiltas.SwarmItemsUsed = player.inventory[player.selectedItem].stack;
 
             //DG special case
             if (npcType == NPCID.SkeletronHead && Main.dayTime)
             {
                 npcType = NPCID.DungeonGuardian;
             }
-            //twins special case
-            else if (npcType == NPCID.Retinazer)
-            {
-                Fargowiltas.SwarmTotal *= 2;
-            }
 
             //wof mega special case
             if (npcType == NPCID.WallofFlesh)
             {
                 FargoGlobalNPC.SpawnWalls(player);
-                counter++;
-
-                if (counter < 10)
-                {
-                    return true;
-                }
             }
             else
             {
-                //spawn the bosses
-                for (int i = 0; i < Fargowiltas.SwarmSpawned; i++)
-                {
-                    int boss = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), npcType);
-                    Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
+                int boss = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), npcType);
+                Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
 
-                    //spawn the other twin as well
-                    if (npcType == NPCID.Retinazer)
-                    {
-                        int twin = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), NPCID.Spazmatism);
-                        Main.npc[twin].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
-                    }
-                    else if (npcType == NPCID.TheDestroyer)
-                    {
-                        //Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().DestroyerSwarm = true;
-                    }
+                //spawn the other twin as well
+                if (npcType == NPCID.Retinazer)
+                {
+                    int twin = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), NPCID.Spazmatism);
+                    Main.npc[twin].GetGlobalNPC<FargoGlobalNPC>().SwarmActive = true;
+                }
+                else if (npcType == NPCID.TheDestroyer)
+                {
+                    //Main.npc[boss].GetGlobalNPC<FargoGlobalNPC>().DestroyerSwarm = true;
                 }
             }
 
@@ -120,6 +97,8 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
             }
 
             SoundEngine.PlaySound(SoundID.Roar, player.position);
+
+            Fargowiltas.SwarmSetDefaults = false;
             return true;
         }
 

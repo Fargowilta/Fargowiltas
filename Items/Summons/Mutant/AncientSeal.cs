@@ -55,10 +55,10 @@ namespace Fargowiltas.Items.Summons.Mutant
             // Modded
             for (int i = NPCID.Count; i < NPCLoader.NPCCount; i++)
             {
-                NPC npc = new NPC();
+                NPC npc = new();
                 npc.SetDefaults(i);
 
-                if (npc.boss)
+                if (npc.boss && npc.type != NPCID.DungeonGuardian)
                 {
                     string name = npc.ModNPC != null ? npc.ModNPC.DisplayName.Value : Lang.GetNPCNameValue(npc.netID);
                     SpawnBoss(player, i, name);

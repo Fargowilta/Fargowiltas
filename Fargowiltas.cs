@@ -40,11 +40,26 @@ namespace Fargowiltas
         public static UIManager UserInterfaceManager => Instance._userInterfaceManager;
         private UIManager _userInterfaceManager;
 
-        // Swarms
-        internal static bool SwarmActive;
-        internal static int SwarmKills;
-        internal static int SwarmTotal;
-        internal static int SwarmSpawned;
+        // Swarms (Energized bosses) 
+        public static bool SwarmActive;
+        public static bool HardmodeSwarmActive;
+        public static bool SwarmNoHyperActive;
+        public static int SwarmItemsUsed;
+        public static bool SwarmSetDefaults;
+        public static int SwarmMinDamage
+        { 
+            get
+            {
+                float dmg;
+                if (HardmodeSwarmActive)
+                    dmg = 60 + 40 * SwarmItemsUsed;
+                else
+                    dmg = 56 + 3 * SwarmItemsUsed;
+
+                return (int)dmg;
+            }
+                
+        }
 
         // Mod loaded bools
         internal static Dictionary<string, bool> ModLoaded;

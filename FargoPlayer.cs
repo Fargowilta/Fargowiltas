@@ -252,10 +252,12 @@ namespace Fargowiltas
         }
         public override void PostUpdateEquips()
         {
+            /*
             if (Fargowiltas.SwarmActive)
             {
                 Player.buffImmune[BuffID.Horrified] = true;
             }
+            */
         }
         public override void UpdateDead()
         {
@@ -552,7 +554,7 @@ namespace Fargowiltas
 
         public void QuickUseItemAt(int index, bool use = true)
         {
-            if (!autoRevertSelectedItem && Player.selectedItem != index && Player.inventory[index].type != 0)
+            if (!autoRevertSelectedItem && Player.selectedItem != index && Player.inventory[index].type != ItemID.None)
             {
                 originalSelectedItem = Player.selectedItem;
                 autoRevertSelectedItem = true;
@@ -614,5 +616,6 @@ namespace Fargowiltas
         //                packet.Send();
         //            }
         //        }*/
-    }
+        
+    }   
 }

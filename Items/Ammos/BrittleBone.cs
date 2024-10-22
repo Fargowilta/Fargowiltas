@@ -16,10 +16,10 @@ namespace Fargowiltas.Items.Ammos
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.Bone);
-            Item.shoot = 0;
+            Item.shoot = ProjectileID.None;
             Item.useAnimation = 0;
             Item.useTime = 0;
-            Item.useStyle = 0;
+            Item.useStyle = ItemUseStyleID.None;
         }
     }
 }

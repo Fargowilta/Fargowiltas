@@ -27,10 +27,10 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
             Item.height = 20;
             Item.maxStack = 20;
             Item.value = 1000;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.useAnimation = 30;
             Item.useTime = 30;
-            Item.useStyle = 4;
+            Item.useStyle = ItemUseStyleID.HoldUp;
             Item.consumable = true;
             Item.shoot = ModContent.ProjectileType<SpawnProj>();
         }

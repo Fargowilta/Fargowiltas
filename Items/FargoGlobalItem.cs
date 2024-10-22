@@ -16,6 +16,7 @@ using Fargowiltas.Items.Ammos.Coins;
 using Fargowiltas.Items.CaughtNPCs;
 using Terraria.Localization;
 using Fargowiltas.Items.Misc;
+using Fargowiltas.Items.Tiles;
 
 namespace Fargowiltas.Items
 {
@@ -624,6 +625,37 @@ namespace Fargowiltas.Items
                 item.position += player.position - player.oldPosition;
             }
             return base.GrabStyle(item, player);
+        }
+        public override void HoldItem(Item item, Player player)
+        {
+            if (item.type == ItemID.Binoculars) //the amount of nesting here exists to prevent excessive lag
+            {
+                if (NPC.AnyNPCs(NPCID.TownCat))
+                {
+                    for (int j = 0; j < Main.maxNPCs; j++)
+                    {
+                        if (Main.npc[j].active && Main.npc[j].type == NPCID.TownCat)
+                        {
+                            NPC cat = Main.npc[j];
+                            for (int i = 0; i < Main.maxItems; i++)
+                            {
+                                if (Main.item[i].active && Main.item[i].type == ItemID.CellPhone)
+                                {
+                                    if (cat.Distance(Main.item[i].Center) < cat.Size.Length() && Main.MouseWorld.Distance(cat.Center) < cat.Size.Length())
+                                    {
+                                        Item.NewItem(player.GetSource_ItemUse(item), cat.Center, ModContent.ItemType<WiresPainting>());
+                                        Main.item[i].active = false;
+                                        cat.active = false;
+                                        return;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            base.HoldItem(item, player);
         }
     }
 }
