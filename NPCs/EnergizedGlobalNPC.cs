@@ -80,7 +80,7 @@ namespace Fargowiltas.NPCs
                         break;
 
                     case NPCID.EaterofWorldsHead:
-                        npc.lifeMax = baseHealth / 3;
+                        npc.lifeMax = baseHealth / 12;
                         break;
 
                     case NPCID.BrainofCthulhu:
@@ -194,7 +194,7 @@ namespace Fargowiltas.NPCs
 
                         case NPCID.EaterofWorldsBody:
                         case NPCID.EaterofWorldsTail:
-                            npc.lifeMax = baseHealth / 3;
+                            npc.lifeMax = baseHealth / 12;
                             break;
 
                         case NPCID.SkeletronHand:
