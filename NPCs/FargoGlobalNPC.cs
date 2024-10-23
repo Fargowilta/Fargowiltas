@@ -667,7 +667,7 @@ namespace Fargowiltas.NPCs
 
                     case NPCID.CultistBoss:
                         Swarm(npc, NPCID.CultistBoss, -1, ItemID.CultistBossBag, ItemID.AncientCultistTrophy, ItemType<EnergizerCultist>());
-                        break;
+                        return false; // no pillar spawn
 
                     case NPCID.MoonLordCore:
                         Swarm(npc, NPCID.MoonLordCore, NPCID.MoonLordFreeEye, ItemID.MoonLordBossBag, ItemID.MoonLordTrophy, ItemType<EnergizerMoon>());
@@ -1255,7 +1255,10 @@ namespace Fargowiltas.NPCs
         {
             if (bossbag >= 0 && bossbag != ItemID.DefenderMedal)
             {
-                npc.DropItemInstanced(npc.Center, npc.Size, bossbag, itemStack: (Fargowiltas.SwarmItemsUsed * 5) - 1);
+                int stack = (Fargowiltas.SwarmItemsUsed * 5) - 1;
+                if (npc.type == NPCID.CultistBoss)
+                    stack += 1;
+                npc.DropItemInstanced(npc.Center, npc.Size, bossbag, itemStack: stack);
             }
             else if (bossbag >= 0 && bossbag == ItemID.DefenderMedal)
             {
