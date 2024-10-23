@@ -54,7 +54,7 @@ namespace Fargowiltas
                 if (HardmodeSwarmActive)
                     dmg = 60 + 40 * SwarmItemsUsed;
                 else
-                    dmg = 56 + 3 * SwarmItemsUsed;
+                    dmg = 50 + 3 * SwarmItemsUsed;
 
                 return (int)dmg;
             }
