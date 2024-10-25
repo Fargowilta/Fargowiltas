@@ -284,7 +284,7 @@ Mods: {
 					Label: Наблюдение за живыми игроками в мультиплеере
 					Tooltip: ""
 				}
-			}		
+			}
 
 			SeasonSelections: {
 				Tooltip: ""
@@ -388,7 +388,7 @@ Mods: {
 			OverloadDarkMage: Вы чувствуете себя, будто разозлили библиотекаря!
 			OverloadDeer: Константа начинает брать верх!
 			OverloadDestroyer: Планета трясётся от самого ядра!
-			OverloadEmpress: "«Рай пуль» опускается за горизонт!"
+			OverloadEmpress: «Рай пуль» опускается за горизонт!
 			OverloadEye: Неисчисляемые уставившиеся глаза проникают чрез занавес, сливаясь воедино!
 			OverloadFish: Океан содрагается в ужасе!
 			OverloadGolem: Сейчас у вас будут неприятности!
@@ -2390,7 +2390,7 @@ Mods: {
 				DisplayName: Зелье большого всасывания
 				Tooltip: Заставляет вас всасывать всё
 			}
-			
+
 			MiniDirtInstaBridge: {
 				DisplayName: Маленький грязевой МоментМост
 				Tooltip:
@@ -2399,6 +2399,7 @@ Mods: {
 					Не разрушает блоки
 					'''
 			}
+
 			WiresPainting: {
 				DisplayName: Картина «Wires»
 				Tooltip: Посмотри внутрь

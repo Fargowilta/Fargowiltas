@@ -288,7 +288,7 @@ namespace Fargowiltas
 
             if (Main.mouseLeft && Main.mouseLeftRelease)
             {
-                for (int i = 0; i < Main.maxPlayers; i++)
+                for (int i = 0; i < Main.maxPlayers + 1; i++)
                 {
                     SpectatePlayer--;
                     if (SpectatePlayer < 0)
@@ -299,9 +299,8 @@ namespace Fargowiltas
             }
             else if (Main.mouseRight && Main.mouseRightRelease)
             {
-                for (int i = 0; i < Main.maxPlayers; i++)
+                for (int i = 0; i < Main.maxPlayers + 1; i++)
                 {
-                    Main.NewText(spectatePlayer);
                     SpectatePlayer++;
                     if (SpectatePlayer >= Main.maxPlayers)
                         SpectatePlayer = 0;
