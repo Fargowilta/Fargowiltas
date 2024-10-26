@@ -52,7 +52,7 @@ namespace Fargowiltas
             Items.MechanicalAccessory = itemFactory.CreateBoolSet(false,
                 ItemID.MechanicalLens,
                 ItemID.WireKite,
-                ItemID.Ruler,
+                //ItemID.Ruler,
                 ItemID.LaserRuler,
                 ItemID.PaintSprayer,
                 ItemID.ArchitectGizmoPack,
