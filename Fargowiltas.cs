@@ -455,6 +455,16 @@ namespace Fargowiltas
 
                     case "DoubleTapDashDisabled":
                         return FargoClientConfig.Instance.DoubleTapDashDisabled;
+
+                    case "AddCaughtNPC":
+                        if (args[1].GetType() != typeof(string))
+                            throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[1] must be of type string");
+                        if (args[2].GetType() != typeof(int))
+                            throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[2] must be of type int");
+                        if (args[3].GetType() != typeof(string))
+                            throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[3] must be of type string");
+                        CaughtNPCItem.Add((string)args[1], (int)args[2], (string)args[3]);
+                        return true;
                 }
 
             }
