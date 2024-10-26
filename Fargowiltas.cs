@@ -8,6 +8,7 @@ using Fargowiltas.Projectiles;
 using Fargowiltas.UI;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -463,7 +464,15 @@ namespace Fargowiltas
                             throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[2] must be of type int");
                         if (args[3].GetType() != typeof(string))
                             throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[3] must be of type string");
-                        CaughtNPCItem.Add((string)args[1], (int)args[2], (string)args[3]);
+                        if (args[4].GetType() != typeof(string))
+                            throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[4] must be of type string");
+                        string internalName = (string)args[1];
+                        int id = (int)args[2];
+                        string quote = (string)args[3];
+                        string modName = (string)args[4];
+                        CaughtNPCItem item = new(internalName, id, quote);
+                        ModLoader.GetMod(modName).AddContent(item);
+                        CaughtNPCItem.CaughtTownies.Add(id, item.Type);
                         return true;
                 }
 
