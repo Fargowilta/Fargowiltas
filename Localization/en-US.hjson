@@ -1127,8 +1127,8 @@ Mods: {
 			}
 
 			AmalgamatedSkull: {
-				DisplayName: Amalgamated Skull
 				Tooltip:
+				DisplayName: Amalgamated Skull
 					'''
 					Summons the skeleton gunners
 					Only usable at night or underground
@@ -1719,7 +1719,7 @@ Mods: {
 
 			OverloadDeer: {
 				DisplayName: Deer Amalgamation
-				Tooltip: Summons an energized Deerclop
+				Tooltip: Summons an energized Deerclops
 			}
 
 			OverloadDestroyer: {
