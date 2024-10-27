@@ -1127,8 +1127,8 @@ Mods: {
 			}
 
 			AmalgamatedSkull: {
-				Tooltip:
 				DisplayName: Amalgamated Skull
+				Tooltip:
 					'''
 					Summons the skeleton gunners
 					Only usable at night or underground

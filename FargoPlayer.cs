@@ -277,13 +277,13 @@ namespace Fargowiltas
             if (SpectatePlayer < 0 || SpectatePlayer > Main.maxPlayers)
                 return;
             Player spectatePlayer = Main.player[SpectatePlayer];
-            if (spectatePlayer == null || spectatePlayer.dead || spectatePlayer.ghost)
+            if (spectatePlayer == null || !spectatePlayer.active || spectatePlayer.dead || spectatePlayer.ghost)
             {
                 FindNewSpectateTarget();
                 spectatePlayer = Main.player[SpectatePlayer];
             }
                 
-            if (spectatePlayer == null || spectatePlayer.dead || spectatePlayer.ghost)
+            if (spectatePlayer == null || !spectatePlayer.active || spectatePlayer.dead || spectatePlayer.ghost)
                 return;
 
             if (Main.mouseLeft && Main.mouseLeftRelease)
