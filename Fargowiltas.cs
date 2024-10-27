@@ -401,7 +401,7 @@ namespace Fargowiltas
                         {
                             if (summonTracker.SummonsFinalized)
                                 throw new Exception($"Call Error: Summons must be added before AddRecipes");
-                            
+
                             int itemId;
                             int funcIndex;
                             if (args[2].GetType() == typeof(string))
@@ -458,22 +458,24 @@ namespace Fargowiltas
                         return FargoClientConfig.Instance.DoubleTapDashDisabled;
 
                     case "AddCaughtNPC":
-                        if (args[1].GetType() != typeof(string))
-                            throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[1] must be of type string");
-                        if (args[2].GetType() != typeof(int))
-                            throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[2] must be of type int");
-                        if (args[3].GetType() != typeof(string))
-                            throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[3] must be of type string");
-                        if (args[4].GetType() != typeof(string))
-                            throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[4] must be of type string");
-                        string internalName = (string)args[1];
-                        int id = (int)args[2];
-                        string quote = (string)args[3];
-                        string modName = (string)args[4];
-                        CaughtNPCItem item = new(internalName, id, quote);
-                        ModLoader.GetMod(modName).AddContent(item);
-                        CaughtNPCItem.CaughtTownies.Add(id, item.Type);
-                        return true;
+                        { 
+                            if (args[1].GetType() != typeof(string))
+                                throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[1] must be of type string");
+                            if (args[2].GetType() != typeof(int))
+                                throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[2] must be of type int");
+                            if (args[3].GetType() != typeof(string))
+                                throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[3] must be of type string");
+                            if (args[4].GetType() != typeof(string))
+                                throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[4] must be of type string");
+                            string internalName = (string)args[1];
+                            int id = (int)args[2];
+                            string quote = (string)args[3];
+                            string modName = (string)args[4];
+                            CaughtNPCItem item = new(internalName, id, quote);
+                            ModLoader.GetMod(modName).AddContent(item);
+                            CaughtNPCItem.CaughtTownies.Add(id, item.Type);
+                        }
+                        break;
                 }
 
             }

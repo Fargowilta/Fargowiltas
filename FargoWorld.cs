@@ -166,6 +166,8 @@ namespace Fargowiltas
 
             tag.Add("downed", downed);
             tag.Add("matsuri", Matsuri);
+
+            tag.Add("FargoIndestructibleRectangles", FargoGlobalProjectile.CannotDestroyRectangle.ToList());
         }
 
         public override void LoadWorldData(TagCompound tag)
@@ -176,6 +178,10 @@ namespace Fargowiltas
                 DownedBools[downedTag] = downed.Contains(downedTag);
             }
             Matsuri = tag.Get<bool>("matsuri");
+
+            var savedRectangles = tag.GetList<Rectangle>("FargoIndestructibleRectangles");
+            foreach (Rectangle rectangle in savedRectangles)
+                FargoGlobalProjectile.CannotDestroyRectangle.Add(rectangle);
         }
 
         public override void NetReceive(BinaryReader reader)
