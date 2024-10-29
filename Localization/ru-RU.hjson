@@ -1724,7 +1724,7 @@ Mods: {
 
 			OverloadDestroyer: {
 				DisplayName: Сейсмический переключателей
-				Tooltip: Призывает перегруженного Уничтожителей
+				Tooltip: Призывает перегруженного Уничтожителя
 			}
 
 			OverloadedSlimeRain: {
