@@ -1266,12 +1266,12 @@ namespace Fargowiltas.NPCs
             }
 
             // Drop swarm reward for every 10 items used
-            if (Fargowiltas.SwarmItemsUsed >= 10)
+            if (Fargowiltas.SwarmItemsUsed >= 10 && reward > 0)
                 Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, reward, Stack: Fargowiltas.SwarmItemsUsed / 10);
                     
 
             //drop trophy for every 3 items
-            if (Fargowiltas.SwarmItemsUsed >= 3)
+            if (Fargowiltas.SwarmItemsUsed >= 3 && trophy > 0)
                 Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, trophy, Stack: Fargowiltas.SwarmItemsUsed / 3);
 
             if (minion != -1)
