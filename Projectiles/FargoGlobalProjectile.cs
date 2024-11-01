@@ -19,7 +19,7 @@ namespace Fargowiltas.Projectiles
         private bool firstTick = true;
         public bool lowRender;
 
-        public static HashSet<Rectangle> CannotDestroyRectangle = new HashSet<Rectangle>();
+        public static HashSet<Rectangle> CannotDestroyRectangle = [];
 
         public float DamageMultiplier = 1;
 
@@ -137,6 +137,9 @@ namespace Fargowiltas.Projectiles
                     projectile.localAI[1]++;
             }
 
+            if (Fargowiltas.SwarmActive && projectile.hostile && projectile.damage > 0 && projectile.damage < Fargowiltas.SwarmMinDamage)
+                projectile.damage = Fargowiltas.SwarmMinDamage;
+
             return true;
         }
 
@@ -240,7 +243,7 @@ namespace Fargowiltas.Projectiles
             {
                 return false;
             }
-            if (CannotDestroyRectangle != null && CannotDestroyRectangle.Any())
+            if (CannotDestroyRectangle != null && CannotDestroyRectangle.Count != 0)
             {
                 foreach (Rectangle rect in CannotDestroyRectangle)
                 {

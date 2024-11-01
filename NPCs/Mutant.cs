@@ -99,7 +99,7 @@ namespace Fargowiltas.NPCs
             NPC.aiStyle = 7;
             NPC.damage = 10;
             NPC.defense = NPC.downedMoonlord ? 50 : 15;
-            NPC.lifeMax = NPC.downedMoonlord ? 5000 : 250;
+            NPC.lifeMax = NPC.downedMoonlord ? 5000 : Main.hardMode ? 1000 : 250;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
@@ -537,7 +537,7 @@ namespace Fargowiltas.NPCs
             {
                 for (int k = 0; k < 8; k++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hit.HitDirection, -2.5f, Scale: 0.8f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hit.HitDirection, -2.5f, Scale: 0.8f);
                 }
 
                 if (!Main.dedServ)
@@ -556,7 +556,7 @@ namespace Fargowiltas.NPCs
             {
                 for (int k = 0; k < hit.Damage / NPC.lifeMax * 50.0; k++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, hit.HitDirection, -1f, Scale: 0.6f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, hit.HitDirection, -1f, Scale: 0.6f);
                 }
             }
         }

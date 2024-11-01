@@ -27,6 +27,9 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(false)]
         public bool DoubleTapSetBonusDisabled;
 
+        [DefaultValue(true)]
+        public bool MultiplayerDeathSpectate;
+
         [DefaultValue(1f)]
         [Slider]
         public float TransparentFriendlyProjectiles;

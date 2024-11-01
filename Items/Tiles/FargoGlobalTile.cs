@@ -166,8 +166,11 @@ namespace Fargowiltas.Tiles
                         sound = SoundID.Item4;
                         break;
                     case TileID.BewitchingTable:
-                        buff = BuffID.Bewitched;
-                        sound = SoundID.Item4;
+                        if (NPC.downedBoss3)
+                        {
+                            buff = BuffID.Bewitched;
+                            sound = SoundID.Item4;
+                        }
                         break;
                     case TileID.WarTable:
                         buff = BuffID.WarTable;

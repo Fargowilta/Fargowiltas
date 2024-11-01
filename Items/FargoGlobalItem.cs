@@ -16,6 +16,7 @@ using Fargowiltas.Items.Ammos.Coins;
 using Fargowiltas.Items.CaughtNPCs;
 using Terraria.Localization;
 using Fargowiltas.Items.Misc;
+using Fargowiltas.Items.Tiles;
 
 namespace Fargowiltas.Items
 {
@@ -253,18 +254,19 @@ namespace Fargowiltas.Items
 
                 if (fargoServerConfig.UnlimitedPotionBuffsOn120 && item.maxStack > 1)
                 {
-                    if (item.buffType != 0)
+                    if (!FargoSets.Items.PotionCannotBeInfinite[item.type])
                     {
-                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:87] [c/AAAAAA:{ExpandedTooltipLoc("UnlimitedBuff30")}]");
-                        tooltips.Add(line);
+                        if (item.buffType != 0)
+                        {
+                            line = new TooltipLine(Mod, "TooltipUnlim", $"[i:87] [c/AAAAAA:{ExpandedTooltipLoc("UnlimitedBuff30")}]");
+                            tooltips.Add(line);
+                        }
+                        else if (item.bait > 0)
+                        {
+                            line = new TooltipLine(Mod, "TooltipUnlim", $"[i:5139] [c/AAAAAA:{ExpandedTooltipLoc("UnlimitedUse30")}]");
+                            tooltips.Add(line);
+                        }
                     }
-                    else if (item.bait > 0)
-                    {
-                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:5139] [c/AAAAAA:{ExpandedTooltipLoc("UnlimitedUse30")}]");
-                        tooltips.Add(line);
-                    }
-                   
-                    
                 }
 
                 if (fargoServerConfig.PermanentStationsNearby && FargoSets.Items.BuffStation[item.type])
@@ -273,13 +275,10 @@ namespace Fargowiltas.Items
                     tooltips.Add(line);
                 }
 
-                if (fargoServerConfig.PiggyBankAcc)
+                if (fargoServerConfig.PiggyBankAcc && (FargoSets.Items.InfoAccessory[item.type] || FargoSets.Items.MechanicalAccessory[item.type]))
                 {
-                    if (FargoSets.Items.InfoAccessory[item.type] || FargoSets.Items.MechanicalAccessory[item.type])
-                    {
-                        line = new TooltipLine(Mod, "TooltipUnlim", $"[i:87] [c/AAAAAA:{ExpandedTooltipLoc("WorksFromBanks")}]");
-                        tooltips.Add(line);
-                    }
+                    line = new TooltipLine(Mod, "TooltipUnlim", $"[i:87] [c/AAAAAA:{ExpandedTooltipLoc("WorksFromBanks")}]");
+                    tooltips.Add(line);
                 }
 
                 if (Squirrel.SquirrelSells(item, out SquirrelSellType sellType) != SquirrelShopGroup.End)
@@ -371,6 +370,9 @@ namespace Fargowiltas.Items
             if (item.IsAir || !FargoServerConfig.Instance.UnlimitedPotionBuffsOn120)
                 return;
 
+            if (FargoSets.Items.PotionCannotBeInfinite[item.type])
+                return;
+
             if (item.stack >= 30 && item.buffType != 0)
             {
                 player.AddBuff(item.buffType, 2);
@@ -385,11 +387,15 @@ namespace Fargowiltas.Items
         }
         public static void TryPiggyBankAcc(Item item, Player player)
         {
-            if (item.IsAir || item.maxStack > 1 || !FargoServerConfig.Instance.PiggyBankAcc)
+            if (item.IsAir || item.maxStack > 1)
                 return;
-
-            player.RefreshInfoAccsFromItemType(item);
-            player.RefreshMechanicalAccsFromItemType(item.type);
+            if (FargoServerConfig.Instance.PiggyBankAcc)
+            {
+                player.RefreshInfoAccsFromItemType(item);
+                player.RefreshMechanicalAccsFromItemType(item.type);
+            }
+            if (FargoServerConfig.Instance.ModdedPiggyBankAcc && item.ModItem is ModItem modItem && modItem != null)
+                modItem.UpdateInventory(player);
         }
         public override void UpdateInventory(Item item, Player player)
         {
@@ -619,6 +625,37 @@ namespace Fargowiltas.Items
                 item.position += player.position - player.oldPosition;
             }
             return base.GrabStyle(item, player);
+        }
+        public override void HoldItem(Item item, Player player)
+        {
+            if (item.type == ItemID.Binoculars) //the amount of nesting here exists to prevent excessive lag
+            {
+                if (NPC.AnyNPCs(NPCID.TownCat))
+                {
+                    for (int j = 0; j < Main.maxNPCs; j++)
+                    {
+                        if (Main.npc[j].active && Main.npc[j].type == NPCID.TownCat)
+                        {
+                            NPC cat = Main.npc[j];
+                            for (int i = 0; i < Main.maxItems; i++)
+                            {
+                                if (Main.item[i].active && Main.item[i].type == ItemID.CellPhone)
+                                {
+                                    if (cat.Distance(Main.item[i].Center) < cat.Size.Length() && Main.MouseWorld.Distance(cat.Center) < cat.Size.Length())
+                                    {
+                                        Item.NewItem(player.GetSource_ItemUse(item), cat.Center, ModContent.ItemType<WiresPainting>());
+                                        Main.item[i].active = false;
+                                        cat.active = false;
+                                        return;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            base.HoldItem(item, player);
         }
     }
 }

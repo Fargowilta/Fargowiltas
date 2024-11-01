@@ -15,6 +15,6 @@ namespace Fargowiltas.Items.Summons.Abom
                                "\nOnly usable at night"); */
         }
 
-        public override bool CanUseItem(Player player) => !Main.dayTime;
+        public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight;
     }
 }

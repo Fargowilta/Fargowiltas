@@ -116,6 +116,11 @@ namespace Fargowiltas.UI
             AddStat("MaxMinions", ItemID.SlimeStaff, player.maxMinions);
             AddStat("MaxSentries", ItemID.SlimeStaff, player.maxTurrets);
 
+            if (Fargowiltas.ModLoaded["FargowiltasSouls"])
+                AddStat("AttackSpeed", ModLoader.GetMod("FargowiltasSouls").Find<ModItem>("MythrilEnchant").Type, (int)Math.Round((float)ModLoader.GetMod("FargowiltasSouls").Call("GetAttackSpeed") * 100));
+            else
+                AddStat("");
+
             AddStat("ArmorPenetration", ItemID.SharkToothNecklace, player.GetArmorPenetration(DamageClass.Generic));
             AddStat("Aggro", ItemID.FleshKnuckles, player.aggro);
 

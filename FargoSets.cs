@@ -23,6 +23,7 @@ namespace Fargowiltas
             public static bool[] SquirrelSellsDirectly;
 
             public static bool[] NonBuffPotion;
+            public static bool[] PotionCannotBeInfinite;
             public static bool[] BuffStation;
             public static List<ShopTooltip>[] RegisteredShopTooltips;
         }
@@ -38,6 +39,10 @@ namespace Fargowiltas
             public static bool[] InstaCannotDestroy;
             public static bool[] DungeonWall;
         }
+        public class NPCs
+        {
+            public static int[] SwarmHealth;
+        }
 
         public override void PostSetupContent()
         {
@@ -47,7 +52,7 @@ namespace Fargowiltas
             Items.MechanicalAccessory = itemFactory.CreateBoolSet(false,
                 ItemID.MechanicalLens,
                 ItemID.WireKite,
-                ItemID.Ruler,
+                //ItemID.Ruler,
                 ItemID.LaserRuler,
                 ItemID.PaintSprayer,
                 ItemID.ArchitectGizmoPack,
@@ -116,12 +121,16 @@ namespace Fargowiltas
                 ItemID.TeleportationPotion,
                 ItemType<BigSuckPotion>());
 
+            Items.PotionCannotBeInfinite = itemFactory.CreateBoolSet(false,
+                ItemID.BottledHoney);
+
             Items.BuffStation = itemFactory.CreateBoolSet(false,
                 ItemID.SharpeningStation,
                 ItemID.AmmoBox,
                 ItemID.CrystalBall,
                 ItemID.BewitchingTable,
                 ItemID.WarTable);
+
             Items.RegisteredShopTooltips = itemFactory.CreateCustomSet<List<ShopTooltip>>(null);
             #endregion
             #region Tiles
@@ -160,6 +169,11 @@ namespace Fargowiltas
                 WallID.PinkDungeonSlabUnsafe, 
                 WallID.PinkDungeonTileUnsafe, 
                 WallID.PinkDungeonUnsafe);
+            #endregion
+            #region NPCs
+            SetFactory npcFactory = NPCID.Sets.Factory;
+
+            NPCs.SwarmHealth = npcFactory.CreateIntSet(0);
             #endregion
         }
     }

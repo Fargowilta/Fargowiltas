@@ -19,7 +19,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
 
         public override bool CanUseItem(Player player)
         {
-            return !Main.dayTime || player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight || player.ZoneUnderworldHeight;
+            return FargoUtils.ActuallyNight || player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight || player.ZoneUnderworldHeight;
         }
 
         public override void AddRecipes()

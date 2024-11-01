@@ -38,10 +38,79 @@ namespace Fargowiltas.Projectiles.Explosives
             return false;
         }
 
+        bool tryExplode;
+
+        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
+        {
+            modifiers.IncomingDamageMultiplier *= 4;
+        }
+
         public override void OnKill(int timeLeft)
         {
-            if (Projectile.owner == Main.myPlayer)
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<Explosion>(), 0, Projectile.knockBack, Projectile.owner);
+            Projectile.hostile = true;
+
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            Projectile.position = Projectile.Center;
+            Projectile.width = 100;
+            Projectile.height = 100;
+            Projectile.Center = Projectile.position;
+
+            if (!tryExplode)
+            {
+                tryExplode = true;
+                Projectile.Damage();
+            }
+
+            for (int i = 0; i < 30; i++)
+            {
+                int num616 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Smoke, Alpha: 100, Scale: 1.5f);
+                Main.dust[num616].velocity *= 1.4f;
+            }
+
+            for (int i = 0; i < 2; i++)
+            {
+                float scaleFactor = 0.4f;
+                if (i == 1)
+                {
+                    scaleFactor = 0.8f;
+                }
+
+                int num620 = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position, default, Main.rand.Next(61, 64));
+                Main.gore[num620].velocity *= scaleFactor;
+
+                Gore gore97 = Main.gore[num620];
+                gore97.velocity.X += 1f;
+
+                Gore gore98 = Main.gore[num620];
+                gore98.velocity.Y += 1f;
+
+                num620 = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position, default, Main.rand.Next(61, 64));
+                Main.gore[num620].velocity *= scaleFactor;
+
+                Gore gore99 = Main.gore[num620];
+                gore99.velocity.X -= 1f;
+
+                Gore gore100 = Main.gore[num620];
+                gore100.velocity.Y += 1f;
+
+                num620 = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position, default, Main.rand.Next(61, 64));
+                Main.gore[num620].velocity *= scaleFactor;
+
+                Gore gore101 = Main.gore[num620];
+                gore101.velocity.X += 1f;
+
+                Gore gore102 = Main.gore[num620];
+                gore102.velocity.Y -= 1f;
+
+                num620 = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position, default, Main.rand.Next(61, 64));
+                Main.gore[num620].velocity *= scaleFactor;
+
+                Gore gore103 = Main.gore[num620];
+                gore103.velocity.X -= 1f;
+
+                Gore gore104 = Main.gore[num620];
+                gore104.velocity.Y -= 1f;
+            }
 
             Vector2 position = Projectile.Center;
             SoundEngine.PlaySound(SoundID.Item14, position);
@@ -76,16 +145,24 @@ namespace Fargowiltas.Projectiles.Explosives
                             if (player.HasEnoughPickPowerToHurtTile(xPosition, yPosition) && WorldGen.CanKillTile(xPosition, yPosition))
                             {
                                 WorldGen.KillTile(xPosition, yPosition);
+                                /*
                                 if (Main.netMode != NetmodeID.SinglePlayer)
                                 {
+                                    NetMessage.SendTileSquare(-1 , ,,,,)
                                     NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 20, xPosition, yPosition);
                                 }
+                                */
                             }
                         }
 
                         Dust.NewDust(position, 22, 22, DustID.Smoke, 0.0f, 0.0f, 120);
                     }
                 }
+            }
+            if (Main.netMode != NetmodeID.SinglePlayer)
+            {
+                Point center = position.ToTileCoordinates();
+                NetMessage.SendTileSquare(-1, center.X - radius, center.Y - radius, (int)(2 * radius));
             }
             AchievementsHelper.CurrentlyMining = false;
         }

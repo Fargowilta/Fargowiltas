@@ -166,6 +166,8 @@ namespace Fargowiltas
 
             tag.Add("downed", downed);
             tag.Add("matsuri", Matsuri);
+
+            tag.Add("FargoIndestructibleRectangles", FargoGlobalProjectile.CannotDestroyRectangle.ToList());
         }
 
         public override void LoadWorldData(TagCompound tag)
@@ -176,6 +178,10 @@ namespace Fargowiltas
                 DownedBools[downedTag] = downed.Contains(downedTag);
             }
             Matsuri = tag.Get<bool>("matsuri");
+
+            var savedRectangles = tag.GetList<Rectangle>("FargoIndestructibleRectangles");
+            foreach (Rectangle rectangle in savedRectangles)
+                FargoGlobalProjectile.CannotDestroyRectangle.Add(rectangle);
         }
 
         public override void NetReceive(BinaryReader reader)
@@ -189,6 +195,8 @@ namespace Fargowiltas
             WoodChopped = reader.ReadInt32();
             Matsuri = reader.ReadBoolean();
             Fargowiltas.SwarmActive = reader.ReadBoolean();
+            Fargowiltas.HardmodeSwarmActive = reader.ReadBoolean();
+            Fargowiltas.SwarmNoHyperActive = reader.ReadBoolean();
         }
 
         public override void NetSend(BinaryWriter writer)
@@ -202,6 +210,8 @@ namespace Fargowiltas
             writer.Write(WoodChopped);
             writer.Write(Matsuri);
             writer.Write(Fargowiltas.SwarmActive);
+            writer.Write(Fargowiltas.HardmodeSwarmActive);
+            writer.Write(Fargowiltas.SwarmNoHyperActive);
         }
 
         public override void PostUpdateWorld()
@@ -231,6 +241,8 @@ namespace Fargowiltas
                 && NoBosses() && !NPC.AnyNPCs(NPCID.EaterofWorldsHead) && !NPC.AnyNPCs(NPCID.DungeonGuardian) && !NPC.AnyNPCs(NPCID.DD2DarkMageT1))
             {
                 Fargowiltas.SwarmActive = false;
+                Fargowiltas.HardmodeSwarmActive = false;
+                Fargowiltas.SwarmNoHyperActive = false;
                 FargoGlobalNPC.LastWoFIndex = -1;
                 FargoGlobalNPC.WoFDirection = 0;
                 if (Main.netMode == NetmodeID.Server)

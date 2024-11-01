@@ -26,7 +26,7 @@ namespace Fargowiltas.Items.Misc
 			Item.useTurn = true;
 
 			Item.UseSound = SoundID.Item3;
-			Item.value = Item.buyPrice(silver: 2);
+			Item.value = Item.buyPrice(silver: 10);
 		}
 
         public override bool? UseItem(Player player)

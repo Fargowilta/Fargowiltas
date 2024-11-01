@@ -34,13 +34,13 @@ namespace Fargowiltas.Items.Tiles
         {
             Item.width = 28;
             Item.height = 14;
-            Item.rare = 10;
+            Item.rare = ItemRarityID.Red;
             Item.maxStack = 99;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = Item.buyPrice(2);
             Item.createTile = ModContent.TileType<CrucibleCosmosSheet>();

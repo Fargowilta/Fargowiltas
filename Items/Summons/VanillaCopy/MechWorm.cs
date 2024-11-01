@@ -24,7 +24,7 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
             // Tooltip.SetDefault("Summons the Destroyer");
         }
 
-        public override bool CanUseItem(Player player) => !Main.dayTime && !NPC.AnyNPCs(NPCType);
+        public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight && !NPC.AnyNPCs(NPCType);
 
         public override bool? UseItem(Player player)
         {

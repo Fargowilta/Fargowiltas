@@ -24,7 +24,7 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
             // Tooltip.SetDefault("Summons Skeletron Prime");
         }
 
-        public override bool CanUseItem(Player player) => !Main.dayTime;
+        public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight;
 
         public override void AddRecipes()
         {

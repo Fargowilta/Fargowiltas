@@ -1,6 +1,7 @@
 ﻿using System;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace Fargowiltas.Projectiles
 {
@@ -27,7 +28,7 @@ namespace Fargowiltas.Projectiles
 
         public override void AI()
         {
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 for (int i = -3; i < 3; i++)
                 {

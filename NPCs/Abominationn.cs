@@ -15,6 +15,9 @@ using Fargowiltas.Items.Tiles;
 using Fargowiltas.Common.Configs;
 using Fargowiltas.Content.Biomes;
 using System.Linq;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria.GameContent;
 
 namespace Fargowiltas.NPCs
 {
@@ -31,6 +34,11 @@ namespace Fargowiltas.NPCs
         //    return mod.Properties.Autoload;
         //}
 
+        public override ITownNPCProfile TownNPCProfile()
+        {
+            return new AbomProfile();
+        }
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Abominationn");
@@ -43,6 +51,10 @@ namespace Fargowiltas.NPCs
             NPCID.Sets.AttackTime[NPC.type] = 90;
             NPCID.Sets.AttackAverageChance[NPC.type] = 30;
             NPCID.Sets.HatOffsetY[NPC.type] = 2;
+
+            NPCID.Sets.ShimmerTownTransform[NPC.type] = true; // This set says that the Town NPC has a Shimmered form. Otherwise, the Town NPC will become transparent when touching Shimmer like other enemies.
+
+            NPCID.Sets.ShimmerTownTransform[Type] = true; // Allows for this NPC to have a different texture after touching the Shimmer liquid.
 
             NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
@@ -82,7 +94,7 @@ namespace Fargowiltas.NPCs
             NPC.aiStyle = 7;
             NPC.damage = 10;
             NPC.defense = NPC.downedMoonlord ? 50 : 15;
-            NPC.lifeMax = NPC.downedMoonlord ? 5000 : 250;
+            NPC.lifeMax = NPC.downedMoonlord ? 5000 : Main.hardMode ? 1000 : 250;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
@@ -281,7 +293,7 @@ namespace Fargowiltas.NPCs
             {
                 for (int k = 0; k < 8; k++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hit.HitDirection, -2.5f, Scale: 0.8f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hit.HitDirection, -2.5f, Scale: 0.8f);
                 }
 
                 if (!Main.dedServ)
@@ -300,11 +312,32 @@ namespace Fargowiltas.NPCs
             {
                 for (int k = 0; k < hit.Damage / NPC.lifeMax * 50.0; k++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, hit.HitDirection, -1f, Scale: 0.6f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, hit.HitDirection, -1f, Scale: 0.6f);
                 }
             }
         }
 
         private static string AbomChat(string key, params object[] args) => Language.GetTextValue($"Mods.Fargowiltas.NPCs.Abominationn.Chat.{key}", args);
+    }
+
+    public class AbomProfile : ITownNPCProfile
+    {
+        public int RollVariation() => 0;
+        public string GetNameForVariant(NPC npc) => npc.getNewNPCName();
+
+        public Asset<Texture2D> GetTextureNPCShouldUse(NPC npc)
+        {
+            if (npc.IsABestiaryIconDummy)
+                return ModContent.Request<Texture2D>("Fargowiltas/NPCs/Abominationn");
+
+            if (npc.IsShimmerVariant)
+            {
+                return ModContent.Request<Texture2D>("Fargowiltas/NPCs/Abominationn_Shimmer");
+            }
+
+            return ModContent.Request<Texture2D>("Fargowiltas/NPCs/Abominationn");
+        }
+
+        public int GetHeadTextureIndex(NPC npc) => ModContent.GetModHeadSlot("Fargowiltas/NPCs/Abominationn_Head");
     }
 }

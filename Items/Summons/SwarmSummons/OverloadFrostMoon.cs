@@ -22,16 +22,16 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
             Item.height = 20;
             Item.maxStack = 1;
             Item.value = 1000;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.useAnimation = 30;
             Item.useTime = 30;
-            Item.useStyle = 4;
+            Item.useStyle = ItemUseStyleID.HoldUp;
             Item.consumable = false;
         }
 
         public override bool CanUseItem(Player player)
         {
-            return !Main.dayTime;
+            return FargoUtils.ActuallyNight;
         }
 
         public override bool? UseItem(Player player)
@@ -42,7 +42,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
                 Main.snowMoon = false;
                 FargoWorld.OverloadFrostMoon = false;
 
-                if (Main.netMode == 2)
+                if (Main.netMode == NetmodeID.Server)
                 {
                     ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadFrostMoonStop"), new Color(175, 75, 255));
                 }
@@ -53,7 +53,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
             }
             else
             {
-                if (Main.netMode == 2)
+                if (Main.netMode == NetmodeID.Server)
                 {
                     ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadFrostMoonStart"), new Color(50, 255, 130));
                 }
@@ -65,12 +65,12 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
                 Main.snowMoon = true;
                 Main.pumpkinMoon = false;
                 Main.bloodMoon = false;
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.waveKills = 0f;
                     NPC.waveNumber = 20;
 
-                    if (Main.netMode == 2)
+                    if (Main.netMode == NetmodeID.Server)
                     {
                         ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.Fargowiltas.MessageInfo.OverloadFrostMoonWave20"), new Color(175, 75, 255));
                     }
@@ -81,7 +81,7 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
                 }
                 else
                 {
-                    NetMessage.SendData(61, -1, -1, null, player.whoAmI, -5f);
+                    NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, -1, -1, null, player.whoAmI, -5f);
                 }
 
                 FargoWorld.OverloadFrostMoon = true;

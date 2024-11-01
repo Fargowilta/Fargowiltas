@@ -16,6 +16,7 @@ using Fargowiltas.Items;
 using Terraria.GameContent.Events;
 using System.IO;
 using Fargowiltas.Common.Configs;
+using System.Runtime.InteropServices.JavaScript;
 
 ////using Fargowiltas.Toggler;
 
@@ -52,6 +53,9 @@ namespace Fargowiltas
 
         public bool[] ItemHasBeenOwned; // If you've owned this item type ever
         public bool[] ItemHasBeenOwnedAtThirtyStack; // If you've owned this 30 of this item type ever
+
+        public int DeathCamTimer = 0;
+        public int SpectatePlayer = 0;
 
         private readonly string[] tags =
         [
@@ -233,7 +237,7 @@ namespace Fargowiltas
                 }
             }
 
-            if (FargoServerConfig.Instance.PiggyBankAcc)
+            if (FargoServerConfig.Instance.PiggyBankAcc || FargoServerConfig.Instance.ModdedPiggyBankAcc)
             {
                 foreach (Item item in Player.bank.item)
                 {
@@ -248,14 +252,86 @@ namespace Fargowiltas
         }
         public override void PostUpdateEquips()
         {
+            /*
             if (Fargowiltas.SwarmActive)
             {
                 Player.buffImmune[BuffID.Horrified] = true;
             }
+            */
         }
         public override void UpdateDead()
         {
             StationSoundCooldown = 0;
+            if (FargoClientConfig.Instance.MultiplayerDeathSpectate && Player.dead && Main.netMode != NetmodeID.SinglePlayer && Main.player.Any(p => p != null && !p.dead && !p.ghost))
+            {
+                Spectate();
+               
+            }
+        }
+        public void FindNewSpectateTarget() => SpectatePlayer = SpectatePlayer = Main.player.First(ValidSpectateTarget).whoAmI;
+        public bool ValidSpectateTarget(Player p) => p != null && !p.dead && !p.ghost;
+        public void Spectate()
+        {
+            if (SpectatePlayer < 0 || SpectatePlayer > Main.maxPlayers)
+                FindNewSpectateTarget();
+            if (SpectatePlayer < 0 || SpectatePlayer > Main.maxPlayers)
+                return;
+            Player spectatePlayer = Main.player[SpectatePlayer];
+            if (spectatePlayer == null || !spectatePlayer.active || spectatePlayer.dead || spectatePlayer.ghost)
+            {
+                FindNewSpectateTarget();
+                spectatePlayer = Main.player[SpectatePlayer];
+            }
+                
+            if (spectatePlayer == null || !spectatePlayer.active || spectatePlayer.dead || spectatePlayer.ghost)
+                return;
+
+            if (Main.mouseLeft && Main.mouseLeftRelease)
+            {
+                for (int i = 0; i < Main.maxPlayers + 1; i++)
+                {
+                    SpectatePlayer--;
+                    if (SpectatePlayer < 0)
+                        SpectatePlayer = Main.maxPlayers - 1;
+                    if (ValidSpectateTarget(Main.player[SpectatePlayer]))
+                        break;
+                }
+            }
+            else if (Main.mouseRight && Main.mouseRightRelease)
+            {
+                for (int i = 0; i < Main.maxPlayers + 1; i++)
+                {
+                    SpectatePlayer++;
+                    if (SpectatePlayer >= Main.maxPlayers)
+                        SpectatePlayer = 0;
+                    if (ValidSpectateTarget(Main.player[SpectatePlayer]))
+                        break;
+                }
+            }
+            spectatePlayer = Main.player[SpectatePlayer];
+
+            Vector2 spectatePos = spectatePlayer.Center;
+            if (Player.Center.Distance(spectatePos) > 2000)
+            {
+                DeathCamTimer++;
+                if (DeathCamTimer > 60)
+                {
+                    Player.Center = spectatePos + spectatePos.DirectionTo(Player.Center) * 1000;
+                    DeathCamTimer = 0;
+                }
+
+            }
+            else
+            {
+                DeathCamTimer++;
+                float lerp = DeathCamTimer / 200f;
+                lerp = MathHelper.Clamp(lerp, 0, 1);
+                Player.Center = Vector2.Lerp(Player.Center, spectatePos, lerp);
+            }
+        }
+        public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource)
+        {
+            FindNewSpectateTarget();
         }
         public override void PostUpdateMiscEffects()
         {
@@ -272,7 +348,6 @@ namespace Fargowiltas
 
             ForceBiomes();
         }
-
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers)
         {
             #region Stat Sliders
@@ -288,7 +363,6 @@ namespace Fargowiltas
             }
             #endregion
         }
-
         public void ResetStatSheetWings()
         {
             StatSheetMaxAscentMultiplier = 0;
@@ -427,7 +501,16 @@ namespace Fargowiltas
 
             luckPotionBoost = 0; //look nowhere else works ok
         }
-
+        public override void ModifyScreenPosition()
+        {
+            
+            if (FargoClientConfig.Instance.MultiplayerDeathSpectate && Main.LocalPlayer.dead && Main.netMode != NetmodeID.SinglePlayer &&  Main.player.Any(p => p != null && !p.dead && !p.ghost))
+            {
+                Main.screenPosition = Player.Center - (new Vector2(Main.screenWidth, Main.screenHeight) / 2);
+            }
+                
+            
+        }
         public void AutoUseMirror()
         {
             int potionofReturn = -1;
@@ -470,7 +553,7 @@ namespace Fargowiltas
 
         public void QuickUseItemAt(int index, bool use = true)
         {
-            if (!autoRevertSelectedItem && Player.selectedItem != index && Player.inventory[index].type != 0)
+            if (!autoRevertSelectedItem && Player.selectedItem != index && Player.inventory[index].type != ItemID.None)
             {
                 originalSelectedItem = Player.selectedItem;
                 autoRevertSelectedItem = true;
@@ -532,5 +615,6 @@ namespace Fargowiltas
         //                packet.Send();
         //            }
         //        }*/
-    }
+        
+    }   
 }

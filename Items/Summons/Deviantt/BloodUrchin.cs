@@ -19,7 +19,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
 
         public override bool CanUseItem(Player player)
         {
-            return !Main.dayTime && Main.bloodMoon;
+            return FargoUtils.ActuallyNight && Main.bloodMoon;
         }
 
         public override void AddRecipes()
