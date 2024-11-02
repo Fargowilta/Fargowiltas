@@ -40,6 +40,12 @@ namespace Fargowiltas.Projectiles.Explosives
 
         bool tryExplode;
 
+        public override bool CanHitPlayer(Player target)
+        {
+            if (target.whoAmI != Projectile.owner)
+                return false;
+            return base.CanHitPlayer(target);
+        }
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
             modifiers.IncomingDamageMultiplier *= 1.5f;
