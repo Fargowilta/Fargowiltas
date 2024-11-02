@@ -42,7 +42,7 @@ namespace Fargowiltas.Projectiles.Explosives
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            modifiers.IncomingDamageMultiplier *= 4;
+            modifiers.IncomingDamageMultiplier *= 1.5f;
         }
 
         public override void OnKill(int timeLeft)
