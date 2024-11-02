@@ -143,22 +143,19 @@ namespace Fargowiltas.Projectiles.Explosives
                     // Circle
                     if ((x * x + y * y) <= radius)
                     {
-                        if (Projectile.owner == Main.myPlayer)
-                        {
-                            if (tile.IsActuated || FargoGlobalProjectile.TileIsLiterallyAir(tile) || FargoGlobalProjectile.TileBelongsToMagicStorage(tile))
-                                continue;
+                        if (tile.IsActuated || FargoGlobalProjectile.TileIsLiterallyAir(tile) || FargoGlobalProjectile.TileBelongsToMagicStorage(tile))
+                            continue;
 
-                            if (player.HasEnoughPickPowerToHurtTile(xPosition, yPosition) && WorldGen.CanKillTile(xPosition, yPosition))
+                        if (player.HasEnoughPickPowerToHurtTile(xPosition, yPosition) && WorldGen.CanKillTile(xPosition, yPosition))
+                        {
+                            WorldGen.KillTile(xPosition, yPosition);
+                            /*
+                            if (Main.netMode != NetmodeID.SinglePlayer)
                             {
-                                WorldGen.KillTile(xPosition, yPosition);
-                                /*
-                                if (Main.netMode != NetmodeID.SinglePlayer)
-                                {
-                                    NetMessage.SendTileSquare(-1 , ,,,,)
-                                    NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 20, xPosition, yPosition);
-                                }
-                                */
+                                NetMessage.SendTileSquare(-1 , ,,,,)
+                                NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 20, xPosition, yPosition);
                             }
+                            */
                         }
 
                         Dust.NewDust(position, 22, 22, DustID.Smoke, 0.0f, 0.0f, 120);
@@ -168,7 +165,7 @@ namespace Fargowiltas.Projectiles.Explosives
             if (Main.netMode != NetmodeID.SinglePlayer)
             {
                 Point center = position.ToTileCoordinates();
-                NetMessage.SendTileSquare(-1, center.X - radius, center.Y - radius, (int)(2 * radius));
+                NetMessage.SendTileSquare(-1, center.X - radius * 2, center.Y - radius * 2, (int)(4 * radius));
             }
             AchievementsHelper.CurrentlyMining = false;
         }
