@@ -111,13 +111,14 @@ namespace Fargowiltas.NPCs
                 FargoServerConfig config = FargoServerConfig.Instance;
                 if ((config.EnemyHealth != 1 || config.BossHealth != 1) && !npc.townNPC && !npc.CountsAsACritter && npc.life > 10)
                 {
+                    float lifeFraction = npc.GetLifePercent();
                     bool boss = config.BossHealth > config.EnemyHealth && // only relevant if boss health is higher than enemy health
                         (npc.boss || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsTail || (config.BossApplyToAllWhenAlive && AnyBossAlive()));
                     if (boss)
                         npc.lifeMax = (int)Math.Round(npc.lifeMax * config.BossHealth);
                     else
                         npc.lifeMax = (int)Math.Round(npc.lifeMax * config.EnemyHealth);
-                    npc.life = npc.lifeMax;
+                    npc.life = (int)Math.Round(npc.lifeMax * lifeFraction);
                 }
                 #endregion
             }
