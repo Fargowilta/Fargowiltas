@@ -1,7 +1,2 @@
 NEW UPDATE - V {ModVersion}
-
-Energized: Reduced Master+ damage by 1/1.2x, reduced HM boss damage per stack by 2
-World Token now buys for 1 Silver
-Reduced Boom Shuriken self damage
-Boom Shurikens cannot hit other players
-Improved Boom Shurikens multiplayer sync
+added zh-hans localization
