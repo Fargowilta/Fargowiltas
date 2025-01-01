@@ -11,8 +11,6 @@ namespace Fargowiltas.Items.Summons.SwarmSummons.Energizers
             // Tooltip.SetDefault("Formed after using 10 Skull Chain Necklaces\n'Reminds you of a mean cow'");
         }
 
-        public override string Texture => "Fargowiltas/Items/Summons/SwarmSummons/Energizers/EnergizerSkele";
-
         public override void SetDefaults()
         {
             Item.width = 20;
