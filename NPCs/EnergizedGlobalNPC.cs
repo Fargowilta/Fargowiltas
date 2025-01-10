@@ -64,8 +64,8 @@ namespace Fargowiltas.NPCs
         {
             const int k = 1000;
             const int m = k * k;
-            int baseHealth = 30 * k;
-            int baseHealthHM = 300 * k;
+            int baseHealth = 28 * k;
+            int baseHealthHM = 275 * k;
             bool validBoss = true;
             if (Fargowiltas.SwarmSetDefaults)
             {
