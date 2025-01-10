@@ -990,7 +990,7 @@ Mods: {
 
 			Abeemination2: {
 				DisplayName: A Bee In My Nation
-				Tooltip: Summons Queen Bee in any biome
+				Tooltip: Summons Queen Bee in any underground biome
 			}
 
 			Anemometer: {
