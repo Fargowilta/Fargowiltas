@@ -2522,6 +2522,9 @@ Mods: {
 
 				Chat: {
 					// Special
+					// Unconscious: She appears to be unconscious
+					// UnconsciousChatButton: Wake her up
+					// Introduction: Hi! Huh? Am I okay? Why wouldn't I be? I'm {0}! I would introduce you to my bros but it seems like they aren't around right now. Im sure they'll show up eventually!
 					GiveGifts: 这个世界看起来比平时更艰难，所以我免费给你提供这些，仅此一次！如果你需要任何提示，请告诉我，好吗？
 					NTB: 这里是有趣的蜜蜂世界！
 					NTBHA: 哈
