@@ -2441,7 +2441,7 @@ Mods: {
 					LoveNPC: "{NPCName}, мой брат... Я сразил больше боссов, чем он, но он сильный."
 					DislikeNPC: Я не люблю {NPCName}.
 					HateNPC: "{NPCName} нарушает всю славу сражений, уведи её отсюда."
-					LikeNPC_Princess: "В целом, {NPCName} неплоха."
+					LikeNPC_Princess: В целом, {NPCName} неплоха.
 					Princess_LovesNPC: "{NPCName} рассказывает замечательные истории о своих сражениях!"
 				}
 
@@ -2512,6 +2512,9 @@ Mods: {
 
 				Chat: {
 					// Special
+					// Unconscious: She appears to be unconscious
+					// UnconsciousChatButton: Wake her up
+					// Introduction: Hi! Huh? Am I okay? Why wouldn't I be? I'm {0}! I would introduce you to my bros but it seems like they aren't around right now. Im sure they'll show up eventually!
 					GiveGifts: Этот мир выглядит опаснее остальных, так что вот, дарю за просто так! Если нужна помощь – обращайся, хорошо?
 					NTB: ЭТО ВЕСЁЛЫЙ МИР С ПЧЁЛАМИ!
 					NTBHA: " ХА"
