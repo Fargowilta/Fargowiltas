@@ -2441,7 +2441,7 @@ Mods: {
 					LoveNPC: "{NPCName}, мой брат... Я сразил больше боссов, чем он, но он сильный."
 					DislikeNPC: Я не люблю {NPCName}.
 					HateNPC: "{NPCName} нарушает всю славу сражений, уведи её отсюда."
-					LikeNPC_Princess: "В целом, {NPCName} неплоха."
+					LikeNPC_Princess: В целом, {NPCName} неплоха.
 					Princess_LovesNPC: "{NPCName} рассказывает замечательные истории о своих сражениях!"
 				}
 
