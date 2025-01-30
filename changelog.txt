@@ -1,6 +1,2 @@
 NEW UPDATE - V {ModVersion}
-Changed Deviantt's shadow hand tip dialogue
-Slightly reduced health and damage of energized bosses
-A Bee In My Nation is now only usable underground
-Super Dummy maximum health is now a 10th of the integer limit and isn't affected by difficulty scaling, and the npc is now unkillable
-Resprited Energizers
+Updated and added new Abominationn dialogue

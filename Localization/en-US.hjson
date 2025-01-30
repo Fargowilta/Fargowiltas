@@ -2433,11 +2433,11 @@ Mods: {
 					FarFromHome: I'd fly back to my house, but I don't really feel like being watched.
 					DislikeCrowded: There's too many humans around, they keep poking at my face.
 					HateCrowded: Do you know how hard it is to carry a scythe and not cut anyone with this many people around?
-					LikeBiome: I like {BiomeName}, it's home to a fine opponent with my brother's wings.
-					LoveBiome: I like Space a lot, we came here first before landing.
+					LikeBiome: I like {BiomeName}, the tides are relaxing and I've been learning to fish recently.
+					LoveBiome: I love Space, it's nostalgic and completely silent.
 					DislikeBiome: Too many weak enemies live in {BiomeName}.
 					HateBiome: I dislike {BiomeName} a lot.
-					LikeNPC: "{NPCName} is my sister... I've defeated more events than her, but she's okay."
+					LikeNPC: "{NPCName} is my sister... she's a bit loud, but she's okay."
 					LoveNPC: "{NPCName} is my brother... I've fought more bosses than him, but he's strong."
 					DislikeNPC: I do not like {NPCName}.
 					HateNPC: "{NPCName} ruins the glory of battle, I don't want her near me."
@@ -2447,31 +2447,31 @@ Mods: {
 
 				Chat: {
 					// Special
-					Defeat: You really defeated me... not bad. Now do it again without getting hit. Oh, and Copper Shortsword only.
-					MutantShimmer: He turned into a squirrel. Funniest thing I've ever seen.
-					StyxArmor: What nostalgic armor you're wearing... No, it doesn't fit on me anymore. And its battery takes too long to charge.
-					Graveyard: I hope all these graves lying around don't belong to you.
-					Mechanic: Can you please ask {0} to stop touching my laser arm please.
+					Defeat: ...don't you dare tell anyone about this. It was all luck and I wasn't even really trying.
+					MutantShimmer: He turned himself into a squirrel. Funniest stuff I've ever seen.
+					StyxArmor: What nostalgic armor you're wearing. I was upset earlier, but you're worthy of my old set... and you put up a good fight. You wanna rematch later?
+					Graveyard: Do all these graves lying around really belong to you?
+					Mechanic: Can you please ask {0} to stop touching my laser arm? Please.
 					// Normal
 					Formattable1: Where'd I get my scythe from? {0}
 					Formatter1PHM: Ask me later.
 					Formatter1HM: You'll figure it out.
-					Normal1: I have slain one thousand humans! Huh? You're a human? There's so much blood on your hands..
-					Normal2: I have defeated everything in this land... nothing can beat me.
-					Normal3: Have you ever had a weapon stuck to your hand? It's not very handy.
-					Normal4: What happened to Yoramur? No idea who you're talking about.
-					Normal5: You wish you could dress like me? Ha! Actually yea.. you can.
-					Normal6: You ever read the ancient classics, I love all the fighting in them.
+					Normal1: I CAN SLAY ANYTHING! NOTHING CAN BEAT M- *cough* *cough* ...can I have a lozenge? My throat is sore...
+					Normal2: I have defeated EVERYTHING in this land! What's a beast-cherry? Oh, that... I never kept count.
+					Normal3: Have you ever had a weapon grafted to your arm? It's not very handy.
+					Normal4: Who's Coo-thoo-loo? No idea who you're talking about.
+					Normal5: You wish you could dress like me? Ha! Actually... yea, you can.
+					Normal6: You ever read the ancient classics? I love all the fighting in them.
 					Normal7: I'm a world class poet, ever read my piece about impending doom?
-					Normal8: You want swarm summons? Maybe next year.
+					Normal8: Have you ever read The King in Yellow? I loved it when [REDACTED]... I meant when [DATA EXPUNGED]... Fine, forget it
 					Normal9: Like my wings? Thanks, the thing I got them from didn't like it much.
 					Normal10: Heroism has no place in this world, instead let's just play ping pong.
 					Normal11: Why are you looking at me like that? Your fashion sense isn't going to be winning you any awards either.
 					Normal12: No, you can't have my hat.
-					Normal13: Embrace suffering... Wait what do you mean that's already taken?
-					Normal14: Your attempt to exploit my anger is admirable, but I cannot be angered.
-					Normal15: Is it really a crime if everyone else does it.
-					Normal16: Inflicting suffering upon others is the most amusing thing there is.
+					Normal13: Embrace suffering... ...what do you mean that's already taken?
+					Normal14: Why did they call it "House of Leaves" if you can't even exit? Are they stupid?
+					Normal15: Is it really a crime if everyone else does it? Unrelated - tonight's movie night!
+					Normal16: Inflicting suffering upon others is cool and all, but have you ever caught a 6 pound bass?
 					Normal17: Irony is the best kind of humor, isn't that ironic?
 					Normal18: I like Cat... What do you mean who's Cat?
 					Normal19: Check the wiki if you need anything, the star is slowly getting it up to par.
