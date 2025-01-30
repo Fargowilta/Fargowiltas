@@ -2,6 +2,7 @@ using Fargowiltas.Items.Ammos.Bullets;
 using Fargowiltas.Items.Tiles;
 using Fargowiltas.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
@@ -31,7 +32,12 @@ namespace Fargowiltas.Common.Systems.Recipes
             AnyGoldBar = RecipeGroup.RegisterGroup("Fargowiltas:AnyDemoniteBar", group);
 
             //demon altar
-            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ModContent.ItemType<DemonAltar>()), ModContent.ItemType<DemonAltar>(), ModContent.ItemType<CrimsonAltar>());
+            List<int> demonaltars = new() { ModContent.ItemType<DemonAltar>(), ModContent.ItemType<CrimsonAltar>() };
+            if (ModLoader.HasMod("ImproveGame"))
+                demonaltars.AddRange([ModLoader.GetMod("ImproveGame").Find<ModItem>("DemonAltarItem").Type, ModLoader.GetMod("ImproveGame").Find<ModItem>("CrimsonAltarItem").Type]);
+            if (ModLoader.HasMod("CalValEX"))
+                demonaltars.AddRange([ModLoader.GetMod("CalValEX").Find<ModItem>("MoulderingAltarItem").Type, ModLoader.GetMod("CalValEX").Find<ModItem>("VisceralAltarItem").Type]);
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ModContent.ItemType<DemonAltar>()), demonaltars.ToArray());
             AnyDemonAltar = RecipeGroup.RegisterGroup("Fargowiltas:AnyDemonAltar", group);
 
             //iron anvil
