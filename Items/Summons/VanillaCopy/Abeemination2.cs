@@ -25,5 +25,11 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
                 .AddTile(TileID.WorkBenches)
                 .Register();
         }
+        public override bool CanUseItem(Player player)
+        {
+            if (player.ZoneOverworldHeight || player.ZoneSkyHeight)
+                return false;
+            return base.CanUseItem(player);
+        }
     }
 }
