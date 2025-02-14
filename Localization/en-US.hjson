@@ -1331,7 +1331,7 @@ Mods: {
 			}
 
 			PinkSlimeCrown: {
-				DisplayName: Pink Slime Crown
+				DisplayName: Pink Slime Tiara
 				Tooltip: Summons Pinky
 			}
 
@@ -1845,7 +1845,7 @@ Mods: {
 			}
 
 			OverloadSlimeCrown: {
-				DisplayName: Overloaded Crown
+				DisplayName: Personal Royal Order
 				Tooltip: Summons an energized King Slime
 			}
 
