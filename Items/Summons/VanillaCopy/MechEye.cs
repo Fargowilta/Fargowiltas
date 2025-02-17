@@ -27,7 +27,7 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
             Item.height = 20;
             Item.maxStack = 20;
             Item.value = 1000;
-            Item.rare = ItemRarityID.Orange;
+            Item.rare = ItemRarityID.Blue;
             Item.useAnimation = 30;
             Item.useTime = 30;
             Item.useStyle = ItemUseStyleID.HoldUp;
