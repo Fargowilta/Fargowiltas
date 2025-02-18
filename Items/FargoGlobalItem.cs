@@ -288,6 +288,17 @@ namespace Fargowiltas.Items
                     tooltips.Add(line);
                 }
             }
+
+            if (FargoClientConfig.Instance.ExactTooltips)
+            {
+                foreach (var tooltip in tooltips)
+                {
+                    if (tooltip.Name == "Speed")
+                        tooltip.Text += $" ({item.useAnimation})";
+                    if (tooltip.Name == "Knockback")
+                        tooltip.Text += $" ({(int)(Math.Round(item.knockBack * 100)) / 100f})";
+                }
+            }
         }
 
         public override void SetDefaults(Item item)

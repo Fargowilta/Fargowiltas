@@ -258,6 +258,11 @@ Mods: {
 					Tooltip: ""
 				}
 
+				ExactTooltips: {
+					// Label: "[i:171] Tooltips display exact item speed and knockback"
+					// Tooltip: Item speed is listed in use time, meaning bigger number = slower.
+				}
+
 				HideUnlimitedBuffs: {
 					Label: "[i:292] 隐藏无限增益图标"
 					Tooltip: ""
