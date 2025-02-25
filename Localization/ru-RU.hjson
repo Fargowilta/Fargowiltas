@@ -251,8 +251,8 @@ Mods: {
 				}
 
 				ExactTooltips: {
-					// Label: "[i:171] Tooltips display exact item speed and knockback"
-					// Tooltip: Item speed is listed in use time, meaning bigger number = slower.
+					Label: "[i:171] Описания показывают точные скорость предмета и отбрасывание"
+					Tooltip: Скорость предмета измеряется во времени использования, т.е. чем больше число, тем медленнее скорость.
 				}
 
 				HideUnlimitedBuffs: {
@@ -1336,7 +1336,7 @@ Mods: {
 			}
 
 			PinkSlimeCrown: {
-				DisplayName: Розовая корона слизней
+				DisplayName: Розовая тиара слизней
 				Tooltip: Призывает Пинки
 			}
 
@@ -1850,7 +1850,7 @@ Mods: {
 			}
 
 			OverloadSlimeCrown: {
-				DisplayName: Корона роя
+				DisplayName: Личный королевский указ
 				Tooltip: Призывает перегруженного Короля слизней
 			}
 
