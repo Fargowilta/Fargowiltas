@@ -288,6 +288,23 @@ namespace Fargowiltas.Items
                     tooltips.Add(line);
                 }
             }
+
+            if (FargoClientConfig.Instance.ExactTooltips)
+            {
+                foreach (var tooltip in tooltips)
+                {
+                    if (tooltip.Name == "Speed")
+                    {
+                        tooltip.Text += $" ({item.useAnimation})";
+                    }
+                    if (tooltip.Name == "Knockback")
+                    {
+                        float kb = Main.LocalPlayer.GetWeaponKnockback(item, item.knockBack);
+                        if (kb > 0 && kb < 1000) // to make it not show when dragonlens does whatever the fuck causes it to skyrocket to infinity
+                            tooltip.Text += $" ({(int)(Math.Round(kb * 100)) / 100f})";
+                    }
+                }
+            }
         }
 
         public override void SetDefaults(Item item)
