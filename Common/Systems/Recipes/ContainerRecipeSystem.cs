@@ -60,10 +60,6 @@ namespace Fargowiltas.Common.Systems.Recipes
 
             // Wall of Flesh
             CreateTreasureGroupRecipe(ItemID.WallOfFleshBossBag,
-                ItemID.RangerEmblem,
-                ItemID.SorcererEmblem,
-                ItemID.SummonerEmblem,
-                ItemID.WarriorEmblem,
                 ItemID.ClockworkAssaultRifle,
                 ItemID.BreakerBlade,
                 ItemID.LaserRifle,
