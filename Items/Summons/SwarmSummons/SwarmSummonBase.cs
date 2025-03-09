@@ -1,5 +1,6 @@
 ﻿using Fargowiltas.NPCs;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
@@ -52,7 +53,8 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
             Fargowiltas.SwarmSetDefaults = true;
 
             Fargowiltas.SwarmActive = true;
-            Fargowiltas.SwarmItemsUsed = player.inventory[player.selectedItem].stack;
+            int usedItems = Math.Min(player.inventory[player.selectedItem].stack, 10);
+            Fargowiltas.SwarmItemsUsed = usedItems;
             Fargowiltas.SwarmNoHyperActive = Fargowiltas.SwarmItemsUsed < 5;
 
             //DG special case
@@ -83,8 +85,8 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
                 }
             }
 
-            // Kill whole stack
-            player.inventory[player.selectedItem].stack = 0;
+            // Removed used items
+            player.inventory[player.selectedItem].stack -= usedItems - 1; // 1 is consumed by default
 
             if (Main.netMode == NetmodeID.Server)
             {
