@@ -17,6 +17,10 @@ using Terraria.GameContent.Events;
 using System.IO;
 using Fargowiltas.Common.Configs;
 using System.Runtime.InteropServices.JavaScript;
+using Fargowiltas.Items.Vanity;
+using Terraria.IO;
+using Terraria.GameContent.UI.States;
+using Terraria.GameContent.UI.Elements;
 
 ////using Fargowiltas.Toggler;
 
@@ -186,7 +190,7 @@ namespace Fargowiltas
                 SyncPlayer(toWho: -1, fromWho: Main.myPlayer, newPlayer: false);
         }
         public override void ModifyStartingInventory(IReadOnlyDictionary<string, List<Item>> itemsByMod, bool mediumCoreDeath)
-        {
+        {            
             foreach (string tag in tags)
             {
                 FirstDyeIngredients[tag] = false;
@@ -567,6 +571,30 @@ namespace Fargowiltas
                 }
             }
         }
+
+        public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath)
+        {
+            static Item createItem(int type)
+            {
+                Item i = new Item(type);
+                return i;
+            }
+
+            bool midnight = Player.name.Equals("midnight", StringComparison.OrdinalIgnoreCase);
+            bool midnight2 = Player.name.Equals("midnight.", StringComparison.OrdinalIgnoreCase);
+            bool midnight3 = Player.name.Equals("midnight295", StringComparison.OrdinalIgnoreCase);
+            bool midnight4 = Player.name.Equals("midnight295.", StringComparison.OrdinalIgnoreCase);
+
+            if (!mediumCoreDeath && (midnight || midnight2 || midnight3 || midnight4))
+            {
+                yield return createItem(ModContent.ItemType<MutantPants>());
+                yield return createItem(ModContent.ItemType<MutantBody>());
+                yield return createItem(ModContent.ItemType<MutantMask>());
+            }
+                
+        }
+
+        
 
         //        /*public override void clientClone(ModPlayer clientClone)
         //        {
