@@ -42,13 +42,14 @@ namespace Fargowiltas.Projectiles.Explosives
 
         public override bool CanHitPlayer(Player target)
         {
-            if (target.whoAmI != Projectile.owner)
-                return false;
-            return base.CanHitPlayer(target);
+            return false;
+            //if (target.whoAmI != Projectile.owner)
+            //    return false;
+            //return base.CanHitPlayer(target);
         }
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            modifiers.IncomingDamageMultiplier *= 1.5f;
+            //modifiers.IncomingDamageMultiplier *= 1.5f;
         }
 
         public override void OnKill(int timeLeft)

@@ -707,7 +707,7 @@ Mods: {
 				Tooltip:
 					'''
 					Rapid firing explosives
-					Uses your pickaxe's mining power
+					Uses your best pickaxe's mining power and speed, and scales with mining speed bonuses
 					'The fastest way to dig through anything is always to blow it up!'
 					'''
 			}
