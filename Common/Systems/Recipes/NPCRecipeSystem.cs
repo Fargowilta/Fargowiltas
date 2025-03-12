@@ -407,7 +407,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.AddIngredient(null, "TravellingMerchant", 2);
             recipe.AddIngredient(ItemID.GoldCoin, 20);
             recipe.AddTile(TileID.TinkerersWorkbench);
-            recipe.AddCondition(Condition.DownedEowOrBoc);
+            recipe.AddCondition(Condition.SmashedShadowOrb);
             recipe.DisableDecraft();
             recipe.Register();
 
