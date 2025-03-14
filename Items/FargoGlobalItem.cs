@@ -316,6 +316,11 @@ namespace Fargowiltas.Items
                     item.maxStack = 9999;
                 }
             }
+
+            if (item.type == ItemID.MusicBox || item.Name.Contains("Music Box"))
+            {
+                item.value = Item.sellPrice(0, 0, 22, 50);
+            }
         }
 
         public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
