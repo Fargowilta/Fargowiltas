@@ -1,4 +1,6 @@
 ﻿using Fargowiltas.Items.Summons;
+using Fargowiltas.Items.Summons.Mutant;
+using Fargowiltas.Items.Summons.VanillaCopy;
 using Fargowiltas.Utilities;
 using System;
 using System.Collections.Generic;
@@ -42,7 +44,7 @@ namespace Fargowiltas.Common.Systems.Recipes
                 }
             }
             //disable shimmer decraft for all summon items
-            foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.createItem.ModItem != null && recipe.createItem.ModItem is BaseSummon))
+            foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.createItem.ModItem != null && (recipe.createItem.ModItem is BaseSummon || recipe.createItem.ModItem is FleshyDoll || recipe.createItem.ModItem is MechEye)))
             {
                 recipe.DisableDecraft();
             }
@@ -338,6 +340,13 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.AddIngredient(ItemID.KiteRed);
             recipe.AddIngredient(ItemID.KiteYellow);
             recipe.AddTile(TileID.Solidifier);
+            recipe.DisableDecraft();
+            recipe.Register();
+
+            recipe = Recipe.Create(ItemID.MusicBox);
+            recipe.AddIngredient(ItemID.Wood, 35);
+            recipe.AddIngredient(ItemID.Ruby, 1);
+            recipe.AddTile(TileID.WorkBenches);
             recipe.DisableDecraft();
             recipe.Register();
         }
