@@ -38,7 +38,8 @@ namespace Fargowiltas.Common.Systems.Recipes
             CreateTreasureGroupRecipe(ItemID.QueenBeeBossBag,
                 ItemID.BeesKnees,
                 ItemID.BeeGun,
-                ItemID.BeeKeeper
+                ItemID.BeeKeeper,
+                ItemID.HoneyComb
             );
             CreateTreasureGroupRecipe(ItemID.QueenBeeTrophy,
                 ItemID.HoneyedGoggles,
