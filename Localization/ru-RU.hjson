@@ -440,6 +440,11 @@ Mods: {
 				DisplayName: Большое всасывание
 				Description: Вы всасываете в себя всё
 			}
+
+			CoolCrabBuff: {
+				// DisplayName: Cool Crab Buff
+				// Description: Mods.Fargowiltas.Buffs.CoolCrabBuff.Description
+			}
 		}
 
 		Items: {
@@ -2426,6 +2431,11 @@ Mods: {
 				DisplayName: Картина «Wires»
 				Tooltip: Посмотри внутрь
 			}
+
+			CrabSizedGlasses: {
+				// DisplayName: Crab Sized Glasses
+				// Tooltip: ""
+			}
 		}
 
 		NPCs: {
@@ -2859,6 +2869,7 @@ Mods: {
 			WorldTokenProj.DisplayName: Мир Токен Снар
 			InstaPondProj.DisplayName: МоментОзеро Снар
 			MiniDirtInstabridgeProj.DisplayName: Мини Грязь МоментМост Снар
+			// CoolCrab.DisplayName: Cool Crab
 		}
 
 		Tiles: {

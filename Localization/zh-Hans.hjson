@@ -448,6 +448,11 @@ Mods: {
 				DisplayName: 超级黑洞
 				Description: 你正吞噬一切！
 			}
+
+			CoolCrabBuff: {
+				// DisplayName: Cool Crab Buff
+				// Description: Mods.Fargowiltas.Buffs.CoolCrabBuff.Description
+			}
 		}
 
 		Items: {
@@ -2435,6 +2440,11 @@ Mods: {
 				DisplayName: Wires绘画
 				Tooltip: 向内看
 			}
+
+			CrabSizedGlasses: {
+				// DisplayName: Crab Sized Glasses
+				// Tooltip: ""
+			}
 		}
 
 		NPCs: {
@@ -2868,6 +2878,7 @@ Mods: {
 			WorldTokenProj.DisplayName: 世界令牌
 			InstaPondProj.DisplayName: 快速湖泊
 			MiniDirtInstabridgeProj.DisplayName: 迷你泥土平台
+			// CoolCrab.DisplayName: Cool Crab
 		}
 
 		Tiles: {

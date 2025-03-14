@@ -6,5 +6,8 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Content\Buffs\CoolCrabBuff.png" />
+    <None Remove="Items\Vanity\CrabSizedGlasses.png" />
+    <None Remove="Projectiles\CoolCrab.png" />
   </ItemGroup>
 </Project>

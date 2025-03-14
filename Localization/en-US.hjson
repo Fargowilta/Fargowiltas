@@ -440,6 +440,11 @@ Mods: {
 				DisplayName: Big Suck
 				Description: You are sucking everything
 			}
+
+			CoolCrabBuff: {
+				DisplayName: Cool Crab
+				Description: He thinks you should play Elden Ring
+			}
 		}
 
 		Items: {
@@ -2425,6 +2430,11 @@ Mods: {
 				DisplayName: Wires Painting
 				Tooltip: Look inside
 			}
+
+			CrabSizedGlasses: {
+				DisplayName: Crab-Sized Glasses
+				Tooltip: Summons a cool crab
+			}
 		}
 
 		NPCs: {
@@ -2858,6 +2868,7 @@ Mods: {
 			WorldTokenProj.DisplayName: World Token Proj
 			InstaPondProj.DisplayName: Insta Pond Proj
 			MiniDirtInstabridgeProj.DisplayName: Mini Dirt Instabridge Proj
+			CoolCrab.DisplayName: Cool Crab
 		}
 
 		Tiles: {

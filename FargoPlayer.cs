@@ -50,6 +50,7 @@ namespace Fargowiltas
 
         public int DeathFruitHealth;
         public bool bigSuck;
+        public bool CoolCrab;
 
         public int StationSoundCooldown;
 
@@ -207,6 +208,7 @@ namespace Fargowiltas
             extractSpeed = false;
             HasDrawnDebuffLayer = false;
             bigSuck = false;
+            CoolCrab = false;
         }
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
