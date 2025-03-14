@@ -317,7 +317,7 @@ namespace Fargowiltas.Items
                 }
             }
 
-            if (item.type == ItemID.MusicBox || item.Name.Contains("Music Box"))
+            if (item.type == ItemID.MusicBox || item.Name.Contains(Language.GetTextValue($"ItemName.MusicBox")))
             {
                 item.value = Item.sellPrice(0, 0, 22, 50);
             }
