@@ -23,6 +23,7 @@ namespace Fargowiltas.Items.Vanity
             Item.height = 40;
             Item.shoot = ModContent.ProjectileType<CoolCrab>();
             Item.buffType = ModContent.BuffType<CoolCrabBuff>();
+            Item.value = Item.sellPrice(0, 0, 0, 10);
         }
 
         public override void UseStyle(Player player, Rectangle
