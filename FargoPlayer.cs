@@ -598,7 +598,6 @@ namespace Fargowiltas
             {
                 yield return createItem(ItemType<CrabSizedGlasses>());
             }
-                
         }
 
         
