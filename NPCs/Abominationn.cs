@@ -290,7 +290,7 @@ namespace Fargowiltas.NPCs
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ItemType<CrabSizedGlasses>()));
+            npcLoot.Add(ItemDropRule.Common(ItemType<CrabSizedGlasses>(), 10));
         }
         public override void HitEffect(NPC.HitInfo hit)
         {

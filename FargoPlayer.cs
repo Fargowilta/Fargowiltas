@@ -593,6 +593,11 @@ namespace Fargowiltas
                 yield return createItem(ModContent.ItemType<MutantBody>());
                 yield return createItem(ModContent.ItemType<MutantMask>());
             }
+
+            if (!mediumCoreDeath && Player.name.Contains("javyz", StringComparison.OrdinalIgnoreCase))
+            {
+                yield return createItem(ItemType<CrabSizedGlasses>());
+            }
                 
         }
 
