@@ -349,6 +349,17 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.AddTile(TileID.WorkBenches);
             recipe.DisableDecraft();
             recipe.Register();
+
+            List<int> familiars = [ItemID.FamiliarWig, ItemID.FamiliarShirt, ItemID.FamiliarPants];
+            List<int> familiarStations = [TileID.LivingLoom, TileID.Loom, TileID.Loom];
+            for (int i = 0; i < familiars.Count; i++)
+            {
+                recipe = Recipe.Create(familiars[i]);
+                recipe.AddIngredient(ItemID.Silk, 12);
+                recipe.AddTile(familiarStations[i]);
+                recipe.DisableDecraft();
+                recipe.Register();
+            }
         }
     }
 }
