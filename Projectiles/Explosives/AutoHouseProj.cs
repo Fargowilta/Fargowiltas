@@ -16,21 +16,12 @@ namespace Fargowiltas.Projectiles.Explosives
             Projectile.height = 1;
             Projectile.timeLeft = 1;
         }
-
-        public static void PlaceHouse(int x, int y, Vector2 position, int side, Player player)
+        public static void GetTiles(Player player, out int wallType, out int tileType, out int platformStyle, out bool moddedPlatform)
         {
-            int xPosition = (int)((side * -1) + x + position.X / 16.0f);
-            int yPosition = (int)(y + position.Y / 16.0f);
-            Tile tile = Main.tile[xPosition, yPosition];
-
-            // Testing for blocks that should not be destroyed
-            if (!FargoGlobalProjectile.OkayToDestroyTileAt(xPosition, yPosition, true))
-                return;
-
-            int wallType = WallID.Wood;
-            int tileType = TileID.WoodBlock;
-            int platformStyle = 0;
-
+            moddedPlatform = false;
+            wallType = WallID.Wood;
+            tileType = TileID.WoodBlock;
+            platformStyle = 0;
             if (player.ZoneDesert && !player.ZoneBeach)
             {
                 wallType = WallID.Cactus;
@@ -91,6 +82,20 @@ namespace Fargowiltas.Projectiles.Explosives
                 tileType = TileID.ObsidianBrick;
                 platformStyle = 13;
             }
+        }
+        public static void PlaceHouse(int x, int y, Vector2 position, int side, Player player)
+        {
+            int xPosition = (int)((side * -1) + x + position.X / 16.0f);
+            int yPosition = (int)(y + position.Y / 16.0f);
+            Tile tile = Main.tile[xPosition, yPosition];
+
+            // Testing for blocks that should not be destroyed
+            if (!FargoGlobalProjectile.OkayToDestroyTileAt(xPosition, yPosition, true))
+                return;
+
+            GetTiles(player, out int wallType, out int tileType, out int platformStyle, out bool moddedPlatform);
+
+            
 
             if (x == 10 * side || x == 1 * side)
             {
@@ -130,9 +135,13 @@ namespace Fargowiltas.Projectiles.Explosives
             //platforms on top
             if (y == -5 && Math.Abs(x) >= 3 && Math.Abs(x) <= 5)
             {
-                WorldGen.PlaceTile(xPosition, yPosition, TileID.Platforms, style: platformStyle);
+                int type = TileID.Platforms;
+                int style = 0;
+                if (moddedPlatform) type = platformStyle;
+                else style = platformStyle;
+                WorldGen.PlaceTile(xPosition, yPosition, type, style: style);
                 if (Main.netMode == NetmodeID.Server)
-                    NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 1, xPosition, yPosition, TileID.Platforms, platformStyle);
+                    NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 1, xPosition, yPosition, type, style);
             }
             // Spawn border
             else if ((y == -5) || (y == 0) || (x == (10 * side)) || (x == (1 * side) && y == -4))
@@ -142,7 +151,84 @@ namespace Fargowiltas.Projectiles.Explosives
                     NetMessage.SendTileSquare(-1, xPosition, yPosition, 1);
             }
         }
+        public static void GetFurniture(Player player, out int doorStyle, out int chairStyle, out int tableStyle, out int torchStyle)
+        {
+            doorStyle = 0;
+            chairStyle = 0;
+            tableStyle = 0;
+            torchStyle = 0;
 
+            if (player.ZoneDesert && !player.ZoneBeach)
+            {
+                doorStyle = 4;
+                chairStyle = 6;
+                tableStyle = 30;
+                torchStyle = 16;
+            }
+            else if (player.ZoneSnow)
+            {
+                doorStyle = 30;
+                chairStyle = 30;
+                tableStyle = 28;
+                torchStyle = 9;
+            }
+            else if (player.ZoneJungle)
+            {
+                doorStyle = 2;
+                chairStyle = 3;
+                tableStyle = 2;
+                torchStyle = 21;
+            }
+            else if (player.ZoneCorrupt)
+            {
+                doorStyle = 1;
+                chairStyle = 2;
+                tableStyle = 1;
+                torchStyle = 18;
+            }
+            else if (player.ZoneCrimson)
+            {
+                doorStyle = 10;
+                chairStyle = 11;
+                tableStyle = 8;
+                torchStyle = 19;
+            }
+            else if (player.ZoneBeach)
+            {
+                doorStyle = 29;
+                chairStyle = 29;
+                tableStyle = 26;
+                torchStyle = 17;
+            }
+            else if (player.ZoneHallow)
+            {
+                doorStyle = 3;
+                chairStyle = 4;
+                tableStyle = 3;
+                torchStyle = 20;
+            }
+            else if (player.ZoneGlowshroom)
+            {
+                doorStyle = 6;
+                chairStyle = 9;
+                tableStyle = 27;
+                torchStyle = 22;
+            }
+            else if (player.ZoneSkyHeight)
+            {
+                doorStyle = 9;
+                chairStyle = 10;
+                tableStyle = 7;
+                torchStyle = 0;
+            }
+            else if (player.ZoneUnderworldHeight)
+            {
+                doorStyle = 19;
+                chairStyle = 16;
+                tableStyle = 13;
+                torchStyle = 7;
+            }
+        }
         public static void PlaceFurniture(int x, int y, Vector2 position, int side, Player player)
         {
             int xPosition = (int)((side * -1) + x + position.X / 16.0f);
@@ -153,164 +239,82 @@ namespace Fargowiltas.Projectiles.Explosives
             if (!FargoGlobalProjectile.OkayToDestroyTileAt(xPosition, yPosition, true))
                 return;
 
+            GetFurniture(player, out int doorStyle, out int chairStyle, out int tableStyle, out int torchStyle);
+            int style = 0;
+            int type = 0;
             if (y == -1)
             {
                 if (Math.Abs(x) == 1)
                 {
-                    int placeStyle = 0;
-
-                    if (player.ZoneDesert && !player.ZoneBeach)
+                    if (doorStyle > TileID.Count)
                     {
-                        placeStyle = 4;
+                        type = doorStyle;
+                        style = 0;
                     }
-                    else if (player.ZoneSnow)
+                    else
                     {
-                        placeStyle = 30;
-                    }
-                    else if (player.ZoneJungle)
-                    {
-                        placeStyle = 2;
-                    }
-                    else if (player.ZoneCorrupt)
-                    {
-                        placeStyle = 1;
-                    }
-                    else if (player.ZoneCrimson)
-                    {
-                        placeStyle = 10;
-                    }
-                    else if (player.ZoneBeach)
-                    {
-                        placeStyle = 29;
-                    }
-                    else if (player.ZoneHallow)
-                    {
-                        placeStyle = 3;
-                    }
-                    else if (player.ZoneGlowshroom)
-                    {
-                        placeStyle = 6;
-                    }
-                    else if (player.ZoneSkyHeight)
-                    {
-                        placeStyle = 9;
-                    }
-                    else if (player.ZoneUnderworldHeight)
-                    {
-                        placeStyle = 19;
+                        type = TileID.ClosedDoor;
+                        style = doorStyle;
                     }
 
-                    WorldGen.PlaceTile(xPosition, yPosition, TileID.ClosedDoor, style: placeStyle);
+                    WorldGen.PlaceTile(xPosition, yPosition, type, style: style);
                     if (Main.netMode == NetmodeID.Server)
                         NetMessage.SendTileSquare(-1, xPosition, yPosition - 2, 1, 3);
                 }
 
                 if (x == (5 * side))
                 {
-                    int placeStyle = 0;
-
-                    if (player.ZoneDesert && !player.ZoneBeach)
+                    if (chairStyle > TileID.Count)
                     {
-                        placeStyle = 6;
+                        type = chairStyle;
+                        style = 0;
                     }
-                    else if (player.ZoneSnow)
+                    else
                     {
-                        placeStyle = 30;
-                    }
-                    else if (player.ZoneJungle)
-                    {
-                        placeStyle = 3;
-                    }
-                    else if (player.ZoneCorrupt)
-                    {
-                        placeStyle = 2;
-                    }
-                    else if (player.ZoneCrimson)
-                    {
-                        placeStyle = 11;
-                    }
-                    else if (player.ZoneBeach)
-                    {
-                        placeStyle = 29;
-                    }
-                    else if (player.ZoneHallow)
-                    {
-                        placeStyle = 4;
-                    }
-                    else if (player.ZoneGlowshroom)
-                    {
-                        placeStyle = 9;
-                    }
-                    else if (player.ZoneSkyHeight)
-                    {
-                        placeStyle = 10;
-                    }
-                    else if (player.ZoneUnderworldHeight)
-                    {
-                        placeStyle = 16;
+                        type = TileID.Chairs;
+                        style = chairStyle;
                     }
 
-                    WorldGen.PlaceObject(xPosition, yPosition, TileID.Chairs, direction: side, style: placeStyle);
+                    WorldGen.PlaceObject(xPosition, yPosition, type, direction: side, style: style);
                     if (Main.netMode == NetmodeID.Server)
-                        NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 1, xPosition, yPosition, TileID.Chairs, placeStyle);
+                        NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 1, xPosition, yPosition, type, style);
                 }
 
                 if (x == (7 * side))
                 {
-                    int placeStyle = 0;
-
-                    if (player.ZoneDesert && !player.ZoneBeach)
+                    if (tableStyle > TileID.Count)
                     {
-                        placeStyle = 30;
+                        type = tableStyle;
+                        style = 0;
                     }
-                    else if (player.ZoneSnow)
+                    else
                     {
-                        placeStyle = 28;
-                    }
-                    else if (player.ZoneJungle)
-                    {
-                        placeStyle = 2;
-                    }
-                    else if (player.ZoneCorrupt)
-                    {
-                        placeStyle = 1;
-                    }
-                    else if (player.ZoneCrimson)
-                    {
-                        placeStyle = 8;
-                    }
-                    else if (player.ZoneBeach)
-                    {
-                        placeStyle = 26;
-                    }
-                    else if (player.ZoneHallow)
-                    {
-                        placeStyle = 3;
-                    }
-                    else if (player.ZoneGlowshroom)
-                    {
-                        placeStyle = 27;
-                    }
-                    else if (player.ZoneSkyHeight)
-                    {
-                        placeStyle = 7;
-                    }
-                    else if (player.ZoneUnderworldHeight)
-                    {
-                        placeStyle = 13;
+                        type = TileID.Tables;
+                        style = tableStyle;
                     }
 
-                    WorldGen.PlaceTile(xPosition, yPosition, TileID.Tables, style: placeStyle);
+
+                    WorldGen.PlaceTile(xPosition, yPosition, type, style: style);
                     if (Main.netMode == NetmodeID.Server)
-                        NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 1, xPosition, yPosition, TileID.Tables, placeStyle);
+                        NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 1, xPosition, yPosition, type, style);
                 }
             }
 
             if (x == (7 * side) && y == -4)
             {
-                WorldGen.PlaceTile(xPosition, yPosition, TileID.Torches, style: 5);
+                if (torchStyle > TileID.Count)
+                {
+                    type = torchStyle;
+                    style = 0;
+                }
+                else
+                {
+                    type = TileID.Torches;
+                    style = torchStyle;
+                }
+                WorldGen.PlaceTile(xPosition, yPosition, type, style: style);
                 if (Main.netMode == NetmodeID.Server)
-                    NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 1, xPosition, yPosition, TileID.Torches);
+                    NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 1, xPosition, yPosition, type, style);
             }
         }
 
