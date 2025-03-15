@@ -450,8 +450,8 @@ Mods: {
 			}
 
 			CoolCrabBuff: {
-				// DisplayName: Cool Crab Buff
-				// Description: Mods.Fargowiltas.Buffs.CoolCrabBuff.Description
+				// DisplayName: Cool Crab
+				// Description: He thinks you should play Elden Ring
 			}
 		}
 
@@ -2442,8 +2442,8 @@ Mods: {
 			}
 
 			CrabSizedGlasses: {
-				// DisplayName: Crab Sized Glasses
-				// Tooltip: ""
+				// DisplayName: Crab-Sized Glasses
+				// Tooltip: Summons a cool crab
 			}
 		}
 
