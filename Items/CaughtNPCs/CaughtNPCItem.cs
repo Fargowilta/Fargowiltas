@@ -19,20 +19,17 @@ namespace Fargowiltas.Items.CaughtNPCs
 
         public string _name;
         public int AssociatedNpcId;
-        public string NpcQuote;
 
         public CaughtNPCItem()
         {
             _name = base.Name;
             AssociatedNpcId = NPCID.None;
-            NpcQuote = "";
         }
 
-        public CaughtNPCItem(string internalName, int associatedNpcId, string npcQuote = "")
+        public CaughtNPCItem(string internalName, int associatedNpcId)
         {
             _name = internalName;
             AssociatedNpcId = associatedNpcId;
-            NpcQuote = npcQuote;
         }
 
         public override bool IsLoadingEnabled(Mod mod) => AssociatedNpcId != NPCID.None;
@@ -44,7 +41,6 @@ namespace Fargowiltas.Items.CaughtNPCs
             CaughtNPCItem clone = base.Clone(item) as CaughtNPCItem;
             clone._name = _name;
             clone.AssociatedNpcId = AssociatedNpcId;
-            clone.NpcQuote = NpcQuote;
             return clone;
         }
 
@@ -106,57 +102,60 @@ namespace Fargowiltas.Items.CaughtNPCs
             CaughtTownies = new Dictionary<int, int>();
 
             // manually register mutant and vanillas
-            Add("Abominationn", ModContent.NPCType<Abominationn>(), "'I sure wish I was a boss.'");
-            Add("Angler", NPCID.Angler, "'You'd be a great helper minion!'");
-            Add("ArmsDealer", NPCID.ArmsDealer, "'Keep your hands off my gun, buddy!'");
-            Add("Clothier", NPCID.Clothier, "'Thanks again for freeing me from my curse.'");
-            Add("Cyborg", NPCID.Cyborg,
-                "'My expedition efficiency was critically reduced when a projectile impacted my locomotive actuator.'");
-            Add("Demolitionist", NPCID.Demolitionist, "'It's a good day to die!'");
-            Add("Deviantt", ModContent.NPCType<Deviantt>(),
-                "'Embrace suffering... and while you're at it, embrace another purchase!'");
-            Add("Dryad", NPCID.Dryad, "'Be safe; Terraria needs you!'");
-            Add("DyeTrader", NPCID.DyeTrader, "'My dear, what you're wearing is much too drab.'");
-            Add("GoblinTinkerer", NPCID.GoblinTinkerer, "'Looking for a gadgets expert? I'm your goblin!'");
-            Add("Golfer", NPCID.Golfer, "'An early bird catches the worm, but an early hole catches the birdie.'");
-            Add("Guide", NPCID.Guide, "'They say there is a person who will tell you how to survive in this land.'");
-            Add("LumberJack", ModContent.NPCType<LumberJack>(),
-                "'I eat a bowl of woodchips for breakfast... without any milk.'");
-            Add("Mechanic", NPCID.Mechanic, "'Always buy more wire than you need!'");
-            Add("Merchant", NPCID.Merchant, "'Did you say gold? I'll take that off of ya.'");
-            Add("Mutant", ModContent.NPCType<Mutant>(), "'You're lucky I'm on your side.'");
-            Add("Nurse", NPCID.Nurse, "'Show me where it hurts.'");
-            Add("Painter", NPCID.Painter,
-                "'I know the difference between turquoise and blue-green. But I won't tell you.'");
-            Add("PartyGirl", NPCID.PartyGirl, "'We have to talk. It's... it's about parties.'");
-            Add("Pirate", NPCID.Pirate, "'Stay off me booty, ya scallywag!'");
-            Add("SantaClaus", NPCID.SantaClaus, "'What? You thought I wasn't real?'");
-            Add("SkeletonMerchant", NPCID.SkeletonMerchant,
-                "'You would not believe some of the things people throw at me... Wanna buy some of it?'");
+            Add("Abominationn", ModContent.NPCType<Abominationn>());
+            Add("Angler", NPCID.Angler);
+            Add("ArmsDealer", NPCID.ArmsDealer);
+            Add("Clothier", NPCID.Clothier);
+            Add("Cyborg", NPCID.Cyborg);
+            Add("Demolitionist", NPCID.Demolitionist);
+            Add("Deviantt", ModContent.NPCType<Deviantt>());
+            Add("Dryad", NPCID.Dryad);
+            Add("DyeTrader", NPCID.DyeTrader);
+            Add("GoblinTinkerer", NPCID.GoblinTinkerer);
+            Add("Golfer", NPCID.Golfer);
+            Add("Guide", NPCID.Guide);
+            Add("LumberJack", ModContent.NPCType<LumberJack>());
+            Add("Mechanic", NPCID.Mechanic);
+            Add("Merchant", NPCID.Merchant);
+            Add("Mutant", ModContent.NPCType<Mutant>());
+            Add("Nurse", NPCID.Nurse);
+            Add("Painter", NPCID.Painter);
+            Add("PartyGirl", NPCID.PartyGirl);
+            Add("Pirate", NPCID.Pirate);
+            Add("SantaClaus", NPCID.SantaClaus);
+            Add("SkeletonMerchant", NPCID.SkeletonMerchant);
             //if (ModLoader.TryGetMod("FargowiltasSouls", out Mod fargoSouls))
-            Add("Squirrel", ModContent.NPCType<Squirrel>(), "*squeak*");
-            Add("Steampunker", NPCID.Steampunker, "'Show me some gears!'");
-            Add("Stylist", NPCID.Stylist, "'Did you even try to brush your hair today?'");
-            Add("Tavernkeep", NPCID.DD2Bartender, "'What am I doing here...'");
-            Add("TaxCollector", NPCID.TaxCollector, "'You again? Suppose you want more money!?'");
-            Add("TravellingMerchant", NPCID.TravellingMerchant,
-                "'I sell wares from places that might not even exist!'");
-            Add("Truffle", NPCID.Truffle, "'Everyone in this town feels a bit off.'");
-            Add("WitchDoctor", NPCID.WitchDoctor, "'Which doctor am I? The Witch Doctor am I.'");
-            Add("Wizard", NPCID.Wizard, "'Want me to pull a coin from behind your ear? No? Ok.'");
+            Add("Squirrel", ModContent.NPCType<Squirrel>());
+            Add("Steampunker", NPCID.Steampunker);
+            Add("Stylist", NPCID.Stylist);
+            Add("Tavernkeep", NPCID.DD2Bartender);
+            Add("TaxCollector", NPCID.TaxCollector);
+            Add("TravellingMerchant", NPCID.TravellingMerchant);
+            Add("Truffle", NPCID.Truffle);
+            Add("WitchDoctor", NPCID.WitchDoctor);
+            Add("Wizard", NPCID.Wizard);
 
-            Add("Zoologist", NPCID.BestiaryGirl, "'I love animals, like, a lot!'");
-            Add("Princess", NPCID.Princess, "'Pink is the best color anyone could ask for!'");
+            Add("Zoologist", NPCID.BestiaryGirl);
+            Add("Princess", NPCID.Princess);
 
             //town pets
-            Add("TownDog", NPCID.TownDog, "'Woof!'");
-            Add("TownCat", NPCID.TownCat, "'Meow!'");
-            Add("TownBunny", NPCID.TownBunny, "'*Bunny noises*'");
+            Add("TownDog", NPCID.TownDog);
+            Add("TownCat", NPCID.TownCat);
+            Add("TownBunny", NPCID.TownBunny);
+            //town slimes
+            Add("NerdySlime", NPCID.TownSlimeBlue);
+            Add("CoolSlime", NPCID.TownSlimeGreen);
+            Add("ElderSlime", NPCID.TownSlimeOld);
+            Add("ClumsySlime", NPCID.TownSlimePurple);
+            Add("DivaSlime", NPCID.TownSlimeRainbow);
+            Add("SurlySlime", NPCID.TownSlimeRed);
+            Add("MysticSlime", NPCID.TownSlimeYellow);
+            Add("SquireSlime", NPCID.TownSlimeCopper);
         }
 
-        public static void Add(string internalName, int id, string quote)
+        public static void Add(string internalName, int id)
         {
-            CaughtNPCItem item = new(internalName, id, quote);
+            CaughtNPCItem item = new(internalName, id);
             Fargowiltas.Instance.AddContent(item);
             CaughtTownies.Add(id, item.Type);
         }

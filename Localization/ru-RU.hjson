@@ -305,6 +305,7 @@ Mods: {
 			EvilWood: дерево биомов зла
 			CommonFish: обычная рыба
 			CaughtNPC: пойманный городской НИП
+			// CaughtSlime: Caught Town Slime
 			ArmoredBonesBanner: знамя бронированного скелета
 			FoodT2: еда полного удовлетворения
 			FoodT3: еда изысканного удовлетворения
@@ -2435,6 +2436,46 @@ Mods: {
 			CrabSizedGlasses: {
 				DisplayName: Крабовые очки
 				Tooltip: Призывает крутого краба
+			}
+
+			NerdySlime: {
+				// DisplayName: Nerdy Slime
+				// Tooltip: "'Burble bubble? Hrm!'"
+			}
+
+			CoolSlime: {
+				// DisplayName: Cool Slime
+				// Tooltip: "'Yo, slurp glurp!'"
+			}
+
+			ElderSlime: {
+				// DisplayName: Elder Slime
+				// Tooltip: "'Poot... ahem!'"
+			}
+
+			ClumsySlime: {
+				// DisplayName: Clumsy Slime
+				// Tooltip: "'*Awkward Silence*'"
+			}
+
+			DivaSlime: {
+				// DisplayName: Diva Slime
+				// Tooltip: "'Sprinkle, tinkle!'"
+			}
+
+			SurlySlime: {
+				// DisplayName: Surly Slime
+				// Tooltip: "'Hiss! Gargle! Grrrrr...'"
+			}
+
+			MysticSlime: {
+				// DisplayName: Mystic Slime
+				// Tooltip: "'Blobra Kaslobra!'"
+			}
+
+			SquireSlime: {
+				// DisplayName: Squire Slime
+				// Tooltip: "'Squish 'n sploink!'"
 			}
 		}
 
