@@ -98,7 +98,7 @@ namespace Fargowiltas.Items.CaughtNPCs
 
         public override bool? UseItem(Player player)
         {
-            return true;
+            return null;
         }
 
         public static void RegisterItems()
