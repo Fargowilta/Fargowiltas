@@ -70,10 +70,6 @@ namespace Fargowiltas.Projectiles
 
             Projectile.direction = Projectile.spriteDirection = MathF.Sign(player.Center.X - Projectile.Center.X);
 
-            int num113 = Dust.NewDust(new Vector2(Projectile.Center.X - Projectile.direction * (Projectile.width / 2), Projectile.Center.Y + Projectile.height / 2), Projectile.width, 6, DustID.Snow, 0f, 0f, 0, default, 1f);
-            Main.dust[num113].noGravity = true;
-            Main.dust[num113].velocity *= 0.3f;
-            Main.dust[num113].noLight = true;
         }
         public override bool PreDraw(ref Color lightColor)
         {
