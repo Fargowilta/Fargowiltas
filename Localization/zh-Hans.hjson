@@ -313,6 +313,7 @@ Mods: {
 			EvilWood: 邪恶木头
 			CommonFish: 普通鱼
 			CaughtNPC: 被抓捕的城镇NPC
+			// CaughtSlime: Caught Town Slime
 			ArmoredBonesBanner: 装甲骷髅旗帜
 			FoodT2: 二级饱食食物
 			FoodT3: 三级饱食食物
@@ -2444,6 +2445,46 @@ Mods: {
 			CrabSizedGlasses: {
 				// DisplayName: Crab-Sized Glasses
 				// Tooltip: Summons a cool crab
+			}
+
+			NerdySlime: {
+				// DisplayName: Nerdy Slime
+				// Tooltip: "'Burble bubble? Hrm!'"
+			}
+
+			CoolSlime: {
+				// DisplayName: Cool Slime
+				// Tooltip: "'Yo, slurp glurp!'"
+			}
+
+			ElderSlime: {
+				// DisplayName: Elder Slime
+				// Tooltip: "'Poot... ahem!'"
+			}
+
+			ClumsySlime: {
+				// DisplayName: Clumsy Slime
+				// Tooltip: "'*Awkward Silence*'"
+			}
+
+			DivaSlime: {
+				// DisplayName: Diva Slime
+				// Tooltip: "'Sprinkle, tinkle!'"
+			}
+
+			SurlySlime: {
+				// DisplayName: Surly Slime
+				// Tooltip: "'Hiss! Gargle! Grrrrr...'"
+			}
+
+			MysticSlime: {
+				// DisplayName: Mystic Slime
+				// Tooltip: "'Blobra Kaslobra!'"
+			}
+
+			SquireSlime: {
+				// DisplayName: Squire Slime
+				// Tooltip: "'Squish 'n sploink!'"
 			}
 		}
 

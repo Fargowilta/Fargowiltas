@@ -305,6 +305,7 @@ Mods: {
 			EvilWood: Evil Wood
 			CommonFish: Common Fish
 			CaughtNPC: Caught Town NPC
+			CaughtSlime: Caught Town Slime
 			ArmoredBonesBanner: Armored Bones Banner
 			FoodT2: Plenty Satisfying Food
 			FoodT3: Exquisitively Stuffing Food
@@ -2434,6 +2435,46 @@ Mods: {
 			CrabSizedGlasses: {
 				DisplayName: Crab-Sized Glasses
 				Tooltip: Summons a cool crab
+			}
+
+			NerdySlime: {
+				DisplayName: Nerdy Slime
+				Tooltip: "'Burble bubble? Hrm!'"
+			}
+
+			CoolSlime: {
+				DisplayName: Cool Slime
+				Tooltip: "'Yo, slurp glurp!'"
+			}
+
+			ElderSlime: {
+				DisplayName: Elder Slime
+				Tooltip: "'Poot... ahem!'"
+			}
+
+			ClumsySlime: {
+				DisplayName: Clumsy Slime
+				Tooltip: "'*Awkward Silence*'"
+			}
+
+			DivaSlime: {
+				DisplayName: Diva Slime
+				Tooltip: "'Sprinkle, tinkle!'"
+			}
+
+			SurlySlime: {
+				DisplayName: Surly Slime
+				Tooltip: "'Hiss! Gargle! Grrrrr...'"
+			}
+
+			MysticSlime: {
+				DisplayName: Mystic Slime
+				Tooltip: "'Blobra Kaslobra!'"
+			}
+
+			SquireSlime: {
+				DisplayName: Squire Slime
+				Tooltip: "'Squish 'n sploink!'"
 			}
 		}
 
