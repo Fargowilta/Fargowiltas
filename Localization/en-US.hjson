@@ -712,7 +712,7 @@ Mods: {
 				DisplayName: Boom Shuriken
 				Tooltip:
 					'''
-					Rapid firing explosives
+					Instantly explodes when hitting tiles, breaking blocks
 					Uses your best pickaxe's mining power and speed, and scales with mining speed bonuses
 					'The fastest way to dig through anything is always to blow it up!'
 					'''
