@@ -52,7 +52,6 @@ namespace Fargowiltas.Items.Tiles
                 .AddIngredient(ItemID.TeaKettle)
                 .AddRecipeGroup(RecipeGroups.AnyTombstone)
                 .AddRecipeGroup(RecipeGroups.AnyDemonAltar)
-                .AddTile(TileID.WorkBenches)
                 .Register();
         }
     }
