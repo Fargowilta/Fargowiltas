@@ -65,7 +65,7 @@ namespace Fargowiltas.Items.Tiles
                 .AddIngredient(ItemID.LihzahrdFurnace)
                 .AddIngredient(ItemID.LunarCraftingStation)
                 .AddIngredient(ItemID.LunarBar, 25)
-                .AddTile(TileID.DemonAltar)
+                //.AddTile(TileID.DemonAltar)
                 .Register();
 
             if (ModLoader.TryGetMod("MagicStorage", out Mod magicStorage))
@@ -73,7 +73,7 @@ namespace Fargowiltas.Items.Tiles
                 CreateRecipe()
                     .AddIngredient(magicStorage.Find<ModItem>("CombinedStations4Item").Type)
                     .AddIngredient(ItemID.LunarBar, 25)
-                    .AddTile(TileID.DemonAltar)
+                    //.AddTile(TileID.DemonAltar)
                     .Register();
             }
         }
