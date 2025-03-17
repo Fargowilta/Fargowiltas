@@ -305,7 +305,7 @@ Mods: {
 			EvilWood: дерево биомов зла
 			CommonFish: обычная рыба
 			CaughtNPC: пойманный городской НИП
-			// CaughtSlime: Caught Town Slime
+			CaughtSlime: пойманный городской слизень
 			ArmoredBonesBanner: знамя бронированного скелета
 			FoodT2: еда полного удовлетворения
 			FoodT3: еда изысканного удовлетворения
@@ -712,7 +712,7 @@ Mods: {
 				DisplayName: Взрывной сюрикен
 				Tooltip:
 					'''
-					Скорострельная взрывчатка
+					Взрывается при контакте с блоками, разрушая их
 					Соответствует мощности и скорость вашей самой сильной кирки
 					Скорость использования увеличивается с вашими бонусами к скорости добычи
 					«Самый быстрый способ через что-то прокопать — взорвать это!»
@@ -2439,43 +2439,43 @@ Mods: {
 			}
 
 			NerdySlime: {
-				// DisplayName: Nerdy Slime
-				// Tooltip: "'Burble bubble? Hrm!'"
+				DisplayName: Слизень-задрот
+				Tooltip: «Бупль-глупль? Хрм!»
 			}
 
 			CoolSlime: {
-				// DisplayName: Cool Slime
-				// Tooltip: "'Yo, slurp glurp!'"
+				DisplayName: Крутой слизень
+				Tooltip: «Э, буль-бэ!»
 			}
 
 			ElderSlime: {
-				// DisplayName: Elder Slime
-				// Tooltip: "'Poot... ahem!'"
+				DisplayName: Слизень-старейшина
+				Tooltip: «Пууу... фу!»
 			}
 
 			ClumsySlime: {
-				// DisplayName: Clumsy Slime
-				// Tooltip: "'*Awkward Silence*'"
+				DisplayName: Неуклюжий слизень
+				Tooltip: «*Странная тишина*»
 			}
 
 			DivaSlime: {
-				// DisplayName: Diva Slime
-				// Tooltip: "'Sprinkle, tinkle!'"
+				DisplayName: Слизень-дива
+				Tooltip: «Мульки-бульки!»
 			}
 
 			SurlySlime: {
-				// DisplayName: Surly Slime
-				// Tooltip: "'Hiss! Gargle! Grrrrr...'"
+				DisplayName: Сердитый слизень
+				Tooltip: «Сссс! Глуль! Грр...»
 			}
 
 			MysticSlime: {
-				// DisplayName: Mystic Slime
-				// Tooltip: "'Blobra Kaslobra!'"
+				DisplayName: Таинственный слизень
+				Tooltip: «Буля-кабуля!»
 			}
 
 			SquireSlime: {
-				// DisplayName: Squire Slime
-				// Tooltip: "'Squish 'n sploink!'"
+				DisplayName: Слизень-оруженосец
+				Tooltip: «Шмульк-бубуль!»
 			}
 		}
 
