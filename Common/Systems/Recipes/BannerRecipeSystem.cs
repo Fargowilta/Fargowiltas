@@ -342,9 +342,9 @@ namespace Fargowiltas.Common.Systems.Recipes
             AddBannerToItemRecipe(ItemID.ChaosElementalBanner, ItemID.ApplePie, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.IlluminantSlimeBanner, ItemID.ApplePie, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.IlluminantBatBanner, ItemID.ApplePie, conditions: Condition.Hardmode);
-            AddBannerToItemRecipe(ItemID.EaterofSoulsBanner, ItemID.Burger, conditions: Condition.Hardmode);
-            AddBannerToItemRecipe(ItemID.GraniteGolemBanner, ItemID.Spaghetti, conditions: Condition.Hardmode);
-            AddBannerToItemRecipe(ItemID.GraniteFlyerBanner, ItemID.Spaghetti, conditions: Condition.Hardmode);
+            AddBannerToItemRecipe(ItemID.EaterofSoulsBanner, ItemID.Burger);
+            AddBannerToItemRecipe(ItemID.GraniteGolemBanner, ItemID.Spaghetti);
+            AddBannerToItemRecipe(ItemID.GraniteFlyerBanner, ItemID.Spaghetti);
             AddBannerToItemRecipe(ItemID.IcyMermanBanner, ItemID.Milkshake, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.IceTortoiseBanner, ItemID.Milkshake, conditions: Condition.Hardmode);
 
