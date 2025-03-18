@@ -150,9 +150,16 @@ namespace Fargowiltas.Common.Systems.Recipes
             RecipeHelper.CreateSimpleRecipe(ItemID.FishingSeaweed, ItemID.Seaweed, TileID.LivingLoom, ingredientAmount: 5, disableDecraft: true);
             RecipeHelper.CreateSimpleRecipe(ItemID.Deathweed, ItemID.AbigailsFlower, TileID.Tombstones, ingredientAmount: 5, disableDecraft: true, conditions: Condition.InGraveyard);
 
-            RecipeHelper.CreateSimpleRecipe(ItemID.EnchantedSword, ItemID.Terragrim, TileID.CrystalBall, disableDecraft: true, conditions: Condition.Hardmode);
 
-            var recipe = Recipe.Create(ItemID.GemSquirrelAmber);
+            var recipe = Recipe.Create(ItemID.Terragrim);
+            recipe.AddIngredient(ItemID.EnchantedSword, 1);
+            recipe.AddIngredient(ItemID.FallenStar, 3);
+            recipe.AddIngredient(ItemID.Diamond, 3);
+            recipe.AddTile(TileID.DemonAltar);
+            recipe.DisableDecraft();
+            recipe.Register();
+
+            recipe = Recipe.Create(ItemID.GemSquirrelAmber);
             recipe.AddRecipeGroup(RecipeGroups.AnySquirrel);
             recipe.AddIngredient(ItemID.Amber, 5);
             recipe.AddTile(TileID.Solidifier);
