@@ -23,23 +23,19 @@ namespace Fargowiltas.Items.Summons.Deviantt
 
         public override void AddRecipes()
         {
-            if (ModContent.TryFind("Fargowiltas/Deviantt", out ModItem modItem))
+            void Recipe(int fruit)
             {
-                void Recipe(int fruit)
-                {
-                    CreateRecipe()
-                        .AddIngredient(fruit)
-                        .AddIngredient(ItemID.JungleSpores, 4)
-                        .AddIngredient(ItemID.Vine, 2)
-                        .AddIngredient(ItemID.JungleGrassSeeds, 2)
-                        .AddIngredient(modItem.Type)
-                        .AddTile(TileID.Anvils)
-                        .Register();
-                }
-
-                Recipe(ItemID.Mango);
-                Recipe(ItemID.Pineapple);
+                CreateRecipe()
+                    .AddIngredient(fruit)
+                    .AddIngredient(ItemID.JungleSpores, 4)
+                    .AddIngredient(ItemID.Vine, 2)
+                    .AddIngredient(ItemID.JungleGrassSeeds, 2)
+                    .AddTile(TileID.Anvils)
+                    .Register();
             }
+
+            Recipe(ItemID.Mango);
+            Recipe(ItemID.Pineapple);
         }
     }
 }
