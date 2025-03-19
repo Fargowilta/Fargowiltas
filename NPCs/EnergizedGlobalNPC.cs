@@ -170,7 +170,8 @@ namespace Fargowiltas.NPCs
                         break;
 
                     case NPCID.DungeonGuardian:
-                        //npc.lifeMax = baseHealth;
+                        npc.lifeMax += 100 * Fargowiltas.SwarmItemsUsed;
+                        validBoss = false;
                         Fargowiltas.SwarmNoHyperActive = true;
                         break;
 
