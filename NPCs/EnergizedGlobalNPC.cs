@@ -26,6 +26,7 @@ namespace Fargowiltas.NPCs
     {
         public override bool InstancePerEntity => true;
         public bool SwarmActive(NPC npc) => npc.GetGlobalNPC<FargoGlobalNPC>().SwarmActive;
+        public bool SwarmHealth = false;
 
         internal static int[] Bosses = [ 
             NPCID.KingSlime,
@@ -248,6 +249,7 @@ namespace Fargowiltas.NPCs
                 if (validBoss && Fargowiltas.SwarmItemsUsed > 1)
                 {
                     npc.lifeMax *= Fargowiltas.SwarmItemsUsed;
+                    SwarmHealth = true;
                 }
 
                 int minDamage = Fargowiltas.SwarmMinDamage * 2;
