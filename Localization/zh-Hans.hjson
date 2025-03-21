@@ -259,8 +259,8 @@ Mods: {
 				}
 
 				ExactTooltips: {
-					// Label: "[i:171] Tooltips display exact item speed and knockback"
-					// Tooltip: Item speed is listed in use time, meaning bigger number = slower.
+					Label: "[i:171] 工具提示显示精确物品使用速度和击退"
+					Tooltip: 物品使用速度以使用时间表示，数字越大，使用速度越慢
 				}
 
 				HideUnlimitedBuffs: {
@@ -313,12 +313,12 @@ Mods: {
 			EvilWood: 邪恶木头
 			CommonFish: 普通鱼
 			CaughtNPC: 被抓捕的城镇NPC
-			// CaughtSlime: Caught Town Slime
+			CaughtSlime: 被抓捕的城镇史莱姆
 			ArmoredBonesBanner: 装甲骷髅旗帜
 			FoodT2: 二级饱食食物
 			FoodT3: 三级饱食食物
 			GemRobe: 宝石长袍
-			// Or: Or
+			Or: 或
 		}
 
 		UI: {
@@ -442,7 +442,7 @@ Mods: {
 
 			WoodDrop: {
 				DisplayName: 掉落木头
-				// Description: Mods.Fargowiltas.BuffDescription.WoodDrop
+				Description: Mods.Fargowiltas.BuffDescription.WoodDrop
 			}
 
 			BigSuckBuff: {
@@ -451,8 +451,8 @@ Mods: {
 			}
 
 			CoolCrabBuff: {
-				// DisplayName: Cool Crab
-				// Description: He thinks you should play Elden Ring
+				DisplayName: 时髦螃蟹
+				Description: 他觉得你应该游玩《艾尔登法环》
 			}
 		}
 
@@ -721,8 +721,8 @@ Mods: {
 				DisplayName: 爆炸手里剑
 				Tooltip:
 					'''
-					快速丢出爆炸手里剑
-					手里剑的破坏能力取决于背包里最强镐的镐力
+					接触物块时立即爆炸，破坏物块
+					破坏能力和使用速度取决于背包里最强镐的镐力和使用速度，使用速度还会受挖掘速度加成
 					“挖穿任何东西的最快方式永远是把它们炸飞！”
 					'''
 			}
@@ -1766,7 +1766,7 @@ Mods: {
 				Tooltip:
 					'''
 					用于合成充能召唤物
-					使用充能召唤物时，堆叠在一起的所有召唤物都会被消耗
+					使用充能召唤物时，堆叠在一起的所有召唤物都会被消耗，一次至多消耗10个
 					消耗的越多，产生的Boss就越强
 					消耗超过5个，Boss会变的更快
 					每消耗一个会掉落5个宝藏袋
@@ -1866,7 +1866,7 @@ Mods: {
 			}
 
 			OverloadSlimeCrown: {
-				DisplayName: 过载王冠
+				DisplayName: 私人皇家指令
 				Tooltip: 召唤一个充满活力的史莱姆王
 			}
 
@@ -2443,48 +2443,48 @@ Mods: {
 			}
 
 			CrabSizedGlasses: {
-				// DisplayName: Crab-Sized Glasses
-				// Tooltip: Summons a cool crab
+				DisplayName: 螃蟹尺寸的眼镜
+				Tooltip: 召唤一只时髦螃蟹
 			}
 
 			NerdySlime: {
-				// DisplayName: Nerdy Slime
-				// Tooltip: "'Burble bubble? Hrm!'"
+				DisplayName: 书呆子史莱姆
+				Tooltip: "'泡沫泡泡？嗯！'"
 			}
 
 			CoolSlime: {
-				// DisplayName: Cool Slime
-				// Tooltip: "'Yo, slurp glurp!'"
+				DisplayName: 酷酷史莱姆
+				Tooltip: "'哟，嗤喽嗤喽！'"
 			}
 
 			ElderSlime: {
-				// DisplayName: Elder Slime
-				// Tooltip: "'Poot... ahem!'"
+				DisplayName: 长者史莱姆
+				Tooltip: "'噗……嗯哼！'"
 			}
 
 			ClumsySlime: {
-				// DisplayName: Clumsy Slime
-				// Tooltip: "'*Awkward Silence*'"
+				DisplayName: 笨拙史莱姆
+				Tooltip: "'*尴尬的沉默*'"
 			}
 
 			DivaSlime: {
-				// DisplayName: Diva Slime
-				// Tooltip: "'Sprinkle, tinkle!'"
+				DisplayName: 天后史莱姆
+				Tooltip: "'嘘嘘，吁！'"
 			}
 
 			SurlySlime: {
-				// DisplayName: Surly Slime
-				// Tooltip: "'Hiss! Gargle! Grrrrr...'"
+				DisplayName: 暴躁史莱姆
+				Tooltip: "'嘘！啊忒！叽阿……'"
 			}
 
 			MysticSlime: {
-				// DisplayName: Mystic Slime
-				// Tooltip: "'Blobra Kaslobra!'"
+				DisplayName: 神秘史莱姆
+				Tooltip: "'扑哧扑哧！'"
 			}
 
 			SquireSlime: {
-				// DisplayName: Squire Slime
-				// Tooltip: "'Squish 'n sploink!'"
+				DisplayName: 侍卫史莱姆
+				Tooltip: "'咯吱咯吱！'"
 			}
 		}
 
@@ -2919,7 +2919,7 @@ Mods: {
 			WorldTokenProj.DisplayName: 世界令牌
 			InstaPondProj.DisplayName: 快速湖泊
 			MiniDirtInstabridgeProj.DisplayName: 迷你泥土平台
-			// CoolCrab.DisplayName: Cool Crab
+			CoolCrab.DisplayName: 时髦螃蟹
 		}
 
 		Tiles: {
