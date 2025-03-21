@@ -65,7 +65,7 @@ namespace Fargowiltas.NPCs
             const int k = 1000;
             const int m = k * k;
             int baseHealth = 28 * k;
-            int baseHealthHM = 275 * k;
+            int baseHealthHM = 160 * k;
             bool validBoss = true;
             if (Fargowiltas.SwarmSetDefaults)
             {
@@ -133,7 +133,7 @@ namespace Fargowiltas.NPCs
                         break;
 
                     case NPCID.Plantera:
-                        npc.lifeMax = baseHealthHM;
+                        npc.lifeMax = baseHealthHM / 2;
                         Fargowiltas.HardmodeSwarmActive = true;
                         break;
 
@@ -150,23 +150,25 @@ namespace Fargowiltas.NPCs
                     case NPCID.DukeFishron:
                         npc.lifeMax = baseHealthHM;
                         Fargowiltas.HardmodeSwarmActive = true;
+                        Fargowiltas.LateHardmodeSwarmActive = true;
                         break;
 
                     case NPCID.HallowBoss:
                         npc.lifeMax = baseHealthHM / 2;
                         Fargowiltas.HardmodeSwarmActive = true;
+                        Fargowiltas.LateHardmodeSwarmActive = true;
                         break;
 
                     case NPCID.CultistBoss:
                         npc.lifeMax = baseHealthHM / 4;
                         Fargowiltas.HardmodeSwarmActive = true;
-                        //Fargowiltas.SwarmNoHyperActive = true;
+                        Fargowiltas.LateHardmodeSwarmActive = true;
                         break;
 
                     case NPCID.MoonLordCore:
                         npc.lifeMax = baseHealthHM / 2;
                         Fargowiltas.HardmodeSwarmActive = true;
-                        //Fargowiltas.SwarmNoHyperActive = true;
+                        Fargowiltas.LateHardmodeSwarmActive = true;
                         break;
 
                     case NPCID.DungeonGuardian:
@@ -258,6 +260,8 @@ namespace Fargowiltas.NPCs
         public override bool PreAI(NPC npc)
         {
             if (Fargowiltas.SwarmNoHyperActive)
+                return true;
+            if (Fargowiltas.LateHardmodeSwarmActive && Main.GameUpdateCount % 3 == 0)
                 return true;
             if (Fargowiltas.HardmodeSwarmActive && Main.GameUpdateCount % 2 == 0)
                 return true;

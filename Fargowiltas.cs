@@ -44,6 +44,7 @@ namespace Fargowiltas
         // Swarms (Energized bosses) 
         public static bool SwarmActive;
         public static bool HardmodeSwarmActive;
+        public static bool LateHardmodeSwarmActive;
         public static bool SwarmNoHyperActive;
         public static int SwarmItemsUsed;
         public static bool SwarmSetDefaults;
