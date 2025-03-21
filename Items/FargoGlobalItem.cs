@@ -295,13 +295,25 @@ namespace Fargowiltas.Items
                 {
                     if (tooltip.Name == "Speed")
                     {
-                        tooltip.Text += $" ({item.useAnimation})";
+                        int i = tooltip.Text.IndexOf("\n");
+                        string text = $" ({item.useAnimation})";
+                        if (i >= 0 && i < tooltip.Text.Length)
+                            tooltip.Text = tooltip.Text.Insert(i, text);
+                        else
+                            tooltip.Text += text;
                     }
                     if (tooltip.Name == "Knockback")
                     {
                         float kb = Main.LocalPlayer.GetWeaponKnockback(item, item.knockBack);
                         if (kb > 0 && kb < 1000) // to make it not show when dragonlens does whatever the fuck causes it to skyrocket to infinity
-                            tooltip.Text += $" ({(int)(Math.Round(kb * 100)) / 100f})";
+                        {
+                            int i = tooltip.Text.IndexOf("\n");
+                            string text = $" ({(int)Math.Round(kb * 100) / 100f})";
+                            if (i >= 0 && i < tooltip.Text.Length)
+                                tooltip.Text = tooltip.Text.Insert(i, text);
+                            else
+                                tooltip.Text += text;
+                        }
                     }
                 }
             }
