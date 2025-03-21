@@ -713,7 +713,8 @@ Mods: {
 				Tooltip:
 					'''
 					Instantly explodes when hitting tiles, breaking blocks
-					Uses your best pickaxe's mining power and speed, and scales with mining speed bonuses
+					Uses your best pickaxe's mining power
+					Throwing speed scales with your best pickaxe's mining speed and other mining speed bonuses
 					'The fastest way to dig through anything is always to blow it up!'
 					'''
 			}
