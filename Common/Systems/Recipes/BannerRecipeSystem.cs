@@ -458,7 +458,7 @@ namespace Fargowiltas.Common.Systems.Recipes
         private static void AddBannerToMountOrPetRecipes()
         {
             AddBannerToItemRecipe(ItemID.DesertBasiliskBanner, ItemID.AncientHorn, conditions: Condition.Hardmode);
-            AddBannerToItemRecipe(ItemID.GastropodBanner, ItemID.BlessedApple, conditions: Condition.Hardmode);
+            AddBannerToItemRecipe(ItemID.UnicornBanner, ItemID.BlessedApple, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.MimicBanner, ItemID.ToySled, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.PigronBanner, ItemID.PigronMinecart, conditions: Condition.Hardmode);
 
