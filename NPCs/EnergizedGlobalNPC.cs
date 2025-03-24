@@ -105,7 +105,7 @@ namespace Fargowiltas.NPCs
                         break;
 
                     case NPCID.WallofFlesh:
-                        npc.lifeMax = (int)(baseHealthHM * 0.4f);
+                        npc.lifeMax = (int)(baseHealth);
                         break;
 
                     case NPCID.QueenSlimeBoss:

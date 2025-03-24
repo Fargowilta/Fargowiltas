@@ -42,9 +42,9 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
             if (npcType == NPCID.WallofFlesh)
             {
-                Item.useAnimation = 20;
-                Item.useTime = 2;
-                Item.consumable = false;
+                //Item.useAnimation = 20;
+                //Item.useTime = 2;
+                //Item.consumable = false;
             }
         }
 
