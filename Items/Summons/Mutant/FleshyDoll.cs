@@ -24,6 +24,7 @@ namespace Fargowiltas.Items.Summons.Mutant
             Item.rare = ItemRarityID.Blue;
             Item.useAnimation = 30;
             Item.useTime = 30;
+            Item.rare = ItemRarityID.Blue;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.consumable = true;
         }

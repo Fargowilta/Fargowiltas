@@ -1,5 +1,6 @@
 ﻿using Fargowiltas.Items.CaughtNPCs;
 using Fargowiltas.Utilities;
+using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
@@ -10,11 +11,26 @@ namespace Fargowiltas.Common.Systems.Recipes
     public class NPCRecipeSystem : ModSystem
     {
         internal static int AnyCaughtNPC;
-
+        internal static int AnyCaughtSlime;
         public override void AddRecipeGroups()
         {
-            var group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("CaughtNPC"), CaughtNPCItem.CaughtTownies.Values.ToArray());
+            int[] townies = CaughtNPCItem.CaughtTownies.Values.ToArray();
+            int[] slimes = [ModContent.Find<ModItem>("Fargowiltas", "NerdySlime").Type, ModContent.Find<ModItem>("Fargowiltas", "CoolSlime").Type,
+            ModContent.Find<ModItem>("Fargowiltas", "ElderSlime").Type, ModContent.Find<ModItem>("Fargowiltas", "ClumsySlime").Type,
+            ModContent.Find<ModItem>("Fargowiltas", "DivaSlime").Type, ModContent.Find<ModItem>("Fargowiltas", "MysticSlime").Type,
+            ModContent.Find<ModItem>("Fargowiltas", "SurlySlime").Type, ModContent.Find<ModItem>("Fargowiltas", "SquireSlime").Type];
+
+            for (int i = 0; i < slimes.Length; i++)
+            {
+                List<int> temp = townies.ToList();
+                temp.Remove(slimes[i]);
+                townies = temp.ToArray();
+            }
+            var group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("CaughtNPC"), townies);
             AnyCaughtNPC = RecipeGroup.RegisterGroup("Fargowiltas:AnyCaughtNPC", group);
+
+            var groupSlimes = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("CaughtSlime"), slimes);
+            AnyCaughtSlime = RecipeGroup.RegisterGroup("Fargowiltas:AnyCaughtSlime", groupSlimes);
         }
 
         public override void AddRecipes()
@@ -167,6 +183,18 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.AddIngredient(ItemID.FoodPlatter);
             recipe.AddIngredient(null, "PartyGirl");
             recipe.AddTile(TileID.Furnaces);
+            recipe.DisableDecraft();
+            recipe.Register();
+
+            recipe = Recipe.Create(ItemID.Gel, 10);
+            recipe.AddRecipeGroup(AnyCaughtSlime);
+            recipe.AddTile(TileID.Solidifier);
+            recipe.DisableDecraft();
+            recipe.Register();
+
+            recipe = Recipe.Create(ItemID.PinkGel, 5);
+            recipe.AddIngredient(null, "SurlySlime");
+            recipe.AddTile(TileID.Solidifier);
             recipe.DisableDecraft();
             recipe.Register();
         }
@@ -407,7 +435,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.AddIngredient(null, "TravellingMerchant", 2);
             recipe.AddIngredient(ItemID.GoldCoin, 20);
             recipe.AddTile(TileID.TinkerersWorkbench);
-            recipe.AddCondition(Condition.DownedEowOrBoc);
+            recipe.AddCondition(Condition.SmashedShadowOrb);
             recipe.DisableDecraft();
             recipe.Register();
 

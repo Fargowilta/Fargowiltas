@@ -250,6 +250,11 @@ Mods: {
 					Tooltip: ""
 				}
 
+				ExactTooltips: {
+					Label: "[i:171] Tooltips display exact item speed and knockback"
+					Tooltip: Item speed is listed in use time, meaning bigger number = slower.
+				}
+
 				HideUnlimitedBuffs: {
 					Label: "[i:292] Hide unlimited buffs in tray"
 					Tooltip: ""
@@ -300,6 +305,7 @@ Mods: {
 			EvilWood: Evil Wood
 			CommonFish: Common Fish
 			CaughtNPC: Caught Town NPC
+			CaughtSlime: Caught Town Slime
 			ArmoredBonesBanner: Armored Bones Banner
 			FoodT2: Plenty Satisfying Food
 			FoodT3: Exquisitively Stuffing Food
@@ -434,6 +440,11 @@ Mods: {
 			BigSuckBuff: {
 				DisplayName: Big Suck
 				Description: You are sucking everything
+			}
+
+			CoolCrabBuff: {
+				DisplayName: Cool Crab
+				Description: He thinks you should play Elden Ring
 			}
 		}
 
@@ -701,8 +712,9 @@ Mods: {
 				DisplayName: Boom Shuriken
 				Tooltip:
 					'''
-					Rapid firing explosives
-					Uses your pickaxe's mining power
+					Instantly explodes when hitting tiles, breaking blocks
+					Uses your best pickaxe's mining power
+					Throwing speed scales with your best pickaxe's mining speed and other mining speed bonuses
 					'The fastest way to dig through anything is always to blow it up!'
 					'''
 			}
@@ -1331,7 +1343,7 @@ Mods: {
 			}
 
 			PinkSlimeCrown: {
-				DisplayName: Pink Slime Crown
+				DisplayName: Pink Slime Tiara
 				Tooltip: Summons Pinky
 			}
 
@@ -1746,7 +1758,7 @@ Mods: {
 				Tooltip:
 					'''
 					Used to craft energized summons
-					When used, all summons in the stack will be consumed
+					When used, all summons in the stack will be consumed, up to 10
 					The more consumed, the stronger the boss will be
 					If more than 5 are consumed, the boss is faster
 					5 Treasure Bags will drop per consumed item
@@ -1845,7 +1857,7 @@ Mods: {
 			}
 
 			OverloadSlimeCrown: {
-				DisplayName: Overloaded Crown
+				DisplayName: Personal Royal Order
 				Tooltip: Summons an energized King Slime
 			}
 
@@ -2420,6 +2432,51 @@ Mods: {
 				DisplayName: Wires Painting
 				Tooltip: Look inside
 			}
+
+			CrabSizedGlasses: {
+				DisplayName: Crab-Sized Glasses
+				Tooltip: Summons a cool crab
+			}
+
+			NerdySlime: {
+				DisplayName: Nerdy Slime
+				Tooltip: "'Burble bubble? Hrm!'"
+			}
+
+			CoolSlime: {
+				DisplayName: Cool Slime
+				Tooltip: "'Yo, slurp glurp!'"
+			}
+
+			ElderSlime: {
+				DisplayName: Elder Slime
+				Tooltip: "'Poot... ahem!'"
+			}
+
+			ClumsySlime: {
+				DisplayName: Clumsy Slime
+				Tooltip: "'*Awkward Silence*'"
+			}
+
+			DivaSlime: {
+				DisplayName: Diva Slime
+				Tooltip: "'Sprinkle, tinkle!'"
+			}
+
+			SurlySlime: {
+				DisplayName: Surly Slime
+				Tooltip: "'Hiss! Gargle! Grrrrr...'"
+			}
+
+			MysticSlime: {
+				DisplayName: Mystic Slime
+				Tooltip: "'Blobra Kaslobra!'"
+			}
+
+			SquireSlime: {
+				DisplayName: Squire Slime
+				Tooltip: "'Squish 'n sploink!'"
+			}
 		}
 
 		NPCs: {
@@ -2853,6 +2910,7 @@ Mods: {
 			WorldTokenProj.DisplayName: World Token Proj
 			InstaPondProj.DisplayName: Insta Pond Proj
 			MiniDirtInstabridgeProj.DisplayName: Mini Dirt Instabridge Proj
+			CoolCrab.DisplayName: Cool Crab
 		}
 
 		Tiles: {

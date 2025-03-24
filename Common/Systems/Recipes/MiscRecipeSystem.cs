@@ -1,4 +1,6 @@
 ﻿using Fargowiltas.Items.Summons;
+using Fargowiltas.Items.Summons.Mutant;
+using Fargowiltas.Items.Summons.VanillaCopy;
 using Fargowiltas.Utilities;
 using System;
 using System.Collections.Generic;
@@ -42,7 +44,7 @@ namespace Fargowiltas.Common.Systems.Recipes
                 }
             }
             //disable shimmer decraft for all summon items
-            foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.createItem.ModItem != null && recipe.createItem.ModItem is BaseSummon))
+            foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.createItem.ModItem != null && (recipe.createItem.ModItem is BaseSummon || recipe.createItem.ModItem is FleshyDoll || recipe.createItem.ModItem is MechEye)))
             {
                 recipe.DisableDecraft();
             }
@@ -148,9 +150,16 @@ namespace Fargowiltas.Common.Systems.Recipes
             RecipeHelper.CreateSimpleRecipe(ItemID.FishingSeaweed, ItemID.Seaweed, TileID.LivingLoom, ingredientAmount: 5, disableDecraft: true);
             RecipeHelper.CreateSimpleRecipe(ItemID.Deathweed, ItemID.AbigailsFlower, TileID.Tombstones, ingredientAmount: 5, disableDecraft: true, conditions: Condition.InGraveyard);
 
-            RecipeHelper.CreateSimpleRecipe(ItemID.EnchantedSword, ItemID.Terragrim, TileID.CrystalBall, disableDecraft: true, conditions: Condition.Hardmode);
 
-            var recipe = Recipe.Create(ItemID.GemSquirrelAmber);
+            var recipe = Recipe.Create(ItemID.Terragrim);
+            recipe.AddIngredient(ItemID.EnchantedSword, 1);
+            recipe.AddIngredient(ItemID.FallenStar, 3);
+            recipe.AddIngredient(ItemID.Diamond, 3);
+            recipe.AddTile(TileID.DemonAltar);
+            recipe.DisableDecraft();
+            recipe.Register();
+
+            recipe = Recipe.Create(ItemID.GemSquirrelAmber);
             recipe.AddRecipeGroup(RecipeGroups.AnySquirrel);
             recipe.AddIngredient(ItemID.Amber, 5);
             recipe.AddTile(TileID.Solidifier);
@@ -340,6 +349,32 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.AddTile(TileID.Solidifier);
             recipe.DisableDecraft();
             recipe.Register();
+
+            recipe = Recipe.Create(ItemID.MusicBox);
+            recipe.AddIngredient(ItemID.Wood, 35);
+            recipe.AddIngredient(ItemID.Ruby, 1);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.DisableDecraft();
+            recipe.Register();
+
+            recipe = Recipe.Create(ItemID.WetBomb);
+            recipe.AddIngredient(ItemID.Bomb, 1);
+            recipe.AddIngredient(ItemID.WaterBucket, 1);
+            recipe.AddIngredient(ItemID.Glass, 10);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.DisableDecraft();
+            recipe.Register();
+
+            List<int> familiars = [ItemID.FamiliarWig, ItemID.FamiliarShirt, ItemID.FamiliarPants];
+            List<int> familiarStations = [TileID.LivingLoom, TileID.Loom, TileID.Loom];
+            for (int i = 0; i < familiars.Count; i++)
+            {
+                recipe = Recipe.Create(familiars[i]);
+                recipe.AddIngredient(ItemID.Silk, 12);
+                recipe.AddTile(familiarStations[i]);
+                recipe.DisableDecraft();
+                recipe.Register();
+            }
         }
     }
 }

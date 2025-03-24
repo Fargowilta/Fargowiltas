@@ -18,6 +18,7 @@ using System.Linq;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 
 namespace Fargowiltas.NPCs
 {
@@ -287,6 +288,10 @@ namespace Fargowiltas.NPCs
             randomOffset = 2f;
         }
 
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ItemType<CrabSizedGlasses>(), 10));
+        }
         public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)

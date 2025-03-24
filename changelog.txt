@@ -1,2 +1,28 @@
 NEW UPDATE - V {ModVersion}
-Updated and added new Abominationn dialogue
+Added config to display exact item speed and knockback in tooltip
+Added Town Slime caught NPCs and recipes for Gel and Pink Gel from them
+Added Crab-Sized Glasses, dropped by killing Abominationn NPC
+
+Removed Wall of Flesh bag -> Emblems recipes, as they are redundant with Emblem shimmers
+New recipe: Queen Bee bag -> Honey Comb
+Revolver recipe condition post evil boss -> post shadow orb ( vanilla condition )
+Added Music Box recipe; Made all music boxes sell less to compensate
+Added recipes for Familiar vanity: 12 Silk per piece at a Loom (wig at Living Loom)
+Added Wet Bomb recipe
+Removed Deviantt item from Eggplant recipe
+Spaghetti and Burger banner recipes no longer require Hardmode
+Tweaked the cost of several Crate recipes, mostly increased
+Enchanted Sword -> Terragrim recipe is now pre-Hardmode, but takes Stars and Diamond
+
+Boom Shurkens:
+-No longer deal self damage
+-Use speed now scales with mining speed, decreased base use speed
+
+Reduced the health of several Energized bosses
+Energizer summons can only consume up to 10 items at a time
+Reduced the AI speed of Energized Empress of Light, Duke Fishron, Cultist and Moon Lord
+
+Resprited several items
+Caught NPCs no longer use 2 items per use
+Fixed Brittle Bone not counting as ammo besides the ability to be fired
+made elemental assembler and the crucible of the cosmos require no crafting station

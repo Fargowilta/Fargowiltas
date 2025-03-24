@@ -1,4 +1,5 @@
 ﻿using Fargowiltas.Projectiles.Explosives;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -23,8 +24,8 @@ namespace Fargowiltas.Items.Explosives
             Item.noUseGraphic = true;
             Item.scale = 0.75f;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.useTime = 10;
-            Item.useAnimation = 10;
+            Item.useTime = 40;
+            Item.useAnimation = 40;
             Item.knockBack = 3f;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
@@ -33,7 +34,18 @@ namespace Fargowiltas.Items.Explosives
             Item.shoot = ModContent.ProjectileType<ShurikenProj>();
             Item.shootSpeed = 11f;
         }
-
+        public override float UseSpeedMultiplier(Player player)
+        {
+            if (player.GetBestPickaxe() == null)
+                return base.UseSpeedMultiplier(player);
+            float pickSpeed = player.GetBestPickaxe().useTime;
+            float playerSpeed = player.pickSpeed;
+            float itemTime = pickSpeed * playerSpeed;
+            if (itemTime <= 0)
+                itemTime = 1;
+            float mult = 7f / itemTime;
+            return mult;
+        }
         public override void AddRecipes()
         {
             CreateRecipe(10)

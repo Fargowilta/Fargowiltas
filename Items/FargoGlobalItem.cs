@@ -288,6 +288,35 @@ namespace Fargowiltas.Items
                     tooltips.Add(line);
                 }
             }
+
+            if (FargoClientConfig.Instance.ExactTooltips)
+            {
+                foreach (var tooltip in tooltips)
+                {
+                    if (tooltip.Name == "Speed")
+                    {
+                        int i = tooltip.Text.IndexOf("\n");
+                        string text = $" ({item.useAnimation})";
+                        if (i >= 0 && i < tooltip.Text.Length)
+                            tooltip.Text = tooltip.Text.Insert(i, text);
+                        else
+                            tooltip.Text += text;
+                    }
+                    if (tooltip.Name == "Knockback")
+                    {
+                        float kb = Main.LocalPlayer.GetWeaponKnockback(item, item.knockBack);
+                        if (kb > 0 && kb < 1000) // to make it not show when dragonlens does whatever the fuck causes it to skyrocket to infinity
+                        {
+                            int i = tooltip.Text.IndexOf("\n");
+                            string text = $" ({(int)Math.Round(kb * 100) / 100f})";
+                            if (i >= 0 && i < tooltip.Text.Length)
+                                tooltip.Text = tooltip.Text.Insert(i, text);
+                            else
+                                tooltip.Text += text;
+                        }
+                    }
+                }
+            }
         }
 
         public override void SetDefaults(Item item)
@@ -298,6 +327,11 @@ namespace Fargowiltas.Items
                 {
                     item.maxStack = 9999;
                 }
+            }
+
+            if (item.type == ItemID.MusicBox || item.Name.Contains(Language.GetTextValue($"ItemName.MusicBox")))
+            {
+                item.value = Item.sellPrice(0, 0, 22, 50);
             }
         }
 

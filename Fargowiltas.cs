@@ -44,6 +44,7 @@ namespace Fargowiltas
         // Swarms (Energized bosses) 
         public static bool SwarmActive;
         public static bool HardmodeSwarmActive;
+        public static bool LateHardmodeSwarmActive;
         public static bool SwarmNoHyperActive;
         public static int SwarmItemsUsed;
         public static bool SwarmSetDefaults;
@@ -482,13 +483,10 @@ namespace Fargowiltas
                                 throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[2] must be of type int");
                             if (args[3].GetType() != typeof(string))
                                 throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[3] must be of type string");
-                            if (args[4].GetType() != typeof(string))
-                                throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[4] must be of type string");
                             string internalName = (string)args[1];
                             int id = (int)args[2];
-                            string quote = (string)args[3];
-                            string modName = (string)args[4];
-                            CaughtNPCItem item = new(internalName, id, quote);
+                            string modName = (string)args[3];
+                            CaughtNPCItem item = new(internalName, id);
                             ModLoader.GetMod(modName).AddContent(item);
                             CaughtNPCItem.CaughtTownies.Add(id, item.Type);
                         }
