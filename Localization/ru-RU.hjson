@@ -209,6 +209,8 @@ Mods: {
 					Unlimited: Бесконечные
 					StatMultipliers: Множители показателей
 					Misc: Прочее
+					// World: World
+					// Fishing: Fishing
 				}
 
 				EnemyHealth: {
@@ -288,6 +290,11 @@ Mods: {
 				MultiplayerDeathSpectate: {
 					Label: Наблюдение за живыми игроками в мультиплеере
 					Tooltip: ""
+				}
+
+				Headers: {
+					// UserInterface: User Interface
+					// Misc: Miscellaneous
 				}
 			}
 

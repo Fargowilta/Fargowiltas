@@ -15,6 +15,8 @@ namespace Fargowiltas.Common.Configs
         }
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
+        [Header("$Mods.Fargowiltas.Configs.FargoClientConfig.Headers.UserInterface")]
+
         [DefaultValue(true)]
         public bool ExpandedTooltips;
 
@@ -23,6 +25,16 @@ namespace Fargowiltas.Common.Configs
 
         [DefaultValue(false)]
         public bool HideUnlimitedBuffs;
+
+        [DefaultValue(0.75f)]
+        [Slider]
+        public float DebuffOpacity;
+
+        [DefaultValue(0.75f)]
+        [Slider]
+        public float DebuffFaderRatio;
+
+        [Header("$Mods.Fargowiltas.Configs.FargoClientConfig.Headers.Misc")]
 
         [DefaultValue(false)]
         public bool DoubleTapDashDisabled;
@@ -36,15 +48,6 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(1f)]
         [Slider]
         public float TransparentFriendlyProjectiles;
-
-        [DefaultValue(0.75f)]
-        [Slider]
-        public float DebuffOpacity;
-
-        [DefaultValue(0.75f)]
-        [Slider]
-        public float DebuffFaderRatio;
-        
 
         [OnDeserialized]
         internal void OnDeserializedMethod(StreamingContext context)

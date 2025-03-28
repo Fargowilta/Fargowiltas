@@ -209,6 +209,8 @@ Mods: {
 					Unlimited: Unlimited
 					StatMultipliers: Stat Multipliers
 					Misc: Miscellaneous
+					World: World
+					Fishing: Fishing
 				}
 
 				EnemyHealth: {
@@ -286,8 +288,13 @@ Mods: {
 				}
 
 				MultiplayerDeathSpectate: {
-					Label: Multiplayer Death Spectate
+					Label: "[i:3230] Multiplayer Death Spectate"
 					Tooltip: ""
+				}
+
+				Headers: {
+					UserInterface: User Interface
+					Misc: Miscellaneous
 				}
 			}
 
@@ -299,7 +306,7 @@ Mods: {
 			}
 
 			Common.CanSpawn: Can Spawn
-		}
+			}
 
 		RecipeGroups: {
 			EvilWood: Evil Wood

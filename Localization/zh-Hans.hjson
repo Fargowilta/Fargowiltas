@@ -209,6 +209,8 @@ Mods: {
 					Unlimited: 无限效果
 					StatMultipliers: 数据倍率
 					Misc: 杂项
+					// World: World
+					// Fishing: Fishing
 				}
 
 				EnemyHealth: {
@@ -296,6 +298,11 @@ Mods: {
 				MultiplayerDeathSpectate: {
 					Label: 多人死亡观战
 					Tooltip: ""
+				}
+
+				Headers: {
+					// UserInterface: User Interface
+					// Misc: Miscellaneous
 				}
 			}
 

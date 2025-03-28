@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Reflection;
 using System.Runtime.Serialization;
 using Terraria;
 using Terraria.Localization;
@@ -20,6 +21,16 @@ namespace Fargowiltas.Common.Configs
 
         [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.TownNPCs")]
         [DefaultValue(true)]
+        [ReloadRequired]
+        public bool CatchNPCs;
+
+        [DefaultValue(true)]
+        public bool NPCSales;
+
+        [DefaultValue(true)]
+        public bool SaferBoundNPCs;
+
+        [DefaultValue(true)]
         public bool Mutant;
 
         [DefaultValue(true)]
@@ -34,16 +45,6 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(true)]
         public bool Squirrel;
 
-        [DefaultValue(true)]
-        [ReloadRequired]
-        public bool CatchNPCs;
-
-        [DefaultValue(true)]
-        public bool NPCSales;
-
-        [DefaultValue(true)]
-        public bool SaferBoundNPCs;
-
         [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Seasons")]
         [DefaultValue(0)]
         [DrawTicks]
@@ -53,7 +54,7 @@ namespace Fargowiltas.Common.Configs
         [DrawTicks]
         public SeasonSelections Christmas;
 
-        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Seeds")]
+        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.World")]
         [DefaultValue(0)]
         [DrawTicks]
         public SeasonSelections DrunkWorld;
@@ -73,6 +74,24 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(0)]
         [DrawTicks]
         public SeasonSelections ConstantWorld;
+
+        [DefaultValue(true)]
+        public bool Fountains;
+
+        [DefaultValue(true)]
+        public bool PermanentStationsNearby;
+
+        [DefaultValue(true)]
+        public bool TorchGodEX;
+
+        [DefaultValue(true)]
+        public bool PylonsIgnoreEvents;
+
+        [DefaultValue(false)]
+        public bool SafeTerraformers;
+
+        [DefaultValue(false)]
+        public bool DisableTombstones;
 
         [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Unlimited")]
         [DefaultValue(true)]
@@ -111,18 +130,23 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(true)]
         public bool BossApplyToAllWhenAlive;
 
-        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Misc")]
-
         [Range(0, maxExtraBuffSlots)]
         [DefaultValue(22)]
         [ReloadRequired]
         public uint ExtraBuffSlots;
+
+        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Fishing")]
 
         [DefaultValue(true)]
         public bool AnglerQuestInstantReset;
 
         [DefaultValue(true)]
         public bool ExtraLures;
+        
+        [DefaultValue(true)]
+        public bool FasterLavaFishing;
+
+        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Misc")]
 
         [DefaultValue(true)]
         public bool StalkerMoneyTrough;
@@ -138,13 +162,7 @@ namespace Fargowiltas.Common.Configs
         public bool IncreaseMaxStack;
 
         [DefaultValue(true)]
-        public bool ExtractSpeed;
-
-        [DefaultValue(true)]
-        public bool Fountains;
-
-        [DefaultValue(true)]
-        public bool PermanentStationsNearby;
+        public bool ExtractSpeed;     
 
         [DefaultValue(true)]
         public bool BossZen;
@@ -154,21 +172,6 @@ namespace Fargowiltas.Common.Configs
 
         [DefaultValue(true)]
         public bool ModdedPiggyBankAcc;
-
-        [DefaultValue(true)]
-        public bool FasterLavaFishing;
-
-        [DefaultValue(true)]
-        public bool TorchGodEX;
-
-        [DefaultValue(true)]
-        public bool PylonsIgnoreEvents;
-
-        [DefaultValue(false)]
-        public bool SafeTerraformers;
-
-        [DefaultValue(false)]
-        public bool DisableTombstones;
 
         [OnDeserialized]
         internal void OnDeserializedMethod(StreamingContext context)
