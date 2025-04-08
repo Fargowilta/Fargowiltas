@@ -1,4 +1,5 @@
 using Fargowiltas.Common.Configs;
+using Fargowiltas.Common.Systems;
 using Fargowiltas.Items;
 using Fargowiltas.Items.Misc;
 using Fargowiltas.Items.Tiles;
@@ -422,7 +423,7 @@ namespace Fargowiltas.NPCs
 
             npcShop.Register();
         }
-        public static int MaxItems => ModLoader.HasMod("ShopExpander") ? Chest.maxItems - 2 : Chest.maxItems;
+        public static int MaxItems => ShopExpanderSupport.ShopPageSize;
         public override void ModifyActiveShop(string shopName, Item[] items)
         {
             int nextSlot = 0; //ignore pylon and anything else inserted into shop ( how does this work in new system?

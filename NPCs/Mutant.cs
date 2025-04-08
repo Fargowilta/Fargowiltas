@@ -21,6 +21,7 @@ using ReLogic.Content;
 using Fargowiltas.Common.Configs;
 using Fargowiltas.Content.Biomes;
 using Terraria.DataStructures;
+using Fargowiltas.Common.Systems;
 
 namespace Fargowiltas.NPCs
 {
@@ -300,7 +301,7 @@ namespace Fargowiltas.NPCs
         private static string GetLocalization(string line) => Language.GetTextValue($"Mods.Fargowiltas.NPCs.Mutant.{line}");
         public override void SetChatButtons(ref string button, ref string button2)
         {
-            if (ModLoader.HasMod("ShopExpander")) {
+            if (ShopExpanderSupport.SupportEnabled) {
                 button = Language.GetTextValue("LegacyInterface.28"); // Vanilla Localization for "Shop"
                 button2 = "";
                 return;
@@ -352,7 +353,7 @@ namespace Fargowiltas.NPCs
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
-            if (ModLoader.HasMod("ShopExpander") && firstButton) {
+            if (firstButton && ShopExpanderSupport.SupportEnabled) {
                 shopName = ShopName1;
                 return;
             }
@@ -379,7 +380,7 @@ namespace Fargowiltas.NPCs
 
         internal int GetShopIndexForBossSummon(MutantSummonInfo summon) 
         {
-            if (ModLoader.HasMod("ShopExpander")) {
+            if (ShopExpanderSupport.SupportEnabled) {
                 return 0;
             }
             // phm
@@ -418,7 +419,7 @@ namespace Fargowiltas.NPCs
                 npcShop[shopNr].Add(new Item(summon.itemId) { shopCustomPrice = Item.buyPrice(copper: summon.price) }, new Condition("Mods.Fargowiltas.Conditions.DownedTheBoss", summon.downed));
             }
 
-            int ancientSealShopNr = ModLoader.HasMod("ShopExpander") ? 0 : 2;
+            int ancientSealShopNr = ShopExpanderSupport.SupportEnabled ? 0 : 2;
             npcShop[ancientSealShopNr].Add(new Item(ItemType<AncientSeal>()) { shopCustomPrice = Item.buyPrice(copper: 100000000) });
 
             npcShop[0].Add(new Item(ItemType<SiblingPylon>()), Condition.HappyEnoughToSellPylons, Condition.NpcIsPresent(NPCType<Abominationn>()), Condition.NpcIsPresent(NPCType<Deviantt>()));
