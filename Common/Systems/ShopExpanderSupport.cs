@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace Fargowiltas.Common.Systems {
-    public class ShopExpanderSupport : ModSystem {
+namespace Fargowiltas.Common.Systems 
+{
+    public class ShopExpanderSupport : ModSystem 
+    {
 
         public static Mod shopExpander = null;
 

@@ -491,7 +491,9 @@ namespace Fargowiltas.NPCs
                 if (medals) 
                 {
                     items[nextSlot] = new Item(type) { shopCustomPrice = Item.buyPrice(copper: price), shopSpecialCurrency = CustomCurrencyID.DefenderMedals };
-                } else {
+                } 
+                else 
+                {
                     items[nextSlot] = new Item(type) { shopCustomPrice = Item.buyPrice(copper: price) };
                 }
 
