@@ -300,6 +300,11 @@ namespace Fargowiltas.NPCs
         private static string GetLocalization(string line) => Language.GetTextValue($"Mods.Fargowiltas.NPCs.Mutant.{line}");
         public override void SetChatButtons(ref string button, ref string button2)
         {
+            if (ModLoader.HasMod("ShopExpander")) {
+                button = Language.GetTextValue("LegacyInterface.28"); // Vanilla Localization for "Shop"
+                button2 = "";
+                return;
+            }
             if (AnyHardmodeSummon)
             {
                 button2 = GetLocalization("CycleShop");
@@ -347,6 +352,10 @@ namespace Fargowiltas.NPCs
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
+            if (ModLoader.HasMod("ShopExpander") && firstButton) {
+                shopName = ShopName1;
+                return;
+            }
             if (firstButton)
             {
                 switch (shopNum)
@@ -368,57 +377,57 @@ namespace Fargowiltas.NPCs
             }
         }
 
+        internal int GetShopIndexForBossSummon(MutantSummonInfo summon) 
+        {
+            if (ModLoader.HasMod("ShopExpander")) {
+                return 0;
+            }
+            // phm
+            if (summon.progression <= MutantSummonTracker.WallOfFlesh) {
+                return 0;
+            }
+            // hm
+            if (summon.progression > MutantSummonTracker.WallOfFlesh && summon.progression <= MutantSummonTracker.Moonlord) {
+                return 1;
+            }
+            // post ml
+            return 2;
+        }
+
         public override void AddShops()
         {
-            var npcShop1 = new NPCShop(Type, ShopName1)
-                .Add(new Item(ItemType<Overloader>()) { shopCustomPrice = Item.buyPrice(copper: 400000) }, Condition.InExpertMode)
-                .Add(new Item(ItemType<ModeToggle>()));
+            NPCShop[] npcShop =
+            [
+                new NPCShop(Type, ShopName1),
+                new NPCShop(Type, ShopName2),
+                new NPCShop(Type, ShopName3),
+            ];
+
+
+            npcShop[0].Add(new Item(ItemType<Overloader>()) { shopCustomPrice = Item.buyPrice(copper: 400000) }, Condition.InExpertMode);
+            npcShop[0].Add(new Item(ItemType<ModeToggle>()));
 
             if (Fargowiltas.ModLoaded["FargowiltasSouls"] && TryFind("FargowiltasSouls", "Masochist", out ModItem masochist))
             {
-                npcShop1.Add(new Item(masochist.Type) { shopCustomPrice = Item.buyPrice(copper: 10000) }); //mutants gift
+                npcShop[0].Add(new Item(masochist.Type) { shopCustomPrice = Item.buyPrice(copper: 10000) }); //mutants gift
             }
 
             foreach (MutantSummonInfo summon in Fargowiltas.summonTracker.SortedSummons)
             {
-                //phm
-                if (summon.progression <= MutantSummonTracker.WallOfFlesh)
-                {
-                    npcShop1.Add(new Item(summon.itemId) { shopCustomPrice = Item.buyPrice(copper: summon.price) }, new Condition("Mods.Fargowiltas.Conditions.DownedTheBoss", summon.downed));
-                }
+                int shopNr = GetShopIndexForBossSummon(summon);
+                npcShop[shopNr].Add(new Item(summon.itemId) { shopCustomPrice = Item.buyPrice(copper: summon.price) }, new Condition("Mods.Fargowiltas.Conditions.DownedTheBoss", summon.downed));
             }
 
-            var npcShop2 = new NPCShop(Type, ShopName2);
+            int ancientSealShopNr = ModLoader.HasMod("ShopExpander") ? 0 : 2;
+            npcShop[ancientSealShopNr].Add(new Item(ItemType<AncientSeal>()) { shopCustomPrice = Item.buyPrice(copper: 100000000) });
 
-            foreach (MutantSummonInfo summon in Fargowiltas.summonTracker.SortedSummons)
-            {
-                //hm
-                if (summon.progression > MutantSummonTracker.WallOfFlesh && summon.progression <= MutantSummonTracker.Moonlord)
-                {
-                    npcShop2.Add(new Item(summon.itemId) { shopCustomPrice = Item.buyPrice(copper: summon.price) }, new Condition("Mods.Fargowiltas.Conditions.DownedTheBoss", summon.downed));
-                }
-            }
+            npcShop[0].Add(new Item(ItemType<SiblingPylon>()), Condition.HappyEnoughToSellPylons, Condition.NpcIsPresent(NPCType<Abominationn>()), Condition.NpcIsPresent(NPCType<Deviantt>()));
+            npcShop[1].Add(new Item(ItemType<SiblingPylon>()), Condition.HappyEnoughToSellPylons, Condition.NpcIsPresent(NPCType<Abominationn>()), Condition.NpcIsPresent(NPCType<Deviantt>()));
+            npcShop[2].Add(new Item(ItemType<SiblingPylon>()), Condition.HappyEnoughToSellPylons, Condition.NpcIsPresent(NPCType<Abominationn>()), Condition.NpcIsPresent(NPCType<Deviantt>()));
 
-            var npcShop3 = new NPCShop(Type, ShopName3);
-
-            foreach (MutantSummonInfo summon in Fargowiltas.summonTracker.SortedSummons)
-            {
-                //post ml
-                if (summon.progression > MutantSummonTracker.Moonlord)
-                {
-                    npcShop3.Add(new Item(summon.itemId) { shopCustomPrice = Item.buyPrice(copper: summon.price) }, new Condition("Mods.Fargowiltas.Conditions.DownedTheBoss", summon.downed));
-                }
-            }
-
-            npcShop3.Add(new Item(ItemType<AncientSeal>()) { shopCustomPrice = Item.buyPrice(copper: 100000000) });
-
-            npcShop1.Add(new Item(ItemType<SiblingPylon>()), Condition.HappyEnoughToSellPylons, Condition.NpcIsPresent(NPCType<Abominationn>()), Condition.NpcIsPresent(NPCType<Deviantt>()));
-            npcShop2.Add(new Item(ItemType<SiblingPylon>()), Condition.HappyEnoughToSellPylons, Condition.NpcIsPresent(NPCType<Abominationn>()), Condition.NpcIsPresent(NPCType<Deviantt>()));
-            npcShop3.Add(new Item(ItemType<SiblingPylon>()), Condition.HappyEnoughToSellPylons, Condition.NpcIsPresent(NPCType<Abominationn>()), Condition.NpcIsPresent(NPCType<Deviantt>()));
-
-            npcShop1.Register();
-            npcShop2.Register();
-            npcShop3.Register();
+            npcShop[0].Register();
+            npcShop[1].Register();
+            npcShop[2].Register();
         }
 
         public override void ModifyActiveShop(string shopName, Item[] items)
