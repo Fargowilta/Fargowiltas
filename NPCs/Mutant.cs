@@ -301,7 +301,8 @@ namespace Fargowiltas.NPCs
         private static string GetLocalization(string line) => Language.GetTextValue($"Mods.Fargowiltas.NPCs.Mutant.{line}");
         public override void SetChatButtons(ref string button, ref string button2)
         {
-            if (ShopExpanderSupport.SupportEnabled) {
+            if (ShopExpanderSupport.SupportEnabled)
+            {
                 button = Language.GetTextValue("LegacyInterface.28"); // Vanilla Localization for "Shop"
                 button2 = "";
                 return;
@@ -353,7 +354,8 @@ namespace Fargowiltas.NPCs
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
-            if (firstButton && ShopExpanderSupport.SupportEnabled) {
+            if (firstButton && ShopExpanderSupport.SupportEnabled)
+            {
                 shopName = ShopName1;
                 return;
             }
@@ -380,15 +382,18 @@ namespace Fargowiltas.NPCs
 
         internal int GetShopIndexForBossSummon(MutantSummonInfo summon) 
         {
-            if (ShopExpanderSupport.SupportEnabled) {
+            if (ShopExpanderSupport.SupportEnabled)
+            {
                 return 0;
             }
             // phm
-            if (summon.progression <= MutantSummonTracker.WallOfFlesh) {
+            if (summon.progression <= MutantSummonTracker.WallOfFlesh)
+            {
                 return 0;
             }
             // hm
-            if (summon.progression > MutantSummonTracker.WallOfFlesh && summon.progression <= MutantSummonTracker.Moonlord) {
+            if (summon.progression > MutantSummonTracker.WallOfFlesh && summon.progression <= MutantSummonTracker.Moonlord)
+            {
                 return 1;
             }
             // post ml

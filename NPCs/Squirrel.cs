@@ -427,7 +427,8 @@ namespace Fargowiltas.NPCs
         }
         public static int MaxItems => ShopExpanderSupport.ShopPageSize;
 
-        public static void PopulateShopArray(int page, Item[] items, List<int> sellableItems) {
+        public static void PopulateShopArray(int page, Item[] items, List<int> sellableItems)
+        {
             int nextSlot = 0;
             int startOffset = page * MaxItems;
             int endSlot = Math.Min(MaxItems, sellableItems.Count - startOffset);
@@ -438,14 +439,16 @@ namespace Fargowiltas.NPCs
                 nextSlot++;
             }
 
-            for (int index = startOffset; nextSlot < endSlot; index++) {
+            for (int index = startOffset; nextSlot < endSlot; index++)
+            {
                 int type = sellableItems[index];
 
                 var item = new Item(type);
                 int price;
                 bool medals = false;
 
-                if (item.makeNPC != 0) {
+                if (item.makeNPC != 0)
+                {
                     price = Item.buyPrice(gold: 10);
                     int[] pricier =
                     [
@@ -466,19 +469,27 @@ namespace Fargowiltas.NPCs
                         ItemID.GoldWorm
                     ];
 
-                    if (pricier.Contains(item.type)) {
+                    if (pricier.Contains(item.type))
+                    {
                         price *= 5;
-                    } else if (item.ModItem is Items.CaughtNPCs.CaughtNPCItem) {
+                    } 
+                    else if (item.ModItem is Items.CaughtNPCs.CaughtNPCItem)
+                    {
                         price *= 2;
                     }
-                } else if (type == ItemID.RodofDiscord) {
+                } 
+                else if (type == ItemID.RodofDiscord)
+                {
                     price = 250;
                     medals = true;
-                } else {
+                } 
+                else 
+                {
                     price = item.value * 2;
                 }
 
-                if (medals) {
+                if (medals) 
+                {
                     items[nextSlot] = new Item(type) { shopCustomPrice = Item.buyPrice(copper: price), shopSpecialCurrency = CustomCurrencyID.DefenderMedals };
                 } else {
                     items[nextSlot] = new Item(type) { shopCustomPrice = Item.buyPrice(copper: price) };
@@ -491,19 +502,24 @@ namespace Fargowiltas.NPCs
         public override void ModifyActiveShop(string shopName, Item[] items)
         {
             List<int> sellableItems = GetSellableItems();
-            if (ShopExpanderSupport.SupportEnabled) {
+            if (ShopExpanderSupport.SupportEnabled)
+            {
                 //ShopExpanderSupport.shopExpander.Call("ResetAndBindShop");
                 int numberOfAllPages = sellableItems.Count / MaxItems + 1;
-                for (int page = 0; page < numberOfAllPages; page++) {
+                for (int page = 0; page < numberOfAllPages; page++)
+                {
                     // Create temporary item list, and initialize it with empty items to not crash
                     Item[] tempItemsArray = new Item[MaxItems];
-                    for (int i = 0; i < tempItemsArray.Length; i++) {
+                    for (int i = 0; i < tempItemsArray.Length; i++)
+                    {
                         tempItemsArray[i] = new Item(ItemID.None);
                     }
                     PopulateShopArray(page, tempItemsArray, sellableItems);
                     ShopExpanderSupport.shopExpander.Call("AddPageFromArray", "Squirrel Page " + (page+1), page, tempItemsArray);
                 }
-            } else {
+            }
+            else
+            {
                 PopulateShopArray(shopNum, items, sellableItems);
             }
         }
