@@ -292,7 +292,12 @@ Mods: {
 
 				EnableShopExpanderSupport: {
 					// Label: Enable Shop Expander Support
-					// Tooltip: ""
+					/* Tooltip:
+						'''
+						If this config option is on, and Shop Expander is loaded, then the Mutant and Squirrel 
+						will use Shop Expander for their shops instead of their usual page mechanics.
+						If off, but Shop Expander is enabled, the Squirrel is automatically added to Shop Expander's ignore list.
+						''' */
 				}
 			}
 
