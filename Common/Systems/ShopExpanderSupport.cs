@@ -1,4 +1,5 @@
 ﻿using Fargowiltas.Common.Configs;
+using Fargowiltas.NPCs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,13 @@ namespace Fargowiltas.Common.Systems {
         public override void Load() {
             if (ModLoader.TryGetMod("ShopExpander", out Mod se)) { 
                 shopExpander = se;
+            }
+        }
+
+        public override void PostSetupContent() {
+            // If shop expander is enabled, but the Support is disabled through the config, make the Squirrel exempt from Shop Expander!
+            if (IsModLoaded && !SupportEnabled) {
+                shopExpander.Call("AddNpcTypeToIgnoreList", ModContent.NPCType<Squirrel>());
             }
         }
 

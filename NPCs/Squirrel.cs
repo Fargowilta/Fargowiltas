@@ -6,6 +6,7 @@ using Fargowiltas.Items.Tiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using Steamworks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -154,7 +155,8 @@ namespace Fargowiltas.NPCs
         public override void SetChatButtons(ref string button, ref string button2)
         {
             button = Language.GetTextValue("LegacyInterface.28");
-            if (showCycleShop)
+            button2 = ""; // Just to be sure
+            if (showCycleShop && !ShopExpanderSupport.SupportEnabled)
             {
                 button += $" {shopNum + 1}";
                 button2 = Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.CycleShop");
@@ -424,36 +426,26 @@ namespace Fargowiltas.NPCs
             npcShop.Register();
         }
         public static int MaxItems => ShopExpanderSupport.ShopPageSize;
-        public override void ModifyActiveShop(string shopName, Item[] items)
-        {
-            int nextSlot = 0; //ignore pylon and anything else inserted into shop ( how does this work in new system?
-            int index = 0;
-            int startOffset = shopNum * MaxItems;
 
-            List<int> sellableItems = GetSellableItems();
-            if (shopNum == 0 && ModContent.TryFind("FargowiltasSouls", "TopHatSquirrelCaught", out ModItem modItem)) //only on page 1
+        public static void PopulateShopArray(int page, Item[] items, List<int> sellableItems) {
+            int nextSlot = 0;
+            int startOffset = page * MaxItems;
+            int endSlot = Math.Min(MaxItems, sellableItems.Count - startOffset);
+
+            if (page == 0 && ModContent.TryFind("FargowiltasSouls", "TopHatSquirrelCaught", out ModItem modItem)) //only on page 1
             {
                 items[nextSlot] = new Item(modItem.Type) { shopCustomPrice = Item.buyPrice(copper: 100000) };
                 nextSlot++;
             }
-            foreach (int type in sellableItems)
-            {
-                if (++index < startOffset) //skip up to the minimum
-                {
-                    continue;
-                }
 
-                if (nextSlot >= MaxItems) //only fill shop up to capacity
-                {
-                    break;
-                }
+            for (int index = startOffset; nextSlot < endSlot; index++) {
+                int type = sellableItems[index];
 
                 var item = new Item(type);
                 int price;
                 bool medals = false;
 
-                if (item.makeNPC != 0)
-                {
+                if (item.makeNPC != 0) {
                     price = Item.buyPrice(gold: 10);
                     int[] pricier =
                     [
@@ -474,35 +466,45 @@ namespace Fargowiltas.NPCs
                         ItemID.GoldWorm
                     ];
 
-                    if (pricier.Contains(item.type))
-                    {
+                    if (pricier.Contains(item.type)) {
                         price *= 5;
-                    }
-                    else if (item.ModItem is Items.CaughtNPCs.CaughtNPCItem)
-                    {
+                    } else if (item.ModItem is Items.CaughtNPCs.CaughtNPCItem) {
                         price *= 2;
                     }
-                }
-                else if (type == ItemID.RodofDiscord)
-                {
+                } else if (type == ItemID.RodofDiscord) {
                     price = 250;
                     medals = true;
-                }
-                else
-                {
+                } else {
                     price = item.value * 2;
                 }
 
-                if (medals)
-                {
+                if (medals) {
                     items[nextSlot] = new Item(type) { shopCustomPrice = Item.buyPrice(copper: price), shopSpecialCurrency = CustomCurrencyID.DefenderMedals };
-                }
-                else
-                {
+                } else {
                     items[nextSlot] = new Item(type) { shopCustomPrice = Item.buyPrice(copper: price) };
                 }
 
                 nextSlot++;
+            }
+        }
+
+        public override void ModifyActiveShop(string shopName, Item[] items)
+        {
+            List<int> sellableItems = GetSellableItems();
+            if (ShopExpanderSupport.SupportEnabled) {
+                //ShopExpanderSupport.shopExpander.Call("ResetAndBindShop");
+                int numberOfAllPages = sellableItems.Count / MaxItems + 1;
+                for (int page = 0; page < numberOfAllPages; page++) {
+                    // Create temporary item list, and initialize it with empty items to not crash
+                    Item[] tempItemsArray = new Item[MaxItems];
+                    for (int i = 0; i < tempItemsArray.Length; i++) {
+                        tempItemsArray[i] = new Item(ItemID.None);
+                    }
+                    PopulateShopArray(page, tempItemsArray, sellableItems);
+                    ShopExpanderSupport.shopExpander.Call("AddPageFromArray", "Squirrel Page " + (page+1), page, tempItemsArray);
+                }
+            } else {
+                PopulateShopArray(shopNum, items, sellableItems);
             }
         }
 

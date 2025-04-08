@@ -45,6 +45,7 @@ namespace Fargowiltas.Common.Configs
         [Slider]
         public float DebuffFaderRatio;
 
+        [ReloadRequired]
         [DefaultValue(true)]
         public bool EnableShopExpanderSupport;
         

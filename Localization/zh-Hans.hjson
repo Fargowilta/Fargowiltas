@@ -297,6 +297,11 @@ Mods: {
 					Label: 多人死亡观战
 					Tooltip: ""
 				}
+
+				EnableShopExpanderSupport: {
+					// Label: Enable Shop Expander Support
+					// Tooltip: ""
+				}
 			}
 
 			SeasonSelections: {

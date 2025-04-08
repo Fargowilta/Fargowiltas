@@ -289,6 +289,11 @@ Mods: {
 					Label: Наблюдение за живыми игроками в мультиплеере
 					Tooltip: ""
 				}
+
+				EnableShopExpanderSupport: {
+					// Label: Enable Shop Expander Support
+					// Tooltip: ""
+				}
 			}
 
 			SeasonSelections: {
