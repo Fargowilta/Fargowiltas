@@ -1,4 +1,5 @@
-﻿using Fargowiltas.Items.CaughtNPCs;
+﻿using Fargowiltas.Content.Items.CaughtNPCs;
+using Fargowiltas.Content.NPCs;
 using Fargowiltas.Utilities;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,7 +85,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.DisableDecraft();
             recipe.Register();
 
-            recipe = Recipe.Create(CaughtNPCItem.CaughtTownies[ModContent.NPCType<NPCs.Squirrel>()]);
+            recipe = Recipe.Create(CaughtNPCItem.CaughtTownies[ModContent.NPCType<Squirrel>()]);
             recipe.AddRecipeGroup(RecipeGroups.AnySquirrel);
             recipe.AddIngredient(ItemID.TopHat);
             recipe.AddTile(TileID.DemonAltar);

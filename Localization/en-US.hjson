@@ -306,7 +306,7 @@ Mods: {
 			}
 
 			Common.CanSpawn: Can Spawn
-			}
+		}
 
 		RecipeGroups: {
 			EvilWood: Evil Wood
@@ -2869,6 +2869,7 @@ Mods: {
 			}
 
 			SuperDummy.DisplayName: Super Dummy
+			SuperDummyNPC.DisplayName: Super Dummy N P C
 		}
 
 		Projectiles: {
@@ -2918,6 +2919,7 @@ Mods: {
 			InstaPondProj.DisplayName: Insta Pond Proj
 			MiniDirtInstabridgeProj.DisplayName: Mini Dirt Instabridge Proj
 			CoolCrab.DisplayName: Cool Crab
+			LumberJaxeProjectile.DisplayName: Lumber Jaxe Projectile
 		}
 
 		Tiles: {

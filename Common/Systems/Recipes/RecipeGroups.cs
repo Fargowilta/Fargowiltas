@@ -1,5 +1,5 @@
-using Fargowiltas.Items.Ammos.Bullets;
-using Fargowiltas.Items.Tiles;
+using Fargowiltas.Content.Items.Ammos.Bullets;
+using Fargowiltas.Content.Items.Tiles;
 using Fargowiltas.Utilities;
 using System;
 using System.Collections.Generic;

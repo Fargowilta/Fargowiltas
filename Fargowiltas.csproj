@@ -7,7 +7,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Content\Buffs\CoolCrabBuff.png" />
-    <None Remove="Items\Vanity\CrabSizedGlasses.png" />
-    <None Remove="Projectiles\CoolCrab.png" />
+    <None Remove="Content\Items\Vanity\CrabSizedGlasses.png" />
+    <None Remove="Content\Projectiles\CoolCrab.png" />
   </ItemGroup>
 </Project>

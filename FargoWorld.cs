@@ -1,4 +1,3 @@
-using Fargowiltas.NPCs;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.IO;
@@ -9,11 +8,12 @@ using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.ModLoader.IO;
 using static Terraria.ModLoader.ModContent;
-using Fargowiltas.Items.Tiles;
 using System;
 using Terraria.GameContent.Events;
 using Fargowiltas.Common.Configs;
-using Fargowiltas.Projectiles;
+using Fargowiltas.Content.Items.Tiles;
+using Fargowiltas.Content.NPCs;
+using Fargowiltas.Content.Projectiles;
 
 namespace Fargowiltas
 {

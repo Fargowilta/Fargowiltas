@@ -2869,6 +2869,7 @@ Mods: {
 			}
 
 			SuperDummy.DisplayName: Супер-манекен
+			// SuperDummyNPC.DisplayName: Super Dummy N P C
 		}
 
 		Projectiles: {
@@ -2918,6 +2919,7 @@ Mods: {
 			InstaPondProj.DisplayName: МоментОзеро Снар
 			MiniDirtInstabridgeProj.DisplayName: Мини Грязь МоментМост Снар
 			CoolCrab.DisplayName: Крутой краб
+			// LumberJaxeProjectile.DisplayName: Lumber Jaxe Projectile
 		}
 
 		Tiles: {

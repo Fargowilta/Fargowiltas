@@ -1,7 +1,4 @@
-using Fargowiltas.Items.Tiles;
-using System.Linq;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Fargowiltas.Content.Buffs

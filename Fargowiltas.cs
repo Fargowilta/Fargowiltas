@@ -1,22 +1,19 @@
 ﻿using Fargowilta;
 using Fargowiltas.Common.Configs;
-using Fargowiltas.Items.CaughtNPCs;
-using Fargowiltas.Items.Misc;
-using Fargowiltas.Items.Tiles;
-using Fargowiltas.NPCs;
-using Fargowiltas.Projectiles;
-using Fargowiltas.UI;
+using Fargowiltas.Content.Items.CaughtNPCs;
+using Fargowiltas.Content.Items.Misc;
+using Fargowiltas.Content.Items.Tiles;
+using Fargowiltas.Content.NPCs;
+using Fargowiltas.Content.Projectiles;
+using Fargowiltas.Content.UI;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Terraria;
 using Terraria.Chat;
 using Terraria.GameContent.Events;
-using Terraria.GameContent.ItemDropRules;
-using Terraria.Graphics;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -558,7 +555,7 @@ namespace Fargowiltas
                     {
                         for (int i = 0; i < Main.maxNPCs; i++)
                         {
-                            if (Main.npc[i] != null && Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<NPCs.SuperDummy>())
+                            if (Main.npc[i] != null && Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<SuperDummyNPC>())
                             {
                                 NPC npc = Main.npc[i];
                                 npc.life = 0;
