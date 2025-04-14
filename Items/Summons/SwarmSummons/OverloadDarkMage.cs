@@ -15,9 +15,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Really Forbidden Tome");
-            // Tooltip.SetDefault("Summons several Dark Mages\nOnly Treasure Bags will be dropped");
-        }
+			// DisplayName.SetDefault("Really Forbidden Tome");
+			// Tooltip.SetDefault("Summons several Dark Mages\nOnly Treasure Bags will be dropped");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 4; // Puts it right after Goblin Battle Standard
+		}
 
         public override bool CanUseItem(Player player)
         {

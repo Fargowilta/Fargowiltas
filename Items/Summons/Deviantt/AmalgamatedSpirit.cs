@@ -16,7 +16,9 @@ namespace Fargowiltas.Items.Summons.Deviantt
             /* Tooltip.SetDefault("Summons the skeleton mages" +
                                "\nOnly usable at night or underground"); */
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 13; // Places it right before Pumpkin Moon Medallion and Naughty Present
+		}
 
         public override bool CanUseItem(Player player)
         {

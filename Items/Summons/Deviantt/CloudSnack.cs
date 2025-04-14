@@ -9,8 +9,10 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Cloud Snack");
-            // Tooltip.SetDefault("Summons Wyvern");
-        }
+			// DisplayName.SetDefault("Cloud Snack");
+			// Tooltip.SetDefault("Summons Wyvern");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 6; // Places it right after Gelatin Crystal
+		}
     }
 }

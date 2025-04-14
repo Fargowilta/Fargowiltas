@@ -18,9 +18,11 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Golden Slime Crown");
-            // Tooltip.SetDefault("Summons Golden Slime");
-        }
+			// DisplayName.SetDefault("Golden Slime Crown");
+			// Tooltip.SetDefault("Summons Golden Slime");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 0; // Places it before any other bosses
+		}
 
         public override void AddRecipes()
         {

@@ -17,6 +17,8 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
         {
             // DisplayName.SetDefault("Seismic Actuator");
             // Tooltip.SetDefault("Summons several Destroyers\nOnly Treasure Bags will be dropped");
+
+            ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.MechanicalWorm]; // 9
         }
 
         public override bool CanUseItem(Player player)

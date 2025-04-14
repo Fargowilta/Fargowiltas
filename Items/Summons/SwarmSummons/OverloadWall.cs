@@ -15,9 +15,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Bundle of Dolls");
-            // Tooltip.SetDefault("Summons several Walls of Flesh\nOnly Treasure Bags will be dropped");
-        }
+			// DisplayName.SetDefault("Bundle of Dolls");
+			// Tooltip.SetDefault("Summons several Walls of Flesh\nOnly Treasure Bags will be dropped");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 5; // Puts it right after Deer Thing and Abeemination, and before Gelatin Crystal
+		}
 
         public override bool CanUseItem(Player player)
         {

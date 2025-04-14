@@ -15,9 +15,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Runic Power Cell");
-            // Tooltip.SetDefault("Summons several Golems\nOnly Treasure Bags will be dropped");
-        }
+			// DisplayName.SetDefault("Runic Power Cell");
+			// Tooltip.SetDefault("Summons several Golems\nOnly Treasure Bags will be dropped");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.LihzahrdPowerCell]; // 16
+		}
 
         public override bool CanUseItem(Player player)
         {

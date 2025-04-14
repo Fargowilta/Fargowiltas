@@ -13,7 +13,9 @@ namespace Fargowiltas.Items.Summons.Abom
             // DisplayName.SetDefault("Anemometer");
             // Tooltip.SetDefault("Starts a Windy Day");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 0; // Places it before any other boss summons
+		}
 
         public override void SetDefaults()
         {

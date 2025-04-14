@@ -10,8 +10,10 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Pirate Flag");
-            // Tooltip.SetDefault("Summons Pirate Captain");
-        }
+			// DisplayName.SetDefault("Pirate Flag");
+			// Tooltip.SetDefault("Summons Pirate Captain");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.PirateMap]; // 11
+		}
     }
 }

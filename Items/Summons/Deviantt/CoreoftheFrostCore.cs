@@ -15,6 +15,8 @@ namespace Fargowiltas.Items.Summons.Deviantt
             // Tooltip.SetDefault("Summons Ice Golem");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 6));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 6; // Places it right after Gelatin Crystal
+		}
     }
 }

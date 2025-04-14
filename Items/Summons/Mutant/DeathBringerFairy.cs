@@ -20,7 +20,9 @@ namespace Fargowiltas.Items.Summons.Mutant
                                "\nCertain bosses will only spawn if you're in their specific biome"); */
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
 
-            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(8, 3));
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 5; // Places it right after Deer Thing and Abeemination, and before Gelatin Crystal
+
+			Main.RegisterItemAnimation(Type, new DrawAnimationVertical(8, 3));
             ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 

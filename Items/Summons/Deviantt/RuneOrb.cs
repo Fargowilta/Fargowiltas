@@ -12,10 +12,12 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Rune Orb");
-            /* Tooltip.SetDefault("Summons Rune Wizard" +
+			// DisplayName.SetDefault("Rune Orb");
+			/* Tooltip.SetDefault("Summons Rune Wizard" +
                                "\nOnly usable at night or underground"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 6; // Places it right after Gelatin Crystal
+		}
 
         public override bool CanUseItem(Player player)
         {

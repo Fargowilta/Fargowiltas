@@ -12,10 +12,12 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Hemoclaw Crab");
-            /* Tooltip.SetDefault("Summons Hemogoblin Shark" +
+			// DisplayName.SetDefault("Hemoclaw Crab");
+			/* Tooltip.SetDefault("Summons Hemogoblin Shark" +
                                "\nOnly usable during Blood Moon"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.BloodMoonStarter]; // 18
+		}
 
         public override bool CanUseItem(Player player)
         {

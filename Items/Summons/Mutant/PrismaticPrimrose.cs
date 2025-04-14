@@ -16,9 +16,11 @@ namespace Fargowiltas.Items.Summons.Mutant
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Prismatic Primrose");
-            // Tooltip.SetDefault("Summons the Empress of Light");
-        }
+			// DisplayName.SetDefault("Prismatic Primrose");
+			// Tooltip.SetDefault("Summons the Empress of Light");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 12; // Places it right after the Truffle Worm
+		}
 
         public override void AddRecipes()
         {

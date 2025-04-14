@@ -15,9 +15,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Dragon Egg Tray");
-            // Tooltip.SetDefault("Summons several Betsys\nOnly Treasure Bags will be dropped");
-        }
+			// DisplayName.SetDefault("Dragon Egg Tray");
+			// Tooltip.SetDefault("Summons several Betsys\nOnly Treasure Bags will be dropped");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 17; // Puts it right after Lihzahrd Power Cell and Solar Tablet
+		}
 
         public override bool CanUseItem(Player player)
         {
