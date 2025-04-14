@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using Terraria;
 using Terraria.UI;
-using Fargowiltas.UI;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Fargowiltas;
 using Terraria.Audio;
 using ReLogic.Content;
+using Fargowiltas.Content.UI;
 
 namespace Fargowilta
 {
@@ -28,8 +28,8 @@ namespace Fargowilta
             if (!Main.dedServ)
             {
                 // Load textures
-                StatsButtonTexture = (ModContent.Request<Texture2D>("Fargowiltas/UI/Assets/StatsButton", AssetRequestMode.ImmediateLoad));
-                StatsButton_MouseOverTexture = (ModContent.Request<Texture2D>("Fargowiltas/UI/Assets/StatsButton_MouseOver", AssetRequestMode.ImmediateLoad));
+                StatsButtonTexture = (ModContent.Request<Texture2D>("Fargowiltas/Content/UI/Assets/StatsButton", AssetRequestMode.ImmediateLoad));
+                StatsButton_MouseOverTexture = (ModContent.Request<Texture2D>("Fargowiltas/Content/UI/Assets/StatsButton_MouseOver", AssetRequestMode.ImmediateLoad));
 
                 // Initialize UserInterfaces
                 StatSheetUserInterface = new UserInterface();

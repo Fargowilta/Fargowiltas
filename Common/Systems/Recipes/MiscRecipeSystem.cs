@@ -1,6 +1,6 @@
-﻿using Fargowiltas.Items.Summons;
-using Fargowiltas.Items.Summons.Mutant;
-using Fargowiltas.Items.Summons.VanillaCopy;
+﻿using Fargowiltas.Content.Items.Summons;
+using Fargowiltas.Content.Items.Summons.Mutant;
+using Fargowiltas.Content.Items.Summons.VanillaCopy;
 using Fargowiltas.Utilities;
 using System;
 using System.Collections.Generic;

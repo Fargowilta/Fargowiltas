@@ -1,4 +1,4 @@
-﻿using Fargowiltas.Projectiles;
+﻿using Fargowiltas.Content.Projectiles;
 using Terraria;
 using Terraria.ModLoader;
 

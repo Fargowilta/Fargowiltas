@@ -1,26 +1,21 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using Fargowiltas.NPCs;
 using System;
 using System.Linq;
 using Terraria.ModLoader.IO;
-using Fargowiltas.Projectiles;
-using Fargowiltas.Items;
 using Terraria.GameContent.Events;
 using System.IO;
 using Fargowiltas.Common.Configs;
-using System.Runtime.InteropServices.JavaScript;
-using Fargowiltas.Items.Vanity;
-using Terraria.IO;
-using Terraria.GameContent.UI.States;
-using Terraria.GameContent.UI.Elements;
+using Fargowiltas.Content.Items;
+using Fargowiltas.Content.Items.Vanity;
+using Fargowiltas.Content.NPCs;
+using static Fargowiltas.Content.Items.Misc.BattleCry;
 
 ////using Fargowiltas.Toggler;
 
@@ -200,7 +195,7 @@ namespace Fargowiltas
 
         public override void OnEnterWorld()
         {
-            Items.Misc.BattleCry.SyncCry(Player);
+            SyncCry(Player);
         }
 
         public override void ResetEffects()

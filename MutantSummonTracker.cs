@@ -1,10 +1,8 @@
-﻿using Fargowiltas.Items.Summons;
-using Fargowiltas.Items.Summons.Mutant;
-using Fargowiltas.Items.Summons.VanillaCopy;
+﻿using Fargowiltas.Content.Items.Summons.Mutant;
+using Fargowiltas.Content.Items.Summons.VanillaCopy;
 using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Fargowiltas

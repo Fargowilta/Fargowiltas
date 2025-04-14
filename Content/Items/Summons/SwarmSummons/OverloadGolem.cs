@@ -1,0 +1,18 @@
+﻿using Terraria;
+using Terraria.ID;
+
+
+namespace Fargowiltas.Content.Items.Summons.SwarmSummons
+{
+    public class OverloadGolem : SwarmSummonBase
+    {
+        public OverloadGolem() : base(NPCID.Golem, nameof(OverloadGolem), 25, "LihzahrdPowerCell2")
+        {
+        }
+
+        public override bool CanUseItem(Player player)
+        {
+            return !Fargowiltas.SwarmActive && NPC.downedPlantBoss;
+        }
+    }
+}

@@ -1,15 +1,9 @@
-﻿using Fargowiltas.Items.Misc;
-using Fargowiltas.Items.Tiles;
-using Fargowiltas.NPCs;
-using System;
+﻿using Fargowiltas.Content.Items.Misc;
+using Fargowiltas.Content.Items.Tiles;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Fargowiltas.Items.FargoGlobalItem;
+using static Fargowiltas.Content.Items.FargoGlobalItem;
 using static Terraria.ModLoader.ModContent;
 
 namespace Fargowiltas

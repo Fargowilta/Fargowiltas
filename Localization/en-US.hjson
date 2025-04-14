@@ -209,6 +209,8 @@ Mods: {
 					Unlimited: Unlimited
 					StatMultipliers: Stat Multipliers
 					Misc: Miscellaneous
+					World: World
+					Fishing: Fishing
 				}
 
 				EnemyHealth: {
@@ -286,8 +288,13 @@ Mods: {
 				}
 
 				MultiplayerDeathSpectate: {
-					Label: Multiplayer Death Spectate
+					Label: "[i:3230] Multiplayer Death Spectate"
 					Tooltip: ""
+				}
+
+				Headers: {
+					UserInterface: User Interface
+					Misc: Miscellaneous
 				}
 			}
 
@@ -2862,6 +2869,7 @@ Mods: {
 			}
 
 			SuperDummy.DisplayName: Super Dummy
+			SuperDummyNPC.DisplayName: Super Dummy N P C
 		}
 
 		Projectiles: {
@@ -2911,6 +2919,7 @@ Mods: {
 			InstaPondProj.DisplayName: Insta Pond Proj
 			MiniDirtInstabridgeProj.DisplayName: Mini Dirt Instabridge Proj
 			CoolCrab.DisplayName: Cool Crab
+			LumberJaxeProjectile.DisplayName: Lumber Jaxe Projectile
 		}
 
 		Tiles: {
