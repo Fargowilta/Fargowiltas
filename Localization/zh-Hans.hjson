@@ -16,6 +16,14 @@ Mods: {
 			Squirrel: 当这个矮小利落的小动物注意到你的背包中有价值的物品时，它会售卖它的复制品。它不会告诉你它从哪得到的这些东西，不过这基本上是因为它不会说话。
 		}
 
+		GameTips: {
+			// Squirrel: Catch a Tophat Squirrel, and a certain dapper critter will move in.
+			// LumberJack: The LumberJack loves trees, chop down enough of them and he might just fall out of one!
+			// Deviantt: Deviantt loves to provide helpful monster spawners, for a hefty cost...
+			// Abominationn: Defeat the Goblin Army, and a pumpkin headed Abominationn will fall from the sky!
+			// Mutant: Mutant is always in search of someone strong. Grow in power and you might catch his attention...
+		}
+
 		// Used for TownNPCMood "{BiomeName}" Format (unused now)
 		Biome.Sky: 天空
 
@@ -2877,8 +2885,7 @@ Mods: {
 				Census.SpawnCondition: 库存中有一只高顶礼帽松鼠。
 			}
 
-			SuperDummy.DisplayName: 超级假人
-			// SuperDummyNPC.DisplayName: Super Dummy N P C
+			// SuperDummyNPC.DisplayName: Super Dummy
 		}
 
 		Projectiles: {
@@ -3050,6 +3057,15 @@ Mods: {
 			SoldAtThirtyStack: 堆叠30个时松鼠售卖
 			SoldBy: 售卖于
 			SeveralVendors: 多个商人
+		}
+
+		Emotes: {
+			// AbominationnEmote.Command: abominationnemote
+			// DevianttEmote.Command: devianttemote
+			// LumberJackEmote.Command: lumberjackemote
+			// MutantEmote.Command: mutantemote
+			// OmnistationEmote.Command: omnistationemote
+			// SquirrelEmote.Command: squirrelemote
 		}
 	}
 }
