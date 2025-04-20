@@ -16,6 +16,14 @@ Mods: {
 			Squirrel: This dapper critter sells duplicates of valuable items that it notices in inventories. Won't divulge how it gets them, mostly because it can't speak.
 		}
 
+		GameTips:{
+			Squirrel: Catch a Tophat Squirrel, and a certain dapper critter will move in.
+			LumberJack: The LumberJack loves trees, chop down enough of them and he might just fall out of one!
+			Deviantt: Deviantt loves to provide helpful monster spawners, for a hefty cost...
+			Abominationn: Defeat the Goblin Army, and a pumpkin headed Abominationn will fall from the sky!
+			Mutant: Mutant is always in search of someone strong. Grow in power and you might catch his attention...
+		}
+
 		// Used for TownNPCMood "{BiomeName}" Format (unused now)
 		Biome.Sky: Sky
 
@@ -2868,8 +2876,7 @@ Mods: {
 				Census.SpawnCondition: Have a Top Hat Squirrel in your inventory.
 			}
 
-			SuperDummy.DisplayName: Super Dummy
-			SuperDummyNPC.DisplayName: Super Dummy N P C
+			SuperDummyNPC.DisplayName: Super Dummy
 		}
 
 		Projectiles: {
