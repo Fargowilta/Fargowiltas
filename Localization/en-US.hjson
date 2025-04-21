@@ -16,7 +16,7 @@ Mods: {
 			Squirrel: This dapper critter sells duplicates of valuable items that it notices in inventories. Won't divulge how it gets them, mostly because it can't speak.
 		}
 
-		GameTips:{
+		GameTips: {
 			Squirrel: Catch a Tophat Squirrel, and a certain dapper critter will move in.
 			LumberJack: The LumberJack loves trees, chop down enough of them and he might just fall out of one!
 			Deviantt: Deviantt loves to provide helpful monster spawners, for a hefty cost...
@@ -3048,6 +3048,15 @@ Mods: {
 			SoldAtThirtyStack: Sold By Squirrel: When obtained at 30-stack
 			SoldBy: Sold By
 			SeveralVendors: several vendors
+		}
+
+		Emotes: {
+			AbominationnEmote.Command: abominationn
+			DevianttEmote.Command: deviantt
+			LumberJackEmote.Command: lumberjack
+			MutantEmote.Command: mutant
+			OmnistationEmote.Command: omnistation
+			SquirrelEmote.Command: squirrel
 		}
 	}
 }
