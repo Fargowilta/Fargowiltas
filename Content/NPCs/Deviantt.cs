@@ -5,6 +5,7 @@ using Fargowiltas.Content.Biomes;
 using Fargowiltas.Content.Items.Summons.Deviantt;
 using Fargowiltas.Content.Items.Tiles;
 using Fargowiltas.Content.Projectiles;
+using Fargowiltas.Content.UI.Emotes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -41,6 +42,7 @@ namespace Fargowiltas.Content.NPCs
             NPCID.Sets.AttackType[NPC.type] = 0;
             NPCID.Sets.AttackTime[NPC.type] = 90;
             NPCID.Sets.AttackAverageChance[NPC.type] = 30;
+            NPCID.Sets.FaceEmote[NPC.type] = ModContent.EmoteBubbleType<DevianttEmote>();
 
             NPCID.Sets.ShimmerTownTransform[NPC.type] = true; // This set says that the Town NPC has a Shimmered form. Otherwise, the Town NPC will become transparent when touching Shimmer like other enemies.
 

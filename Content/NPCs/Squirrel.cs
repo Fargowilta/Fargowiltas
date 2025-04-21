@@ -14,6 +14,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Fargowiltas.Content;
+using Fargowiltas.Content.UI.Emotes;
 
 namespace Fargowiltas.Content.NPCs
 {
@@ -40,6 +41,7 @@ namespace Fargowiltas.Content.NPCs
             NPCID.Sets.AttackTime[Type] = 90;
             NPCID.Sets.AttackAverageChance[Type] = 30;
             NPCID.Sets.HatOffsetY[Type] = 4;
+            NPCID.Sets.FaceEmote[NPC.type] = ModContent.EmoteBubbleType<SquirrelEmote>();
 
             NPCID.Sets.CannotSitOnFurniture[Type] = true;
 
