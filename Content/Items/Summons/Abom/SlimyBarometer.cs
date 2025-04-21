@@ -10,7 +10,8 @@ namespace Fargowiltas.Content.Items.Summons.Abom
         public override void SetStaticDefaults()
         {
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.SlimeCrown]; // 2
+		}
 
         public override void SetDefaults()
         {

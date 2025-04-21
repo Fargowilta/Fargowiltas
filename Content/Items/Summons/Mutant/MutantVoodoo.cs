@@ -15,7 +15,9 @@ namespace Fargowiltas.Content.Items.Summons.Mutant
         public override void SetStaticDefaults()
         {
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 19; // Places it right after Celestial Sigil
+		}
 
         public override void SetDefaults()
         {

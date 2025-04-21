@@ -8,6 +8,11 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
         public OverloadDeer() : base(NPCID.Deerclops, nameof(OverloadDeer), 50, "DeerThing2")
         {
         }
+
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.DeerThing]; // 5
+        }
         public override bool CanUseItem(Player player)
         {
             return !Fargowiltas.SwarmActive;

@@ -11,10 +11,12 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Lee's Headband");
-            /* Tooltip.SetDefault("Summons Bone Lee" +
+			// DisplayName.SetDefault("Lee's Headband");
+			/* Tooltip.SetDefault("Summons Bone Lee" +
                                "\nOnly usable at night or underground"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 13; // Places it right before Pumpkin Moon Medallion and Naughty Present
+		}
 
         public override bool CanUseItem(Player player)
         {

@@ -12,10 +12,12 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Eggplant");
-            /* Tooltip.SetDefault("Summons Doctor Bones" +
+			// DisplayName.SetDefault("Eggplant");
+			/* Tooltip.SetDefault("Summons Doctor Bones" +
                                "\nOnly usable at night or underground"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 0; // Places it before any other bosses
+		}
 
         public override bool CanUseItem(Player player)
         {

@@ -13,10 +13,12 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Blood Urchin");
-            /* Tooltip.SetDefault("Summons Blood Eel" +
+			// DisplayName.SetDefault("Blood Urchin");
+			/* Tooltip.SetDefault("Summons Blood Eel" +
                                "\nOnly usable during Blood Moon"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.BloodMoonStarter]; // 18
+		}
 
         public override bool CanUseItem(Player player)
         {

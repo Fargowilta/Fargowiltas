@@ -15,7 +15,8 @@ namespace Fargowiltas.Content.Items.Summons.VanillaCopy
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-        }
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.MechanicalWorm]; // 9
+		}
 
         public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight && !NPC.AnyNPCs(NPCType);
 

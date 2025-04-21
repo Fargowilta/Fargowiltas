@@ -10,8 +10,10 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Diluted Rainbow Matter");
-            // Tooltip.SetDefault("Summons Rainbow Slime");
-        }
+			// DisplayName.SetDefault("Diluted Rainbow Matter");
+			// Tooltip.SetDefault("Summons Rainbow Slime");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 6; // Places it right after Gelatin Crystal
+		}
     }
 }

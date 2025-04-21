@@ -11,10 +11,12 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Demonic Plushie");
-            /* Tooltip.SetDefault("Summons Red Devil" +
+			// DisplayName.SetDefault("Demonic Plushie");
+			/* Tooltip.SetDefault("Summons Red Devil" +
                                "\nOnly usable in the Underworld"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 10; // Places it right after the three mech boss summons
+		}
 
         public override bool CanUseItem(Player player)
         {
