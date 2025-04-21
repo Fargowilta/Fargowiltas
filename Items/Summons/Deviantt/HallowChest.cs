@@ -9,8 +9,10 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Hallow Chest");
-            // Tooltip.SetDefault("Summons Hallowed Mimic");
-        }
+			// DisplayName.SetDefault("Hallow Chest");
+			// Tooltip.SetDefault("Summons Hallowed Mimic");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 6; // Places it right after Gelatin Crystal
+		}
     }
 }

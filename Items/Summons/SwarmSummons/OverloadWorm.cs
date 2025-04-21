@@ -15,9 +15,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Worm Chicken");
-            // Tooltip.SetDefault("Summons several Eater of Worlds\nOnly Treasure Bags will be dropped");
-        }
+			// DisplayName.SetDefault("Worm Chicken");
+			// Tooltip.SetDefault("Summons several Eater of Worlds\nOnly Treasure Bags will be dropped");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.WormFood]; // 3
+		}
 
         public override bool CanUseItem(Player player)
         {

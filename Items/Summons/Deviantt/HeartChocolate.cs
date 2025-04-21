@@ -12,10 +12,12 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Heart Chocolate");
-            /* Tooltip.SetDefault("Summons Nymph" +
+			// DisplayName.SetDefault("Heart Chocolate");
+			/* Tooltip.SetDefault("Summons Nymph" +
                                "\nOnly usable at night or underground"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 0; // Places it before any other bosses
+		}
 
         public override bool CanUseItem(Player player)
         {

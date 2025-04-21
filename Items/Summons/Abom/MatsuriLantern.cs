@@ -10,10 +10,12 @@ namespace Fargowiltas.Items.Summons.Abom
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Matsuri Lantern");
-            // Tooltip.SetDefault("Makes every night a Lantern Night when possible");
+			// DisplayName.SetDefault("Matsuri Lantern");
+			// Tooltip.SetDefault("Makes every night a Lantern Night when possible");
 
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 4));
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 0; // Places it before any other boss summons
+
+			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 4));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;

@@ -10,10 +10,12 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Holy Grail");
-            /* Tooltip.SetDefault("Summons Tim" +
+			// DisplayName.SetDefault("Holy Grail");
+			/* Tooltip.SetDefault("Summons Tim" +
                                "\nOnly usable at night or underground"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 0; // Places it before any other bosses
+		}
 
         public override bool CanUseItem(Player player)
         {

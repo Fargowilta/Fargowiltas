@@ -14,9 +14,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Slimy Stormcaller");
-            // Tooltip.SetDefault("Summons an Overloaded Slime Rain\nUse again to stop the event");
-        }
+			// DisplayName.SetDefault("Slimy Stormcaller");
+			// Tooltip.SetDefault("Summons an Overloaded Slime Rain\nUse again to stop the event");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 2; // Puts it right after Slime Crown
+		}
 
         public override void SetDefaults()
         {

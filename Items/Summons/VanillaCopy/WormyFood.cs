@@ -14,9 +14,11 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Wormy Food");
-            // Tooltip.SetDefault("Summons the Eater of Worlds in any biome");
-        }
+			// DisplayName.SetDefault("Wormy Food");
+			// Tooltip.SetDefault("Summons the Eater of Worlds in any biome");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.WormFood]; // 3
+		}
 
         public override bool CanUseItem(Player player) => !NPC.AnyNPCs(NPCType);
 

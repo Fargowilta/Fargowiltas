@@ -15,9 +15,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Zealot's Madness");
-            // Tooltip.SetDefault("Summons several Lunatic Cultists\nOnly Treasure Bags will be dropped");
-        }
+			// DisplayName.SetDefault("Zealot's Madness");
+			// Tooltip.SetDefault("Summons several Lunatic Cultists\nOnly Treasure Bags will be dropped");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 18; // Puts it right before Celestial Sigil
+		}
 
         public override bool CanUseItem(Player player)
         {

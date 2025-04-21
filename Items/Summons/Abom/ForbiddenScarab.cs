@@ -17,7 +17,9 @@ namespace Fargowiltas.Items.Summons.Abom
             // DisplayName.SetDefault("Forbidden Scarab");
             // Tooltip.SetDefault("Starts a Sandstorm");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 0; // Places it before any other boss summons
+		}
 
         public override void SetDefaults()
         {

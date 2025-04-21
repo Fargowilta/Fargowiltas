@@ -14,9 +14,11 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Red Stained Spine");
-            // Tooltip.SetDefault("Summons the Brain of Cthulhu in any biome");
-        }
+			// DisplayName.SetDefault("Red Stained Spine");
+			// Tooltip.SetDefault("Summons the Brain of Cthulhu in any biome");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.BloodySpine]; // 3
+		}
 
         public override void AddRecipes()
         {

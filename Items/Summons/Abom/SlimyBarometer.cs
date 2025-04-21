@@ -14,7 +14,9 @@ namespace Fargowiltas.Items.Summons.Abom
             // DisplayName.SetDefault("Slimy Barometer");
             // Tooltip.SetDefault("Starts the Slime Rain");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.SlimeCrown]; // 2
+		}
 
         public override void SetDefaults()
         {

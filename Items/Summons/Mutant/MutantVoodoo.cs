@@ -18,7 +18,9 @@ namespace Fargowiltas.Items.Summons.Mutant
             // DisplayName.SetDefault("Mutant Voodoo Doll");
             // Tooltip.SetDefault("Summons ALL the bosses");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 19; // Places it right after Celestial Sigil
+		}
 
         public override void SetDefaults()
         {

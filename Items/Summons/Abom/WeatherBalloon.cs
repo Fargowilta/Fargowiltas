@@ -14,7 +14,9 @@ namespace Fargowiltas.Items.Summons.Abom
             // DisplayName.SetDefault("Weather Balloon");
             // Tooltip.SetDefault("Starts the Rain");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 0; // Places it before any other boss summons
+		}
 
         public override void SetDefaults()
         {

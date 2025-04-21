@@ -21,9 +21,11 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Eye That Could Be Seen As Suspicious");
-            // Tooltip.SetDefault("Summons the Eye of Cthulhu");
-        }
+			// DisplayName.SetDefault("Eye That Could Be Seen As Suspicious");
+			// Tooltip.SetDefault("Summons the Eye of Cthulhu");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.SuspiciousLookingEye]; // 1
+		}
 
         public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight;
 

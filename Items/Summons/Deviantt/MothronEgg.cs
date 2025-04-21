@@ -10,10 +10,12 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Mothron Egg");
-            /* Tooltip.SetDefault("Summons Mothron" +
+			// DisplayName.SetDefault("Mothron Egg");
+			/* Tooltip.SetDefault("Summons Mothron" +
                                "\nOnly usable during Solar Eclipse"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.SolarTablet]; // 17
+		}
 
         public override bool CanUseItem(Player player)
         {

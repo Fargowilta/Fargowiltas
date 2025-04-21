@@ -10,10 +10,12 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Grand Cross");
-            /* Tooltip.SetDefault("Summons Paladin" +
+			// DisplayName.SetDefault("Grand Cross");
+			/* Tooltip.SetDefault("Summons Paladin" +
                                "\nOnly usable at night or underground"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 13; // Places it right before Pumpkin Moon Medallion and Naughty Present
+		}
 
         public override bool CanUseItem(Player player)
         {

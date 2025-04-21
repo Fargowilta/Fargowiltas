@@ -14,9 +14,11 @@ namespace Fargowiltas.Items.Summons.Mutant
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Jelly Crystal");
-            // Tooltip.SetDefault("Summons Queen Slime");
-        }
+			// DisplayName.SetDefault("Jelly Crystal");
+			// Tooltip.SetDefault("Summons Queen Slime");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.QueenSlimeCrystal]; // 6
+		}
 
         public override void AddRecipes()
         {
