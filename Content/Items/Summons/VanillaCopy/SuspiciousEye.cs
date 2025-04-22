@@ -13,7 +13,8 @@ namespace Fargowiltas.Content.Items.Summons.VanillaCopy
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-        }
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.SuspiciousLookingEye]; // 1
+		}
 
         public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight;
 

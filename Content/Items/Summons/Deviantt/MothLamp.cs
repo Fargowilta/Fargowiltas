@@ -10,8 +10,10 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Moth Lamp");
-            // Tooltip.SetDefault("Summons Moth");
-        }
+			// DisplayName.SetDefault("Moth Lamp");
+			// Tooltip.SetDefault("Summons Moth");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 6; // Places it right after Gelatin Crystal
+		}
     }
 }

@@ -16,6 +16,14 @@ Mods: {
 			Squirrel: Этот опрятно одетый зверёк продаёт дупликаты ценных предметов, которые он подмечает в инвентарях. Как он это делает — не скажет, в основном потому, что разговаривать не умеет.
 		}
 
+		GameTips: {
+			// Squirrel: If you ever manage to catch a Tophat Squirrel, a certain dapper critter might move in!
+			// LumberJack: The LumberJack loves trees, chop down enough of them and he might just fall out of one!
+			// Deviantt: Deviantt loves to provide helpful monster spawners, for a hefty cost...
+			// Abominationn: Defeat the Goblin Army, and a pumpkin headed Abominationn will fall from the sky!
+			// Mutant: Mutant is always in search of someone strong. Grow in power and you might catch his attention...
+		}
+
 		// Used for TownNPCMood "{BiomeName}" Format (unused now)
 		Biome.Sky: Небо
 
@@ -2868,8 +2876,7 @@ Mods: {
 				Census.SpawnCondition: Если у вас в инвентаре есть белка в цилиндре.
 			}
 
-			SuperDummy.DisplayName: Супер-манекен
-			// SuperDummyNPC.DisplayName: Super Dummy N P C
+			// SuperDummyNPC.DisplayName: Super Dummy
 		}
 
 		Projectiles: {
@@ -3041,6 +3048,19 @@ Mods: {
 			SoldAtThirtyStack: Продаются у Бельчонок: При получении в стаке из 30
 			SoldBy: Продаётся у
 			SeveralVendors: нескольких продавцов
+		}
+
+		Emotes: {
+			// AbominationnEmote.Command: abominationn
+			// DevianttEmote.Command: deviantt
+			// LumberJackEmote.Command: lumberjack
+			// MutantEmote.Command: mutant
+			// OmnistationEmote.Command: omnistation
+			// SquirrelEmote.Command: squirrel
+			// EchDeathEmote.Command: echdeath
+			// EchEmote.Command: ech
+			// SemistationEmote.Command: semistation
+			// WiresEmote.Command: wires
 		}
 	}
 }

@@ -10,6 +10,11 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
         {
         }
 
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.TruffleWorm]; // 12
+        }
+
         public override bool CanUseItem(Player player)
         {
             return !Fargowiltas.SwarmActive;

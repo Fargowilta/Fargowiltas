@@ -12,6 +12,8 @@ using Fargowiltas.Content.Items.CaughtNPCs;
 using Fargowiltas.Content.Items.Tiles;
 using Fargowiltas.Content.Items.Ammos.Coins;
 using Fargowiltas.Content.NPCs;
+using Terraria.GameContent.UI;
+using Fargowiltas.Content.UI.Emotes;
 
 namespace Fargowiltas.Content.Items
 {
@@ -675,6 +677,7 @@ namespace Fargowiltas.Content.Items
                                         Item.NewItem(player.GetSource_ItemUse(item), cat.Center, ItemType<WiresPainting>());
                                         Main.item[i].active = false;
                                         cat.active = false;
+                                        EmoteBubble.MakeLocalPlayerEmote(ModContent.EmoteBubbleType<WiresEmote>());
                                         return;
                                     }
                                 }

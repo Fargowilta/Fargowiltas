@@ -5,6 +5,7 @@ using Fargowiltas.Content.Items.Tiles;
 using Fargowiltas.Content.Items.Vanity;
 using Fargowiltas.Content.Items.Weapons;
 using Fargowiltas.Content.Projectiles;
+using Fargowiltas.Content.UI.Emotes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -52,6 +53,7 @@ namespace Fargowiltas.Content.NPCs
             NPCID.Sets.AttackTime[NPC.type] = 90;
             NPCID.Sets.AttackAverageChance[NPC.type] = 30;
             NPCID.Sets.HatOffsetY[NPC.type] = 2;
+            NPCID.Sets.FaceEmote[NPC.type] = ModContent.EmoteBubbleType<LumberJackEmote>();
 
             NPCID.Sets.ShimmerTownTransform[NPC.type] = true; // This set says that the Town NPC has a Shimmered form. Otherwise, the Town NPC will become transparent when touching Shimmer like other enemies.
 

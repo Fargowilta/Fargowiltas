@@ -8,6 +8,11 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
         public OverloadEmpress() : base(NPCID.HallowBoss, nameof(OverloadEmpress), 25, "PrismaticPrimrose")
         {
         }
+
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.SortingPriorityBossSpawns[Type] = 12; // Puts it right after Truffle Worm
+        }
         public override bool CanUseItem(Player player)
         {
             return !Fargowiltas.SwarmActive;

@@ -15,9 +15,11 @@ namespace Fargowiltas.Content.Items.Summons.VanillaCopy
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Celestially Sigil");
-            // Tooltip.SetDefault("Summons the Moon Lord instantly");
-        }
+			// DisplayName.SetDefault("Celestially Sigil");
+			// Tooltip.SetDefault("Summons the Moon Lord instantly");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.CelestialSigil]; // 19
+		}
 
         public override void AddRecipes()
         {

@@ -11,9 +11,11 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Jungle Chest");
-            // Tooltip.SetDefault("Summons Jungle Mimic");
-        }
+			// DisplayName.SetDefault("Jungle Chest");
+			// Tooltip.SetDefault("Summons Jungle Mimic");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 6; // Places it right after Gelatin Crystal
+		}
         /*
         public override void AddRecipes()
         {

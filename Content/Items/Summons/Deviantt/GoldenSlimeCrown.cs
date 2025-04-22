@@ -11,7 +11,8 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-        }
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 0; // Places it before any other bosses
+		}
 
         public override void AddRecipes()
         {

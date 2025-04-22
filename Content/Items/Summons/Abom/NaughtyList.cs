@@ -11,10 +11,8 @@ namespace Fargowiltas.Content.Items.Summons.Abom
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Naughty List");
-            /* Tooltip.SetDefault("Summons Santa-NK1" +
-                               "\nOnly usable at night"); */
-        }
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.NaughtyPresent]; // 15
+		}
 
         public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight;
     }

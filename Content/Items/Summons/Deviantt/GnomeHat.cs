@@ -10,8 +10,10 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Gnome Hat");
-            // Tooltip.SetDefault("Summons Gnome");
-        }
+			// DisplayName.SetDefault("Gnome Hat");
+			// Tooltip.SetDefault("Summons Gnome");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 0; // Places it before any other bosses
+		}
     }
 }

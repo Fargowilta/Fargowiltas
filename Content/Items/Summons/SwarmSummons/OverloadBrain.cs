@@ -9,6 +9,10 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
         {
         }
 
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.BloodySpine]; // 3
+        }
 
         public override bool CanUseItem(Player player)
         {

@@ -16,9 +16,6 @@ namespace Fargowiltas.Content.Items.Misc
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Battle Cry");
-            /* Tooltip.SetDefault("Left click to toggle 10x increased spawn rates" +
-                               "\nRight click to toggle 10x decreased spawn rates"); */
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -119,7 +116,7 @@ namespace Fargowiltas.Content.Items.Misc
             float glowscale = (Main.mouseTextColor / 400f - 0.35f) * 0.3f + 0.9f;
             glowscale *= scale;
             float modifier = 0.5f + (float)Math.Sin(drawTimer / 30f) / 3;
-            Texture2D texture = ModContent.Request<Texture2D>("Fargowiltas/Items/Misc/BattleCry_Glow").Value;
+            Texture2D texture = ModContent.Request<Texture2D>("Fargowiltas/Content/Items/Misc/BattleCry_Glow").Value;
             if (player.whoAmI == Main.myPlayer)
             {
                 if (modPlayer.CalmingCry)
