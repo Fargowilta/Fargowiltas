@@ -365,6 +365,12 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.DisableDecraft();
             recipe.Register();
 
+            recipe = Recipe.Create(ItemID.Tombstone);
+            recipe.AddIngredient(ItemID.StoneBlock, 100);
+            recipe.AddTile(TileID.HeavyWorkBench);
+            recipe.DisableDecraft();
+            recipe.Register();
+
             List<int> familiars = [ItemID.FamiliarWig, ItemID.FamiliarShirt, ItemID.FamiliarPants];
             List<int> familiarStations = [TileID.LivingLoom, TileID.Loom, TileID.Loom];
             for (int i = 0; i < familiars.Count; i++)
