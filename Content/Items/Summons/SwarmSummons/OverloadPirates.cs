@@ -14,6 +14,8 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
         {
             // DisplayName.SetDefault("Pirate's Bounty");
             // Tooltip.SetDefault("Summons an Overloaded Pirate Invasion\nUse again to stop the event");
+            ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.PirateMap];
+            ;
         }
 
         public override void SetDefaults()

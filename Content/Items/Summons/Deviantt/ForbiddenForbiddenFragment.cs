@@ -10,8 +10,10 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Forbidden Forbidden Fragment");
-            // Tooltip.SetDefault("Summons Sand Elemental");
-        }
+			// DisplayName.SetDefault("Forbidden Forbidden Fragment");
+			// Tooltip.SetDefault("Summons Sand Elemental");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 6; // Places it right after Gelatin Crystal
+		}
     }
 }

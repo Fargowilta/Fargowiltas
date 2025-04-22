@@ -19,7 +19,9 @@ namespace Fargowiltas.Content.Items.Summons.VanillaCopy
             // DisplayName.SetDefault("Some Kind of Metallic Eye");
             // Tooltip.SetDefault("Summons the Twins");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.MechanicalEye]; // 8
+		}
 
         public override void SetDefaults()
         {

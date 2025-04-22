@@ -15,9 +15,11 @@ namespace Fargowiltas.Content.Items.Summons.VanillaCopy
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("A Bee In My Nation");
-            // Tooltip.SetDefault("Summons Queen Bee in any biome");
-        }
+			// DisplayName.SetDefault("A Bee In My Nation");
+			// Tooltip.SetDefault("Summons Queen Bee in any biome");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.Abeemination]; // 5
+		}
 
         public override void AddRecipes()
         {

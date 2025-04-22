@@ -13,7 +13,11 @@ namespace Fargowiltas.Content.Items.Summons.VanillaCopy
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-        }
+			// DisplayName.SetDefault("Some Kind of Metallic Skull");
+			// Tooltip.SetDefault("Summons Skeletron Prime");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.MechanicalSkull]; // 10
+		}
 
         public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight;
 

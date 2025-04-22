@@ -17,7 +17,9 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
             /* Tooltip.SetDefault("Summons Wandering Eye Fish and Zombie Merman" +
                                "\nOnly usable at night"); */
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.BloodMoonStarter]; // 18
+		}
 
         public override bool CanUseItem(Player player)
         {

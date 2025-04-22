@@ -12,6 +12,11 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
     {
         public override string Texture => "Fargowiltas/Content/Items/Summons/Abom/SlimyBarometer";
 
+        public override void SetStaticDefaults()
+        {
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 2; // Puts it right after Slime Crown
+		}
+
         public override void SetDefaults()
         {
             Item.width = 20;

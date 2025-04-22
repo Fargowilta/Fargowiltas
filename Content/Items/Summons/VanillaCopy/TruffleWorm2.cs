@@ -15,9 +15,11 @@ namespace Fargowiltas.Content.Items.Summons.VanillaCopy
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Truffly Worm");
-            // Tooltip.SetDefault("Summons Duke Fishron without fishing");
-        }
+			// DisplayName.SetDefault("Truffly Worm");
+			// Tooltip.SetDefault("Summons Duke Fishron without fishing");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.TruffleWorm]; // 12
+		}
 
         public override void SetDefaults()
         {

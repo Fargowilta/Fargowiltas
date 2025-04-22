@@ -14,9 +14,11 @@ namespace Fargowiltas.Content.Items.Summons.VanillaCopy
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Slimy Crown");
-            // Tooltip.SetDefault("Summons King Slime");
-        }
+			// DisplayName.SetDefault("Slimy Crown");
+			// Tooltip.SetDefault("Summons King Slime");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.SlimeCrown]; // 2
+		}
 
         public override void AddRecipes()
         {

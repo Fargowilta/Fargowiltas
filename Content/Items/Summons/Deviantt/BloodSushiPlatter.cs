@@ -13,10 +13,12 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Blood Sushi Platter");
-            /* Tooltip.SetDefault("Summons Dreadnautilus" +
+			// DisplayName.SetDefault("Blood Sushi Platter");
+			/* Tooltip.SetDefault("Summons Dreadnautilus" +
                                "\nOnly usable during Blood Moon"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.BloodMoonStarter]; // 18 [Redigit why]
+		}
 
         public override bool CanUseItem(Player player)
         {

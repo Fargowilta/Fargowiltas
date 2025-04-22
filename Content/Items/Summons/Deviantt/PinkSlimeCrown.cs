@@ -14,7 +14,12 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-        }
+			// DisplayName.SetDefault("Pink Slime Crown");
+			// Tooltip.SetDefault("Summons Pinky");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 0; // Places it before any other boss summons
+		}
 
         public override void SetDefaults()
         {

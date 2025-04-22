@@ -18,6 +18,7 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 4));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+            ItemID.Sets.SortingPriorityBossSpawns[Type] = 0;
         }
 
         public override void SetDefaults()

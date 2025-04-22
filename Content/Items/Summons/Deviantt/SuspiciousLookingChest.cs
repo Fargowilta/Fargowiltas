@@ -14,10 +14,12 @@ namespace Fargowiltas.Content.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Suspicious Looking Chest");
-            /* Tooltip.SetDefault("Summons Mimic"
+			// DisplayName.SetDefault("Suspicious Looking Chest");
+			/* Tooltip.SetDefault("Summons Mimic"
             + "\nSummons Ice Mimic when in snow biome"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 6; // Places it right after Gelatin Crystal
+		}
         public override bool CanUseItem(Player player)
         {
             if (!Main.hardMode && !FargoUtils.EternityMode) 
