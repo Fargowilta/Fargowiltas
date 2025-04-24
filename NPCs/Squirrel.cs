@@ -12,6 +12,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.Drawing;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
@@ -24,7 +25,13 @@ namespace Fargowiltas.NPCs
     {
         private static int shopNum;
         private static bool showCycleShop;
-        private static Profiles.DefaultNPCProfile NPCProfile;
+        private static Profiles.StackedNPCProfile NPCProfile;
+        private static int ShimmerHeadIndex;
+
+        public override void Load()
+        {
+            ShimmerHeadIndex = ModContent.GetModHeadSlot(Texture + "_Shimmer_Head");
+        }
 
         private const string ShopName = "Shop";
 
@@ -41,7 +48,10 @@ namespace Fargowiltas.NPCs
             NPCID.Sets.AttackType[Type] = 0;
             NPCID.Sets.AttackTime[Type] = 90;
             NPCID.Sets.AttackAverageChance[Type] = 30;
-            NPCID.Sets.HatOffsetY[Type] = 4;
+            //NPCID.Sets.ShimmerTownTransform[NPC.type] = true;
+            //NPCID.Sets.ShimmerTownTransform[Type] = true;
+
+            //NPCID.Sets.HatOffsetY[Type] = 4;
 
             NPCID.Sets.CannotSitOnFurniture[Type] = true;
 
@@ -56,7 +66,10 @@ namespace Fargowiltas.NPCs
             NPC.Happiness.SetBiomeAffection<UndergroundBiome>(AffectionLevel.Hate);
             NPC.Happiness.SetNPCAffection<LumberJack>(AffectionLevel.Like);
 
-            NPCProfile = new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture), Texture + "_Party");
+            NPCProfile = new Profiles.StackedNPCProfile(
+                new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture), Texture + "_Party")
+                //new Profiles.DefaultNPCProfile(Texture + "_Shimmer", ShimmerHeadIndex, null)
+            );
         }
 
         public override void SetDefaults()
@@ -77,9 +90,9 @@ namespace Fargowiltas.NPCs
         }
 
         public override void ChatBubblePosition(ref Vector2 position, ref SpriteEffects spriteffects)
-        {
-            position.Y += 17f;
-            //position.X += 4f;
+        {   
+            if (!NPC.IsShimmerVariant)
+                position.Y += 17f;
         }
 
         public override ITownNPCProfile TownNPCProfile()
@@ -521,8 +534,8 @@ namespace Fargowiltas.NPCs
             {
                 return true;
             }
+                    
 
-            
             Rectangle frame = NPC.frame;
             SpriteEffects effects = NPC.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             //Vector2 position = NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY + 2);
@@ -535,9 +548,6 @@ namespace Fargowiltas.NPCs
                 Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
                 Main.EntitySpriteDraw(texture, NPC.Center + afterimageOffset - screenPos + Vector2.UnitY * (NPC.gfxOffY - 1), NPC.frame, glowColor, NPC.rotation, new Vector2(texture.Width / 2, texture.Height / 2 / Main.npcFrameCount[NPC.type]), NPC.scale, effects, 0f);
             }
-            /*
-            spriteBatch.Draw(GlowAsset.Value, position, frame, Color.White * NPC.Opacity, NPC.rotation, frame.Size() / 2f, scale, effects, 0f);
-            */
             return true;
         }
 
