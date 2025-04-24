@@ -2602,7 +2602,9 @@ Mods: {
 					Normal2: 你知道吗？唯一真正的音乐类型是死亡金属和艺术核心。
 					Normal3: 我道德沦丧？不，银行可喜欢我了。
 					Normal4: 如果你继续买，我可能承担得起更高的身体！
+					// Normal4: I might be able to afford a taller body if you keep buying!
 					Normal5: 我的个子可能会让你产生错觉！我可能只有4英尺6英寸高，但站在我的钱上时，我高达7英尺11英寸！
+					// Normal5: My size deceives you! I may be 4'6'' but I'm 7'11'' when I stand on my money!
 					Normal6: 你就是泰拉瑞亚人？老实说，我在期待一个稍微……高一点的人。
 					Normal7: 别用那种眼神看我！我唯一背离的就是我的人性。
 					Normal8: 撕裂你的敌人，再从我这买点东西，再撕裂你的敌人，这是个轮回……
@@ -2612,8 +2614,6 @@ Mods: {
 					Normal12: 总有一天我会卖自己的召唤物！……开玩笑的。
 					Normal13: 嗯，我看得出来！你屠杀了很多东西……但是还不够！
 					Normal14: 你问我为什么要多出一个字母？只有我们中的最强者才被允许删除他们多出来的字母！
-					Normal15: 你杀的稀有的东西越多，我卖的东西就越多！就是这么简单。
-					Normal16: 哦，嗨！我……呃，千万不要现在给我丢臭味药水！我平时也不会那样！
 				}
 
 				HelpDialogue: {

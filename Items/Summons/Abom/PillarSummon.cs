@@ -14,9 +14,12 @@ namespace Fargowiltas.Items.Summons.Abom
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Outsider's Portal");
-            // Tooltip.SetDefault("Summons the Celestial Pillars");
-        }
+			// DisplayName.SetDefault("Outsider's Portal");
+			// Tooltip.SetDefault("Summons the Celestial Pillars");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 18; // Places it right before Celestial Sigil
+		}
 
         public override void SetDefaults()
         {

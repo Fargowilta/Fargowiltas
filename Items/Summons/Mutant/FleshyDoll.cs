@@ -13,7 +13,9 @@ namespace Fargowiltas.Items.Summons.Mutant
             /* Tooltip.SetDefault("Summons the Wall of Flesh" +
                                "\nMake sure you use it in the Underworld"); */
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 5; // Places it right after Deer Thing and Abeemination, and before Gelatin Crystal
+		}
 
         public override void SetDefaults()
         {
@@ -21,6 +23,7 @@ namespace Fargowiltas.Items.Summons.Mutant
             Item.height = 20;
             Item.maxStack = 20;
             Item.value = Item.sellPrice(0, 0, 2);
+            Item.rare = ItemRarityID.Blue;
             Item.useAnimation = 30;
             Item.useTime = 30;
             Item.rare = ItemRarityID.Blue;

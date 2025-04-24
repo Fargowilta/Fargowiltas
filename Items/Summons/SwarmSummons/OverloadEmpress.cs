@@ -15,9 +15,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Jar of Lacewings");
-            // Tooltip.SetDefault("Summons several Empresses of Light\nOnly Treasure Bags will be dropped");
-        }
+			// DisplayName.SetDefault("Jar of Lacewings");
+			// Tooltip.SetDefault("Summons several Empresses of Light\nOnly Treasure Bags will be dropped");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 12; // Puts it right after Truffle Worm
+		}
 
         public override bool CanUseItem(Player player)
         {

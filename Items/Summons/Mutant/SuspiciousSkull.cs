@@ -19,10 +19,12 @@ namespace Fargowiltas.Items.Summons.Mutant
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Suspicious Skull");
-            /* Tooltip.SetDefault("Summons Skeletron without killing the Clothier" +
+			// DisplayName.SetDefault("Suspicious Skull");
+			/* Tooltip.SetDefault("Summons Skeletron without killing the Clothier" +
                                "\nSummons the Dungeon Guardian during the day"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 5; // Places it right after Deer Thing and Abeemination
+		}
 
         public override bool CanUseItem(Player player) => true;
 
