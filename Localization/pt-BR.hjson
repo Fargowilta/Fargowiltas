@@ -9,7 +9,7 @@
 Mods: {
 	Fargowiltas: {
 		Bestiary: {
-			Deviantt: Oferece invocaderos de monstros e (caso ela queira) uma ajudinha. Essa criatura animada e energética gosta de dinheiro quase tanto quanto violência. Só um pouquinho deformada.
+			Deviantt: Oferece invocadores de monstros e (caso ela queira) uma ajudinha. Essa criatura animada e energética gosta de dinheiro quase tanto quanto violência. Só um pouquinho deformada.
 			Abominationn: Consegue controlar o clima e para invasões, mas ele é preguiçoso e as suas armas estão fundidas com suas mãos. Que bom que ele não precisa de comer e as portas se abrem magicamente quando ele está perto.
 			Mutant: Chamado de irmão por seus irmãos, mas se recusa a confirmar seu gênero. Mais interessado em assistir lutas e pequenos animais do que falar sobre o seu passado. Parece estar procurando alguém forte..
 			LumberJack: Um Lenhador completamente normal que ama coletar criaturazinhas e cortar vários tipos de madeira. Mas será que ele esconde algo? Poderes Divinos Secretos?... Provavelmente não.
@@ -900,250 +900,249 @@ Mods: {
 			}
 
 			PylonCleaner: {
-				DisplayName: Pylon Cleaner
+				DisplayName: Limpador de Pilar
 				Tooltip:
 					'''
-					Purifies the area around every pylon
-					Will use Blue Solution on Hallow Pylon and Green Solution on others
+					Purifica a área em volta de todos os pilares
+					Irá usar solução azul no pilar do Consagrado e verde nos outros
 					'''
 			}
 
 			SuperDummy: {
-				DisplayName: Super Dummy
+				DisplayName: Super Boneco
 				Tooltip:
 					'''
-					Spawns a super dummy at your cursor
-					Same as regular Target Dummy except minions and projectiles detect and home onto it
-					On hit effects get triggered as well
-					Right click to remove all spawned super dummies
-					Can spawn up to 50 super dummies at once
+					Invoca um super boneco no seu cursor
+					Funciona da mesma forma que um boneco normal mas lacaios e projéteis detectam e seguem ele
+					Efeitos ativados ao atingir inimigos funcionam
+					Botão direito para remover todos os super bonecos invocados
+					Pode criar até 50 super bonecos de uma vez
 					'''
 			}
 
 			CorruptRenewal: {
-				DisplayName: Corruption Renewal
-				Tooltip: Corrupts a large radius
+				DisplayName: Renovador de Corrupção
+				Tooltip: Corrompe uma grande área
 			}
 
 			CorruptRenewalSupreme: {
-				DisplayName: Corruption Renewal Supreme
-				Tooltip: Corrupts the entire world
+				DisplayName: Renovar de Corrupção Supremo
+				Tooltip: Corrompe o mundo inteiro
 			}
 
 			CrimsonRenewal: {
-				DisplayName: Crimson Renewal
-				Tooltip: Crimsons a large radius
+				DisplayName: Renovador de Carmim
+				Tooltip: Carminiza uma grande área
 			}
 
 			CrimsonRenewalSupreme: {
-				DisplayName: Crimson Renewal Supreme
-				Tooltip: Crimsons the entire world
+				DisplayName: Renovador de Carmim Supremo
+				Tooltip: Carminiza o mundo inteiro
 			}
 
 			HallowRenewal: {
-				DisplayName: Hallowed Renewal
-				Tooltip: Hallows a large radius
+				DisplayName: Renovador de Consagrado
+				Tooltip: Consagra uma grande área
 			}
 
 			HallowRenewalSupreme: {
-				DisplayName: Hallowed Renewal Supreme
-				Tooltip: Hallows the entire world
+				DisplayName: Renovador de Consagrado Supremo
+				Tooltip: Consagra o mundo inteiro
 			}
 
 			MushroomRenewal: {
-				DisplayName: Mushroom Renewal
-				Tooltip: Shroomifies a large radius
+				DisplayName: Renovador de Cogumelo
+				Tooltip: Cogumelifica uma grande área
 			}
 
 			MushroomRenewalSupreme: {
-				DisplayName: Mushroom Renewal Supreme
-				Tooltip: Shroomifies the entire world
+				DisplayName: Renovador de Cogumelo Supremo
+				Tooltip: Cogumelifica o mundo inteiro
 			}
 
 			PurityRenewal: {
-				DisplayName: Purity Renewal
-				Tooltip: Cleanses a large radius
+				DisplayName: Renovador da Pureza
+				Tooltip: Limpa uma grande área
 			}
 
 			PurityRenewalSupreme: {
-				DisplayName: Purity Renewal Supreme
-				Tooltip: Cleanses the entire world
+				DisplayName: Renovador de Pureza Suprema
+				Tooltip: Limpa o mundo inteiro
 			}
 
 			SnowRenewal: {
-				DisplayName: Snow Renewal
-				Tooltip: Snows a large radius
+				DisplayName: Renovador de Neve
+				Tooltip: Neva uma grande área
 			}
 
 			SnowRenewalSupreme: {
-				DisplayName: Snow Renewal Supreme
-				Tooltip: Snows the entire world
+				DisplayName: Renovador de Neve Supremo
+				Tooltip: Neva o mundo inteiro
 			}
 
 			SandRenewal: {
-				DisplayName: Desert Renewal
-				Tooltip: Sands a large radius
+				DisplayName: Renovador de Deserto
+				Tooltip: Assoreia uma grande área
 			}
 
 			SandRenewalSupreme: {
-				DisplayName: Desert Renewal Supreme
-				Tooltip: Sands the entire world
-			}
+				DisplayName: Renovador de Deserto Supremo
+				Tooltip: Assoreia o mundo inteiro
 
 			DirtRenewal: {
-				DisplayName: Forest Renewal
-				Tooltip: Dirts a large radius
+				DisplayName: Renovador de Floresta
+				Tooltip: Floresta uma grande área
 			}
 
 			DirtRenewalSupreme: {
-				DisplayName: Forest Renewal Supreme
-				Tooltip: Dirts the entire world
+				DisplayName: Renovador de Floresta Supremo
+				Tooltip: Floresta o mundo inteiro
 			}
 
 			Abeemination2: {
-				DisplayName: A Bee In My Nation
-				Tooltip: Summons Queen Bee in any underground biome
+				DisplayName: Uma Abelha na Minha Nação
+				Tooltip: Invoca a Rainha Abelha em qualquer bioma
 			}
 
 			Anemometer: {
-				DisplayName: Anemometer
-				Tooltip: Starts a Windy Day
+				DisplayName: Anemômetro
+				Tooltip: Começa um dia ventoso
 			}
 
 			BatteredClub: {
-				DisplayName: Battered Club
-				Tooltip: Summons the Ogre
+				DisplayName: Bastão Batido
+				Tooltip: Invoca o Ogro
 			}
 
 			BetsyEgg: {
-				DisplayName: Old Dragon Egg
-				Tooltip: Summons Betsy
+				DisplayName: Ovo Velho de Dragão
+				Tooltip: Invoca Betsy
 			}
 
 			FestiveOrnament: {
-				DisplayName: Festive Ornament
+				DisplayName: Ornamento Festivo
 				Tooltip:
 					'''
-					Summons Everscream
-					Only usable at night
+					Invoca Everscream
+					Pode ser usado apenas à noite
 					'''
 			}
 
 			ForbiddenScarab: {
-				DisplayName: Forbidden Scarab
-				Tooltip: Starts a Sandstorm
+				DisplayName: Escaravelho Proíbido
+				Tooltip: Começa a tempestade de areia
 			}
 
 			ForbiddenTome: {
-				DisplayName: Forbidden Tome
-				Tooltip: Summons a Dark Mage
+				DisplayName: Tomo Proíbido
+				Tooltip: Invoca o Mago Sombrio
 			}
 
 			HeadofMan: {
-				DisplayName: Head of Man
+				DisplayName: Cabeça de Homem
 				Tooltip:
 					'''
-					Summons Headless Horseman
-					Only usable at night
+					Invoca o Cavaleiro sem Cabeça
+					Pode ser usado apenas à noite
 					'''
 			}
 
 			IceKingsRemains: {
-				DisplayName: Ice King's Remains
+				DisplayName: Restos do Rei Gelado
 				Tooltip:
 					'''
-					Summons Ice Queen
-					Only usable at night
+					Invoca a Rainha do Gelo
+					Pode ser usado apenas à noite
 					'''
 			}
 
 			MartianMemoryStick: {
-				DisplayName: Martian Memory Stick
-				Tooltip: Summons Martian Saucer
+				DisplayName: Cartão de Memória Marciano
+				Tooltip: Invoca o Disco Voador de Marte
 			}
 
 			MatsuriLantern: {
-				DisplayName: Matsuri Lantern
-				Tooltip: Makes every night a Lantern Night when possible
+				DisplayName: Lanterna de Matsuri
+				Tooltip: Transforma todas as noites em noites de lanterna quando possível
 			}
 
 			NaughtyList: {
-				DisplayName: Naughty List
+				DisplayName: Lista dos Malvados
 				Tooltip:
 					'''
-					Summons Santa-NK1
-					Only usable at night
+					Invoca o Papai-Noel-NK1
+					Pode ser usado apenas à noite
 					'''
 			}
 
 			PartyInvite: {
-				DisplayName: Party Invite
+				DisplayName: Convite de Festa
 				Tooltip:
 					'''
-					Starts a Party!
-					Needs at least 5 town NPCs to use
+					Começa uma Festa!
+					Precisa de pelo menos 5 NPCs de cidade para começar
 					'''
 			}
 
 			PillarSummon: {
-				DisplayName: Outsider's Portal
-				Tooltip: Summons the Celestial Pillars
+				DisplayName: Portal Xereta
+				Tooltip: Invoca os Pilares Celestiais
 			}
 
 			RunawayProbe: {
-				DisplayName: Runaway Probe
-				Tooltip: Starts the Martian invasion
+				DisplayName: Sonda Fugitiva
+				Tooltip: Começa a Loucura de Marte
 			}
 
 			SlimyBarometer: {
-				DisplayName: Slimy Barometer
-				Tooltip: Starts the Slime Rain
+				DisplayName: Barômetro de Geleia
+				Tooltip: Começa a chuva de geleia
 			}
 
 			SpentLantern: {
-				DisplayName: Spent Lantern
-				Tooltip: Deactivates Matsuri Lantern effect
+				DisplayName: Lantera Gasta
+				Tooltip: Desativa o efeito da Lanterna de Matsuri
 			}
 
 			SpookyBranch: {
-				DisplayName: Spooky Branch
+				DisplayName: Galho Assustador
 				Tooltip:
 					'''
-					Summons Mourning Wood
-					Only usable at night
+					Invoca a Árvore da Morte
+					Pode ser usado apenas à noite
 					'''
 			}
 
 			SuspiciousLookingScythe: {
-				DisplayName: Suspicious Looking Scythe
+				DisplayName: Foice Suspeita
 				Tooltip:
 					'''
-					Summons Pumpking
-					Only usable at night
+					Invoca Reibóbora
+					Pode ser usado apenas à noite
 					'''
 			}
 
 			WeatherBalloon: {
-				DisplayName: Weather Balloon
-				Tooltip: Starts the Rain
+				DisplayName: Balão Meteorológico
+				Tooltip: Começa a chuva
 			}
 
 			CelestialSigil2: {
-				DisplayName: Celestially Sigil
-				Tooltip: Summons the Moon Lord instantly
+				DisplayName: Celestiamente Sigilo
+				Tooltip: Invoca o Senhor da Lua instantaneamente
 			}
 
 			DeerThing2: {
-				DisplayName: Unusual Deer Skull
-				Tooltip: Summons Deerclops in any biome
+				DisplayName: Caveira de Cervo Incomum
+				Tooltip: Invoca a Cervoclope em qualquer bioma
 			}
 
 			AmalgamatedSkull: {
-				DisplayName: Amalgamated Skull
+				DisplayName: Caveira Amalgamada
 				Tooltip:
 					'''
-					Summons the skeleton gunners
-					Only usable at night or underground
+					Invoca os Atiradores Esqueleto
+					Pode ser usado apenas à noite ou no subterrâneo
 					'''
 			}
 
@@ -1151,261 +1150,261 @@ Mods: {
 				DisplayName: Amalgamated Spirit
 				Tooltip:
 					'''
-					Summons the skeleton mages
-					Only usable at night or underground
+					Invoca os Magos Esqueleto
+					Pode ser usado apenas à noite ou no subterrâneo
 					'''
 			}
 
 			AthenianIdol: {
-				DisplayName: Athenian Idol
+				DisplayName: ídolo Ateniense
 				Tooltip:
 					'''
-					Summons Medusa
-					Only usable at night or underground
+					Invoca a Medusa
+					Pode ser usado apenas à noite ou no subterrâneo
 					'''
 			}
 
 			AttractiveOre: {
-				DisplayName: Attractive Ore
+				DisplayName: Minério Atrativo
 				Tooltip:
 					'''
-					Summons Undead Miner
-					Only usable at night or underground
+					Invoca o Minerador Zumbi
+					Pode ser usado apenas à noite ou no subterrâneo
 					'''
 			}
 
 			BloodSushiPlatter: {
-				DisplayName: Blood Sushi Platter
+				DisplayName: Prato de Sushi Sangrento
 				Tooltip:
 					'''
-					Summons Dreadnautilus
-					Only usable during Blood Moon
+					Invoca o Encouranáutilo
+					Pode ser usado apenas na Lua de Sangue
 					'''
 			}
 
 			BloodUrchin: {
-				DisplayName: Blood Urchin
+				DisplayName: Ouriço Sangrento
 				Tooltip:
 					'''
-					Summons Blood Eel
-					Only usable during Blood Moon
+					Invoca a Enguia de Sangue
+					Pode ser usado apenas na Lua de Sangue
 					'''
 			}
 
 			CloudSnack: {
-				DisplayName: Cloud Snack
-				Tooltip: Summons Wyvern
+				DisplayName: Lanche de Nuvem
+				Tooltip: Invoca a Serpe
 			}
 
 			ClownLicense: {
-				DisplayName: Clown License
+				DisplayName: Licença de Palhaço
 				Tooltip:
 					'''
-					Summons Clown
-					Only usable at night or underground
+					Invoca o Palhaço
+					Pode ser usado apenas à noite ou no subterrâneo
 					'''
 			}
 
 			CoreoftheFrostCore: {
-				DisplayName: Core of the Frost Core
-				Tooltip: Summons Ice Golem
+				DisplayName: Núcleo do Núcleo de Gelo
+				Tooltip: Invoca o Golem de Gelo
 			}
 
 			CorruptChest: {
-				DisplayName: Corrupt Chest
-				Tooltip: Summons Corrupt Mimic
+				DisplayName: Baú Corrupto
+				Tooltip: Invoca o Mímico Corrompido
 			}
 
 			CrimsonChest: {
-				DisplayName: Crimson Chest
-				Tooltip: Summons Crimson Mimic
+				DisplayName: Baú Carmim
+				Tooltip: Invoca o Mímico de Carmim
 			}
 
 			DemonicPlushie: {
-				DisplayName: Demonic Plushie
+				DisplayName: Pelúcia Demoníaca
 				Tooltip:
 					'''
-					Summons Red Devil
-					Only usable in the Underworld
+					Invoca o Diabo Vermelho
+					Pode ser usado apenas no submundo
 					'''
 			}
 
 			DilutedRainbowMatter: {
-				DisplayName: Diluted Rainbow Matter
-				Tooltip: Summons Rainbow Slime
+				DisplayName: Matéria Arco-íris Diluída
+				Tooltip: Invoca a geleia arco-íris
 			}
 
 			Eggplant: {
-				DisplayName: Eggplant
+				DisplayName: Beringela
 				Tooltip:
 					'''
-					Summons Doctor Bones
-					Only usable at night or underground
+					Invoca o Doutor Bones
+					Pode ser usado apenas à noite ou no subterrâneo
 					'''
 			}
 
 			ForbiddenForbiddenFragment: {
-				DisplayName: Forbidden Forbidden Fragment
-				Tooltip: Summons Sand Elemental
+				DisplayName: Fragmento Proíbido Proíbido
+				Tooltip: Invoca a Elemental da Areia
 			}
 
 			GnomeHat: {
-				DisplayName: Gnome Hat
-				Tooltip: Summons Gnome
+				DisplayName: Chapéu de Gnomo
+				Tooltip: Invoca o Gnomo
 			}
 
 			GoblinScrap: {
-				DisplayName: Goblin Scrap
-				Tooltip: Summons Goblin Scout
+				DisplayName: Sucata Goblin
+				Tooltip: Invoca o Batedor Goblin
 			}
 
 			GoldenSlimeCrown: {
-				DisplayName: Golden Slime Crown
-				Tooltip: Summons Golden Slime
+				DisplayName: Coroa de Geleia Dourada
+				Tooltip: Invoca a Geleia dourada
 			}
 
 			GrandCross: {
-				DisplayName: Grand Cross
+				DisplayName: Grande Cruz
 				Tooltip:
 					'''
-					Summons Paladin
-					Only usable at night or underground
+					Invoca o Paladino
+					Pode ser usado apenas à noite ou no subterrâneo
 					'''
 			}
 
 			HallowChest: {
-				DisplayName: Hallow Chest
-				Tooltip: Summons Hallowed Mimic
+				DisplayName: Baú Consagrado
+				Tooltip: Invoca o mímico consagrado
 			}
 
 			HeartChocolate: {
-				DisplayName: Heart Chocolate
+				DisplayName: Coração de Chocolate
 				Tooltip:
 					'''
-					Summons Nymph
-					Only usable at night or underground
+					Invoca a Ninfa
+					Pode ser usado apenas à noite ou no subterrâneo
 					'''
 			}
 
 			HemoclawCrab: {
-				DisplayName: Hemoclaw Crab
+				DisplayName: Garra de Carangueijo Sangrenta
 				Tooltip:
 					'''
-					Summons Hemogoblin Shark
-					Only usable during Blood Moon
+					Invoca o Tubarão Hemogoblin
+					Pode ser usado apenas na Lua de Sangue
 					'''
 			}
 
 			HolyGrail: {
-				DisplayName: Holy Grail
+				DisplayName: Santo Graal
 				Tooltip:
 					'''
-					Summons Tim
-					Only usable at night or underground
+					Invoca o Tim
+					Pode ser usado apenas à noite ou no subterrâneo
 					'''
 			}
 
 			JungleChest: {
-				DisplayName: Jungle Chest
-				Tooltip: Summons Jungle Mimic
+				DisplayName: Baú da Selva
+				Tooltip: Invoca o Mímico da Selva
 			}
 
 			LeesHeadband: {
-				DisplayName: Lee's Headband
+				DisplayName: Bandana do Lee
 				Tooltip:
 					'''
-					Summons Bone Lee
-					Only usable at night or underground
+					Invoca o Bone Lee
+					Pode ser usado apenas à noite ou no subterrâneo
 					'''
 			}
 
 			MothLamp: {
-				DisplayName: Moth Lamp
-				Tooltip: Summons Moth
+				DisplayName: Lampâda de Mariposa
+				Tooltip: Invoca a Mariposa
 			}
 
 			MothronEgg: {
-				DisplayName: Mothron Egg
+				DisplayName: Ovo da Mothron
 				Tooltip:
 					'''
-					Summons Mothron
-					Only usable during Solar Eclipse
+					Invoca a Mothron
+					Pode ser usado apenas durante o Eclipse
 					'''
 			}
 
 			Pincushion: {
-				DisplayName: Pincushion
+				DisplayName: Almofada de Alfinetes
 				Tooltip:
 					'''
-					Summons Nailhead
-					Only usable during Solar Eclipse
+					Invoca o Cabeça de pregos
+					Pode ser usado apenas durante o Eclipse
 					'''
 			}
 
 			PinkSlimeCrown: {
-				DisplayName: Pink Slime Tiara
-				Tooltip: Summons Pinky
+				DisplayName: Tiara de geleia rosa
+				Tooltip: Invoca o Rosado
 			}
 
 			PirateFlag: {
-				DisplayName: Pirate Flag
-				Tooltip: Summons Pirate Captain
+				DisplayName: Bandeira Pirata
+				Tooltip: Invoca o Capitão Pirata
 			}
 
 			PlunderedBooty: {
-				DisplayName: Plundered Booty
-				Tooltip: Summons Flying Dutchman
+				DisplayName: Tesouro Roubado
+				Tooltip: Invoca o holandês voador
 			}
 
 			RuneOrb: {
-				DisplayName: Rune Orb
+				DisplayName: Orbe de Runa
 				Tooltip:
 					'''
-					Summons Rune Wizard
-					Only usable at night or underground
+					Invoca o Mago das Runas
+					Pode ser usado apenas à noite ou no subterrâneo
 					'''
 			}
 
 			ShadowflameIcon: {
-				DisplayName: Shadowflame Icon
+				DisplayName: Ícone de Chama das Sombras
 				Tooltip:
 					'''
-					Summons Goblin Summoner
-					Only usable during Goblin Army
+					Invoca o Invocador Goblin
+					Pode ser usado apenas durante a invasão Goblin
 					'''
 			}
 
 			SlimyLockBox: {
-				DisplayName: Slimy Lock
-				Tooltip: Summons Dungeon Slime
+				DisplayName: Fechadura Gosmenta
+				Tooltip: Invoca a Geleia do Calabouço
 			}
 
 			SuspiciousLookingChest: {
-				DisplayName: Suspicious Looking Chest
+				DisplayName: Baú Suspeito
 				Tooltip:
 					'''
-					Summons Mimic
-					Summons Ice Mimic when in snow biome
+					Invoca o mímico
+					Invoca o mímico de gelo no bioma da neve
 					'''
-				HardmodeLock: Only usable in Hardmode
+				HardmodeLock: Pode ser usado apenas no Modo Díficil
 			}
 
 			SuspiciousLookingLure: {
-				DisplayName: Suspicious Looking Lure
+				DisplayName: Isca Suspeita
 				Tooltip:
 					'''
-					Summons Wandering Eye Fish and Zombie Merman
-					Only usable at night
+					invoca o Olho Errante e Tritão Zumbi
+					Pode ser usado apenas à noite
 					'''
 			}
 
 			WormSnack: {
-				DisplayName: Worm Snack
+				DisplayName: Lanche de Minhoca
 				Tooltip:
 					'''
-					Summons Giant Worm in pre-Hardmode
-					Summons Digger in Hardmode
-					Only usable underground
+					Invoca o verme gigante no Pré-Modo Díficil
+					Invoca o cavador no Modo Díficil
+					Pode ser usado apenas no subterrâneo
 					'''
 			}
 
