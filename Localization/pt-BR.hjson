@@ -9,19 +9,19 @@
 Mods: {
 	Fargowiltas: {
 		Bestiary: {
-			Deviantt: Provides monster spawners and (if she feels like it) a helping hand. This upbeat and energetic creature likes money almost as much as she likes violence. Only a little deformed.
-			Abominationn: Can control the weather and stop invasions, but he's lazy and his weapons are fused to his hands. Good thing he doesn't need to eat and doors magically open when he approaches.
-			Mutant: Called brother by its siblings, but refuses to confirm its gender. More interested in watching fights and small pets than talking about its past. It seems to be looking for someone strong...
-			LumberJack: A wholly ordinary lumberjack that loves collecting critters and chopping wood of any kind. But could there be more to him than meets the eye? Secret godly powers? ...Probably not.
-			Squirrel: This dapper critter sells duplicates of valuable items that it notices in inventories. Won't divulge how it gets them, mostly because it can't speak.
+			Deviantt: Oferece invocaderos de monstros e (caso ela queira) uma ajudinha. Essa criatura animada e energética gosta de dinheiro quase tanto quanto violência. Só um pouquinho deformada.
+			Abominationn: Consegue controlar o clima e para invasões, mas ele é preguiçoso e as suas armas estão fundidas com suas mãos. Que bom que ele não precisa de comer e as portas se abrem magicamente quando ele está perto.
+			Mutant: Chamado de irmão por seus irmãos, mas se recusa a confirmar seu gênero. Mais interessado em assistir lutas e pequenos animais do que falar sobre o seu passado. Parece estar procurando alguém forte..
+			LumberJack: Um Lenhador completamente normal que ama coletar criaturazinhas e cortar vários tipos de madeira. Mas será que ele esconde algo? Poderes Divinos Secretos?... Provavelmente não.
+			Squirrel: Essa criatura estilosa vende imitações de itens valiosos que ele vê em seu inventário. Não divulga como ele consegue esses itens, porque não consegue falar.
 		}
 
 		// Used for TownNPCMood "{BiomeName}" Format (unused now)
-		Biome.Sky: Sky
+		Biome.Sky: Céu
 
 		Configs: {
 			FargoServerConfig: {
-				DisplayName: Server Config
+				DisplayName: Configuração do Servidor
 
 				Mutant: {
 					Label: "[i:Fargowiltas/MutantMask] [c/ffffff:{$Mods.Fargowiltas.NPCs.Mutant.DisplayName} {$Mods.Fargowiltas.Configs.Common.CanSpawn}]"
@@ -49,244 +49,244 @@ Mods: {
 				}
 
 				CatchNPCs: {
-					Label: "[i:267] Catch Town NPCs"
+					Label: "[i:267] Capturar NPCs de cidade"
 					Tooltip: ""
 				}
 
 				NPCSales: {
-					Label: "[i:267] Extra Town NPC sales"
+					Label: "[i:267] Vendas extras de NPCs de cidade"
 					Tooltip: ""
 				}
 
 				SaferBoundNPCs: {
-					Label: "[i:1274] Rescuable Town NPCs take no contact damage"
+					Label: "[i:1274] NPCs de cidade resgatáveis não recebem danos"
 					Tooltip: ""
 				}
 
 				Halloween: {
-					Label: "[i:1774] Halloween Season"
+					Label: "[i:1774] Tempo de Halloween"
 					Tooltip: ""
 				}
 
 				Christmas: {
-					Label: "[i:1869] Christmas Season"
+					Label: "[i:1869] Tempo Natalino"
 					Tooltip: ""
 				}
 
 				DrunkWorld: {
-					Label: "[i:353] Drunk World"
+					Label: "[i:353] Mundo Bêbado"
 					Tooltip: ""
 				}
 
 				BeeWorld: {
-					Label: "[i:1133] Bee World"
+					Label: "[i:1133] Mundo de Abelha"
 					Tooltip: ""
 				}
 
 				WorthyWorld: {
-					Label: "[i:2107] For the Worthy World"
+					Label: "[i:2107] Mundo For The Worthy"
 					Tooltip: ""
 				}
 
 				CelebrationWorld: {
-					Label: "[i:3732] Celebration World"
+					Label: "[i:3732] Mundo de Celebração"
 					Tooltip: ""
 				}
 
 				ConstantWorld: {
-					Label: "[i:5109] Constant World"
+					Label: "[i:5109] Mundo Constante"
 					Tooltip: ""
 				}
 
 				UnlimitedAmmo: {
-					Label: "[i:771] Unlimited Ammo at 3996+ in Hardmode"
+					Label: "[i:771] Munição infinita quando com 3996+ no Modo Díficil"
 					Tooltip: ""
 				}
 
 				UnlimitedConsumableWeapons: {
-					Label: "[i:42] Unlimited Consumable Weapons at 3996+ in Hardmode"
+					Label: "[i:42] Armas consumíveis infinitas quando com 3996+ no Modo Díficil"
 					Tooltip: ""
 				}
 
 				UnlimitedPotionBuffsOn120: {
-					Label: "[i:292] Unlimited Buffs and Bait when carried in certain stacks"
-					Tooltip: 30+ for potions and bait
+					Label: "[i:292] Buffs e Isca ilimitados quando carregados em certa quantidade"
+					Tooltip: 30+ para poções e isca
 				}
 
 				ExtraBuffSlots: {
-					Label: "[i:3000] Additional Buff Slots"
+					Label: "[i:3000] Slots adicionais de Buffs"
 					Tooltip: ""
 				}
 
 				AnglerQuestInstantReset: {
-					Label: "[i:2374] Angler Quest Instant Reset"
+					Label: "[i:2374] Missões do Pescador resetam intantaneamente"
 					Tooltip: ""
 				}
 
 				ExtraLures: {
-					Label: "[i:2373] Extra Lures on Fishing Rods"
+					Label: "[i:2373] Iscas Extras em varas de pesca"
 					Tooltip: ""
 				}
 
 				StalkerMoneyTrough: {
-					Label: "[i:3213] Stalker Money Trough"
+					Label: "[i:3213] Porquinho stalker"
 					Tooltip: ""
 				}
 
 				RottenEggs: {
-					Label: "[i:1809] Powerful Rotten Eggs"
+					Label: "[i:1809] Ovos podres poderosos"
 					Tooltip: ""
 				}
 
 				BannerRecipes: {
-					Label: "[i:1683] Banner Recipes"
+					Label: "[i:1683] Receitas com bandeira"
 					Tooltip: ""
 				}
 
 				IncreaseMaxStack: {
-					Label: "[i:2] Increased Max Stacks"
+					Label: "[i:2] Aumento da pilhagem máxima"
 					Tooltip: ""
 				}
 
 				ExtractSpeed: {
-					Label: "[i:997] Increased Extractinator Speed"
+					Label: "[i:997] Velocidade aumentada do Extrator"
 					Tooltip: ""
 				}
 
 				Fountains: {
-					Label: "[i:909] Fountains Cause Biomes"
+					Label: "[i:909] Fonte causam biomas"
 					Tooltip: ""
 				}
 
 				PermanentStationsNearby: {
-					Label: "[i:3198] Automatic Station Buffs When Nearby"
+					Label: "[i:3198] Buffs de estação automático quando próximas"
 					Tooltip: ""
 				}
 
 				BossZen: {
-					Label: "[i:3117] No enemies spawn during boss fights"
+					Label: "[i:3117] Inimigos não são criados enquanto um chefe está vivo"
 					Tooltip: ""
 				}
 
 				PiggyBankAcc: {
-					Label: "[i:87] Informational and Construction item inventory effects work in Piggy Bank"
+					Label: "[i:87] Efeitos informacionais e de construção funcionam no Porquinho"
 					Tooltip: ""
 				}
 
 				ModdedPiggyBankAcc: {
-					Label: "[i:87] Modded item inventory effects work in Piggy Bank"
+					Label: "[i:87] Efeitos de itens de Mods funcionam no Porquinho"
 					Tooltip: ""
 				}
 
 				FasterLavaFishing: {
-					Label: "[i:4881] Faster Fishing in Lava"
+					Label: "[i:4881] Pescaria mais rápida na Lava"
 					Tooltip: ""
 				}
 
 				TorchGodEX: {
-					Label: "[i:5043] Torch God's Favor Automatically Swaps Placed Torches"
-					Tooltip: Obeys true torch luck, which may differ from Torch God's Favor
+					Label: "[i:5043] O favor do deus da tocha automaticamente troca as tochas posicionadas"
+					Tooltip: Obedece a sorte de tocha, que pode ser differente do favor deus da tocha
 				}
 
 				PylonsIgnoreEvents: {
-					Label: "[i:4876] Pylons Ignore Events"
+					Label: "[i:4876] Pilares ignoram eventos"
 					Tooltip: ""
 				}
 
 				SafeTerraformers: {
-					Label: "[i:Fargowiltas/InstaBridge] Safe Terraformers"
+					Label: "[i:Fargowiltas/InstaBridge] Terraformadores Seguros"
 					Tooltip:
 						'''
-						Terraformers such as Instabridge and City Buster avoid destroying any areas added to the Important Structures list.
-						This option is overly safe and will often avoid destroying even common things, such as cavern houses.
+						Terraformadores como a Instaponte ou o Destruidor de Cidade evitam destruir áreas consideradas importantes.
+						Essa opção é segura até demais e pode evitar coisas normais, como casas abandonadas.
 						'''
 				}
 
 				Headers: {
-					TownNPCs: Town NPCs
-					Seasons: Seasons
-					Seeds: Seeds
-					Unlimited: Unlimited
-					StatMultipliers: Stat Multipliers
-					Misc: Miscellaneous
+					TownNPCs: NPCs de Cidade
+					Seasons: Estações
+					Seeds: Sementes
+					Unlimited: Ilimitado
+					StatMultipliers: Multiplicadores de estatísticas
+					Misc: Diversos
 				}
 
 				EnemyHealth: {
-					Label: "[i:29] Enemy Health"
-					Tooltip: Multiplies the health of all enemies.
+					Label: "[i:29] Vida do Inimigo"
+					Tooltip: Multiplica a vida de todos os inimigos.
 				}
 
 				BossHealth: {
-					Label: "[i:29] Boss Health"
-					Tooltip: Multiplies the health of all bosses. Highest multiplier between this or Enemy Health is applied.
+					Label: "[i:29] Vida do Chefe"
+					Tooltip: Multiplica a vida de todos os chefes. Maior multiplicador entre esse e o multiplicador de inimigo é aplicado.
 				}
 
 				EnemyDamage: {
-					Label: "[i:3507] Enemy Damage"
-					Tooltip: Multiplies post-mitigation damage of all enemies and projectiles.
+					Label: "[i:3507] Dano do Inimigo"
+					Tooltip: Multiplica o dano de todos os inimigos e projéteis.
 				}
 
 				BossDamage: {
-					Label: "[i:3507] Boss Damage"
-					Tooltip: Multiplies post-mitigation damage of all bosses. Highest multiplier between this or Enemy Damage is applied.
+					Label: "[i:3507] Dano do Chefe"
+					Tooltip: Multiplica o dano de todos os chefes. Maior multiplicador entre esse e o multiplicador de inimigo é aplicado.
 				}
 
 				BossApplyToAllWhenAlive: {
-					Label: Boss Multipliers Apply Universally
-					Tooltip: Boss Health and Boss Damage configs apply to all enemies while a boss is alive, rather than just bosses themselves.
+					Label: Multiplicadores de Chefe se aplicam universalmente
+					Tooltip: Vida do Chefe e Dano do Chefe são aplicados para todos os inimigos enquanto um chefe está vivo, ao invés de afetar apenas os chefes.
 				}
 
 				DisableTombstones: {
-					Label: "[i:Fargowiltas/GraveBuster] Disable Tombstones"
-					Tooltip: Makes Tombstones not spawn when players die.
+					Label: "[i:Fargowiltas/GraveBuster] Lápides desativadas"
+					Tooltip: Faz lápides não aparecerem quando um jogador morre.
 				}
 			}
 
 			FargoClientConfig: {
-				DisplayName: Client Config
+				DisplayName: Configuração de Cliente
 
 				ExpandedTooltips: {
-					Label: "[i:171] More tooltips indicate Mutant Mod changes"
+					Label: "[i:171] Descrições de itens indicam mudanças do Fargo Mutant"
 					Tooltip: ""
 				}
 
 				ExactTooltips: {
-					Label: "[i:171] Tooltips display exact item speed and knockback"
-					Tooltip: Item speed is listed in use time, meaning bigger number = slower.
+					Label: "[i:171] Descrições de itens mostram a velocidade e recuo exatos dos itens"
+					Tooltip: Velocidade do item está lista no tempo de uso, então números maiores = mais devagar.
 				}
 
 				HideUnlimitedBuffs: {
-					Label: "[i:292] Hide unlimited buffs in tray"
+					Label: "[i:292] Esconder buffs permanentes"
 					Tooltip: ""
 				}
 
 				DoubleTapDashDisabled: {
-					Label: "[i:3097] Disable double-tap for dashes"
-					Tooltip: Prevent dashes from using the normal double-tap keybind. The Dash key is available regardless of this config.
+					Label: "[i:3097] Desabilita toque duplo para corridas"
+					Tooltip: Impede que corridas sejam feitas com o toque duplo normal. O botão de corrida está disponível independente dessa configuração.
 				}
 
 				DoubleTapSetBonusDisabled: {
-					Label: "[i:3776] Disable double-tap for Set Bonuses"
-					Tooltip: Prevent set bonuses from using the normal double-tap keybind. The Set Bonus key is available regardless of this config.
+					Label: "[i:3776] Desabilita toque duplo para Bonûs Definido"
+					Tooltip: Impede que bônus definidos sejam ativados com o toque duplo normal. O botão de bônus definido está disponível independente dessa configuração.
 				}
 
 				DebuffOpacity: {
-					Label: "[i:1612] Debuff Display Max Opacity"
+					Label: "[i:1612] Opacidade máxima da exibição de efeitos negativos"
 					Tooltip: ""
 				}
 
 				DebuffFaderRatio: {
-					Label: "[i:1612] Debuff Duration Fader Strength"
+					Label: "[i:1612] Força do desaparecimento da duração de efeitos negativos"
 					Tooltip: ""
 				}
 
 				TransparentFriendlyProjectiles: {
-					Label: "[i:1309] Transparent Friendly Projectiles"
-					Tooltip: Use with vanilla setting for Quality at Medium or Low for best results
+					Label: "[i:1309] projéteis amigáveis transparentes"
+					Tooltip: Use com a qualidade do jogo no médio ou baixo para resultados melhores
 				}
 
 				MultiplayerDeathSpectate: {
-					Label: Multiplayer Death Spectate
+					Label: Espectar ao morrer no multiplayer
 					Tooltip: ""
 				}
 			}
@@ -294,66 +294,66 @@ Mods: {
 			SeasonSelections: {
 				Tooltip: ""
 				Normal.Label: Normal
-				AlwaysOn.Label: Always On
-				AlwaysOff.Label: Always Off
+				AlwaysOn.Label: Sempre ligado
+				AlwaysOff.Label: Sempre desligado
 			}
 
-			Common.CanSpawn: Can Spawn
+			Common.CanSpawn: Pode aparecer
 		}
 
 		RecipeGroups: {
-			EvilWood: Evil Wood
-			CommonFish: Common Fish
-			CaughtNPC: Caught Town NPC
-			CaughtSlime: Caught Town Slime
-			ArmoredBonesBanner: Armored Bones Banner
-			FoodT2: Plenty Satisfying Food
-			FoodT3: Exquisitively Stuffing Food
-			GemRobe: Gem Robe
-			Or: Or
+			EvilWood: Madeira malvada
+			CommonFish: Peixes normais
+			CaughtNPC: NPC de cidade capturado
+			CaughtSlime: Geleia de cidade capturada
+			ArmoredBonesBanner: Bandeira do Ossos Furiosos
+			FoodT2: Comida muito satisfatória
+			FoodT3: Comida extremamente satisfatória
+			GemRobe: Roupão de Jóia
+			Or: Ou
 		}
 
 		UI: {
-			StatButton: Stat Sheet
-			SearchText: Search...
+			StatButton: Folha de Estatísticas
+			SearchText: Procurar...
 			// Stat Sheet Elements
-			MeleeDamage: Melee Damage: {0}%
-			MeleeCritical: Melee Critical: {0}%
-			MeleeSpeed: Melee Speed: {0}%
-			RangedDamage: Ranged Damage: {0}%
-			RangedCritical: Ranged Critical: {0}%
-			MagicDamage: Magic Damage: {0}%
-			MagicCritical: Magic Critical: {0}%
-			ManaCostReduction: Mana Cost Reduction: {0}%
-			SummonDamage: Summon Damage: {0}%
-			SummonCritical: Summon Critical: {0}%
-			MaxMinions: Max Minions: {0}
-			MaxSentries: Max Sentries: {0}
-			ArmorPenetration: Armor Penetration: {0}
-			Aggro: Aggro: {0}
-			Life: Life: {0}
-			LifeRegen: Life Regen: {0}/sec
+			MeleeDamage: Dano físico: {0}%
+			MeleeCritical: Crítico físico: {0}%
+			MeleeSpeed: Velocidade física: {0}%
+			RangedDamage: Dano à distância: {0}%
+			RangedCritical: Crítico à distância: {0}%
+			MagicDamage: Dano de magia: {0}%
+			MagicCritical: Crítico de magia: {0}%
+			ManaCostReduction: Redução no custo de mana: {0}%
+			SummonDamage: Dano de invocação: {0}%
+			SummonCritical: Crítico de Invocação: {0}%
+			MaxMinions: Lacaios máximos: {0}
+			MaxSentries: Sentinelas máximas: {0}
+			ArmorPenetration: Perfuração de Blindagem: {0}
+			Aggro: Agressividade: {0}
+			Life: Vida: {0}
+			LifeRegen: Regeneração de Vida: {0}/sec
 			Mana: Mana: {0}
-			ManaRegen: Mana Regen: {0}/sec
-			Defense: Defense: {0}
-			DRCap: " (cap {0}%)"
-			DamageReduction: Damage Reduction: {0}%{1}
-			Luck: Luck: {0}
-			FishingQuests: Fishing Quests: {0}
-			BattleCry: Battle Cry: {0}
+			ManaRegen: Regeneração de Mana: {0}/sec
+			Defense: Defesa: {0}
+			DRCap: " (Limite {0}%)"
+			DamageReduction: Redução de Dano: {0}%{1}
+			Luck: Sorte: {0}
+			FishingQuests: Missões de Pesca: {0}
+			BattleCry: Grito de Guerra: {0}
 			// Battle & Calming are in Items.BattleCry
-			BattleCryNone: None
-			MaxSpeed: Max Speed: {0} mph
-			AttackSpeed: Attack Speed: {0}%
+			BattleCryNone: Nenhum
+			MaxSpeed: Velocidade máxima: {0} mph
+			AttackSpeed: Velocidade de ataque: {0}%
 			WingNull: ???
-			WingTime: Wing Time: {0}
-			WingTimeMoreThan60Sec: Yes
-			WingTimeActual: "{0} sec"
-			WingMaxSpeed: Wing Max Speed: {0} mph
-			WingAscentModifier: Wing Ascent Modifier: {0}%
-			WingHover: Wing Can Hover: {0}
-			WingHoverTrue: True
-			WingHoverFalse: False
+			WingTime: Tempo de voo: {0}
+			WingTimeMoreThan60Sec: Sim
+			WingTimeActual: "{0} seg"
+			WingMaxSpeed: Velocidade máxima de asa: {0} mph
+			WingAscentModifier: Modificador de ascenção de asa: {0}%
+			WingHover: Asa pode flutuar: {0}
+			WingHoverTrue: Verdadeiro
+			WingHoverFalse: Falso
 		}
 
 		MessageInfo: {
@@ -362,505 +362,505 @@ Mods: {
 				Period: .
 			}
 
-			SiblingPylonNotNearSiblings: That pylon needs the mutated siblings to function.
-			NearbySiblingPylonNotNearSiblings: The nearby pylon needs the mutated siblings to function.
-			NewItemUnlocked: A new item has been unlocked in {0}'s shop!
-			HaveAwoken: "{0} have awoken!"
+			SiblingPylonNotNearSiblings: Aquele Pilar precisa dos Irmãos Mutados por perto para funcionar.
+			NearbySiblingPylonNotNearSiblings: Aquele Pilar precisa dos Irmãos Mutados por perto para funcionar.
+			NewItemUnlocked: Um novo item foi desbloqueado na loja da {0}!
+			HaveAwoken: "{0} Acordou"
 			// Cancel Event
-			CancelEvent: The invaders have left!
-			CancelPumpkinMoon: The Pumpkin Moon is lowering...
-			CancelFrostMoon: The Frost Moon is lowering...
-			CancelEclipse: A solar eclipse is not happening!
-			CancelBloodMoon: The blood moon is descending...
-			CancelWindyDay: The wind has ended!
-			CancelOOA: The Old One's Army is leaving!
-			CancelSandstorm: The sandstorm has ended!
-			CancelLunarEvent: Celestial creatures are not invading!
-			CancelRain: The rain has ended!
+			CancelEvent: Os invasores foram embora!
+			CancelPumpkinMoon: A Lua de Abóbora se pôs...
+			CancelFrostMoon: A Lua de Gelo se pôs...
+			CancelEclipse: Um Eclipse Solar não está acontecendo!
+			CancelBloodMoon: A Lua de Sangue está descendo...
+			CancelWindyDay: O vento acabou!
+			CancelOOA: o Exército do ancião está indo embora!
+			CancelSandstorm: A tempesta de areia terminou!
+			CancelLunarEvent: As criaturas celestiais foram embora!
+			CancelRain: A chuva terminou!
 			// Summons
-			StartWindyDay: The wind begins howling.
-			StartSandStorm: A sandstorm has begun.
-			StartLanternNight: Lantern Night rate increased!
-			StopLanternNight: Lantern Night rate restored to default.
-			StartLunarEvent: The Celestial Pillars have awoken!
-			StartRain: Rain clouds cover the sky.
-			AncientSeal: Every boss has awoken!
-			SeveralBossesAwoken: Several bosses have awoken!
+			StartWindyDay: O vento começa a uivar.
+			StartSandStorm: A tempestade de areia começou.
+			StartLanternNight: Taxa de noites de lanterna aumentada!
+			StopLanternNight: Taxa de noites de lanterna retornadas ao normal.
+			StartLunarEvent: Os pilares celestiais acordou!
+			StartRain: Nuvens cobrem o céu.
+			AncientSeal: TODOS OS CHEFES acordaram!
+			SeveralBossesAwoken: Diversos chefes acordaram!
 			// Swarm Summons
-			OverloadBee: A deafening buzz pierces through you!
-			OverloadBetsy: The real Old One's Army is attacking!
-			OverloadBrain: The galaxy brain descends from the stars!
-			OverloadCultist: Deafening chants fill your ears!
-			OverloadDarkMage: You feel like you've enraged a librarian!
-			OverloadDeer: The Constant takes over!
-			OverloadDestroyer: The planet trembles from the core!
-			OverloadEmpress: Bullet heaven is descending!
-			OverloadEye: Countless staring eyes pierce the veil as they amalgamate into one!
-			OverloadFish: The ocean convulses in terror!
-			OverloadGolem: You feel like you're going to have a bad time!
-			OverloadMoon: The wind whispers of death's approach!
-			OverloadPlant: The jungle beats as one!
-			OverloadPrime: A sickly chill envelops the world!
-			OverloadQueenSlime: Welcome to the truer slime rain!
-			OverloadSkele: A great clammering of bones rises from the dungeon!
-			OverloadSlimeCrown: Welcome to the true slime rain!
-			OverloadTwins: The eyes are filled with determination!
-			OverloadWall: A fortress of flesh arises from the depths!
-			OverloadWorm: The ground shifts with formulated precision!
+			OverloadBee: Um zumbido perfurante te faz tremer!
+			OverloadBetsy: O real exército do ancião está atacando!
+			OverloadBrain: O cérebro galático descende!
+			OverloadCultist: Cultos ensurdecedores te atacam!
+			OverloadDarkMage: Você sente que enfureceu um bibliotecário!
+			OverloadDeer: A constante toma tudo!
+			OverloadDestroyer: O planeta treme até o núcleo!
+			OverloadEmpress: Uma Chuva de Tiros está vindo!
+			OverloadEye: Vários olhos observadores se juntam em um!
+			OverloadFish: O Oceano convulsa em terror!
+			OverloadGolem: Você sente que vai passar por uns mals tempos.
+			OverloadMoon: O vendo sussura sobre a chegada da Morte!
+			OverloadPlant: A selva pulsa como uma!
+			OverloadPrime: Um gelo doentio toma o mundo!
+			OverloadQueenSlime: Bem vindo a chuva de geleias mais que verdadeira!
+			OverloadSkele: Uma grande aglomeração de ossos sobe do calabouço!
+			OverloadSlimeCrown: Bem vindo a chuva de geleias verdadeira!
+			OverloadTwins: Os olhos estão cheios de determinação!
+			OverloadWall: Uma fortaleza de carne sobe das profundezas!
+			OverloadWorm: O chão se mexe com precisão formulada!
 			// Swarm Events
-			OverloadFrostMoonStop: The Frost Moon fades away!
-			OverloadFrostMoonStart: The Frost Moon is rising...
-			OverloadFrostMoonWave20: Wave: 20: Everything
-			OverloadPumpkinMoonStop: The Pumpkin Moon fades away!
-			OverloadPumpkinMoonStart: The Pumpkin Moon is rising...
-			OverloadPumpkinMoonWave15: Wave: 15: Everything
-			OverloadGoblinsStop: The goblins have calmed down!
-			OverloadMartiansStop: The martians have calmed down!
-			OverloadPiratesStop: The pirates have calmed down!
+			OverloadFrostMoonStop: A Lua de Gelo desaparece!
+			OverloadFrostMoonStart: A Lua de Gelo está subindo...
+			OverloadFrostMoonWave20: Onda: 20: TUDO
+			OverloadPumpkinMoonStop: A Lua de Abóbora desaparece!
+			OverloadPumpkinMoonStart: A Lua de Abóbora está subindo...
+			OverloadPumpkinMoonWave15: Onda: 15: TUDO
+			OverloadGoblinsStop: Os goblins se acalmaras!
+			OverloadMartiansStop: Os marcianos se acalmaram!
+			OverloadPiratesStop: Os piratas se acalmaram!
 			// Swarm Misc
-			SwarmDefeated: The energized boss has been defeated!
+			SwarmDefeated: O chefe energizado foi derrotado!
 		}
 
 		Buffs: {
 			Omnistation: {
-				DisplayName: Omnistation
-				Description: Effects of all vanilla stations
+				DisplayName: Omnistação
+				Description: Efeitos de todas as estações do vanilla
 			}
 
 			Semistation: {
-				DisplayName: Semistation
-				Description: Effects of some vanilla stations
+				DisplayName: Semistação
+				Description: Efeitos de algumas estações do vanilla
 			}
 
 			WoodDrop: {
-				DisplayName: Wood Drop
+				DisplayName: Queda de Madeira
 				Description: Mods.Fargowiltas.BuffDescription.WoodDrop
 			}
 
 			BigSuckBuff: {
-				DisplayName: Big Suck
-				Description: You are sucking everything
+				DisplayName: Chupão
+				Description: Você está chupando tudo
 			}
 
 			CoolCrabBuff: {
-				DisplayName: Cool Crab
-				Description: He thinks you should play Elden Ring
+				DisplayName: Carangueijo Maneiro
+				Description: Ele acha que você deve jogar Elden Ring
 			}
 		}
 
 		Items: {
 			BoneQuiver: {
-				DisplayName: Endless Bone Quiver
+				DisplayName: Aljava Infinita de Osso
 				Tooltip: ""
 			}
 
 			ChlorophyteQuiver: {
-				DisplayName: Endless Chlorophyte Quiver
-				Tooltip: Bounces back after hitting a wall
+				DisplayName: Aljava Infinita de Clorofita
+				Tooltip: Quica após bater em uma parede
 			}
 
 			CursedQuiver: {
-				DisplayName: Endless Cursed Quiver
+				DisplayName: Aljava Infinita Amaldiçoada
 				Tooltip: ""
 			}
 
 			FlameQuiver: {
-				DisplayName: Endless Flame Quiver
+				DisplayName: Aljava Infinita de Fogo
 				Tooltip: ""
 			}
 
 			FrostburnQuiver: {
-				DisplayName: Endless Frostburn Quiver
+				DisplayName: Aljava Infinita de Queimadura de Gelo
 				Tooltip: ""
 			}
 
 			HellfireQuiver: {
-				DisplayName: Endless Hellfire Quiver
+				DisplayName: Aljava Infinita de Fogo Infernal
 				Tooltip: ""
 			}
 
 			HolyQuiver: {
-				DisplayName: Endless Holy Quiver
-				Tooltip: Summons falling stars on impact
+				DisplayName: Aljava Infinita Consagrada
+				Tooltip: Invoca estrelas cadentes no impacto
 			}
 
 			IchorQuiver: {
-				DisplayName: Endless Ichor Quiver
-				Tooltip: Decreases target's defense
+				DisplayName: Aljava Infinita de Ichor
+				Tooltip: Diminui a defesa do alvo
 			}
 
 			JesterQuiver: {
-				DisplayName: Endless Jester's Quiver
+				DisplayName: Aljava Infinita do Jester
 				Tooltip: ""
 			}
 
 			LuminiteQuiver: {
-				DisplayName: Endless Luminite Quiver
-				Tooltip: "'Shooting them down at the speed of sound!'"
+				DisplayName: Aljava Infinita de Luminita
+				Tooltip: "'Derrubando eles na velocidade do som!'"
 			}
 
 			UnholyQuiver: {
-				DisplayName: Endless Unholy Quiver
+				DisplayName: Aljava Infinita Profana
 				Tooltip: ""
 			}
 
 			VenomQuiver: {
-				DisplayName: Endless Venom Quiver
+				DisplayName: Aljava Infinita de Veneno
 				Tooltip: ""
 			}
 
 			BrittleBone: {
-				DisplayName: Brittle Bone
+				DisplayName: Osso frágil
 				Tooltip: ""
 			}
 
 			ChlorophytePouch: {
-				DisplayName: Endless Chlorophyte Pouch
-				Tooltip: Chases after your enemy
+				DisplayName: Bolsa Infinita de Clorofita
+				Tooltip: Persegue o seu inimigo
 			}
 
 			CrystalPouch: {
-				DisplayName: Endless Crystal Pouch
-				Tooltip: Creates several crystal shards on impact
+				DisplayName: Bolsa Infinita de Cristal
+				Tooltip: Cria vários fragmentos de cristal
 			}
 
 			CursedPouch: {
-				DisplayName: Endless Cursed Pouch
+				DisplayName: Bolsa Infinita Amaldiçoada
 				Tooltip: ""
 			}
 
 			ExplosivePouch: {
-				DisplayName: Endless Explosive Pouch
-				Tooltip: Explodes on impact
+				DisplayName: Bolsa Infinita Explosiva
+				Tooltip: Explode ao atingir
 			}
 
 			GoldenPouch: {
-				DisplayName: Endless Golden Pouch
-				Tooltip: Enemies killed will drop more money
+				DisplayName: Bolsa Infinita Dourada
+				Tooltip: Inimigos derrubam mais dinheiro
 			}
 
 			IchorPouch: {
-				DisplayName: Endless Ichor Pouch
-				Tooltip: Decreases target's defense
+				DisplayName: Bolsa Infinita de Ichor
+				Tooltip: Diminui a defesa do alvo
 			}
 
 			LuminitePouch: {
-				DisplayName: Endless Luminite Pouch
-				Tooltip: "'Line 'em up and knock 'em down...'"
+				DisplayName: Bolsa Infinita de Luminita
+				Tooltip: "'Alinha e depois derruba eles...'"
 			}
 
 			MeteorPouch: {
-				DisplayName: Endless Meteor Pouch
+				DisplayName: Bolsa Infinita de Meteoro
 				Tooltip: ""
 			}
 
 			NanoPouch: {
-				DisplayName: Endless Nano Pouch
-				Tooltip: Causes confusion
+				DisplayName: Bolsa Infinita de Nano
+				Tooltip: Causa confusão
 			}
 
 			PartyPouch: {
-				DisplayName: Endless Party Pouch
-				Tooltip: Explodes into confetti on impact
+				DisplayName: Bolsa Infinita de Festa
+				Tooltip: Explode em confetti ao atingir
 			}
 
 			SilverPouch: {
-				DisplayName: Endless Silver Pouch
+				DisplayName: Bolsa Infinita de Prata
 				Tooltip: ""
 			}
 
 			TungstenPouch: {
-				DisplayName: Endless Tungsten Pouch
+				DisplayName: Bolsa Infinita de Tungstênio
 				Tooltip: ""
 			}
 
 			VelocityPouch: {
-				DisplayName: Endless High Velocity Pouch
+				DisplayName: Bolsa Infinita de Alta Velocidade
 				Tooltip: ""
 			}
 
 			VenomPouch: {
-				DisplayName: Endless Venom Pouch
-				Tooltip: Inflicts target with venom
+				DisplayName: Bolsa Infinita de Veneno
+				Tooltip: Inflige Veneno
 			}
 
 			CopperCoinBag: {
-				DisplayName: Endless Copper Coin Safe
+				DisplayName: Cofre de cobre infinito
 				Tooltip: ""
 			}
 
 			GoldCoinBag: {
-				DisplayName: Endless Gold Coin Safe
+				DisplayName: Cofre de ouro infinito
 				Tooltip: ""
 			}
 
 			PlatinumCoinBag: {
-				DisplayName: Endless Platinum Coin Safe
+				DisplayName: Cofre de platina infinito
 				Tooltip: ""
 			}
 
 			SilverCoinBag: {
-				DisplayName: Endless Silver Coin Safe
+				DisplayName: Cofre de prata infinito
 				Tooltip: ""
 			}
 
 			CrystalDartBox: {
-				DisplayName: Endless Crystal Dart Box
+				DisplayName: Caixa de Dardos de Cristal Infinita
 				Tooltip: ""
 			}
 
 			CursedDartBox: {
-				DisplayName: Endless Cursed Dart Box
+				DisplayName: Caixa de Dardos Amaldiçoados Infinita
 				Tooltip: ""
 			}
 
 			IchorDartBox: {
-				DisplayName: Endless Ichor Dart Box
+				DisplayName: Caia de Dardos de Ichor Infinita
 				Tooltip: ""
 			}
 
 			PoisonDartBox: {
-				DisplayName: Endless Poison Dart Box
+				DisplayName: Caixa de Dardos de Veneno Infinita
 				Tooltip: ""
 			}
 
 			GelPack: {
-				DisplayName: Endless Gel Pack
+				DisplayName: Pacote de Geleia Infinito
 				Tooltip: ""
 			}
 
 			ClusterRocket1Bag: {
-				DisplayName: Endless Cluster Rocket I Bag
+				DisplayName: Bolsa Infinita de Foguete de Fragmentação I
 				Tooltip: ""
 			}
 
 			ClusterRocket2Bag: {
-				DisplayName: Endless Cluster Rocket II Bag
+				DisplayName: Bolsa Infinita de Foguete de Fragmentação II
 				Tooltip: ""
 			}
 
 			DryRocketBag: {
-				DisplayName: Endless Dry Rocket Bag
+				DisplayName: Bolsa Infinita de Foguete Seco
 				Tooltip: ""
 			}
 
 			HoneyRocketBag: {
-				DisplayName: Endless Honey Rocket Bag
+				DisplayName: Bolsa Infinita de Foguete de Mel
 				Tooltip: ""
 			}
 
 			LavaRocketBag: {
-				DisplayName: Endless Lava Rocket Bag
+				DisplayName: Bolsa Infinita de Foguete de Lava
 				Tooltip: ""
 			}
 
 			MiniNuke1Bag: {
-				DisplayName: Endless Mini Nuke I Bag
+				DisplayName: Bolsa Infinita de Mini Bomba Nuclear I
 				Tooltip: ""
 			}
 
 			MiniNuke2Bag: {
-				DisplayName: Endless Mini Nuke II Bag
+				DisplayName: Bolsa Infinita de Mini Bomba Nuclear II
 				Tooltip: ""
 			}
 
 			Rocket1Bag: {
-				DisplayName: Endless Rocket I Bag
+				DisplayName:Bolsa Infinita de Foguete I
 				Tooltip: ""
 			}
 
 			Rocket2Bag: {
-				DisplayName: Endless Rocket II Bag
+				DisplayName: Bolsa Infinita de Foguete II
 				Tooltip: ""
 			}
 
 			Rocket3Bag: {
-				DisplayName: Endless Rocket III Bag
+				DisplayName: Bolsa Infinita de Foguete III
 				Tooltip: ""
 			}
 
 			Rocket4Bag: {
-				DisplayName: Endless Rocket IV Bag
+				DisplayName: Bolsa Infinita de Foguete IV
 				Tooltip: ""
 			}
 
 			WetRocketBag: {
-				DisplayName: Endless Wet Rocket Bag
+				DisplayName: Bolsa Infinita de Foguete Molhado
 				Tooltip: ""
 			}
 
 			StarPouch: {
-				DisplayName: Endless Star Pouch
+				DisplayName: Bolsa de Estrelas Infinita
 				Tooltip: ""
 			}
 
 			AltarExterminator: {
-				DisplayName: Altar Exterminator
+				DisplayName: Exterminador de Altar
 				Tooltip:
 					'''
-					Destroys all natural Demon Altars and Crimson Altars
-					'Also known as the Wraithmaker 200'
+					Destrói todos os Altarem Demoníacos e do Carmim Naturais
+					'Também conhecido como a Máquina de Lag 9000'
 					'''
 			}
 
 			AutoHouse: {
-				DisplayName: InstaHouse
-				Tooltip: Places an NPC house instantly
+				DisplayName: Instacasa
+				Tooltip: Posiciona uma casa de NPC instantaneamente
 			}
 
 			BoomShuriken: {
-				DisplayName: Boom Shuriken
+				DisplayName: Shuriken Explosiva
 				Tooltip:
 					'''
-					Instantly explodes when hitting tiles, breaking blocks
-					Uses your best pickaxe's mining power
-					Throwing speed scales with your best pickaxe's mining speed and other mining speed bonuses
-					'The fastest way to dig through anything is always to blow it up!'
+					instantaneamente explode ao acertar blocos
+					Usa o Poder de mineração da sua picareta mais forte
+					Velocidade de lançamento escala com a sua velocidade de mineração
+					'A maneira mais rápida de cavar é explodir!'
 					'''
 			}
 
 			CityBuster: {
-				DisplayName: City Buster
+				DisplayName: Destruidor de Cidade
 				Tooltip:
 					'''
-					Destroys a large area
-					Will not remove background walls
-					Avoids breaking areas denoted as important
-					Use at your own risk
+					Destrói uma grande área
+					Não remove paredes de fundo
+					Evita quebrar áreas importantes
+					Use por sua conta e risco
 					'''
 			}
 
 			DoubleObsidianInstabridge: {
-				DisplayName: Double Obsidian Instabridge
+				DisplayName: Instaponte de Obsidiana Dupla
 				Tooltip:
 					'''
-					Creates 2 bridges of obsidian platforms across the whole world
-					Also clears the area between and above the platforms
-					The bottom bridge appears at your cursor
-					Avoids breaking areas denoted as important
-					Use at your own risk
+					Cria 2 pontes de plataformas de obsidiana por todo o mundo
+					Também limpa a área acima e entre as plataformas
+					A ponte de baixo aparece no seu cursor
+					Evita quebrar áreas importantes
+					Use por sua conta e risco
 					'''
 			}
 
 			GraveBuster: {
-				DisplayName: Grave Buster
-				Tooltip: Destroys tombstones in a large area
+				DisplayName: Destruidor de Túmulos
+				Tooltip: Destrói Túmulos em uma grande área
 			}
 
 			HalfInstavator: {
-				DisplayName: Half Instavator
+				DisplayName: Metade de Instavador 
 				Tooltip:
 					'''
-					Drops a bomb that creates half a hellevator instantly
-					Will not dig below a certain depth
-					Avoids breaking areas denoted as important
-					Use at your own risk
+                                        Solta uma bomba que cria a metade de um elevador até o inferno
+					Não vai cavar após uma certa profundidade
+					Evita quebrar áreas importantes
+					Use por sua conta e risco
 					'''
 			}
 
 			InstaBridge: {
-				DisplayName: Instabridge
+				DisplayName: Instaponte
 				Tooltip:
 					'''
-					Creates a bridge of platforms across the whole world
-					Also clears the area right above the platforms
-					The bridge appears at your cursor
-					Avoids breaking areas denoted as important
-					Right Click to clear the area without placing a bridge
-					Use at your own risk
+					Cria uma ponte de plataformas por todo o mundo
+					Também limpa a área acima das plataformas
+					A ponte aparece no seu cursor
+					Evita quebrar áreas importantes
+					Botão direito para limpar a área sem posicionar a ponte
+					use por sua conta e risco
 					'''
 			}
 
 			InstaTrack: {
-				DisplayName: Instatrack
+				DisplayName: Instatrilha
 				Tooltip:
 					'''
-					Creates a minecart track across the whole world
-					Also clears the area right above the tracks
-					The track appears at your cursor
-					Avoids breaking areas denoted as important
-					Use at your own risk
+					Cria uma trilha por todo o mundo
+					Também limpa a área acima das plataformas
+					A trilha aparece no seu cursor
+					Evita quebrar áreas importantes
+					use por sua conta e risco
 					'''
 			}
 
 			Instavator: {
-				DisplayName: Instavator
+				DisplayName: Instavador
 				Tooltip:
 					'''
-					Drops a bomb that creates a hellevator instantly
-					Avoids breaking areas denoted as important
-					Use at your own risk
+					Derruba uma bomba que cria um elevador até o inferno
+					Evita quebrar áreas importantes
+					use por sua conta e risco
 					'''
 			}
 
 			LihzahrdInstactuationBomb: {
-				DisplayName: Lihzahrd Instactuation Bomb
+				DisplayName: Bomba de Instatuação Lagharta
 				Tooltip:
 					'''
-					Clears a space around the Lihzahrd Altar when used while standing in front of it
-					Actuates Lihzahrd Brick and destroys others
-					Only works in the Jungle Temple and after Plantera is defeated
+					Cria uma área em volta do Altar Lagharto quando usado em frente a ele
+					Atua Tijolos Laghartos e destrói outros
+					Apenas funciona no Templo da Selva, após a Plantera ser derrotada
 					'''
 			}
 
 			MiniInstaBridge: {
-				DisplayName: Mini Instabridge
+				DisplayName: Mini Instaponte
 				Tooltip:
 					'''
-					Creates a long bridge of platforms at your cursor
-					Will not break any blocks
+					Cria uma ponte longa de plataformas no seu cursor
+					Não quebra nenhum bloco
 					'''
 			}
 
 			ObsidianInstaBridge: {
-				DisplayName: Obsidian Instabridge
+				DisplayName: Instaponte de Obsidiana
 				Tooltip:
 					'''
-					Creates a bridge of obsidian platforms across the whole world
-					Also clears the area right above the platforms
-					The bridge appears at your cursor
-					Avoids breaking areas denoted as important
-					Use at your own risk
+					Cria uma ponte de plataformas de obsidiana por todo o mundo
+					Também limpa a área acima das plataformas
+					A ponte aparece no seu cursor
+					Evita quebrar áreas importantes
+					use por sua conta e risco
 					'''
 			}
 
 			OmniBridgifier: {
-				DisplayName: Omni-Bridgifier
+				DisplayName: Omni-Pontificador
 				Tooltip:
 					'''
-					Can be reused infinitely
-					Upgrades the platform you are standing on to use Omnistations
-					Does NOT build a platform!
+					Pode ser usado infinitamente
+					Automaticamente posiciona Omnistações na plataforma que você clicar
+					NÃO cria uma plataforma!
 					'''
 			}
 
 			BattleCry: {
-				DisplayName: Battle Cry
+				DisplayName: Grito de Guerra
 				Tooltip:
 					'''
-					Left click to toggle 10x increased spawn rates
-					Right click to toggle decreased spawn rates, improved through progression
+					Botão esquerdo para aumentar a taxa de criação em 10x
+					Botão direito diminui a taxa de criação, melhora com progresso
 					'''
-				Battle: Battle
-				Calming: Calming
-				Activated: activated
-				Deactivated: deactivated
+				Battle: Guerra
+				Calming: Calmante
+				Activated: Ativado
+				Deactivated: Desativado
 				// {Battle / Calming} Cry {activated / deactivated} for {playerName}{punctuation}
-				CryText: "{0} Cry {1} for {2}{3}"
+				CryText: "Grito de {0} {1} for {2}{3}"
 			}
 
 			DeathFruit: {
-				DisplayName: Death Fruit
+				DisplayName: Fruta da Morte
 				Tooltip:
 					'''
-					Left click to decrease the amount of Life Crystals, or Life Fruit if you have any, by 1
-					If both are 0, decreases base maximum health by 20, down to a minimum of 20
-					Right click to reverse 1 use of the latter effect
+					Botão esquerdo para diminuir a quantidade de cristais de vida, ou fruta da vida se você tiver alguma, em 1
+					Se ambas forem 0, diminui a vida base em 20, até no mínimo 20
+					Botão direito para reverter 1 uso do último efeito
 					'''
 			}
 
 			InstantResearch: {
-				DisplayName: Instant Research
+				DisplayName: Insta Researcher
 				Tooltip:
 					'''
 					DEBUG ITEM
@@ -870,32 +870,32 @@ Mods: {
 			}
 
 			MapViewer: {
-				DisplayName: The Ancient Master's Map of the Lost King's Great Ancestors
-				Tooltip: Reveals the map
+				DisplayName: O Mapa Mestre Ancião dos Grandes Antepassados do Rei Perdido
+				Tooltip: Revela o mapa
 			}
 
 			ModeToggle: {
-				DisplayName: World Token
+				DisplayName: Ficha do Mundo
 				Tooltip:
 					'''
-					Cycles difficulty modes with left click
-					Toggles Journey Mode with right click (can cause issues in multiplayer)
+					Cicla dificuldades com o botão esquerdo
+					Liga o Modo Jornada com botão direito (pode causar problemas no multiplayer)
 					'''
-				Journey: Journey mode is now enabled!
-				Normal: Normal mode is now enabled!
-				Expert: Expert mode is now enabled!
-				Master: Master mode is now enabled!
+				Journey: Modo Jornada foi ativado!
+				Normal: Modo Normal foi ativado!
+				Expert: Modo Perito foi ativado!
+				Master: Modo Mestre foi ativado!
 			}
 
 			PortableSundial: {
-				DisplayName: Portable Sundial
+				DisplayName: Relógio Solar Portátil
 				Tooltip:
 					'''
-					Left click to instantly change time
-					Time cycles between dawn, noon, dusk, and midnight
-					Right click to activate the Enchanted Sundial effect
-					Slower use speed when a boss is alive
-					Cycling to dawn will reset travelling merchant's shops
+					Botão esquerdo para instantaneamente mudar o horário
+					O horário cicla entre Amanhecer, Meio-dia, Põr do Sol e Meia-noite
+					Botão direito para ativar o efeitos do Relógio do Sol Encantado
+					Velocidade de uso mais lenta quando um chefe está vivo
+					Ciclar até o Amanhecer irá resetar a loja do Caixeiro Viajante
 					'''
 			}
 
@@ -1435,7 +1435,7 @@ Mods: {
 					'''
 					Summons ALL the bosses modded included
 					Can only be used at night
-					'Use at your own risk'
+					'use por sua conta e risco'
 					'''
 			}
 
@@ -2400,8 +2400,8 @@ Mods: {
 				Tooltip:
 					'''
 					Drops a bomb that creates a 150x50 body of water below it
-					Avoids breaking areas denoted as important
-					Use at your own risk
+					Evita quebrar áreas importantes
+					use por sua conta e risco
 					'''
 			}
 
