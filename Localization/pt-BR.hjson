@@ -1429,297 +1429,297 @@ Mods: {
 			}
 
 			AncientSeal: {
-				DisplayName: Ancient Seal
+				DisplayName: Selo Ancião
 				Tooltip:
 					'''
-					Summons ALL the bosses modded included
-					Can only be used at night
+					INVOCA TODOS OS CHEFES (incluido os de mods)
+					Pode ser usado apenas à noite
 					'use por sua conta e risco'
 					'''
 			}
 
 			CultistSummon: {
-				DisplayName: Zealot's Possession
+				DisplayName: Propriedade do Fanático
 				Tooltip:
 					'''
-					Summons the Lunatic Cultist
-					Does not spawn the pillars if Lunatic Cultist has been defeated before
+					Invoca o Cultista Lunático
+					Não invoca os pilares caso o Cultista já tenha sido derrotado uma vez
 					'''
 			}
 
 			DeathBringerFairy: {
-				DisplayName: Death Bringer Fairy
+				DisplayName: Fada da Morte 
 				Tooltip:
 					'''
-					Summons all pre-hardmode bosses
-					Can only be used at night
-					Certain bosses will only spawn if you're in their specific biome
+					invoca todos os chefes do Pré-Modo Díficil
+					Pode ser usado apenas à noite
+					Certos chefes só são invocados se você estiver no bioma certo
 					'''
 			}
 
 			FleshyDoll: {
-				DisplayName: Guide Doll and Match Kit
+				DisplayName: Boneco do Guia e Pacote de Fósforos
 				Tooltip:
 					'''
-					Summons the Wall of Flesh
-					Make sure you use it in the Underworld
+					Invoca a Parede de Carne
+					Use apenas no submundo
 					'''
 			}
 
 			JellyCrystal: {
-				DisplayName: Royal Slime Crown
-				Tooltip: Summons Queen Slime
+				DisplayName: Coroa de Geleia Real
+				Tooltip: Invoca a Geleia Rainha
 			}
 
 			MechanicalAmalgam: {
-				DisplayName: Mechanical Amalgam
-				Tooltip: Summons all 3 Mechanical bosses
+				DisplayName: Amálgamo Mecânico
+				Tooltip: Invoca os 3 chefes mecânicos
 			}
 
 			MutantVoodoo: {
-				DisplayName: Mutant Plushie
+				DisplayName: Pelúcia do Mutant
 				Tooltip:
 					'''
-					Summons ALL the bosses
-					Can only be used at night
+					INVOCA TODOS OS CHEFES
+					Pode ser usado apenas à noite
 					'''
 			}
 
 			PlanterasFruit: {
-				DisplayName: Plantera's Fruit
-				Tooltip: Summons Plantera
+				DisplayName: Fruta da Plantera
+				Tooltip: Invoca a Plantera
 			}
 
 			PrismaticPrimrose: {
-				DisplayName: Prismatic Primrose
-				Tooltip: Summons the Empress of Light
+				DisplayName: Prímula Prismática
+				Tooltip: Invoca a Imperatriz da Luz
 			}
 
 			SuspiciousSkull: {
-				DisplayName: Suspicious Skull
+				DisplayName: Caveira Suspeita
 				Tooltip:
 					'''
-					Summons Skeletron without killing the Clothier
-					Summons the Dungeon Guardian during the day
+					Invoca o Skeletron sem matar o Alfaiate
+					Invoca o Guardião do Calabouço durante o dia
 					'''
 			}
 
 			SlimyCrown: {
-				DisplayName: Slimy Decree
-				Tooltip: Summons King Slime
+				DisplayName: Decreto Gosmento
+				Tooltip: Invoca o Geleia Rei
 			}
 
 			SuspiciousEye: {
-				DisplayName: Suspicious Looking Eyedrops
-				Tooltip: Summons the Eye of Cthulhu
+				DisplayName: Colírio Suspeito
+				Tooltip: Invoca o Olho de Cthulhu
 			}
 
 			EnergizerBee: {
-				DisplayName: Buzzy Energizer
+				DisplayName: Energizador Zumbido
 				Tooltip:
 					'''
-					Formed after using 10 Overstuffed Larva
-					'Smells like it tastes like honey'
+					Formado após usar 10 Larvas muito Recheada
+					'Cheira como se tivesse gosto de mel'
 					'''
 			}
 
 			EnergizerBetsy: {
-				DisplayName: Draco Energizer
+				DisplayName: Energizador Dracônico
 				Tooltip:
 					'''
-					Formed after using 10 Dragon Egg Trays
-					'You feel like you've waited three thousand years'
+					Formado após usar 10 Bandejas de Ovos de Dragão
+					'Você sente que esperou 3000 anos'
 					'''
 			}
 
 			EnergizerBrain: {
-				DisplayName: Brainy Energizer
+				DisplayName: Energizador Cerebral
 				Tooltip:
 					'''
-					Formed after using 10 Brain Storms
-					'You still feel dumb'
+					Formado após usar 10 Tempestade Cerebrais
+					'Você ainda se sente burro'
 					'''
 			}
 
 			EnergizerCultist: {
-				DisplayName: Insanity Energizer
+				DisplayName: Energizador da Insanidade
 				Tooltip:
 					'''
-					Formed after using 10 Zealot's Madness
-					'You're probably insane'
+					Formado após usar 10 Loucuras do Fanático
+					'Você provavelmente é insano'
 					'''
 			}
 
 			EnergizerDarkMage: {
-				DisplayName: Mysterious Energizer
+				DisplayName: Energizador Misterioso
 				Tooltip:
 					'''
-					Formed after using 10 Really Forbidden Tomes
-					'You feel like you've waited one thousand years'
+					Formado após usar 10 Tomos Muito Proibidos
+					'Você sente que esperou 1000 anos'
 					'''
 			}
 
 			EnergizerDeer: {
-				DisplayName: Deary Energizer
+				DisplayName: Energizador de Veado
 				Tooltip:
 					'''
-					Formed after using 10 Deer Amalgamations
-					'Makes you hungry'
+					Formado após usar 10 Aglomerações de Cervo
+					'Te deixa com fome'
 					'''
 			}
 
 			EnergizerDestroy: {
-				DisplayName: Destruction Energizer
+				DisplayName: Energizador da Destruição
 				Tooltip:
 					'''
-					Formed after using 10 Seismic Actuator
-					'It makes you want to break some kids'
+					Formado após usar 10 Atuador Sísmico
+					'Faz você querer quebrar algumas crianças'
 					'''
 			}
 
 			EnergizerDG: {
-				DisplayName: Extra Boney Energizer
+				DisplayName: Energizador Extra Ossudo
 				Tooltip:
 					'''
-					Formed after using 10 Skull Chain Necklaces
-					'Reminds you of a mean cow'
+					Formado após usar 10 Colares de Caveira
+					'Te lembra de uma vaca rude'
 					'''
 			}
 
 			EnergizerEmpress: {
-				DisplayName: Fairy Energizer
+				DisplayName: Energizador de Fada
 				Tooltip:
 					'''
-					Formed after using 10 Jars of Lacewings
-					'Wear eye protection when looking'
+					Formado após usar 10 Jarras de Crisopídeo
+					'Você precisa de proteção para os olhos se quiser olhar'
 					'''
 			}
 
 			EnergizerEye: {
-				DisplayName: Optical Energizer
+				DisplayName: Energizador Ótico
 				Tooltip:
 					'''
-					Formed after using 10 Eyemalgamations
-					'It feels like it's watching you'
+					Formado após usar 10 Olhomalgamações
+					'Você sente que está te observando'
 					'''
 			}
 
 			EnergizerFish: {
-				DisplayName: Fishy Energizer
+				DisplayName: Energizador Peixoto
 				Tooltip:
 					'''
-					Formed after using 10 Truffle Worm Clumps
-					'You feel content'
+					Formado após usar 10 Aglomerados de Verme da Trufa
+					'Você se sente contento'
 					'''
 			}
 
 			EnergizerGolem: {
-				DisplayName: Lihzahrd Energizer
+				DisplayName: Energizador Lagharto
 				Tooltip:
 					'''
-					Formed after using 10 Runic Power Cells
-					'You wish it was spelled "lizard"
+					Formado após usar 10 Baterias Rúnicas
+					'Você gostaria que fosse escrito "Lagarto"'
 					'''
 			}
 
 			EnergizerMoon: {
-				DisplayName: Lunar Energizer
+				DisplayName: Energizador Lunar
 				Tooltip:
 					'''
-					Formed after using 10 Runic Inscriptions
-					'You enjoy cheese'
+					Formado após usar 10 Inscrições Rúnicas
+					'Você gosta de queijo'
 					'''
 			}
 
 			EnergizerPlant: {
-				DisplayName: Leafy Energizer
+				DisplayName: Energizador Folhudo
 				Tooltip:
 					'''
-					Formed after using 10 Heart of the Jungles
-					'Being a leaf sounds like a good time'
+					Formado após usar 10 Corações da Selva
+					'Ser uma folha parece bom'
 					'''
 			}
 
 			EnergizerPrime: {
-				DisplayName: Prime Energizer
+				DisplayName: Energizador Alfa
 				Tooltip:
 					'''
-					Formed after using 10 Primal Control Chips
-					'You feel like a new you'
+					Formado após usar 10 Chips de Controle Primais
+					'Você se sente como um novo você'
 					'''
 			}
 
 			EnergizerQueenSlime: {
-				DisplayName: Crystalline Energizer
+				DisplayName: Energizador Cristalino
 				Tooltip:
 					'''
-					Formed after using 10 Overloaded Crystals
-					'It feels very slimy'
+					Formado após usar 10 Cristais Sobrecarregados
+					'Parece muito gosmento'
 					'''
 			}
 
 			EnergizerSkele: {
-				DisplayName: Boney Energizer
+				DisplayName: Energizador Ossudo
 				Tooltip:
 					'''
-					Formed after using 10 Skull Chain Necklaces
-					'Reminds you of a cow'
+					Formado após usar 10 Colares de Caveira
+					'Te lembra de uma vaca'
 					'''
 			}
 
 			EnergizerSlime: {
-				DisplayName: Slimy Energizer
+				DisplayName: Energizador Gosmento
 				Tooltip:
 					'''
-					Formed after using 10 Overloaded Crowns
-					'It feels a bit slimy'
+					Formado após usar 10 Coroas Sobrecarregados
+					'Parece um pouco gosmento'
 					'''
 			}
 
 			EnergizerTwins: {
-				DisplayName: Sibling Energizer
+				DisplayName: Energizador dos irmãos
 				Tooltip:
 					'''
-					Formed after using 10 Omnifocal Lens
-					'You wish you had more'
+					Formado após usar 10 Lentes Multifocais
+					'Você queria ter mais'
 					'''
 			}
 
 			EnergizerWall: {
-				DisplayName: Wally Energizer
+				DisplayName: Energizador de Parede
 				Tooltip:
 					'''
-					Formed after using 10 Bundle of Dolls
-					'You feel claustrophobic'
+					Formado após usar 10 Fardos de Bonecos
+					'Você sente claustrofobia'
 					'''
 			}
 
 			EnergizerWorm: {
-				DisplayName: Wormy Energizer
+				DisplayName: Energizador de Minhoca
 				Tooltip:
 					'''
-					Formed after using 10 Worm Chickens
-					'It's a little squishy'
+					Formado após usar 10 Galinhas de Minhoca
+					'É um pouquinho mole'
 					'''
 			}
 
 			OverloadBee: {
-				DisplayName: Overstuffed Larva
-				Tooltip: Summons an energized Queen Bee
+				DisplayName: Larva muito Recheada
+				Tooltip: Invoca uma Rainha Abelha Energizada
 			}
 
 			OverloadBetsy: {
-				DisplayName: Dragon Egg Tray
+				DisplayName: Bandeja de Ovos de Dragão
 				Tooltip: Summons an energized Betsy
 			}
 
 			OverloadBrain: {
-				DisplayName: Brain Storm
+				DisplayName: Tempestade Cerebral
 				Tooltip: Summons an energized Brain of Cthulhu
 			}
 
 			OverloadCultist: {
-				DisplayName: Zealot's Madness
+				DisplayName: Loucura do Fanático
 				Tooltip: Summons an energized Lunatic Cultist
 			}
 
