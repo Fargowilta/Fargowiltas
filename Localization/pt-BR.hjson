@@ -1409,23 +1409,23 @@ Mods: {
 			}
 
 			GoreySpine: {
-				DisplayName: Brain Matter
-				Tooltip: Summons the Brain of Cthulhu in any biome
+				DisplayName: Matéria Cerebral
+				Tooltip: Invoca o Cérebro de Cthulhu em qualquer bioma
 			}
 
 			MechEye: {
-				DisplayName: Some Kind of Metallic Eye
-				Tooltip: Summons the Twins
+				DisplayName: Algum tipo de olho metálico
+				Tooltip: Invoca os Gêmeos
 			}
 
 			MechSkull: {
-				DisplayName: Some Kind of Metallic Skull
-				Tooltip: Summons Skeletron Prime
+				DisplayName: Algum tipo de caveira metálica
+				Tooltip: Invoca o Skeletron Alfa
 			}
 
 			MechWorm: {
-				DisplayName: Some Kind of Metallic Worm
-				Tooltip: Summons the Destroyer
+				DisplayName: Algum tipo de minhoca metálica
+				Tooltip: Invoca o Destruidor
 			}
 
 			AncientSeal: {
