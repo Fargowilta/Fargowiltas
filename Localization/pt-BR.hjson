@@ -2548,22 +2548,22 @@ Mods: {
 				DisplayName: Deviantt
 
 				TownNPCMood: {
-					Content: I'm feeling good!
-					NoHome: Do you have any spare housing? Please? Anything? Even a jail cell is fine with me!
-					LoveSpace: Peace and quiet means I get to live it up!
-					FarFromHome: I think my house was that way... unless you're taking me somewhere?
-					DislikeCrowded: The more the merrier and all, but I'm starting to feel a lil' overcrowded.
-					HateCrowded: I can't kick my legs out and relax without hitting someone...
-					LikeBiome: Ha ha ha, something about {BiomeName} just makes me laugh uncontrollably for some reason!
-					LoveBiome: The stars above are so pretty, I love watching them go by so much!
-					DislikeBiome: Can we go somewhere warmer than this?
-					HateBiome: I wanna live elsewhere! This is awful, I'm sweating up a storm!
-					LikeNPC: "{NPCName} is my big-but-not-biggest bro. He's pretty cool!"
-					LoveNPC: "{NPCName} is here! That's my big bro, isn't he just the coolest?!"
-					DislikeNPC: I can't stand girls like {NPCName}, feels like she's just here for a certain audience.
-					HateNPC: Just between us. Have you ever considered throwing {NPCName} back where you found him?
-					LikeNPC_Princess: I gotta visit {NPCName} again sometime, there's a girl who gets me!
-					Princess_LovesNPC: "{NPCName} is so fun, we could talk for hours!"
+					Content: Estou me sentindo bem!
+					NoHome: Você tem alguma casa sobrando? Qualquer uma? Até uma jaula tá bom pra mim!
+					LoveSpace: Paz e tranquilidade significa que eu posso viver intensamente!
+					FarFromHome: Eu acho que a minha casa era pra lá... A não ser que você esteja me levando pra algum lugar?
+					DislikeCrowded: Quanto mais, melhor, mas eu tô começando a sentir um pouco apertada.
+					HateCrowded: Eu não consigo esticar minhas pernas e relaxar sem acertar alguém...
+					LikeBiome: Ha ha ha, Algo sobre a {BiomeName} me faz incontrolávelmente por alguma razão!
+					LoveBiome: As estrelas acim são tão bonitas, eu amo observar elas!
+					DislikeBiome: Podemos ir para algum lugar mais quente que esse?
+					HateBiome: Eu quero viver em outro lugar! Isso é horrível, eu tô suando uma chuva!
+					LikeNPC: "{NPCName} é o meu maior-mas-não-o-maior irmão. Ele é bem legal!"
+					LoveNPC: "{NPCName} está aqui! Ele é o meu irmão mais velho, ele não é o mais maneiro?!"
+					DislikeNPC: Eu não aguento garotas como a {NPCName}, parece que ela só tá aqui pra uma certa audiência.
+					HateNPC: Só entre nós. Você já considerou jogar o {NPCName} de volta pra onde você achou ele?
+					LikeNPC_Princess: Eu tenho que visitar a {NPCName} de novo, ela é uma garota que me entende!
+					Princess_LovesNPC: "{NPCName} é tão divertida, nós poderíamos conversar por horas!"
 				}
 
 				Chat: {
