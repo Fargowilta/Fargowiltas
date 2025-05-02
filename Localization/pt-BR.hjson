@@ -2314,166 +2314,166 @@ Mods: {
 			}
 
 			SemiBridgifier: {
-				DisplayName: Semi-Bridgifier
+				DisplayName: Semi-Pontificador
 				Tooltip:
 					'''
-					Can be reused infinitely
-					Upgrades the platform you are standing on to use Semistations
-					Does NOT build a platform!
+					Pode ser reutilizado infinitamente
+					Automaticamente posiciona Semistações na plataforma que você clicar
+					NÃO cria uma plataforma!
 					'''
 			}
 
 			PurityTotem: {
-				DisplayName: Purity Totem
+				DisplayName: Totem da Pureza
 				Tooltip:
 					'''
-					Can be reused infinitely
-					Allows town NPCs to inhabit evil biomes
-					Prevents evil tiles from forming an evil biome
-					Prevents tombstones from forming Graveyards
+					Pode ser reutilizado infinitamente
+					Permite que NPCs de Cidade vivam em biomas malignos
+					Evita que blocos malignos formem um bioma maligno
+					Evita que túmulos formem Cemitérios
 					'''
 			}
 
 			HoneyRocketBox: {
 				Tooltip: ""
-				DisplayName: Endless Honey Rocket Box
+				DisplayName: Caixa Infinita de Foguetes de Mel 
 			}
 
 			DryRocketBox: {
 				Tooltip: ""
-				DisplayName: Endless Dry Rocket Box
+				DisplayName: Caixa Infinita de Foguetes Secos
 			}
 
 			ClusterRocket2Box: {
 				Tooltip: ""
-				DisplayName: Endless Cluster Rocket II Box
+				DisplayName: Caixa Infinita de Foguete de Fragmentação II
 			}
 
 			ClusterRocket1Box: {
 				Tooltip: ""
-				DisplayName: Endless Cluster Rocket I Box
+				DisplayName: Caixa Infinita de Foguete de Fragmentação I
 			}
 
 			LavaRocketBox: {
-				DisplayName: Endless Lava Rocket Box
+				DisplayName: Caixa Infinita de Foguetes de Lava
 				Tooltip: ""
 			}
 
 			MiniNuke1Box: {
-				DisplayName: Endless Mini Nuke I Box
+				DisplayName: Caixa Infinita de Mini Bombas Nucleares I
 				Tooltip: ""
 			}
 
 			MiniNuke2Box: {
-				DisplayName: Endless Mini Nuke II Box
+				DisplayName: Caixa Infinita de Mini Bombas Nucleares II
 				Tooltip: ""
 			}
 
 			Rocket1Box: {
-				DisplayName: Endless Rocket I Box
+				DisplayName: Caixa Infinite de Foguetes I
 				Tooltip: ""
 			}
 
 			Rocket2Box: {
-				DisplayName: Endless Rocket II Box
+				DisplayName: Caixa Infinite de Foguetes II
 				Tooltip: ""
 			}
 
 			Rocket3Box: {
-				DisplayName: Endless Rocket III Box
+				DisplayName: Caixa Infinite de Foguetes III
 				Tooltip: ""
 			}
 
 			Rocket4Box: {
-				DisplayName: Endless Rocket IV Box
+				DisplayName: Caixa Infinite de Foguetes IV
 				Tooltip: ""
 			}
 
 			WetRocketBox: {
-				DisplayName: Endless Wet Rocket Box
+				DisplayName: Caixa Infinita de Foguetes Molhados
 				Tooltip: ""
 			}
 
 			InstaPond: {
-				DisplayName: Instalake
+				DisplayName: Instalago
 				Tooltip:
 					'''
-					Drops a bomb that creates a 150x50 body of water below it
+					Derruba uma bomba que cria um corpo de água de 150x50 embaixo dela
 					Evita quebrar áreas importantes
 					use por sua conta e risco
 					'''
 			}
 
 			KohaCrystal: {
-				DisplayName: Koha Crystal
-				Tooltip: Decreases the amount of Mana Crystals you have by 1
+				DisplayName: Cristal de Koha
+				Tooltip: Diminui a quantidade Cristais de Mana que você tem por 1
 			}
 
 			BigSuckPotion: {
-				DisplayName: Big Suck Potion
+				DisplayName: Poção Chupão
 				Tooltip:
 					'''
-					Makes you suck everything
-					Must be consumed manually
+					Faz você puxar tudo
+					Deve ser consumida manualmente
 					'''
 			}
 
 			MiniDirtInstaBridge: {
-				DisplayName: Mini Dirt Instabridge
+				DisplayName: Mini Instaponte de Terra
 				Tooltip:
 					'''
-					Creates a small bridge of dirt at your cursor
-					Will not break any blocks
+					Cria uma pequena ponte de terra no seu cursor
+					NÃO quebra nenhum bloco
 					'''
 			}
 
 			WiresPainting: {
-				DisplayName: Wires Painting
-				Tooltip: Look inside
+				DisplayName: Pintura do Wires
+				Tooltip: Olha Dentro
 			}
 
 			CrabSizedGlasses: {
-				DisplayName: Crab-Sized Glasses
-				Tooltip: Summons a cool crab
+				DisplayName: Óculos do Tamanho de um Carangueijo
+				Tooltip: Invoca um carangueijo maneiro
 			}
 
 			NerdySlime: {
-				DisplayName: Nerdy Slime
+				DisplayName: Geleia Nerdy
 				Tooltip: "'Burble bubble? Hrm!'"
 			}
 
 			CoolSlime: {
-				DisplayName: Cool Slime
-				Tooltip: "'Yo, slurp glurp!'"
+				DisplayName: Geleia Legal
+				Tooltip: "'Seu, slurp glurp!'"
 			}
 
 			ElderSlime: {
-				DisplayName: Elder Slime
+				DisplayName: Geleia Antiga
 				Tooltip: "'Poot... ahem!'"
 			}
 
 			ClumsySlime: {
-				DisplayName: Clumsy Slime
-				Tooltip: "'*Awkward Silence*'"
+				DisplayName: Geleia Desajeitada
+				Tooltip: "'*Silêncio Desconfortável*'"
 			}
 
 			DivaSlime: {
-				DisplayName: Diva Slime
+				DisplayName: Geleia Diva
 				Tooltip: "'Sprinkle, tinkle!'"
 			}
 
 			SurlySlime: {
-				DisplayName: Surly Slime
+				DisplayName: Geleia Rude
 				Tooltip: "'Hiss! Gargle! Grrrrr...'"
 			}
 
 			MysticSlime: {
-				DisplayName: Mystic Slime
+				DisplayName: Geleia Mística
 				Tooltip: "'Blobra Kaslobra!'"
 			}
 
 			SquireSlime: {
-				DisplayName: Squire Slime
+				DisplayName: Geleia Escudeira
 				Tooltip: "'Squish 'n sploink!'"
 			}
 		}
