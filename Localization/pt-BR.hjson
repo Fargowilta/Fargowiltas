@@ -2483,65 +2483,65 @@ Mods: {
 				DisplayName: Abominationn
 
 				TownNPCMood: {
-					Content: I am content.
-					NoHome: Give me a home and I'll lower my prices.
-					LoveSpace: Not being crowded around is good.
-					FarFromHome: I'd fly back to my house, but I don't really feel like being watched.
-					DislikeCrowded: There's too many humans around, they keep poking at my face.
-					HateCrowded: Do you know how hard it is to carry a scythe and not cut anyone with this many people around?
-					LikeBiome: I like {BiomeName}, the tides are relaxing and I've been learning to fish recently.
-					LoveBiome: I love Space, it's nostalgic and completely silent.
-					DislikeBiome: Too many weak enemies live in {BiomeName}.
-					HateBiome: I dislike {BiomeName} a lot.
-					LikeNPC: "{NPCName} is my sister... she's a bit loud, but she's okay."
-					LoveNPC: "{NPCName} is my brother... I've fought more bosses than him, but he's strong."
-					DislikeNPC: I do not like {NPCName}.
-					HateNPC: "{NPCName} ruins the glory of battle, I don't want her near me."
-					LikeNPC_Princess: "{NPCName} is okay."
-					Princess_LovesNPC: "{NPCName} tells great stories about his battles!"
+					Content: Estou Contento.
+					NoHome: Me dê uma casa e eu diminuirei meus preços.
+					LoveSpace: Não estar apertado é bom.
+					FarFromHome: Eu voaria de volta pra minha casa, mas eu não quero ser observado.
+					DislikeCrowded: Tem muitos humanos perto, eles ficam cutucando o meu rosto.
+					HateCrowded: Você sabe o quão díficil é carregar uma foice e não cortar alguém com tanta gente perto?
+					LikeBiome: Eu gosto de{BiomeName}, as correntes são relaxantes e eu tô aprendendo a pescar recentemente.
+					LoveBiome: Eu amo o espaço, é nostálgico e quieto.
+					DislikeBiome: Muitos inimigos fracos vivem na {BiomeName}.
+					HateBiome: Eu odeio a {BiomeName} muito.
+					LikeNPC: "{NPCName} é a minha irmã... ela é um pouco barulhenta, mas tudo bem."
+					LoveNPC: "{NPCName} é o meu irmão... eu já lutei contra mais chefes que ele, mas ele é forte."
+					DislikeNPC: eu não gosto da {NPCName}.
+					HateNPC: "{NPCName} estraga a glória do combate, não quero ficar perto dela."
+					LikeNPC_Princess: "{NPCName} é okay."
+					Princess_LovesNPC: "{NPCName} conta grandes histórias de suas batalhas!"
 				}
 
 				Chat: {
 					// Special
-					Defeat: ...don't you dare tell anyone about this. It was all luck and I wasn't even really trying.
-					MutantShimmer: He turned himself into a squirrel. Funniest stuff I've ever seen.
-					StyxArmor: What nostalgic armor you're wearing. I was upset earlier, but you're worthy of my old set... and you put up a good fight. You wanna rematch later?
-					Graveyard: Do all these graves lying around really belong to you?
-					Mechanic: Can you please ask {0} to stop touching my laser arm? Please.
+					Defeat: ...não ouse falar com ninguém sobre isso. Foi sorte e eu nem tava tentando de verdade.
+					MutantShimmer: Ele virou um esquilo. Coisa mais engraçada que eu já vi.
+					StyxArmor: Que armadura nostáliga você está vestindo. Eu estava chateado antes, mas você merece o meu conjunto antigo... e você lutou bem. Quer uma revanche mais tarde?
+					Graveyard: Todos esses túmulos espalhados por aí realmente são seus?
+					Mechanic: Você pode pedir pra {0} parar de tocar no meu braço laser? por favor.
 					// Normal
-					Formattable1: Where'd I get my scythe from? {0}
-					Formatter1PHM: Ask me later.
-					Formatter1HM: You'll figure it out.
-					Normal1: I CAN SLAY ANYTHING! NOTHING CAN BEAT M- *cough* *cough* ...can I have a lozenge? My throat is sore...
-					Normal2: I have defeated EVERYTHING in this land! What's a beast-cherry? Oh, that... I never kept count.
-					Normal3: Have you ever had a weapon grafted to your arm? It's not very handy.
-					Normal4: Who's Coo-thoo-loo? No idea who you're talking about.
-					Normal5: You wish you could dress like me? Ha! Actually... yea, you can.
-					Normal6: You ever read the ancient classics? I love all the fighting in them.
-					Normal7: I'm a world class poet, ever read my piece about impending doom?
-					Normal8: Have you ever read The King in Yellow? I loved it when [REDACTED]... I meant when [DATA EXPUNGED]... Fine, forget it
-					Normal9: Like my wings? Thanks, the thing I got them from didn't like it much.
-					Normal10: Heroism has no place in this world, instead let's just play ping pong.
-					Normal11: Why are you looking at me like that? Your fashion sense isn't going to be winning you any awards either.
-					Normal12: No, you can't have my hat.
-					Normal13: Embrace suffering... ...what do you mean that's already taken?
-					Normal14: Why did they call it "House of Leaves" if you can't even exit? Are they stupid?
-					Normal15: Is it really a crime if everyone else does it? Unrelated - tonight's movie night!
-					Normal16: Inflicting suffering upon others is cool and all, but have you ever caught a 6 pound bass?
+					Formattable1: De onde eu consegui a minha foice? {0}
+					Formatter1PHM: Me pergunte mais tarde.
+					Formatter1HM: Você vai descobrir.
+					Normal1: EU POSSO MATAR TUDO! NADA PODE ME PA- *tosse* *tosse* ...você pode me dar um xarope vick? Minha garganta tá seca...
+					Normal2: Eu já derrotei TUDO nesta terra! O que é um Besta-diário? Ah, aquilo... eu nunca contei.
+					Normal3: Você já teve uma arma presa ao seu braço? Não te ajuda muito.
+					Normal4: Quem é Coo-Tu-Lu? Nenhuma ideia de quem você tá falando.
+					Normal5: Você queria poder se vestir como eu? Ha! Na verdade... é, você pode.
+					Normal6: Você já leu os clássicos? Eu amo as lutas.
+					Normal7: Eu sou um poeta mundialmente reconhecido, você já leu minha peça sobre a desgraça certa?
+					Normal8: Você já leu o Rei de Amarelo? Eu amei quando o [REDACTED]... quis dizer quando o [DATA EXPUNGED]... tá deixa pra lá
+					Normal9: Gosta das minhas asas? Valeu, a coisa de onde eu peguei elas não gostou muito disso.
+					Normal10: Heroísmo não tem lugar nesse mundo, então bora jogar ping pong.
+					Normal11: Por que que você tá me olhando desse jeito? Seu senso de beleza não vai te ganhar nenhum prêmio também.
+					Normal12: Não, você não pode pegar o meu chapéu.
+					Normal13: Abrace o sofrimento... ...como assim já está em uso?
+					Normal14: Porque que eles chamam de "Casa de Folhas" se você não pode nem sair? Eles são estúpidos?
+					Normal15: Realmente é um crime se todo mundo faz? Mudando de assunto -  hoje é noite de filmes!
+					Normal16: Infligir sofrimento nos outros é maneiro e tals, mas você já pescou um bagre de 3 quilos?
 					Normal17: Irony is the best kind of humor, isn't that ironic?
-					Normal18: I like Cat... What do you mean who's Cat?
-					Normal19: Check the wiki if you need anything, the star is slowly getting it up to par.
-					Normal20: I've heard tales of a legendary Diver... Anyway what was that about a giant jellyfish?
-					Normal21: Overloaded events...? Yeah, they're pretty cool.
-					Normal22: It's not like I don't enjoy your company, but can you buy something?
+					Normal18: Eu gosto do Gato... como assim quem é Gato?
+					Normal19: Olhe a Wiki se você precisar de qualquer coisa, a estrela está lentamente melhorando ela.
+					Normal20: Eu escutei histórias de um lendário mergulhador... de qualquer forma o que foi aquilo sobre uma água-viva gigante?
+					Normal21: Eventos Sobrecarregados...? Eles são bem legais.
+					Normal22: Não é como se eu não gostasse da sua compania, mas você pode comprar algo?
 					// Cancel Event
-					Canceled: Hocus pocus, the event is over.
-					CancelCD: I'm not feeling it right now, come back in {0} seconds.
-					NoEvent: I don't think there's an event right now.
+					Canceled: Hocus pocus, o evento acabou.
+					CancelCD: Eu não tô com muita vontade agora, volte em {0} segundos.
+					NoEvent: Eu não acho que tenha um evento acontecendo.
 				}
 
-				Census.SpawnCondition: When the Goblin Army has been defeated.
-				CancelEvent: Cancel Event
+				Census.SpawnCondition: Quando a Invasão Goblin for derrotada.
+				CancelEvent: Cancelar Evento
 			}
 
 			Deviantt: {
@@ -2647,12 +2647,12 @@ Mods: {
 					RainLightning: Watch out for the lightning when it rains. It's good to pack an umbrella so you're not caught out and end up all wet!
 				}
 
-				Census.SpawnCondition: When any rare enemy has been defeated.
-				HelpButton: Help
+				Census.SpawnCondition: Quando qualquer inimigo raro for derrotado.
+				HelpButton: Ajuda
 			}
 
 			LumberJack: {
-				DisplayName: LumberJack
+				DisplayName: Lenhador
 
 				TownNPCMood: {
 					Content: I'm happy as long as the world has wood that needs chopping.
@@ -2716,8 +2716,8 @@ Mods: {
 					Rest: I'm resting after a good day of chopping, come back tomorrow and maybe I'll have something else for you.
 				}
 
-				Census.SpawnCondition: Can fall out of trees after 400 wood has been chopped.
-				TreeTreasures: Tree Treasures
+				Census.SpawnCondition: Pode cair de árvores após 400 madeiras serem cortadas.
+				TreeTreasures: Tesouros de árvores
 			}
 
 			Mutant: {
@@ -2819,15 +2819,15 @@ Mods: {
 					Normal45: I heard of a rumor of infinite use boss summons. Makes me sick..
 				}
 
-				Census.SpawnCondition: When any boss has been defeated.
-				CycleShop: Cycle Shop
-				PreHM: Pre Hardmode
-				HM: Hardmode
-				PostML: Post Moon Lord
+				Census.SpawnCondition: Quando qualquer chefe for derrotado.
+				CycleShop: Ciclar Loja
+				PreHM: Pré-Modo Díficil
+				HM: Modo Díficil
+				PostML: Pós Senhor da Lua
 			}
 
 			Squirrel: {
-				DisplayName: Squirrel
+				DisplayName: Esquilo
 
 				TownNPCMood: {
 					Content: *content squeak*
@@ -2850,17 +2850,17 @@ Mods: {
 
 				Chat: {
 					// Special
-					BloodMoon: "[c/FF0000:You will suffer.]"
+					BloodMoon: "[c/FF0000:Você irá sofrer.]"
 					// Normal
 					Normal1: *squeak*
 					Normal2: *chitter*
 					Normal3: *crunch crunch*
 				}
 
-				Census.SpawnCondition: Have a Top Hat Squirrel in your inventory.
+				Census.SpawnCondition: Tenha um esquilo de cartola no seu inventário.
 			}
 
-			SuperDummy.DisplayName: Super Dummy
+			SuperDummy.DisplayName: Super Boneco
 		}
 
 		Projectiles: {
