@@ -1608,7 +1608,7 @@ Mods: {
 				DisplayName: Energizador Peixoto
 				Tooltip:
 					'''
-					Formado após usar 10 Aglomerados de Verme da Trufa
+					Formado após usar 10 Latas de Verme da Trufa
 					'Você se sente contento'
 					'''
 			}
@@ -1710,592 +1710,592 @@ Mods: {
 
 			OverloadBetsy: {
 				DisplayName: Bandeja de Ovos de Dragão
-				Tooltip: Summons an energized Betsy
+					Tooltip: Invoca uma Betsy Energizada
 			}
 
 			OverloadBrain: {
 				DisplayName: Tempestade Cerebral
-				Tooltip: Summons an energized Brain of Cthulhu
+				Tooltip: Invoca um Cérebro de Cthulhu Energizado
 			}
 
 			OverloadCultist: {
 				DisplayName: Loucura do Fanático
-				Tooltip: Summons an energized Lunatic Cultist
+				Tooltip: Invoca um Cultista Lunático Energizado
 			}
 
 			OverloadDarkMage: {
-				DisplayName: Really Forbidden Tome
-				Tooltip: Summons an energized Dark Mage
+				DisplayName: Tomo Muito Proíbido
+				Tooltip: Invoca um Mago Sombrio Energizado
 			}
 
 			OverloadDeer: {
-				DisplayName: Deer Amalgamation
-				Tooltip: Summons an energized Deerclops
+				DisplayName: Aglomeração de Cervo
+				Tooltip: Invoca um Cervoclope Energizado
 			}
 
 			OverloadDestroyer: {
-				DisplayName: Seismic Actuator
-				Tooltip: Summons an energized Destroyer
+				DisplayName: Atuador Sísmico
+				Tooltip: Invoca um Destruidor Energizado
 			}
 
 			OverloadedSlimeRain: {
-				DisplayName: Slimy Stormcaller
+				DisplayName: Invocador de Tempestade Gosmento
 				Tooltip:
 					'''
-					Summons an Overloaded Slime Rain
-					Use again to stop the event
+					Invoca uma Chuva de Geleia Sobrecarregado
+					Use novamente para parar o evento
 					'''
 			}
 
 			OverloadEmpress: {
-				DisplayName: Jar of Lacewings
-				Tooltip: Summons an energized Empress of Light
+				DisplayName: Jarra de Crisopídeos
+				Tooltip: Invoca uma Imperatriz da Luz Energizada
 			}
 
 			Overloader: {
-				DisplayName: Overloader
+				DisplayName: Sobrecarregador
 				Tooltip:
 					'''
-					Used to craft energized summons
-					When used, all summons in the stack will be consumed, up to 10
-					The more consumed, the stronger the boss will be
-					If more than 5 are consumed, the boss is faster
-					5 Treasure Bags will drop per consumed item
-					A Trophy will drop for every 3 consumed items
-					An Energizer will drop for every 10 consumed items
+					Usado para criar invocações sobrecarragadas
+					Quando usadas, todos os itens na pilha são usados de uma vez, até 10
+					Quanto mais foram consumidos, mais forte o chefe será
+					Se mais de 5 forem consumidos, o chefe fica mais rápido
+					5 Bolsas do Tesouro são derrubadas por item usado
+					Um troféu irá ser derrubado a cada 3 itens usados
+					Um Energizador será derrubado se 10 forem usados
 					'''
 			}
 
 			OverloadEye: {
-				DisplayName: Eyemalgamation
-				Tooltip: Summons an energized Eye of Cthulhu
+				DisplayName: Olhomalgamação
+				Tooltip: Invoca o Olho de Cthulhu Energizado
 			}
 
 			OverloadFish: {
-				DisplayName: Can of Truffle Worms
-				Tooltip: Summons an energized Duke Fishron
+				DisplayName: lata de Vermes da Trufa
+				Tooltip: Invoca um Duque Peixe-dragão Energizado
 			}
 
 			OverloadFrostMoon: {
-				DisplayName: Naughty Present Sack
+				DisplayName: Saco de Presentes Malcriados
 				Tooltip:
 					'''
-					Summons an Overloaded Frost Moon
-					Use again to stop the event
+					Invoca uma Lua de Gelo Sobrecarregada
+					Use novamente para parar o evento
 					'''
 			}
 
 			OverloadGoblins: {
-				DisplayName: Goblin War Banner
+				DisplayName: Bandeira de Guerra Goblin
 				Tooltip:
 					'''
-					Summons an Overloaded Goblin Invasion
-					Use again to stop the event
+					Invoca uma Invasão Goblin Sobrecarregada
+					Use novamente para parar o evento
 					'''
 			}
 
 			OverloadGolem: {
-				DisplayName: Runic Power Cell
-				Tooltip: Summons an energized Golem
+				DisplayName: Bateria Rúnica
+				Tooltip: Invoca um Golem Energizado
 			}
 
 			OverloadMartians: {
-				DisplayName: Martian Communications Satellite
+				DisplayName: Satélite de Comunicações Marciano
 				Tooltip:
 					'''
-					Summons an Overloaded Martian Invasion
-					Use again to stop the event
+					Invoca uma Invasão de Marte Sobrecarregada
+					Use novamente para parar o evento
 					'''
 			}
 
 			OverloadMoon: {
-				DisplayName: Runic Inscription
-				Tooltip: Summons an energized Moon Lord
+				DisplayName: Inscrição Rúnica
+				Tooltip: Invoca um Senhor da Lua Energizado
 			}
 
 			OverloadPirates: {
-				DisplayName: Pirate's Bounty
+				DisplayName: Recompensa Pirata
 				Tooltip:
 					'''
-					Summons an Overloaded Pirate Invasion
-					Use again to stop the event
+					Invoca uma Invasão Pirata Sobrecarregada
+					Use novamente para parar o evento
 					'''
 			}
 
 			OverloadPlant: {
-				DisplayName: Heart of the Jungle
-				Tooltip: Summons an energized Plantera
+				DisplayName: Coração da Selva
+				Tooltip: Invoca uma Plantera Sobrecarregada
 			}
 
 			OverloadPrime: {
-				DisplayName: Primal Control Chip
-				Tooltip: Summons an energized Skeletron Prime
+				DisplayName: Chip de Controle Primal
+				Tooltip: Invoca um Skeletron Alfa Energizado
 			}
 
 			OverloadPumpkinMoon: {
-				DisplayName: Overloaded Pumpkin Moon Medallion
+				DisplayName: Medalhão da Lua de Abóbora Sobrecarregado
 				Tooltip:
 					'''
-					Summons an Overloaded Pumpkin Moon
-					Use again to stop the event
+					Invoca a Lua de Abóbora Sobrecarregada
+					Use novamente para parar o evento
 					'''
 			}
 
 			OverloadQueenSlime: {
-				DisplayName: Overloaded Crystal
-				Tooltip: Summons an energized Queen Slime
+				DisplayName: Cristal Sobrecarregado
+				Tooltip: Invoca uma Geleia Rainha Energizada
 			}
 
 			OverloadSkele: {
-				DisplayName: Skull Chain Necklace
+				DisplayName: Colar de Caveira
 				Tooltip:
 					'''
-					Summons an energized Skeletron during the night
-					Summons an energized Dungeon Guardian during the day
+					Invoca um Skeletron Energizado durante a noite
+					Invoca um Guardião do Calabouço Energizado durante o dia
 					'''
 			}
 
 			OverloadSlimeCrown: {
-				DisplayName: Personal Royal Order
-				Tooltip: Summons an energized King Slime
+				DisplayName: Ordem Real
+				Tooltip: Invoca uma Geleia Rei Energizada
 			}
 
 			OverloadTwins: {
-				DisplayName: Omnifocal Lens
-				Tooltip: Summons an energized set of Twins
+				DisplayName: Lente Multifocal
+				Tooltip: Invoca um grupo de Gêmeos Energizados
 			}
 
 			OverloadWall: {
-				DisplayName: Bundle of Dolls
-				Tooltip: Summons an energized Wall of Flesh
+				DisplayName: Fardo de Bonecos
+				Tooltip: Invoca uma Parede de Carne Energizada
 			}
 
 			OverloadWorm: {
-				DisplayName: Worm Chicken
-				Tooltip: Summons an energized Eater of Worlds
+				DisplayName: Galinha de Minhoca
+				Tooltip: Invoca um Devorador de Mundos Energizado
 			}
 
 			TruffleWorm2: {
-				DisplayName: Concentrated Truffle Worm Oil
-				Tooltip: Summons Duke Fishron without fishing
+				DisplayName: Óleo de Verme da Trufa Concentrado
+				Tooltip: Invoca o Duque Peixe-dragão sem pescar
 			}
 
 			LihzahrdPowerCell2: {
-				DisplayName: Lihzahrd Battery Pack
-				Tooltip: Summons the Golem without an altar
+				DisplayName: Pacote de Baterias Laghartas
+				Tooltip: Invoca o Golem sem um altar
 			}
 
 			WormyFood: {
-				DisplayName: Rotting Bait
-				Tooltip: Summons the Eater of Worlds in any biome
+				DisplayName: Isca Podre
+				Tooltip: Invoca o Devorador de Mundos em qualquer bioma
 			}
 
 			CrimsonAltar: {
-				DisplayName: Crimson Altar
+				DisplayName: Altar de Carmesim
 				Tooltip: ""
 			}
 
 			CrucibleCosmos: {
-				DisplayName: Crucible of the Cosmos
+				DisplayName: Crisol dos Cosmos
 				Tooltip:
 					'''
-					Functions as every crafting station
-					'It seems to be hiding magnificent power'
+					Funciona como todas as estações de criação
+					'Parece esconder poder magnífico'
 					'''
 			}
 
 			DemonAltar: {
-				DisplayName: Demon Altar
+				DisplayName: Altar Demoníaco
 				Tooltip: ""
 			}
 
 			MutantToilet: {
-				DisplayName: Mutant Toilet
-				Tooltip: Don't.
+				DisplayName: Vaso Mutant
+				Tooltip: Não.
 			}
 
 			EchPainting: {
-				DisplayName: Ech Painting
+				DisplayName: Pintura Ech
 				Tooltip: "'Groalt W. Fai'"
 			}
 
 			ElementalAssembler: {
-				DisplayName: Elemental Assembler
-				Tooltip: Functions as several basic crafting stations
+				DisplayName: Montador Elemental
+				Tooltip: Funciona como várias estações de criação básicas
 			}
 
 			GoldenDippingVat: {
-				DisplayName: Golden Dipping Vat
-				Tooltip: Used to craft Gold Critters
+				DisplayName: Tanque de Mergulho em Ouro
+				Tooltip: Usado para criar criaturas de ouro
 			}
 
 			MultitaskCenter: {
-				DisplayName: Multitask Center
-				Tooltip: Functions as several basic crafting stations
+				DisplayName: Centro Multitarefa
+				Tooltip: Funciona como várias estações de criação básicas
 			}
 
 			Omnistation: {
-				DisplayName: Omnistation
+				DisplayName: Omnistação
 				Tooltip:
 					'''
-					Can be reused infinitely
-					Effects of all vanilla buff stations
-					Grants Honey when touched
-					Greatly increases luck and provides Sugar Rush when nearby
+					Pode ser Reutilizada Infinitamente
+					Efeitos de todas as estações do vanilla
+					Oferece Mel ao ser tocada
+					Aumenta muito a sorte e oferece Pico de Açúcar quando perto
 					'''
 			}
 
 			Omnistation2: {
-				DisplayName: Omnistation
+				DisplayName: Omnistação
 				Tooltip:
 					'''
-					Can be reused infinitely
-					Effects of all vanilla buff stations
-					Grants Honey when touched
-					Greatly increases luck and provides Sugar Rush when nearby
+					Pode ser Reutilizada Infinitamente
+					Efeitos de todas as estações do vanilla
+					Oferece Mel ao ser tocada
+					Aumenta muito a sorte e oferece Pico de Açúcar quando perto
 					'''
 			}
 
 			RegalStatue: {
-				DisplayName: Regal Statue
-				Tooltip: Town NPCs respawn extremely quickly when nearby
+				DisplayName: Estátua Régia
+				Tooltip: NPCs de Cidade renascem extremamente rápido quando perto
 			}
 
 			Semistation: {
-				DisplayName: Semistation
+				DisplayName: Semistação
 				Tooltip:
 					'''
-					Can be reused infinitely
-					Effects of some vanilla buff stations
+					Pode ser Reutilizada Infinitamente
+					Efeito de algumas estações do vanilla
 					'''
 			}
 
 			SiblingPylon: {
-				DisplayName: Sibling Pylon
+				DisplayName: Pilar dos Irmãos
 				Tooltip:
 					'''
-					Teleport to another pylon when Mutant, Abominationn, and Deviantt are nearby
-					You can only place one per type
+					Teleporta até outro pilar quando Mutant, Abominationn, e Deviantt estiverem próximos
+					Apenas um de cada tipo pode ser posicionado
 					'''
 			}
 
 			UnsafeBlueBrickWall: {
-				DisplayName: Unsafe Blue Brick Wall
-				Tooltip: Allows area-specific enemies to spawn
+				DisplayName: Parede de Tijolo Azul Amaldiçoada
+				Tooltip: Permite que inimigos específicos à área sejam criados
 			}
 
 			UnsafeBlueSlabWall: {
-				DisplayName: Unsafe Blue Slab Wall
-				Tooltip: Allows area-specific enemies to spawn
+				DisplayName: Parede de Laje Azul Amaldiçoada
+				Tooltip: Permite que inimigos específicos à área sejam criados
 			}
 
 			UnsafeBlueTileWall: {
-				DisplayName: Unsafe Blue Tile Wall
-				Tooltip: Allows area-specific enemies to spawn
+				DisplayName: Parede de Telha Azul Amaldiçoada
+				Tooltip: Permite que inimigos específicos à área sejam criados
 			}
 
 			UnsafeGraniteWall: {
-				DisplayName: Unsafe Granite Wall
-				Tooltip: Allows area-specific enemies to spawn
+				DisplayName: Parede de Granito Insegura
+				Tooltip: Permite que inimigos específicos à área sejam criados
 			}
 
 			UnsafeGreenBrickWall: {
-				DisplayName: Unsafe Green Brick Wall
-				Tooltip: Allows area-specific enemies to spawn
+				DisplayName: Parede de Tijolo Verde Amaldiçoada
+				Tooltip: Permite que inimigos específicos à área sejam criados
 			}
 
 			UnsafeGreenSlabWall: {
-				DisplayName: Unsafe Green Slab Wall
-				Tooltip: Allows area-specific enemies to spawn
+				DisplayName: Parede de Laje Verde Amaldiçoada
+				Tooltip: Permite que inimigos específicos à área sejam criados
 			}
 
 			UnsafeGreenTileWall: {
-				DisplayName: Unsafe Green Tile Wall
-				Tooltip: Allows area-specific enemies to spawn
+				DisplayName: Parede de Telha Verde Amaldiçoada
+				Tooltip: Permite que inimigos específicos à área sejam criados
 			}
 
 			UnsafeLihzahrdBrickWall: {
-				DisplayName: Unsafe Lihzahrd Brick Wall
-				Tooltip: Allows area-specific enemies to spawn
+				DisplayName: Parede de Tijolo Lagharta Insegura
+				Tooltip: Permite que inimigos específicos à área sejam criados
 			}
 
 			UnsafeMarbleWall: {
-				DisplayName: Unsafe Marble Wall
-				Tooltip: Allows area-specific enemies to spawn
+				DisplayName: Parede de Mármore Insegura
+				Tooltip: Permite que inimigos específicos à área sejam criados
 			}
 
 			UnsafePinkBrickWall: {
-				DisplayName: Unsafe Pink Brick Wall
-				Tooltip: Allows area-specific enemies to spawn
+				DisplayName: Parede de Tijolo Rosa Amaldiçoada
+				Tooltip: Permite que inimigos específicos à área sejam criados
 			}
 
 			UnsafePinkSlabWall: {
-				DisplayName: Unsafe Pink Slab Wall
-				Tooltip: Allows area-specific enemies to spawn
+				DisplayName: Parede de Laje Rosa Amaldiçoada
+				Tooltip: Permite que inimigos específicos à área sejam criados
 			}
 
 			UnsafePinkTileWall: {
-				DisplayName: Unsafe Pink Tile Wall
-				Tooltip: Allows area-specific enemies to spawn
+				DisplayName: Parede de Telha Rosa Amaldiçoada
+				Tooltip: Permite que inimigos específicos à área sejam criados
 			}
 
 			UnsafeSpiderWall: {
-				DisplayName: Unsafe Spider Wall
-				Tooltip: Allows area-specific enemies to spawn
+				DisplayName: Parede de Aranha Insegura
+				Tooltip: Permite que inimigos específicos à área sejam criados
 			}
 
 			WalkingRick: {
-				DisplayName: Walking Rick
+				DisplayName: Rick Andante
 				Tooltip: "'Kien R. Oco'"
 			}
 
 			WoodenToken: {
-				DisplayName: Wooden Token
-				Tooltip: "'The sign of a true wood lover'"
+				DisplayName: Símbolo de Madeira
+				Tooltip: "'O sinal de um verdadeiro amante da madeira'"
 			}
 
 			AbominationnBody: {
-				DisplayName: Abominationn Body
+				DisplayName: Corpo do Abominationn
 				Tooltip: ""
 			}
 
 			AbominationnMask: {
-				DisplayName: Abominationn Mask
+				DisplayName: Máscara do Abominationn 
 				Tooltip: ""
 			}
 
 			AbominationnPants: {
-				DisplayName: Abominationn Pants
+				DisplayName: Calças do Abominationn
 				Tooltip: ""
 			}
 
 			AbominationnScythe: {
-				DisplayName: Abominationn's Scythe
+				DisplayName: Foice do Abominationn
 				Tooltip: ""
 			}
 
 			DevianttBody: {
-				DisplayName: Deviantt Body
+				DisplayName: Corpo da Deviantt 
 				Tooltip: ""
 			}
 
 			DevianttMask: {
-				DisplayName: Deviantt Mask
+				DisplayName: Máscara da Deviantt 
 				Tooltip: ""
 			}
 
 			DevianttPants: {
-				DisplayName: Deviantt Pants
+				DisplayName: Calças da Deviantt 
 				Tooltip: ""
 			}
 
 			LumberHat: {
-				DisplayName: Lumberjack's Hat
+				DisplayName: Chapéu do Lenhador
 				Tooltip: ""
 			}
 
 			LumberjackBody: {
-				DisplayName: Lumberjack Body
+				DisplayName: Corpo do Lenhador
 				Tooltip: ""
 			}
 
 			LumberjackMask: {
-				DisplayName: Lumberjack Mask
+				DisplayName: Máscara do Lenhador
 				Tooltip: ""
 			}
 
 			LumberjackPants: {
-				DisplayName: Lumberjack Pants
+				DisplayName: Calças do Lenhador
 				Tooltip: ""
 			}
 
 			MutantBody: {
-				DisplayName: Mutant Body
+				DisplayName: Corpo do Mutant
 				Tooltip: ""
 			}
 
 			MutantMask: {
-				DisplayName: Mutant Mask
+				DisplayName: Máscara do Mutant
 				Tooltip: ""
 			}
 
 			MutantPants: {
-				DisplayName: Mutant Pants
+				DisplayName: Calças do Mutant
 				Tooltip: ""
 			}
 
 			LumberJaxe: {
-				DisplayName: The Lumber Jaxe
+				DisplayName: O Machanhador
 				Tooltip:
 					'''
-					Hit enemies may drop wood when killed
-					'The former weapon of a true axe wielding hero'
+					Inimigos atingidos podem derrubar madeira ao morrerem
+					'A arma antiga de um herói que usa machados'
 					'''
 			}
 
 			Abominationn: {
 				DisplayName: Abominationn
-				Tooltip: "'I sure wish I was a boss.'"
+				Tooltip: "'Eu certamente queria ser um chefe.'"
 			}
 
 			Angler: {
-				DisplayName: Angler
-				Tooltip: "'You'd be a great helper minion!'"
+				DisplayName: Pescador
+				Tooltip: "'Você seria um ótimo lacaio ajudante!'"
 			}
 
 			ArmsDealer: {
-				DisplayName: Arms Dealer
-				Tooltip: "'Keep your hands off my gun, buddy!'"
+				DisplayName: Comerciante de Armas
+				Tooltip: "'Tira as suas mãos da minha arma, parceiro!'"
 			}
 
 			Clothier: {
-				DisplayName: Clothier
-				Tooltip: "'Thanks again for freeing me from my curse.'"
+				DisplayName: Alfaiate
+				Tooltip: "'Obrigado mais uma vez por me libertar de minha maldição.'"
 			}
 
 			Cyborg: {
-				DisplayName: Cyborg
-				Tooltip: "'My expedition efficiency was critically reduced when a projectile impacted my locomotive actuator.'"
+				DisplayName: Ciborgue
+				Tooltip: "'A eficiência da minha expedição foi reduzida drasticamente quando um projétil atingiu meu atuador de locomoção.'"
 			}
 
 			Demolitionist: {
-				DisplayName: Demolitionist
-				Tooltip: "'It's a good day to die!'"
+				DisplayName: Demolicionista
+				Tooltip: "'É um bom dia para morrer!'"
 			}
 
 			Deviantt: {
 				DisplayName: Deviantt
-				Tooltip: "'Embrace suffering... and while you're at it, embrace another purchase!'"
+				Tooltip: "'Abrace o sofrimento... E enquanto isso, abrace outra compra!'"
 			}
 
 			Dryad: {
-				DisplayName: Dryad
-				Tooltip: "'Be safe; Terraria needs you!'"
+				DisplayName: Dríade
+				Tooltip: "'Proteja-se. Terraria precisa de você!'"
 			}
 
 			DyeTrader: {
-				DisplayName: Dye Trader
-				Tooltip: "'My dear, what you're wearing is much too drab.'"
+				DisplayName: Comerciante de Tinturas
+				Tooltip: "'Meu amor, suas roupas não tem cor alguma.'"
 			}
 
 			GoblinTinkerer: {
-				DisplayName: Goblin Tinkerer
-				Tooltip: "'Looking for a gadgets expert? I'm your goblin!'"
+				DisplayName: Inventor Goblin
+				Tooltip: "'Procurando por um mestre em geringonças? Eu sou o seu goblin!'"
 			}
 
 			Golfer: {
-				DisplayName: Golfer
-				Tooltip: "'An early bird catches the worm, but an early hole catches the birdie.'"
+				DisplayName: Golfista
+				Tooltip: "'Casa de ferreiro, taco de madeira.'"
 			}
 
 			Guide: {
-				DisplayName: Guide
-				Tooltip: "'They say there is a person who will tell you how to survive in this land.'"
+				DisplayName: Guia
+				Tooltip: "'Eles dizem que existe uma pessoa que vai te contar como sobreviver nesta terra.'"
 			}
 
 			LumberJack: {
-				DisplayName: LumberJack
-				Tooltip: "'I eat a bowl of woodchips for breakfast... without any milk.'"
+				DisplayName: Lenhador
+				Tooltip: "'Eu como um pote de lascas de madeira no café da manhã... sem leite.'"
 			}
 
 			Mechanic: {
-				DisplayName: Mechanic
-				Tooltip: "'Always buy more wire than you need!'"
+				DisplayName: Mecânica
+				Tooltip: "'Sempre compre mais fios do que você precisa!'"
 			}
 
 			Merchant: {
-				DisplayName: Merchant
-				Tooltip: "'Did you say gold? I'll take that off of ya.'"
+				DisplayName: Comerciante
+				Tooltip: "'Você falou em ouro?  Eu posso ficar com isso aí.'"
 			}
 
 			Mutant: {
 				DisplayName: Mutant
-				Tooltip: "'You're lucky I'm on your side.'"
+				Tooltip: "'Você tem sorte que eu estou do seu lado.'"
 			}
 
 			Nurse: {
-				DisplayName: Nurse
-				Tooltip: "'Show me where it hurts.'"
+				DisplayName: Enfermeira
+				Tooltip: "'Mostre-me onde dói.'"
 			}
 
 			Painter: {
-				DisplayName: Painter
-				Tooltip: "'I know the difference between turquoise and blue-green. But I won't tell you.'"
+				DisplayName: Pintor
+				Tooltip: "'Eu sei a diferença entre Turquesa e Azuk-verde. Mas não vou te contar.'"
 			}
 
 			PartyGirl: {
-				DisplayName: Party Girl
-				Tooltip: "'We have to talk. It's... it's about parties.'"
+				DisplayName: Garota da Festa
+				Tooltip: "'Temos que conversar. É... é sobre festas.'"
 			}
 
 			Pirate: {
-				DisplayName: Pirate
-				Tooltip: "'Stay off me booty, ya scallywag!'"
+				DisplayName: Pirata
+				Tooltip: "'Fica longe do meu tesouro, malandro!'"
 			}
 
 			SantaClaus: {
-				DisplayName: Santa Claus
-				Tooltip: "'What? You thought I wasn't real?'"
+				DisplayName: Papai Noel
+				Tooltip: "'O quê? Você achou que eu não era real?'"
 			}
 
 			SkeletonMerchant: {
-				DisplayName: Skeleton Merchant
-				Tooltip: "'You would not believe some of the things people throw at me... Wanna buy some of it?'"
+				DisplayName: Comerciante Esqueleto
+				Tooltip: "'Você não acreditaria no tipo de coisa que as pessoas jogam em mim... Quer comprar um pouco?'"
 			}
 
 			Squirrel: {
-				DisplayName: Squirrel
-				Tooltip: *squeak*
+				DisplayName: Esquilo
+				Tooltip: *chio*
 			}
 
 			Steampunker: {
 				DisplayName: Steampunker
-				Tooltip: "'Show me some gears!'"
+				Tooltip: "'Me mostra umas engrenagens!'"
 			}
 
 			Stylist: {
-				DisplayName: Stylist
-				Tooltip: "'Did you even try to brush your hair today?'"
+				DisplayName: Estilista
+				Tooltip: "'Você sequer tentou escovar seu cabelo hoje?'"
 			}
 
 			Tavernkeep: {
-				DisplayName: Tavernkeep
-				Tooltip: "'What am I doing here...'"
+				DisplayName: Taberneiro
+				Tooltip: "'O que eu estou fazendo aqui...'"
 			}
 
 			TaxCollector: {
-				DisplayName: Tax Collector
-				Tooltip: "'You again? Suppose you want more money!?'"
+				DisplayName: Cobrador de Impostos
+				Tooltip: "'Você de novo? Imagino que queria mais dinheiro!?'"
 			}
 
 			TravellingMerchant: {
-				DisplayName: Travelling Merchant
-				Tooltip: "'I sell wares from places that might not even exist!'"
+				DisplayName: Caixeiro Viajante
+				Tooltip: "'Eu vendo produtos de lugares que talvez nem existam!'"
 			}
 
 			Truffle: {
-				DisplayName: Truffle
-				Tooltip: "'Everyone in this town feels a bit off.'"
+				DisplayName: Trufa
+				Tooltip: "'Todo mundo nesse lugar parece um pouco estranho.'"
 			}
 
 			WitchDoctor: {
-				DisplayName: Witch Doctor
-				Tooltip: "'Which doctor am I? The Witch Doctor am I.'"
+				DisplayName: Doutor Bruxo
+				Tooltip: "'Que tipo de médico eu sou? Sou o Médico Bruxo.'"
 			}
 
 			Wizard: {
-				DisplayName: Wizard
-				Tooltip: "'Want me to pull a coin from behind your ear? No? Ok.'"
+				DisplayName: Mago
+				Tooltip: "'Quer que eu puxe uma moeda de trás da sua orelha? Não? Ok.'"
 			}
 
 			Zoologist: {
-				DisplayName: Zoologist
-				Tooltip: "'I love animals, like, a lot!'"
+				DisplayName: Zoologista
+				Tooltip: "'Eu amo animais, tipo, muito!'"
 			}
 
 			Princess: {
-				DisplayName: Princess
-				Tooltip: "'Pink is the best color anyone could ask for!'"
+				DisplayName: Princesa
+				Tooltip: "'Cor de rosa é a melhor cor do mundo!'"
 			}
 
 			TownDog: {
@@ -2305,12 +2305,12 @@ Mods: {
 
 			TownCat: {
 				DisplayName: Town Cat
-				Tooltip: "'Meow!'"
+				Tooltip: "'Miau!'"
 			}
 
 			TownBunny: {
 				DisplayName: Town Bunny
-				Tooltip: "'*Bunny noises*'"
+				Tooltip: "'*sons de coelho*'"
 			}
 
 			SemiBridgifier: {
