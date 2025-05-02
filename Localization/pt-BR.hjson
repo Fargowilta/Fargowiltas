@@ -2568,83 +2568,83 @@ Mods: {
 
 				Chat: {
 					// Special
-					GiveGifts: This world looks tougher than usual, so you can have these on the house just this once! Talk to me if you need any tips, yeah?
-					NTB: IT'S THE FUNNY BEE WORLD!
+					GiveGifts: Esse mundo parece mais díficil que o normal, então você pode ficar com isso aqui! Fale comigo se você precisar de dicas, tá bom?
+					NTB: É O MUNDO ENGRAÇADO DE ABELHA!
 					NTBHA: " HA"
 					NTBHEE: " HEE"
 					NTBHOO: " HOO"
 					NTBHEH: " HEH"
 					NTBHAH: " HAH"
-					EridanusArmor: UWAH! Please don't hurt... wait, it's just you. Don't scare me like that! And why is that THING following you?!
-					NekomiArmor: Ooh, that's my hoodie! So how is it? Comfy and great for gaming, right? Maybe you'll even go beat a boss without taking damage!
-					Defeat: Good work getting one over on me! Hope I didn't make you sweat too much. Keep at the grind - I wanna see how far you can go!
-					Stinky: Wow, you smell rancid. When's the last time you took a shower, stinky?
-					LoveStruck: You're making too many hearts at me! Sorry, we're only at bond level {0} right now!
-					BloodMoon: The blood moon's effects? I'm not human anymore, so nope!
-					HM: Shower thought. If I put you in a meat grinder and all that's left is two Dye... I'd probably be rich! Not that I would, not to you, specifically, I mean... never mind!
-					Mutant1: Can you tell {0} to put some clothes on?
-					Mutant2: One day, I'll sell a summon for myself! ...Just kidding. That's {0}'s job.
-					Lumber: What's that? You want to fight {0}? ...even I know better than to try.
-					EternityMode: Embrace suffering... and while you're at it, embrace another purchase!
+					EridanusArmor: UWAH! Por favor não me machuque... pera, é só você. Não me assusta assim! E por que essa COISA tá te seguindo?!
+					NekomiArmor: Ooh, é o meu casaco! O que acha? Confortável e bom pra jogar, né? Talvez você até derrote um chefe sem levar dano!
+					Defeat: Bom trabalho ganhando uma de mim! Tomara que eu não tenha feito você suar muito. Continue evoluindo - Eu quero ver o quão longe você chega!
+					Stinky: Uau, Você tá com cheiro horrível. Quando foi a última vez que você tomou banho, fedorento?
+					LoveStruck: Você tá mostrando muitos corações perto de mim! Desculpa, nossa conexão tá só no nível {0} por enquanto!
+					BloodMoon: Os efeitos da lua de sangue? Eu não sou humana mais, então eu não ligo!
+					HM: Pensamento aleatório. Se eu coloco você num triturador de carne e tudo que sobra são duas tinturas... Eu provavelmente ficaria rica! Não que eu faria isso, com você, especificamente, quer dizer... deixa pra lá!
+					Mutant1: Você pode pedir pro {0} colocar algumas roupas?
+					Mutant2: Um dia, eu vou vender uma invocação pra mim mesma! ... Tô brincando. Esse é o trabalho do {0}.
+					Lumber: o quê? Você quer lutar contra o {0}? ...até eu sei pra não tentar.
+					EternityMode: Abrace o sofrimento... E enquanto isso, abrace outra compra!
 					// Normal
-					Formattable1: "{0}! I saw something rodent-y just now! You don't have a hamster infestation, right? Right!?"
-					Normal1: No, I'm totally not throwing Love Potions while you're not looking! Um, I mean... oh, just buy something!
-					Normal2: Did you know? The only real music genres are death metal and artcore.
-					Normal3: I'm morally bankrupt? No, the bank loves me.
-					Normal4: I might be able to afford a taller body if you keep buying!
-					Normal5: My size deceives you! I may be 4'6'' but I'm 7'11'' when I stand on my money!
-					Normal6: You're the Terrarian? Honestly, I was expecting someone a little... taller.
-					Normal7: Don't look at me like that! The only thing I've deviated from is my humanity.
-					Normal8: Rip and tear and buy from me for more things to rip and tear!
-					Normal9: It's not the height that matters, but your credit score!
-					Normal10: Wait a second. Are you sure this house isn't what they call 'prison?'
-					Normal11: Deviantt has awoken! Quick, give her all your money to defeat her!
-					Normal12: One day, I'll sell a summon for myself! ...Just kidding.
-					Normal13: Hmm, I can tell! You've killed a lot, but you haven't killed enough!
-					Normal14: Why the extra letter, you ask? Only the strongest sibling is allowed to remove their own!
-					Normal15: The more rare things you kill, the more stuff I sell! Simple, right?
-					Normal16: Oh, hi! I, uh, definitely don't have any Stink Potions on me right now! Not that I normally would!
+					Formattable1: "{0}! Eu acabei de ver algum roedor! Você não tem uma infestação de hamsters, né? NÉ!?"
+					Normal1: Não, eu com certeza não estou jogando poções de amor em você enquanto você não olha! Um, Quer dizer... ah, compra algo logo!
+					Normal2: Você sabia? Os únicos gêneros musicas de verdade são death metal e artcore.
+					Normal3: Eu sou falida moralmente? Não, eu tô muito bem economicamente.
+					Normal4: Talvez eu consiga comprar um corpo mais alto se você continuar comprando!
+					Normal5: Meu tamanho te engana! Eu posso ter 137 cm, mas eu tenho 240 cm quando eu fico em cima do meu dinheiro!
+					Normal6: Você é o Terrariano? Honestamente, eu estava esperando alguém mais... alto.
+					Normal7: Não olha pra mim desse jeito! A única coisa que eu divergi foi da minha humanidade.
+					Normal8: Rasgar e dilacer e comprar de mim mais coisas para rasgar e dilacerar!
+					Normal9: Não é a altura que importa, mas sim seu imposto de renda!
+					Normal10: Pera aí. Você tem certeza que essa casa não é o que eles chamam de 'prisão'?
+					Normal11: Deviantt acordou! Rápido, dê todo o seu dinheiro pra ela se acalmar!
+					Normal12: Um dia, eu vou vender uma invocação pra mim mesma! ... Tô brincando.
+					Normal13: Hmm, Eu consigo sentir! Você matou muitos, mas não o suficiente!
+					Normal14: Por que a letra extra, você se pergunta? Apenas o irmão mais forte pode remover a letra dele!
+					Normal15: Quanto mais coisas raras você mata, mais coisas eu vendo! Simples, certo?
+					Normal16: Opa, olá! Eu, uh, Definitivamente não tenho nenhuma poção fedorenta comigo! Não que eu teria em qualquer situação!
 				}
 
 				HelpDialogue: {
 					// About Bosses & Events
-					DownedMutant: What's that? You want to fight me for real? ...nah, I can't put up a good fight on my own.
-					DownedAbom: Hey, you've almost made it to the end! Got all your Soul accessories ready? What's that? You want to fight my big brother? ...maybe if he had a reason to.
-					DownedEridanus: Ready to fight my big brother? Remember how you've learned to learn. Stay focused, look for patterns, and don't panic. Good luck!
-					PostML: Wanna craft Forces, but missing Enchantments? Craft the Sigil of Champions and they'll give you what you want, so long as you earn it.
-					MoonLord: Only a specific type of weapon will work against each specific pillar. As for that moon guy, his weakness will keep changing.
-					Cultist: Some powerful enemies like that dungeon guy can create their own arenas. You won't be able to escape, so make full use of the room you do have.
-					Fishron: Did you beat that fish pig dragon yet? He reduces your maximum life a little on every hit. He's also strong enough to break defenses in one hit. Too bad you don't have any reinforced plating to prevent that, right?
-					Betsy: Now's a good time to go for Betsy! Don't worry. If you reach the last wave and lose, you won't have to retry the event for more attempts at her. Careful not to slip up before then, and mind her debuffs!
-					Golem: That temple? Reach the altar to regain wire control! The golem gets upset when you leave, so fighting in there is best. Platforms won't work, but a Lihzahrd Instactuation Bomb can help clear space!
-					Plantera: That overgrown plant inflicts a special venom that works her into an enraged frenzy if she stacks enough hits on you. She also has a ring of crystal leaves, but minions go through it.
-					Destroyer: That metal worm has a few upgrades, but its probes were downgraded to compensate. It'll start shooting homing dark stars and flying. When it coils around you, don't try to escape!
-					Twins: I saw that metal eye spinning while firing a huge laser the other day. Also, even if you kill them, they won't die until they're both killed!
-					Prime: Focus on taking down that metal skull, not its limbs. Don't try to outrun its spinning limbs! Keep your eyes open and learn to recognize what's doing what.
-					WOF: That thing's mouth is as good as immune to damage, so you'll have to aim for the eye. Only one of them is vulnerable at a time, though. What thing? You know, that thing!
-					Deviantt: Next up is me! Make sure you can recognize whatever attack I'll throw at you. Blocks and turning away can nullify petrification!
-					Skeletron: The master of the dungeon can use its babies to attack! Which attack it uses depends on whether or not it's spinning. It'll also take a last stand, so be ready to run when you make the kill!
-					QueenBee: The queen bee will summon her progeny for backup. She's harder to hurt while they're there, so take them out first. Oh, and her swarm can't hit right above or below her!
-					Brain: Focus on how the ichor moves and don't get overwhelmed! When the brain gets mad, it'll confuse you every few seconds. Four rings to confuse you, one ring when it wears off!
-					Eater: The more the world eater splits, the more worms can rush you at once. The head is extra sturdy now, but don't let them pile up too much!
-					GoblinsCrimson: Watch out when you break your second Crimson Heart! It might attract the goblins, so prepare before you do it.
-					GoblinsCorruption: Watch out when you break your second Shadow Orb! It might attract the goblins, so prepare before you do it.
-					EOC: That big eyeball has the power of the moon, but it's too flashy for its own good! Learn to notice and focus only on the bits that threaten to hurt you.
-					Slime: Gonna fight that slime king soon? Crafting a Mini Instabridge or two might help, and mind the slimy rain. Don't stay up and out of his range or he'll get mad, though!
+					DownedMutant: O quê foi isso? Você quer lutar comigo pra valer? ...nah, eu não consigo lutar bem sozinha.
+					DownedAbom: Hey, você tá quase no final! Já tem todos os seus acessórios de Alma prontos? O que foi? Você quer lutar contra o meu irmão mais velho? ...ele tem que ter um motivo pra lutar.
+					DownedEridanus: Pronto pra lutar contra o meu irmão? Lembre-se de como você aprender a aprender, Continue focado, preocure padrões, e não entre em pânico. Boa sorte!
+					PostML: Quer criar Forças, mas faltam Encantamentos? Crie o Símbolo dos Campeões e eles te darão o que você quer, mas você tem que provar o seu poder.
+					MoonLord: Só um tipo específico de arma funciona contra cada pilar. E pra aquele cara da lua, as fraquezas dele continuam mudando.
+					Cultist: Alguns inimigos poderosos como aquele cara do calabouço podem criar suas próprias arenas. Você não será capaz de escapar, então faça uso bom do espaço que você tem.
+					Fishron: Você já derrotou aquele peixe porco dragão? Ele reduz a sua vida máxima um pouco sempre que te acerta. Ele também é forte o suficiente para quebrar suas defesas em um golpe. Se você tivesse algum Revestimento Reforçado pra ajudar com isso...
+					Betsy: Agora é uma boa hora pra derrotar a Betsy! Não se preocupe. Se você chegar na última onda e perder, você não vai ter que tentar o evento inteiro de novo. Cuidado pra não dar bobeira antes disso, e cuidados com os efeitos negativos dela!
+					Golem: Aquele tempo? Chegue no altar para recuperar o controle sobre fios! O golem fica bravo se você sair, então é melhor ficar lá mesmo. Plataformas não funcionam, mas uma bomba de instatuação lagharta pode ajudar a limpar espaço!
+					Plantera: Aquela planta gigante inflige um veneno especial que faz ela ficar enfurecida se ela colocar o suficiente em você. Ela também tem um anel de folhas de cristal, mas lacaios passam por ele.
+					Destroyer: Aquela minhoca de metal tem algumas melhorias, mas suas sondas foram enfraquecidas para compensar. Ele vai começar a atirar projéteis teleguiados e voar. Quando ele gira em volta de você, não tente escapar!
+					Twins: Eu vi aquele olho metálico girando enquanto atira um laser gigante outro dia. Ah, e mesmo que você mate eles, eles só morrem se os dois forem mortos!
+					Prime: Foque em derrubar aquela caveria metálica, não os braços. Não tente ultrapassar seus braços enquanto giram! Mantenha seus olhos abertos e aprenda a reconhecer o que casa coisa é.
+					WOF: A boca daquela coisa é praticamente imune a danos, então você tem que mirar no olho. Apenas um deles é vulnerável de uma vez. Que coisa? Você sabe, aquela coisa!
+					Deviantt: A próxima sou eu! Tente identificar qual ataque eu estou prestes a fazer. Bloqueios e virar pro outro lado podem nulificar Petrificação!
+					Skeletron: O mestre do calabouço usa seus bebês para atacar! O ataque que ele usa depende se ele tá girando ou não. Ele também vai tentar uma última investida, então esteja preparado para correr quando ele estiver prestes a morrer!
+					QueenBee: A Rainha Abelha irá invocar suas descendentes como reforços. Ela é mais difícil de machucar quando elas estão vivas, então as ataque antes. Ah, e o seu enxame não consegue acertar logo acima ou abaixo dela!
+					Brain: Foque em como o Ichor se move e não seja sobrecarregado! Quando o cérebro fica bravo, ele irá te confundir por alguns segundos. Quatro anéis para te confundir, uma anel para quando a confusão acaba!
+					Eater: Quanto mais o devorador se separa, mais minhocas vão te atacar de uma vez. A cabeça é resistente, mas não deixe eles formarem muitos!
+					GoblinsCrimson: Cuidado ao quebrar o seu segundo Coração do Carmim! Isso pode atrair os Goblins, então se prepare antes de fazer isso.
+					GoblinsCorruption: Cuidado ao quebrar o seu segundo Orbe Sombrio! Isso pode atrair os Goblins, então se prepare antes de fazer isso.
+					EOC: Aquele olho gigante tem o poder da lua, mas é muito chamativo para o seu próprio bem! Aprenda a focar apenas nos pontos que podem te machucar.
+					Slime: Vai lutar contra aquela geleia rei no futuro? Criar uma Mini Instaponte ou duas pode ajudar, e cuidado com a chuva de geleias. Não corra para muito longe do seu alcance ou ele enfurecerá!
 					// Other
-					Auras: Seems like everyone's learning to project auras these days. If you look at the particles, you can see whether it'll affect you at close range or a distance!
-					Debuffs: There's probably a thousand items to protect against all these debuffs. It's a shame you don't have a thousand hands to carry them all at once!
-					SoulToggle: Don't forget you can turn off your effect toggles! They're all in that little wrench button right below your inventory. Those small buttons at the very bottom of the list include a recommended low-lag preset!
-					LifeCrystals: I don't have any Life Crystals for you, but I think my big brother left some in the fat slime king. Maybe he'll share if you beat it up!
-					Fish: Watch out for those fish! Sharks will leave you alone if you leave them alone, but piranhas go wild when they smell blood. They can jump out of water to get you!
-					Underwater: The water is bogging you down? Never had an issue with it, personally... Have you tried breathing water instead of air?
-					Underworld: The underworld has gotten a lot hotter since the last time I visited. I hear an obsidian skull is a good luck charm against burning alive, though!
-					SpaceSuffocation: Want to have a breath-holding contest? The empty vacuum of space would be perfect. No, I won't cheat by breathing water instead of air, or using diving gear!
-					UndergroundShadowHands: Scared of the dark? No? Well you should be! I heard a rumor that a monster is trying to grab people underground... spooky. Stay out of the darkness and they can't get you!
-					UndergroundHallow: That's a funny face you're making... Is the underground Hallow too blinding? Remain in darker areas and its volatile effects are reduced!
-					LifeFruit: If you ask me, Plantera is really letting herself go. A diet of Chlorophyte Ore and Life Fruit isn't THAT healthy! Why don't you help her slim down?
-					CactusDamage: Those cacti can be pretty prickly! Feeling prickled? Try enchanting yourself with cactus essence and see how it goes!
-					RainLightning: Watch out for the lightning when it rains. It's good to pack an umbrella so you're not caught out and end up all wet!
+					Auras: Parece que todo mundo tá aprendendo a projetar auras esses dias. Se você olhar pras partículas, você pode ver se vai te afetar de perto ou à distância!
+					Debuffs: Provavelmente existem milhares de itens que te protegem desses efeitos negativos. É uma pena que você não tem milhares de mãos para carregar todos eles de uma vez!
+					SoulToggle: Não se esqueça que você pode desabilitar seus efeitos! Eles estão todos naquele botão de chave inglesa abaixo do seu inventário. Aqueles pequenos botões no fundo da lista incluem um conjunto recomendado para reduzir lag!
+					LifeCrystals: Eu não tenho nenhum cristal de vida para você, mas eu acho que meu irmão mais velho deixou alguns no rei geleia gordo. Talvez ele comparilhe se você espancar ele!
+					Fish: Cuidado com os peixes! Tubarões vão te deixar quieto se você não mexer com eles, mas piranhas ficam loucas quando cheiram sangue. Elas podem pular pra fora da água pra te pegar!
+					Underwater: A água tá te atrapalhando? Nunca tive problema com ela, pessoalmente... Você já tentou respirar água ao invés de ar?
+					Underworld: O submundo ficou bem mais quente desde a última vez que eu visitei. Eu ouvi dizer que uma caveira de obsidiana te ajuda a não queimar até a morte!
+					SpaceSuffocation: Quer ter uma competição de segurar o fôlego? O espaço seria perfeito. Não, eu não vou trapacear respirando água ao invés de ar, ou usando equipamento de mergulho!
+					UndergroundShadowHands: Tem medo do escuro? Não? Você deveria ter! Eu ouvi um rumor de um monstro que pega pessoas no subterrâneo... assustador. Fique longe da escuridão!
+					UndergroundHallow: Essa é uma cara engraçada que você tá fazendo... o consagrado subterrâneo está te cegando? Permaneça em áreas mais escuras para mitigar os efeitos!
+					LifeFruit: Se você me perguntar, a Plantera realmente tá largada. Uma dieta de Clorofita e Fruta da vida não é TÃO saudável! Por que você não ajuda ela a emagrecer?
+					CactusDamage: Esses cactus podem ser bem pontudos! Se sentindo picado? Tente se encantar com essência de cactus e tente de novo!
+					RainLightning: Cuidado com os trovões ao chover. É bom ter um guarda-chuva para que você não fique exposto e todo molhado!
 				}
 
 				Census.SpawnCondition: Quando qualquer inimigo raro for derrotado.
