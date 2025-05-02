@@ -2655,27 +2655,27 @@ Mods: {
 				DisplayName: Lenhador
 
 				TownNPCMood: {
-					Content: I'm happy as long as the world has wood that needs chopping.
-					NoHome: No lumberjack is complete without a log cabin to call home!
-					LoveSpace: Fewer people around means I can swing my axe all I want with nobody in the way.
-					FarFromHome: This is too far from my cabin. I should get back and sharpen my axe.
-					DislikeCrowded: I think it's getting crowded around here.
-					HateCrowded: Too many people around. Nothing ruins a good chopping session more than chopping down someone.
-					LikeBiome: Plenty of trees to chop in {BiomeName} makes for a happy lumberjack.
-					LoveBiome: There's nothing like good old fashioned woodchopping in {BiomeName}!
-					DislikeBiome: There's nothing to chop in {BiomeName}!
-					HateBiome: There's nothing to chop in {BiomeName}!
-					LikeNPC: I chop down trees, {NPCName} plants more, we're the perfect duo.
-					LoveNPC: I'm glad {NPCName} understands the beauty of felling a big tree.
-					DislikeNPC: "{NPCName} told me to start hugging trees... so I taught my axe to hug trees for me."
-					HateNPC: "{NPCName} doesn't get me at all. Bombing a forest isn't woodchopping!"
-					LikeNPC_Princess: "{NPCName} is better with an axe than I expected!"
-					Princess_LovesNPC: "{NPCName} is so strong, I want to try chopping wood some time!"
+					Content: Eu estou feliz enquanto o mundo precisa que madeira seja cortada.
+					NoHome: Nenhum lenhador é completo sem uma cabana de madeira para chamar de casa!
+					LoveSpace: Menos pessoas próximas significa que eu posso balançar o meu machado sem ninguém entrar na frente.
+					FarFromHome: Aqui é muito longe da minha cabana, Eu deveria voltar pra lá e afiar meu machado.
+					DislikeCrowded: Eu acho que tá ficando apertado aqui.
+					HateCrowded: Tem muita gente aqui. Nada arruina as minhas sessões mais do que acidentalmente cortar algúem no meio.
+					LikeBiome: Muitas árvores para cortar na {BiomeName} faz um Lenhador feliz.
+					LoveBiome: Não tem nada melhor do que cortar madeira na {BiomeName}!
+					DislikeBiome: Não tem nada pra cortar na {BiomeName}!
+					HateBiome: Não tem nada pra cortar na {BiomeName}!
+					LikeNPC: Eu corto árvores, {NPCName} planta mais, somos a dupla perfeita.
+					LoveNPC: Eu fico feliz que a {NPCName} entende a beleza de cortar uma árvore grande.
+					DislikeNPC: "{NPCName} me disse pra começar a abraçar árvores... então eu ensinei meu machado a abraçar elas."
+					HateNPC: "{NPCName} não me entende. Bombardear uma floresta não é a mesma coisa que cortar madeira!"
+					LikeNPC_Princess: "{NPCName} é melhor com um machado do que eu esperava!"
+					Princess_LovesNPC: "{NPCName} é tão forte, eu quero tentar cortar madeira alguma hora!"
 				}
 
 				Chat: {
 					// Special
-					Nurse: I always see {0} looking at my biceps when I'm working. Wonder if she wants some of my wood.
+					Nurse: Eu sempre vejo a {0} observando meus bíceps enquanto eu trabalho. Me pergunto se ela quer um pouco da minha madeira.
 					LucyTheAxe: Lucy from that universe.. Interesting things await you.
 					// Normal
 					Normal1: Dynasty wood? Between you and me, that stuff ain't real wood!
