@@ -2724,53 +2724,53 @@ Mods: {
 				DisplayName: Mutant
 
 				TownNPCMood: {
-					Content: Thanks for the house, I guess.
-					NoHome: A house wouldn't hurt, but I don't mind either way.
-					LoveSpace: Downtime between boss fights is nice. I don't get that with lots of humans around.
-					FarFromHome: I'll eat slimes and zombies, but eating human food at home would be good too.
-					DislikeCrowded: There's too many people here. And they seem upset I keep winning our staring contests.
-					HateCrowded: If one more human in this cramped town bumps into my brain again... never mind.
-					LikeBiome: We all start in {BiomeName}, it's a good place.
-					LoveBiome: Living up here is comfortable, but when are you going to find my temple?
-					DislikeBiome: Is {BiomeName} supposed to impress me? The big fairy doesn't, that's for sure.
-					HateBiome: Do you want pricier summons? Making me live in {BiomeName} means pricier summons.
-					LikeNPC: I forget when {NPCName} joined the family, but she's earned her place.
-					LoveNPC: "{NPCName} and I fought through many battles, too bad there's no opportunity to do it again."
-					DislikeNPC: Why is {NPCName} here? It's okay, me, just don't look him in the eye and he can't scare you...
-					HateNPC: "{NPCName} needs to leave before my Penetrator makes it happen."
-					LikeNPC_Princess: "{NPCName} seems friendly."
-					Princess_LovesNPC: "{NPCName} has some amazing items, they're great for meeting new friends!"
+					Content: Obrigado pela casa, eu acho.
+					NoHome: Uma casa não doeria, mas eu não ligo de não ter uma também.
+					LoveSpace: Um tempo para descansar entre lutas é bom. Eu não tenho muito disso com muitos humanos perto.
+					FarFromHome: Eu como geleias e zumbis, mas comer comida humana em casa seria bom também.
+					DislikeCrowded: Tem muita gente aqui. E elas ficam chateadas quando eu venço as nossas disputas de encarar.
+					HateCrowded: Se mais um humano nessa cidade apertada esbarrar no meu cérebro de novo... deixa pra lá.
+					LikeBiome: Nós sempre começamos na {BiomeName}, é um bom lugar.
+					LoveBiome: Viver aqui é confortável, mas quando você vai encontrar meu templo?
+					DislikeBiome: É pro {BiomeName} me impressionar? porque não tá dando certo, nem a fada grande.
+					HateBiome: Você quer que eu cobre mais caro? Me fazer viver na {BiomeName} significa que eu vou cobrar mais caro.
+					LikeNPC: Eu esqueci quando a {NPCName} se juntou a família, mas ela merece o seu lugar.
+					LoveNPC: "{NPCName} e eu lutamos em muitas batalhas, pena que não existam mais oportunidades de lutar de novo."
+					DislikeNPC: Por que o {NPCName} está aqui? Está bem, eu, é só não olhar ele no olho e ele não pode te assustar...
+					HateNPC: "{NPCName} precisa ir embora antes que o meu Penetrador forçe ele a ir."
+					LikeNPC_Princess: "{NPCName} parece amigável."
+					Princess_LovesNPC: "{NPCName} tem alguns items incríveis, eles são ótimos para conhecer novos amigos!"
 				}
 
 				Chat: {
 					// Special
-					EternityDefeat: Congratulations. You truly embraced eternity... at least, I think you did? So what happens next? Ascend from this plane of existence? Fight a transcendent cat-like entity? Destroy the world? All the power's in your hands now.
-					Defeat: Good work beating me, I guess. I still feel like stretching my wings... Why don't we go at it for real next time?
-					MutantArmor: Nice armor you have, very realistic skin. As a matter of fact, mind if I borrow it? Your skin, that is.
-					SoulsPostML: Now that you've defeated the big guy, I'd say it's time to start collecting those materials!
-					DefeatCommon: What's that? You want to fight me? ...sure, I guess.
-					DefeatAbom: What's that? You want to fight me? ...maybe if I had a reason.
-					SoulsModDisabled: What's that? You want to fight me? ...you're not worthy you rat.
-					PumpkinMoon: A bit spooky tonight, isn't it.
-					FrostMoon: I'd ask for a coat, but I don't think you have any my size.
-					SlimeRain: Weather seems odd today, wouldn't you agree?
-					BloodMoon1: Lovely night, isn't it?
-					BloodMoon2: I hope the constant arguing I'm hearing isn't my fault.
-					NightTime: I'd follow and help, but I'd much rather sit around right now.
-					Party: "{0} is the one who invited me, I don't understand why though."
-					PartyWithoutPartyGirl: I don't know what everyone's so happy about, but as long as nobody mistakes me for a Pigronata, I'm happy too.
-					Nurse: Whenever we're alone, {0} keeps throwing syringes at me, no matter how many times I tell her to stop!
-					WitchDoctor: Please go tell {0} to drop the 'mystical' shtick, I mean, come on! I get it, you make tainted water or something.
-					Dryad: Why does {0}'s outfit make my wings flutter?
-					Stylist: "{0} once gave me a wig... I look hideous with long hair."
-					Truffle: That mutated mushroom seems like my type of fella.
-					TaxCollector: "{0} keeps asking me for money, but he won't accept my spawners!"
-					Guide: Any idea why {0} is always cowering in fear when I get near him?
-					WitchDoctorTruffleCyborg: If any of us could play instruments, I'd totally start a band with {0}, {1}, and {2}.
-					PartyGirl: Man, {0}'s confetti keeps getting stuck to my wings.
-					Demolitionist: I'm surprised {0} hasn't blown a hole in the floor yet, on second thought that sounds fun.
-					Tavernkeep: "{0} keeps suggesting I drink some beer, something tells me he wouldn't like me when I'm drunk though."
-					DyeTrader: "{0} wants to see what I would look like in blue... I don't know how to feel."
+					EternityDefeat: Parabéns. Você realmente abraçou a Eternidade... pelo menos, eu acho que você conseguiu? E agora? Ascender desse plano da existência? Lutar contra uma entidade transcendente que se parece com um gato? Destruir o mundo? Todo o poder está em suas mãos agora.
+					Defeat: Bom trabalho em me derrotar, eu acho. Eu ainda estou com vontade de esticar minhas asas... Por que nós não lutamos de verdade da próxima vez? 
+					MutantArmor: Armadura bonita que você tem, pele muito realística. Na verdade, tem algum problema eu pegar ela? Sua pele, quer dizer.
+					SoulsPostML: Agora que você derrotou o grandão, eu diria que é hora de começar a coletar aqueles materiais!
+					DefeatCommon: O que foi? Você quer lutar comigo? ...claro, eu acho.
+					DefeatAbom: O que foi? Você quer lutar comigo? ...talvez se eu tivesse um motivo.
+					SoulsModDisabled: O que foi? Você quer lutar comigo? ...você não merece, seu rato.
+					PumpkinMoon: Está um pouquinho sinistro hoje, não?
+					FrostMoon: Eu pediria um casaco, mas eu não acho que você tem algum do meu tamanho.
+					SlimeRain: O clima parece meio estranho hoje, você não concorda?
+					BloodMoon1: Noite bonita hoje, não?
+					BloodMoon2: Eu espero que as discussões constantes que eu estou escutando não sejam culpa minha.
+					NightTime: Eu seguiria e ajudaria, mas eu prefiro ficar sentado por enquanto.
+					Party: "{0} é quem me convidou, mas eu não entendo o porquê."
+					PartyWithoutPartyGirl: Eu não sei o porquê todo mundo tá tão feliz, mas se ninguém me confundir com uma Piñata, eu estou feliz também.
+					Nurse: Sempre que estamos sozinhos, a {0} fica jogando seringas em mim, não importa quantas vezes eu peço para que ela pare!
+					WitchDoctor: Por favor peça pro {0} parar com esse negócio 'místico', quer dizer, qual é! Eu entendo, você faz água com corante ou algo assim. 
+					Dryad: Por que a roupa da {0} faz minhas asas vibrarem?
+					Stylist: "{0} uma vez me deu uma peruca... eu fico horrível com cabelo longo."
+					Truffle: Aquele cogumelo mutado parece ser o meu tipo de pessoa.
+					TaxCollector: "{0} fica me pedindo dinheiro, mas ele não aceita minhas invocações!"
+					Guide: Alguma ideia porque o {0} sempre fica se tremendo de medo quando eu me aproximo dele?
+					WitchDoctorTruffleCyborg: Se qualquer um de nós conseguisse tocar instrumentos, eu com certeza começaria uma banda com {0}, {1}, e {2}.
+					PartyGirl: Cara, o confete da {0} sempre fica preso nas minhas asas.
+					Demolitionist: Eu estou surpreso que o {0} não explodiu um buraco no chão ainda... pensando bem, isso parece legal.
+					Tavernkeep: "{0} continua sugerindo que eu beba cerveja, mas algo me diz que ele não gostaria de me ver bêbado de verdade."
+					DyeTrader: "{0} quer ver como eu fico usando azul... eu não sei o que pensar."
 					// Normal
 					Normal1: Savagery, barbarism, bloodthirst, that's what I like seeing in people.
 					Normal2: The stronger you get, the more stuff I sell. Makes sense, right?
