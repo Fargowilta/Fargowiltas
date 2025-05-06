@@ -41,9 +41,25 @@ namespace Fargowiltas.Items.Summons.Abom
 
         public override bool? UseItem(Player player)
         {
+            Main.windSpeedTarget = Main.windSpeedCurrent = 0.8f; //40mph?
+
+            //sets rain time to 12 hours
+            int day = 86400;
+            int hour = day / 24;
+            Main.rainTime = hour * 12;
+            Main.raining = true;
+            Main.maxRaining = Main.cloudAlpha = 0.9f;
+
             Sandstorm.StartSandstorm();
 
-            NetMessage.SendData(MessageID.WorldData);
+
+
+            if (Main.netMode == NetmodeID.Server)
+            {
+                NetMessage.SendData(MessageID.WorldData);
+                Main.SyncRain();
+            }
+
             FargoUtils.PrintLocalization("MessageInfo.StartSandStorm", new Color(175, 75, 255));
             SoundEngine.PlaySound(SoundID.Roar, player.position);
 
