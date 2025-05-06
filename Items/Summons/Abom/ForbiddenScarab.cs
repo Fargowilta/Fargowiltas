@@ -43,13 +43,6 @@ namespace Fargowiltas.Items.Summons.Abom
         {
             Main.windSpeedTarget = Main.windSpeedCurrent = 0.8f; //40mph?
 
-            //sets rain time to 12 hours
-            int day = 86400;
-            int hour = day / 24;
-            Main.rainTime = hour * 12;
-            Main.raining = true;
-            Main.maxRaining = Main.cloudAlpha = 0.9f;
-
             Sandstorm.StartSandstorm();
 
 
