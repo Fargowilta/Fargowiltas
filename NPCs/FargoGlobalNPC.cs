@@ -997,6 +997,7 @@ namespace Fargowiltas.NPCs
                     break;
 
                 case NPCID.Mimic:
+                case NPCID.IceMimic:
                     FargoUtils.TryDowned("Deviantt", Color.HotPink, Main.hardMode, "rareEnemy", "mimic");
                     break;
 
