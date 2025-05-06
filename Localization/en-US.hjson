@@ -1609,7 +1609,7 @@ Mods: {
 				DisplayName: Fishy Energizer
 				Tooltip:
 					'''
-					Formed after using 10 Truffle Worm Clumps
+					Formed after using 10 Cans of Truffle Worms
 					'You feel content'
 					'''
 			}
@@ -1672,7 +1672,7 @@ Mods: {
 				DisplayName: Slimy Energizer
 				Tooltip:
 					'''
-					Formed after using 10 Overloaded Crowns
+					Formed after using 10 Personal Royal Orders
 					'It feels a bit slimy'
 					'''
 			}
