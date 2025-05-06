@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -28,7 +29,11 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             if (!FargoUtils.EternityMode)
-                tooltips.Insert(4, new TooltipLine(Mod, "HardmodeLock", Language.GetTextValue($"Mods.Fargowiltas.Items.SuspiciousLookingChest.HardmodeLock")));
+            {
+                int index = Math.Min(4, tooltips.Count - 1);
+                tooltips.Insert(index, new TooltipLine(Mod, "HardmodeLock", Language.GetTextValue($"Mods.Fargowiltas.Items.SuspiciousLookingChest.HardmodeLock")));
+            }
+                
 
         }
         public override void AddRecipes()
