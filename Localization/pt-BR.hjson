@@ -846,7 +846,7 @@ Mods: {
 				Activated: Ativado
 				Deactivated: Desativado
 				// {Battle / Calming} Cry {activated / deactivated} for {playerName}{punctuation}
-				CryText: "Grito de {0} {1} for {2}{3}"
+				CryText: "Grito de {0} {1} para {2}{3}"
 			}
 
 			DeathFruit: {
@@ -988,6 +988,7 @@ Mods: {
 			SandRenewalSupreme: {
 				DisplayName: Renovador de Deserto Supremo
 				Tooltip: Assoreia o mundo inteiro
+                        }
 
 			DirtRenewal: {
 				DisplayName: Renovador de Floresta
@@ -2489,7 +2490,7 @@ Mods: {
 					FarFromHome: Eu voaria de volta pra minha casa, mas eu não quero ser observado.
 					DislikeCrowded: Tem muitos humanos perto, eles ficam cutucando o meu rosto.
 					HateCrowded: Você sabe o quão díficil é carregar uma foice e não cortar alguém com tanta gente perto?
-					LikeBiome: Eu gosto de{BiomeName}, as correntes são relaxantes e eu tô aprendendo a pescar recentemente.
+					LikeBiome: Eu gosto de {BiomeName}, as correntes são relaxantes e eu tô aprendendo a pescar recentemente.
 					LoveBiome: Eu amo o espaço, é nostálgico e quieto.
 					DislikeBiome: Muitos inimigos fracos vivem na {BiomeName}.
 					HateBiome: Eu odeio a {BiomeName} muito.
