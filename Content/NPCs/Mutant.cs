@@ -62,7 +62,7 @@ namespace Fargowiltas.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = -1f,
-                Direction = -1
+                Direction = -1,
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
 
@@ -92,7 +92,7 @@ namespace Fargowiltas.Content.NPCs
         {
             NPC.townNPC = true;
             NPC.friendly = true;
-            NPC.width = 18;
+            NPC.width = 36;
             NPC.height = 40;
             NPC.aiStyle = 7;
             NPC.damage = 10;
@@ -591,9 +591,10 @@ namespace Fargowiltas.Content.NPCs
                 rectangle.Width = texture.Width;
                 rectangle.Height = height;
             }
-            
+            SpriteEffects effects = SpriteEffects.None;
             Vector2 origin2 = NPC.frame.Size() / 2f;
-            SpriteEffects effects = NPC.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            if (NPC.IsShimmerVariant)
+                effects = NPC.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             spriteBatch.Draw(texture, NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY - 4), new Microsoft.Xna.Framework.Rectangle?(rectangle), NPC.GetAlpha(drawColor), NPC.rotation, origin2, NPC.scale, effects, 0f);
             return false;
         }
@@ -622,8 +623,10 @@ namespace Fargowiltas.Content.NPCs
                     return Request<Texture2D>("Fargowiltas/Content/NPCs/Mutant_Shimmer");
                 }
             }
-
-            return Request<Texture2D>("Fargowiltas/Content/NPCs/Mutant");
+            if (npc.direction == -1)
+                return ModContent.Request<Texture2D>("Fargowiltas/Content/NPCs/Mutant");
+            else
+                return ModContent.Request<Texture2D>("Fargowiltas/Content/NPCs/MutantRight");
         }
 
         public int GetHeadTextureIndex(NPC npc) => GetModHeadSlot("Fargowiltas/Content/NPCs/Mutant_Head");

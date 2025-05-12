@@ -30,20 +30,21 @@ namespace Fargowiltas.Content.NPCs
         private bool canSayMutantShimmerQuote = false;
         private int defeatQuoteTimer = 900;
 
-        //public override bool Autoload(ref string name)
-        //{
-        //    name = "Abominationn";
-        //    return mod.Properties.Autoload;
-        //}
+        private static int ShimmerHeadIndex;
+        private static Profiles.StackedNPCProfile AbomProfile;
+
+        public override void Load()
+        {
+            ShimmerHeadIndex = Mod.AddNPCHeadTexture(Type, Texture + "_Shimmer_Head");
+        }
 
         public override ITownNPCProfile TownNPCProfile()
         {
-            return new AbomProfile();
+            return AbomProfile;
         }
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Abominationn");
 
             Main.npcFrameCount[NPC.type] = 25;
             NPCID.Sets.ExtraFramesCount[NPC.type] = 9;
@@ -78,6 +79,11 @@ namespace Fargowiltas.Content.NPCs
             {
                  BuffID.Suffocation
             });
+
+            AbomProfile = new Profiles.StackedNPCProfile(
+                new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture), null),
+                new Profiles.DefaultNPCProfile(Texture + "_Shimmer", ShimmerHeadIndex, null)
+            );
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -324,27 +330,25 @@ namespace Fargowiltas.Content.NPCs
             }
         }
 
-        private static string AbomChat(string key, params object[] args) => Language.GetTextValue($"Mods.Fargowiltas.NPCs.Abominationn.Chat.{key}", args);
-    }
-
-    public class AbomProfile : ITownNPCProfile
-    {
-        public int RollVariation() => 0;
-        public string GetNameForVariant(NPC npc) => npc.getNewNPCName();
-
-        public Asset<Texture2D> GetTextureNPCShouldUse(NPC npc)
-        {
-            if (npc.IsABestiaryIconDummy)
-                return Request<Texture2D>("Fargowiltas/Content/NPCs/Abominationn");
-
-            if (npc.IsShimmerVariant)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {   
+            Texture2D texture = (Texture2D)TownNPCProfile().GetTextureNPCShouldUse(NPC);
+            Rectangle rectangle = NPC.frame;
+            Vector2 origin2 = rectangle.Size() / 2f;
+            SpriteEffects effects = SpriteEffects.None;
+            if (!NPC.IsShimmerVariant && !NPC.IsABestiaryIconDummy)
             {
-                return Request<Texture2D>("Fargowiltas/Content/NPCs/Abominationn_Shimmer");
+                if (NPC.direction == -1)
+                    texture = ModContent.Request<Texture2D>("Fargowiltas/Content/NPCs/Abominationn").Value;
+                else
+                    texture = ModContent.Request<Texture2D>("Fargowiltas/Content/NPCs/AbominationnRight").Value;
+                Main.EntitySpriteDraw(texture, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY) + new Vector2(0, -5f), new Microsoft.Xna.Framework.Rectangle?(rectangle), NPC.GetAlpha(drawColor), NPC.rotation, origin2, NPC.scale, effects, 0);
+                return false;
             }
-
-            return Request<Texture2D>("Fargowiltas/Content/NPCs/Abominationn");
+            else
+                return true;
         }
 
-        public int GetHeadTextureIndex(NPC npc) => GetModHeadSlot("Fargowiltas/Content/NPCs/Abominationn_Head");
+        private static string AbomChat(string key, params object[] args) => Language.GetTextValue($"Mods.Fargowiltas.NPCs.Abominationn.Chat.{key}", args);
     }
 }
