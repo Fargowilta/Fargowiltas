@@ -17,11 +17,11 @@ Mods: {
 		}
 
 		GameTips: {
-			// Squirrel: If you ever manage to catch a Tophat Squirrel, a certain dapper critter might move in!
-			// LumberJack: The LumberJack loves trees, chop down enough of them and he might just fall out of one!
-			// Deviantt: Deviantt loves to provide helpful monster spawners, for a hefty cost...
-			// Abominationn: Defeat the Goblin Army, and a pumpkin headed Abominationn will fall from the sky!
-			// Mutant: Mutant is always in search of someone strong. Grow in power and you might catch his attention...
+			Squirrel: Если вам удастся поймать белку с цилиндром на голове, то, быть может, в ваш город придёт один опрятный зверёк!
+			LumberJack: ДревоБилл любит деревья, срубите несколько из них, и он обязательно с какого-нибудь да свалится!
+			Deviantt: Девиантт обожает давать полезные призывалки монстров, но всему своя цена...
+			Abominationn: Победите Армию гоблинов, и с неба прилетит тыквоголовый Выродокк!
+			Mutant: Мутант всегда ищет кого-то сильного. Покажите, что вы сильны, и, может, вы заинтересуете его...
 		}
 
 		// Used for TownNPCMood "{BiomeName}" Format (unused now)
@@ -217,8 +217,8 @@ Mods: {
 					Unlimited: Бесконечные
 					StatMultipliers: Множители показателей
 					Misc: Прочее
-					// World: World
-					// Fishing: Fishing
+					World: Мир
+					Fishing: Рыбалка
 				}
 
 				EnemyHealth: {
@@ -296,13 +296,13 @@ Mods: {
 				}
 
 				MultiplayerDeathSpectate: {
-					Label: Наблюдение за живыми игроками в мультиплеере
+					Label: "[i:3230] Наблюдение за живыми игроками в мультиплеере"
 					Tooltip: ""
 				}
 
 				Headers: {
-					// UserInterface: User Interface
-					// Misc: Miscellaneous
+					UserInterface: Пользовательский интерфейс
+					Misc: Разное
 				}
 			}
 
@@ -2876,7 +2876,7 @@ Mods: {
 				Census.SpawnCondition: Если у вас в инвентаре есть белка в цилиндре.
 			}
 
-			// SuperDummyNPC.DisplayName: Super Dummy
+			SuperDummyNPC.DisplayName: Супер-манекен
 		}
 
 		Projectiles: {
@@ -2926,7 +2926,7 @@ Mods: {
 			InstaPondProj.DisplayName: МоментОзеро Снар
 			MiniDirtInstabridgeProj.DisplayName: Мини Грязь МоментМост Снар
 			CoolCrab.DisplayName: Крутой краб
-			// LumberJaxeProjectile.DisplayName: Lumber Jaxe Projectile
+			LumberJaxeProjectile.DisplayName: Снаряд ДревоБиллителя
 		}
 
 		Tiles: {
