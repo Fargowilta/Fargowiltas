@@ -23,9 +23,6 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(true)]
         public bool ExactTooltips;
 
-        [DefaultValue(false)]
-        public bool HideUnlimitedBuffs;
-
         [DefaultValue(0.75f)]
         [Slider]
         public float DebuffOpacity;

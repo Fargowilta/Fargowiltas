@@ -26,7 +26,8 @@ namespace Fargowiltas
         //        //public ToggleBackend Toggler = new ToggleBackend();
         //        public Dictionary<string, bool> TogglesToSync = new Dictionary<string, bool>();
 
-
+        public bool HideBuffTray = false;
+        public bool UnlimitedBuffs = false;
 
         public bool extractSpeed;
         public bool HasDrawnDebuffLayer;
@@ -225,7 +226,7 @@ namespace Fargowiltas
 
         public override void PostUpdateBuffs()
         {
-            if (FargoServerConfig.Instance.UnlimitedPotionBuffsOn120)
+            if (UnlimitedBuffs)
             {
                 foreach (Item item in Player.bank.item)
                 {
