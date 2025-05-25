@@ -329,7 +329,7 @@ Mods: {
 		}
 
 		UI: {
-			StatButton: Stat Sheet
+			StatButton: Open Stat Sheet
 			SearchText: Search...
 			// Stat Sheet Elements
 			MeleeDamage: Melee Damage: {0}%
@@ -3062,6 +3062,20 @@ Mods: {
 			SemistationEmote.Command: semistation
 			WiresEmote.Command: wires
 			ByeahEmote.Command: byeah
+		}
+
+		BuilderToggles: {
+			PotionsBuilderToggle: {
+				NameText:
+					'''
+					{0}
+					{1}
+					'''
+				LeftOn: Unlimited Buffs On
+				LeftOff: Unlimited Buffs Off
+				RightOn: Unlimited Buffs Visible
+				RightOff: Unlimited Buffs Hidden
+			}
 		}
 	}
 }

@@ -3070,7 +3070,21 @@ Mods: {
 			// EchEmote.Command: ech
 			// SemistationEmote.Command: semistation
 			// WiresEmote.Command: wires
-			// ByeahEmote.Command: byeahemote
+			// ByeahEmote.Command: byeah
+		}
+
+		BuilderToggles: {
+			PotionsBuilderToggle: {
+				/* NameText:
+					'''
+					{0}
+					{1}
+					''' */
+				// LeftOn: Unlimited Buffs On
+				// LeftOff: Unlimited Buffs Off
+				// RightOn: Unlimited Buffs Visible
+				// RightOff: Unlimited Buffs Hidden
+			}
 		}
 	}
 }

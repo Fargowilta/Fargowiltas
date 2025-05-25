@@ -100,9 +100,6 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(true)]
         public bool UnlimitedConsumableWeapons;
 
-        [DefaultValue(true)]
-        public bool UnlimitedPotionBuffsOn120;
-
         private const uint maxExtraBuffSlots = 99;
 
         [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.StatMultipliers")]
