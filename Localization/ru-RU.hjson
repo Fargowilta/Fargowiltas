@@ -29,7 +29,7 @@ Mods: {
 
 		Configs: {
 			FargoServerConfig: {
-				DisplayName: Конфигурации: Сторона сервера
+				DisplayName: Конфигурации: сторона сервера
 
 				Mutant: {
 					Label: "[i:Fargowiltas/MutantMask] [c/ffffff:{$Mods.Fargowiltas.NPCs.Mutant.DisplayName} {$Mods.Fargowiltas.Configs.Common.CanSpawn}]"
@@ -228,7 +228,7 @@ Mods: {
 
 				BossHealth: {
 					Label: "[i:29] Здоровье боссов"
-					Tooltip: Умножает здоровье всех боссов. Берётся больший множитель между этим и «Здоровьем врагов».
+					Tooltip: Умножает здоровье всех боссов. Берётся наибольший множитель между этим и «Здоровьем врагов».
 				}
 
 				EnemyDamage: {
@@ -238,12 +238,12 @@ Mods: {
 
 				BossDamage: {
 					Label: "[i:3507] Урон боссов"
-					Tooltip: Умножает урон с учётом защиты от всех боссов. Берётся больший множитель между этим и «Уроном врагов».
+					Tooltip: Умножает урон с учётом защиты от всех боссов. Берётся наибольший множитель между этим и «Уроном врагов».
 				}
 
 				BossApplyToAllWhenAlive: {
 					Label: Множители боссов применяются универсально
-					Tooltip: Конфигурации «Здоровье боссов» и «Урон боссов применяются» ко всем врагам, пока босс жив, а не только к боссам.
+					Tooltip: Конфигурации «Здоровье боссов» и «Урон боссов» применяются ко всем врагам, пока босс жив, а не только к боссам.
 				}
 
 				DisableTombstones: {
@@ -253,7 +253,7 @@ Mods: {
 			}
 
 			FargoClientConfig: {
-				DisplayName: Конфигурации: Сторона клиента
+				DisplayName: Конфигурации: сторона клиента
 
 				ExpandedTooltips: {
 					Label: "[i:171] Больше описаний об изменениях мода Mutant"
@@ -329,7 +329,7 @@ Mods: {
 		}
 
 		UI: {
-			StatButton: Таблица показателей
+			StatButton: Открыть характеристики
 			SearchText: Поиск...
 			// Stat Sheet Elements
 			MeleeDamage: Ближний урон: {0}%
@@ -2610,7 +2610,7 @@ Mods: {
 					Normal4: Чем больше редких существ ты убиваешь, тем больше я продаю! Всё просто, не так ли?
 					// Normal4: I might be able to afford a taller body if you keep buying!
 					Normal5: Оу, привет! У меня, эм, определённо сейчас нет при себе никаких вонючих зелий! Не то, что они у меня вообще бывают!
-					// Normal5: Мой рост обманчив! Может, роста во мне и 120, но он станет 210, если я встану на все свои деньги!
+					// Normal5: My size deceives you! I may be 4'6'' but I'm 7'11'' when I stand on my money!
 					Normal6: Ты — Террариец? Честно говоря, я ожидала кого-то чуть... повыше.
 					Normal7: Не смотри на меня так! Единственное, что во мне девиантно — это человечность.
 					Normal8: Рви и кромсай, а потом покупай у меня, чтобы рвать и кромсать ещё больше!
@@ -3066,15 +3066,15 @@ Mods: {
 
 		BuilderToggles: {
 			PotionsBuilderToggle: {
-				/* NameText:
+				NameText:
 					'''
 					{0}
 					{1}
-					''' */
-				// LeftOn: Unlimited Buffs On
-				// LeftOff: Unlimited Buffs Off
-				// RightOn: Unlimited Buffs Visible
-				// RightOff: Unlimited Buffs Hidden
+					'''
+				LeftOn: Бесконечные баффы вкл.
+				LeftOff: Бесконечные баффы выкл.
+				RightOn: Бесконечные баффы видимы
+				RightOff: Бесконечные баффы скрыты
 			}
 		}
 	}
