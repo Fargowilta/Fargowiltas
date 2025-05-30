@@ -1464,7 +1464,7 @@ Mods: {
 			}
 
 			DeathBringerFairy: {
-				DisplayName: Разносящая смерть фея
+				DisplayName: Смертоносная фея
 				Tooltip:
 					'''
 					Призывает всех боссов пре-хардмода
