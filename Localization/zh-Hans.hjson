@@ -98,6 +98,21 @@ Mods: {
 					Tooltip: ""
 				}
 
+				NoTrapsWorld: {
+					// Label: "[i:510] No Traps World"
+					// Tooltip: ""
+				}
+
+				RemixWorld: {
+					// Label: "[i:4711] Remix World"
+					// Tooltip: ""
+				}
+
+				ZenithWorld: {
+					// Label: "[i:4956] Zenith World"
+					// Tooltip: ""
+				}
+
 				UnlimitedAmmo: {
 					Label: "[i:771] 在困难模式中，背包中的某种弹药堆叠多于3996时不消耗"
 					Tooltip: ""

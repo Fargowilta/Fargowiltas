@@ -98,6 +98,21 @@ Mods: {
 					Tooltip: ""
 				}
 
+				NoTrapsWorld: {
+					// Label: "[i:510] No Traps World"
+					// Tooltip: ""
+				}
+
+				RemixWorld: {
+					// Label: "[i:4711] Remix World"
+					// Tooltip: ""
+				}
+
+				ZenithWorld: {
+					// Label: "[i:4956] Zenith World"
+					// Tooltip: ""
+				}
+
 				UnlimitedAmmo: {
 					Label: "[i:771] Бесконечные патроны в стаке 3996+ в хардмоде"
 					Tooltip: ""
