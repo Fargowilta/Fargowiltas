@@ -98,6 +98,21 @@ Mods: {
 					Tooltip: ""
 				}
 
+				NoTrapsWorld: {
+					Label: "[i:510] Mundo Sem Armadilhas"
+					Tooltip: ""
+				}
+
+				RemixWorld: {
+					Label: "[i:4711] Mundo Remix"
+					Tooltip: ""
+				}
+
+				ZenithWorld: {
+					Label: "[i:4956] Mundo Zênite"
+					Tooltip: ""
+				}
+
 				UnlimitedAmmo: {
 					Label: "[i:771] Munição infinita quando com 3996+ no Modo Díficil"
 					Tooltip: ""
