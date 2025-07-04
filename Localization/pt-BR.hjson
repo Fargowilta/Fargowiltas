@@ -325,6 +325,19 @@ Mods: {
 			FoodT2: Comida muito satisfatória
 			FoodT3: Comida extremamente satisfatória
 			GemRobe: Roupão de Jóia
+			WoodenCrate: Caixote de Madeira
+            		IronCrate: Caixote de Ferro
+            		GoldenCrate: Caixote Dourado
+            		JungleCrate: Caixote de Selva
+            		SkyCrate: Caixote do Céu
+            		CorruptCrate: Caixote Corrompido
+            		CrimsonCrate: Caixote Carmim
+            		//HallowedCrate: Caixote Consagrado
+            		DungeonCrate: Caixote do Calabouço
+            		FrozenCrate: Caixote Congelado
+            		SandCrate: Caixote do Oásis
+            		LavaCrate: Caixote de Obsidiana
+            		OceanCrate: Caixote do Oceano
 			Or: Ou
 		}
 

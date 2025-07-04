@@ -325,6 +325,19 @@ Mods: {
 			FoodT2: еда полного удовлетворения
 			FoodT3: еда изысканного удовлетворения
 			GemRobe: роба из камней
+			WoodenCrate: Wooden Crate
+			IronCrate: Iron Crate
+			GoldenCrate: Golden Crate
+			JungleCrate: Jungle Crate
+			SkyCrate: Sky Crate
+			CorruptCrate: Corrupt Crate
+			CrimsonCrate: Crimson Crate
+			// HallowedCrate: Hallowed Crate
+			DungeonCrate: Dungeon Crate
+			FrozenCrate: Frozen Crate
+			SandCrate: Oasis Crate
+			LavaCrate: Obsidian Crate
+			OceanCrate: Ocean Crate
 			Or: или
 		}
 
