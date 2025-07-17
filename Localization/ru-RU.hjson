@@ -106,6 +106,21 @@ Mods: {
 					Tooltip: ""
 				}
 
+				NoTrapsWorld: {
+					// Label: "[i:510] No Traps World"
+					// Tooltip: ""
+				}
+
+				RemixWorld: {
+					// Label: "[i:4711] Remix World"
+					// Tooltip: ""
+				}
+
+				ZenithWorld: {
+					// Label: "[i:4956] Zenith World"
+					// Tooltip: ""
+				}
+
 				UnlimitedAmmo: {
 					Label: "[i:771] Бесконечные патроны в стаке 3996+ в хардмоде"
 					Tooltip: ""
@@ -325,6 +340,19 @@ Mods: {
 			FoodT2: еда полного удовлетворения
 			FoodT3: еда изысканного удовлетворения
 			GemRobe: роба из камней
+			// WoodenCrate: Wooden Crate
+			// IronCrate: Iron Crate
+			// GoldenCrate: Golden Crate
+			// JungleCrate: Jungle Crate
+			// SkyCrate: Sky Crate
+			// CorruptCrate: Corrupt Crate
+			// CrimsonCrate: Crimson Crate
+			// HallowedCrate: Hallowed Crate
+			// DungeonCrate: Dungeon Crate
+			// FrozenCrate: Frozen Crate
+			// SandCrate: Oasis Crate
+			// LavaCrate: Obsidian Crate
+			// OceanCrate: Ocean Crate
 			Or: или
 		}
 
