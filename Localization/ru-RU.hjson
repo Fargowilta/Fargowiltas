@@ -2502,13 +2502,13 @@ Mods: {
 				NPCName3: Харли
 				NPCName4: Жнец
 				NPCName5: Стивенн
-				NPCName6: Фуф
-				NPCName7: Baroo
+				NPCName6: Фуфел
+				NPCName7: Бару
 				NPCName8: Фаргус
-				NPCName9: Entev
+				NPCName9: Собети
 				NPCName10: Катастроф
-				NPCName11: Bardo
-				NPCName12: Betson
+				NPCName11: Бардо
+				NPCName12: Бетсон
 
 				TownNPCMood: {
 					Content: Я есть довольство.
