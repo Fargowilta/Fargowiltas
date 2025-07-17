@@ -2506,6 +2506,18 @@ Mods: {
 		NPCs: {
 			Abominationn: {
 				DisplayName: 憎恶
+				// NPCName1: Wilta
+				// NPCName2: Jack
+				// NPCName3: Harley
+				// NPCName4: Reaper
+				// NPCName5: Stevenn
+				// NPCName6: Doof
+				// NPCName7: Baroo
+				// NPCName8: Fergus
+				// NPCName9: Entev
+				// NPCName10: Catastrophe
+				// NPCName11: Bardo
+				// NPCName12: Betson
 
 				TownNPCMood: {
 					Content: 我很满意。
@@ -2571,6 +2583,19 @@ Mods: {
 
 			Deviantt: {
 				DisplayName: 戴薇安
+				// NPCName1: Akira
+				// NPCName2: Remi
+				// NPCName3: Saku
+				// NPCName4: Seira
+				// NPCName5: Koi
+				// NPCName6: Elly
+				// NPCName7: Lori
+				// NPCName8: Calia
+				// NPCName9: Teri
+				// NPCName10: Artt
+				// NPCName11: Flan
+				// NPCName12: Shion
+				// NPCName13: Tewi
 
 				TownNPCMood: {
 					Content: 我感觉很好！
@@ -2678,6 +2703,18 @@ Mods: {
 
 			LumberJack: {
 				DisplayName: 伐木工
+				// NPCName1: Griff
+				// NPCName2: Jack
+				// NPCName3: Bruce
+				// NPCName4: Larry
+				// NPCName5: Will
+				// NPCName6: Jerry
+				// NPCName7: Liam
+				// NPCName8: Stan
+				// NPCName9: Lee
+				// NPCName10: Woody
+				// NPCName11: Leif
+				// NPCName12: Paul
 
 				TownNPCMood: {
 					Content: 我很高兴只要世界上有需要砍伐的木头。
@@ -2747,6 +2784,19 @@ Mods: {
 
 			Mutant: {
 				DisplayName: 突变体
+				// NPCName1: Flacken
+				// NPCName2: Dorf
+				// NPCName3: Bingo
+				// NPCName4: Hans
+				// NPCName5: Fargo
+				// NPCName6: Grim
+				// NPCName7: Mike
+				// NPCName8: Fargu
+				// NPCName9: Terrance
+				// NPCName10: Catty N. Pem
+				// NPCName11: Tom
+				// NPCName12: Weirdus
+				// NPCName13: Polly
 
 				TownNPCMood: {
 					Content: 谢谢你的房子，我想。
@@ -2853,6 +2903,13 @@ Mods: {
 
 			Squirrel: {
 				DisplayName: 松鼠
+				// NPCName1: Rick
+				// NPCName2: Acorn
+				// NPCName3: Puff
+				// NPCName4: Coco
+				// NPCName5: Truffle
+				// NPCName6: Furgo
+				// NPCName7: Squeaks
 
 				TownNPCMood: {
 					Content: *表达满足的吱吱声*
