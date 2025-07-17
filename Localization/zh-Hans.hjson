@@ -106,6 +106,21 @@ Mods: {
 					Tooltip: ""
 				}
 
+				NoTrapsWorld: {
+					// Label: "[i:510] No Traps World"
+					// Tooltip: ""
+				}
+
+				RemixWorld: {
+					// Label: "[i:4711] Remix World"
+					// Tooltip: ""
+				}
+
+				ZenithWorld: {
+					// Label: "[i:4956] Zenith World"
+					// Tooltip: ""
+				}
+
 				UnlimitedAmmo: {
 					Label: "[i:771] 在困难模式中，背包中的某种弹药堆叠多于3996时不消耗"
 					Tooltip: ""
@@ -333,6 +348,19 @@ Mods: {
 			FoodT2: 二级饱食食物
 			FoodT3: 三级饱食食物
 			GemRobe: 宝石长袍
+			// WoodenCrate: Wooden Crate
+			// IronCrate: Iron Crate
+			// GoldenCrate: Golden Crate
+			// JungleCrate: Jungle Crate
+			// SkyCrate: Sky Crate
+			// CorruptCrate: Corrupt Crate
+			// CrimsonCrate: Crimson Crate
+			// HallowedCrate: Hallowed Crate
+			// DungeonCrate: Dungeon Crate
+			// FrozenCrate: Frozen Crate
+			// SandCrate: Oasis Crate
+			// LavaCrate: Obsidian Crate
+			// OceanCrate: Ocean Crate
 			Or: 或
 		}
 

@@ -16,6 +16,7 @@ namespace Fargowiltas.Common.Systems.Recipes
         internal static int AnyDemonAltar, AnyAnvil, AnyHMAnvil, AnyForge, AnyBookcase, AnyCookingPot, AnyTombstone, AnyWoodenTable, AnyWoodenChair, AnyWoodenSink;
         internal static int AnyButterfly, AnySquirrel, AnyCommonFish, AnyDragonfly, AnyBird, AnyDuck;
         internal static int AnyFoodT2, AnyFoodT3, AnyGemRobe;
+        internal static int AnyWoodCrate, AnyIronCrate, AnyGoldCrate, AnyJungleCrate, AnySkyCrate, AnyCorruptCrate, AnyCrimsonCrate, /*AnyHallowedCrate,*/ AnyDungeonCrate, AnyFrozenCrate, AnySandCrate, AnyLavaCrate, AnyOceanCrate;
 
         public override void AddRecipeGroups()
         {
@@ -257,7 +258,96 @@ namespace Fargowiltas.Common.Systems.Recipes
             );
             AnyGemRobe = RecipeGroup.RegisterGroup("Fargowiltas:AnyGemRobe", group);
 
-            group = new RecipeGroup(() => RecipeHelper.ItemXOrY(ItemID.WoodenCrate, ItemID.WoodenCrateHard), ItemID.WoodenCrate, ItemID.WoodenCrateHard);
+            //wooden crates
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("WoodenCrate"),
+                ItemID.WoodenCrate,
+                ItemID.WoodenCrateHard
+            );
+            AnyWoodCrate = RecipeGroup.RegisterGroup("Fargowiltas:AnyWoodenCrate", group);
+
+            //iron crates
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("IronCrate"),
+                ItemID.IronCrate,
+                ItemID.IronCrateHard
+            );
+            AnyIronCrate = RecipeGroup.RegisterGroup("Fargowiltas:AnyIronCrate", group);
+
+            //gold crates
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("GoldenCrate"),
+                ItemID.GoldenCrate,
+                ItemID.GoldenCrateHard
+            );
+            AnyGoldCrate = RecipeGroup.RegisterGroup("Fargowiltas:AnyGoldenCrate", group);
+
+            //jungle crates
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("JungleCrate"),
+                ItemID.JungleFishingCrate,
+                ItemID.JungleFishingCrateHard
+            );
+            AnyJungleCrate = RecipeGroup.RegisterGroup("Fargowiltas:AnyJungleCrate", group);
+
+            //sky crates
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("SkyCrate"),
+                ItemID.FloatingIslandFishingCrate,
+                ItemID.FloatingIslandFishingCrateHard
+            );
+            AnySkyCrate = RecipeGroup.RegisterGroup("Fargowiltas:AnySkyCrate", group);
+
+            //corrupt crates
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("CorruptCrate"),
+                ItemID.CorruptFishingCrate,
+                ItemID.CorruptFishingCrateHard
+            );
+            AnyCorruptCrate = RecipeGroup.RegisterGroup("Fargowiltas:AnyCorruptCrate", group);
+
+            //crimson crates
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("CrimsonCrate"),
+                ItemID.CrimsonFishingCrate,
+                ItemID.CrimsonFishingCrateHard
+            );
+            AnyCrimsonCrate = RecipeGroup.RegisterGroup("Fargowiltas:AnyCrimsonCrate", group);
+
+            /* //hallowed crates
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("HallowedCrate"),
+                ItemID.HallowedFishingCrate,
+                ItemID.HallowedFishingCrateHard
+            );
+            AnyHallowedCrate = RecipeGroup.RegisterGroup("Fargowiltas:AnyHallowedCrate", group); */
+
+            //dungeon crates
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("DungeonCrate"),
+                 ItemID.DungeonFishingCrate,
+                 ItemID.DungeonFishingCrateHard
+             );
+            AnyDungeonCrate = RecipeGroup.RegisterGroup("Fargowiltas:AnyDungeonCrate", group);
+
+            //frozen crates
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("FrozenCrate"),
+                ItemID.FrozenCrate,
+                ItemID.FrozenCrateHard
+            );
+            AnyFrozenCrate = RecipeGroup.RegisterGroup("Fargowiltas:AnyFrozenCrate", group);
+
+            //oasis crates
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("SandCrate"),
+                ItemID.OasisCrate,
+                ItemID.OasisCrateHard
+            );
+            AnySandCrate = RecipeGroup.RegisterGroup("Fargowiltas:AnySandCrate", group);
+
+            //lava crates
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("LavaCrate"),
+                ItemID.LavaCrate,
+                ItemID.LavaCrateHard
+            );
+            AnyLavaCrate = RecipeGroup.RegisterGroup("Fargowiltas:AnyLavaCrate", group);
+
+            //ocean crates
+            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("OceanCrate"),
+                ItemID.OceanCrate,
+                ItemID.OceanCrateHard
+            );
+            AnyOceanCrate = RecipeGroup.RegisterGroup("Fargowiltas:AnyOceanCrate", group);
         }
     }
 }
