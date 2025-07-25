@@ -75,6 +75,18 @@ namespace Fargowiltas.Common.Configs
         [DrawTicks]
         public SeasonSelections ConstantWorld;
 
+        [DefaultValue(0)]
+        [DrawTicks]
+        public SeasonSelections NoTrapsWorld;
+
+        [DefaultValue(0)]
+        [DrawTicks]
+        public SeasonSelections RemixWorld;
+
+        [DefaultValue(0)]
+        [DrawTicks]
+        public SeasonSelections ZenithWorld;
+
         [DefaultValue(true)]
         public bool Fountains;
 

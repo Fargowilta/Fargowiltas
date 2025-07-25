@@ -106,6 +106,21 @@ Mods: {
 					Tooltip: ""
 				}
 
+				NoTrapsWorld: {
+					Label: "[i:510] No Traps World"
+					Tooltip: ""
+				}
+
+				RemixWorld: {
+					Label: "[i:4711] Remix World"
+					Tooltip: ""
+				}
+
+				ZenithWorld: {
+					Label: "[i:4956] Zenith World"
+					Tooltip: ""
+				}
+
 				UnlimitedAmmo: {
 					Label: "[i:771] Unlimited Ammo at 3996+ in Hardmode"
 					Tooltip: ""
@@ -325,6 +340,19 @@ Mods: {
 			FoodT2: Plenty Satisfying Food
 			FoodT3: Exquisitively Stuffing Food
 			GemRobe: Gem Robe
+			WoodenCrate: Wooden Crate
+			IronCrate: Iron Crate
+			GoldenCrate: Golden Crate
+			JungleCrate: Jungle Crate
+			SkyCrate: Sky Crate
+			CorruptCrate: Corrupt Crate
+			CrimsonCrate: Crimson Crate
+			HallowedCrate: Hallowed Crate
+			DungeonCrate: Dungeon Crate
+			FrozenCrate: Frozen Crate
+			SandCrate: Oasis Crate
+			LavaCrate: Obsidian Crate
+			OceanCrate: Ocean Crate
 			Or: Or
 		}
 
@@ -2497,6 +2525,18 @@ Mods: {
 		NPCs: {
 			Abominationn: {
 				DisplayName: Abominationn
+				NPCName1: Wilta
+				NPCName2: Jack
+				NPCName3: Harley
+				NPCName4: Reaper
+				NPCName5: Stevenn
+				NPCName6: Doof
+				NPCName7: Baroo
+				NPCName8: Fergus
+				NPCName9: Entev
+				NPCName10: Catastrophe
+				NPCName11: Bardo
+				NPCName12: Betson
 
 				TownNPCMood: {
 					Content: I am content.
@@ -2535,7 +2575,7 @@ Mods: {
 					Normal5: You wish you could dress like me? Ha! Actually... yea, you can.
 					Normal6: You ever read the ancient classics? I love all the fighting in them.
 					Normal7: I'm a world class poet, ever read my piece about impending doom?
-					Normal8: Have you ever read The King in Yellow? I loved it when [REDACTED]... I meant when [DATA EXPUNGED]... Fine, forget it
+					Normal8: Have you ever read The King in Yellow? I loved it when [REDACTED]... I meant when [DATA EXPUNGED]... Fine, forget it.
 					Normal9: Like my wings? Thanks, the thing I got them from didn't like it much.
 					Normal10: Heroism has no place in this world, instead let's just play ping pong.
 					Normal11: Why are you looking at me like that? Your fashion sense isn't going to be winning you any awards either.
@@ -2562,6 +2602,19 @@ Mods: {
 
 			Deviantt: {
 				DisplayName: Deviantt
+				NPCName1: Akira
+				NPCName2: Remi
+				NPCName3: Saku
+				NPCName4: Seira
+				NPCName5: Koi
+				NPCName6: Elly
+				NPCName7: Lori
+				NPCName8: Calia
+				NPCName9: Teri
+				NPCName10: Artt
+				NPCName11: Flan
+				NPCName12: Shion
+				NPCName13: Tewi
 
 				TownNPCMood: {
 					Content: I'm feeling good!
@@ -2634,7 +2687,7 @@ Mods: {
 					Betsy: Now's a good time to go for Betsy! Don't worry. If you reach the last wave and lose, you won't have to retry the event for more attempts at her. Careful not to slip up before then, and mind her debuffs!
 					Golem: That temple? Reach the altar to regain wire control! The golem gets upset when you leave, so fighting in there is best. Platforms won't work, but a Lihzahrd Instactuation Bomb can help clear space!
 					Plantera: That overgrown plant inflicts a special venom that works her into an enraged frenzy if she stacks enough hits on you. She also has a ring of crystal leaves, but minions go through it.
-					Destroyer: That metal worm has a few upgrades, but its probes were downgraded to compensate. It'll start shooting homing dark stars and flying. When it coils around you, don't try to escape!
+					Destroyer: That metal worm has a few upgrades, but its probes were downgraded to compensate. It'll start shooting homing dark orbs and flying. When it coils around you, don't try to escape!
 					Twins: I saw that metal eye spinning while firing a huge laser the other day. Also, even if you kill them, they won't die until they're both killed!
 					Prime: Focus on taking down that metal skull, not its limbs. Don't try to outrun its spinning limbs! Keep your eyes open and learn to recognize what's doing what.
 					WOF: That thing's mouth is as good as immune to damage, so you'll have to aim for the eye. Only one of them is vulnerable at a time, though. What thing? You know, that thing!
@@ -2669,6 +2722,18 @@ Mods: {
 
 			LumberJack: {
 				DisplayName: LumberJack
+				NPCName1: Griff
+				NPCName2: Jack
+				NPCName3: Bruce
+				NPCName4: Larry
+				NPCName5: Will
+				NPCName6: Jerry
+				NPCName7: Liam
+				NPCName8: Stan
+				NPCName9: Lee
+				NPCName10: Woody
+				NPCName11: Leif
+				NPCName12: Paul
 
 				TownNPCMood: {
 					Content: I'm happy as long as the world has wood that needs chopping.
@@ -2738,6 +2803,19 @@ Mods: {
 
 			Mutant: {
 				DisplayName: Mutant
+				NPCName1: Flacken
+				NPCName2: Dorf
+				NPCName3: Bingo
+				NPCName4: Hans
+				NPCName5: Fargo
+				NPCName6: Grim
+				NPCName7: Mike
+				NPCName8: Fargu
+				NPCName9: Terrance
+				NPCName10: Catty N. Pem
+				NPCName11: Tom
+				NPCName12: Weirdus
+				NPCName13: Polly
 
 				TownNPCMood: {
 					Content: Thanks for the house, I guess.
@@ -2832,7 +2910,7 @@ Mods: {
 					Normal42: Have you seen the ech cat?
 					Normal43: I don't understand music nowadays, I prefer some smooth jazz... or the dying screams of monsters.
 					Normal44: Cthulhu's got nothing on me!
-					Normal45: I heard of a rumor of infinite use boss summons. Makes me sick..
+					Normal45: I heard of a rumor of infinite use boss summons. Makes me sick...
 				}
 
 				Census.SpawnCondition: When any boss has been defeated.
@@ -2844,6 +2922,13 @@ Mods: {
 
 			Squirrel: {
 				DisplayName: Squirrel
+				NPCName1: Rick
+				NPCName2: Acorn
+				NPCName3: Puff
+				NPCName4: Coco
+				NPCName5: Truffle
+				NPCName6: Furgo
+				NPCName7: Squeaks
 
 				TownNPCMood: {
 					Content: *content squeak*

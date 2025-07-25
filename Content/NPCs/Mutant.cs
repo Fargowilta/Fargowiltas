@@ -155,7 +155,20 @@ namespace Fargowiltas.Content.NPCs
 
         public override List<string> SetNPCNameList()
         {
-            string[] names = ["Flacken", "Dorf", "Bingo", "Hans", "Fargo", "Grim", "Mike", "Fargu", "Terrance", "Catty N. Pem", "Tom", "Weirdus", "Polly"];
+            string[] names =
+               [Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName1"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName2"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName3"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName4"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName5"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName6"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName7"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName8"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName9"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName10"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName11"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName12"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName13")];
 
             return new List<string>(names);
         }
