@@ -130,7 +130,14 @@ namespace Fargowiltas.Content.UI
             AddStat("Mana", ItemID.ManaCrystal, player.statManaMax2);
             AddStat("ManaRegen", ItemID.ManaCrystal, player.manaRegen / 2);
             AddStat("Defense", ItemID.CobaltShield, player.statDefense);
-            AddStat("DamageReduction", ItemID.WormScarf, Math.Round(player.endurance * 100));
+            float endurance = player.endurance;
+            if (FargoUtils.EternityMode) // DR scaling shows on stat sheet
+            {
+                float r = 0.15f;
+                if (endurance >= r)
+                    endurance = 1 - MathF.Pow(1 - r, endurance / r);
+            }
+            AddStat("DamageReduction", ItemID.WormScarf, Math.Round(endurance * 100));
             AddStat("Luck", ItemID.Torch, Math.Round(player.luck, 2));
             AddStat("FishingQuests", ItemID.AnglerEarring, player.anglerQuestsFinished);
             AddStat("BattleCry", ModContent.ItemType<BattleCry>(), modPlayer.BattleCry ? $"[c/ff0000:{Language.GetTextValue("Mods.Fargowiltas.Items.BattleCry.Battle")}]" : 
