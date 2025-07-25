@@ -130,19 +130,7 @@ namespace Fargowiltas.Content.UI
             AddStat("Mana", ItemID.ManaCrystal, player.statManaMax2);
             AddStat("ManaRegen", ItemID.ManaCrystal, player.manaRegen / 2);
             AddStat("Defense", ItemID.CobaltShield, player.statDefense);
-            float drCap = 100;
-            if (ModLoader.TryGetMod("FargowiltasSouls", out Mod soulsMod))
-            {
-                if (soulsMod.Version >= Version.Parse("1.6.1"))
-                {
-                    if ((bool)soulsMod.Call("EternityMode"))
-                    {
-                        drCap = 75;
-                    }
-                }
-            }
-            string cap = drCap < 100 ? Language.GetTextValue("Mods.Fargowiltas.UI.DRCap", drCap) : "";
-            AddStat("DamageReduction", ItemID.WormScarf, Math.Round(player.endurance * 100), cap);
+            AddStat("DamageReduction", ItemID.WormScarf, Math.Round(player.endurance * 100));
             AddStat("Luck", ItemID.Torch, Math.Round(player.luck, 2));
             AddStat("FishingQuests", ItemID.AnglerEarring, player.anglerQuestsFinished);
             AddStat("BattleCry", ModContent.ItemType<BattleCry>(), modPlayer.BattleCry ? $"[c/ff0000:{Language.GetTextValue("Mods.Fargowiltas.Items.BattleCry.Battle")}]" : 
