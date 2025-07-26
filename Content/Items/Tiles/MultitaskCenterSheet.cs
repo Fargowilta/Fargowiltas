@@ -55,7 +55,7 @@ namespace Fargowiltas.Content.Items.Tiles
             {
                 frameCounter = 0;
                 frame++;
-                frame %= 7;
+                frame %= 4;
             }
         }
     }

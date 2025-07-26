@@ -5,7 +5,9 @@ using Fargowiltas.Content.Biomes;
 using Fargowiltas.Content.Items.Summons.Deviantt;
 using Fargowiltas.Content.Items.Tiles;
 using Fargowiltas.Content.Projectiles;
+using Fargowiltas.Content.UI;
 using Fargowiltas.Content.UI.Emotes;
+using Fargowiltas.Content.UI.NPCUI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -126,6 +128,13 @@ namespace Fargowiltas.Content.NPCs
 
         public override void AI()
         {
+            /*if (Main.LocalPlayer.talkNPC == NPC.whoAmI)
+            {
+                FargoUIManager.Open<DevianttNPCUI>();
+            }
+            else
+                FargoUIManager.Close<DevianttNPCUI>();*/
+
             NPC.breath = 200;
             if (defeatQuoteTimer > 0)
                 defeatQuoteTimer--;
@@ -138,8 +147,7 @@ namespace Fargowiltas.Content.NPCs
 
                 DoALittleTrolling();
             }
-        }
-
+        }       
         void DoALittleTrolling()
         {
             if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -216,7 +224,7 @@ namespace Fargowiltas.Content.NPCs
             return new List<string>(names);
         }
 
-        public override string GetChat()
+        public override string GetChat() //=> string.Empty;
         {
             if (Fargowiltas.ModLoaded["FargowiltasSouls"] && (bool)ModLoader.GetMod("FargowiltasSouls").Call("EternityMode")
                 && !(bool)ModLoader.GetMod("FargowiltasSouls").Call("GiftsReceived"))

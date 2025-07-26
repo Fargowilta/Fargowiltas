@@ -92,6 +92,8 @@ namespace Fargowiltas
         {
             Instance = this;
 
+            FargoUIManager.LoadUI();
+
             ModStats = new();
             PermaUpgrades = new List<StatSheetUI.PermaUpgrade>
             {
@@ -118,6 +120,8 @@ namespace Fargowiltas
 
             _userInterfaceManager = new UIManager();
             _userInterfaceManager.LoadUI();
+
+            
 
             mods =
             [
