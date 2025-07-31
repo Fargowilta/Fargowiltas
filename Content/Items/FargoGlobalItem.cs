@@ -284,6 +284,40 @@ namespace Fargowiltas.Content.Items
                         $"[i:{CaughtNPCItem.CaughtTownies[NPCType<Squirrel>()]}] [c/AAAAAA:{ExpandedTooltipLoc(sellType.ToString())}]");
                     tooltips.Add(line);
                 }
+
+                int sacCount = FargoSets.Items.SacrificeCount[item.type];
+                if (SacrificeAltarSheet.EventSacrifice(item, out int consumeCount, false))
+                {
+                    if (consumeCount > 1)
+                    {
+                        line = new TooltipLine(Mod, "TooltipSacrificable",
+                            $"[i:{ItemType<SacrificeAltar>()}] [c/AAAAAA:{Language.GetTextValue($"Mods.Fargowiltas.ExpandedTooltips.SacrificeEventPlural", consumeCount)}]");
+                        tooltips.Add(line);
+                        
+                    }
+                    else
+                    {
+                        line = new TooltipLine(Mod, "TooltipSacrificable",
+                            $"[i:{ItemType<SacrificeAltar>()}] [c/AAAAAA:{ExpandedTooltipLoc("SacrificeEvent")}]");
+                        tooltips.Add(line);
+                    }
+                        
+                }
+                else if (sacCount > 0)
+                {
+                    if (sacCount > 1)
+                    {
+                        line = new TooltipLine(Mod, "TooltipSacrificable",
+                        $"[i:{ItemType<SacrificeAltar>()}] [c/AAAAAA:{Language.GetTextValue($"Mods.Fargowiltas.ExpandedTooltips.SacrificablePlural", sacCount)}]");
+                        tooltips.Add(line);
+                    }
+                    else
+                    {
+                        line = new TooltipLine(Mod, "TooltipSacrificable",
+                        $"[i:{ItemType<SacrificeAltar>()}] [c/AAAAAA:{ExpandedTooltipLoc("Sacrificable")}]");
+                        tooltips.Add(line);
+                    }
+                }
             }
 
             if (FargoClientConfig.Instance.ExactTooltips)

@@ -611,6 +611,12 @@ namespace Fargowiltas
                         }
                     }
                     break;
+                case 10: // drop a meteor
+                    {
+                        if (Main.netMode == NetmodeID.Server)
+                            WorldGen.dropMeteor();
+                    }
+                    break;
                 default:
                     break;
             }

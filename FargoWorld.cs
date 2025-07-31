@@ -1,19 +1,20 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.UI;
-using Terraria.ModLoader.IO;
-using static Terraria.ModLoader.ModContent;
-using System;
-using Terraria.GameContent.Events;
 using Fargowiltas.Common.Configs;
 using Fargowiltas.Content.Items.Tiles;
 using Fargowiltas.Content.NPCs;
 using Fargowiltas.Content.Projectiles;
+using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Terraria;
+using Terraria.GameContent.Events;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
+using Terraria.UI;
+using static Fargowiltas.FargoSets;
+using static Terraria.ModLoader.ModContent;
 
 namespace Fargowiltas
 {
@@ -30,6 +31,7 @@ namespace Fargowiltas
         internal static bool OverloadedSlimeRain;
 
         internal static bool Matsuri;
+        internal static bool GeneratedSacrificeCounts;
 
         internal static bool[] CurrentSpawnRateTile;
         internal static Dictionary<string, bool> DownedBools = new Dictionary<string, bool>();
@@ -107,6 +109,9 @@ namespace Fargowiltas
                 DownedBools[tag] = false;
             }
 
+            FargoSets.Items.SacrificeCount = FargoSets.Items.SacrificeCountDefault.Clone() as int[];
+            GeneratedSacrificeCounts = true;
+
             WoodChopped = 0;
         }
 
@@ -149,6 +154,11 @@ namespace Fargowiltas
         public override void OnWorldLoad()
         {
             ResetFlags();
+            if (!GeneratedSacrificeCounts)
+            {
+                FargoSets.Items.SacrificeCount = FargoSets.Items.SacrificeCountDefault.Clone() as int[];
+                GeneratedSacrificeCounts = true;
+            }
         }
 
         public override void OnWorldUnload()
@@ -171,6 +181,30 @@ namespace Fargowiltas
             tag.Add("matsuri", Matsuri);
 
             tag.Add("FargoIndestructibleRectangles", FargoGlobalProjectile.CannotDestroyRectangle.ToList());
+
+            List<string> sacrificeItems = [];
+            for (int i = 0; i < Items.SacrificeCount.Length; i++)
+            {
+                int count = Items.SacrificeCount[i];
+                if (count > 0)
+                {
+                    if (i >= ItemID.Count) // modded item, variable type, add name instead
+                    {
+                        if (ItemLoader.GetItem(i) is ModItem modItem && modItem != null)
+                        {
+                            sacrificeItems.Add(modItem.FullName + "_" + count);
+                        }
+                    }
+                    else // vanilla item
+                    {
+                        sacrificeItems.Add(i + "_" + count);
+                    }
+
+                    
+                }
+            }
+            tag.Add("sacrificeItems", sacrificeItems);
+            tag.Add("GeneratedSacrificeCounts", GeneratedSacrificeCounts);
         }
 
         public override void LoadWorldData(TagCompound tag)
@@ -185,6 +219,26 @@ namespace Fargowiltas
             var savedRectangles = tag.GetList<Rectangle>("FargoIndestructibleRectangles");
             foreach (Rectangle rectangle in savedRectangles)
                 FargoGlobalProjectile.CannotDestroyRectangle.Add(rectangle);
+
+            IList<string> sacrificeItems = tag.GetList<string>("sacrificeItems");
+            foreach (string sacrificeItem in sacrificeItems)
+            {
+                string[] nameAndCount = sacrificeItem.Split("_");
+                string name = nameAndCount[0];
+                if (int.TryParse(nameAndCount[1], out int count))
+                {
+                    if (int.TryParse(name, out int type) && type < ItemID.Count) // vanilla item
+                    {
+                        Items.SacrificeCount[type] = count;
+                    }
+                    else // modded item
+                    {
+                        ModItem item = Find<ModItem>(name);
+                        Items.SacrificeCount[item.Type] = count;
+                    }
+                }
+            }
+            GeneratedSacrificeCounts = tag.Get<bool>("GeneratedSacrificeCounts");
         }
 
         public override void NetReceive(BinaryReader reader)

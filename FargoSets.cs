@@ -20,6 +20,9 @@ namespace Fargowiltas
             public static bool[] PotionCannotBeInfinite;
             public static bool[] BuffStation;
             public static List<ShopTooltip>[] RegisteredShopTooltips;
+
+            public static int[] SacrificeCountDefault;
+            public static int[] SacrificeCount;
         }
         public class Tiles
         {
@@ -126,6 +129,10 @@ namespace Fargowiltas
                 ItemID.WarTable);
 
             Items.RegisteredShopTooltips = itemFactory.CreateCustomSet<List<ShopTooltip>>(null);
+
+            Items.SacrificeCountDefault = SacrificeAltarSheet.SetDefaultSacrificeCount(itemFactory);
+
+            Items.SacrificeCount = itemFactory.CreateIntSet(0);
             #endregion
             #region Tiles
             SetFactory tileFactory = TileID.Sets.Factory;

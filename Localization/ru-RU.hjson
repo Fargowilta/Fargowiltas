@@ -265,6 +265,11 @@ Mods: {
 					Label: "[i:Fargowiltas/GraveBuster] Отключить надгробия"
 					Tooltip: Пока включена, надгробия не появляются на месте смерти игрока.
 				}
+
+				SacrificeSystem: {
+					// Label: Sacrifice System
+					// Tooltip: ""
+				}
 			}
 
 			FargoClientConfig: {
@@ -2520,6 +2525,16 @@ Mods: {
 				DisplayName: Слизень-оруженосец
 				Tooltip: «Шмульк-бубуль!»
 			}
+
+			SacrificeAltar: {
+				// DisplayName: Sacrificial Altar
+				/* Tooltip:
+					'''
+					Sacrifice items for random loot
+					Only certain items can be sacrificed
+					Each item type can only be sacrificed a certain amount of times
+					''' */
+			}
 		}
 
 		NPCs: {
@@ -3012,6 +3027,7 @@ Mods: {
 			MiniDirtInstabridgeProj.DisplayName: Мини Грязь МоментМост Снар
 			CoolCrab.DisplayName: Крутой краб
 			LumberJaxeProjectile.DisplayName: Снаряд ДревоБиллителя
+			// SacrificeProj.DisplayName: Sacrifice Proj
 		}
 
 		Tiles: {
@@ -3027,6 +3043,7 @@ Mods: {
 			SemistationSheet.MapEntry: Полустанция
 			SiblingPylonTile.MapEntry: Столб собратьев
 			PurityTotemSheet.MapEntry: Тотем чистоты
+			// SacrificeAltarSheet.MapEntry: Sacrifice Altar Sheet
 		}
 
 		Conditions: {
@@ -3133,6 +3150,10 @@ Mods: {
 			SoldAtThirtyStack: Продаются у Бельчонок: При получении в стаке из 30
 			SoldBy: Продаётся у
 			SeveralVendors: нескольких продавцов
+			// SacrificablePlural: Can be consumed at Sacrificial Altar {0} more times
+			// Sacrificable: Can be consumed at Sacrificial Altar 1 more time
+			// SacrificeEvent: Consume at Sacrificial Altar for a special event
+			// SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
 		}
 
 		Emotes: {

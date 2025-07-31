@@ -265,6 +265,11 @@ Mods: {
 					Label: "[i:Fargowiltas/GraveBuster] Disable Tombstones"
 					Tooltip: Makes Tombstones not spawn when players die.
 				}
+
+				SacrificeSystem: {
+					Label: Sacrifice System
+					Tooltip: ""
+				}
 			}
 
 			FargoClientConfig: {
@@ -2520,6 +2525,16 @@ Mods: {
 				DisplayName: Squire Slime
 				Tooltip: "'Squish 'n sploink!'"
 			}
+
+			SacrificeAltar: {
+				DisplayName: Sacrificial Altar
+				Tooltip:
+					'''
+					Sacrifice items for random loot
+					Only certain items can be sacrificed
+					Each item type can only be sacrificed a certain amount of times
+					'''
+			}
 		}
 
 		NPCs: {
@@ -3012,6 +3027,7 @@ Mods: {
 			MiniDirtInstabridgeProj.DisplayName: Mini Dirt Instabridge Proj
 			CoolCrab.DisplayName: Cool Crab
 			LumberJaxeProjectile.DisplayName: Lumber Jaxe Projectile
+			SacrificeProj.DisplayName: Sacrifice Proj
 		}
 
 		Tiles: {
@@ -3027,6 +3043,7 @@ Mods: {
 			SemistationSheet.MapEntry: Semistation
 			SiblingPylonTile.MapEntry: Sibling Pylon
 			PurityTotemSheet.MapEntry: Purity Totem
+			SacrificeAltarSheet.MapEntry: Sacrifice Altar Sheet
 		}
 
 		Conditions: {
@@ -3133,6 +3150,10 @@ Mods: {
 			SoldAtThirtyStack: Sold By Squirrel: When obtained at 30-stack
 			SoldBy: Sold By
 			SeveralVendors: several vendors
+			SacrificablePlural: Can be consumed at Sacrificial Altar {0} more times
+			Sacrificable: Can be consumed at Sacrificial Altar 1 more time
+			SacrificeEvent: Consume at Sacrificial Altar for a special event
+			SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
 		}
 
 		Emotes: {

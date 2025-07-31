@@ -50,7 +50,7 @@ namespace Fargowiltas
 
         public string GetDialogue(string deviName)
         {
-            WeightedRandom<string> dialogueChooser = new WeightedRandom<string>();
+            WeightedRandom<string> dialogueChooser = new();
             (List<HelpDialogue> sortedDialogue, int type) = SortDialogue(deviName);
 
             foreach (HelpDialogue dialogue in sortedDialogue)

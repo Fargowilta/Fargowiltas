@@ -273,6 +273,11 @@ Mods: {
 					Label: "[i:Fargowiltas/GraveBuster] 禁止墓碑生成"
 					Tooltip: 玩家死亡后不再生成墓碑
 				}
+
+				SacrificeSystem: {
+					// Label: Sacrifice System
+					// Tooltip: ""
+				}
 			}
 
 			FargoClientConfig: {
@@ -2529,6 +2534,16 @@ Mods: {
 				DisplayName: 侍卫史莱姆
 				Tooltip: "'咯吱咯吱！'"
 			}
+
+			SacrificeAltar: {
+				// DisplayName: Sacrificial Altar
+				/* Tooltip:
+					'''
+					Sacrifice items for random loot
+					Only certain items can be sacrificed
+					Each item type can only be sacrificed a certain amount of times
+					''' */
+			}
 		}
 
 		NPCs: {
@@ -3021,6 +3036,7 @@ Mods: {
 			MiniDirtInstabridgeProj.DisplayName: 迷你泥土平台
 			CoolCrab.DisplayName: 时髦螃蟹
 			// LumberJaxeProjectile.DisplayName: Lumber Jaxe Projectile
+			// SacrificeProj.DisplayName: Sacrifice Proj
 		}
 
 		Tiles: {
@@ -3036,6 +3052,7 @@ Mods: {
 			SemistationSheet.MapEntry: 多功能增益站
 			SiblingPylonTile.MapEntry: 血亲晶塔
 			PurityTotemSheet.MapEntry: 纯净图腾
+			// SacrificeAltarSheet.MapEntry: Sacrifice Altar Sheet
 		}
 
 		Conditions: {
@@ -3142,6 +3159,10 @@ Mods: {
 			SoldAtThirtyStack: 堆叠30个时松鼠售卖
 			SoldBy: 售卖于
 			SeveralVendors: 多个商人
+			// SacrificablePlural: Can be consumed at Sacrificial Altar {0} more times
+			// Sacrificable: Can be consumed at Sacrificial Altar 1 more time
+			// SacrificeEvent: Consume at Sacrificial Altar for a special event
+			// SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
 		}
 
 		Emotes: {
