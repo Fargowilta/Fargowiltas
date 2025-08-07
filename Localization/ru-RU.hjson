@@ -267,8 +267,8 @@ Mods: {
 				}
 
 				SacrificeSystem: {
-					// Label: Sacrifice System
-					// Tooltip: ""
+					Label: Подношения
+					Tooltip: ""
 				}
 			}
 
@@ -342,7 +342,7 @@ Mods: {
 		}
 
 		RecipeGroups: {
-			EvilWood: дерево биомов зла
+			EvilWood: дерево биома зла
 			CommonFish: обычная рыба
 			CaughtNPC: пойманный городской НИП
 			CaughtSlime: пойманный городской слизень
@@ -350,19 +350,19 @@ Mods: {
 			FoodT2: еда полного удовлетворения
 			FoodT3: еда изысканного удовлетворения
 			GemRobe: роба из камней
-			// WoodenCrate: Wooden Crate
-			// IronCrate: Iron Crate
-			// GoldenCrate: Golden Crate
-			// JungleCrate: Jungle Crate
-			// SkyCrate: Sky Crate
-			// CorruptCrate: Corrupt Crate
-			// CrimsonCrate: Crimson Crate
-			// HallowedCrate: Hallowed Crate
-			// DungeonCrate: Dungeon Crate
-			// FrozenCrate: Frozen Crate
-			// SandCrate: Oasis Crate
-			// LavaCrate: Obsidian Crate
-			// OceanCrate: Ocean Crate
+			WoodenCrate: деревянный ящик
+			IronCrate: железный ящик
+			GoldenCrate: золотой ящик
+			JungleCrate: джунглевый ящик
+			SkyCrate: небесный ящик
+			CorruptCrate: порченный ящик
+			CrimsonCrate: багряный ящик
+			HallowedCrate: святой ящик
+			DungeonCrate: ящик темницы
+			FrozenCrate: замороженный ящик
+			SandCrate: оазисный ящик
+			LavaCrate: обсидиановый ящик
+			OceanCrate: океанический ящик
 			Or: или
 		}
 
@@ -390,7 +390,7 @@ Mods: {
 			ManaRegen: Восст. маны: {0}/сек
 			Defense: Защиты: {0}
 			DRCap: " (предел {0}%)"
-			DamageReduction: Сопротивление урону: {0}%{1}
+			DamageReduction: Сопротивление урону: {0}%
 			Luck: Удача: {0}
 			FishingQuests: Задания рыбака: {0}
 			BattleCry: Боевой клич: {0}
@@ -2532,13 +2532,13 @@ Mods: {
 			}
 
 			SacrificeAltar: {
-				// DisplayName: Sacrificial Altar
-				/* Tooltip:
+				DisplayName: Алтарь для подношений
+				Tooltip:
 					'''
-					Sacrifice items for random loot
-					Only certain items can be sacrificed
-					Each item type can only be sacrificed a certain amount of times
-					''' */
+					Позволяет сделать подношение в обмен на случайный предмет
+					Только некоторые предметы можно использовать как подношения
+					Каждый такой предмет можно испольховать как подношение ограниченное кол-во раз
+					'''
 			}
 		}
 
