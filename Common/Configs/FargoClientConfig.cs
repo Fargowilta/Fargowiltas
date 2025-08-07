@@ -23,6 +23,9 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(true)]
         public bool ExactTooltips;
 
+        [DefaultValue(true)]
+        public bool AnimatedRecipeGroups;
+
         [DefaultValue(0.75f)]
         [Slider]
         public float DebuffOpacity;

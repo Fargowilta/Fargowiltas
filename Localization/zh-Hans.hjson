@@ -332,6 +332,11 @@ Mods: {
 					// UserInterface: User Interface
 					// Misc: Miscellaneous
 				}
+
+				AnimatedRecipeGroups: {
+					// Label: "[i:9] Animated Recipe Groups"
+					// Tooltip: Whether recipe group sprites should flip through the viable items in the recipe group when displayed
+				}
 			}
 
 			SeasonSelections: {
