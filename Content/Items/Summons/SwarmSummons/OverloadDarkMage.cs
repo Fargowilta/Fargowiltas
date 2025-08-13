@@ -1,12 +1,14 @@
-﻿using Terraria;
+﻿using Fargowiltas.Content.Items.Summons.Abom;
+using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 
 namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadDarkMage : SwarmSummonBase
     {
-        public OverloadDarkMage() : base(NPCID.DD2DarkMageT1, nameof(OverloadDarkMage), 50, "ForbiddenTome")
+        public OverloadDarkMage() : base(NPCID.DD2DarkMageT1, nameof(OverloadDarkMage), 50, ModContent.ItemType<ForbiddenTome>())
         {
         }
 

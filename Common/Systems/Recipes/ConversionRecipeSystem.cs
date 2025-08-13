@@ -21,18 +21,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<FleshyDoll>(), ItemID.GuideVoodooDoll, TileID.WorkBenches);
             RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<LihzahrdPowerCell2>(), ItemID.LihzahrdPowerCell, TileID.WorkBenches);
             RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<TruffleWorm2>(), ItemID.TruffleWorm, TileID.WorkBenches);
-            RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<CelestialSigil2>(), ItemID.CelestialSigil, TileID.WorkBenches);
-            RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<MechEye>(), ItemID.MechanicalEye, TileID.WorkBenches);
-            RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<MechWorm>(), ItemID.MechanicalWorm, TileID.WorkBenches);
-            RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<MechSkull>(), ItemID.MechanicalSkull, TileID.WorkBenches);
-            RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<GoreySpine>(), ItemID.BloodySpine, TileID.WorkBenches);
-            RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<SlimyCrown>(), ItemID.SlimeCrown, TileID.WorkBenches);
-            RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<Abeemination2>(), ItemID.Abeemination, TileID.WorkBenches);
-            RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<DeerThing2>(), ItemID.DeerThing, TileID.WorkBenches);
-            RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<WormyFood>(), ItemID.WormFood, TileID.WorkBenches);
-            RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<SuspiciousEye>(), ItemID.SuspiciousLookingEye, TileID.WorkBenches);
             RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<PrismaticPrimrose>(), ItemID.EmpressButterfly, TileID.WorkBenches);
-            RecipeHelper.CreateSimpleRecipe(ModContent.ItemType<JellyCrystal>(), ItemID.QueenSlimeCrystal, TileID.WorkBenches);
         }
 
         private static void AddEvilConversions()

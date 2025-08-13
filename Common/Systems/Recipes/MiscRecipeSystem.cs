@@ -45,7 +45,7 @@ namespace Fargowiltas.Common.Systems.Recipes
                 }
             }
             //disable shimmer decraft for all summon items
-            foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.createItem.ModItem != null && (recipe.createItem.ModItem is BaseSummon || recipe.createItem.ModItem is FleshyDoll || recipe.createItem.ModItem is MechEye)))
+            foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.createItem.ModItem != null && (recipe.createItem.ModItem is BaseSummon || recipe.createItem.ModItem is FleshyDoll)))
             {
                 recipe.DisableDecraft();
             }

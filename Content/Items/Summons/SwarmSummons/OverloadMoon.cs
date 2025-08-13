@@ -5,7 +5,7 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadMoon : SwarmSummonBase
     {
-        public OverloadMoon() : base(NPCID.MoonLordCore, nameof(OverloadMoon), 20, "CelestialSigil2")
+        public OverloadMoon() : base(NPCID.MoonLordCore, nameof(OverloadMoon), 20, ItemID.CelestialSigil)
         {
         }
 

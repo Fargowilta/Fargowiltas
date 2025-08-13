@@ -1,12 +1,14 @@
+using Fargowiltas.Content.Items.Summons.VanillaCopy;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 
 namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadFish : SwarmSummonBase
     {
-        public OverloadFish() : base(NPCID.DukeFishron, nameof(OverloadFish), 25, "TruffleWorm2")
+        public OverloadFish() : base(NPCID.DukeFishron, nameof(OverloadFish), 25, ModContent.ItemType<TruffleWorm2>())
         {
         }
 

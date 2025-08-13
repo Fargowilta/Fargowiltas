@@ -1,12 +1,14 @@
-﻿using Terraria;
+﻿using Fargowiltas.Content.Items.Summons.Mutant;
+using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 
 namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadWall : SwarmSummonBase
     {
-        public OverloadWall() : base(NPCID.WallofFlesh, nameof(OverloadWall), 10, "FleshyDoll")
+        public OverloadWall() : base(NPCID.WallofFlesh, nameof(OverloadWall), 10, ModContent.ItemType<FleshyDoll>())
         {
         }
 

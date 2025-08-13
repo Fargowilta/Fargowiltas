@@ -1,11 +1,13 @@
+using Fargowiltas.Content.Items.Summons.Abom;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadBetsy : SwarmSummonBase
     {
-        public OverloadBetsy() : base(NPCID.DD2Betsy, nameof(OverloadBetsy), 25, "BetsyEgg")
+        public OverloadBetsy() : base(NPCID.DD2Betsy, nameof(OverloadBetsy), 25, ModContent.ItemType<BetsyEgg>())
         {
         }
 

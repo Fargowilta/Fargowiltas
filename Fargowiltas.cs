@@ -1,5 +1,6 @@
 ﻿using Fargowilta;
 using Fargowiltas.Common.Configs;
+using Fargowiltas.Content.Items;
 using Fargowiltas.Content.Items.CaughtNPCs;
 using Fargowiltas.Content.Items.Misc;
 using Fargowiltas.Content.Items.Tiles;
@@ -11,7 +12,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Xml.Schema;
 using Terraria;
+using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.GameContent.Events;
 using Terraria.ID;
@@ -153,7 +157,14 @@ namespace Fargowiltas
             Terraria.On_Player.HasUnityPotion += OnHasUnityPotion;
             Terraria.On_Player.TakeUnityPotion += OnTakeUnityPotion;
             Terraria.On_Player.DropTombstone += DisableTombstones;
+
+            On_Player.ItemCheck_CheckCanUse += AllowUseSummons;
+            On_Player.ItemCheck_UseBossSpawners += AllowUseSummons2EvilEdition;
+            On_Player.ItemCheck_UseEventItems += AllowUseEventSummons;
+            On_Player.SummonItemCheck += AllowMultipleBosses;
         }
+
+        
 
         private static IEnumerable<Item> GetWormholes(Player self) =>
             self.inventory
@@ -914,7 +925,141 @@ namespace Fargowiltas
             }
         }
 
+        private bool AllowUseSummons(On_Player.orig_ItemCheck_CheckCanUse orig, Player self, Item item)
+        {
+            if (FargoGlobalItem.AlwaysUsableVanillaSummons.Contains(item.type) && ModContent.GetInstance<FargoServerConfig>().EasySummons)
+            {
+                if (!((item.type == ItemID.BloodMoonStarter && Main.bloodMoon) ||
+                    (item.type == ItemID.NaughtyPresent && Main.snowMoon) ||
+                    (item.type == ItemID.PumpkinMoonMedallion && Main.pumpkinMoon) ||
+                    (item.type == ItemID.GoblinBattleStandard && Main.invasionType == InvasionID.GoblinArmy) ||
+                    (item.type == ItemID.SolarTablet && Main.eclipse) ||
+                    (item.type == ItemID.PirateMap && Main.invasionType == InvasionID.PirateInvasion) ||
+                    (item.type == ItemID.SnowGlobe && Main.invasionType == InvasionID.SnowLegion)))
+                {
+                    return true;
+                }
+            }
+            return orig(self, item);
+        }
+        private bool AllowMultipleBosses(On_Player.orig_SummonItemCheck orig, Player self, Item item)
+        {
+            if (ModContent.GetInstance<FargoServerConfig>().EasySummons)
+            {
+                return true;
+            }
+            return orig(self, item);
+        }
 
+        private void AllowUseEventSummons(On_Player.orig_ItemCheck_UseEventItems orig, Player self, Item item)
+        {
+            if (!ModContent.GetInstance<FargoServerConfig>().EasySummons)
+            {
+                orig(self, item);
+                return;
+            }
+            bool day = Main.dayTime;
+            bool hardmode = Main.hardMode;
+            bool dd2event = DD2Event.Ongoing;
+            bool pumpkin = Main.pumpkinMoon;
+            bool frost = Main.snowMoon;
+            int lifecrystals = self.ConsumedLifeCrystals;
+            if (self.ItemTimeIsZero && self.itemAnimation > 0)
+            {
+                if (FargoGlobalItem.NightSettingSummons.Contains(item.type))
+                {
+                    Main.dayTime = false;
+                }
+                if (item.type == ItemID.SolarTablet)
+                {
+                    Main.dayTime = true;
+                    Main.hardMode = true;
+                }
+                if (item.type == ItemID.PumpkinMoonMedallion)
+                {
+                    DD2Event.Ongoing = false;
+                    Main.snowMoon = false;
+                }
+                if (item.type == ItemID.NaughtyPresent)
+                {
+                    DD2Event.Ongoing = false;
+                    Main.pumpkinMoon = false;
+                }
+                if (item.type == ItemID.GoblinBattleStandard || item.type == ItemID.PirateMap || item.type == ItemID.SnowGlobe)
+                {
+                    if (self.ConsumedLifeCrystals < 5) self.ConsumedLifeCrystals = 5;
+                }
+                if (item.type == ItemID.PirateMap || item.type == ItemID.SnowGlobe)
+                {
+                    Main.hardMode = true;
+                }
+                //with this one its just easier to redo the whole thing
+                if (item.type == ItemID.CelestialSigil)
+                {
+                    SoundEngine.PlaySound(SoundID.Roar, self.position);
+                    self.ApplyItemTime(item);
+                    if (Main.netMode == NetmodeID.SinglePlayer)
+                        WorldGen.StartImpendingDoom(60);
+                    else
+                        NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, -1, -1, null, self.whoAmI, -8f);
+                    return;
+                }
+
+            }
+            orig(self, item);
+
+            //Main.dayTime = day;
+            //DD2Event.Ongoing = dd2event;
+            //Main.pumpkinMoon = pumpkin;
+            //Main.snowMoon = frost;
+            Main.hardMode = hardmode;
+            self.ConsumedLifeCrystals = lifecrystals;
+        }
+
+        private void AllowUseSummons2EvilEdition(On_Player.orig_ItemCheck_UseBossSpawners orig, Player self, int onWhichPlayer, Item item)
+        {
+            if (!ModContent.GetInstance<FargoServerConfig>().EasySummons)
+            {
+                orig(self, onWhichPlayer, item);
+                return;
+            }
+            bool day = Main.dayTime;
+            if (self.ItemTimeIsZero && self.itemAnimation > 0)
+            {
+                if (FargoGlobalItem.NightSettingSummons.Contains(item.type))
+                {
+                    Main.dayTime = false;
+                }
+                if (item.type == ItemID.SolarTablet)
+                {
+                    Main.dayTime = true;
+                }
+                if (item.type == ItemID.WormFood)
+                {
+                    self.ZoneCorrupt = true;
+                }
+                if (item.type == ItemID.BloodySpine)
+                {
+                    self.ZoneCrimson = true;
+                }
+                if (item.type == ItemID.Abeemination)
+                {
+                    self.ZoneJungle = true;
+                    self.ZoneRockLayerHeight = true;
+                }
+                if (item.type == ItemID.DeerThing)
+                {
+                    self.ZoneSnow = true;
+                }
+                if (item.type == ItemID.QueenSlimeCrystal)
+                {
+                    self.ZoneHallow = true;
+                }
+            }
+            orig(self, onWhichPlayer, item);
+            //Main.dayTime = day;
+
+        }
 
         //        private static void HookIntoLoad()
         //        {

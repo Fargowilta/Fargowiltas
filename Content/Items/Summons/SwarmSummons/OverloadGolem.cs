@@ -1,12 +1,14 @@
-﻿using Terraria;
+﻿using Fargowiltas.Content.Items.Summons.VanillaCopy;
+using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 
 namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadGolem : SwarmSummonBase
     {
-        public OverloadGolem() : base(NPCID.Golem, nameof(OverloadGolem), 25, "LihzahrdPowerCell2")
+        public OverloadGolem() : base(NPCID.Golem, nameof(OverloadGolem), 25, ModContent.ItemType<LihzahrdPowerCell2>())
         {
         }
 

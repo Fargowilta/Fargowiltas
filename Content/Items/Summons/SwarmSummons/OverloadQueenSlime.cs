@@ -5,7 +5,7 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadQueenSlime : SwarmSummonBase
     {
-        public OverloadQueenSlime() : base(NPCID.QueenSlimeBoss, nameof(OverloadQueenSlime), 25, "JellyCrystal")
+        public OverloadQueenSlime() : base(NPCID.QueenSlimeBoss, nameof(OverloadQueenSlime), 25, ItemID.QueenSlimeCrystal)
         {
         }
 

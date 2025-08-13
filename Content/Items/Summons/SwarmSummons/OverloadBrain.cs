@@ -5,7 +5,7 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadBrain : SwarmSummonBase
     {
-        public OverloadBrain() : base(NPCID.BrainofCthulhu, nameof(OverloadBrain), 25, "GoreySpine")
+        public OverloadBrain() : base(NPCID.BrainofCthulhu, nameof(OverloadBrain), 25, ItemID.BloodySpine)
         {
         }
 

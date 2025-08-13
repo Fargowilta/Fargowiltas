@@ -6,7 +6,7 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadDestroyer : SwarmSummonBase
     {
-        public OverloadDestroyer() : base(NPCID.TheDestroyer, nameof(OverloadDestroyer), 10, "MechWorm")
+        public OverloadDestroyer() : base(NPCID.TheDestroyer, nameof(OverloadDestroyer), 10, ItemID.MechanicalWorm)
         {
         }
 

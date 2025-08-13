@@ -270,6 +270,11 @@ Mods: {
 					Label: Подношения
 					Tooltip: ""
 				}
+
+				EasySummons: {
+					// Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
+					// Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements
+				}
 			}
 
 			FargoClientConfig: {
@@ -1053,11 +1058,6 @@ Mods: {
 				Tooltip: Превращает весь мир в сплошной лес
 			}
 
-			Abeemination2: {
-				DisplayName: Пчёлы в массе
-				Tooltip: Призывает Королеву пчёл в любом подземном биоме
-			}
-
 			Anemometer: {
 				DisplayName: Ветромер
 				Tooltip: Начинает ветренный день
@@ -1452,36 +1452,6 @@ Mods: {
 					'''
 			}
 
-			WormSnack: {
-				DisplayName: Закуска для червя
-				Tooltip:
-					'''
-					Призывает гигантского червя в пре-хардмоде
-					Призывает землекопа в хардмоде
-					Можно использовать только под землёй
-					'''
-			}
-
-			GoreySpine: {
-				DisplayName: Мозговое вещество
-				Tooltip: Призывает Мозг Ктулху в любом биоме
-			}
-
-			MechEye: {
-				DisplayName: Какой-то металлический глаз
-				Tooltip: Призывает Близнецов
-			}
-
-			MechSkull: {
-				DisplayName: Какой-то металлический череп
-				Tooltip: Призывает Скелетрона Прайма
-			}
-
-			MechWorm: {
-				DisplayName: Какой-то металлический червь
-				Tooltip: Призывает Близнецов
-			}
-
 			AncientSeal: {
 				DisplayName: Древняя печать
 				Tooltip:
@@ -1520,11 +1490,6 @@ Mods: {
 					'''
 			}
 
-			JellyCrystal: {
-				DisplayName: Королевская корона слизней
-				Tooltip: Призывает Королеву слизней
-			}
-
 			MechanicalAmalgam: {
 				DisplayName: Механическая амальгама
 				Tooltip: Призывает всех трёх механических боссов
@@ -1556,16 +1521,6 @@ Mods: {
 					Призывает Скелетрона, не убивая портного
 					Призывает стража темницы ночью
 					'''
-			}
-
-			SlimyCrown: {
-				DisplayName: Слизистый указ
-				Tooltip: Призывает Короля слизней
-			}
-
-			SuspiciousEye: {
-				DisplayName: Подозрительно выглядящие глазные капли
-				Tooltip: Призывает Глаз Ктулху
 			}
 
 			EnergizerBee: {
@@ -1937,11 +1892,6 @@ Mods: {
 			LihzahrdPowerCell2: {
 				DisplayName: Аккумулятор ящщеров
 				Tooltip: Призывает Голема без алтаря
-			}
-
-			WormyFood: {
-				DisplayName: Гниющая наживка
-				Tooltip: Призывает Пожирателя миров в любом биоме
 			}
 
 			CrimsonAltar: {
@@ -2538,6 +2488,18 @@ Mods: {
 					Позволяет сделать подношение в обмен на случайный предмет
 					Только некоторые предметы можно использовать как подношения
 					Каждый такой предмет можно испольховать как подношение ограниченное кол-во раз
+					'''
+			}
+
+			// EnrageWarning.QueenBee: Enrages on the surface
+
+			WormSnack: {
+				DisplayName: Закуска для червя
+				Tooltip:
+					'''
+					Призывает гигантского червя в пре-хардмоде
+					Призывает землекопа в хардмоде
+					Можно использовать только под землёй
 					'''
 			}
 		}

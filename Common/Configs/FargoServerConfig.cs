@@ -158,6 +158,9 @@ namespace Fargowiltas.Common.Configs
         [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Misc")]
 
         [DefaultValue(true)]
+        public bool EasySummons;
+
+        [DefaultValue(true)]
         public bool StalkerMoneyTrough;
 
         [DefaultValue(true)]
