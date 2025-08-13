@@ -8,7 +8,7 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadFish : SwarmSummonBase
     {
-        public OverloadFish() : base(NPCID.DukeFishron, nameof(OverloadFish), 25, ModContent.ItemType<TruffleWorm2>())
+        public OverloadFish() : base(NPCID.DukeFishron, nameof(OverloadFish), 25, ItemID.TruffleWorm)
         {
         }
 
