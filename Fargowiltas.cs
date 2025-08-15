@@ -944,7 +944,7 @@ namespace Fargowiltas
         }
         private bool AllowMultipleBosses(On_Player.orig_SummonItemCheck orig, Player self, Item item)
         {
-            if (ModContent.GetInstance<FargoServerConfig>().EasySummons)
+            if (ModContent.GetInstance<FargoServerConfig>().EasySummons && self.itemAnimation == self.itemAnimationMax)
             {
                 return true;
             }
