@@ -156,19 +156,19 @@ namespace Fargowiltas.Content.NPCs
         public override List<string> SetNPCNameList()
         {
             string[] names =
-               [Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName1"),
-                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName2"),
-                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName3"),
-                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName4"),
-                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName5"),
-                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName6"),
-                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName7"),
-                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName8"),
-                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName9"),
-                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName10"),
-                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName11"),
-                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName12"),
-                Language.GetTextValue("Mods.Fargowiltas.NPCs.LumberJack.NPCName13")];
+               [Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.NPCName1"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.NPCName2"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.NPCName3"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.NPCName4"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.NPCName5"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.NPCName6"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.NPCName7"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.NPCName8"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.NPCName9"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.NPCName10"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.NPCName11"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.NPCName12"),
+                Language.GetTextValue("Mods.Fargowiltas.NPCs.Mutant.NPCName13")];
 
             return new List<string>(names);
         }
