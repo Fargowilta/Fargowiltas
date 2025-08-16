@@ -355,9 +355,9 @@ Mods: {
 			FoodT2: еда полного удовлетворения
 			FoodT3: еда изысканного удовлетворения
 			GemRobe: роба из камней
-			WoodenCrate: деревянный ящик
+			WoodCrate: деревянный ящик
 			IronCrate: железный ящик
-			GoldenCrate: золотой ящик
+			GoldCrate: золотой ящик
 			JungleCrate: джунглевый ящик
 			SkyCrate: небесный ящик
 			CorruptCrate: порченный ящик
