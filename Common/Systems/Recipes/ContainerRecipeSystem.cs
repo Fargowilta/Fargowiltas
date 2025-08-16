@@ -303,7 +303,6 @@ namespace Fargowiltas.Common.Systems.Recipes
             CreateCrateRecipe(ItemID.GingerBeard, RecipeGroups.AnyIronCrate, 5);
             CreateCrateRecipe(ItemID.CloudinaBottle, RecipeGroups.AnyIronCrate, 3);
 
-
             //gold
             CreateCrateRecipe(ItemID.BandofRegeneration, RecipeGroups.AnyGoldCrate, 2);
             CreateCrateRecipe(ItemID.MagicMirror, RecipeGroups.AnyGoldCrate, 2);
