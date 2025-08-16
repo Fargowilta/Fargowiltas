@@ -73,7 +73,5 @@ namespace Fargowiltas.Utilities
         {
             return $"{Language.GetTextValue("LegacyMisc.37")} {Language.GetTextValue(vanillaKey)} {Language.GetTextValue("MapObject.Banner")}";
         }
-
-        public static string ItemXOrY(int id1, int id2) => $"{Lang.GetItemName(id1)} {Language.GetTextValue($"Mods.Fargowiltas.RecipeGroups.Or")} {Lang.GetItemName(id2)}";
     }
 }
