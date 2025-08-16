@@ -774,9 +774,11 @@ namespace Fargowiltas.Content.Items
                     if (!FargoClientConfig.Instance.AnimatedRecipeGroups || index >= RecipeGroupAnimationItems.Count)
                         index = 0;
                     string name = item.Name;
+                    int stack = item.stack;
                     item.ChangeItemType(RecipeGroupAnimationItems[index]);
                     item.GetGlobalItem<FargoGlobalItem>().RecipeGroupAnimationItems = RecipeGroupAnimationItems;
                     item.SetNameOverride(name);
+                    item.stack = stack;
                 }
             }
             return base.PreDrawInInventory(item, spriteBatch, position, frame, drawColor, itemColor, origin, scale);
