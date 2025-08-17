@@ -2495,7 +2495,12 @@ Mods: {
 
 			WormSnack: {
 				DisplayName: Worm Snack
-				Tooltip: ""
+				Tooltip:
+					'''
+					Summons Giant Worm in pre-Hardmode
+					Summons Digger in Hardmode
+					Only usable underground
+					'''
 			}
 		}
 
