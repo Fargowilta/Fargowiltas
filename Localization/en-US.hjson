@@ -273,7 +273,7 @@ Mods: {
 
 				EasySummons: {
 					Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
-					Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements
+					Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements.
 				}
 			}
 
@@ -317,7 +317,7 @@ Mods: {
 
 				TransparentFriendlyProjectiles: {
 					Label: "[i:1309] Transparent Friendly Projectiles"
-					Tooltip: Use with vanilla setting for Quality at Medium or Low for best results
+					Tooltip: Use with vanilla setting for Quality at Medium or Low for best results.
 				}
 
 				MultiplayerDeathSpectate: {
@@ -332,7 +332,7 @@ Mods: {
 
 				AnimatedRecipeGroups: {
 					Label: "[i:9] Animated Recipe Groups"
-					Tooltip: Whether recipe group sprites should flip through the viable items in the recipe group when displayed
+					Tooltip: Whether recipe group sprites should flip through the viable items in the recipe group when displayed.
 				}
 			}
 
