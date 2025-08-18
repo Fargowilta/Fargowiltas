@@ -270,6 +270,11 @@ Mods: {
 					// Label: Sacrifice System
 					// Tooltip: ""
 				}
+
+				EasySummons: {
+					// Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
+					// Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements
+				}
 			}
 
 			FargoClientConfig: {
@@ -350,14 +355,14 @@ Mods: {
 			FoodT2: Comida muito satisfatória
 			FoodT3: Comida extremamente satisfatória
 			GemRobe: Roupão de Jóia
-			WoodenCrate: Caixote de Madeira
+			WoodCrate: Caixote de Madeira
 			IronCrate: Caixote de Ferro
-			GoldenCrate: Caixote Dourado
+			GoldCrate: Caixote Dourado
 			JungleCrate: Caixote de Selva
 			SkyCrate: Caixote do Céu
 			CorruptCrate: Caixote Corrompido
 			CrimsonCrate: Caixote Carmim
-			// HallowedCrate: Hallowed Crate
+			HallowedCrate: Caixote Consagrado
 			DungeonCrate: Caixote do Calabouço
 			FrozenCrate: Caixote Congelado
 			SandCrate: Caixote do Oásis
@@ -1053,11 +1058,6 @@ Mods: {
 				Tooltip: Floresta o mundo inteiro
 			}
 
-			Abeemination2: {
-				DisplayName: Uma Abelha na Minha Nação
-				Tooltip: Invoca a Rainha Abelha em qualquer bioma
-			}
-
 			Anemometer: {
 				DisplayName: Anemômetro
 				Tooltip: Começa um dia ventoso
@@ -1452,36 +1452,6 @@ Mods: {
 					'''
 			}
 
-			WormSnack: {
-				DisplayName: Lanche de Minhoca
-				Tooltip:
-					'''
-					Invoca o verme gigante no Pré-Modo Díficil
-					Invoca o cavador no Modo Díficil
-					Pode ser usado apenas no subterrâneo
-					'''
-			}
-
-			GoreySpine: {
-				DisplayName: Matéria Cerebral
-				Tooltip: Invoca o Cérebro de Cthulhu em qualquer bioma
-			}
-
-			MechEye: {
-				DisplayName: Algum tipo de olho metálico
-				Tooltip: Invoca os Gêmeos
-			}
-
-			MechSkull: {
-				DisplayName: Algum tipo de caveira metálica
-				Tooltip: Invoca o Skeletron Alfa
-			}
-
-			MechWorm: {
-				DisplayName: Algum tipo de minhoca metálica
-				Tooltip: Invoca o Destruidor
-			}
-
 			AncientSeal: {
 				DisplayName: Selo Ancião
 				Tooltip:
@@ -1520,11 +1490,6 @@ Mods: {
 					'''
 			}
 
-			JellyCrystal: {
-				DisplayName: Coroa de Geleia Real
-				Tooltip: Invoca a Geleia Rainha
-			}
-
 			MechanicalAmalgam: {
 				DisplayName: Amálgamo Mecânico
 				Tooltip: Invoca os 3 chefes mecânicos
@@ -1556,16 +1521,6 @@ Mods: {
 					Invoca o Skeletron sem matar o Alfaiate
 					Invoca o Guardião do Calabouço durante o dia
 					'''
-			}
-
-			SlimyCrown: {
-				DisplayName: Decreto Gosmento
-				Tooltip: Invoca o Geleia Rei
-			}
-
-			SuspiciousEye: {
-				DisplayName: Colírio Suspeito
-				Tooltip: Invoca o Olho de Cthulhu
 			}
 
 			EnergizerBee: {
@@ -1937,11 +1892,6 @@ Mods: {
 			LihzahrdPowerCell2: {
 				DisplayName: Pacote de Baterias Laghartas
 				Tooltip: Invoca o Golem sem um altar
-			}
-
-			WormyFood: {
-				DisplayName: Isca Podre
-				Tooltip: Invoca o Devorador de Mundos em qualquer bioma
 			}
 
 			CrimsonAltar: {
@@ -2539,6 +2489,18 @@ Mods: {
 					Only certain items can be sacrificed
 					Each item type can only be sacrificed a certain amount of times
 					''' */
+			}
+
+			// EnrageWarning.QueenBee: Enrages on the surface
+
+			WormSnack: {
+				DisplayName: Lanche de Minhoca
+				Tooltip:
+					'''
+					Invoca o verme gigante no Pré-Modo Díficil
+					Invoca o cavador no Modo Díficil
+					Pode ser usado apenas no subterrâneo
+					'''
 			}
 		}
 

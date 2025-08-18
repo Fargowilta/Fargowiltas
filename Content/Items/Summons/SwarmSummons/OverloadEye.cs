@@ -5,7 +5,7 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadEye : SwarmSummonBase
     {
-        public OverloadEye() : base(NPCID.EyeofCthulhu, nameof(OverloadEye), 50, "SuspiciousEye")
+        public OverloadEye() : base(NPCID.EyeofCthulhu, nameof(OverloadEye), 50, ItemID.SuspiciousLookingEye)
         {
         }
 

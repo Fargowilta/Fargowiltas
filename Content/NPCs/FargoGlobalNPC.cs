@@ -107,6 +107,10 @@ namespace Fargowiltas.Content.NPCs
         {
             if (FirstFrame)
             {
+                if (npc.boss && FargoServerConfig.Instance.EasySummons)
+                {
+                    npc.DiscourageDespawn(600); //10 seconds
+                }
                 FirstFrame = false;
                 #region Stat Sliders
                 FargoServerConfig config = FargoServerConfig.Instance;

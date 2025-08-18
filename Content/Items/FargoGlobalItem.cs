@@ -23,6 +23,12 @@ namespace Fargowiltas.Content.Items
     {
         private static readonly int[] Hearts = [ItemID.Heart, ItemID.CandyApple, ItemID.CandyCane];
         private static readonly int[] Stars = [ItemID.Star, ItemID.SoulCake, ItemID.SugarPlum];
+        public static readonly int[] AlwaysUsableVanillaSummons = [ItemID.SlimeCrown, ItemID.SuspiciousLookingEye, ItemID.WormFood, ItemID.BloodySpine,
+        ItemID.Abeemination, ItemID.DeerThing, ItemID.QueenSlimeCrystal, ItemID.MechanicalWorm, ItemID.MechanicalEye, ItemID.MechanicalSkull,
+        ItemID.MechdusaSummon, ItemID.CelestialSigil, ItemID.BloodMoonStarter, ItemID.GoblinBattleStandard, ItemID.SnowGlobe, ItemID.PirateMap,
+        ItemID.SolarTablet, ItemID.PumpkinMoonMedallion, ItemID.NaughtyPresent];
+        public static readonly int[] NightSettingSummons = [ItemID.SuspiciousLookingEye, ItemID.MechanicalEye, ItemID.MechanicalSkull, ItemID.MechanicalWorm,
+            ItemID.BloodMoonStarter, ItemID.PumpkinMoonMedallion, ItemID.NaughtyPresent];
 
         private bool firstTick = true;
 
@@ -352,6 +358,18 @@ namespace Fargowiltas.Content.Items
                     }
                 }
             }
+            if (FargoServerConfig.Instance.EasySummons && item.type == ItemID.Abeemination)
+            {
+                for (int i = 0; i < tooltips.Count; i++)
+                {
+                    var tooltip = tooltips[i];
+                    if (tooltip.Name == "Tooltip0")
+                    {
+                        tooltips.Insert(i+1, new TooltipLine(Fargowiltas.Instance, "EnrageWarning", Language.GetTextValue("Mods.Fargowiltas.Items.EnrageWarning.QueenBee")));
+                        break;
+                    }
+                }
+            }
         }
 
         public override void SetDefaults(Item item)
@@ -414,7 +432,6 @@ namespace Fargowiltas.Content.Items
                 firstTick = false;
             }
         }
-
         public override bool CanUseItem(Item item, Player player)
         {
             if (item.type == ItemID.SiltBlock || item.type == ItemID.SlushBlock || item.type == ItemID.DesertFossil)
@@ -430,10 +447,26 @@ namespace Fargowiltas.Content.Items
                     item.useAnimation = 15;
                 }  
             }
-
             return base.CanUseItem(item, player);
         }
-
+        
+        public override bool? UseItem(Item item, Player player)
+        {
+            if (ModContent.GetInstance<FargoServerConfig>().EasySummons)
+            {
+                if (NightSettingSummons.Contains(item.type))
+                {
+                    Main.time = 0;
+                    Main.dayTime = false;
+                }
+                if (item.type == ItemID.SolarTablet)
+                {
+                    Main.time = 0;
+                    Main.dayTime = true;
+                }
+            }
+            return base.UseItem(item, player);
+        }
         public static void TryUnlimBuff(Item item, Player player)
         {
             if (item.IsAir || !Main.LocalPlayer.GetFargoPlayer().UnlimitedBuffs)
@@ -741,9 +774,11 @@ namespace Fargowiltas.Content.Items
                     if (!FargoClientConfig.Instance.AnimatedRecipeGroups || index >= RecipeGroupAnimationItems.Count)
                         index = 0;
                     string name = item.Name;
+                    int stack = item.stack;
                     item.ChangeItemType(RecipeGroupAnimationItems[index]);
                     item.GetGlobalItem<FargoGlobalItem>().RecipeGroupAnimationItems = RecipeGroupAnimationItems;
                     item.SetNameOverride(name);
+                    item.stack = stack;
                 }
             }
             return base.PreDrawInInventory(item, spriteBatch, position, frame, drawColor, itemColor, origin, scale);

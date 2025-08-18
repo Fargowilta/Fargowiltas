@@ -45,7 +45,7 @@ namespace Fargowiltas.Common.Systems.Recipes
                 }
             }
             //disable shimmer decraft for all summon items
-            foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.createItem.ModItem != null && (recipe.createItem.ModItem is BaseSummon || recipe.createItem.ModItem is FleshyDoll || recipe.createItem.ModItem is MechEye)))
+            foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.createItem.ModItem != null && (recipe.createItem.ModItem is BaseSummon || recipe.createItem.ModItem is FleshyDoll)))
             {
                 recipe.DisableDecraft();
             }
@@ -288,13 +288,6 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.DisableDecraft();
             recipe.Register();
 
-            recipe = Recipe.Create(ItemID.SandstorminaBottle);
-            recipe.AddIngredient(ItemID.SandBlock, 50);
-            recipe.AddIngredient(ItemID.Bottle);
-            recipe.AddTile(TileID.AlchemyTable);
-            recipe.DisableDecraft();
-            recipe.Register();
-
             recipe = Recipe.Create(ItemID.ShroomiteBar);
             recipe.AddIngredient(ItemID.ChlorophyteBar);
             recipe.AddIngredient(ItemID.DarkBlueSolution);
@@ -306,22 +299,6 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.AddIngredient(ItemID.GrapplingHook);
             recipe.AddIngredient(ItemID.WebRopeCoil, 8);
             recipe.AddTile(TileID.CookingPots);
-            recipe.DisableDecraft();
-            recipe.Register();
-
-            recipe = Recipe.Create(ItemID.SandstorminaBottle);
-            recipe.AddIngredient(ItemID.PharaohsMask);
-            recipe.AddIngredient(ItemID.PharaohsRobe);
-            recipe.AddIngredient(ItemID.GoldCoin, 10);
-            recipe.AddTile(TileID.TinkerersWorkbench);
-            recipe.DisableDecraft();
-            recipe.Register();
-
-            recipe = Recipe.Create(ItemID.FlyingCarpet);
-            recipe.AddIngredient(ItemID.PharaohsMask);
-            recipe.AddIngredient(ItemID.PharaohsRobe);
-            recipe.AddIngredient(ItemID.GoldCoin, 10);
-            recipe.AddTile(TileID.TinkerersWorkbench);
             recipe.DisableDecraft();
             recipe.Register();
 

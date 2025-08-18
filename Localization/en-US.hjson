@@ -270,6 +270,11 @@ Mods: {
 					Label: Sacrifice System
 					Tooltip: ""
 				}
+
+				EasySummons: {
+					Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
+					Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements.
+				}
 			}
 
 			FargoClientConfig: {
@@ -312,7 +317,7 @@ Mods: {
 
 				TransparentFriendlyProjectiles: {
 					Label: "[i:1309] Transparent Friendly Projectiles"
-					Tooltip: Use with vanilla setting for Quality at Medium or Low for best results
+					Tooltip: Use with vanilla setting for Quality at Medium or Low for best results.
 				}
 
 				MultiplayerDeathSpectate: {
@@ -327,7 +332,7 @@ Mods: {
 
 				AnimatedRecipeGroups: {
 					Label: "[i:9] Animated Recipe Groups"
-					Tooltip: Whether recipe group sprites should flip through the viable items in the recipe group when displayed
+					Tooltip: Whether recipe group sprites should flip through the viable items in the recipe group when displayed.
 				}
 			}
 
@@ -350,9 +355,9 @@ Mods: {
 			FoodT2: Plenty Satisfying Food
 			FoodT3: Exquisitively Stuffing Food
 			GemRobe: Gem Robe
-			WoodenCrate: Wooden Crate
+			WoodCrate: Wooden Crate
 			IronCrate: Iron Crate
-			GoldenCrate: Golden Crate
+			GoldCrate: Golden Crate
 			JungleCrate: Jungle Crate
 			SkyCrate: Sky Crate
 			CorruptCrate: Corrupt Crate
@@ -1053,11 +1058,6 @@ Mods: {
 				Tooltip: Dirts the entire world
 			}
 
-			Abeemination2: {
-				DisplayName: A Bee In My Nation
-				Tooltip: Summons Queen Bee in any underground biome
-			}
-
 			Anemometer: {
 				DisplayName: Anemometer
 				Tooltip: Starts a Windy Day
@@ -1452,36 +1452,6 @@ Mods: {
 					'''
 			}
 
-			WormSnack: {
-				DisplayName: Worm Snack
-				Tooltip:
-					'''
-					Summons Giant Worm in pre-Hardmode
-					Summons Digger in Hardmode
-					Only usable underground
-					'''
-			}
-
-			GoreySpine: {
-				DisplayName: Brain Matter
-				Tooltip: Summons the Brain of Cthulhu in any biome
-			}
-
-			MechEye: {
-				DisplayName: Some Kind of Metallic Eye
-				Tooltip: Summons the Twins
-			}
-
-			MechSkull: {
-				DisplayName: Some Kind of Metallic Skull
-				Tooltip: Summons Skeletron Prime
-			}
-
-			MechWorm: {
-				DisplayName: Some Kind of Metallic Worm
-				Tooltip: Summons the Destroyer
-			}
-
 			AncientSeal: {
 				DisplayName: Ancient Seal
 				Tooltip:
@@ -1520,11 +1490,6 @@ Mods: {
 					'''
 			}
 
-			JellyCrystal: {
-				DisplayName: Royal Slime Crown
-				Tooltip: Summons Queen Slime
-			}
-
 			MechanicalAmalgam: {
 				DisplayName: Mechanical Amalgam
 				Tooltip: Summons all 3 Mechanical bosses
@@ -1558,21 +1523,11 @@ Mods: {
 					'''
 			}
 
-			SlimyCrown: {
-				DisplayName: Slimy Decree
-				Tooltip: Summons King Slime
-			}
-
-			SuspiciousEye: {
-				DisplayName: Suspicious Looking Eyedrops
-				Tooltip: Summons the Eye of Cthulhu
-			}
-
 			EnergizerBee: {
 				DisplayName: Buzzy Energizer
 				Tooltip:
 					'''
-					Formed after using 10 Overstuffed Larva
+					Formed after using 10 Crowned Larva
 					'Smells like it tastes like honey'
 					'''
 			}
@@ -1707,7 +1662,7 @@ Mods: {
 				DisplayName: Crystalline Energizer
 				Tooltip:
 					'''
-					Formed after using 10 Overloaded Crystals
+					Formed after using 10 Overloaded Jellies
 					'It feels very slimy'
 					'''
 			}
@@ -1725,7 +1680,7 @@ Mods: {
 				DisplayName: Slimy Energizer
 				Tooltip:
 					'''
-					Formed after using 10 Overloaded Crowns
+					Formed after using 10 Personal Royal Orders
 					'It feels a bit slimy'
 					'''
 			}
@@ -1734,7 +1689,7 @@ Mods: {
 				DisplayName: Sibling Energizer
 				Tooltip:
 					'''
-					Formed after using 10 Omnifocal Lens
+					Formed after using 10 Omnifocal Eyes
 					'You wish you had more'
 					'''
 			}
@@ -1752,13 +1707,13 @@ Mods: {
 				DisplayName: Wormy Energizer
 				Tooltip:
 					'''
-					Formed after using 10 Worm Chickens
+					Formed after using 10 Superrotted Bait
 					'It's a little squishy'
 					'''
 			}
 
 			OverloadBee: {
-				DisplayName: Overstuffed Larva
+				DisplayName: Crowned Larva
 				Tooltip: Summons an energized Queen Bee
 			}
 
@@ -1788,7 +1743,7 @@ Mods: {
 			}
 
 			OverloadDestroyer: {
-				DisplayName: Seismic Actuator
+				DisplayName: Mechanical Serpent
 				Tooltip: Summons an energized Destroyer
 			}
 
@@ -1821,7 +1776,7 @@ Mods: {
 			}
 
 			OverloadEye: {
-				DisplayName: Eyemalgamation
+				DisplayName: Demon Eye Tears
 				Tooltip: Summons an energized Eye of Cthulhu
 			}
 
@@ -1896,7 +1851,7 @@ Mods: {
 			}
 
 			OverloadQueenSlime: {
-				DisplayName: Overloaded Crystal
+				DisplayName: Overloaded Jelly
 				Tooltip: Summons an energized Queen Slime
 			}
 
@@ -1915,7 +1870,7 @@ Mods: {
 			}
 
 			OverloadTwins: {
-				DisplayName: Omnifocal Lens
+				DisplayName: Omnifocal Eye
 				Tooltip: Summons an energized set of Twins
 			}
 
@@ -1925,7 +1880,7 @@ Mods: {
 			}
 
 			OverloadWorm: {
-				DisplayName: Worm Chicken
+				DisplayName: Superrotted Bait
 				Tooltip: Summons an energized Eater of Worlds
 			}
 
@@ -1937,11 +1892,6 @@ Mods: {
 			LihzahrdPowerCell2: {
 				DisplayName: Lihzahrd Battery Pack
 				Tooltip: Summons the Golem without an altar
-			}
-
-			WormyFood: {
-				DisplayName: Rotting Bait
-				Tooltip: Summons the Eater of Worlds in any biome
 			}
 
 			CrimsonAltar: {
@@ -2538,6 +2488,18 @@ Mods: {
 					Sacrifice items for random loot
 					Only certain items can be sacrificed
 					Each item type can only be sacrificed a certain amount of times
+					'''
+			}
+
+			EnrageWarning.QueenBee: Enrages on the surface
+
+			WormSnack: {
+				DisplayName: Worm Snack
+				Tooltip:
+					'''
+					Summons Giant Worm in pre-Hardmode
+					Summons Digger in Hardmode
+					Only usable underground
 					'''
 			}
 		}

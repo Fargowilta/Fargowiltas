@@ -278,6 +278,11 @@ Mods: {
 					// Label: Sacrifice System
 					// Tooltip: ""
 				}
+
+				EasySummons: {
+					// Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
+					// Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements
+				}
 			}
 
 			FargoClientConfig: {
@@ -358,7 +363,7 @@ Mods: {
 			FoodT2: 二级饱食食物
 			FoodT3: 三级饱食食物
 			GemRobe: 宝石长袍
-			// WoodenCrate: Wooden Crate
+			// WoodCrate: Wooden Crate
 			// IronCrate: Iron Crate
 			// GoldenCrate: Golden Crate
 			// JungleCrate: Jungle Crate
@@ -1061,11 +1066,6 @@ Mods: {
 				Tooltip: 使整个世界变为森林环境
 			}
 
-			Abeemination2: {
-				DisplayName: 令人憎恶的蜜蜂
-				Tooltip: 在任何地下生物群落中召唤蜂后
-			}
-
 			Anemometer: {
 				DisplayName: 风速计
 				Tooltip: 召唤大风天
@@ -1460,36 +1460,6 @@ Mods: {
 					'''
 			}
 
-			WormSnack: {
-				DisplayName: 蠕虫小吃
-				Tooltip:
-					'''
-					在困难模式之前召唤巨型蠕虫
-					在困难模式中召唤挖掘怪
-					只能在地下使用
-					'''
-			}
-
-			GoreySpine: {
-				DisplayName: 大脑物质
-				Tooltip: 在任何生物群落中召唤克苏鲁之脑
-			}
-
-			MechEye: {
-				DisplayName: 某种金属眼睛
-				Tooltip: 召唤双子魔眼
-			}
-
-			MechSkull: {
-				DisplayName: 某种金属头骨
-				Tooltip: 召唤机械骷髅王
-			}
-
-			MechWorm: {
-				DisplayName: 某种金属蠕虫
-				Tooltip: 召唤毁灭者
-			}
-
 			AncientSeal: {
 				DisplayName: 古代符章
 				Tooltip:
@@ -1528,11 +1498,6 @@ Mods: {
 					'''
 			}
 
-			JellyCrystal: {
-				DisplayName: 皇家史莱姆王冠
-				Tooltip: 召唤史莱姆皇后
-			}
-
 			MechanicalAmalgam: {
 				DisplayName: 机械融合体
 				Tooltip: 召唤三个机械Boss
@@ -1564,16 +1529,6 @@ Mods: {
 					在不杀死服装商的情况下召唤骷髅王
 					在白天会召唤地牢守卫
 					'''
-			}
-
-			SlimyCrown: {
-				DisplayName: 黏糊糊的诏书
-				Tooltip: 召唤史莱姆王
-			}
-
-			SuspiciousEye: {
-				DisplayName: 似乎可疑的眼药水
-				Tooltip: 召唤克苏鲁之眼
 			}
 
 			EnergizerBee: {
@@ -1946,11 +1901,6 @@ Mods: {
 			LihzahrdPowerCell2: {
 				DisplayName: 蜥蜴电池包
 				Tooltip: 在没有祭坛的情况下召唤石巨人
-			}
-
-			WormyFood: {
-				DisplayName: 腐烂诱饵
-				Tooltip: 在任何生物群落中召唤世界吞噬怪
 			}
 
 			CrimsonAltar: {
@@ -2548,6 +2498,18 @@ Mods: {
 					Only certain items can be sacrificed
 					Each item type can only be sacrificed a certain amount of times
 					''' */
+			}
+
+			// EnrageWarning.QueenBee: Enrages on the surface
+
+			WormSnack: {
+				DisplayName: 蠕虫小吃
+				Tooltip:
+					'''
+					在困难模式之前召唤巨型蠕虫
+					在困难模式中召唤挖掘怪
+					只能在地下使用
+					'''
 			}
 		}
 

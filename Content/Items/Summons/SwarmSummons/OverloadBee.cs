@@ -5,7 +5,7 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadBee : SwarmSummonBase
     {
-        public OverloadBee() : base(NPCID.QueenBee, nameof(OverloadBee), 50, "Abeemination2")
+        public OverloadBee() : base(NPCID.QueenBee, nameof(OverloadBee), 50, ItemID.Abeemination)
         {
         }
 

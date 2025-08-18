@@ -1,11 +1,13 @@
-﻿using Terraria;
+﻿using Fargowiltas.Content.Items.Summons.Mutant;
+using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadEmpress : SwarmSummonBase
     {
-        public OverloadEmpress() : base(NPCID.HallowBoss, nameof(OverloadEmpress), 25, "PrismaticPrimrose")
+        public OverloadEmpress() : base(NPCID.HallowBoss, nameof(OverloadEmpress), 25, ModContent.ItemType<PrismaticPrimrose>())
         {
         }
 

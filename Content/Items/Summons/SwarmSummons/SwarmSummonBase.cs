@@ -18,9 +18,9 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
         private int npcType;
         private readonly int maxSpawn; //energizer swarms are this size
         private readonly string spawnMessageKey;
-        private readonly string material;
+        private readonly int material;
         
-        protected SwarmSummonBase(int npcType, string spawnMessageKey, int maxSpawn, string material)
+        protected SwarmSummonBase(int npcType, string spawnMessageKey, int maxSpawn, int material)
         {
             this.npcType = npcType;
             this.spawnMessageKey = spawnMessageKey;
@@ -107,7 +107,7 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(null, material)
+                .AddIngredient(material)
                 .AddIngredient(null, "Overloader")
                 .AddTile(TileID.DemonAltar)
                 .Register();

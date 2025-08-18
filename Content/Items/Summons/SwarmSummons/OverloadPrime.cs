@@ -1,11 +1,12 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 {
     public class OverloadPrime : SwarmSummonBase
     {
-        public OverloadPrime() : base(NPCID.SkeletronPrime, nameof(OverloadPrime), 25, "MechSkull")
+        public OverloadPrime() : base(NPCID.SkeletronPrime, nameof(OverloadPrime), 25, ItemID.MechanicalSkull)
         {
         }
 
