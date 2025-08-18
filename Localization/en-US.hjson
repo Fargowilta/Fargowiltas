@@ -866,7 +866,7 @@ Mods: {
 				Tooltip:
 					'''
 					Creates a long bridge of platforms at your cursor
-					Will not break any blocks
+					Will not break any blocks and stops when it hits a solid block
 					'''
 			}
 

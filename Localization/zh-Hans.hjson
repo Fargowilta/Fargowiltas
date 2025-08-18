@@ -281,7 +281,7 @@ Mods: {
 
 				EasySummons: {
 					// Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
-					// Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements
+					// Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements.
 				}
 			}
 
@@ -340,7 +340,7 @@ Mods: {
 
 				AnimatedRecipeGroups: {
 					// Label: "[i:9] Animated Recipe Groups"
-					// Tooltip: Whether recipe group sprites should flip through the viable items in the recipe group when displayed
+					// Tooltip: Whether recipe group sprites should flip through the viable items in the recipe group when displayed.
 				}
 			}
 
@@ -365,7 +365,7 @@ Mods: {
 			GemRobe: 宝石长袍
 			// WoodCrate: Wooden Crate
 			// IronCrate: Iron Crate
-			// GoldenCrate: Golden Crate
+			// GoldCrate: Golden Crate
 			// JungleCrate: Jungle Crate
 			// SkyCrate: Sky Crate
 			// CorruptCrate: Corrupt Crate
@@ -3153,10 +3153,10 @@ Mods: {
 					{0}
 					{1}
 					''' */
-				// LeftOn: Unlimited Buffs On
-				// LeftOff: Unlimited Buffs Off
-				// RightOn: Unlimited Buffs Visible
-				// RightOff: Unlimited Buffs Hidden
+				// LeftOn: Unlimited Buffs On (left click)
+				// LeftOff: Unlimited Buffs Off (left click)
+				// RightOn: Unlimited Buffs Visible (right click)
+				// RightOff: Unlimited Buffs Hidden (right click)
 			}
 		}
 	}
