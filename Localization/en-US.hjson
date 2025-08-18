@@ -3144,10 +3144,10 @@ Mods: {
 					{0}
 					{1}
 					'''
-				LeftOn: Unlimited Buffs On
-				LeftOff: Unlimited Buffs Off
-				RightOn: Unlimited Buffs Visible
-				RightOff: Unlimited Buffs Hidden
+				LeftOn: Unlimited Buffs On (left click)
+				LeftOff: Unlimited Buffs Off (left click)
+				RightOn: Unlimited Buffs Visible (right click)
+				RightOff: Unlimited Buffs Hidden (right click)
 			}
 		}
 	}
