@@ -43,35 +43,40 @@ namespace Fargowiltas.Content.Projectiles.Explosives
             // All the way across
             const int length = 400;
             bool goLeft = Projectile.Center.X < Main.player[Projectile.owner].Center.X;
-            int min = goLeft ? -length : 0;
-            int max = goLeft ? 0 : length;
+            int min = 0;
+            int max = length;
 
             int[] deletableTiles = [ 
                 TileID.Cactus,
                 TileID.Trees,
                 TileID.CorruptThorns,
                 TileID.CrimsonThorns,
-                TileID.JungleThorns
+                TileID.JungleThorns,
             ];
 
             for (int x = min; x < max; x++)
             {
-                int xPosition = (int)(x + position.X / 16.0f);
+                int xPos = goLeft ? -x : x;
+                int xPosition = (int)(xPos + position.X / 16.0f);
                 int yPosition = (int)(position.Y / 16.0f);
 
                 if (xPosition < 0 || xPosition >= Main.maxTilesX || yPosition < 0 || yPosition >= Main.maxTilesY)
-                    continue;
+                    break;
 
                 Tile tile = Main.tile[xPosition, yPosition];
 
                 if (tile == null)
                 {
-                    continue;
+                    break;
                 }
 
                 if (deletableTiles.Contains(tile.TileType))
                 {
                     FargoGlobalTile.ClearEverything(xPosition, yPosition);
+                }
+                else if (tile.HasTile && Main.tileSolid[tile.TileType])
+                {
+                    break;
                 }
 
                 // Spawn platforms

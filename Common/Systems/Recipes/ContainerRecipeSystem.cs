@@ -458,7 +458,7 @@ namespace Fargowiltas.Common.Systems.Recipes
         {
             foreach (int output in outputs)
             {
-                RecipeHelper.CreateSimpleRecipe(input, output, TileID.Solidifier, disableDecraft: true);
+                RecipeHelper.CreateSimpleRecipe(input, output, TileID.Solidifier, ingredientAmount: 2, disableDecraft: true);
             }
         }
     }
