@@ -153,6 +153,7 @@ namespace Fargowiltas
 
         public override void OnWorldLoad()
         {
+
             ResetFlags();
             if (!GeneratedSacrificeCounts)
             {
@@ -160,7 +161,10 @@ namespace Fargowiltas
                 GeneratedSacrificeCounts = true;
             }
         }
-
+        public override void ClearWorld()
+        {
+            CraftingTreeSheet.CraftingTrees = [];
+        }
         public override void OnWorldUnload()
         {
             FargoGlobalProjectile.CannotDestroyRectangle.Clear();
@@ -183,9 +187,9 @@ namespace Fargowiltas
             tag.Add("FargoIndestructibleRectangles", FargoGlobalProjectile.CannotDestroyRectangle.ToList());
 
             List<string> sacrificeItems = [];
-            for (int i = 0; i < Items.SacrificeCount.Length; i++)
+            for (int i = 0; i < FargoSets.Items.SacrificeCount.Length; i++)
             {
-                int count = Items.SacrificeCount[i];
+                int count = FargoSets.Items.SacrificeCount[i];
                 if (count > 0)
                 {
                     if (i >= ItemID.Count) // modded item, variable type, add name instead
@@ -229,12 +233,12 @@ namespace Fargowiltas
                 {
                     if (int.TryParse(name, out int type) && type < ItemID.Count) // vanilla item
                     {
-                        Items.SacrificeCount[type] = count;
+                        FargoSets.Items.SacrificeCount[type] = count;
                     }
                     else // modded item
                     {
                         ModItem item = Find<ModItem>(name);
-                        Items.SacrificeCount[item.Type] = count;
+                        FargoSets.Items.SacrificeCount[item.Type] = count;
                     }
                 }
             }

@@ -365,7 +365,7 @@ Mods: {
 			GemRobe: 宝石长袍
 			// WoodCrate: Wooden Crate
 			// IronCrate: Iron Crate
-			// GoldenCrate: Golden Crate
+			// GoldCrate: Golden Crate
 			// JungleCrate: Jungle Crate
 			// SkyCrate: Sky Crate
 			// CorruptCrate: Corrupt Crate
@@ -2511,6 +2511,20 @@ Mods: {
 					只能在地下使用
 					'''
 			}
+
+			CraftingTree: {
+				// DisplayName: Crafting Tree
+				/* Tooltip:
+					'''
+					Copies difficult to obtain items
+					Consumes Enchanted Acorns when used
+					''' */
+			}
+
+			EnchantedAcorn: {
+				// DisplayName: Enchanted Acorn
+				// Tooltip: ""
+			}
 		}
 
 		NPCs: {
@@ -3130,6 +3144,7 @@ Mods: {
 			// Sacrificable: Can be consumed at Sacrificial Altar 1 more time
 			// SacrificeEvent: Consume at Sacrificial Altar for a special event
 			// SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
+			// CraftingTreeDupable: Copyable with Crafting Tree
 		}
 
 		Emotes: {

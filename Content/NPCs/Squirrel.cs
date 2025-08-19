@@ -16,6 +16,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Fargowiltas.Content;
 using Fargowiltas.Content.UI.Emotes;
+using Fargowiltas.Content.Items.Misc;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace Fargowiltas.Content.NPCs
 {
@@ -196,36 +198,36 @@ namespace Fargowiltas.Content.NPCs
                 shopNum = 0;
             }
         }
-        public static List<(string, string)> SquirrelSellsModded = 
-            [
-            ("FargowiltasSouls", "BionomicCluster"),
-            ("FargowiltasSouls","HeartoftheMasochist"),
-            ("FargowiltasSouls","ChaliceoftheMoon"),
-            ("FargowiltasSouls","DubiousCircuitry"),
-            ("FargowiltasSouls","LumpOfFlesh"),
-            ("FargowiltasSouls","PureHeart"),
-            ("FargowiltasSouls","SupremeDeathbringerFairy"),
-            ];
-        public static List<(string, string)> SquirrelSellsMaterialsModded =
-            [
-            ("FargowiltasSouls", "MasochistSoul"),
-            ("FargowiltasSouls", "AeolusBoots"),
-            ("FargowiltasSouls", "ZephyrBoots")
-            ];
+        //public static List<(string, string)> SquirrelSellsModded = 
+        //    [
+        //    ("FargowiltasSouls", "BionomicCluster"),
+        //    ("FargowiltasSouls","HeartoftheMasochist"),
+        //    ("FargowiltasSouls","ChaliceoftheMoon"),
+        //    ("FargowiltasSouls","DubiousCircuitry"),
+        //    ("FargowiltasSouls","LumpOfFlesh"),
+        //    ("FargowiltasSouls","PureHeart"),
+        //    ("FargowiltasSouls","SupremeDeathbringerFairy"),
+        //    ];
+        //public static List<(string, string)> SquirrelSellsMaterialsModded =
+        //    [
+        //    ("FargowiltasSouls", "MasochistSoul"),
+        //    ("FargowiltasSouls", "AeolusBoots"),
+        //    ("FargowiltasSouls", "ZephyrBoots")
+        //    ];
         public static SquirrelShopGroup SquirrelSells(Item item, out SquirrelSellType sellType)
         {
 
-            if (item.type == ItemID.Zenith)
-            {
-                sellType = SquirrelSellType.CraftableMaterialsSold;
-                return SquirrelShopGroup.Other;
-            }
+            //if (item.type == ItemID.Zenith)
+            //{
+            //    sellType = SquirrelSellType.CraftableMaterialsSold;
+            //    return SquirrelShopGroup.Other;
+            //}
 
-            if (item.makeNPC != 0 || FargoSets.Items.SquirrelSellsDirectly[item.type])
-            {
-                sellType = SquirrelSellType.SoldBySquirrel;
-                return SquirrelShopGroup.Other;
-            }
+            //if (item.makeNPC != 0 || FargoSets.Items.SquirrelSellsDirectly[item.type])
+            //{
+            //    sellType = SquirrelSellType.SoldBySquirrel;
+            //    return SquirrelShopGroup.Other;
+            //}
 
             bool Potion = item.buffType != 0 && item.type != ItemID.GrilledSquirrel || FargoSets.Items.NonBuffPotion[item.type];
             if (Potion && item.maxStack >= 30)
@@ -235,66 +237,66 @@ namespace Fargowiltas.Content.NPCs
             }
             bool soulsEnabled = ModLoader.TryGetMod("FargowiltasSouls", out Mod soulsMod);
 
-            if (IsFargoSoulsItem(item))
-            {
-                if (item.ModItem.Name.EndsWith("Enchant"))
-                {
-                    sellType = SquirrelSellType.SoldBySquirrel;
-                    return SquirrelShopGroup.Enchant;
-                }
-                else if (item.ModItem.Name.EndsWith("Essence"))
-                {
-                    sellType = SquirrelSellType.SoldBySquirrel;
-                    return SquirrelShopGroup.Essence;
-                }
-                else if (soulsEnabled && SquirrelSellsModded.Any(s => ModContent.TryFind(s.Item1, s.Item2, out ModItem modItem) && modItem.Type == item.type))
-                {
-                    sellType = SquirrelSellType.SoldBySquirrel;
-                    return SquirrelShopGroup.Other;
-                }
-                else if (item.ModItem.Name.EndsWith("Force"))
-                {
-                    sellType = SquirrelSellType.SomeMaterialsSold;
-                    return SquirrelShopGroup.Enchant;
-                }
-                else if (soulsEnabled && SquirrelSellsMaterialsModded.Any(s => ModContent.TryFind(s.Item1, s.Item2, out ModItem modItem) && modItem.Type == item.type))
-                {
-                    sellType = SquirrelSellType.CraftableMaterialsSold;
-                    return SquirrelShopGroup.Other;
-                }
-                else if (item.ModItem.Name.EndsWith("Soul"))
-                {
-                    //go through recipes and look for a sellable material
-                    foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.HasResult(item.type)))
-                    {
-                        foreach (Item material in recipe.requiredItem)
-                        {
-                            if (material.type != ItemID.None && material.ModItem != null)
-                            {
-                                if (material.ModItem.Name.EndsWith("Essence"))
-                                {
-                                    sellType = SquirrelSellType.SomeMaterialsSold;
-                                    return SquirrelShopGroup.Essence;
-                                }
-                                else if (material.ModItem.Name.EndsWith("Force"))
-                                {
-                                    sellType = SquirrelSellType.SomeMaterialsSold;
-                                    return SquirrelShopGroup.Force;
-                                }
-                                else if (material.ModItem.Name.EndsWith("Soul"))
-                                {
-                                    sellType = SquirrelSellType.SomeMaterialsSold;
-                                    return SquirrelShopGroup.Soul;
-                                }
-                            }
-                        }
-                    }
+            //if (IsFargoSoulsItem(item))
+            //{
+            //    if (item.ModItem.Name.EndsWith("Enchant"))
+            //    {
+            //        sellType = SquirrelSellType.SoldBySquirrel;
+            //        return SquirrelShopGroup.Enchant;
+            //    }
+            //    else if (item.ModItem.Name.EndsWith("Essence"))
+            //    {
+            //        sellType = SquirrelSellType.SoldBySquirrel;
+            //        return SquirrelShopGroup.Essence;
+            //    }
+            //    else if (soulsEnabled && SquirrelSellsModded.Any(s => ModContent.TryFind(s.Item1, s.Item2, out ModItem modItem) && modItem.Type == item.type))
+            //    {
+            //        sellType = SquirrelSellType.SoldBySquirrel;
+            //        return SquirrelShopGroup.Other;
+            //    }
+            //    else if (item.ModItem.Name.EndsWith("Force"))
+            //    {
+            //        sellType = SquirrelSellType.SomeMaterialsSold;
+            //        return SquirrelShopGroup.Enchant;
+            //    }
+            //    else if (soulsEnabled && SquirrelSellsMaterialsModded.Any(s => ModContent.TryFind(s.Item1, s.Item2, out ModItem modItem) && modItem.Type == item.type))
+            //    {
+            //        sellType = SquirrelSellType.CraftableMaterialsSold;
+            //        return SquirrelShopGroup.Other;
+            //    }
+            //    else if (item.ModItem.Name.EndsWith("Soul"))
+            //    {
+            //        //go through recipes and look for a sellable material
+            //        foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.HasResult(item.type)))
+            //        {
+            //            foreach (Item material in recipe.requiredItem)
+            //            {
+            //                if (material.type != ItemID.None && material.ModItem != null)
+            //                {
+            //                    if (material.ModItem.Name.EndsWith("Essence"))
+            //                    {
+            //                        sellType = SquirrelSellType.SomeMaterialsSold;
+            //                        return SquirrelShopGroup.Essence;
+            //                    }
+            //                    else if (material.ModItem.Name.EndsWith("Force"))
+            //                    {
+            //                        sellType = SquirrelSellType.SomeMaterialsSold;
+            //                        return SquirrelShopGroup.Force;
+            //                    }
+            //                    else if (material.ModItem.Name.EndsWith("Soul"))
+            //                    {
+            //                        sellType = SquirrelSellType.SomeMaterialsSold;
+            //                        return SquirrelShopGroup.Soul;
+            //                    }
+            //                }
+            //            }
+            //        }
 
-                    //if nothing found, sell the soul itself
-                    sellType = SquirrelSellType.SoldBySquirrel;
-                    return SquirrelShopGroup.Soul;
-                }
-            }
+            //        //if nothing found, sell the soul itself
+            //        sellType = SquirrelSellType.SoldBySquirrel;
+            //        return SquirrelShopGroup.Soul;
+            //    }
+            //}
 
             sellType = SquirrelSellType.End;
             return SquirrelShopGroup.End;
@@ -422,6 +424,8 @@ namespace Fargowiltas.Content.NPCs
             itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeRubySeed);
             itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeSapphireSeed);
             itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeTopazSeed);
+            itemCollections[SquirrelShopGroup.Acorn].Add(ModContent.ItemType<EnchantedAcorn>());
+            itemCollections[SquirrelShopGroup.Acorn].Add(ModContent.ItemType<CraftingTree>());
 
             return itemCollections.OrderBy(kv => kv.Key).SelectMany(kv => kv.Value).ToList();
         }

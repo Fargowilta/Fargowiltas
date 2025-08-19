@@ -16,6 +16,11 @@ using Fargowiltas.Content.Items;
 using Fargowiltas.Content.Items.Vanity;
 using Fargowiltas.Content.NPCs;
 using static Fargowiltas.Content.Items.Misc.BattleCry;
+using Fargowiltas.Content.Items.Tiles;
+using Terraria.GameContent;
+using static Fargowiltas.Content.Items.Tiles.CraftingTreeTileEntity;
+using Fargowiltas.Common.Systems.Recipes;
+using Terraria.ModLoader.UI;
 
 ////using Fargowiltas.Toggler;
 
@@ -57,6 +62,8 @@ namespace Fargowiltas
 
         public int DeathCamTimer = 0;
         public int SpectatePlayer = 0;
+
+        public Fruit? grabbedFruit = null;
 
         private readonly string[] tags =
         [
@@ -205,6 +212,10 @@ namespace Fargowiltas
             HasDrawnDebuffLayer = false;
             bigSuck = false;
             CoolCrab = false;
+            if (!Player.controlUseItem)
+            {
+                grabbedFruit = null;
+            }
         }
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
@@ -595,7 +606,7 @@ namespace Fargowiltas
                 yield return createItem(ItemType<CrabSizedGlasses>());
             }
         }
-
+        
         
 
         //        /*public override void clientClone(ModPlayer clientClone)

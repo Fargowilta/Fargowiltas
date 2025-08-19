@@ -1,5 +1,6 @@
 ﻿using Fargowilta;
 using Fargowiltas.Common.Configs;
+using Fargowiltas.Common.Systems.Recipes;
 using Fargowiltas.Content.Items;
 using Fargowiltas.Content.Items.CaughtNPCs;
 using Fargowiltas.Content.Items.Misc;
@@ -8,6 +9,8 @@ using Fargowiltas.Content.NPCs;
 using Fargowiltas.Content.Projectiles;
 using Fargowiltas.Content.UI;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,10 +20,13 @@ using System.Xml.Schema;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
+using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static Fargowiltas.Content.Items.Tiles.CraftingTreeTileEntity;
 using static Fargowiltas.FargoSets;
 
 namespace Fargowiltas
@@ -162,6 +168,9 @@ namespace Fargowiltas
             On_Player.ItemCheck_UseBossSpawners += AllowUseSummons2EvilEdition;
             On_Player.ItemCheck_UseEventItems += AllowUseEventSummons;
             On_Player.SummonItemCheck += AllowMultipleBosses;
+
+            On_Main.DoUpdateInWorld += UpdateCraftingTreeFruit;
+            On_Main.DrawPlayers_AfterProjectiles += DrawCraftingTrees;
         }
 
         
@@ -257,6 +266,8 @@ namespace Fargowiltas
             }
         }
 
+        
+
         public override void Unload()
         {
             Terraria.On_Player.DoCommonDashHandle -= OnVanillaDash;
@@ -269,6 +280,14 @@ namespace Fargowiltas
             Terraria.On_Player.HasUnityPotion -= OnHasUnityPotion;
             Terraria.On_Player.TakeUnityPotion -= OnTakeUnityPotion;
             Terraria.On_Player.DropTombstone -= DisableTombstones;
+
+            On_Player.ItemCheck_CheckCanUse -= AllowUseSummons;
+            On_Player.ItemCheck_UseBossSpawners -= AllowUseSummons2EvilEdition;
+            On_Player.ItemCheck_UseEventItems -= AllowUseEventSummons;
+            On_Player.SummonItemCheck -= AllowMultipleBosses;
+
+            On_Main.DoUpdateInWorld -= UpdateCraftingTreeFruit;
+            On_Main.DrawPlayers_AfterProjectiles -= DrawCraftingTrees;
 
             summonTracker = null;
             dialogueTracker = null;
@@ -626,6 +645,42 @@ namespace Fargowiltas
                     {
                         if (Main.netMode == NetmodeID.Server)
                             WorldGen.dropMeteor();
+                    }
+                    break;
+                case 11:
+                    {
+                        int treeindex = reader.ReadInt32();
+                        FargoUtils.TryGetTileEntityAs(CraftingTreeSheet.CraftingTrees[treeindex].X, CraftingTreeSheet.CraftingTrees[treeindex].Y, out CraftingTreeTileEntity tree);
+                        tree.ItemType = reader.ReadInt32();
+                        tree.Prefix = reader.ReadInt32();
+                        int fruitlength = reader.ReadInt32();
+                        
+                        tree.Fruits = [];
+                        for (int i = 0; i < fruitlength; i++)
+                        {
+                            Fruit fruit = new Fruit(reader.ReadInt32(), reader.ReadVector2(), reader.ReadVector2(), reader.ReadVector2(), reader.ReadInt32(), reader.ReadInt32());
+                            fruit.grabCooldown = reader.ReadInt32();
+                            fruit.despawnTimer = reader.ReadSingle();
+                            tree.Fruits.Add(fruit);
+                        }
+                        if (Main.dedServ)
+                        {
+                            NetMessage.SendData(MessageID.TileEntitySharing, -1, -1, null, tree.ID, tree.Position.X, tree.Position.Y);
+                        }
+                    }
+                    break;
+                case 12:
+                    {
+                        CraftingTreeSheet.CraftingTrees = [];
+                        int arrayLength = reader.ReadInt32();
+                        for (int m = 0; m < arrayLength; m++)
+                        {
+                            CraftingTreeSheet.CraftingTrees.Add(new Point16(reader.ReadInt32(), reader.ReadInt32()));
+                        }
+                        if (Main.dedServ)
+                        {
+                            FargoNet.SendCraftingTreesListPacket();
+                        }
                     }
                     break;
                 default:
@@ -1059,6 +1114,17 @@ namespace Fargowiltas
             orig(self, onWhichPlayer, item);
             //Main.dayTime = day;
 
+        }
+        private void DrawCraftingTrees(On_Main.orig_DrawPlayers_AfterProjectiles orig, Main self)
+        {
+            CraftingTreeTileEntity.DrawCraftingTrees();
+            orig(self);
+        }
+
+        private void UpdateCraftingTreeFruit(On_Main.orig_DoUpdateInWorld orig, Main self, System.Diagnostics.Stopwatch sw)
+        {
+            orig(self, sw);
+            CraftingTreeTileEntity.UpdateCraftingTrees();
         }
 
         //        private static void HookIntoLoad()

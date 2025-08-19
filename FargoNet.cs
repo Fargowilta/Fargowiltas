@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Fargowiltas.Content.Items.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -238,6 +240,43 @@ namespace Fargowiltas
                 ModContent.GetInstance<Fargowiltas>().Logger.Error("PARAMS: " + param2);
                 ModContent.GetInstance<Fargowiltas>().Logger.Error("-------");
             }
+        }
+        public static void SendCraftingTreeFruitPacket(int treeIndex)
+        {
+            FargoUtils.TryGetTileEntityAs(CraftingTreeSheet.CraftingTrees[treeIndex].X, CraftingTreeSheet.CraftingTrees[treeIndex].Y, out CraftingTreeTileEntity tree);
+            ModPacket packet = Fargowiltas.Instance.GetPacket();
+            packet.Write((byte)11);
+            packet.Write(treeIndex);
+            packet.Write(tree.ItemType);
+            packet.Write(tree.Prefix);
+            packet.Write(tree.Fruits.Count);
+            for (int i = 0; i < tree.Fruits.Count; i++)
+            {
+                CraftingTreeTileEntity.Fruit fruit = tree.Fruits[i];
+                packet.Write(fruit.type);
+                packet.WriteVector2(fruit.center);
+                packet.WriteVector2(fruit.targetPosition);
+                packet.WriteVector2(fruit.velocity);
+                packet.Write(fruit.previousItem);
+                packet.Write(fruit.layer);
+                packet.Write(fruit.grabCooldown);
+                packet.Write(fruit.despawnTimer);
+            }
+            packet.Send();
+
+        }
+        public static void SendCraftingTreesListPacket()
+        {
+            ModPacket packet = Fargowiltas.Instance.GetPacket();
+            packet.Write((byte)12);
+
+            packet.Write(CraftingTreeSheet.CraftingTrees.Count);
+            foreach (Point16 vec in CraftingTreeSheet.CraftingTrees)
+            {
+                packet.Write((int)vec.X);
+                packet.Write((int)vec.Y);
+            }
+            packet.Send();
         }
     }
 }

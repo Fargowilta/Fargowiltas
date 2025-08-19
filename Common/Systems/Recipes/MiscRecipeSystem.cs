@@ -11,12 +11,14 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Fargowiltas.Content.Items.Tiles;
 using static Fargowiltas.FargoSets;
 
 namespace Fargowiltas.Common.Systems.Recipes
 {
     public class MiscRecipeSystem : ModSystem
     {
+        
         public override void AddRecipes()
         {
             AddStatueRecipes();
@@ -65,7 +67,25 @@ namespace Fargowiltas.Common.Systems.Recipes
                     }
                 }
             }
+            //finding items with duplicatable items sold
+            foreach (Recipe recipe in Main.recipe.Where(recipe => CraftingTreeTileEntity.IsItemDupable(recipe.createItem.type))){
+                int result = recipe.createItem.type;
+                if (!CraftingTreeTileEntity.DuplicatableRecipes.ContainsKey(result))
+                {
+                    CraftingTreeTileEntity.DuplicatableRecipes.Add(result, []);
+                }
+                foreach (Item item in recipe.requiredItem)
+                {
+                    //is directly dupable or the materials of the current recipe result are dupable
+                    if (CraftingTreeTileEntity.IsItemDupable(item.type) || CraftingTreeTileEntity.DupableMaterials.Contains(result) ||
+                        (recipe.createItem.ModItem != null && CraftingTreeTileEntity.DupableMaterialsModded.Contains((recipe.createItem.ModItem.Mod.Name, recipe.createItem.ModItem.Name))))
+                    {
+                        CraftingTreeTileEntity.DuplicatableRecipes[recipe.createItem.type].Add(item.type);
+                    }
+                }
+            }
         }
+        
 
         private static void AddStatueRecipes()
         {

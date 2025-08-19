@@ -2502,6 +2502,20 @@ Mods: {
 					Pode ser usado apenas no subterrâneo
 					'''
 			}
+
+			CraftingTree: {
+				// DisplayName: Crafting Tree
+				/* Tooltip:
+					'''
+					Copies difficult to obtain items
+					Consumes Enchanted Acorns when used
+					''' */
+			}
+
+			EnchantedAcorn: {
+				// DisplayName: Enchanted Acorn
+				// Tooltip: ""
+			}
 		}
 
 		NPCs: {
@@ -3121,6 +3135,7 @@ Mods: {
 			// Sacrificable: Can be consumed at Sacrificial Altar 1 more time
 			// SacrificeEvent: Consume at Sacrificial Altar for a special event
 			// SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
+			// CraftingTreeDupable: Copyable with Crafting Tree
 		}
 
 		Emotes: {
