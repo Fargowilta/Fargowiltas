@@ -866,7 +866,7 @@ Mods: {
 				Tooltip:
 					'''
 					Создаёт длинный мост из платформ у курсора
-					Не разрушает блоки
+					Не разрушает блоки и перестаёт ставить платформы при столкновении с блоками
 					'''
 			}
 
@@ -2504,17 +2504,17 @@ Mods: {
 			}
 
 			CraftingTree: {
-				// DisplayName: Crafting Tree
-				/* Tooltip:
+				DisplayName: Дерево создания
+				Tooltip:
 					'''
-					Copies difficult to obtain items
-					Consumes Enchanted Acorns when used
-					''' */
+					Копирует предметы, которые сложно получить
+					Тратит [i:Fargowiltas/EnchantedAcorn] зачарованные жёлуди при использовании
+					'''
 			}
 
 			EnchantedAcorn: {
-				// DisplayName: Enchanted Acorn
-				// Tooltip: ""
+				DisplayName: Зачарованный жёлудь
+				Tooltip: ""
 			}
 		}
 
@@ -2577,7 +2577,7 @@ Mods: {
 					Normal11: Почему ты так на меня смотришь? Твой стиль одежды так-то тоже никаких наград не заслуживает.
 					Normal12: Нет, я не дам тебе свою шляпу.
 					Normal13: Прими страдания... В смысле «ты уже это слышал»?
-					Normal14: Почему он называется «Дом листьев», если он сделан из бетона? Они совсем там сдурели?
+					Normal14: Почему он называется «Дом листьев», если там не растёт ни одного растения? Они совсем там сдурели?
 					Normal15: Можно ли считать это преступлением, если это делают абсолютно все? Не в тему, но сегодня ночью смотрим фильмы!
 					Normal16: Причинять мучения другим, конечно, круто, но ты когда-нибудь вылавливал 3-килограммового окуня?
 					Normal17: Ирония — лучший вид юмора, разве это не иронично?
@@ -3008,7 +3008,7 @@ Mods: {
 			MiniDirtInstabridgeProj.DisplayName: Мини Грязь МоментМост Снар
 			CoolCrab.DisplayName: Крутой краб
 			LumberJaxeProjectile.DisplayName: Снаряд ДревоБиллителя
-			// SacrificeProj.DisplayName: Sacrifice Proj
+			SacrificeProj.DisplayName: Подношение Снар
 		}
 
 		Tiles: {
@@ -3024,7 +3024,7 @@ Mods: {
 			SemistationSheet.MapEntry: Полустанция
 			SiblingPylonTile.MapEntry: Столб собратьев
 			PurityTotemSheet.MapEntry: Тотем чистоты
-			// SacrificeAltarSheet.MapEntry: Sacrifice Altar Sheet
+			SacrificeAltarSheet.MapEntry: Подношение Алтарь Таблица
 		}
 
 		Conditions: {
@@ -3131,11 +3131,11 @@ Mods: {
 			SoldAtThirtyStack: Продаются у Бельчонок: При получении в стаке из 30
 			SoldBy: Продаётся у
 			SeveralVendors: нескольких продавцов
-			// SacrificablePlural: Can be consumed at Sacrificial Altar {0} more times
-			// Sacrificable: Can be consumed at Sacrificial Altar 1 more time
-			// SacrificeEvent: Consume at Sacrificial Altar for a special event
-			// SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
-			// CraftingTreeDupable: Copyable with Crafting Tree
+			SacrificablePlural: Можно использовать на алтаре для подношений ещё {0} раз
+			Sacrificable: Можно использовать на алтаре для подношений ещё 1 раз
+			SacrificeEvent: Используйте на алтаре для подношений, чтобы начать особенное событие
+			SacrificeEventPlural: Используйте {0} штук на алтаре для подношений, чтобы начать особое событие
+			CraftingTreeDupable: Можно скопировать с помощью дерева создания
 		}
 
 		Emotes: {
@@ -3159,10 +3159,10 @@ Mods: {
 					{0}
 					{1}
 					'''
-				LeftOn: Бесконечные баффы вкл.
-				LeftOff: Бесконечные баффы выкл.
-				RightOn: Бесконечные баффы видимы
-				RightOff: Бесконечные баффы скрыты
+				LeftOn: Бесконечные баффы вкл. (ЛКМ)
+				LeftOff: Бесконечные баффы выкл. (ЛКМ)
+				RightOn: Бесконечные баффы видимы (ПКМ)
+				RightOff: Бесконечные баффы скрыты (ПКМ)
 			}
 		}
 	}
