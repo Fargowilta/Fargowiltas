@@ -2589,6 +2589,9 @@ Mods: {
 					// Cancel Event
 					Canceled: Кручу-верчу, событье завершить хочу!
 					CancelCD: Не, сейчас не хочу, вернись через {0} секунд.
+					// PillarFail: I'm not getting rid of those pillars, that's for you to do.
+					// PillarFail2: HКручу-верчу, событье завершить хочу! Those pillars are staying though.
+					// PillarFailCD: Не, сейчас не хочу, вернись через {0} секунд. Still not getting rid of those pillars, by the way.
 					NoEvent: Не думаю, что сейчас происходит что-то стоящее.
 				}
 

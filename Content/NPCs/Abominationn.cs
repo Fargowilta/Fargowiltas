@@ -226,7 +226,26 @@ namespace Fargowiltas.Content.NPCs
                     netMessage.Send();
                 }
 
-                if (Fargowiltas.IsEventOccurring)
+                if (!NPC.downedTowers && NPC.LunarApocalypseIsUp)
+                {
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                    {
+                        var netMessage = Mod.GetPacket();
+                        netMessage.Write((byte)2);
+                        netMessage.Send();
+                    }
+
+                    if (Fargowiltas.IsEventOccurring)
+                    {
+                        Main.npcChatText = Fargowiltas.TryClearEvents() ? AbomChat("PillarFail2") : AbomChat("PillarFailCD", FargoWorld.AbomClearCD / 60);
+                    }
+                    else
+                    {
+                        Main.npcChatText = AbomChat("PillarFail");
+                    }
+                }
+
+                else if (Fargowiltas.IsEventOccurring)
                 {
                     if (Main.netMode == NetmodeID.MultiplayerClient)
                     {
@@ -237,6 +256,7 @@ namespace Fargowiltas.Content.NPCs
 
                     Main.npcChatText = Fargowiltas.TryClearEvents() ? AbomChat("Canceled") : AbomChat("CancelCD", FargoWorld.AbomClearCD / 60);
                 }
+
                 else
                 {
                     Main.npcChatText = AbomChat("NoEvent");
