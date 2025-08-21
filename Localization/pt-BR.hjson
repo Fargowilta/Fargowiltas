@@ -2591,8 +2591,8 @@ Mods: {
 					CancelCD: Eu não tô com muita vontade agora, volte em {0} segundos.
 					NoEvent: Eu não acho que tenha um evento acontecendo.
 					// PillarFail: I'm not getting rid of those pillars, that's for you to do.
-					// PillarFail2: Hocus pocus, o evento acabou. Those pillars are staying though.
-					// PillarFailCD: Eu não tô com muita vontade agora, volte em {0} segundos. Still not getting rid of those pillars, by the way.
+					// PillarFail2: Hocus pocus, the event is over. Those pillars are staying though.
+					// PillarFailCD: I'm not feeling it right now, come back in {0} seconds. Still not getting rid of those pillars, by the way.
 				}
 
 				Census.SpawnCondition: Quando a Invasão Goblin for derrotada.
