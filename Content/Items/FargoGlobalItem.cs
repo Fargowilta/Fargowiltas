@@ -560,7 +560,7 @@ namespace Fargowiltas.Content.Items
                     case 6:
                         itemId = 3 + 562;
                         break;
-                        case 7:
+                    case 7:
                         itemId = 6 + 562;
                         break;
                     case 8:
@@ -638,6 +638,12 @@ namespace Fargowiltas.Content.Items
                         break;
                     }
                 }
+            }
+            if (item.type == ItemID.ReconScope && player == Main.LocalPlayer)
+            {
+                if (hideVisual)
+                    player.GetFargoPlayer().DisableScope = true;
+                else player.GetFargoPlayer().DisableScope = false;
             }
         }
 
