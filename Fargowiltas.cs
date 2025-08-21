@@ -701,7 +701,7 @@ namespace Fargowiltas
             || BirthdayParty.PartyIsUp
             || DD2Event.Ongoing
             || Sandstorm.Happening
-            || (NPC.downedTowers && (NPC.LunarApocalypseIsUp || NPC.ShieldStrengthTowerNebula > 0 || NPC.ShieldStrengthTowerSolar > 0 || NPC.ShieldStrengthTowerStardust > 0 || NPC.ShieldStrengthTowerVortex > 0))
+            || (NPC.downedTowers && (NPC.LunarApocalypseIsUp || NPC.ShieldStrengthTowerNebula >= 0 || NPC.ShieldStrengthTowerSolar >= 0 || NPC.ShieldStrengthTowerStardust >= 0 || NPC.ShieldStrengthTowerVortex >= 0))
             || ModEventActiveFuncs.Any(f => f.Invoke());
 
         internal static bool TryClearEvents()
@@ -770,7 +770,7 @@ namespace Fargowiltas
                     FargoUtils.PrintLocalization("MessageInfo.CancelSandstorm", new Color(175, 75, 255));
                 }
 
-                if (NPC.downedTowers && (NPC.LunarApocalypseIsUp || NPC.ShieldStrengthTowerNebula > 0 || NPC.ShieldStrengthTowerSolar > 0 || NPC.ShieldStrengthTowerStardust > 0 || NPC.ShieldStrengthTowerVortex > 0))
+                if (NPC.downedTowers && (NPC.LunarApocalypseIsUp || NPC.ShieldStrengthTowerNebula >= 0 || NPC.ShieldStrengthTowerSolar >= 0 || NPC.ShieldStrengthTowerStardust >= 0 || NPC.ShieldStrengthTowerVortex >= 0))
                 {
                     NPC.LunarApocalypseIsUp = false;
                     NPC.ShieldStrengthTowerNebula = 0;
