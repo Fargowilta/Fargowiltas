@@ -2590,6 +2590,9 @@ Mods: {
 					Canceled: Hocus pocus, the event is over.
 					CancelCD: I'm not feeling it right now, come back in {0} seconds.
 					NoEvent: I don't think there's an event right now.
+					PillarFail: I'm not getting rid of those pillars, that's for you to do.
+					PillarFail2: Hocus pocus, the event is over. Those pillars are staying though.
+					PillarFailCD: I'm not feeling it right now, come back in {0} seconds. Still not getting rid of those pillars, by the way.
 				}
 
 				Census.SpawnCondition: When the Goblin Army has been defeated.

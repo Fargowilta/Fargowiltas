@@ -2598,6 +2598,9 @@ Mods: {
 					// Cancel Event
 					Canceled: 天灵灵地灵灵，事件结束了！
 					CancelCD: 我现在没有力气，{0}秒之后再来吧。
+					// PillarFail: I'm not getting rid of those pillars, that's for you to do.
+					// PillarFail2: 天灵灵地灵灵，事件结束了！ Those pillars are staying though.
+					// PillarFailCD: 我现在没有力气，{0}秒之后再来吧。 Still not getting rid of those pillars, by the way.
 					NoEvent: 我认为现在没有事件。
 				}
 
