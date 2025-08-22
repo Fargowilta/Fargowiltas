@@ -171,6 +171,8 @@ namespace Fargowiltas
 
             On_Main.DoUpdateInWorld += UpdateCraftingTreeFruit;
             On_Main.DrawPlayers_AfterProjectiles += DrawCraftingTrees;
+
+            On_Main.DoDraw_UpdateCameraPosition += ReconScopeToggle;
         }
 
         
@@ -288,6 +290,8 @@ namespace Fargowiltas
 
             On_Main.DoUpdateInWorld -= UpdateCraftingTreeFruit;
             On_Main.DrawPlayers_AfterProjectiles -= DrawCraftingTrees;
+
+            On_Main.DoDraw_UpdateCameraPosition -= ReconScopeToggle;
 
             summonTracker = null;
             dialogueTracker = null;
@@ -1125,6 +1129,20 @@ namespace Fargowiltas
         {
             orig(self, sw);
             CraftingTreeTileEntity.UpdateCraftingTrees();
+        }
+
+        private static void ReconScopeToggle(On_Main.orig_DoDraw_UpdateCameraPosition orig)
+        {
+            bool scopeCheck = false;
+            var p = Main.LocalPlayer;
+            if (Main.myPlayer >= 0 && Main.myPlayer < 255 && p.active && p.scope && p.GetFargoPlayer().DisableScope && FargoClientConfig.Instance.DisableScopeView)
+            {
+                scopeCheck = p.scope;
+                p.scope = false;
+            }
+            orig();
+            if (scopeCheck)
+                p.scope = true;
         }
 
         //        private static void HookIntoLoad()

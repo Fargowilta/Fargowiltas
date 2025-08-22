@@ -325,6 +325,11 @@ Mods: {
 					Tooltip: ""
 				}
 
+				DisableScopeView: {
+					// Label: "[i:4005] Recon Scope Binocular Vision Toggle"
+					// Tooltip: Disables Recon Scope binocular vision while the accessory visibility is hidden
+				}
+
 				Headers: {
 					UserInterface: Пользовательский интерфейс
 					Misc: Разное
@@ -2589,10 +2594,10 @@ Mods: {
 					// Cancel Event
 					Canceled: Кручу-верчу, событье завершить хочу!
 					CancelCD: Не, сейчас не хочу, вернись через {0} секунд.
-					// PillarFail: I'm not getting rid of those pillars, that's for you to do.
-					// PillarFail2: HКручу-верчу, событье завершить хочу! Those pillars are staying though.
-					// PillarFailCD: Не, сейчас не хочу, вернись через {0} секунд. Still not getting rid of those pillars, by the way.
 					NoEvent: Не думаю, что сейчас происходит что-то стоящее.
+					// PillarFail: I'm not getting rid of those pillars, that's for you to do.
+					// PillarFail2: Hocus pocus, the event is over. Those pillars are staying though.
+					// PillarFailCD: I'm not feeling it right now, come back in {0} seconds. Still not getting rid of those pillars, by the way.
 				}
 
 				Census.SpawnCondition: После победы над армией гоблинов.
@@ -3139,6 +3144,7 @@ Mods: {
 			SacrificeEvent: Используйте на алтаре для подношений, чтобы начать особенное событие
 			SacrificeEventPlural: Используйте {0} штук на алтаре для подношений, чтобы начать особое событие
 			CraftingTreeDupable: Можно скопировать с помощью дерева создания
+			// ScopeBinocularToggle: Binocular vision disabled while accessory visibility is hidden
 		}
 
 		Emotes: {

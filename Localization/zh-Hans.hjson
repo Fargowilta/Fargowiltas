@@ -333,6 +333,11 @@ Mods: {
 					Tooltip: ""
 				}
 
+				DisableScopeView: {
+					// Label: "[i:4005] Recon Scope Binocular Vision Toggle"
+					// Tooltip: Disables Recon Scope binocular vision while the accessory visibility is hidden
+				}
+
 				Headers: {
 					// UserInterface: User Interface
 					// Misc: Miscellaneous
@@ -2598,10 +2603,10 @@ Mods: {
 					// Cancel Event
 					Canceled: 天灵灵地灵灵，事件结束了！
 					CancelCD: 我现在没有力气，{0}秒之后再来吧。
-					// PillarFail: I'm not getting rid of those pillars, that's for you to do.
-					// PillarFail2: 天灵灵地灵灵，事件结束了！ Those pillars are staying though.
-					// PillarFailCD: 我现在没有力气，{0}秒之后再来吧。 Still not getting rid of those pillars, by the way.
 					NoEvent: 我认为现在没有事件。
+					// PillarFail: I'm not getting rid of those pillars, that's for you to do.
+					// PillarFail2: Hocus pocus, the event is over. Those pillars are staying though.
+					// PillarFailCD: I'm not feeling it right now, come back in {0} seconds. Still not getting rid of those pillars, by the way.
 				}
 
 				Census.SpawnCondition: 击败过哥布林入侵。
@@ -3148,6 +3153,7 @@ Mods: {
 			// SacrificeEvent: Consume at Sacrificial Altar for a special event
 			// SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
 			// CraftingTreeDupable: Copyable with Crafting Tree
+			// ScopeBinocularToggle: Binocular vision disabled while accessory visibility is hidden
 		}
 
 		Emotes: {

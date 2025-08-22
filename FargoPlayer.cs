@@ -53,6 +53,7 @@ namespace Fargowiltas
         public bool bigSuck;
         public bool CoolCrab;
 
+        public bool DisableScope;
         public int StationSoundCooldown;
 
         internal Dictionary<string, bool> FirstDyeIngredients = [];

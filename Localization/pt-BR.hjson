@@ -325,6 +325,11 @@ Mods: {
 					Tooltip: ""
 				}
 
+				DisableScopeView: {
+					// Label: "[i:4005] Recon Scope Binocular Vision Toggle"
+					// Tooltip: Disables Recon Scope binocular vision while the accessory visibility is hidden
+				}
+
 				Headers: {
 					// UserInterface: User Interface
 					// Misc: Miscellaneous
@@ -2591,8 +2596,8 @@ Mods: {
 					CancelCD: Eu não tô com muita vontade agora, volte em {0} segundos.
 					NoEvent: Eu não acho que tenha um evento acontecendo.
 					// PillarFail: I'm not getting rid of those pillars, that's for you to do.
-					// PillarFail2: Hocus pocus, o evento acabou. Those pillars are staying though.
-					// PillarFailCD: Eu não tô com muita vontade agora, volte em {0} segundos. Still not getting rid of those pillars, by the way.
+					// PillarFail2: Hocus pocus, the event is over. Those pillars are staying though.
+					// PillarFailCD: I'm not feeling it right now, come back in {0} seconds. Still not getting rid of those pillars, by the way.
 				}
 
 				Census.SpawnCondition: Quando a Invasão Goblin for derrotada.
@@ -3139,6 +3144,7 @@ Mods: {
 			// SacrificeEvent: Consume at Sacrificial Altar for a special event
 			// SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
 			// CraftingTreeDupable: Copyable with Crafting Tree
+			// ScopeBinocularToggle: Binocular vision disabled while accessory visibility is hidden
 		}
 
 		Emotes: {
