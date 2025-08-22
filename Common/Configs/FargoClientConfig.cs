@@ -45,6 +45,9 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(true)]
         public bool MultiplayerDeathSpectate;
 
+        [DefaultValue(true)]
+        public bool DisableScopeView;
+
         [DefaultValue(1f)]
         [Slider]
         public float TransparentFriendlyProjectiles;

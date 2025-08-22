@@ -325,6 +325,11 @@ Mods: {
 					Tooltip: ""
 				}
 
+				DisableScopeView: {
+					// Label: "[i:4005] Recon Scope Binocular Vision Toggle"
+					// Tooltip: Disables Recon Scope binocular vision while the accessory visibility is hidden
+				}
+
 				Headers: {
 					UserInterface: Пользовательский интерфейс
 					Misc: Разное
@@ -3139,6 +3144,7 @@ Mods: {
 			SacrificeEvent: Используйте на алтаре для подношений, чтобы начать особенное событие
 			SacrificeEventPlural: Используйте {0} штук на алтаре для подношений, чтобы начать особое событие
 			CraftingTreeDupable: Можно скопировать с помощью дерева создания
+			// ScopeBinocularToggle: Binocular vision disabled while accessory visibility is hidden
 		}
 
 		Emotes: {

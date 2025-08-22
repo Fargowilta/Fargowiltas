@@ -383,6 +383,12 @@ namespace Fargowiltas.Content.Items
                     }
                 }
             }
+
+            if (FargoClientConfig.Instance.DisableScopeView && item.type == ItemID.ReconScope)
+            {
+                TooltipLine line = new TooltipLine(Mod, "TooltipScope", $"[i:1299] [c/AAAAAA:{ExpandedTooltipLoc("ScopeBinocularToggle")}]");
+                tooltips.Add(line);
+            }
         }
 
         public override void SetDefaults(Item item)
@@ -639,7 +645,7 @@ namespace Fargowiltas.Content.Items
                     }
                 }
             }
-            if (item.type == ItemID.ReconScope && player == Main.LocalPlayer)
+            if (item.type == ItemID.ReconScope && player == Main.LocalPlayer && FargoClientConfig.Instance.DisableScopeView)
             {
                 if (hideVisual)
                     player.GetFargoPlayer().DisableScope = true;
