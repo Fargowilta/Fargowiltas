@@ -172,7 +172,7 @@ namespace Fargowiltas
             On_Main.DoUpdateInWorld += UpdateCraftingTreeFruit;
             On_Main.DrawPlayers_AfterProjectiles += DrawCraftingTrees;
 
-            On_Main.DoDraw_UpdateCameraPosition += ReconScopeToggle;
+            On_Main.DoDraw_UpdateCameraPosition += ScopeBinocularToggle;
         }
 
         
@@ -291,7 +291,7 @@ namespace Fargowiltas
             On_Main.DoUpdateInWorld -= UpdateCraftingTreeFruit;
             On_Main.DrawPlayers_AfterProjectiles -= DrawCraftingTrees;
 
-            On_Main.DoDraw_UpdateCameraPosition -= ReconScopeToggle;
+            On_Main.DoDraw_UpdateCameraPosition -= ScopeBinocularToggle;
 
             summonTracker = null;
             dialogueTracker = null;
@@ -1131,18 +1131,30 @@ namespace Fargowiltas
             CraftingTreeTileEntity.UpdateCraftingTrees();
         }
 
-        private static void ReconScopeToggle(On_Main.orig_DoDraw_UpdateCameraPosition orig)
+        private static void ScopeBinocularToggle(On_Main.orig_DoDraw_UpdateCameraPosition orig)
         {
             bool scopeCheck = false;
             var p = Main.LocalPlayer;
-            if (Main.myPlayer >= 0 && Main.myPlayer < 255 && p.active && p.scope && p.GetFargoPlayer().DisableScope && FargoClientConfig.Instance.DisableScopeView)
+            bool config = FargoClientConfig.Instance.DisableScopeView;
+
+            if (Main.myPlayer >= 0 && Main.myPlayer < 255 && p.active && !p.dead && p.HeldItem != null && p.HeldItem.useAmmo > AmmoID.None && p.scope && Main.mouseRight && config)
             {
-                scopeCheck = p.scope;
-                p.scope = false;
+                int[] ammo = [AmmoID.Bullet, AmmoID.CandyCorn, AmmoID.Stake, AmmoID.Gel, AmmoID.Solution];
+
+                if ((p.GetFargoPlayer().ScopeAccessoryHidden && ammo.Contains(p.HeldItem.useAmmo)) || p.HeldItem.type == ItemID.SniperRifle)
+                {
+                    scopeCheck = Main.mouseRight;
+                    Main.mouseRight = false;
+                }
             }
+
             orig();
+
             if (scopeCheck)
-                p.scope = true;
+            {
+                Main.mouseRight = true;
+                p.GetFargoPlayer().ScopeAccessoryHidden = false;
+            }
         }
 
         //        private static void HookIntoLoad()

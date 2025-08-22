@@ -326,8 +326,8 @@ Mods: {
 				}
 
 				DisableScopeView: {
-					Label: "[i:4005] Recon Scope Binocular Vision Toggle"
-					Tooltip: Disables Recon Scope binocular vision while the accessory visibility is hidden
+					Label: "[i:1300] Rifle Scope Binocular Vision Toggle"
+					Tooltip: Allows the toggling of the Rifle Scope's binocular vision while its visibility is hidden, and disables it on Sniper Rifle
 				}
 
 				Headers: {
@@ -3144,7 +3144,8 @@ Mods: {
 			SacrificeEvent: Consume at Sacrificial Altar for a special event
 			SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
 			CraftingTreeDupable: Copyable with Crafting Tree
-			ScopeBinocularToggle: Binocular vision disabled while accessory visibility is hidden
+			RifleScopeBinocularToggle: Binocular vision disabled while accessory visibility is hidden
+			SniperRifleBinocularToggle: Binocular vision disabled
 		}
 
 		Emotes: {

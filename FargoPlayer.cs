@@ -53,7 +53,7 @@ namespace Fargowiltas
         public bool bigSuck;
         public bool CoolCrab;
 
-        public bool DisableScope;
+        public bool ScopeAccessoryHidden; // Rifle Scope, Sniper Scope, Recon Scope
         public int StationSoundCooldown;
 
         internal Dictionary<string, bool> FirstDyeIngredients = [];
