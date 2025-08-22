@@ -384,10 +384,18 @@ namespace Fargowiltas.Content.Items
                 }
             }
 
-            if (FargoClientConfig.Instance.DisableScopeView && item.type == ItemID.ReconScope)
+            if (FargoClientConfig.Instance.DisableScopeView && item.type is ItemID.SniperRifle or ItemID.RifleScope or ItemID.SniperScope or ItemID.ReconScope)
             {
-                TooltipLine line = new TooltipLine(Mod, "TooltipScope", $"[i:1299] [c/AAAAAA:{ExpandedTooltipLoc("ScopeBinocularToggle")}]");
-                tooltips.Add(line);
+                if (item.type is ItemID.SniperRifle)
+                {
+                    TooltipLine line = new TooltipLine(Mod, "TooltipSniperRifleBinocular", $"[i:1300] [c/AAAAAA:{ExpandedTooltipLoc("SniperRifleBinocularToggle")}]");
+                    tooltips.Add(line);
+                }
+                if (item.type is ItemID.RifleScope or ItemID.SniperScope or ItemID.ReconScope)
+                {
+                    TooltipLine line = new TooltipLine(Mod, "TooltipRifleScopeBinocular", $"[i:1300] [c/AAAAAA:{ExpandedTooltipLoc("RifleScopeBinocularToggle")}]");
+                    tooltips.Add(line);
+                }
             }
         }
 
@@ -645,11 +653,15 @@ namespace Fargowiltas.Content.Items
                     }
                 }
             }
-            if (item.type == ItemID.ReconScope && player == Main.LocalPlayer && FargoClientConfig.Instance.DisableScopeView)
+            if (player == Main.LocalPlayer)
             {
-                if (hideVisual)
-                    player.GetFargoPlayer().DisableScope = true;
-                else player.GetFargoPlayer().DisableScope = false;
+                FargoPlayer p = player.GetFargoPlayer();
+                bool scopeConfig = FargoClientConfig.Instance.DisableScopeView;
+
+                if (item.type is ItemID.RifleScope or ItemID.SniperScope or ItemID.ReconScope && hideVisual && scopeConfig)
+                {
+                    p.ScopeAccessoryHidden = true;
+                }
             }
         }
 

@@ -3144,7 +3144,8 @@ Mods: {
 			SacrificeEvent: Используйте на алтаре для подношений, чтобы начать особенное событие
 			SacrificeEventPlural: Используйте {0} штук на алтаре для подношений, чтобы начать особое событие
 			CraftingTreeDupable: Можно скопировать с помощью дерева создания
-			ScopeBinocularToggle: Отдаление обзора можно выключить, переключив видимость аксессуара
+			RifleScopeBinocularToggle: Отдаление обзора можно выключить, переключив видимость аксессуара
+			// SniperRifleBinocularToggle: Binocular vision disabled
 		}
 
 		Emotes: {
