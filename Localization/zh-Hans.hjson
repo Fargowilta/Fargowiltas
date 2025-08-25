@@ -274,11 +274,6 @@ Mods: {
 					Tooltip: 玩家死亡后不再生成墓碑
 				}
 
-				SacrificeSystem: {
-					// Label: Sacrifice System
-					// Tooltip: ""
-				}
-
 				EasySummons: {
 					// Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
 					// Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements.
@@ -2495,16 +2490,6 @@ Mods: {
 				Tooltip: "'咯吱咯吱！'"
 			}
 
-			SacrificeAltar: {
-				// DisplayName: Sacrificial Altar
-				/* Tooltip:
-					'''
-					Sacrifice items for random loot
-					Only certain items can be sacrificed
-					Each item type can only be sacrificed a certain amount of times
-					''' */
-			}
-
 			// EnrageWarning.QueenBee: Enrages on the surface
 
 			WormSnack: {
@@ -2972,6 +2957,8 @@ Mods: {
 				}
 
 				Census.SpawnCondition: 库存中有一只高顶礼帽松鼠。
+				// Feed: Feed Held Item
+				// Crunch: *crunch*
 			}
 
 			// SuperDummyNPC.DisplayName: Super Dummy
@@ -3025,7 +3012,6 @@ Mods: {
 			MiniDirtInstabridgeProj.DisplayName: 迷你泥土平台
 			CoolCrab.DisplayName: 时髦螃蟹
 			// LumberJaxeProjectile.DisplayName: Lumber Jaxe Projectile
-			// SacrificeProj.DisplayName: Sacrifice Proj
 		}
 
 		Tiles: {
@@ -3041,7 +3027,6 @@ Mods: {
 			SemistationSheet.MapEntry: 多功能增益站
 			SiblingPylonTile.MapEntry: 血亲晶塔
 			PurityTotemSheet.MapEntry: 纯净图腾
-			// SacrificeAltarSheet.MapEntry: Sacrifice Altar Sheet
 		}
 
 		Conditions: {
@@ -3148,10 +3133,10 @@ Mods: {
 			SoldAtThirtyStack: 堆叠30个时松鼠售卖
 			SoldBy: 售卖于
 			SeveralVendors: 多个商人
-			// SacrificablePlural: Can be consumed at Sacrificial Altar {0} more times
-			// Sacrificable: Can be consumed at Sacrificial Altar 1 more time
-			// SacrificeEvent: Consume at Sacrificial Altar for a special event
-			// SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
+			// SacrificablePlural: Can be fed to the Squirrel {0} more times
+			// Sacrificable: Can be fed to the Squirrel 1 more time
+			// SacrificeEvent: Feed to the Squirrel for a special event
+			// SacrificeEventPlural: Feed {0} to the Squirrel for a special event
 			// CraftingTreeDupable: Copyable with Crafting Tree
 			// RifleScopeBinocularToggle: Binocular vision disabled while accessory visibility is hidden
 			// SniperRifleBinocularToggle: Binocular vision disabled

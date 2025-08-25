@@ -266,11 +266,6 @@ Mods: {
 					Tooltip: Пока включена, надгробия не появляются на месте смерти игрока.
 				}
 
-				SacrificeSystem: {
-					Label: Подношения
-					Tooltip: ""
-				}
-
 				EasySummons: {
 					Label: "[i:Fargowiltas/SuspiciousSkull] Облегченный призыв боссов"
 					Tooltip: Предметы призыва боссов и событий игнорируют требования и изменяют время если нужно.
@@ -2486,16 +2481,6 @@ Mods: {
 				Tooltip: «Шмульк-бубуль!»
 			}
 
-			SacrificeAltar: {
-				DisplayName: Алтарь для подношений
-				Tooltip:
-					'''
-					Позволяет сделать подношение в обмен на случайный предмет
-					Только некоторые предметы можно использовать как подношения
-					Каждый такой предмет можно испольховать как подношение ограниченное кол-во раз
-					'''
-			}
-
 			EnrageWarning.QueenBee: Разъяряется на поверхности
 
 			WormSnack: {
@@ -2963,6 +2948,8 @@ Mods: {
 				}
 
 				Census.SpawnCondition: Если у вас в инвентаре есть белка в цилиндре.
+				// Feed: Feed Held Item
+				// Crunch: *crunch*
 			}
 
 			SuperDummyNPC.DisplayName: Супер-манекен
@@ -3016,7 +3003,6 @@ Mods: {
 			MiniDirtInstabridgeProj.DisplayName: Мини Грязь МоментМост Снар
 			CoolCrab.DisplayName: Крутой краб
 			LumberJaxeProjectile.DisplayName: Снаряд ДревоБиллителя
-			SacrificeProj.DisplayName: Подношение Снар
 		}
 
 		Tiles: {
@@ -3032,7 +3018,6 @@ Mods: {
 			SemistationSheet.MapEntry: Полустанция
 			SiblingPylonTile.MapEntry: Столб собратьев
 			PurityTotemSheet.MapEntry: Тотем чистоты
-			SacrificeAltarSheet.MapEntry: Подношение Алтарь Таблица
 		}
 
 		Conditions: {

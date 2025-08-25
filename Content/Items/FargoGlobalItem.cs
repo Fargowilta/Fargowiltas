@@ -309,19 +309,19 @@ namespace Fargowiltas.Content.Items
                 }
 
                 int sacCount = FargoSets.Items.SacrificeCount[item.type];
-                if (SacrificeAltarSheet.EventSacrifice(item, out int consumeCount, false))
+                if (Squirrel.EventSacrifice(item, out int consumeCount, false))
                 {
                     if (consumeCount > 1)
                     {
                         line = new TooltipLine(Mod, "TooltipSacrificable",
-                            $"[i:{ItemType<SacrificeAltar>()}] [c/AAAAAA:{Language.GetTextValue($"Mods.Fargowiltas.ExpandedTooltips.SacrificeEventPlural", consumeCount)}]");
+                            $"[i:{CaughtNPCItem.CaughtTownies[NPCType<Squirrel>()]}] [c/AAAAAA:{Language.GetTextValue($"Mods.Fargowiltas.ExpandedTooltips.SacrificeEventPlural", consumeCount)}]");
                         tooltips.Add(line);
                         
                     }
                     else
                     {
                         line = new TooltipLine(Mod, "TooltipSacrificable",
-                            $"[i:{ItemType<SacrificeAltar>()}] [c/AAAAAA:{ExpandedTooltipLoc("SacrificeEvent")}]");
+                            $"[i:{CaughtNPCItem.CaughtTownies[NPCType<Squirrel>()]}] [c/AAAAAA:{ExpandedTooltipLoc("SacrificeEvent")}]");
                         tooltips.Add(line);
                     }
                         
@@ -331,13 +331,13 @@ namespace Fargowiltas.Content.Items
                     if (sacCount > 1)
                     {
                         line = new TooltipLine(Mod, "TooltipSacrificable",
-                        $"[i:{ItemType<SacrificeAltar>()}] [c/AAAAAA:{Language.GetTextValue($"Mods.Fargowiltas.ExpandedTooltips.SacrificablePlural", sacCount)}]");
+                        $"[i:{CaughtNPCItem.CaughtTownies[NPCType<Squirrel>()]}] [c/AAAAAA:{Language.GetTextValue($"Mods.Fargowiltas.ExpandedTooltips.SacrificablePlural", sacCount)}]");
                         tooltips.Add(line);
                     }
                     else
                     {
                         line = new TooltipLine(Mod, "TooltipSacrificable",
-                        $"[i:{ItemType<SacrificeAltar>()}] [c/AAAAAA:{ExpandedTooltipLoc("Sacrificable")}]");
+                        $"[i:{CaughtNPCItem.CaughtTownies[NPCType<Squirrel>()]}] [c/AAAAAA:{ExpandedTooltipLoc("Sacrificable")}]");
                         tooltips.Add(line);
                     }
                 }

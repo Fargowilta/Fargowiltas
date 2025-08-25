@@ -1,5 +1,6 @@
 ﻿using Fargowiltas.Content.Items.Misc;
 using Fargowiltas.Content.Items.Tiles;
+using Fargowiltas.Content.NPCs;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -130,7 +131,7 @@ namespace Fargowiltas
 
             Items.RegisteredShopTooltips = itemFactory.CreateCustomSet<List<ShopTooltip>>(null);
 
-            Items.SacrificeCountDefault = SacrificeAltarSheet.SetDefaultSacrificeCount(itemFactory);
+            Items.SacrificeCountDefault = Squirrel.SetDefaultSacrificeCount(itemFactory);
 
             Items.SacrificeCount = itemFactory.CreateIntSet(0);
             #endregion

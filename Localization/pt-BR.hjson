@@ -266,11 +266,6 @@ Mods: {
 					Tooltip: Faz lápides não aparecerem quando um jogador morre.
 				}
 
-				SacrificeSystem: {
-					// Label: Sacrifice System
-					// Tooltip: ""
-				}
-
 				EasySummons: {
 					// Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
 					// Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements.
@@ -2486,16 +2481,6 @@ Mods: {
 				Tooltip: "'Squish 'n sploink!'"
 			}
 
-			SacrificeAltar: {
-				// DisplayName: Sacrificial Altar
-				/* Tooltip:
-					'''
-					Sacrifice items for random loot
-					Only certain items can be sacrificed
-					Each item type can only be sacrificed a certain amount of times
-					''' */
-			}
-
 			// EnrageWarning.QueenBee: Enrages on the surface
 
 			WormSnack: {
@@ -2963,6 +2948,8 @@ Mods: {
 				}
 
 				Census.SpawnCondition: Tenha um esquilo de cartola no seu inventário.
+				// Feed: Feed Held Item
+				// Crunch: *crunch*
 			}
 
 			// SuperDummyNPC.DisplayName: Super Dummy
@@ -3016,7 +3003,6 @@ Mods: {
 			MiniDirtInstabridgeProj.DisplayName: Proj de mini instaponte de terra
 			CoolCrab.DisplayName: Carangueijo Maneiro
 			// LumberJaxeProjectile.DisplayName: Lumber Jaxe Projectile
-			// SacrificeProj.DisplayName: Sacrifice Proj
 		}
 
 		Tiles: {
@@ -3032,7 +3018,6 @@ Mods: {
 			SemistationSheet.MapEntry: Semistação
 			SiblingPylonTile.MapEntry: Pilar dos Irmãos
 			PurityTotemSheet.MapEntry: Totem da Pureza
-			// SacrificeAltarSheet.MapEntry: Sacrifice Altar Sheet
 		}
 
 		Conditions: {
@@ -3139,10 +3124,10 @@ Mods: {
 			SoldAtThirtyStack: Vendido pelo Esquilo: Quando 30 de uma vez são obtidos
 			SoldBy: Vendido por
 			SeveralVendors: Diversos comerciantes
-			// SacrificablePlural: Can be consumed at Sacrificial Altar {0} more times
-			// Sacrificable: Can be consumed at Sacrificial Altar 1 more time
-			// SacrificeEvent: Consume at Sacrificial Altar for a special event
-			// SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
+			// SacrificablePlural: Can be fed to the Squirrel {0} more times
+			// Sacrificable: Can be fed to the Squirrel 1 more time
+			// SacrificeEvent: Feed to the Squirrel for a special event
+			// SacrificeEventPlural: Feed {0} to the Squirrel for a special event
 			// CraftingTreeDupable: Copyable with Crafting Tree
 			// RifleScopeBinocularToggle: Binocular vision disabled while accessory visibility is hidden
 			// SniperRifleBinocularToggle: Binocular vision disabled
