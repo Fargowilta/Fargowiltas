@@ -61,9 +61,9 @@ namespace Fargowiltas
             {
                 float dmg;
                 if (HardmodeSwarmActive)
-                    dmg = 57 + 36 * SwarmItemsUsed;
+                    dmg = 63 + 2 * SwarmItemsUsed;
                 else
-                    dmg = 46 + 3 * SwarmItemsUsed;
+                    dmg = 40 + 1 * SwarmItemsUsed;
                 if (Main.masterMode)
                     dmg /= 1.2f;
                 return (int)dmg;

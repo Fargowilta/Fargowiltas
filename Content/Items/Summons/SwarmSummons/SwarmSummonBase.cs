@@ -59,9 +59,9 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons
 
             //DG special case
             if (npcType == NPCID.SkeletronHead && Main.dayTime)
-            {
                 npcType = NPCID.DungeonGuardian;
-            }
+            if (npcType == NPCID.DungeonGuardian && !Main.dayTime)
+                npcType = NPCID.SkeletronHead;
 
             //wof mega special case
             if (npcType == NPCID.WallofFlesh)

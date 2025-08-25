@@ -49,8 +49,8 @@ namespace Fargowiltas.Content.NPCs
         {
             const int k = 1000;
             const int m = k * k;
-            int baseHealth = 28 * k;
-            int baseHealthHM = 160 * k;
+            int baseHealth = 18 * k;
+            int baseHealthHM = 80 * k;
             bool validBoss = true;
             if (Fargowiltas.SwarmSetDefaults)
             {
@@ -151,7 +151,7 @@ namespace Fargowiltas.Content.NPCs
                         break;
 
                     case NPCID.MoonLordCore:
-                        npc.lifeMax = baseHealthHM / 2;
+                        npc.lifeMax = (int)(baseHealthHM / 2.5f);
                         Fargowiltas.HardmodeSwarmActive = true;
                         Fargowiltas.LateHardmodeSwarmActive = true;
                         break;
