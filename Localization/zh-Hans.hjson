@@ -3027,6 +3027,7 @@ Mods: {
 			SemistationSheet.MapEntry: 多功能增益站
 			SiblingPylonTile.MapEntry: 血亲晶塔
 			PurityTotemSheet.MapEntry: 纯净图腾
+			// EnchantedTreeSheet.MapEntry: Enchanted Tree
 		}
 
 		Conditions: {

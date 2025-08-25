@@ -3018,6 +3018,7 @@ Mods: {
 			SemistationSheet.MapEntry: Полустанция
 			SiblingPylonTile.MapEntry: Столб собратьев
 			PurityTotemSheet.MapEntry: Тотем чистоты
+			// EnchantedTreeSheet.MapEntry: Enchanted Tree
 		}
 
 		Conditions: {

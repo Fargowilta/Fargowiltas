@@ -3018,6 +3018,7 @@ Mods: {
 			SemistationSheet.MapEntry: Semistation
 			SiblingPylonTile.MapEntry: Sibling Pylon
 			PurityTotemSheet.MapEntry: Purity Totem
+			EnchantedTreeSheet.MapEntry: Enchanted Tree
 		}
 
 		Conditions: {

@@ -9,6 +9,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 namespace Fargowiltas.Content.Items.Tiles
@@ -22,7 +23,9 @@ namespace Fargowiltas.Content.Items.Tiles
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = false;
             DustType = DustID.Stone;
-            AddMapEntry(Color.DarkGray);
+            LocalizedText name = CreateMapEntryName();
+            AddMapEntry(Color.DarkGray, name);
+            Main.tileNoAttach[Type] = true;
             Main.tileFrameImportant[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4);
             TileObjectData.newTile.Width = 3;

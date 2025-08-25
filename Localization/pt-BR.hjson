@@ -3018,6 +3018,7 @@ Mods: {
 			SemistationSheet.MapEntry: Semistação
 			SiblingPylonTile.MapEntry: Pilar dos Irmãos
 			PurityTotemSheet.MapEntry: Totem da Pureza
+			// EnchantedTreeSheet.MapEntry: Enchanted Tree
 		}
 
 		Conditions: {
