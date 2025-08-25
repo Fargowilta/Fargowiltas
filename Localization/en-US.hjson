@@ -325,6 +325,11 @@ Mods: {
 					Tooltip: ""
 				}
 
+				DisableScopeView: {
+					Label: "[i:1300] Rifle Scope Binocular Vision Toggle"
+					Tooltip: Allows the toggling of the Rifle Scope's binocular vision while its visibility is hidden, and disables it on Sniper Rifle
+				}
+
 				Headers: {
 					UserInterface: User Interface
 					Misc: Miscellaneous
@@ -2590,6 +2595,9 @@ Mods: {
 					Canceled: Hocus pocus, the event is over.
 					CancelCD: I'm not feeling it right now, come back in {0} seconds.
 					NoEvent: I don't think there's an event right now.
+					PillarFail: I'm not getting rid of those pillars, that's for you to do.
+					PillarFail2: Hocus pocus, the event is over. Those pillars are staying though.
+					PillarFailCD: I'm not feeling it right now, come back in {0} seconds. Still not getting rid of those pillars, by the way.
 				}
 
 				Census.SpawnCondition: When the Goblin Army has been defeated.
@@ -2708,7 +2716,7 @@ Mods: {
 					UndergroundShadowHands: Scared of the dark? No? Well you should be! I heard a rumor that a monster is trying to grab people underground... spooky. Stay out of the darkness and they can't get you!
 					UndergroundHallow: That's a funny face you're making... Is the underground Hallow too blinding? Remain in darker areas and its volatile effects are reduced!
 					LifeFruit: If you ask me, Plantera is really letting herself go. A diet of Chlorophyte Ore and Life Fruit isn't THAT healthy! Why don't you help her slim down?
-					CactusDamage: Those cacti can be pretty prickly! Feeling prickled? Try enchanting yourself with cactus essence and see how it goes!
+					CactusDamage: Some cacti have teeth. Don't know why they'd need it, with the thorn and all, but watch out for cacti trying to bite you anyway!
 					RainLightning: Watch out for the lightning when it rains. It's good to pack an umbrella so you're not caught out and end up all wet!
 				}
 
@@ -3136,6 +3144,8 @@ Mods: {
 			SacrificeEvent: Consume at Sacrificial Altar for a special event
 			SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
 			CraftingTreeDupable: Copyable with Crafting Tree
+			RifleScopeBinocularToggle: Binocular vision disabled while accessory visibility is hidden
+			SniperRifleBinocularToggle: Binocular vision disabled
 		}
 
 		Emotes: {

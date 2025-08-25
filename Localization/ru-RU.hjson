@@ -325,6 +325,11 @@ Mods: {
 					Tooltip: ""
 				}
 
+				DisableScopeView: {
+					Label: "[i:4005] Отдаление обзора для прицелов"
+					Tooltip: Позволяет отключить отдаление обзора для аксессуаров-прицелов, отключив их видимость
+				}
+
 				Headers: {
 					UserInterface: Пользовательский интерфейс
 					Misc: Разное
@@ -866,7 +871,7 @@ Mods: {
 				Tooltip:
 					'''
 					Создаёт длинный мост из платформ у курсора
-					Не разрушает блоки
+					Не разрушает блоки и перестаёт ставить платформы при столкновении с блоками
 					'''
 			}
 
@@ -2504,17 +2509,17 @@ Mods: {
 			}
 
 			CraftingTree: {
-				// DisplayName: Crafting Tree
-				/* Tooltip:
+				DisplayName: Дерево создания
+				Tooltip:
 					'''
-					Copies difficult to obtain items
-					Consumes Enchanted Acorns when used
-					''' */
+					Копирует предметы, которые сложно получить
+					Тратит [i:Fargowiltas/EnchantedAcorn] зачарованные жёлуди при использовании
+					'''
 			}
 
 			EnchantedAcorn: {
-				// DisplayName: Enchanted Acorn
-				// Tooltip: ""
+				DisplayName: Зачарованный жёлудь
+				Tooltip: ""
 			}
 		}
 
@@ -2577,7 +2582,7 @@ Mods: {
 					Normal11: Почему ты так на меня смотришь? Твой стиль одежды так-то тоже никаких наград не заслуживает.
 					Normal12: Нет, я не дам тебе свою шляпу.
 					Normal13: Прими страдания... В смысле «ты уже это слышал»?
-					Normal14: Почему он называется «Дом листьев», если он сделан из бетона? Они совсем там сдурели?
+					Normal14: Почему он называется «Дом листьев», если там не растёт ни одного растения? Они совсем там сдурели?
 					Normal15: Можно ли считать это преступлением, если это делают абсолютно все? Не в тему, но сегодня ночью смотрим фильмы!
 					Normal16: Причинять мучения другим, конечно, круто, но ты когда-нибудь вылавливал 3-килограммового окуня?
 					Normal17: Ирония — лучший вид юмора, разве это не иронично?
@@ -2590,6 +2595,9 @@ Mods: {
 					Canceled: Кручу-верчу, событье завершить хочу!
 					CancelCD: Не, сейчас не хочу, вернись через {0} секунд.
 					NoEvent: Не думаю, что сейчас происходит что-то стоящее.
+					// PillarFail: I'm not getting rid of those pillars, that's for you to do.
+					// PillarFail2: Hocus pocus, the event is over. Those pillars are staying though.
+					// PillarFailCD: I'm not feeling it right now, come back in {0} seconds. Still not getting rid of those pillars, by the way.
 				}
 
 				Census.SpawnCondition: После победы над армией гоблинов.
@@ -2643,7 +2651,7 @@ Mods: {
 					EridanusArmor: УВА! Не бей меня... а, это всего лишь ты. Не пугай меня так! И почему эта ШТУКА преследует тебя?!
 					NekomiArmor: Оо, это же моё худи! Как тебе? Комфортное и отлично подходит для игр, не находишь? Может, ты даже сможешь убить в нём босса, не получив урона!
 					Defeat: Хорошая работа, заслуженная победа надо мной! Надеюсь, я не заставила тебя вспотеть. Продолжай в том же духе — хочу посмотреть, насколько далеко ты зайдёшь!
-					Stinky: Вау, пахнешь как помои. Ты когда в последний раз мыло в руки брал, вонючка?
+					Stinky: Вау, пахнешь отвратно. Пора бы тебе принять ванну, а то так всех жильцов перепугаешь.
 					LoveStruck: В меня летит слишком много твоих сердец! Извини, но наши отношения пока что только на уровне {0}!
 					BloodMoon: Влияние кровавой луны? Я больше не человек, потому неа!
 					HM: Внезапная мысль. Если я пропущу тебя через мясорубку, и всё, что от тебя останется — это лишь два красителя... Я определённо буду богатой! Не то чтобы я, не именно тебя, в смысле... неважно!
@@ -2652,7 +2660,7 @@ Mods: {
 					Lumber: Что-что? Хочешь, чтобы {0} и ты сразились? ...даже я бы не стала.
 					EternityMode: Прими страдания... а пока ты будешь занят этим, я приму твои деньги!
 					// Normal
-					Formattable1: "{0}! Я видела что-то похожее на грызуна! У тебя же тут не водятся хомяки, так? Так!?"
+					Formattable1: "{0}! Я видела что-то похожее на грызуна! У тебя же тут не водятся хомяки, так? Так ведь!?"
 					Normal1: Нет, я точно не кидаю в тебя зелья любви, пока ты не смотришь! Эм, в смысле... ой, ну купи уже что-нибудь!
 					Normal2: Интересный факт! Единственные реальные жанры музыки — это дэт-метал и арткор.
 					Normal3: У меня нет моральных ценностей? Ну неправда, у меня есть банковская ячейка всяких ценностей!
@@ -3008,7 +3016,7 @@ Mods: {
 			MiniDirtInstabridgeProj.DisplayName: Мини Грязь МоментМост Снар
 			CoolCrab.DisplayName: Крутой краб
 			LumberJaxeProjectile.DisplayName: Снаряд ДревоБиллителя
-			// SacrificeProj.DisplayName: Sacrifice Proj
+			SacrificeProj.DisplayName: Подношение Снар
 		}
 
 		Tiles: {
@@ -3024,7 +3032,7 @@ Mods: {
 			SemistationSheet.MapEntry: Полустанция
 			SiblingPylonTile.MapEntry: Столб собратьев
 			PurityTotemSheet.MapEntry: Тотем чистоты
-			// SacrificeAltarSheet.MapEntry: Sacrifice Altar Sheet
+			SacrificeAltarSheet.MapEntry: Подношение Алтарь Таблица
 		}
 
 		Conditions: {
@@ -3131,11 +3139,13 @@ Mods: {
 			SoldAtThirtyStack: Продаются у Бельчонок: При получении в стаке из 30
 			SoldBy: Продаётся у
 			SeveralVendors: нескольких продавцов
-			// SacrificablePlural: Can be consumed at Sacrificial Altar {0} more times
-			// Sacrificable: Can be consumed at Sacrificial Altar 1 more time
-			// SacrificeEvent: Consume at Sacrificial Altar for a special event
-			// SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
-			// CraftingTreeDupable: Copyable with Crafting Tree
+			SacrificablePlural: Можно использовать на алтаре для подношений ещё {0} раз
+			Sacrificable: Можно использовать на алтаре для подношений ещё 1 раз
+			SacrificeEvent: Используйте на алтаре для подношений, чтобы начать особенное событие
+			SacrificeEventPlural: Используйте {0} штук на алтаре для подношений, чтобы начать особое событие
+			CraftingTreeDupable: Можно скопировать с помощью дерева создания
+			RifleScopeBinocularToggle: Отдаление обзора можно выключить, переключив видимость аксессуара
+			// SniperRifleBinocularToggle: Binocular vision disabled
 		}
 
 		Emotes: {
@@ -3159,10 +3169,10 @@ Mods: {
 					{0}
 					{1}
 					'''
-				LeftOn: Бесконечные баффы вкл.
-				LeftOff: Бесконечные баффы выкл.
-				RightOn: Бесконечные баффы видимы
-				RightOff: Бесконечные баффы скрыты
+				LeftOn: Бесконечные баффы вкл. (ЛКМ)
+				LeftOff: Бесконечные баффы выкл. (ЛКМ)
+				RightOn: Бесконечные баффы видимы (ПКМ)
+				RightOff: Бесконечные баффы скрыты (ПКМ)
 			}
 		}
 	}

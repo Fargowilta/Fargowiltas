@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.Localization;
 using Terraria.DataStructures;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Fargowiltas.Content.Items.Tiles
 {
@@ -20,15 +21,55 @@ namespace Fargowiltas.Content.Items.Tiles
             TileObjectData.newTile.CoordinateHeights = [16, 16, 16];
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Crucible of the Cosmos");
             AddMapEntry(new Color(200, 200, 200), name);
             TileID.Sets.DisableSmartCursor[Type] = true;
-            //counts as
-            AdjTiles = [TileID.WorkBenches, TileID.HeavyWorkBench, TileID.Furnaces,  TileID.Anvils,  TileID.Bottles, TileID.Sawmill, TileID.Loom, TileID.Tables, TileID.Chairs, TileID.CookingPots, TileID.Sinks, TileID.Kegs, TileID.Hellforge, TileID.AlchemyTable, TileID.TinkerersWorkbench, TileID.ImbuingStation, TileID.DyeVat, TileID.LivingLoom, TileID.GlassKiln, TileID.IceMachine, TileID.HoneyDispenser, TileID.SkyMill, TileID.Solidifier, TileID.BoneWelder, TileID.MythrilAnvil, TileID.AdamantiteForge, TileID.DemonAltar, TileID.Bookcases, TileID.CrystalBall, TileID.Autohammer,  TileID.LunarCraftingStation, TileID.LesionStation, TileID.FleshCloningVat, TileID.LihzahrdFurnace, TileID.SteampunkBoiler, TileID.Blendomatic, TileID.MeatGrinder, TileID.Tombstones, ModContent.TileType<GoldenDippingVatSheet>()];
+
+            #region Counts as
+            AdjTiles = 
+                [TileID.WorkBenches, 
+                TileID.HeavyWorkBench, 
+                TileID.Furnaces,  
+                TileID.Anvils,  
+                TileID.Bottles, 
+                TileID.Sawmill, 
+                TileID.Loom, 
+                TileID.Tables, 
+                TileID.Chairs, 
+                TileID.CookingPots, 
+                TileID.Sinks, 
+                TileID.Kegs, 
+                TileID.Hellforge, 
+                TileID.AlchemyTable, 
+                TileID.TinkerersWorkbench, 
+                TileID.ImbuingStation, 
+                TileID.DyeVat, 
+                TileID.LivingLoom, 
+                TileID.GlassKiln, 
+                TileID.IceMachine, 
+                TileID.HoneyDispenser, 
+                TileID.SkyMill, 
+                TileID.Solidifier, 
+                TileID.BoneWelder, 
+                TileID.MythrilAnvil, 
+                TileID.AdamantiteForge, 
+                TileID.DemonAltar, 
+                TileID.Bookcases, 
+                TileID.CrystalBall, 
+                TileID.Autohammer,  
+                TileID.LunarCraftingStation, 
+                TileID.LesionStation, 
+                TileID.FleshCloningVat, 
+                TileID.LihzahrdFurnace, 
+                TileID.SteampunkBoiler, 
+                TileID.Blendomatic, 
+                TileID.MeatGrinder, 
+                TileID.Tombstones, 
+                ModContent.TileType<GoldenDippingVatSheet>()];
 
             TileID.Sets.CountsAsHoneySource[Type] = true;
             TileID.Sets.CountsAsLavaSource[Type] = true;
             TileID.Sets.CountsAsWaterSource[Type] = true;
+            #endregion
 
             //if (ModLoader.GetMod("ThoriumMod") != null)
             //{
@@ -39,8 +80,6 @@ namespace Fargowiltas.Content.Items.Tiles
             //}
 
             AnimationFrameHeight = 54;
-            
-            //name.AddTranslation(GameCulture.Chinese, "宇宙坩埚");
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num)
@@ -60,7 +99,7 @@ namespace Fargowiltas.Content.Items.Tiles
             {
                 frameCounter = 0;
                 frame++;
-                frame %= 8;
+                frame %= 16;
             }
         }
 
@@ -70,6 +109,24 @@ namespace Fargowiltas.Content.Items.Tiles
             {
                 Main.LocalPlayer.GetModPlayer<FargoPlayer>().ElementalAssemblerNearby = 6;
             }
+        }
+
+        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            Tile tile = Main.tile[i, j];
+            Texture2D texture2D13 = Terraria.GameContent.TextureAssets.Tile[Type].Value;
+            int num156 = Terraria.GameContent.TextureAssets.Tile[Type].Value.Height / 16; //ypos of lower right corner of sprite to draw
+            int y3 = num156 * Main.tileFrame[Type]; //ypos of upper left corner of sprite to draw
+            Rectangle rectangle = new(tile.TileFrameX, tile.TileFrameY + y3, 16, 16);
+            Vector2 origin2 = rectangle.Size() / 2f;
+            Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
+
+            if (Main.drawToScreen)
+            {
+                zero = Vector2.Zero;
+            }
+
+            Main.spriteBatch.Draw(ModContent.Request<Texture2D>(Texture + "_Glow").Value, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle?(rectangle), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

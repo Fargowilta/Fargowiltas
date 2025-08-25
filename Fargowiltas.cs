@@ -171,6 +171,8 @@ namespace Fargowiltas
 
             On_Main.DoUpdateInWorld += UpdateCraftingTreeFruit;
             On_Main.DrawPlayers_AfterProjectiles += DrawCraftingTrees;
+
+            On_Main.DoDraw_UpdateCameraPosition += ScopeBinocularToggle;
         }
 
         
@@ -288,6 +290,8 @@ namespace Fargowiltas
 
             On_Main.DoUpdateInWorld -= UpdateCraftingTreeFruit;
             On_Main.DrawPlayers_AfterProjectiles -= DrawCraftingTrees;
+
+            On_Main.DoDraw_UpdateCameraPosition -= ScopeBinocularToggle;
 
             summonTracker = null;
             dialogueTracker = null;
@@ -701,7 +705,7 @@ namespace Fargowiltas
             || BirthdayParty.PartyIsUp
             || DD2Event.Ongoing
             || Sandstorm.Happening
-            || (NPC.downedTowers && (NPC.LunarApocalypseIsUp || NPC.ShieldStrengthTowerNebula > 0 || NPC.ShieldStrengthTowerSolar > 0 || NPC.ShieldStrengthTowerStardust > 0 || NPC.ShieldStrengthTowerVortex > 0))
+            || (NPC.downedTowers && (NPC.LunarApocalypseIsUp || NPC.ShieldStrengthTowerNebula >= 0 || NPC.ShieldStrengthTowerSolar >= 0 || NPC.ShieldStrengthTowerStardust >= 0 || NPC.ShieldStrengthTowerVortex >= 0))
             || ModEventActiveFuncs.Any(f => f.Invoke());
 
         internal static bool TryClearEvents()
@@ -770,7 +774,7 @@ namespace Fargowiltas
                     FargoUtils.PrintLocalization("MessageInfo.CancelSandstorm", new Color(175, 75, 255));
                 }
 
-                if (NPC.downedTowers && (NPC.LunarApocalypseIsUp || NPC.ShieldStrengthTowerNebula > 0 || NPC.ShieldStrengthTowerSolar > 0 || NPC.ShieldStrengthTowerStardust > 0 || NPC.ShieldStrengthTowerVortex > 0))
+                if (NPC.downedTowers && (NPC.LunarApocalypseIsUp || NPC.ShieldStrengthTowerNebula >= 0 || NPC.ShieldStrengthTowerSolar >= 0 || NPC.ShieldStrengthTowerStardust >= 0 || NPC.ShieldStrengthTowerVortex >= 0))
                 {
                     NPC.LunarApocalypseIsUp = false;
                     NPC.ShieldStrengthTowerNebula = 0;
@@ -1125,6 +1129,32 @@ namespace Fargowiltas
         {
             orig(self, sw);
             CraftingTreeTileEntity.UpdateCraftingTrees();
+        }
+
+        private static void ScopeBinocularToggle(On_Main.orig_DoDraw_UpdateCameraPosition orig)
+        {
+            bool scopeCheck = false;
+            var p = Main.LocalPlayer;
+            bool config = FargoClientConfig.Instance.DisableScopeView;
+
+            if (Main.myPlayer >= 0 && Main.myPlayer < 255 && p.active && !p.dead && p.HeldItem != null && p.HeldItem.useAmmo > AmmoID.None && p.scope && Main.mouseRight && config)
+            {
+                int[] ammo = [AmmoID.Bullet, AmmoID.CandyCorn, AmmoID.Stake, AmmoID.Gel, AmmoID.Solution];
+
+                if ((p.GetFargoPlayer().ScopeAccessoryHidden && ammo.Contains(p.HeldItem.useAmmo)) || p.HeldItem.type == ItemID.SniperRifle)
+                {
+                    scopeCheck = Main.mouseRight;
+                    Main.mouseRight = false;
+                }
+            }
+
+            orig();
+
+            if (scopeCheck)
+            {
+                Main.mouseRight = true;
+                p.GetFargoPlayer().ScopeAccessoryHidden = false;
+            }
         }
 
         //        private static void HookIntoLoad()

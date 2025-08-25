@@ -383,6 +383,20 @@ namespace Fargowiltas.Content.Items
                     }
                 }
             }
+
+            if (FargoClientConfig.Instance.DisableScopeView && item.type is ItemID.SniperRifle or ItemID.RifleScope or ItemID.SniperScope or ItemID.ReconScope)
+            {
+                if (item.type is ItemID.SniperRifle)
+                {
+                    TooltipLine line = new TooltipLine(Mod, "TooltipSniperRifleBinocular", $"[i:1300] [c/AAAAAA:{ExpandedTooltipLoc("SniperRifleBinocularToggle")}]");
+                    tooltips.Add(line);
+                }
+                if (item.type is ItemID.RifleScope or ItemID.SniperScope or ItemID.ReconScope)
+                {
+                    TooltipLine line = new TooltipLine(Mod, "TooltipRifleScopeBinocular", $"[i:1300] [c/AAAAAA:{ExpandedTooltipLoc("RifleScopeBinocularToggle")}]");
+                    tooltips.Add(line);
+                }
+            }
         }
 
         public override void SetDefaults(Item item)
@@ -560,7 +574,7 @@ namespace Fargowiltas.Content.Items
                     case 6:
                         itemId = 3 + 562;
                         break;
-                        case 7:
+                    case 7:
                         itemId = 6 + 562;
                         break;
                     case 8:
@@ -637,6 +651,16 @@ namespace Fargowiltas.Content.Items
                         player.armor[i].SetDefaults(itemId, false);
                         break;
                     }
+                }
+            }
+            if (player == Main.LocalPlayer)
+            {
+                FargoPlayer p = player.GetFargoPlayer();
+                bool scopeConfig = FargoClientConfig.Instance.DisableScopeView;
+
+                if (item.type is ItemID.RifleScope or ItemID.SniperScope or ItemID.ReconScope && hideVisual && scopeConfig)
+                {
+                    p.ScopeAccessoryHidden = true;
                 }
             }
         }

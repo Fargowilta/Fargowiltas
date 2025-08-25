@@ -333,6 +333,11 @@ Mods: {
 					Tooltip: ""
 				}
 
+				DisableScopeView: {
+					// Label: "[i:1300] Rifle Scope Binocular Vision Toggle"
+					// Tooltip: Allows the toggling of the Rifle Scope's binocular vision while its visibility is hidden, and disables it on Sniper Rifle
+				}
+
 				Headers: {
 					// UserInterface: User Interface
 					// Misc: Miscellaneous
@@ -2599,6 +2604,9 @@ Mods: {
 					Canceled: 天灵灵地灵灵，事件结束了！
 					CancelCD: 我现在没有力气，{0}秒之后再来吧。
 					NoEvent: 我认为现在没有事件。
+					// PillarFail: I'm not getting rid of those pillars, that's for you to do.
+					// PillarFail2: Hocus pocus, the event is over. Those pillars are staying though.
+					// PillarFailCD: I'm not feeling it right now, come back in {0} seconds. Still not getting rid of those pillars, by the way.
 				}
 
 				Census.SpawnCondition: 击败过哥布林入侵。
@@ -3145,6 +3153,8 @@ Mods: {
 			// SacrificeEvent: Consume at Sacrificial Altar for a special event
 			// SacrificeEventPlural: Consume {0} at Sacrificial Altar for a special event
 			// CraftingTreeDupable: Copyable with Crafting Tree
+			// RifleScopeBinocularToggle: Binocular vision disabled while accessory visibility is hidden
+			// SniperRifleBinocularToggle: Binocular vision disabled
 		}
 
 		Emotes: {
