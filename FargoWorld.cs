@@ -163,7 +163,7 @@ namespace Fargowiltas
         }
         public override void ClearWorld()
         {
-            CraftingTreeSheet.CraftingTrees = [];
+            EnchantedTreeSheet.EnchantedTrees = [];
         }
         public override void OnWorldUnload()
         {

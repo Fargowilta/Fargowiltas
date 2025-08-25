@@ -2493,7 +2493,7 @@ Mods: {
 					'''
 			}
 
-			CraftingTree: {
+			EnchantedTree: {
 				DisplayName: Дерево создания
 				Tooltip:
 					'''
@@ -3128,7 +3128,7 @@ Mods: {
 			Sacrificable: Можно использовать на алтаре для подношений ещё 1 раз
 			SacrificeEvent: Используйте на алтаре для подношений, чтобы начать особенное событие
 			SacrificeEventPlural: Используйте {0} штук на алтаре для подношений, чтобы начать особое событие
-			CraftingTreeDupable: Можно скопировать с помощью дерева создания
+			EnchantedTreeDupable: Можно скопировать с помощью дерева создания
 			RifleScopeBinocularToggle: Отдаление обзора можно выключить, переключив видимость аксессуара
 			// SniperRifleBinocularToggle: Binocular vision disabled
 		}

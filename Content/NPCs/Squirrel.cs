@@ -430,7 +430,7 @@ namespace Fargowiltas.Content.NPCs
             //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeSapphireSeed);
             //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeTopazSeed);
             itemCollections[SquirrelShopGroup.Acorn].Add(ModContent.ItemType<EnchantedAcorn>());
-            itemCollections[SquirrelShopGroup.Acorn].Add(ModContent.ItemType<CraftingTree>());
+            itemCollections[SquirrelShopGroup.Acorn].Add(ModContent.ItemType<EnchantedTree>());
 
             return itemCollections.OrderBy(kv => kv.Key).SelectMany(kv => kv.Value).ToList();
         }

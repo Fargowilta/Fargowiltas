@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fargowiltas.Content.Items.Explosives;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace Fargowiltas.Content.Items.Tiles
 {
-    public class CraftingTree : ModItem
+    public class EnchantedTree : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -28,8 +29,19 @@ namespace Fargowiltas.Content.Items.Tiles
             Item.useTime = 15;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<CraftingTreeSheet>();
+            Item.createTile = ModContent.TileType<EnchantedTreeSheet>();
             Item.value = Terraria.Item.buyPrice(platinum: 1);
+        }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+                .AddRecipeGroup(RecipeGroupID.Wood, 50)
+                .AddIngredient(ItemID.Mushroom, 3)
+                .AddIngredient(ItemID.GlowingMushroom, 3)
+                .AddIngredient(ItemID.FallenStar, 3)
+                .AddTile(TileID.DemonAltar)
+                .Register();
         }
     }
 }

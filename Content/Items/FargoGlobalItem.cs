@@ -36,7 +36,7 @@ namespace Fargowiltas.Content.Items
         public List<int> RecipeGroupAnimationItems = null;
 
         //float and glow when true
-        public bool FromCraftingTree = false;
+        public bool FromEnchantedTree = false;
         //follow cursor when = myplayer
         public int Grabbed = -1;
 
@@ -301,10 +301,10 @@ namespace Fargowiltas.Content.Items
                         $"[i:{CaughtNPCItem.CaughtTownies[NPCType<Squirrel>()]}] [c/AAAAAA:{ExpandedTooltipLoc(sellType.ToString())}]");
                     tooltips.Add(line);
                 }
-                if (CraftingTreeTileEntity.IsItemDupable(item.type))
+                if (EnchantedTreeTileEntity.IsItemDupable(item.type))
                 {
-                    line = new TooltipLine(Mod, "TooltipCraftingTree",
-                        $"[i:Fargowiltas/CraftingTree] [c/AAAAAA:{ExpandedTooltipLoc("CraftingTreeDupable")}]");
+                    line = new TooltipLine(Mod, "TooltipEnchantedTree",
+                        $"[i:Fargowiltas/EnchantedTree] [c/AAAAAA:{ExpandedTooltipLoc("EnchantedTreeDupable")}]");
                     tooltips.Add(line);
                 }
 
@@ -443,7 +443,7 @@ namespace Fargowiltas.Content.Items
         }
         public override void Update(Item item, ref float gravity, ref float maxFallSpeed)
         {
-            if (FromCraftingTree)
+            if (FromEnchantedTree)
             {
                 maxFallSpeed = 0;
                 if (Main.myPlayer == Grabbed && !Main.dedServ)
@@ -817,13 +817,13 @@ namespace Fargowiltas.Content.Items
         public override void NetSend(Item item, BinaryWriter writer)
         {
             writer.Write(Grabbed);
-            writer.Write(FromCraftingTree);
+            writer.Write(FromEnchantedTree);
             base.NetSend(item, writer);
         }
         public override void NetReceive(Item item, BinaryReader reader)
         {
             Grabbed = reader.ReadInt32();
-            FromCraftingTree = reader.ReadBoolean();
+            FromEnchantedTree = reader.ReadBoolean();
             base.NetReceive(item, reader);
         }
         public override bool PreDrawInInventory(Item item, SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)

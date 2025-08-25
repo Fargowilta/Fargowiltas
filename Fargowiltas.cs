@@ -26,7 +26,7 @@ using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static Fargowiltas.Content.Items.Tiles.CraftingTreeTileEntity;
+using static Fargowiltas.Content.Items.Tiles.EnchantedTreeTileEntity;
 using static Fargowiltas.FargoSets;
 
 namespace Fargowiltas
@@ -169,8 +169,8 @@ namespace Fargowiltas
             On_Player.ItemCheck_UseEventItems += AllowUseEventSummons;
             On_Player.SummonItemCheck += AllowMultipleBosses;
 
-            On_Main.DoUpdateInWorld += UpdateCraftingTreeFruit;
-            On_Main.DrawPlayers_AfterProjectiles += DrawCraftingTrees;
+            On_Main.DoUpdateInWorld += UpdateEnchantedTreeFruit;
+            On_Main.DrawPlayers_AfterProjectiles += DrawEnchantedTrees;
 
             On_Main.DoDraw_UpdateCameraPosition += ScopeBinocularToggle;
         }
@@ -288,8 +288,8 @@ namespace Fargowiltas
             On_Player.ItemCheck_UseEventItems -= AllowUseEventSummons;
             On_Player.SummonItemCheck -= AllowMultipleBosses;
 
-            On_Main.DoUpdateInWorld -= UpdateCraftingTreeFruit;
-            On_Main.DrawPlayers_AfterProjectiles -= DrawCraftingTrees;
+            On_Main.DoUpdateInWorld -= UpdateEnchantedTreeFruit;
+            On_Main.DrawPlayers_AfterProjectiles -= DrawEnchantedTrees;
 
             On_Main.DoDraw_UpdateCameraPosition -= ScopeBinocularToggle;
 
@@ -654,7 +654,7 @@ namespace Fargowiltas
                 case 11:
                     {
                         int treeindex = reader.ReadInt32();
-                        FargoUtils.TryGetTileEntityAs(CraftingTreeSheet.CraftingTrees[treeindex].X, CraftingTreeSheet.CraftingTrees[treeindex].Y, out CraftingTreeTileEntity tree);
+                        FargoUtils.TryGetTileEntityAs(EnchantedTreeSheet.EnchantedTrees[treeindex].X, EnchantedTreeSheet.EnchantedTrees[treeindex].Y, out EnchantedTreeTileEntity tree);
                         tree.ItemType = reader.ReadInt32();
                         tree.Prefix = reader.ReadInt32();
                         int fruitlength = reader.ReadInt32();
@@ -675,15 +675,15 @@ namespace Fargowiltas
                     break;
                 case 12:
                     {
-                        CraftingTreeSheet.CraftingTrees = [];
+                        EnchantedTreeSheet.EnchantedTrees = [];
                         int arrayLength = reader.ReadInt32();
                         for (int m = 0; m < arrayLength; m++)
                         {
-                            CraftingTreeSheet.CraftingTrees.Add(new Point16(reader.ReadInt32(), reader.ReadInt32()));
+                            EnchantedTreeSheet.EnchantedTrees.Add(new Point16(reader.ReadInt32(), reader.ReadInt32()));
                         }
                         if (Main.dedServ)
                         {
-                            FargoNet.SendCraftingTreesListPacket();
+                            FargoNet.SendEnchantedTreesListPacket();
                         }
                     }
                     break;
@@ -1119,16 +1119,16 @@ namespace Fargowiltas
             //Main.dayTime = day;
 
         }
-        private void DrawCraftingTrees(On_Main.orig_DrawPlayers_AfterProjectiles orig, Main self)
+        private void DrawEnchantedTrees(On_Main.orig_DrawPlayers_AfterProjectiles orig, Main self)
         {
-            CraftingTreeTileEntity.DrawCraftingTrees();
+            EnchantedTreeTileEntity.DrawEnchantedTrees();
             orig(self);
         }
 
-        private void UpdateCraftingTreeFruit(On_Main.orig_DoUpdateInWorld orig, Main self, System.Diagnostics.Stopwatch sw)
+        private void UpdateEnchantedTreeFruit(On_Main.orig_DoUpdateInWorld orig, Main self, System.Diagnostics.Stopwatch sw)
         {
             orig(self, sw);
-            CraftingTreeTileEntity.UpdateCraftingTrees();
+            EnchantedTreeTileEntity.UpdateEnchantedTrees();
         }
 
         private static void ScopeBinocularToggle(On_Main.orig_DoDraw_UpdateCameraPosition orig)

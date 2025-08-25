@@ -241,9 +241,9 @@ namespace Fargowiltas
                 ModContent.GetInstance<Fargowiltas>().Logger.Error("-------");
             }
         }
-        public static void SendCraftingTreeFruitPacket(int treeIndex)
+        public static void SendEnchantedTreeFruitPacket(int treeIndex)
         {
-            FargoUtils.TryGetTileEntityAs(CraftingTreeSheet.CraftingTrees[treeIndex].X, CraftingTreeSheet.CraftingTrees[treeIndex].Y, out CraftingTreeTileEntity tree);
+            FargoUtils.TryGetTileEntityAs(EnchantedTreeSheet.EnchantedTrees[treeIndex].X, EnchantedTreeSheet.EnchantedTrees[treeIndex].Y, out EnchantedTreeTileEntity tree);
             ModPacket packet = Fargowiltas.Instance.GetPacket();
             packet.Write((byte)11);
             packet.Write(treeIndex);
@@ -252,7 +252,7 @@ namespace Fargowiltas
             packet.Write(tree.Fruits.Count);
             for (int i = 0; i < tree.Fruits.Count; i++)
             {
-                CraftingTreeTileEntity.Fruit fruit = tree.Fruits[i];
+                EnchantedTreeTileEntity.Fruit fruit = tree.Fruits[i];
                 packet.Write(fruit.type);
                 packet.WriteVector2(fruit.center);
                 packet.WriteVector2(fruit.targetPosition);
@@ -265,13 +265,13 @@ namespace Fargowiltas
             packet.Send();
 
         }
-        public static void SendCraftingTreesListPacket()
+        public static void SendEnchantedTreesListPacket()
         {
             ModPacket packet = Fargowiltas.Instance.GetPacket();
             packet.Write((byte)12);
 
-            packet.Write(CraftingTreeSheet.CraftingTrees.Count);
-            foreach (Point16 vec in CraftingTreeSheet.CraftingTrees)
+            packet.Write(EnchantedTreeSheet.EnchantedTrees.Count);
+            foreach (Point16 vec in EnchantedTreeSheet.EnchantedTrees)
             {
                 packet.Write((int)vec.X);
                 packet.Write((int)vec.Y);

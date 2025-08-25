@@ -13,9 +13,9 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 namespace Fargowiltas.Content.Items.Tiles
 {
-    public class CraftingTreeSheet : ModTile
+    public class EnchantedTreeSheet : ModTile
     {
-        public static List<Point16> CraftingTrees = [];
+        public static List<Point16> EnchantedTrees = [];
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = false;
@@ -28,7 +28,7 @@ namespace Fargowiltas.Content.Items.Tiles
             TileObjectData.newTile.Width = 3;
             TileObjectData.newTile.Height = 4;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 18 };
-            TileObjectData.newTile.HookPostPlaceMyPlayer = ModContent.GetInstance<CraftingTreeTileEntity>().Generic_HookPostPlaceMyPlayer;// new PlacementHook(ModContent.GetInstance<CraftingTreeTileEntity>().Hook_AfterPlacement, -3, 0, false);
+            TileObjectData.newTile.HookPostPlaceMyPlayer = ModContent.GetInstance<EnchantedTreeTileEntity>().Generic_HookPostPlaceMyPlayer;// new PlacementHook(ModContent.GetInstance<EnchantedTreeTileEntity>().Hook_AfterPlacement, -3, 0, false);
             TileObjectData.newTile.UsesCustomCanPlace = true;
             TileObjectData.newTile.Origin = new Point16(0, 3);
             TileObjectData.addTile(Type);
@@ -39,10 +39,10 @@ namespace Fargowiltas.Content.Items.Tiles
         }
         public override void PlaceInWorld(int i, int j, Item item)
         {
-            CraftingTrees.Add(FargoUtils.GetTopLeftTileInMultitile(i, j));
+            EnchantedTrees.Add(FargoUtils.GetTopLeftTileInMultitile(i, j));
             if (Main.netMode != NetmodeID.SinglePlayer)
             {
-                FargoNet.SendCraftingTreesListPacket();
+                FargoNet.SendEnchantedTreesListPacket();
             }
             base.PlaceInWorld(i, j, item);
         }
@@ -50,18 +50,18 @@ namespace Fargowiltas.Content.Items.Tiles
         {
             //drop item currently inside it
             
-            if (FargoUtils.TryGetTileEntityAs<CraftingTreeTileEntity>(i, j, out CraftingTreeTileEntity entity) == true && entity.ItemType >= 0 && !Main.dedServ)
+            if (FargoUtils.TryGetTileEntityAs<EnchantedTreeTileEntity>(i, j, out EnchantedTreeTileEntity entity) == true && entity.ItemType >= 0 && !Main.dedServ)
             {
                 int item = Item.NewItem(Item.GetSource_NaturalSpawn(), new Rectangle(i*16 + 50, j*16 + 50, 1, 1), entity.ItemType, 1, prefixGiven:entity.Prefix);
                 if (Main.netMode == NetmodeID.MultiplayerClient)
                     NetMessage.SendData(MessageID.SyncItem, Main.myPlayer, number: item, number2: -1);
             }
-            CraftingTrees.Remove(FargoUtils.GetTopLeftTileInMultitile(i, j));
+            EnchantedTrees.Remove(FargoUtils.GetTopLeftTileInMultitile(i, j));
             if (Main.netMode != NetmodeID.SinglePlayer)
             {
-                FargoNet.SendCraftingTreesListPacket();
+                FargoNet.SendEnchantedTreesListPacket();
             }
-            ModContent.GetInstance<CraftingTreeTileEntity>().Kill(i, j);
+            ModContent.GetInstance<EnchantedTreeTileEntity>().Kill(i, j);
             base.KillMultiTile(i, j, frameX, frameY);
         }
         public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref TileDrawInfo drawData)
@@ -76,8 +76,8 @@ namespace Fargowiltas.Content.Items.Tiles
         public override void SpecialDraw(int i, int j, SpriteBatch spriteBatch)
         {
             if (Main.gameMenu) return;
-            CraftingTreeTileEntity entity = null;
-            if (!FargoUtils.TryGetTileEntityAs<CraftingTreeTileEntity>(i, j, out entity))
+            EnchantedTreeTileEntity entity = null;
+            if (!FargoUtils.TryGetTileEntityAs<EnchantedTreeTileEntity>(i, j, out entity))
             {
                 return;
             }
@@ -123,19 +123,19 @@ namespace Fargowiltas.Content.Items.Tiles
             Player player = Main.LocalPlayer;
             if (player != null && player.active && !player.dead && Main.netMode != NetmodeID.Server)
             {
-                FargoUtils.TryGetTileEntityAs<CraftingTreeTileEntity>(i, j, out CraftingTreeTileEntity entity);
+                FargoUtils.TryGetTileEntityAs<EnchantedTreeTileEntity>(i, j, out EnchantedTreeTileEntity entity);
                 //set tile entity's item to held item of the player and reduce stack of player's held item
                 if (entity != null && player.HeldItem != null && player.HeldItem.type >= ItemID.None && entity.ItemType == -1 && player.HeldItem.stack > 0 && entity.Fruits.Count == 0)
                 {
                     entity.ItemType = player.HeldItem.type;
                     entity.Prefix = player.HeldItem.prefix;
-                    if (CraftingTreeTileEntity.DuplicatableRecipes.ContainsKey(entity.ItemType))
+                    if (EnchantedTreeTileEntity.DuplicatableRecipes.ContainsKey(entity.ItemType))
                     {
                         
                         entity.Fruits.Add(new(entity.ItemType, entity.Position.ToWorldCoordinates() + new Vector2(16, -12), entity.Position.ToWorldCoordinates() + new Vector2(16, -80), Vector2.Zero));
                         if (Main.netMode == NetmodeID.MultiplayerClient)
                         {
-                            FargoNet.SendCraftingTreeFruitPacket(CraftingTrees.IndexOf(FargoUtils.GetTopLeftTileInMultitile(i, j)));
+                            FargoNet.SendEnchantedTreeFruitPacket(EnchantedTrees.IndexOf(FargoUtils.GetTopLeftTileInMultitile(i, j)));
                             //NetMessage.SendData(MessageID.TileEntitySharing, -1, -1, null, entity.ID, entity.Position.X, entity.Position.Y);
                         }
                     }
@@ -150,7 +150,7 @@ namespace Fargowiltas.Content.Items.Tiles
                     entity.ItemType = -1;
                     for (int f = 0; f < entity.Fruits.Count; f++)
                     {
-                        CraftingTreeTileEntity.Fruit fruit = entity.Fruits[f];
+                        EnchantedTreeTileEntity.Fruit fruit = entity.Fruits[f];
                         if (fruit.despawnTimer == 0)
                         {
                             fruit.despawnTimer = 1;
@@ -160,7 +160,7 @@ namespace Fargowiltas.Content.Items.Tiles
                     if (Main.netMode == NetmodeID.MultiplayerClient)
                     {
                         //NetMessage.SendData(MessageID.TileEntitySharing, -1, -1, null, entity.ID, entity.Position.X, entity.Position.Y);
-                        FargoNet.SendCraftingTreeFruitPacket(CraftingTrees.IndexOf(FargoUtils.GetTopLeftTileInMultitile(i, j)));
+                        FargoNet.SendEnchantedTreeFruitPacket(EnchantedTrees.IndexOf(FargoUtils.GetTopLeftTileInMultitile(i, j)));
                     }
                    
                 }
@@ -171,14 +171,14 @@ namespace Fargowiltas.Content.Items.Tiles
         {
             if (!closer)
             {
-                //Debug.WriteLine(CraftingTreeTileEntity.CraftingTrees[0]);
-                if (!CraftingTrees.Contains(FargoUtils.GetTopLeftTileInMultitile(i, j)))
+                //Debug.WriteLine(EnchantedTreeTileEntity.EnchantedTrees[0]);
+                if (!EnchantedTrees.Contains(FargoUtils.GetTopLeftTileInMultitile(i, j)))
                 {
-                    //CraftingTreeTileEntity.CraftingTrees = [];
-                    CraftingTrees.Add(FargoUtils.GetTopLeftTileInMultitile(i, j));
+                    //EnchantedTreeTileEntity.EnchantedTrees = [];
+                    EnchantedTrees.Add(FargoUtils.GetTopLeftTileInMultitile(i, j));
                     if (Main.netMode != NetmodeID.SinglePlayer)
                     {
-                        FargoNet.SendCraftingTreesListPacket();
+                        FargoNet.SendEnchantedTreesListPacket();
                     }
                 }
             }

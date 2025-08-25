@@ -68,19 +68,19 @@ namespace Fargowiltas.Common.Systems.Recipes
                 }
             }
             //finding items with duplicatable items sold
-            foreach (Recipe recipe in Main.recipe.Where(recipe => CraftingTreeTileEntity.IsItemDupable(recipe.createItem.type))){
+            foreach (Recipe recipe in Main.recipe.Where(recipe => EnchantedTreeTileEntity.IsItemDupable(recipe.createItem.type))){
                 int result = recipe.createItem.type;
-                if (!CraftingTreeTileEntity.DuplicatableRecipes.ContainsKey(result))
+                if (!EnchantedTreeTileEntity.DuplicatableRecipes.ContainsKey(result))
                 {
-                    CraftingTreeTileEntity.DuplicatableRecipes.Add(result, []);
+                    EnchantedTreeTileEntity.DuplicatableRecipes.Add(result, []);
                 }
                 foreach (Item item in recipe.requiredItem)
                 {
                     //is directly dupable or the materials of the current recipe result are dupable
-                    if (CraftingTreeTileEntity.IsItemDupable(item.type) || CraftingTreeTileEntity.DupableMaterials.Contains(result) ||
-                        (recipe.createItem.ModItem != null && CraftingTreeTileEntity.DupableMaterialsModded.Contains((recipe.createItem.ModItem.Mod.Name, recipe.createItem.ModItem.Name))))
+                    if (EnchantedTreeTileEntity.IsItemDupable(item.type) || EnchantedTreeTileEntity.DupableMaterials.Contains(result) ||
+                        (recipe.createItem.ModItem != null && EnchantedTreeTileEntity.DupableMaterialsModded.Contains((recipe.createItem.ModItem.Mod.Name, recipe.createItem.ModItem.Name))))
                     {
-                        CraftingTreeTileEntity.DuplicatableRecipes[recipe.createItem.type].Add(item.type);
+                        EnchantedTreeTileEntity.DuplicatableRecipes[recipe.createItem.type].Add(item.type);
                     }
                 }
             }

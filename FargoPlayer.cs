@@ -18,7 +18,7 @@ using Fargowiltas.Content.NPCs;
 using static Fargowiltas.Content.Items.Misc.BattleCry;
 using Fargowiltas.Content.Items.Tiles;
 using Terraria.GameContent;
-using static Fargowiltas.Content.Items.Tiles.CraftingTreeTileEntity;
+using static Fargowiltas.Content.Items.Tiles.EnchantedTreeTileEntity;
 using Fargowiltas.Common.Systems.Recipes;
 using Terraria.ModLoader.UI;
 

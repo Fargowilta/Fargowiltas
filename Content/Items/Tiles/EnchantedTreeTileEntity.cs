@@ -17,7 +17,7 @@ using Terraria.ModLoader.IO;
 
 namespace Fargowiltas.Content.Items.Tiles
 {
-    public class CraftingTreeTileEntity : ModTileEntity
+    public class EnchantedTreeTileEntity : ModTileEntity
     {
         public List<Fruit> Fruits = [];
         //timer for drawing disco backglow
@@ -58,7 +58,7 @@ namespace Fargowiltas.Content.Items.Tiles
         public override bool IsTileValidForEntity(int x, int y)
         {
             Tile tile = Main.tile[x, y];
-            return tile.HasTile && tile.TileType == ModContent.TileType<CraftingTreeSheet>();
+            return tile.HasTile && tile.TileType == ModContent.TileType<EnchantedTreeSheet>();
         }
         public override int Hook_AfterPlacement(int i, int j, int type, int style, int direction, int alternate)
         {
@@ -166,23 +166,23 @@ namespace Fargowiltas.Content.Items.Tiles
 
             return FargoSets.Items.SquirrelSellsDirectly[type] || DupableMaterials.Contains(type);
         }
-        public static void UpdateCraftingTrees()
+        public static void UpdateEnchantedTrees()
         {
             if (!Main.dedServ)
             {
 
-                for (int t = 0; t < CraftingTreeSheet.CraftingTrees.Count; t++)
+                for (int t = 0; t < EnchantedTreeSheet.EnchantedTrees.Count; t++)
                 {
-                    if (!FargoUtils.TryGetTileEntityAs(CraftingTreeSheet.CraftingTrees[t].X, CraftingTreeSheet.CraftingTrees[t].Y, out CraftingTreeTileEntity tree))
+                    if (!FargoUtils.TryGetTileEntityAs(EnchantedTreeSheet.EnchantedTrees[t].X, EnchantedTreeSheet.EnchantedTrees[t].Y, out EnchantedTreeTileEntity tree))
                     {
-                        //Main.NewText(CraftingTreeTileEntity.CraftingTrees.Count);
+                        //Main.NewText(EnchantedTreeTileEntity.EnchantedTrees.Count);
                         return;
                     }
 
                     for (int i = 0; i < tree.Fruits.Count; i++)
                     {
 
-                        CraftingTreeTileEntity.Fruit fruit = tree.Fruits[i];
+                        EnchantedTreeTileEntity.Fruit fruit = tree.Fruits[i];
                         //radius for a dist check so width / 2
                         float size = 30;
                         //enchanted acorns cost 2 gold. divide value by 10000 to get cost in gold coins, then by 2 for cost in acorns.
@@ -239,7 +239,7 @@ namespace Fargowiltas.Content.Items.Tiles
                             if (netsync && Main.netMode == NetmodeID.MultiplayerClient)
                             {
 
-                                FargoNet.SendCraftingTreeFruitPacket(t);
+                                FargoNet.SendEnchantedTreeFruitPacket(t);
                                 //NetMessage.SendData(MessageID.TileEntitySharing, -1, -1, null, tree.ID, tree.Position.X, tree.Position.Y);
                             }
                             //fruit.velocity = Vector2.Lerp(fruit.velocity, fruit.center.AngleTo(Main.MouseWorld).ToRotationVector2() * fruit.center.Distance(Main.MouseWorld), 0.07f);
@@ -254,10 +254,10 @@ namespace Fargowiltas.Content.Items.Tiles
                                 {
                                     if (Main.netMode != NetmodeID.Server)
                                     {
-                                        int item = Item.NewItem(Main.LocalPlayer.GetSource_TileInteraction(tree.Position.X, tree.Position.Y, "CraftingTreeDuplication"), fruit.center, fruit.type);
+                                        int item = Item.NewItem(Main.LocalPlayer.GetSource_TileInteraction(tree.Position.X, tree.Position.Y, "EnchantedTreeDuplication"), fruit.center, fruit.type);
 
                                         Main.item[item].GetGlobalItem<FargoGlobalItem>().Grabbed = Main.myPlayer;
-                                        Main.item[item].GetGlobalItem<FargoGlobalItem>().FromCraftingTree = true;
+                                        Main.item[item].GetGlobalItem<FargoGlobalItem>().FromEnchantedTree = true;
                                         //FargoNet.SyncItemFromFruitPacket(Main.item[item].type, Main.myPlayer, tree.Position.ToVector2(), fruit.center, item);
                                         NetMessage.SendData(MessageID.SyncItem, Main.myPlayer, number: item, number2: 1f);
 
@@ -291,18 +291,18 @@ namespace Fargowiltas.Content.Items.Tiles
                 }
             }
         }
-        public static void DrawCraftingTrees()
+        public static void DrawEnchantedTrees()
         {
-            for (int i = 0; i < CraftingTreeSheet.CraftingTrees.Count; i++)
+            for (int i = 0; i < EnchantedTreeSheet.EnchantedTrees.Count; i++)
             {
-                if (FargoUtils.TryGetTileEntityAs<CraftingTreeTileEntity>(CraftingTreeSheet.CraftingTrees[i].X, CraftingTreeSheet.CraftingTrees[i].Y, out CraftingTreeTileEntity tree))
+                if (FargoUtils.TryGetTileEntityAs<EnchantedTreeTileEntity>(EnchantedTreeSheet.EnchantedTrees[i].X, EnchantedTreeSheet.EnchantedTrees[i].Y, out EnchantedTreeTileEntity tree))
                 {
                     Main.spriteBatch.Begin();
                     Asset<Texture2D> line = TextureAssets.Extra[178];
                     //draw lines
                     for (int f = 0; f < tree.Fruits.Count; f++)
                     {
-                        CraftingTreeTileEntity.Fruit fruit = tree.Fruits[f];
+                        EnchantedTreeTileEntity.Fruit fruit = tree.Fruits[f];
                         if (fruit.previousItem >= 0 && tree.Fruits.Count > fruit.previousItem && Main.LocalPlayer.Distance(fruit.center) < 1200)
                         {
                             Vector2 pos = tree.Fruits[fruit.previousItem].center;
@@ -315,7 +315,7 @@ namespace Fargowiltas.Content.Items.Tiles
                     for (int f = 0; f < tree.Fruits.Count; f++)
                     {
 
-                        CraftingTreeTileEntity.Fruit fruit = tree.Fruits[f];
+                        EnchantedTreeTileEntity.Fruit fruit = tree.Fruits[f];
                         if (Main.LocalPlayer.Distance(fruit.center) < 1200)
                             DrawItem(fruit.type, fruit.center, 1 - fruit.despawnTimer / 20f);
 

@@ -2493,8 +2493,8 @@ Mods: {
 					'''
 			}
 
-			CraftingTree: {
-				// DisplayName: Crafting Tree
+			EnchantedTree: {
+				// DisplayName: Enchanted Tree
 				/* Tooltip:
 					'''
 					Copies difficult to obtain items
@@ -3128,7 +3128,7 @@ Mods: {
 			// Sacrificable: Can be fed to the Squirrel 1 more time
 			// SacrificeEvent: Feed to the Squirrel for a special event
 			// SacrificeEventPlural: Feed {0} to the Squirrel for a special event
-			// CraftingTreeDupable: Copyable with Crafting Tree
+			// EnchantedTreeDupable: Copyable with Enchanted Tree
 			// RifleScopeBinocularToggle: Binocular vision disabled while accessory visibility is hidden
 			// SniperRifleBinocularToggle: Binocular vision disabled
 		}
