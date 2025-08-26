@@ -188,7 +188,7 @@ namespace Fargowiltas
             var wormholes = GetWormholes(self).ToList();
 
             if (
-                Main.LocalPlayer.GetFargoPlayer().UnlimitedBuffs
+                FargoServerConfig.Instance.UnlimitedPotionBuffsOn120
                 && wormholes.Select(x => x.stack).Sum() >= 30
             )
             {

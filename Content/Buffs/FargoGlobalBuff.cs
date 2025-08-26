@@ -30,7 +30,7 @@ namespace Fargowiltas.Buffs
             // Remove all hidden buffs. They'll be readded at the end of the method.
             for (int i = 0; i < Player.MaxBuffs; i++)
             {
-                if (Main.LocalPlayer.GetFargoPlayer().HideBuffTray && Main.LocalPlayer.buffType[i] > 0 && BuffCanBeHidden(Main.LocalPlayer, i))
+                if (FargoClientConfig.Instance.HideUnlimitedBuffs && Main.LocalPlayer.buffType[i] > 0 && BuffCanBeHidden(Main.LocalPlayer, i))
                 {
                     Main.LocalPlayer.buffType[i] = 0;
                     Main.LocalPlayer.buffTime[i] = 0;

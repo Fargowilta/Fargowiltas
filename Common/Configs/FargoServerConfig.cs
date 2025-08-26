@@ -110,6 +110,9 @@ namespace Fargowiltas.Common.Configs
         public bool UnlimitedAmmo;
 
         [DefaultValue(true)]
+        public bool UnlimitedPotionBuffsOn120;
+
+        [DefaultValue(true)]
         public bool UnlimitedConsumableWeapons;
 
         private const uint maxExtraBuffSlots = 99;

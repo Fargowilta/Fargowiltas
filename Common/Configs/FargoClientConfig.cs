@@ -20,6 +20,9 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(true)]
         public bool ExpandedTooltips;
 
+        [DefaultValue(false)]
+        public bool HideUnlimitedBuffs;
+
         [DefaultValue(true)]
         public bool ExactTooltips;
 
