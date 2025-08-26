@@ -293,9 +293,9 @@ Mods: {
 					Tooltip: 物品使用速度以使用时间表示，数字越大，使用速度越慢
 				}
 
-				HideUnlimitedBuffs: {
-					Label: "[i:292] 隐藏无限增益图标"
-					Tooltip: ""
+				HideBuffTray: {
+					// Label: "[i:292] Hide unlimited buffs in tray"
+					// Tooltip: ""
 				}
 
 				DoubleTapDashDisabled: {
@@ -341,6 +341,11 @@ Mods: {
 				AnimatedRecipeGroups: {
 					// Label: "[i:9] Animated Recipe Groups"
 					// Tooltip: Whether recipe group sprites should flip through the viable items in the recipe group when displayed.
+				}
+
+				HideUnlimitedBuffs: {
+					Label: "[i:292] 隐藏无限增益图标"
+					Tooltip: ""
 				}
 			}
 
@@ -3159,15 +3164,9 @@ Mods: {
 
 		BuilderToggles: {
 			PotionsBuilderToggle: {
-				/* NameText:
-					'''
-					{0}
-					{1}
-					''' */
-				// LeftOn: Unlimited Buffs On (left click)
-				// LeftOff: Unlimited Buffs Off (left click)
-				// RightOn: Unlimited Buffs Visible (right click)
-				// RightOff: Unlimited Buffs Hidden (right click)
+				// NameText: "{0}"
+				// LeftOn: Unlimited Buffs Visible
+				// LeftOff: Unlimited Buffs Hidden
 			}
 		}
 	}
