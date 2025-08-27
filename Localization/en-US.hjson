@@ -336,7 +336,7 @@ Mods: {
 				}
 
 				HideUnlimitedBuffs: {
-					Label: Hide Unlimited Buffs
+					Label: "[i:292] Hide unlimited buffs in tray"
 					Tooltip: ""
 				}
 			}
