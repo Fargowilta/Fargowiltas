@@ -1,22 +1,25 @@
-using System;
-using System.Collections.Generic;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using System.Linq;
-using Terraria.GameContent.ItemDropRules;
-using Fargowiltas.Common.Configs;
-using Terraria.Localization;
+﻿using Fargowiltas.Common.Configs;
+using Fargowiltas.Content.Items.Ammos.Coins;
 using Fargowiltas.Content.Items.CaughtNPCs;
 using Fargowiltas.Content.Items.Tiles;
-using Fargowiltas.Content.Items.Ammos.Coins;
 using Fargowiltas.Content.NPCs;
-using Terraria.GameContent.UI;
 using Fargowiltas.Content.UI.Emotes;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using Terraria;
+using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.GameContent.UI;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
+using Terraria.UI;
+using Terraria.UI.Chat;
+using static Terraria.ModLoader.ModContent;
 
 namespace Fargowiltas.Content.Items
 {
@@ -656,10 +659,13 @@ namespace Fargowiltas.Content.Items
                 }
             }
         }
-
+        public bool UnlimitedAmmo(Item ammo)
+        {
+            return FargoServerConfig.Instance.UnlimitedAmmo && Main.hardMode && ammo.ammo != 0 && (ammo.stack >= 3996);
+        }
         public override bool CanBeConsumedAsAmmo(Item ammo, Item weapon, Player player)
         {
-            if (FargoServerConfig.Instance.UnlimitedAmmo && Main.hardMode && ammo.ammo != 0 && ammo.stack >= 3996)
+            if (UnlimitedAmmo(ammo))
                 return false;
 
             return true;
@@ -836,6 +842,18 @@ namespace Fargowiltas.Content.Items
                     item.GetGlobalItem<FargoGlobalItem>().RecipeGroupAnimationItems = RecipeGroupAnimationItems;
                     item.SetNameOverride(name);
                     item.stack = stack;
+                }
+            }
+            if (UnlimitedAmmo(item) && !item.IsACoin)
+            {
+                ChatManager.DrawColorCodedStringWithShadow(spriteBatch, FontAssets.ItemStack.Value, "∞", position + new Vector2(8f, -24f) * scale, drawColor, 0f, Vector2.Zero, new Vector2(scale), -1f, scale);
+                for (int j = 0; j < 12; j++)
+                {
+                    Vector2 afterimageOffset = (MathHelper.TwoPi * j / 12f).ToRotationVector2() * 1f;
+                    Color glowColor = Color.Gray with { A = 0 };
+
+                    Texture2D texture = Terraria.GameContent.TextureAssets.Item[item.type].Value;
+                    Main.EntitySpriteDraw(texture, position + afterimageOffset, null, glowColor, 0, texture.Size() * 0.5f, scale, SpriteEffects.None, 0f);
                 }
             }
             return base.PreDrawInInventory(item, spriteBatch, position, frame, drawColor, itemColor, origin, scale);

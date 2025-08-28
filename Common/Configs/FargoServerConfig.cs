@@ -28,6 +28,9 @@ namespace Fargowiltas.Common.Configs
         public bool UnlimitedConsumableWeapons;
 
         [DefaultValue(true)]
+        public bool UnlimitedPotionBuffsOn120;
+
+        [DefaultValue(true)]
         public bool EasySummons;
 
         [DefaultValue(true)]
