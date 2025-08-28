@@ -1,6 +1,7 @@
-﻿using Fargowiltas.Content.Items.Summons.Mutant;
-using Fargowiltas.Content.Items.Summons.VanillaCopy;
+﻿using Fargowiltas.Common.Configs;
 using Fargowiltas.Content.Items.Summons;
+using Fargowiltas.Content.Items.Summons.Mutant;
+using Fargowiltas.Content.Items.Summons.VanillaCopy;
 using Fargowiltas.Utilities;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,6 +10,10 @@ namespace Fargowiltas.Common.Systems.Recipes
 {
     public class ConversionRecipeSystem : ModSystem
     {
+        public override bool IsLoadingEnabled(Mod mod)
+        {
+            return FargoServerConfig.Instance.MiscRecipes;
+        }
         public override void AddRecipes()
         {
             AddSummonConversions();

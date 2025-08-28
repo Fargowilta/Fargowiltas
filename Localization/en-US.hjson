@@ -31,6 +31,94 @@ Mods: {
 			FargoServerConfig: {
 				DisplayName: Server Config
 
+				Headers: {
+					Gameplay: Gameplay Changes
+					Content: New Content
+					WorldStates: World States
+					StatMultipliers: Stat Multipliers
+					Misc: Miscellaneous
+				}
+
+				UnlimitedAmmo: {
+					Label: "[i:771] Unlimited Ammo at 3996+ in Hardmode"
+					Tooltip: Amunition is not consumed if you have a stack of at least 3996, in Hardmode.
+				}
+
+				UnlimitedConsumableWeapons: {
+					Label: "[i:42] Unlimited Consumable Weapons at 3996+ in Hardmode"
+					Tooltip: All consumable weapons are not consumed if you have a stack of at least 3996, in Hardmode.
+				}
+
+				UnlimitedPotionBuffsOn120: {
+					Label: "[i:292] Unlimited Buffs and Bait when carried in certain stacks"
+					Tooltip: 30+ for potions and bait
+				}
+
+				EasySummons: {
+					Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
+					Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements.
+				}
+
+				BossZen: {
+					Label: "[i:3117] No enemies spawn during boss fights"
+					Tooltip: ""
+				}
+
+				AnglerQuestInstantReset: {
+					Label: "[i:2374] Angler Quest Instant Refresh"
+					Tooltip: Angler quests instantly refresh when you complete an angler quest.
+				}
+
+				ExtraLures: {
+					Label: "[i:2373] Extra Lures on Fishing Rods"
+					Tooltip: Several fishing items grant extra lures, including Fishing Potion and several Fishing Rods.
+				}
+
+				FasterLavaFishing: {
+					Label: "[i:4881] Faster Fishing in Lava"
+					Tooltip: Increases the speed of fishing in Lava liquid.
+				}
+
+				Fountains: {
+					Label: "[i:909] Fountains Cause Biomes"
+					Tooltip: Fountains cause the nearby area to count as their associated biome.
+				}
+
+				PermanentStationsNearby: {
+					Label: "[i:3198] Automatic Station Buffs When Nearby"
+					Tooltip: Stations (like Bewitching Table or Sharpening Station) automatically grant their infinite buffs to nearby players.
+				}
+
+				TorchGodEX: {
+					Label: "[i:5043] Torch God's Favor Automatically Swaps Placed Torches"
+					Tooltip: Obeys true torch luck, which may differ from Torch God's Favor. For example, swaps to Bone Torches to increase luck where other torches are not applicable.
+				}
+
+				BannerRecipes: {
+					Label: "[i:1683] Banner Recipes"
+					Tooltip: Adds recipes to convert banners into rare items dropped by the banner's enemy.
+				}
+
+				ContainerRecipes: {
+					Label: "[i:WoodenCrate] Container Recipes"
+					Tooltip: Adds recipes to convert Crates, Treasure Bags, Herb Bags and other containers to various items that can drop from them.
+				}
+
+				MiscRecipes: {
+					Label: "[i:Wood] Miscellaneous Recipes"
+					Tooltip: Adds various miscellaneous recipes.
+				}
+
+				NPCSales: {
+					Label: "[i:267] Extra Town NPC sales"
+					Tooltip: Adds extra item sales to various NPCs.
+				}
+
+				CatchNPCs: {
+					Label: "[i:267] Catch Town NPCs"
+					Tooltip: Adds the ability to catch NPCs with a Bug Net, move them around in your inventory, and place them down wherever you want.
+				}
+
 				Mutant: {
 					Label: "[i:Fargowiltas/MutantMask] [c/ffffff:{$Mods.Fargowiltas.NPCs.Mutant.DisplayName} {$Mods.Fargowiltas.Configs.Common.CanSpawn}]"
 					Tooltip: ""
@@ -53,21 +141,6 @@ Mods: {
 
 				Squirrel: {
 					Label: "[i:239] [c/ffffff:{$Mods.Fargowiltas.NPCs.Squirrel.DisplayName} {$Mods.Fargowiltas.Configs.Common.CanSpawn}]"
-					Tooltip: ""
-				}
-
-				CatchNPCs: {
-					Label: "[i:267] Catch Town NPCs"
-					Tooltip: ""
-				}
-
-				NPCSales: {
-					Label: "[i:267] Extra Town NPC sales"
-					Tooltip: ""
-				}
-
-				SaferBoundNPCs: {
-					Label: "[i:1274] Rescuable Town NPCs take no contact damage"
 					Tooltip: ""
 				}
 
@@ -121,121 +194,6 @@ Mods: {
 					Tooltip: ""
 				}
 
-				UnlimitedAmmo: {
-					Label: "[i:771] Unlimited Ammo at 3996+ in Hardmode"
-					Tooltip: ""
-				}
-
-				UnlimitedConsumableWeapons: {
-					Label: "[i:42] Unlimited Consumable Weapons at 3996+ in Hardmode"
-					Tooltip: ""
-				}
-
-				UnlimitedPotionBuffsOn120: {
-					Label: "[i:292] Unlimited Buffs and Bait when carried in certain stacks"
-					Tooltip: 30+ for potions and bait
-				}
-
-				ExtraBuffSlots: {
-					Label: "[i:3000] Additional Buff Slots"
-					Tooltip: ""
-				}
-
-				AnglerQuestInstantReset: {
-					Label: "[i:2374] Angler Quest Instant Reset"
-					Tooltip: ""
-				}
-
-				ExtraLures: {
-					Label: "[i:2373] Extra Lures on Fishing Rods"
-					Tooltip: ""
-				}
-
-				StalkerMoneyTrough: {
-					Label: "[i:3213] Stalker Money Trough"
-					Tooltip: ""
-				}
-
-				RottenEggs: {
-					Label: "[i:1809] Powerful Rotten Eggs"
-					Tooltip: ""
-				}
-
-				BannerRecipes: {
-					Label: "[i:1683] Banner Recipes"
-					Tooltip: ""
-				}
-
-				IncreaseMaxStack: {
-					Label: "[i:2] Increased Max Stacks"
-					Tooltip: ""
-				}
-
-				ExtractSpeed: {
-					Label: "[i:997] Increased Extractinator Speed"
-					Tooltip: ""
-				}
-
-				Fountains: {
-					Label: "[i:909] Fountains Cause Biomes"
-					Tooltip: ""
-				}
-
-				PermanentStationsNearby: {
-					Label: "[i:3198] Automatic Station Buffs When Nearby"
-					Tooltip: ""
-				}
-
-				BossZen: {
-					Label: "[i:3117] No enemies spawn during boss fights"
-					Tooltip: ""
-				}
-
-				PiggyBankAcc: {
-					Label: "[i:87] Informational and Construction item inventory effects work in Piggy Bank"
-					Tooltip: ""
-				}
-
-				ModdedPiggyBankAcc: {
-					Label: "[i:87] Modded item inventory effects work in Piggy Bank"
-					Tooltip: ""
-				}
-
-				FasterLavaFishing: {
-					Label: "[i:4881] Faster Fishing in Lava"
-					Tooltip: ""
-				}
-
-				TorchGodEX: {
-					Label: "[i:5043] Torch God's Favor Automatically Swaps Placed Torches"
-					Tooltip: Obeys true torch luck, which may differ from Torch God's Favor
-				}
-
-				PylonsIgnoreEvents: {
-					Label: "[i:4876] Pylons Ignore Events"
-					Tooltip: ""
-				}
-
-				SafeTerraformers: {
-					Label: "[i:Fargowiltas/InstaBridge] Safe Terraformers"
-					Tooltip:
-						'''
-						Terraformers such as Instabridge and City Buster avoid destroying any areas added to the Important Structures list.
-						This option is overly safe and will often avoid destroying even common things, such as cavern houses.
-						'''
-				}
-
-				Headers: {
-					TownNPCs: Town NPCs
-					Seasons: Seasons
-					Seeds: Seeds
-					Unlimited: Unlimited
-					StatMultipliers: Stat Multipliers
-					Misc: Miscellaneous
-					World: World
-					Fishing: Fishing
-				}
-
 				EnemyHealth: {
 					Label: "[i:29] Enemy Health"
 					Tooltip: Multiplies the health of all enemies.
@@ -261,14 +219,53 @@ Mods: {
 					Tooltip: Boss Health and Boss Damage configs apply to all enemies while a boss is alive, rather than just bosses themselves.
 				}
 
+				PiggyBankAcc: {
+					Label: "[i:87] Informational and Construction item inventory effects work in Piggy Bank"
+					Tooltip: ""
+				}
+
+				ModdedPiggyBankAcc: {
+					Label: "[i:87] Modded item inventory effects work in Piggy Bank"
+					Tooltip: ""
+				}
+
+				StalkerMoneyTrough: {
+					Label: "[i:3213] Stalker Money Trough"
+					Tooltip: The Money Trough follows you around in the world.
+				}
+
+				RottenEggs: {
+					Label: "[i:1809] Powerful Rotten Eggs"
+					Tooltip: Drastically increases the damage that Rotten Eggs deal to NPCs.
+				}
+
+				SaferBoundNPCs: {
+					Label: "[i:1274] Rescuable Town NPCs take no contact damage"
+					Tooltip: ""
+				}
+
+				ExtractSpeed: {
+					Label: "[i:997] Increased Extractinator Speed"
+					Tooltip: ""
+				}
+
+				PylonsIgnoreEvents: {
+					Label: "[i:4876] Pylons Ignore Events"
+					Tooltip: You can use Pylons even if an Event is active.
+				}
+
+				SafeTerraformers: {
+					Label: "[i:Fargowiltas/InstaBridge] Safe Terraformers"
+					Tooltip:
+						'''
+						Terraformers such as Instabridge and City Buster avoid destroying any areas added to the Important Structures list.
+						This option is overly safe and will often avoid destroying even common things, such as cavern houses.
+						'''
+				}
+
 				DisableTombstones: {
 					Label: "[i:Fargowiltas/GraveBuster] Disable Tombstones"
 					Tooltip: Makes Tombstones not spawn when players die.
-				}
-
-				EasySummons: {
-					Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
-					Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements.
 				}
 			}
 

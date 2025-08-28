@@ -1,7 +1,9 @@
-﻿using Fargowiltas.Content.Items;
+﻿using Fargowiltas.Common.Configs;
+using Fargowiltas.Content.Items;
 using Fargowiltas.Content.Items.Summons;
 using Fargowiltas.Content.Items.Summons.Mutant;
 using Fargowiltas.Content.Items.Summons.VanillaCopy;
+using Fargowiltas.Content.Items.Tiles;
 using Fargowiltas.Utilities;
 using System;
 using System.Collections.Generic;
@@ -11,41 +13,46 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Fargowiltas.Content.Items.Tiles;
 using static Fargowiltas.FargoSets;
 
 namespace Fargowiltas.Common.Systems.Recipes
 {
     public class MiscRecipeSystem : ModSystem
     {
-        
+
         public override void AddRecipes()
         {
+            if (!FargoServerConfig.Instance.MiscRecipes)
+                return;
             AddStatueRecipes();
             AddMiscRecipes();
         }
         public override void PostAddRecipes()
         {
-            foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.HasIngredient(ItemID.BeetleHusk)))
+            if (FargoServerConfig.Instance.MiscRecipes)
             {
-                if (recipe.TryGetIngredient(ItemID.TurtleHelmet, out Item head))
+                foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.HasIngredient(ItemID.BeetleHusk)))
                 {
-                    recipe.RemoveIngredient(head);
-                    recipe.AddIngredient(ItemID.ChlorophyteMask);
-                }
+                    if (recipe.TryGetIngredient(ItemID.TurtleHelmet, out Item head))
+                    {
+                        recipe.RemoveIngredient(head);
+                        recipe.AddIngredient(ItemID.ChlorophyteMask);
+                    }
 
-                if (recipe.TryGetIngredient(ItemID.TurtleScaleMail, out Item body))
-                {
-                    recipe.RemoveIngredient(body);
-                    recipe.AddIngredient(ItemID.ChlorophytePlateMail);
-                }
+                    if (recipe.TryGetIngredient(ItemID.TurtleScaleMail, out Item body))
+                    {
+                        recipe.RemoveIngredient(body);
+                        recipe.AddIngredient(ItemID.ChlorophytePlateMail);
+                    }
 
-                if (recipe.TryGetIngredient(ItemID.TurtleLeggings, out Item legs))
-                {
-                    recipe.RemoveIngredient(legs);
-                    recipe.AddIngredient(ItemID.ChlorophyteGreaves);
+                    if (recipe.TryGetIngredient(ItemID.TurtleLeggings, out Item legs))
+                    {
+                        recipe.RemoveIngredient(legs);
+                        recipe.AddIngredient(ItemID.ChlorophyteGreaves);
+                    }
                 }
             }
+
             //disable shimmer decraft for all summon items
             foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.createItem.ModItem != null && (recipe.createItem.ModItem is BaseSummon || recipe.createItem.ModItem is FleshyDoll)))
             {
@@ -57,12 +64,13 @@ namespace Fargowiltas.Common.Systems.Recipes
             {
                 foreach (int groupID in recipe.acceptedGroups)
                 {
+                    var groupItems = RecipeGroup.recipeGroups[groupID].ValidItems.ToList();
                     foreach (Item item in recipe.requiredItem)
                     {
                         if (RecipeGroup.recipeGroups[groupID].IconicItemId == item.type)
                         {
                             // add tag that it should animate draw
-                            item.GetGlobalItem<FargoGlobalItem>().RecipeGroupAnimationItems = RecipeGroup.recipeGroups[groupID].ValidItems.ToList();
+                            item.GetGlobalItem<FargoGlobalItem>().RecipeGroupAnimationItems = groupItems;
                         }
                     }
                 }

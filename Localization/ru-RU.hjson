@@ -31,6 +31,94 @@ Mods: {
 			FargoServerConfig: {
 				DisplayName: Конфигурации: сторона сервера
 
+				Headers: {
+					// Gameplay: Gameplay Changes
+					// Content: New Content
+					// WorldStates: World States
+					StatMultipliers: Множители показателей
+					Misc: Прочее
+				}
+
+				UnlimitedAmmo: {
+					Label: "[i:771] Бесконечные патроны в стаке 3996+ в хардмоде"
+					Tooltip: ""
+				}
+
+				UnlimitedConsumableWeapons: {
+					Label: "[i:42] Бесконечные тратящиеся орудия в стаке 3996+ в хардмоде"
+					Tooltip: ""
+				}
+
+				UnlimitedPotionBuffsOn120: {
+					Label: "[i:292] Бесконечные баффы и наживка в определённых стаках"
+					Tooltip: 30+ для зелий и наживки
+				}
+
+				EasySummons: {
+					Label: "[i:Fargowiltas/SuspiciousSkull] Облегченный призыв боссов"
+					Tooltip: Предметы призыва боссов и событий игнорируют требования и изменяют время если нужно.
+				}
+
+				BossZen: {
+					Label: "[i:3117] Враги не появляются во время битв с боссами"
+					Tooltip: ""
+				}
+
+				AnglerQuestInstantReset: {
+					Label: "[i:2374] Мгновенный ресет заданий рыбака"
+					Tooltip: ""
+				}
+
+				ExtraLures: {
+					Label: "[i:2373] Дополнительные крючки у удочек"
+					Tooltip: ""
+				}
+
+				FasterLavaFishing: {
+					Label: "[i:4881] Ускоренная рыбалка в лаве"
+					Tooltip: ""
+				}
+
+				Fountains: {
+					Label: "[i:909] Фонтаны вызывают биомы"
+					Tooltip: ""
+				}
+
+				PermanentStationsNearby: {
+					Label: "[i:3198] Автоматические станции с баффами рядом"
+					Tooltip: Станции с баффами по типу точильного камня автоматически накладывают баффы всем игрокам рядом с ними
+				}
+
+				TorchGodEX: {
+					Label: "[i:5043] Милость Бога факелов автоматически меняет поставленные факела"
+					Tooltip: Подчиняется истинной удаче факелов; может отличаться от милости Бога факелов
+				}
+
+				BannerRecipes: {
+					Label: "[i:1683] Рецепты из знамён"
+					Tooltip: ""
+				}
+
+				ContainerRecipes: {
+					// Label: "[i:WoodenCrate] Container Recipes"
+					// Tooltip: Adds recipes to convert Crates, Treasure Bags, Herb Bags and other containers to various items that can drop from them.
+				}
+
+				MiscRecipes: {
+					// Label: "[i:Wood] Miscellaneous Recipes"
+					// Tooltip: Adds various miscellaneous recipes.
+				}
+
+				NPCSales: {
+					Label: "[i:267] Дополнительные предметы в магазинах НИПов"
+					Tooltip: ""
+				}
+
+				CatchNPCs: {
+					Label: "[i:267] Ловить городских НИПов"
+					Tooltip: ""
+				}
+
 				Mutant: {
 					Label: "[i:Fargowiltas/MutantMask] [c/ffffff:{$Mods.Fargowiltas.NPCs.Mutant.DisplayName} {$Mods.Fargowiltas.Configs.Common.CanSpawn}]"
 					Tooltip: ""
@@ -53,21 +141,6 @@ Mods: {
 
 				Squirrel: {
 					Label: "[i:239] [c/ffffff:{$Mods.Fargowiltas.NPCs.Squirrel.DisplayName} {$Mods.Fargowiltas.Configs.Common.CanSpawn}]"
-					Tooltip: ""
-				}
-
-				CatchNPCs: {
-					Label: "[i:267] Ловить городских НИПов"
-					Tooltip: ""
-				}
-
-				NPCSales: {
-					Label: "[i:267] Дополнительные предметы в магазинах НИПов"
-					Tooltip: ""
-				}
-
-				SaferBoundNPCs: {
-					Label: "[i:1274] Связанные НИПы не получают урона от врагов"
 					Tooltip: ""
 				}
 
@@ -121,121 +194,6 @@ Mods: {
 					Tooltip: ""
 				}
 
-				UnlimitedAmmo: {
-					Label: "[i:771] Бесконечные патроны в стаке 3996+ в хардмоде"
-					Tooltip: ""
-				}
-
-				UnlimitedConsumableWeapons: {
-					Label: "[i:42] Бесконечные тратящиеся орудия в стаке 3996+ в хардмоде"
-					Tooltip: ""
-				}
-
-				UnlimitedPotionBuffsOn120: {
-					Label: "[i:292] Бесконечные баффы и наживка в определённых стаках"
-					Tooltip: 30+ для зелий и наживки
-				}
-
-				ExtraBuffSlots: {
-					Label: "[i:3000] Дополнительные слоты для баффов"
-					Tooltip: ""
-				}
-
-				AnglerQuestInstantReset: {
-					Label: "[i:2374] Мгновенный ресет заданий рыбака"
-					Tooltip: ""
-				}
-
-				ExtraLures: {
-					Label: "[i:2373] Дополнительные крючки у удочек"
-					Tooltip: ""
-				}
-
-				StalkerMoneyTrough: {
-					Label: "[i:3213] Преследующее денежное корыто"
-					Tooltip: ""
-				}
-
-				RottenEggs: {
-					Label: "[i:1809] Усиленные тухлые яйца"
-					Tooltip: ""
-				}
-
-				BannerRecipes: {
-					Label: "[i:1683] Рецепты из знамён"
-					Tooltip: ""
-				}
-
-				IncreaseMaxStack: {
-					Label: "[i:2] Увеличенный максимальный стак"
-					Tooltip: ""
-				}
-
-				ExtractSpeed: {
-					Label: "[i:997] Увеличенная скорость обогатителя"
-					Tooltip: ""
-				}
-
-				Fountains: {
-					Label: "[i:909] Фонтаны вызывают биомы"
-					Tooltip: ""
-				}
-
-				PermanentStationsNearby: {
-					Label: "[i:3198] Автоматические станции с баффами рядом"
-					Tooltip: Станции с баффами по типу точильного камня автоматически накладывают баффы всем игрокам рядом с ними
-				}
-
-				BossZen: {
-					Label: "[i:3117] Враги не появляются во время битв с боссами"
-					Tooltip: ""
-				}
-
-				PiggyBankAcc: {
-					Label: "[i:87] Эффекты информационных и строительных предметов из инвентаря работают из свиньи-копилки и сейфа"
-					Tooltip: ""
-				}
-
-				ModdedPiggyBankAcc: {
-					Label: "[i:87] Эффекты модовых предметов из инвентаря работают из свиньи-копилки и сейфа"
-					Tooltip: ""
-				}
-
-				FasterLavaFishing: {
-					Label: "[i:4881] Ускоренная рыбалка в лаве"
-					Tooltip: ""
-				}
-
-				TorchGodEX: {
-					Label: "[i:5043] Милость Бога факелов автоматически меняет поставленные факела"
-					Tooltip: Подчиняется истинной удаче факелов; может отличаться от милости Бога факелов
-				}
-
-				PylonsIgnoreEvents: {
-					Label: "[i:4876] Пилоны игнорируют события"
-					Tooltip: ""
-				}
-
-				SafeTerraformers: {
-					Label: "[i:Fargowiltas/InstaBridge] Безопасные терраформеры"
-					Tooltip:
-						'''
-						Терраформеры, по типу МоментМоста и разрушителя городов, избегают уничтожения структур в списке важных структур.
-						Данная функция довольно безопасна, и будет предотвращать от разрушения даже самые мелкие структуры, по типу домов в пещерах.
-						'''
-				}
-
-				Headers: {
-					TownNPCs: Городские НИПы
-					Seasons: Сезоны
-					Seeds: Сиды
-					Unlimited: Бесконечные
-					StatMultipliers: Множители показателей
-					Misc: Прочее
-					World: Мир
-					Fishing: Рыбалка
-				}
-
 				EnemyHealth: {
 					Label: "[i:29] Здоровье врагов"
 					Tooltip: Умножает здоровье всех врагов.
@@ -261,14 +219,53 @@ Mods: {
 					Tooltip: Конфигурации «Здоровье боссов» и «Урон боссов» применяются ко всем врагам, пока босс жив, а не только к боссам.
 				}
 
+				PiggyBankAcc: {
+					Label: "[i:87] Эффекты информационных и строительных предметов из инвентаря работают из свиньи-копилки и сейфа"
+					Tooltip: ""
+				}
+
+				ModdedPiggyBankAcc: {
+					Label: "[i:87] Эффекты модовых предметов из инвентаря работают из свиньи-копилки и сейфа"
+					Tooltip: ""
+				}
+
+				StalkerMoneyTrough: {
+					Label: "[i:3213] Преследующее денежное корыто"
+					Tooltip: ""
+				}
+
+				RottenEggs: {
+					Label: "[i:1809] Усиленные тухлые яйца"
+					Tooltip: ""
+				}
+
+				SaferBoundNPCs: {
+					Label: "[i:1274] Связанные НИПы не получают урона от врагов"
+					Tooltip: ""
+				}
+
+				ExtractSpeed: {
+					Label: "[i:997] Увеличенная скорость обогатителя"
+					Tooltip: ""
+				}
+
+				PylonsIgnoreEvents: {
+					Label: "[i:4876] Пилоны игнорируют события"
+					Tooltip: ""
+				}
+
+				SafeTerraformers: {
+					Label: "[i:Fargowiltas/InstaBridge] Безопасные терраформеры"
+					Tooltip:
+						'''
+						Терраформеры, по типу МоментМоста и разрушителя городов, избегают уничтожения структур в списке важных структур.
+						Данная функция довольно безопасна, и будет предотвращать от разрушения даже самые мелкие структуры, по типу домов в пещерах.
+						'''
+				}
+
 				DisableTombstones: {
 					Label: "[i:Fargowiltas/GraveBuster] Отключить надгробия"
 					Tooltip: Пока включена, надгробия не появляются на месте смерти игрока.
-				}
-
-				EasySummons: {
-					Label: "[i:Fargowiltas/SuspiciousSkull] Облегченный призыв боссов"
-					Tooltip: Предметы призыва боссов и событий игнорируют требования и изменяют время если нужно.
 				}
 			}
 

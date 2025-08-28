@@ -19,16 +19,57 @@ namespace Fargowiltas.Common.Configs
 
         public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref NetworkText message) => false;
 
-        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.TownNPCs")]
+        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Gameplay")]
+
+        [DefaultValue(true)]
+        public bool UnlimitedAmmo;
+
+        [DefaultValue(true)]
+        public bool UnlimitedConsumableWeapons;
+
+        [DefaultValue(true)]
+        public bool EasySummons;
+
+        [DefaultValue(true)]
+        public bool BossZen;
+
+        [DefaultValue(true)]
+        public bool AnglerQuestInstantReset;
+
+        [DefaultValue(true)]
+        public bool ExtraLures;
+
+        [DefaultValue(true)]
+        public bool FasterLavaFishing;
+
+        [DefaultValue(true)]
+        public bool Fountains;
+
+        [DefaultValue(true)]
+        public bool PermanentStationsNearby;
+
+        [DefaultValue(true)]
+        public bool TorchGodEX;
+
+        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Content")]
         [DefaultValue(true)]
         [ReloadRequired]
-        public bool CatchNPCs;
+        public bool BannerRecipes;
+
+        [DefaultValue(true)]
+        [ReloadRequired]
+        public bool ContainerRecipes;
+
+        [DefaultValue(true)]
+        [ReloadRequired]
+        public bool MiscRecipes;
 
         [DefaultValue(true)]
         public bool NPCSales;
 
         [DefaultValue(true)]
-        public bool SaferBoundNPCs;
+        [ReloadRequired]
+        public bool CatchNPCs;
 
         [DefaultValue(true)]
         public bool Mutant;
@@ -44,8 +85,7 @@ namespace Fargowiltas.Common.Configs
 
         [DefaultValue(true)]
         public bool Squirrel;
-
-        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Seasons")]
+        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.WorldStates")]
         [DefaultValue(0)]
         [DrawTicks]
         public SeasonSelections Halloween;
@@ -54,7 +94,6 @@ namespace Fargowiltas.Common.Configs
         [DrawTicks]
         public SeasonSelections Christmas;
 
-        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.World")]
         [DefaultValue(0)]
         [DrawTicks]
         public SeasonSelections DrunkWorld;
@@ -86,34 +125,6 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(0)]
         [DrawTicks]
         public SeasonSelections ZenithWorld;
-
-        [DefaultValue(true)]
-        public bool Fountains;
-
-        [DefaultValue(true)]
-        public bool PermanentStationsNearby;
-
-        [DefaultValue(true)]
-        public bool TorchGodEX;
-
-        [DefaultValue(true)]
-        public bool PylonsIgnoreEvents;
-
-        [DefaultValue(false)]
-        public bool SafeTerraformers;
-
-        [DefaultValue(false)]
-        public bool DisableTombstones;
-
-        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Unlimited")]
-        [DefaultValue(true)]
-        public bool UnlimitedAmmo;
-
-        [DefaultValue(true)]
-        public bool UnlimitedConsumableWeapons;
-
-        private const uint maxExtraBuffSlots = 99;
-
         [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.StatMultipliers")]
 
         [Range(1f, 10f)]
@@ -139,26 +150,14 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(true)]
         public bool BossApplyToAllWhenAlive;
 
-        [Range(0, maxExtraBuffSlots)]
-        [DefaultValue(22)]
-        [ReloadRequired]
-        public uint ExtraBuffSlots;
-
-        [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Fishing")]
-
-        [DefaultValue(true)]
-        public bool AnglerQuestInstantReset;
-
-        [DefaultValue(true)]
-        public bool ExtraLures;
-        
-        [DefaultValue(true)]
-        public bool FasterLavaFishing;
-
         [Header("$Mods.Fargowiltas.Configs.FargoServerConfig.Headers.Misc")]
 
+
         [DefaultValue(true)]
-        public bool EasySummons;
+        public bool PiggyBankAcc;
+
+        [DefaultValue(true)]
+        public bool ModdedPiggyBankAcc;
 
         [DefaultValue(true)]
         public bool StalkerMoneyTrough;
@@ -167,28 +166,18 @@ namespace Fargowiltas.Common.Configs
         public bool RottenEggs;
 
         [DefaultValue(true)]
-        [ReloadRequired]
-        public bool BannerRecipes;
+        public bool SaferBoundNPCs;
 
         [DefaultValue(true)]
-        public bool IncreaseMaxStack;
+        public bool ExtractSpeed;
 
         [DefaultValue(true)]
-        public bool ExtractSpeed;     
+        public bool PylonsIgnoreEvents;
 
-        [DefaultValue(true)]
-        public bool BossZen;
+        [DefaultValue(false)]
+        public bool SafeTerraformers;
 
-        [DefaultValue(true)]
-        public bool PiggyBankAcc;
-
-        [DefaultValue(true)]
-        public bool ModdedPiggyBankAcc;
-
-        [OnDeserialized]
-        internal void OnDeserializedMethod(StreamingContext context)
-        {
-            ExtraBuffSlots = Utils.Clamp<uint>(ExtraBuffSlots, 0, maxExtraBuffSlots);
-        }
+        [DefaultValue(false)]
+        public bool DisableTombstones;
     }
 }

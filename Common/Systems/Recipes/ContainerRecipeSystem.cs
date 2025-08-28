@@ -1,4 +1,5 @@
-﻿using Fargowiltas.Utilities;
+﻿using Fargowiltas.Common.Configs;
+using Fargowiltas.Utilities;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,6 +8,10 @@ namespace Fargowiltas.Common.Systems.Recipes
 {
     public class ContainerRecipeSystem : ModSystem
     {
+        public override bool IsLoadingEnabled(Mod mod)
+        {
+            return FargoServerConfig.Instance.ContainerRecipes;
+        }
         public override void AddRecipes()
         {
             AddPreHMTreasureBagRecipes();

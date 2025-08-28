@@ -1,4 +1,5 @@
-﻿using Fargowiltas.Content.Items.CaughtNPCs;
+﻿using Fargowiltas.Common.Configs;
+using Fargowiltas.Content.Items.CaughtNPCs;
 using Fargowiltas.Content.NPCs;
 using Fargowiltas.Utilities;
 using System.Collections.Generic;
@@ -36,6 +37,8 @@ namespace Fargowiltas.Common.Systems.Recipes
 
         public override void AddRecipes()
         {
+            if (!FargoServerConfig.Instance.MiscRecipes)
+                return;
             AddNPCRecipes();
             AddSkeletonMerchantNPCRecipes();
             AddTravellingMerchantNPCRecipes();

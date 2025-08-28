@@ -85,7 +85,7 @@ namespace Fargowiltas.Content.Items
         }
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
-            var fargoServerConfig = FargoServerConfig.Instance;
+            var fargoServerConfig = FargoServerConfig.Instance; 
 
             if (FargoClientConfig.Instance.ExpandedTooltips)
             {
@@ -401,14 +401,6 @@ namespace Fargowiltas.Content.Items
 
         public override void SetDefaults(Item item)
         {
-            if (FargoServerConfig.Instance.IncreaseMaxStack)
-            {
-                if (item.maxStack > 10 && item.maxStack != 100 && !(item.type >= ItemID.CopperCoin && item.type <= ItemID.PlatinumCoin))
-                {
-                    item.maxStack = 9999;
-                }
-            }
-
             if (item.type == ItemID.MusicBox || item.Name.Contains(Language.GetTextValue($"ItemName.MusicBox")))
             {
                 item.value = Item.sellPrice(0, 0, 22, 50);

@@ -31,6 +31,94 @@ Mods: {
 			FargoServerConfig: {
 				DisplayName: Configuração do Servidor
 
+				Headers: {
+					// Gameplay: Gameplay Changes
+					// Content: New Content
+					// WorldStates: World States
+					StatMultipliers: Multiplicadores de estatísticas
+					Misc: Diversos
+				}
+
+				UnlimitedAmmo: {
+					Label: "[i:771] Munição infinita quando com 3996+ no Modo Díficil"
+					Tooltip: ""
+				}
+
+				UnlimitedConsumableWeapons: {
+					Label: "[i:42] Armas consumíveis infinitas quando com 3996+ no Modo Díficil"
+					Tooltip: ""
+				}
+
+				UnlimitedPotionBuffsOn120: {
+					Label: "[i:292] Buffs e Isca ilimitados quando carregados em certa quantidade"
+					Tooltip: 30+ para poções e isca
+				}
+
+				EasySummons: {
+					// Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
+					// Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements.
+				}
+
+				BossZen: {
+					Label: "[i:3117] Inimigos não são criados enquanto um chefe está vivo"
+					Tooltip: ""
+				}
+
+				AnglerQuestInstantReset: {
+					Label: "[i:2374] Missões do Pescador resetam intantaneamente"
+					Tooltip: ""
+				}
+
+				ExtraLures: {
+					Label: "[i:2373] Iscas Extras em varas de pesca"
+					Tooltip: ""
+				}
+
+				FasterLavaFishing: {
+					Label: "[i:4881] Pescaria mais rápida na Lava"
+					Tooltip: ""
+				}
+
+				Fountains: {
+					Label: "[i:909] Fonte causam biomas"
+					Tooltip: ""
+				}
+
+				PermanentStationsNearby: {
+					Label: "[i:3198] Buffs de estação automático quando próximas"
+					Tooltip: ""
+				}
+
+				TorchGodEX: {
+					Label: "[i:5043] O favor do deus da tocha automaticamente troca as tochas posicionadas"
+					Tooltip: Obedece a sorte de tocha, que pode ser differente do favor deus da tocha
+				}
+
+				BannerRecipes: {
+					Label: "[i:1683] Receitas com bandeira"
+					Tooltip: ""
+				}
+
+				ContainerRecipes: {
+					// Label: "[i:WoodenCrate] Container Recipes"
+					// Tooltip: Adds recipes to convert Crates, Treasure Bags, Herb Bags and other containers to various items that can drop from them.
+				}
+
+				MiscRecipes: {
+					// Label: "[i:Wood] Miscellaneous Recipes"
+					// Tooltip: Adds various miscellaneous recipes.
+				}
+
+				NPCSales: {
+					Label: "[i:267] Vendas extras de NPCs de cidade"
+					Tooltip: ""
+				}
+
+				CatchNPCs: {
+					Label: "[i:267] Capturar NPCs de cidade"
+					Tooltip: ""
+				}
+
 				Mutant: {
 					Label: "[i:Fargowiltas/MutantMask] [c/ffffff:{$Mods.Fargowiltas.NPCs.Mutant.DisplayName} {$Mods.Fargowiltas.Configs.Common.CanSpawn}]"
 					Tooltip: ""
@@ -53,21 +141,6 @@ Mods: {
 
 				Squirrel: {
 					Label: "[i:239] [c/ffffff:{$Mods.Fargowiltas.NPCs.Squirrel.DisplayName} {$Mods.Fargowiltas.Configs.Common.CanSpawn}]"
-					Tooltip: ""
-				}
-
-				CatchNPCs: {
-					Label: "[i:267] Capturar NPCs de cidade"
-					Tooltip: ""
-				}
-
-				NPCSales: {
-					Label: "[i:267] Vendas extras de NPCs de cidade"
-					Tooltip: ""
-				}
-
-				SaferBoundNPCs: {
-					Label: "[i:1274] NPCs de cidade resgatáveis não recebem danos"
 					Tooltip: ""
 				}
 
@@ -121,121 +194,6 @@ Mods: {
 					Tooltip: ""
 				}
 
-				UnlimitedAmmo: {
-					Label: "[i:771] Munição infinita quando com 3996+ no Modo Díficil"
-					Tooltip: ""
-				}
-
-				UnlimitedConsumableWeapons: {
-					Label: "[i:42] Armas consumíveis infinitas quando com 3996+ no Modo Díficil"
-					Tooltip: ""
-				}
-
-				UnlimitedPotionBuffsOn120: {
-					Label: "[i:292] Buffs e Isca ilimitados quando carregados em certa quantidade"
-					Tooltip: 30+ para poções e isca
-				}
-
-				ExtraBuffSlots: {
-					Label: "[i:3000] Slots adicionais de Buffs"
-					Tooltip: ""
-				}
-
-				AnglerQuestInstantReset: {
-					Label: "[i:2374] Missões do Pescador resetam intantaneamente"
-					Tooltip: ""
-				}
-
-				ExtraLures: {
-					Label: "[i:2373] Iscas Extras em varas de pesca"
-					Tooltip: ""
-				}
-
-				StalkerMoneyTrough: {
-					Label: "[i:3213] Porquinho stalker"
-					Tooltip: ""
-				}
-
-				RottenEggs: {
-					Label: "[i:1809] Ovos podres poderosos"
-					Tooltip: ""
-				}
-
-				BannerRecipes: {
-					Label: "[i:1683] Receitas com bandeira"
-					Tooltip: ""
-				}
-
-				IncreaseMaxStack: {
-					Label: "[i:2] Aumento da pilhagem máxima"
-					Tooltip: ""
-				}
-
-				ExtractSpeed: {
-					Label: "[i:997] Velocidade aumentada do Extrator"
-					Tooltip: ""
-				}
-
-				Fountains: {
-					Label: "[i:909] Fonte causam biomas"
-					Tooltip: ""
-				}
-
-				PermanentStationsNearby: {
-					Label: "[i:3198] Buffs de estação automático quando próximas"
-					Tooltip: ""
-				}
-
-				BossZen: {
-					Label: "[i:3117] Inimigos não são criados enquanto um chefe está vivo"
-					Tooltip: ""
-				}
-
-				PiggyBankAcc: {
-					Label: "[i:87] Efeitos informacionais e de construção funcionam no Porquinho"
-					Tooltip: ""
-				}
-
-				ModdedPiggyBankAcc: {
-					Label: "[i:87] Efeitos de itens de Mods funcionam no Porquinho"
-					Tooltip: ""
-				}
-
-				FasterLavaFishing: {
-					Label: "[i:4881] Pescaria mais rápida na Lava"
-					Tooltip: ""
-				}
-
-				TorchGodEX: {
-					Label: "[i:5043] O favor do deus da tocha automaticamente troca as tochas posicionadas"
-					Tooltip: Obedece a sorte de tocha, que pode ser differente do favor deus da tocha
-				}
-
-				PylonsIgnoreEvents: {
-					Label: "[i:4876] Pilares ignoram eventos"
-					Tooltip: ""
-				}
-
-				SafeTerraformers: {
-					Label: "[i:Fargowiltas/InstaBridge] Terraformadores Seguros"
-					Tooltip:
-						'''
-						Terraformadores como a Instaponte ou o Destruidor de Cidade evitam destruir áreas consideradas importantes.
-						Essa opção é segura até demais e pode evitar coisas normais, como casas abandonadas.
-						'''
-				}
-
-				Headers: {
-					TownNPCs: NPCs de Cidade
-					Seasons: Estações
-					Seeds: Sementes
-					Unlimited: Ilimitado
-					StatMultipliers: Multiplicadores de estatísticas
-					Misc: Diversos
-					// World: World
-					// Fishing: Fishing
-				}
-
 				EnemyHealth: {
 					Label: "[i:29] Vida do Inimigo"
 					Tooltip: Multiplica a vida de todos os inimigos.
@@ -261,14 +219,53 @@ Mods: {
 					Tooltip: Vida do Chefe e Dano do Chefe são aplicados para todos os inimigos enquanto um chefe está vivo, ao invés de afetar apenas os chefes.
 				}
 
+				PiggyBankAcc: {
+					Label: "[i:87] Efeitos informacionais e de construção funcionam no Porquinho"
+					Tooltip: ""
+				}
+
+				ModdedPiggyBankAcc: {
+					Label: "[i:87] Efeitos de itens de Mods funcionam no Porquinho"
+					Tooltip: ""
+				}
+
+				StalkerMoneyTrough: {
+					Label: "[i:3213] Porquinho stalker"
+					Tooltip: ""
+				}
+
+				RottenEggs: {
+					Label: "[i:1809] Ovos podres poderosos"
+					Tooltip: ""
+				}
+
+				SaferBoundNPCs: {
+					Label: "[i:1274] NPCs de cidade resgatáveis não recebem danos"
+					Tooltip: ""
+				}
+
+				ExtractSpeed: {
+					Label: "[i:997] Velocidade aumentada do Extrator"
+					Tooltip: ""
+				}
+
+				PylonsIgnoreEvents: {
+					Label: "[i:4876] Pilares ignoram eventos"
+					Tooltip: ""
+				}
+
+				SafeTerraformers: {
+					Label: "[i:Fargowiltas/InstaBridge] Terraformadores Seguros"
+					Tooltip:
+						'''
+						Terraformadores como a Instaponte ou o Destruidor de Cidade evitam destruir áreas consideradas importantes.
+						Essa opção é segura até demais e pode evitar coisas normais, como casas abandonadas.
+						'''
+				}
+
 				DisableTombstones: {
 					Label: "[i:Fargowiltas/GraveBuster] Lápides desativadas"
 					Tooltip: Faz lápides não aparecerem quando um jogador morre.
-				}
-
-				EasySummons: {
-					// Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
-					// Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements.
 				}
 			}
 

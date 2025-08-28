@@ -31,6 +31,94 @@ Mods: {
 			FargoServerConfig: {
 				DisplayName: 服务器端配置
 
+				Headers: {
+					// Gameplay: Gameplay Changes
+					// Content: New Content
+					// WorldStates: World States
+					StatMultipliers: 数据倍率
+					Misc: 杂项
+				}
+
+				UnlimitedAmmo: {
+					Label: "[i:771] 在困难模式中，背包中的某种弹药堆叠多于3996时不消耗"
+					Tooltip: ""
+				}
+
+				UnlimitedConsumableWeapons: {
+					Label: "[i:42] 在困难模式中，某种消耗品武器堆叠多于3996时不消耗"
+					Tooltip: ""
+				}
+
+				UnlimitedPotionBuffsOn120: {
+					Label: "[i:292] 携带一定数量时获得无限增益和无限鱼饵"
+					Tooltip: 堆叠30以上获得无限药水效果和无限鱼饵
+				}
+
+				EasySummons: {
+					// Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
+					// Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements.
+				}
+
+				BossZen: {
+					Label: "[i:3117] Boss战不刷新敌怪"
+					Tooltip: ""
+				}
+
+				AnglerQuestInstantReset: {
+					Label: "[i:2374] 渔夫任务提交后立即重置"
+					Tooltip: ""
+				}
+
+				ExtraLures: {
+					Label: "[i:2373] 钓鱼竿有额外鱼线"
+					Tooltip: ""
+				}
+
+				FasterLavaFishing: {
+					Label: "[i:4881] 岩浆中钓鱼速度加快"
+					Tooltip: ""
+				}
+
+				Fountains: {
+					Label: "[i:909] 喷泉改变生物群落"
+					Tooltip: ""
+				}
+
+				PermanentStationsNearby: {
+					Label: "[i:3198] 自动获得附近的永久性增益站效果"
+					Tooltip: ""
+				}
+
+				TorchGodEX: {
+					Label: "[i:5043] 火把神的恩宠自动替换放置的火把和已放置的火把"
+					Tooltip: 替换遵循火把运气，可能会和火把神的恩宠的默认选择有所不同
+				}
+
+				BannerRecipes: {
+					Label: "[i:1683] 旗帜合成表"
+					Tooltip: ""
+				}
+
+				ContainerRecipes: {
+					// Label: "[i:WoodenCrate] Container Recipes"
+					// Tooltip: Adds recipes to convert Crates, Treasure Bags, Herb Bags and other containers to various items that can drop from them.
+				}
+
+				MiscRecipes: {
+					// Label: "[i:Wood] Miscellaneous Recipes"
+					// Tooltip: Adds various miscellaneous recipes.
+				}
+
+				NPCSales: {
+					Label: "[i:267] NPC卖额外商品"
+					Tooltip: ""
+				}
+
+				CatchNPCs: {
+					Label: "[i:267] 可以抓城镇NPC"
+					Tooltip: ""
+				}
+
 				Mutant: {
 					Label: "[i:Fargowiltas/MutantMask] [c/ffffff:{$Mods.Fargowiltas.NPCs.Mutant.DisplayName}{$Mods.Fargowiltas.Configs.Common.CanSpawn}]"
 					Tooltip: ""
@@ -53,21 +141,6 @@ Mods: {
 
 				Squirrel: {
 					Label: "[i:239] [c/ffffff:{$Mods.Fargowiltas.NPCs.Squirrel.DisplayName}{$Mods.Fargowiltas.Configs.Common.CanSpawn}]"
-					Tooltip: ""
-				}
-
-				CatchNPCs: {
-					Label: "[i:267] 可以抓城镇NPC"
-					Tooltip: ""
-				}
-
-				NPCSales: {
-					Label: "[i:267] NPC卖额外商品"
-					Tooltip: ""
-				}
-
-				SaferBoundNPCs: {
-					Label: "[i:1274] 可救援的NPC不会受到接触伤害"
 					Tooltip: ""
 				}
 
@@ -121,121 +194,6 @@ Mods: {
 					// Tooltip: ""
 				}
 
-				UnlimitedAmmo: {
-					Label: "[i:771] 在困难模式中，背包中的某种弹药堆叠多于3996时不消耗"
-					Tooltip: ""
-				}
-
-				UnlimitedConsumableWeapons: {
-					Label: "[i:42] 在困难模式中，某种消耗品武器堆叠多于3996时不消耗"
-					Tooltip: ""
-				}
-
-				UnlimitedPotionBuffsOn120: {
-					Label: "[i:292] 携带一定数量时获得无限增益和无限鱼饵"
-					Tooltip: 堆叠30以上获得无限药水效果和无限鱼饵
-				}
-
-				ExtraBuffSlots: {
-					Label: "[i:3000] 额外增益栏上限"
-					Tooltip: ""
-				}
-
-				AnglerQuestInstantReset: {
-					Label: "[i:2374] 渔夫任务提交后立即重置"
-					Tooltip: ""
-				}
-
-				ExtraLures: {
-					Label: "[i:2373] 钓鱼竿有额外鱼线"
-					Tooltip: ""
-				}
-
-				StalkerMoneyTrough: {
-					Label: "[i:3213] 钱币槽跟随玩家"
-					Tooltip: ""
-				}
-
-				RottenEggs: {
-					Label: "[i:1809] 强力臭蛋（秒杀城镇NPC）"
-					Tooltip: ""
-				}
-
-				BannerRecipes: {
-					Label: "[i:1683] 旗帜合成表"
-					Tooltip: ""
-				}
-
-				IncreaseMaxStack: {
-					Label: "[i:2] 增加最大堆叠"
-					Tooltip: ""
-				}
-
-				ExtractSpeed: {
-					Label: "[i:997] 增加提炼机速度"
-					Tooltip: ""
-				}
-
-				Fountains: {
-					Label: "[i:909] 喷泉改变生物群落"
-					Tooltip: ""
-				}
-
-				PermanentStationsNearby: {
-					Label: "[i:3198] 自动获得附近的永久性增益站效果"
-					Tooltip: ""
-				}
-
-				BossZen: {
-					Label: "[i:3117] Boss战不刷新敌怪"
-					Tooltip: ""
-				}
-
-				PiggyBankAcc: {
-					Label: "[i:87] 信息饰品和建筑饰品的背包效果在猪猪存钱罐中生效"
-					Tooltip: ""
-				}
-
-				ModdedPiggyBankAcc: {
-					Label: "[i:87] Mod物品的背包效果在猪猪存钱罐中生效"
-					Tooltip: ""
-				}
-
-				FasterLavaFishing: {
-					Label: "[i:4881] 岩浆中钓鱼速度加快"
-					Tooltip: ""
-				}
-
-				TorchGodEX: {
-					Label: "[i:5043] 火把神的恩宠自动替换放置的火把和已放置的火把"
-					Tooltip: 替换遵循火把运气，可能会和火把神的恩宠的默认选择有所不同
-				}
-
-				PylonsIgnoreEvents: {
-					Label: "[i:4876] 事件期间可以使用晶塔"
-					Tooltip: ""
-				}
-
-				SafeTerraformers: {
-					Label: "[i:Fargowiltas/InstaBridge] 安全地形改造器"
-					Tooltip:
-						'''
-						速建平台和城市克星之类的地形改造器会避免破坏重要建筑物
-						这个选项过于安全，连地下小屋都不会破坏
-						'''
-				}
-
-				Headers: {
-					TownNPCs: 城镇NPC
-					Seasons: 季节性事件
-					Seeds: 秘密世界种子
-					Unlimited: 无限效果
-					StatMultipliers: 数据倍率
-					Misc: 杂项
-					// World: World
-					// Fishing: Fishing
-				}
-
 				EnemyHealth: {
 					Label: "[i:29] 敌怪生命值"
 					Tooltip: 将所有敌怪生命值按该倍率提升
@@ -269,14 +227,53 @@ Mods: {
 					Tooltip: Boss生命值和伤害倍率除了对Boss生效外，也对Boss存活时的所有敌怪生效
 				}
 
+				PiggyBankAcc: {
+					Label: "[i:87] 信息饰品和建筑饰品的背包效果在猪猪存钱罐中生效"
+					Tooltip: ""
+				}
+
+				ModdedPiggyBankAcc: {
+					Label: "[i:87] Mod物品的背包效果在猪猪存钱罐中生效"
+					Tooltip: ""
+				}
+
+				StalkerMoneyTrough: {
+					Label: "[i:3213] 钱币槽跟随玩家"
+					Tooltip: ""
+				}
+
+				RottenEggs: {
+					Label: "[i:1809] 强力臭蛋（秒杀城镇NPC）"
+					Tooltip: ""
+				}
+
+				SaferBoundNPCs: {
+					Label: "[i:1274] 可救援的NPC不会受到接触伤害"
+					Tooltip: ""
+				}
+
+				ExtractSpeed: {
+					Label: "[i:997] 增加提炼机速度"
+					Tooltip: ""
+				}
+
+				PylonsIgnoreEvents: {
+					Label: "[i:4876] 事件期间可以使用晶塔"
+					Tooltip: ""
+				}
+
+				SafeTerraformers: {
+					Label: "[i:Fargowiltas/InstaBridge] 安全地形改造器"
+					Tooltip:
+						'''
+						速建平台和城市克星之类的地形改造器会避免破坏重要建筑物
+						这个选项过于安全，连地下小屋都不会破坏
+						'''
+				}
+
 				DisableTombstones: {
 					Label: "[i:Fargowiltas/GraveBuster] 禁止墓碑生成"
 					Tooltip: 玩家死亡后不再生成墓碑
-				}
-
-				EasySummons: {
-					// Label: "[i:Fargowiltas/SuspiciousSkull] Easy Summons"
-					// Tooltip: Boss and event summons ignore requirements and set the time to meet their requirements.
 				}
 			}
 
