@@ -266,7 +266,7 @@ namespace Fargowiltas.Content.Items
                     tooltips.Add(line);
                 }
 
-                if (Main.LocalPlayer.GetFargoPlayer().UnlimitedBuffs && item.maxStack > 1)
+                if (FargoServerConfig.Instance.UnlimitedPotionBuffsOn120 && item.maxStack > 1)
                 {
                     if (!FargoSets.Items.PotionCannotBeInfinite[item.type])
                     {
@@ -505,7 +505,7 @@ namespace Fargowiltas.Content.Items
         }
         public static void TryUnlimBuff(Item item, Player player)
         {
-            if (item.IsAir || !Main.LocalPlayer.GetFargoPlayer().UnlimitedBuffs)
+            if (item.IsAir || !FargoServerConfig.Instance.UnlimitedPotionBuffsOn120)
                 return;
 
             if (FargoSets.Items.PotionCannotBeInfinite[item.type])
@@ -677,7 +677,7 @@ namespace Fargowiltas.Content.Items
         {
             if (FargoServerConfig.Instance.UnlimitedConsumableWeapons && Main.hardMode && item.damage > 0 && item.ammo == 0 && item.stack >= 3996)
                 return false;
-            if (Main.LocalPlayer.GetFargoPlayer().UnlimitedBuffs && (item.buffType > 0 || FargoSets.Items.NonBuffPotion[item.type]) && (item.stack >= 30 || player.inventory.Any(i => i.type == item.type && !i.IsAir && i.stack >= 30)))
+            if (FargoServerConfig.Instance.UnlimitedPotionBuffsOn120 && (item.buffType > 0 || FargoSets.Items.NonBuffPotion[item.type]) && (item.stack >= 30 || player.inventory.Any(i => i.type == item.type && !i.IsAir && i.stack >= 30)))
                 return false;
             return true;
         }

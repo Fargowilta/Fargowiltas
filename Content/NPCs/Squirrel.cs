@@ -179,10 +179,15 @@ namespace Fargowiltas.Content.NPCs
 
         public override void SetChatButtons(ref string button, ref string button2)
         {
-            button = Language.GetTextValue("LegacyInterface.28");
+            if (!Main.bloodMoon)
+            {
+                button = Language.GetTextValue("LegacyInterface.28");
 
-            button += $" {shopNum + 1}";
-            button2 = Language.GetTextValue("Mods.Fargowiltas.NPCs.Squirrel.Feed");
+                button += $" {shopNum + 1}";
+                button2 = Language.GetTextValue("Mods.Fargowiltas.NPCs.Squirrel.Feed");
+            }
+            else
+                button = Language.GetTextValue("Mods.Fargowiltas.NPCs.Squirrel.BlackMarket");
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
@@ -234,13 +239,16 @@ namespace Fargowiltas.Content.NPCs
             //    return SquirrelShopGroup.Other;
             //}
 
-            bool Potion = item.buffType != 0 && item.type != ItemID.GrilledSquirrel || FargoSets.Items.NonBuffPotion[item.type];
-            if (Potion && item.maxStack >= 30)
+            if (!Main.bloodMoon)
             {
-                sellType = SquirrelSellType.SoldAtThirtyStack;
-                return SquirrelShopGroup.Potion;
+                bool Potion = item.buffType != 0 && item.type != ItemID.GrilledSquirrel || FargoSets.Items.NonBuffPotion[item.type];
+                if (Potion && item.maxStack >= 30)
+                {
+                    sellType = SquirrelSellType.SoldAtThirtyStack;
+                    return SquirrelShopGroup.Potion;
+                }
+                bool soulsEnabled = ModLoader.TryGetMod("FargowiltasSouls", out Mod soulsMod);
             }
-            bool soulsEnabled = ModLoader.TryGetMod("FargowiltasSouls", out Mod soulsMod);
 
             //if (IsFargoSoulsItem(item))
             //{
@@ -412,25 +420,31 @@ namespace Fargowiltas.Content.NPCs
 
 
 
-            
+
 
             //add town npcs to shop
-            //foreach (var npc in Main.npc.Where(n => n.active && n.townNPC && Items.CaughtNPCs.CaughtNPCItem.CaughtTownies.ContainsKey(n.type)))
-            //{
-            //    itemCollections[SquirrelShopGroup.Other].Add(Items.CaughtNPCs.CaughtNPCItem.CaughtTownies[npc.type]);
-            //}
+            if (Main.bloodMoon)
+            {
+                foreach (var npc in Main.npc.Where(n => n.active && n.townNPC && Items.CaughtNPCs.CaughtNPCItem.CaughtTownies.ContainsKey(n.type)))
+                {
+                    itemCollections[SquirrelShopGroup.Other].Add(Items.CaughtNPCs.CaughtNPCItem.CaughtTownies[npc.type]);
+                }
+            }
 
-            //add acorns to shop
-            //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.Acorn);
-            //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeAmberSeed);
-            //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeAmethystSeed);
-            //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeDiamondSeed);
-            //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeEmeraldSeed);
-            //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeRubySeed);
-            //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeSapphireSeed);
-            //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeTopazSeed);
-            itemCollections[SquirrelShopGroup.Acorn].Add(ModContent.ItemType<EnchantedAcorn>());
-            //itemCollections[SquirrelShopGroup.Acorn].Add(ModContent.ItemType<EnchantedTree>());
+            if (!Main.bloodMoon)
+            {
+                //add acorns to shop
+                //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.Acorn);
+                //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeAmberSeed);
+                //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeAmethystSeed);
+                //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeDiamondSeed);
+                //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeEmeraldSeed);
+                //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeRubySeed);
+                //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeSapphireSeed);
+                //itemCollections[SquirrelShopGroup.Acorn].Add(ItemID.GemTreeTopazSeed);
+                itemCollections[SquirrelShopGroup.Acorn].Add(ModContent.ItemType<EnchantedAcorn>());
+                //itemCollections[SquirrelShopGroup.Acorn].Add(ModContent.ItemType<EnchantedTree>());
+            }
 
             return itemCollections.OrderBy(kv => kv.Key).SelectMany(kv => kv.Value).ToList();
         }
@@ -458,7 +472,7 @@ namespace Fargowiltas.Content.NPCs
             int startOffset = shopNum * MaxItems;
 
             List<int> sellableItems = GetSellableItems();
-            if (shopNum == 0 && ModContent.TryFind("FargowiltasSouls", "TopHatSquirrelCaught", out ModItem modItem)) //only on page 1
+            if (shopNum == 0 && ModContent.TryFind("FargowiltasSouls", "TopHatSquirrelCaught", out ModItem modItem) && !Main.bloodMoon) //only on page 1
             {
                 items[nextSlot] = new Item(modItem.Type) { shopCustomPrice = Item.buyPrice(copper: 100000) };
                 nextSlot++;

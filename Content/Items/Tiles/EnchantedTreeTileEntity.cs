@@ -297,7 +297,7 @@ namespace Fargowiltas.Content.Items.Tiles
             {
                 if (FargoUtils.TryGetTileEntityAs<EnchantedTreeTileEntity>(EnchantedTreeSheet.EnchantedTrees[i].X, EnchantedTreeSheet.EnchantedTrees[i].Y, out EnchantedTreeTileEntity tree))
                 {
-                    Main.spriteBatch.Begin();
+                    Main.spriteBatch.Begin( SpriteSortMode.Immediate, BlendState.AlphaBlend, Main.Camera.Sampler, DepthStencilState.None, Main.Camera.Rasterizer,null, transformMatrix: Main.Camera.GameViewMatrix.TransformationMatrix);
                     Asset<Texture2D> line = TextureAssets.Extra[178];
                     //draw lines
                     for (int f = 0; f < tree.Fruits.Count; f++)

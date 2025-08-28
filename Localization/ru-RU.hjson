@@ -282,7 +282,7 @@ Mods: {
 					Tooltip: Скорость предмета измеряется во времени использования, т.е. чем больше число, тем медленнее скорость.
 				}
 
-				HideUnlimitedBuffs: {
+				HideBuffTray: {
 					Label: "[i:292] Прятать бесконечные баффы из списка"
 					Tooltip: ""
 				}
@@ -319,7 +319,7 @@ Mods: {
 
 				DisableScopeView: {
 					Label: "[i:4005] Отдаление обзора для прицелов"
-					Tooltip: Позволяет отключить отдаление обзора для аксессуаров-прицелов, отключив их видимость
+					Tooltip: Позволяет отключить отдаление обзора для аксессуаров-прицелов, отключив их видимость, и отключает его для снайперской винтовки
 				}
 
 				Headers: {
@@ -330,6 +330,11 @@ Mods: {
 				AnimatedRecipeGroups: {
 					Label: "[i:9] Анимированные группы в рецептах"
 					Tooltip: Определяет, будут ли группы предметов в рецептах показывать спрайты включённых в них предметов или нет.
+				}
+
+				HideUnlimitedBuffs: {
+					Label: "[i:292] Прятать бесконечные баффы из списка"
+					Tooltip: ""
 				}
 			}
 
@@ -2491,10 +2496,10 @@ Mods: {
 			}
 
 			EnchantedTree: {
-				DisplayName: Дерево создания
+				DisplayName: Зачарованное дерево
 				Tooltip:
 					'''
-					Копирует предметы, которые сложно получить
+					Позволяет копировать сложно получаемые предметы
 					Тратит [i:Fargowiltas/EnchantedAcorn] зачарованные жёлуди при использовании
 					'''
 			}
@@ -2577,9 +2582,9 @@ Mods: {
 					Canceled: Кручу-верчу, событье завершить хочу!
 					CancelCD: Не, сейчас не хочу, вернись через {0} секунд.
 					NoEvent: Не думаю, что сейчас происходит что-то стоящее.
-					// PillarFail: I'm not getting rid of those pillars, that's for you to do.
-					// PillarFail2: Hocus pocus, the event is over. Those pillars are staying though.
-					// PillarFailCD: I'm not feeling it right now, come back in {0} seconds. Still not getting rid of those pillars, by the way.
+					PillarFail: Не, вон те башни я убирать не буду, иди бей их.
+					PillarFail2: Кручу-верчу, событье завершить хочу!.. За исключением тех башен.
+					PillarFailCD: Не, сейчас не хочу, вернись через {0} секунд. И нет, я всё равно не уберу те башни.
 				}
 
 				Census.SpawnCondition: После победы над армией гоблинов.
@@ -2698,7 +2703,7 @@ Mods: {
 					UndergroundShadowHands: Бу! Боишься темноты? Нет? А зря! Ведь теневые руки следят за тобой! Если забредёшь в подземелье — старайся держаться света, так они тебя не достанут!
 					UndergroundHallow: У тебя забавное лицо... Неужто подземное освящение так ослепляет? Укройся в тени, и все нехорошие эффекты ослабнут!
 					LifeFruit: Дам тебе знать, Плантера вообще за собой не следит. Диета из хлорофита и фруктов жизни не ТАКАЯ УЖ и здоровая! Почему бы тебе не помочь ей похудеть?
-					CactusDamage: Эти кактусы иногда так больно колются! Хочешь так же? Зачаруй себя в эссенции кактуса и посмотри, каково это!
+					CactusDamage: У некоторых кактусов есть зубы! Неясно, зачем они им, когда у них есть шипы, но ты всё равно смотри, чтоб тебя один такой не покусал!
 					RainLightning: Гляди в оба, как бы тебя во время дождя не ударила молния. На всякий случай лучше взять зонтик, так ты не намокнешь, и тебя не застанут врасплох!
 				}
 
@@ -2945,8 +2950,9 @@ Mods: {
 				}
 
 				Census.SpawnCondition: Если у вас в инвентаре есть белка в цилиндре.
-				// Feed: Feed Held Item
-				// Crunch: *crunch*
+				Feed: Скормить предмет
+				Crunch: *хруст*
+				BlackMarket: Чёрный рынок
 			}
 
 			SuperDummyNPC.DisplayName: Супер-манекен
@@ -3015,7 +3021,7 @@ Mods: {
 			SemistationSheet.MapEntry: Полустанция
 			SiblingPylonTile.MapEntry: Столб собратьев
 			PurityTotemSheet.MapEntry: Тотем чистоты
-			// EnchantedTreeSheet.MapEntry: Enchanted Tree
+			EnchantedTreeSheet.MapEntry: Зачарованное дерево
 		}
 
 		Conditions: {
@@ -3128,7 +3134,7 @@ Mods: {
 			SacrificeEventPlural: Используйте {0} штук на алтаре для подношений, чтобы начать особое событие
 			EnchantedTreeDupable: Можно скопировать с помощью дерева создания
 			RifleScopeBinocularToggle: Отдаление обзора можно выключить, переключив видимость аксессуара
-			// SniperRifleBinocularToggle: Binocular vision disabled
+			SniperRifleBinocularToggle: Отдаление обзора выключено
 		}
 
 		Emotes: {
@@ -3147,15 +3153,9 @@ Mods: {
 
 		BuilderToggles: {
 			PotionsBuilderToggle: {
-				NameText:
-					'''
-					{0}
-					{1}
-					'''
-				LeftOn: Бесконечные баффы вкл. (ЛКМ)
-				LeftOff: Бесконечные баффы выкл. (ЛКМ)
-				RightOn: Бесконечные баффы видимы (ПКМ)
-				RightOff: Бесконечные баффы скрыты (ПКМ)
+				NameText: "{0}"
+				LeftOn: Бесконечные баффы видимы
+				LeftOff: Бесконечные баффы скрыты
 			}
 		}
 	}
