@@ -3135,6 +3135,7 @@ Mods: {
 			EnchantedTreeDupable: Можно скопировать с помощью дерева создания
 			RifleScopeBinocularToggle: Отдаление обзора можно выключить, переключив видимость аксессуара
 			SniperRifleBinocularToggle: Отдаление обзора выключено
+			// Shimmerable: Can be Shimmered into
 		}
 
 		Emotes: {

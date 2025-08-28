@@ -344,6 +344,13 @@ namespace Fargowiltas.Content.Items
                         tooltips.Add(line);
                     }
                 }
+
+                int shimmerItem = ItemID.Sets.ShimmerTransformToItem[item.type];
+                if (shimmerItem > 0)
+                {
+                    line = new TooltipLine(Mod, "TooltipShimmerable", $"[c/FFC0CB:{ExpandedTooltipLoc("Shimmerable")}] [i:{shimmerItem}] [c/FFC0CB:{ContentSamples.ItemsByType[shimmerItem].Name}]");
+                    tooltips.Add(line);
+                }
             }
 
             if (FargoClientConfig.Instance.ExactTooltips)
