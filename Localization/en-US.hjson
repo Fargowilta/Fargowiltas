@@ -2955,6 +2955,7 @@ Mods: {
 				Census.SpawnCondition: Have a Top Hat Squirrel in your inventory.
 				Feed: Feed Held Item
 				Crunch: *crunch*
+				BlackMarket: Black Market
 			}
 
 			SuperDummyNPC.DisplayName: Super Dummy
