@@ -2955,6 +2955,7 @@ Mods: {
 				Census.SpawnCondition: Если у вас в инвентаре есть белка в цилиндре.
 				Feed: Скормить предмет
 				Crunch: *хруст*
+				// BlackMarket: Black Market
 			}
 
 			SuperDummyNPC.DisplayName: Супер-манекен

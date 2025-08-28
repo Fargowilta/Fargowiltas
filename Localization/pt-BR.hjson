@@ -2955,6 +2955,7 @@ Mods: {
 				Census.SpawnCondition: Tenha um esquilo de cartola no seu inventário.
 				// Feed: Feed Held Item
 				// Crunch: *crunch*
+				// BlackMarket: Black Market
 			}
 
 			// SuperDummyNPC.DisplayName: Super Dummy
