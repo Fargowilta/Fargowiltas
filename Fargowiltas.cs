@@ -84,7 +84,7 @@ namespace Fargowiltas
 
         internal static Fargowiltas Instance;
 
-        public override uint ExtraPlayerBuffSlots => 22;
+        //public override uint ExtraPlayerBuffSlots => FargoServerConfig.Instance. 22;
 
         public Fargowiltas()
         {
