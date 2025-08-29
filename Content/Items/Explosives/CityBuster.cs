@@ -19,7 +19,7 @@ Use at your own risk"); */
         {
             Item.width = 30;
             Item.height = 26;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.consumable = true;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.rare = ItemRarityID.Green;
