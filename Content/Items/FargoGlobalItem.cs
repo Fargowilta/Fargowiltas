@@ -854,6 +854,7 @@ namespace Fargowiltas.Content.Items
             if (UnlimitedAmmo(item) && !item.IsACoin)
             {
                 ChatManager.DrawColorCodedStringWithShadow(spriteBatch, FontAssets.ItemStack.Value, "∞", position + new Vector2(8f, -24f) * scale, drawColor, 0f, Vector2.Zero, new Vector2(scale), -1f, scale);
+                /*
                 for (int j = 0; j < 12; j++)
                 {
                     Vector2 afterimageOffset = (MathHelper.TwoPi * j / 12f).ToRotationVector2() * 1f;
@@ -862,6 +863,7 @@ namespace Fargowiltas.Content.Items
                     Texture2D texture = Terraria.GameContent.TextureAssets.Item[item.type].Value;
                     Main.EntitySpriteDraw(texture, position + afterimageOffset, null, glowColor, 0, texture.Size() * 0.5f, scale, SpriteEffects.None, 0f);
                 }
+                */
             }
             return base.PreDrawInInventory(item, spriteBatch, position, frame, drawColor, itemColor, origin, scale);
         }
