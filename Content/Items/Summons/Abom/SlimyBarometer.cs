@@ -17,7 +17,7 @@ namespace Fargowiltas.Content.Items.Summons.Abom
         {
             Item.width = 20;
             Item.height = 20;
-            Item.maxStack = 20;
+            Item.maxStack = 9999;
             Item.value = Item.sellPrice(0, 0, 2);
             Item.rare = ItemRarityID.Blue;
             Item.useAnimation = 30;

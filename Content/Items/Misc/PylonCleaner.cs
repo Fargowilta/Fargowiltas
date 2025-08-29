@@ -23,7 +23,7 @@ namespace Fargowiltas.Content.Items.Misc
 		{
 			Item.width = 18;
 			Item.height = 18;
-			Item.maxStack = 99;
+			Item.maxStack = 9999;
 			Item.consumable = true;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.rare = ItemRarityID.Blue;

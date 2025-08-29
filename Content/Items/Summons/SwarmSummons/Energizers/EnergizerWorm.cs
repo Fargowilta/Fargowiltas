@@ -15,7 +15,7 @@ namespace Fargowiltas.Content.Items.Summons.SwarmSummons.Energizers
         {
             Item.width = 20;
             Item.height = 20;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.rare = ItemRarityID.Blue;
             Item.value = 1000000;
         }
