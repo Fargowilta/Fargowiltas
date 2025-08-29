@@ -44,6 +44,7 @@ namespace Fargowiltas.Content.Items.Tiles
                 .AddRecipeGroup(RecipeGroups.AnyCookingPot)
                 .AddRecipeGroup(RecipeGroups.AnyWoodenSink)
                 .AddIngredient(ItemID.Keg)
+                .AddRecipeGroup(RecipeGroupID.IronBar, 5)
                 //.AddTile(TileID.WorkBenches)
                 .Register();
         }

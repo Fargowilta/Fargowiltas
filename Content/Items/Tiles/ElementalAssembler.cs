@@ -52,6 +52,7 @@ namespace Fargowiltas.Content.Items.Tiles
                 .AddIngredient(ItemID.TeaKettle)
                 .AddRecipeGroup(RecipeGroups.AnyTombstone)
                 .AddRecipeGroup(RecipeGroups.AnyDemonAltar)
+                .AddRecipeGroup(ItemID.Bone, 5)
                 .Register();
         }
     }
