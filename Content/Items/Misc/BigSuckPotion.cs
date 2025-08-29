@@ -17,7 +17,7 @@ namespace Fargowiltas.Content.Items.Misc
 		{
 			Item.width = 14;
 			Item.height = 24;
-			Item.maxStack = 30;
+			Item.maxStack = 9999;
 			Item.rare = ItemRarityID.Blue;
 			Item.useStyle = ItemUseStyleID.DrinkLiquid;
 			Item.useAnimation = 17;

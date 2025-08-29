@@ -19,7 +19,7 @@ namespace Fargowiltas.Content.Items.Explosives
         {
             Item.width = 46;
             Item.height = 48;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.consumable = true;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.rare = ItemRarityID.Green;

@@ -41,7 +41,7 @@ Mods: {
 
 				UnlimitedAmmo: {
 					Label: "[i:771] Unlimited Ammo at 3996+ in Hardmode"
-					Tooltip: Amunition is not consumed if you have a stack of at least 3996, in Hardmode.
+					Tooltip: Ammunition is not consumed if you have a stack of at least 3996, in Hardmode.
 				}
 
 				UnlimitedConsumableWeapons: {

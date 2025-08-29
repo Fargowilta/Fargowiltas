@@ -14,7 +14,7 @@ namespace Fargowiltas.Content.Items.Tiles
         public override void SetDefaults()
         {
             Item.DefaultToPlaceableTile(ModContent.TileType<MutantToiletSheet>());
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.width = 16;
             Item.height = 24;
             Item.value = Item.sellPrice(1, 50);

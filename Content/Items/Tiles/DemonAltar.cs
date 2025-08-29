@@ -20,7 +20,7 @@ namespace Fargowiltas.Content.Items.Tiles
             Item.width = 28;
             Item.height = 14;
             Item.rare = ItemRarityID.Green;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;
@@ -53,7 +53,7 @@ namespace Fargowiltas.Content.Items.Tiles
             Item.width = 28;
             Item.height = 14;
             Item.rare = ItemRarityID.Green;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;
