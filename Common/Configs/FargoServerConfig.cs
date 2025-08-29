@@ -181,5 +181,8 @@ namespace Fargowiltas.Common.Configs
 
         [DefaultValue(false)]
         public bool DisableTombstones;
+
+        [DefaultValue(true)]
+        public bool ExtraBuffSlots;
     }
 }

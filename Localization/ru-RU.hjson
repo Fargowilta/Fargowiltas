@@ -267,6 +267,11 @@ Mods: {
 					Label: "[i:Fargowiltas/GraveBuster] Отключить надгробия"
 					Tooltip: Пока включена, надгробия не появляются на месте смерти игрока.
 				}
+
+				ExtraBuffSlots: {
+					// Label: "[i:IronskinPotion] Extra Buff Slots"
+					// Tooltip: Grants 22 additional buff slots for all players.
+				}
 			}
 
 			FargoClientConfig: {

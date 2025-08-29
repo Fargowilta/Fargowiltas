@@ -275,6 +275,11 @@ Mods: {
 					Label: "[i:Fargowiltas/GraveBuster] 禁止墓碑生成"
 					Tooltip: 玩家死亡后不再生成墓碑
 				}
+
+				ExtraBuffSlots: {
+					// Label: "[i:IronskinPotion] Extra Buff Slots"
+					// Tooltip: Grants 22 additional buff slots for all players.
+				}
 			}
 
 			FargoClientConfig: {
