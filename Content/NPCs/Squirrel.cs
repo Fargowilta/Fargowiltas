@@ -623,12 +623,17 @@ namespace Fargowiltas.Content.NPCs
                     }
                     else
                     {
-                        int multiplier = 2;
+                        int multiplier = 1;
                         if (FargoSets.Items.SacrificeCountDefault[itemType] == 1) // things that can only be sacrificed once give increased output
-                            multiplier = 6;
+                            multiplier = 3;
                         for (int i = 0; i < multiplier; i++)
                         {
-                            int result = SacrificeResult(out int amount);
+                            int result;
+                            int amount;
+                            if (FargoSets.Items.HardmodeSacrifice[itemType] && Main.hardMode)
+                                result = SacrificeResultHardmode(out amount);
+                            else
+                                result = SacrificeResult(out amount);
                             Item.NewItem(new EntitySource_WorldEvent(), player.Center, new Item(result, amount));
                         }
 
@@ -644,10 +649,10 @@ namespace Fargowiltas.Content.NPCs
             }
             return false;
         }
-
         public static int[] SetDefaultSacrificeCount(SetFactory itemFactory)
         {
-            return itemFactory.CreateIntSet(0,
+            int[] prehardmode =
+            [
                 // king slime
                 ItemID.NinjaHood, 1,
                 ItemID.NinjaShirt, 1,
@@ -690,6 +695,8 @@ namespace Fargowiltas.Content.NPCs
                 ItemID.SharkFin, 3,
                 ItemID.Hook, 3,
                 ItemID.BlackLens, 1,
+                ItemID.AntlionMandible, 3,
+                ItemID.Vine, 3,
 
                 // event drops
                 ItemID.SlimeStaff, 1,
@@ -712,6 +719,7 @@ namespace Fargowiltas.Content.NPCs
                 ItemID.CrimsonRod, 1,
                 ItemID.TheRottedFork, 1,
                 ItemID.PanicNecklace, 1,
+
                 // enemy weapon drops
                 ItemID.BatBat, 1,
                 ItemID.ChainKnife, 1,
@@ -722,14 +730,145 @@ namespace Fargowiltas.Content.NPCs
                 ItemID.DemonScythe, 1,
                 ItemID.BloodyMachete, 1,
                 ItemID.BladedGlove, 1,
+                ItemID.ZombieArm, 1,
+                ItemID.Shackle, 1,
+                ItemID.Shroomerang, 1,
 
                 // event summons
                 CaughtNPCItem.CaughtTownies[NPCID.Dryad], 1,
                 ItemID.PinkGel, 1,
                 ItemID.TissueSample, 1,
                 ItemID.ShadowScale, 1,
-                ModContent.ItemType<WiresPainting>(), 1
-                );
+                ModContent.ItemType<WiresPainting>(), 1,
+
+                // wof
+                ItemID.BreakerBlade, 1,
+                ItemID.ClockworkAssaultRifle, 1,
+                ItemID.LaserRifle, 1,
+                ItemID.FireWhip, 1
+            ];
+
+            int[] hardmode =
+            [
+
+                // mimic
+                ItemID.DualHook, 1,
+                ItemID.MagicDagger, 1,
+                ItemID.PhilosophersStone, 1,
+                ItemID.TitanGlove, 1,
+                ItemID.StarCloak, 1,
+                ItemID.CrossNecklace, 1,
+
+                // ice mimic
+                ItemID.Frostbrand, 1,
+                ItemID.IceBow, 1,
+                ItemID.FlowerofFrost, 1,
+
+                // corrupt mimic
+                ItemID.ClingerStaff, 1,
+                ItemID.DartRifle, 1,
+                ItemID.ChainGuillotines, 1,
+                ItemID.PutridScent, 1,
+                ItemID.WormHook, 1,
+
+                // crimson mimic
+                ItemID.SoulDrain, 1,
+                ItemID.DartPistol, 1,
+                ItemID.FetidBaghnakhs, 1,
+                ItemID.FleshKnuckles, 1,
+                ItemID.TendonHook, 1,
+                
+                // hallowed mimic
+                ItemID.DaedalusStormbow, 1,
+                ItemID.FlyingKnife, 1,
+                ItemID.CrystalVileShard, 1,
+                ItemID.IlluminantHook, 1,
+
+                // queenie
+                ItemID.CrystalNinjaHelmet, 1,
+                ItemID.CrystalNinjaChestplate, 1,
+                ItemID.CrystalNinjaLeggings, 1,
+                ItemID.Smolstar, 1,
+                ItemID.QueenSlimeMountSaddle, 1,
+                ItemID.QueenSlimeHook, 1,
+
+                // plantera
+                ItemID.GrenadeLauncher, 1,
+                ItemID.VenusMagnum, 1,
+                ItemID.NettleBurst, 1,
+                ItemID.LeafBlower, 1,
+                ItemID.FlowerPow, 1,
+                ItemID.WaspGun, 1,
+                ItemID.Seedler, 1,
+                ItemID.PygmyStaff, 1,
+                ItemID.ThornHook, 1,
+
+                // golem
+                ItemID.Stynger, 1,
+                ItemID.PossessedHatchet, 1,
+                ItemID.SunStone, 1,
+                ItemID.EyeoftheGolem, 1,
+                ItemID.HeatRay, 1,
+                ItemID.StaffofEarth, 1,
+                ItemID.GolemFist, 1,
+
+                // oger
+                3852, 1, // tome of infinite wisdom
+                3854, 1, // phantom phoenix
+                3823, 1, // brand of the inferno
+                3835, 1, // sleepy octopod
+                3836, 1, // gassy glaive
+
+                // betsy
+                ItemID.DD2BetsyBow, 1, // aerial bane
+                ItemID.DD2SquireBetsySword, 1, // flying dragon
+                ItemID.MonkStaffT3, 1, // sky dragons fury
+                ItemID.ApprenticeStaffT3, 1, // betsy's wrath
+
+                // eol
+                4952, 1, // nightglow
+                ItemID.PiercingStarlight, 1,
+                ItemID.RainbowWhip, 1,
+                4953, 1, // eventide
+
+                // duke
+                ItemID.Flairon, 1,
+                ItemID.BubbleGun, 1,
+                ItemID.RazorbladeTyphoon, 1,
+                ItemID.TempestStaff, 1,
+                ItemID.Tsunami, 1,
+
+                // enemy drops
+                ItemID.BeamSword, 1,
+                ItemID.Marrow, 1,
+                ItemID.Uzi, 1,
+                ItemID.UnholyTrident, 1,
+                ItemID.IceSickle, 1,
+                ItemID.FrostStaff, 1,
+                // dungeon
+                ItemID.Keybrand, 1,
+                ItemID.ShadowbeamStaff, 1,
+                ItemID.SpectreStaff, 1,
+                ItemID.InfernoFork, 1,
+                ItemID.RocketLauncher, 1,
+                ItemID.SniperRifle, 1,
+                ItemID.ShadowJoustingLance, 1,
+                ItemID.TacticalShotgun, 1,
+                ItemID.PaladinsHammer, 1,
+                ItemID.MagnetSphere, 1,
+                ItemID.MaceWhip, 1,
+
+                // materials
+                ItemID.TurtleShell, 3,
+                ItemID.UnicornHorn, 3,
+            ];
+
+            for (int i = 0; i < hardmode.Length; i += 2) // skip amounts, only grab item IDs
+            {
+                FargoSets.Items.HardmodeSacrifice[hardmode[i]] = true;
+            }
+
+            return itemFactory.CreateIntSet(0, [.. prehardmode, .. hardmode]);
         }
         public readonly struct Result(int type, int amount)
         {
@@ -804,6 +943,47 @@ namespace Fargowiltas.Content.NPCs
             // rare
             result.Add(new(ItemID.LifeCrystal, 1), 0.1);
             result.Add(new(ItemID.PlatinumCoin, 1), 0.001); // lol
+
+            Result real = result.Get();
+            result.Clear();
+            amount = real.Amount;
+            return real.Type;
+
+        }
+
+        public static int SacrificeResultHardmode(out int amount)
+        {
+            WeightedRandom<Result> result = new(Main.rand.Next(int.MaxValue));
+
+            // misc materials
+            result.Add(new(ItemID.SoulofNight, 5), 1);
+            result.Add(new(ItemID.SoulofLight, 5), 1);
+            result.Add(new(ItemID.SoulofFlight, 5), 1);
+            result.Add(new(ItemID.Ichor, 10), 1);
+            result.Add(new(ItemID.CursedFlame, 10), 1);
+
+            // ores
+            result.Add(new(ItemID.CobaltOre, OreCount), OreWeight);
+            result.Add(new(ItemID.PalladiumOre, OreCount), OreWeight);
+
+            // lootboxes
+            result.Add(new(ItemID.HerbBag, 10), 1);
+
+            result.Add(new(ItemID.WoodenCrateHard, CrateCount), 1);
+            result.Add(new(ItemID.IronCrateHard, CrateCount), 0.25);
+            result.Add(new(ItemID.GoldenCrateHard, CrateCount), 0.05);
+
+            result.Add(new(ItemID.JungleFishingCrateHard, CrateCount), CrateWeight);
+            result.Add(new(ItemID.FloatingIslandFishingCrateHard, CrateCount), CrateWeight);
+            result.Add(new(ItemID.CorruptFishingCrateHard, CrateCount), CrateWeight);
+            result.Add(new(ItemID.CrimsonFishingCrateHard, CrateCount), CrateWeight);
+            result.Add(new(ItemID.FrozenCrateHard, CrateCount), CrateWeight);
+            result.Add(new(ItemID.OceanCrateHard, CrateCount), CrateWeight);
+            result.Add(new(ItemID.OasisCrateHard, CrateCount), CrateWeight);
+
+
+            result.Add(new(ItemID.PlatinumCoin, 1), 0.25);
+            result.Add(new(ItemID.RodofDiscord, 1), 0.001); // lol
 
             Result real = result.Get();
             result.Clear();

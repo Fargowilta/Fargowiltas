@@ -24,6 +24,7 @@ namespace Fargowiltas
 
             public static int[] SacrificeCountDefault;
             public static int[] SacrificeCount;
+            public static bool[] HardmodeSacrifice;
         }
         public class Tiles
         {
@@ -131,8 +132,8 @@ namespace Fargowiltas
 
             Items.RegisteredShopTooltips = itemFactory.CreateCustomSet<List<ShopTooltip>>(null);
 
+            Items.HardmodeSacrifice = itemFactory.CreateBoolSet(false);
             Items.SacrificeCountDefault = Squirrel.SetDefaultSacrificeCount(itemFactory);
-
             Items.SacrificeCount = itemFactory.CreateIntSet(0);
             #endregion
             #region Tiles
