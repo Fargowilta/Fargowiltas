@@ -2952,11 +2952,12 @@ Mods: {
 					Normal1: *guincho*
 					Normal2: *chiado*
 					Normal3: *morde morde*
+					// FeedSuccess: *crunch*
+					// FeedFail: *disappointed squeak*
 				}
 
 				Census.SpawnCondition: Tenha um esquilo de cartola no seu inventário.
 				// Feed: Feed Held Item
-				// Crunch: *crunch*
 				// BlackMarket: Black Market
 			}
 

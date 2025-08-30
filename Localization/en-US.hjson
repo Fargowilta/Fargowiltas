@@ -2951,12 +2951,13 @@ Mods: {
 					// Normal
 					Normal1: *squeak*
 					Normal2: *chitter*
-					Normal3: *crunch crunch*
+					Normal3: *scratch scratch*
+					FeedSuccess: *crunch*
+					FeedFail: *disappointed squeak*
 				}
 
 				Census.SpawnCondition: Have a Top Hat Squirrel in your inventory.
 				Feed: Feed Held Item
-				Crunch: *crunch*
 				BlackMarket: Black Market
 			}
 

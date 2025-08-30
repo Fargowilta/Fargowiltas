@@ -199,7 +199,9 @@ namespace Fargowiltas.Content.NPCs
             else
             {
                 if (SacrificeThing(Main.LocalPlayer, Main.LocalPlayer.HeldItem))
-                    Main.npcChatText = "*crunch*";
+                    Main.npcChatText = SquirrelChat("FeedSuccess");
+                else
+                    Main.npcChatText = SquirrelChat("FeedFail");
             }
 
             //check this when just opening shop too in case shop shrinks

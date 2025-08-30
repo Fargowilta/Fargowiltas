@@ -2952,11 +2952,12 @@ Mods: {
 					Normal1: *писк*
 					Normal2: *щебет*
 					Normal3: *хруст-хруст*
+					// FeedSuccess: *crunch*
+					// FeedFail: *disappointed squeak*
 				}
 
 				Census.SpawnCondition: Если у вас в инвентаре есть белка в цилиндре.
 				Feed: Скормить предмет
-				Crunch: *хруст*
 				BlackMarket: Чёрный рынок
 			}
 

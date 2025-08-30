@@ -2961,11 +2961,12 @@ Mods: {
 					Normal1: *吱吱*
 					Normal2: *啾啾*
 					Normal3: *嘎吱嘎吱*
+					// FeedSuccess: *crunch*
+					// FeedFail: *disappointed squeak*
 				}
 
 				Census.SpawnCondition: 库存中有一只高顶礼帽松鼠。
 				// Feed: Feed Held Item
-				// Crunch: *crunch*
 				// BlackMarket: Black Market
 			}
 
