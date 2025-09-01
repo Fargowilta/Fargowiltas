@@ -32,21 +32,21 @@ Mods: {
 				DisplayName: Конфигурации: сторона сервера
 
 				Headers: {
-					// Gameplay: Gameplay Changes
-					// Content: New Content
-					// WorldStates: World States
+					Gameplay: Изменения геймплея
+					Content: Новый контент
+					WorldStates: Состояния мира
 					StatMultipliers: Множители показателей
 					Misc: Прочее
 				}
 
 				UnlimitedAmmo: {
-					Label: "[i:771] Бесконечные патроны в стаке 3996+ в хардмоде"
-					Tooltip: ""
+					Label: "[i:771] Бесконечные боеприпасы в стаке 3996+ в хардмоде"
+					Tooltip: Боеприпасы в стаках 3996 и выше не будут тратиться по наступлении хардмода
 				}
 
 				UnlimitedConsumableWeapons: {
-					Label: "[i:42] Бесконечные тратящиеся орудия в стаке 3996+ в хардмоде"
-					Tooltip: ""
+					Label: "[i:42] Бесконечные тратящиеся оружия в стаке 3996+ в хардмоде"
+					Tooltip: Тратящиеся оружия в стаках 3996 и выше не будут тратиться по наступлении хардмода
 				}
 
 				UnlimitedPotionBuffsOn120: {
@@ -66,57 +66,61 @@ Mods: {
 
 				AnglerQuestInstantReset: {
 					Label: "[i:2374] Мгновенный ресет заданий рыбака"
-					Tooltip: ""
+					Tooltip: Сразу после выполнения задания рыбака вам будет доступно новое.
 				}
 
 				ExtraLures: {
 					Label: "[i:2373] Дополнительные крючки у удочек"
-					Tooltip: ""
+					Tooltip: Некоторые удочки выпускают несколько крючков, а зелье рыбалки даёт дополнительный крючок всем удочкам.
 				}
 
 				FasterLavaFishing: {
 					Label: "[i:4881] Ускоренная рыбалка в лаве"
-					Tooltip: ""
+					Tooltip: Рыба в лаве ловится быстрее.
 				}
 
 				Fountains: {
 					Label: "[i:909] Фонтаны вызывают биомы"
-					Tooltip: ""
+					Tooltip: Поставив и включив фонтан определённого биома, вы сможете превратить окружающее пространство в этот биом.
 				}
 
 				PermanentStationsNearby: {
-					Label: "[i:3198] Автоматические станции с баффами рядом"
-					Tooltip: Станции с баффами по типу точильного камня автоматически накладывают баффы всем игрокам рядом с ними
+					Label: "[i:3198] Автоматические баффовые станции рядом"
+					Tooltip: Баффовые станции (по типу точильного камня) автоматически накладывают свои баффы всем игрокам рядом с ними.
 				}
 
 				TorchGodEX: {
 					Label: "[i:5043] Милость Бога факелов автоматически меняет поставленные факела"
-					Tooltip: Подчиняется истинной удаче факелов; может отличаться от милости Бога факелов
+					Tooltip: 
+						'''
+						Подчиняется истинной удаче факелов; может отличаться от милости Бога факелов.
+						Например, если у биома нет своего факела, факелы будут заменяться на костяные.
+						'''
 				}
 
 				BannerRecipes: {
 					Label: "[i:1683] Рецепты из знамён"
-					Tooltip: ""
+					Tooltip: Добавляет рецепты для создания редких предметов, выпадающих с мобов, используя баннеры этих мобов.
 				}
 
 				ContainerRecipes: {
-					// Label: "[i:WoodenCrate] Container Recipes"
-					// Tooltip: Adds recipes to convert Crates, Treasure Bags, Herb Bags and other containers to various items that can drop from them.
+					Label: "[i:WoodenCrate] Рецепты из «мешков»"
+					Tooltip: Добавляет рецепты для создания предметов, выпадающих из ящиков, мешков с сокровищами и других подобных предметов, используя эти предметы.
 				}
 
 				MiscRecipes: {
-					// Label: "[i:Wood] Miscellaneous Recipes"
-					// Tooltip: Adds various miscellaneous recipes.
+					Label: "[i:Wood] Прочие рецепты"
+					Tooltip: Добавляет другие полезные рецепты.
 				}
 
 				NPCSales: {
 					Label: "[i:267] Дополнительные предметы в магазинах НИПов"
-					Tooltip: ""
+					Tooltip: Расширяет ассортимент в магазинах некоторых НИПов.
 				}
 
 				CatchNPCs: {
 					Label: "[i:267] Ловить городских НИПов"
-					Tooltip: ""
+					Tooltip: Позволяет вам ловить НИПов с помощью сачка, превращая их в предмет, который после можно использовать, чтобы выпустить НИПа в мир.
 				}
 
 				Mutant: {
@@ -231,12 +235,12 @@ Mods: {
 
 				StalkerMoneyTrough: {
 					Label: "[i:3213] Преследующее денежное корыто"
-					Tooltip: ""
+					Tooltip: Свинка из денежного корыта постоянно преследует вас.
 				}
 
 				RottenEggs: {
 					Label: "[i:1809] Усиленные тухлые яйца"
-					Tooltip: ""
+					Tooltip: Значительно увеличивает урон от тухлых яиц по городским НИПам.
 				}
 
 				SaferBoundNPCs: {
@@ -251,7 +255,7 @@ Mods: {
 
 				PylonsIgnoreEvents: {
 					Label: "[i:4876] Пилоны игнорируют события"
-					Tooltip: ""
+					Tooltip: Пилоны можно использовать, даже когда в мире происходит событие по типу нашествия гоблинов.
 				}
 
 				SafeTerraformers: {
@@ -269,8 +273,8 @@ Mods: {
 				}
 
 				ExtraBuffSlots: {
-					// Label: "[i:IronskinPotion] Extra Buff Slots"
-					// Tooltip: Grants 22 additional buff slots for all players.
+					Label: "[i:IronskinPotion] Дополнительные слоты для баффов"
+					Tooltip: Даёт 22 дополнительных слота для баффов всем игрокам.
 				}
 			}
 
@@ -308,7 +312,7 @@ Mods: {
 				}
 
 				DebuffFaderRatio: {
-					Label: "[i:1612] Сила угасания длительности дебаффа"
+					Label: "[i:1612] Угасание длительности отображаемых дебаффов"
 					Tooltip: ""
 				}
 
@@ -385,14 +389,14 @@ Mods: {
 			MeleeDamage: Ближний урон: {0}%
 			MeleeCritical: Ближний шанс крит. удара: {0}%
 			MeleeSpeed: Ближняя скорость: {0}%
-			RangedDamage: Дальний урон: {0}%
-			RangedCritical: Дальний шанс крит. удара: {0}%
+			RangedDamage: Стрелковый урон: {0}%
+			RangedCritical: Стрелковый шанс крит. удара: {0}%
 			MagicDamage: Магический урон: {0}%
 			MagicCritical: Магический шанс крит. удара: {0}%
 			ManaCostReduction: Снижение траты маны: {0}%
-			SummonDamage: Призывной урон: {0}%
-			SummonCritical: Призывной шанс крит. удара: {0}%
-			MaxMinions: Макс. прислужники: {0}
+			SummonDamage: Призывательный урон: {0}%
+			SummonCritical: Призывательный шанс крит. удара: {0}%
+			MaxMinions: Макс. миньоны: {0}
 			MaxSentries: Макс. стражи: {0}
 			ArmorPenetration: Пробивание брони: {0}
 			Aggro: Агро: {0}
@@ -2951,9 +2955,9 @@ Mods: {
 					// Normal
 					Normal1: *писк*
 					Normal2: *щебет*
-					Normal3: *хруст-хруст*
-					// FeedSuccess: *crunch*
-					// FeedFail: *disappointed squeak*
+					Normal3: *чёс-чёс*
+					FeedSuccess: *хруст*
+					FeedFail: *разочарованный писк*
 				}
 
 				Census.SpawnCondition: Если у вас в инвентаре есть белка в цилиндре.
@@ -3138,10 +3142,10 @@ Mods: {
 			Sacrificable: Можно использовать на алтаре для подношений ещё 1 раз
 			SacrificeEvent: Используйте на алтаре для подношений, чтобы начать особенное событие
 			SacrificeEventPlural: Используйте {0} штук на алтаре для подношений, чтобы начать особое событие
-			EnchantedTreeDupable: Можно скопировать с помощью дерева создания
+			EnchantedTreeDupable: Можно дублировать с помощью зачарованного дерева
 			RifleScopeBinocularToggle: Отдаление обзора можно выключить, переключив видимость аксессуара
 			SniperRifleBinocularToggle: Отдаление обзора выключено
-			// Shimmerable: Can be Shimmered into
+			Shimmerable: Можно превратить с помощью мерцания в
 		}
 
 		Emotes: {
