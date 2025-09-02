@@ -39,7 +39,7 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void AddRecipes()
         {
             CreateRecipe()
-                    .AddRecipeGroup("Fargowiltas:AnyDemoniteBar", 10)
+                    .AddRecipeGroup("Fargowiltas:AnyEvilBar", 10)
                     .AddIngredient(ItemID.GoldCoin, 10)
                     .AddIngredient(ItemID.Chest, 1)
                     .AddTile(TileID.DemonAltar)
