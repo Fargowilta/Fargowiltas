@@ -1,11 +1,2 @@
 NEW UPDATE - V {ModVersion}
-Updated sibling sprites - they are now properly flipped when facing the other direction, and Deviantt is taller
-Resprited Squirrel
-Abominationn now has a unique map icon when shimmered
-Resprited Omnistation buff icon
-Suspicious Skull now summons Dungeon Guardian instead if in Remix world and on the surface
-Fixed Fishy and Slimy Energizers listing the wrong summon name
-Forbidden Scarab now causes strong wind
-Ice Mimics now also count for unlocking Suspicious Looking Chest from Deviantt
-Fixed a minor text typo
-Set sorting priorities for all summons, as well as fixing research counts for Pink Slime Tiara and Outsider's Portal
+Swarm summons now display their drops in their tooltip
