@@ -14,9 +14,9 @@ namespace Fargowiltas.Common.Systems.Recipes
     public class RecipeGroups : ModSystem
     {
         public static string ItemXOrY(int id1, int id2) => $"{Lang.GetItemName(id1)} {Language.GetTextValue($"Mods.Fargowiltas.RecipeGroups.Or")} {Lang.GetItemName(id2)}";
-        internal static int AnyGoldBar;
+        internal static int AnyGoldBar, AnyEvilBar;
         internal static int AnyDemonAltar, AnyAnvil, AnyHMAnvil, AnyForge, AnyBookcase, AnyCookingPot, AnyTombstone, AnyWoodenTable, AnyWoodenChair, AnyWoodenSink, AnyDecayChamber;
-        internal static int AnyButterfly, AnySquirrel, AnyCommonFish, AnyDragonfly, AnyBird, AnyDuck;
+        internal static int AnyButterfly, /*AnySquirrel,*/ AnyCommonFish, AnyDragonfly, AnyBird, AnyDuck;
         internal static int AnyFoodT2, AnyFoodT3, AnyGemRobe;
         internal static int AnyWoodCrate, AnyIronCrate, AnyGoldCrate, AnyJungleCrate, AnySkyCrate, AnyCorruptCrate, AnyCrimsonCrate, AnyHallowedCrate, AnyDungeonCrate, AnyFrozenCrate, AnySandCrate, AnyLavaCrate, AnyOceanCrate;
 
@@ -27,12 +27,12 @@ namespace Fargowiltas.Common.Systems.Recipes
             RecipeGroup.RegisterGroup("Fargowiltas:AnySilverPouch", group);
 
             //gold bar
-            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ItemID.GoldBar), ItemID.GoldBar, ItemID.PlatinumBar);
+            group = new RecipeGroup(() => ItemXOrY(ItemID.GoldBar, ItemID.PlatinumBar), ItemID.GoldBar, ItemID.PlatinumBar);
             AnyGoldBar = RecipeGroup.RegisterGroup("Fargowiltas:AnyGoldBar", group);
 
             //demonite bar
-            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ItemID.DemoniteBar), ItemID.DemoniteBar, ItemID.CrimtaneBar);
-            AnyGoldBar = RecipeGroup.RegisterGroup("Fargowiltas:AnyDemoniteBar", group);
+            group = new RecipeGroup(() => ItemXOrY(ItemID.DemoniteBar, ItemID.CrimtaneBar), ItemID.DemoniteBar, ItemID.CrimtaneBar);
+            AnyEvilBar = RecipeGroup.RegisterGroup("Fargowiltas:AnyEvilBar", group);
 
             //demon altar
             List<int> demonaltars = new() { ModContent.ItemType<DemonAltar>(), ModContent.ItemType<CrimsonAltar>() };
@@ -44,15 +44,15 @@ namespace Fargowiltas.Common.Systems.Recipes
             AnyDemonAltar = RecipeGroup.RegisterGroup("Fargowiltas:AnyDemonAltar", group);
 
             //iron anvil
-            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ItemID.IronAnvil), ItemID.IronAnvil, ItemID.LeadAnvil);
+            group = new RecipeGroup(() => ItemXOrY(ItemID.IronAnvil, ItemID.LeadAnvil), ItemID.IronAnvil, ItemID.LeadAnvil);
             AnyAnvil = RecipeGroup.RegisterGroup("Fargowiltas:AnyAnvil", group);
 
             //anvil HM
-            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ItemID.MythrilAnvil), ItemID.MythrilAnvil, ItemID.OrichalcumAnvil);
+            group = new RecipeGroup(() => ItemXOrY(ItemID.MythrilAnvil, ItemID.OrichalcumAnvil), ItemID.MythrilAnvil, ItemID.OrichalcumAnvil);
             AnyHMAnvil = RecipeGroup.RegisterGroup("Fargowiltas:AnyHMAnvil", group);
 
             //forge HM
-            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ItemID.AdamantiteForge), ItemID.AdamantiteForge, ItemID.TitaniumForge);
+            group = new RecipeGroup(() => ItemXOrY(ItemID.AdamantiteForge, ItemID.TitaniumForge), ItemID.AdamantiteForge, ItemID.TitaniumForge);
             AnyForge = RecipeGroup.RegisterGroup("Fargowiltas:AnyForge", group);
 
             //book cases
@@ -74,7 +74,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             */
             AnyBookcase = RecipeGroup.RegisterGroup("Fargowiltas:AnyBookcase", group);
 
-            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ItemID.CookingPot), ItemID.CookingPot, ItemID.Cauldron);
+            group = new RecipeGroup(() => ItemXOrY(ItemID.CookingPot, ItemID.Cauldron), ItemID.CookingPot, ItemID.Cauldron);
             AnyCookingPot = RecipeGroup.RegisterGroup("Fargowiltas:AnyCookingPot", group);
 
             group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("LegacyMisc.87", true),
@@ -84,14 +84,14 @@ namespace Fargowiltas.Common.Systems.Recipes
             );
             AnyButterfly = RecipeGroup.RegisterGroup("Fargowiltas:AnyButterfly", group);
 
-            //vanilla squirrels
-            group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText(ItemID.Squirrel),
+            /* //vanilla squirrels
+            group = new RecipeGroup(() => ItemXOrY(ItemID.Squirrel, ItemID.SquirrelRed),
                 ItemID.Squirrel,
                 ItemID.SquirrelRed
             );
-            AnySquirrel = RecipeGroup.RegisterGroup("Fargowiltas:AnySquirrel", group);
+            AnySquirrel = RecipeGroup.RegisterGroup("Fargowiltas:AnySquirrel", group); */
 
-            //vanilla squirrels
+            //vanilla fishes
             group = new RecipeGroup(() => RecipeHelper.GenerateAnyItemRecipeGroupText("CommonFish"),
                 ItemID.AtlanticCod,
                 ItemID.Bass,
