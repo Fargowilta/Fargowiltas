@@ -912,7 +912,7 @@ namespace Fargowiltas.Content.NPCs
             // lootboxes
             result.Add(new(ItemID.DesertFossil, 100), 0.25);
 
-            result.Add(new(ItemID.HerbBag, 5), 2);
+            result.Add(new(ItemID.HerbBag, 3), 2);
             result.Add(new(ItemID.Geode, 5), 0.5);
             result.Add(new(ItemID.Oyster, 3), 0.2);
 
@@ -969,7 +969,7 @@ namespace Fargowiltas.Content.NPCs
             result.Add(new(ItemID.PalladiumOre, OreCount), OreWeight);
 
             // lootboxes
-            result.Add(new(ItemID.HerbBag, 10), 1);
+            result.Add(new(ItemID.HerbBag, 6), 1);
 
             result.Add(new(ItemID.WoodenCrateHard, CrateCount), 1);
             result.Add(new(ItemID.IronCrateHard, CrateCount), 0.25);
