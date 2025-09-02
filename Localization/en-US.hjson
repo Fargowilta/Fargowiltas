@@ -270,6 +270,11 @@ Mods: {
 					Tooltip: Item speed is listed in use time, meaning bigger number = slower.
 				}
 
+				AnimatedRecipeGroups: {
+					Label: "[i:9] Animated Recipe Groups"
+					Tooltip: Whether recipe group sprites should flip through the viable items in the recipe group when displayed.
+				}
+
 				HideUnlimitedBuffs: {
 					Label: "[i:292] Hide unlimited buffs in tray"
 					Tooltip: ""
@@ -304,6 +309,7 @@ Mods: {
 					Label: Multiplayer Death Spectate
 					Tooltip: ""
 				}
+
 			}
 
 			SeasonSelections: {

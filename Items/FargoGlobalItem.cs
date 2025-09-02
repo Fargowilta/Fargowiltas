@@ -27,6 +27,8 @@ namespace Fargowiltas.Items
 
         private bool firstTick = true;
 
+        public List<int> RecipeGroupAnimationItems = null;
+
         public override bool InstancePerEntity => true;
 
         static string ExpandedTooltipLoc(string line) => Language.GetTextValue($"Mods.Fargowiltas.ExpandedTooltips.{line}");
@@ -627,6 +629,29 @@ namespace Fargowiltas.Items
                 }
             }
             base.HoldItem(item, player);
+        }
+
+        public override bool PreDrawInInventory(Item item, SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
+        {
+            if (RecipeGroupAnimationItems != null)
+            {
+                // the config disabled state is used here to instantly revert the item to the default type if it's not at the default type
+                int index = RecipeGroupAnimationItems.IndexOf(item.type);
+                int timer = (int)(Main.GlobalTimeWrappedHourly * 60);
+                if ((index != 0 && !FargoClientConfig.Instance.AnimatedRecipeGroups) || FargoClientConfig.Instance.AnimatedRecipeGroups && timer % 60 == 0)
+                {
+                    index++;
+                    if (!FargoClientConfig.Instance.AnimatedRecipeGroups || index >= RecipeGroupAnimationItems.Count)
+                        index = 0;
+                    string name = item.Name;
+                    int stack = item.stack;
+                    item.ChangeItemType(RecipeGroupAnimationItems[index]);
+                    item.GetGlobalItem<FargoGlobalItem>().RecipeGroupAnimationItems = RecipeGroupAnimationItems;
+                    item.SetNameOverride(name);
+                    item.stack = stack;
+                }
+            }
+            return base.PreDrawInInventory(item, spriteBatch, position, frame, drawColor, itemColor, origin, scale);
         }
     }
 }

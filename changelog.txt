@@ -1,2 +1,6 @@
 NEW UPDATE - V {ModVersion}
+Added config option for animating Recipe Groups (enabled by default); recipe group sprites flip through the viable items in the recipe group
+Added "Can Be Shimmered Into X" tooltip, which only shows for special shimmers
+Added config options for No Traps Seed, Don't Dig Up Seed, and Zenith Seed
 Swarm summons now display their drops in their tooltip
+Crate recipes now use a recipe group for pre-Hardmode or Hardmode crate variants
