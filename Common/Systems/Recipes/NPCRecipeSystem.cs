@@ -89,7 +89,7 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.Register();
 
             recipe = Recipe.Create(CaughtNPCItem.CaughtTownies[ModContent.NPCType<Squirrel>()]);
-            recipe.AddRecipeGroup(RecipeGroups.AnySquirrel);
+            recipe.AddRecipeGroup(RecipeGroupID.Squirrels);
             recipe.AddIngredient(ItemID.TopHat);
             recipe.AddTile(TileID.DemonAltar);
             recipe.DisableDecraft();
