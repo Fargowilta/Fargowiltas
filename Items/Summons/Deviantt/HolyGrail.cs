@@ -24,19 +24,13 @@ namespace Fargowiltas.Items.Summons.Deviantt
 
         public override void AddRecipes()
         {
-			void Recipe(int bar)
-			{
-				CreateRecipe()
-					.AddIngredient(bar, 3)
-					.AddIngredient(ItemID.SummoningPotion, 7)
-					.AddIngredient(ItemID.MudBlock)
-					.AddIngredient(ItemID.ManaCrystal)
-					.AddTile(TileID.DemonAltar)
-					.Register();
-			}
-			
-			Recipe(ItemID.DemoniteBar);
-            Recipe(ItemID.CrimtaneBar);
+			CreateRecipe()
+				.AddRecipeGroup("Fargowiltas:AnyEvilBar", 3)
+				.AddIngredient(ItemID.SummoningPotion, 7)
+				.AddIngredient(ItemID.MudBlock)
+				.AddIngredient(ItemID.ManaCrystal)
+				.AddTile(TileID.DemonAltar)
+				.Register();
         }
     }
 }
