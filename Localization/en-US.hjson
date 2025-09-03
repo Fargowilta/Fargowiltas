@@ -2504,8 +2504,9 @@ Mods: {
 				DisplayName: Enchanted Tree
 				Tooltip:
 					'''
-					Copies difficult to obtain items
-					Consumes Enchanted Acorns when used
+					Can duplicate several complex items and some of their components
+					Right Click with an item in hand, then drag and pull the item you wish to duplicate
+					Items require varying amounts of Enchanted Acorns to duplicate
 					'''
 			}
 
