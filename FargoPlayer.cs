@@ -54,6 +54,7 @@ namespace Fargowiltas
 
         public bool AutoSummon;
         public int AutoSummonCD;
+        public float AutoSummonCap;
         public static MethodInfo AutoSummonShootMethod;
 
         public bool ScopeAccessoryHidden; // Rifle Scope, Sniper Scope, Recon Scope

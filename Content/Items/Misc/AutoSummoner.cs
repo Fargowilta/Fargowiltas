@@ -53,11 +53,21 @@ namespace Fargowiltas.Content.Items.Misc
 			if (++fargoPlayer.AutoSummonCD < 60)
 				return;
 
-			fargoPlayer.AutoSummonCD = 0;
+            fargoPlayer.AutoSummonCD = 0;
+
+            if (FargoUtils.AnyBossAlive())
+            {
+                //during boss, can only summon so many times and then no more
+                if (fargoPlayer.AutoSummonCap <= 0)
+                    return;
+            }
+            else
+            {
+                fargoPlayer.AutoSummonCap = player.maxMinions - player.slotsMinions;
+            }
 
             int weaponsUsed = 0;
 
-            //then go from there and find the next weapon to fire
             for (int i = 0; i < 10; i++) //hotbar
             {
                 Item item = player.inventory[i];
@@ -81,9 +91,15 @@ namespace Fargowiltas.Content.Items.Misc
 
                     int itemtime = player.itemTime;
                     int itemtimemax = player.itemTimeMax;
+                    int reusedelay = player.reuseDelay;
+                    int direction = player.direction;
                     FargoPlayer.AutoSummonShootMethod.Invoke(player, [player.whoAmI, item, damage]); // all the OnSpawn stuff already runs here
                     player.itemTime = itemtime;
                     player.itemTimeMax = itemtimemax;
+                    player.reuseDelay = reusedelay;
+                    player.direction = direction;
+
+                    fargoPlayer.AutoSummonCap -= ItemID.Sets.StaffMinionSlotsRequired[item.type];
 
                     SoundEngine.PlaySound(item.UseSound);
 

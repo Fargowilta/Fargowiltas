@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Steamworks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -119,6 +120,11 @@ namespace Fargowiltas
                     NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: bossType);
                 }
             }
+        }
+
+        public static bool AnyBossAlive()
+        {
+            return Main.npc.Any(npc => npc.active && (npc.boss || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.DD2Betsy));
         }
 
         #region tiles
