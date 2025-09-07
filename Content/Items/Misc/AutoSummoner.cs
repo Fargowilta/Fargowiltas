@@ -61,10 +61,6 @@ namespace Fargowiltas.Content.Items.Misc
                 if (fargoPlayer.AutoSummonCap <= 0)
                     return;
             }
-            else
-            {
-                fargoPlayer.AutoSummonCap = player.maxMinions - player.slotsMinions;
-            }
 
             int weaponsUsed = 0;
 
@@ -118,6 +114,8 @@ namespace Fargowiltas.Content.Items.Misc
                     break;
                 }
             }
+
+            fargoPlayer.AutoSummonCap = player.maxMinions - player.slotsMinions;
         }
     }
 }
