@@ -47,6 +47,9 @@ namespace Fargowiltas.Content.Items.Misc
 		{
 			FargoPlayer fargoPlayer = player.GetFargoPlayer();
 
+            if (player.whoAmI != Main.myPlayer)
+                return;
+
 			if (!fargoPlayer.AutoSummon) 
 				return;
 
