@@ -299,7 +299,7 @@ Mods: {
 
 				HideBuffTray: {
 					Label: "[i:292] Прятать бесконечные баффы из списка"
-					Tooltip: ""
+					Tooltip: Также можно переключать с помощью кнопки слева от инвентаря!
 				}
 
 				DoubleTapDashDisabled: {
@@ -2526,14 +2526,14 @@ Mods: {
 			}
 
 			AutoSummoner: {
-				// DisplayName: Bewitching Wand
-				/* Tooltip:
+				DisplayName: Колдовская палочка
+				Tooltip:
 					'''
-					Automatically summons minions for you
-					Effect works passively from inventory or vanity slots
-					Uses the leftmost minion weapon in your hotbar
-					Mana is spent as normal
-					''' */
+					Автоматически призывает ваших миньонов
+					Работает в инвентаре и слотах для украшений
+					Использует самый левый посох призыва в вашей панели быстрого доступа
+					Использует всю требуемую ману
+					'''
 			}
 		}
 
