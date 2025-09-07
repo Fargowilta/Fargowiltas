@@ -30,7 +30,7 @@ namespace Fargowiltas.Content.Items.Tiles
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<EnchantedTreeSheet>();
-            Item.value = Terraria.Item.buyPrice(platinum: 1);
+            Item.value = Terraria.Item.sellPrice(gold: 5);
         }
 
         public override void AddRecipes()
