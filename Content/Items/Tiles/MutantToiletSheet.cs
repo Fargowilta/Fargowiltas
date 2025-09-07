@@ -84,6 +84,8 @@ namespace Fargowiltas.Content.Items.Tiles
             info.AnchorTilePosition.X = i; // Our chair is only 1 wide, so nothing special required
             info.AnchorTilePosition.Y = j;
 
+            info.ExtraInfo.IsAToilet = true;
+
             if (tile.TileFrameY % NextStyleHeight == 0)
             {
                 info.AnchorTilePosition.Y++; // Here, since our chair is only 2 tiles high, we can just check if the tile is the top-most one, then move it 1 down
