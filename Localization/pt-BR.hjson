@@ -295,7 +295,7 @@ Mods: {
 
 				HideBuffTray: {
 					// Label: "[i:292] Hide unlimited buffs in tray"
-					// Tooltip: ""
+					// Tooltip: Toggle this with the button on the left side of your inventory!
 				}
 
 				DoubleTapDashDisabled: {
@@ -2519,6 +2519,17 @@ Mods: {
 			EnchantedAcorn: {
 				// DisplayName: Enchanted Acorn
 				// Tooltip: ""
+			}
+
+			AutoSummoner: {
+				// DisplayName: Bewitching Wand
+				/* Tooltip:
+					'''
+					Automatically summons minions for you
+					Effect works passively from inventory or vanity slots
+					Uses the leftmost minion weapon in your hotbar
+					Mana is spent as normal
+					''' */
 			}
 		}
 
