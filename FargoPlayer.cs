@@ -140,6 +140,24 @@ namespace Fargowiltas
                 }
             }
             tag.Add("OwnedItemsList", ownedItemsData);
+
+            List<string> ownedItemsAtThirtyData = [];
+            for (int i = 0; i < ItemHasBeenOwnedAtThirtyStack.Length; i++)
+            {
+                if (ItemHasBeenOwnedAtThirtyStack[i])
+                {
+                    if (i >= ItemID.Count) //modded item, variable type, add name instead
+                    {
+                        if (ItemLoader.GetItem(i) is ModItem modItem && modItem != null)
+                            ownedItemsAtThirtyData.Add($"{modItem.FullName}");
+                    }
+                    else //vanilla item
+                    {
+                        ownedItemsAtThirtyData.Add($"{i}");
+                    }
+                }
+            }
+            tag.Add("OwnedItemsAtThirtyList", ownedItemsAtThirtyData);
         }
 
         //        public override void Initialize()
@@ -172,6 +190,20 @@ namespace Fargowiltas
                 {
                     if (ModContent.TryFind<ModItem>(entry, out ModItem item))
                         ItemHasBeenOwned[item.Type] = true;
+                }
+            }
+            ItemHasBeenOwnedAtThirtyStack = ItemID.Sets.Factory.CreateBoolSet(false);
+            var ownedItemsAtThirtyData = tag.GetList<string>("OwnedItemsAtThirtyList");
+            foreach (var entry in ownedItemsAtThirtyData)
+            {
+                if (int.TryParse(entry, out int type) && type < ItemID.Count)
+                {
+                    ItemHasBeenOwnedAtThirtyStack[type] = true;
+                }
+                else
+                {
+                    if (ModContent.TryFind<ModItem>(entry, out ModItem item))
+                        ItemHasBeenOwnedAtThirtyStack[item.Type] = true;
                 }
             }
         }
