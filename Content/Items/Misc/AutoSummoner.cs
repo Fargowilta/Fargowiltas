@@ -11,8 +11,6 @@ namespace Fargowiltas.Content.Items.Misc
 {
 	public class AutoSummoner : ModItem
 	{
-		public override string Texture => "Fargowiltas/Content/Items/Placeholder";
-
 		public override void SetDefaults()
 		{
 			Item.width = 18;
@@ -39,7 +37,7 @@ namespace Fargowiltas.Content.Items.Misc
                 .AddRecipeGroup(RecipeGroupID.IronBar, 5)
                 .AddIngredient(ItemID.ManaCrystal)
                 .AddIngredient(ItemID.SummoningPotion, 5)
-                .AddTile(TileID.WorkBenches)
+                .AddTile(TileID.BewitchingTable)
                 .Register();
         }
 
