@@ -116,7 +116,8 @@ namespace Fargowiltas.Content.Items.Misc
                 }
             }
 
-            fargoPlayer.AutoSummonCap = player.maxMinions - player.slotsMinions;
+            float minionsLeft = player.maxMinions - player.slotsMinions;
+            fargoPlayer.AutoSummonCap = FargoUtils.AnyBossAlive() ? System.Math.Min(fargoPlayer.AutoSummonCap, minionsLeft) : minionsLeft;
         }
     }
 }
