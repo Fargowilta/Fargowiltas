@@ -233,12 +233,12 @@ namespace Fargowiltas
                 {
                     if (int.TryParse(name, out int type) && type < ItemID.Count) // vanilla item
                     {
-                        FargoSets.Items.SacrificeCount[type] = count;
+                        Items.SacrificeCount[type] = count;
                     }
                     else // modded item
                     {
-                        ModItem item = Find<ModItem>(name);
-                        FargoSets.Items.SacrificeCount[item.Type] = count;
+                        if (TryFind(name, out ModItem item))
+                            Items.SacrificeCount[item.Type] = count;
                     }
                 }
             }
