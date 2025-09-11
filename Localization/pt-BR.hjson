@@ -22,6 +22,12 @@ Mods: {
 			// Deviantt: Deviantt loves to provide helpful monster spawners, for a hefty cost...
 			// Abominationn: Defeat the Goblin Army, and a pumpkin headed Abominationn will fall from the sky!
 			// Mutant: Mutant is always in search of someone strong. Grow in power and you might catch his attention...
+			// UnlimitedPotions: Collect 30 of a potion and enable Unlimited Buffs to gain that buff permanently!
+			// Minibridge: Instabridges are a great way to quickly build arenas!
+			// SemiOmnistation: Arena buffs can be compacted into a Semistation for easy placement - and in hardmode, an Omnistation!
+			// SquirrelCrunch: The Squirrel is one hungry boy! Feed him and he'll pay you back for your trouble.
+			// DisableDash: Double-tap dashes can be toggled in the Fargo's Mutant Mod configs!
+			// BugNet: A bug net can quickly relocate your town NPCs!
 		}
 
 		// Used for TownNPCMood "{BiomeName}" Format (unused now)
@@ -289,7 +295,7 @@ Mods: {
 
 				HideBuffTray: {
 					// Label: "[i:292] Hide unlimited buffs in tray"
-					// Tooltip: ""
+					// Tooltip: Toggle this with the button on the left side of your inventory!
 				}
 
 				DoubleTapDashDisabled: {
@@ -2513,6 +2519,17 @@ Mods: {
 			EnchantedAcorn: {
 				// DisplayName: Enchanted Acorn
 				// Tooltip: ""
+			}
+
+			AutoSummoner: {
+				// DisplayName: Bewitching Wand
+				/* Tooltip:
+					'''
+					Automatically summons minions for you
+					Effect works passively from inventory or vanity slots
+					Uses the leftmost minion weapon in your hotbar
+					Mana is spent as normal
+					''' */
 			}
 		}
 

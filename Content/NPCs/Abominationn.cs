@@ -362,6 +362,11 @@ namespace Fargowiltas.Content.NPCs
             }
         }
 
+        public override bool UsesPartyHat()
+        {
+            return !NPC.IsShimmerVariant;
+        }
+
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {   
             Texture2D texture = (Texture2D)TownNPCProfile().GetTextureNPCShouldUse(NPC);

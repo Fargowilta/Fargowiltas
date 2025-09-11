@@ -1,26 +1,28 @@
-using System.Collections.Generic;
+using Fargowiltas.Common.Configs;
+using Fargowiltas.Common.Systems.Recipes;
+using Fargowiltas.Content.Items;
+using Fargowiltas.Content.Items.Misc;
+using Fargowiltas.Content.Items.Tiles;
+using Fargowiltas.Content.Items.Vanity;
+using Fargowiltas.Content.NPCs;
 using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.GameContent;
+using Terraria.GameContent.Events;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using System;
-using System.Linq;
 using Terraria.ModLoader.IO;
-using Terraria.GameContent.Events;
-using System.IO;
-using Fargowiltas.Common.Configs;
-using Fargowiltas.Content.Items;
-using Fargowiltas.Content.Items.Vanity;
-using Fargowiltas.Content.NPCs;
-using static Fargowiltas.Content.Items.Misc.BattleCry;
-using Fargowiltas.Content.Items.Tiles;
-using Terraria.GameContent;
-using static Fargowiltas.Content.Items.Tiles.EnchantedTreeTileEntity;
-using Fargowiltas.Common.Systems.Recipes;
 using Terraria.ModLoader.UI;
+using static Fargowiltas.Content.Items.Misc.BattleCry;
+using static Fargowiltas.Content.Items.Tiles.EnchantedTreeTileEntity;
+using static Terraria.ModLoader.ModContent;
 
 ////using Fargowiltas.Toggler;
 
@@ -49,6 +51,11 @@ namespace Fargowiltas
         public int DeathFruitHealth;
         public bool bigSuck;
         public bool CoolCrab;
+
+        public bool AutoSummon;
+        public int AutoSummonCD;
+        public float AutoSummonCap;
+        public static MethodInfo AutoSummonShootMethod;
 
         public bool ScopeAccessoryHidden; // Rifle Scope, Sniper Scope, Recon Scope
         public int StationSoundCooldown;
@@ -83,6 +90,11 @@ namespace Fargowiltas
         {
             ItemHasBeenOwned = ItemID.Sets.Factory.CreateBoolSet(false);
             ItemHasBeenOwnedAtThirtyStack = ItemID.Sets.Factory.CreateBoolSet(false);
+        }
+        public override void Load()
+        {
+            AutoSummonShootMethod = typeof(Player).GetMethod("ItemCheck_Shoot", BindingFlags.NonPublic | BindingFlags.Instance);
+            base.Load();
         }
         public override void SaveData(TagCompound tag)
         {
@@ -128,6 +140,24 @@ namespace Fargowiltas
                 }
             }
             tag.Add("OwnedItemsList", ownedItemsData);
+
+            List<string> ownedItemsAtThirtyData = [];
+            for (int i = 0; i < ItemHasBeenOwnedAtThirtyStack.Length; i++)
+            {
+                if (ItemHasBeenOwnedAtThirtyStack[i])
+                {
+                    if (i >= ItemID.Count) //modded item, variable type, add name instead
+                    {
+                        if (ItemLoader.GetItem(i) is ModItem modItem && modItem != null)
+                            ownedItemsAtThirtyData.Add($"{modItem.FullName}");
+                    }
+                    else //vanilla item
+                    {
+                        ownedItemsAtThirtyData.Add($"{i}");
+                    }
+                }
+            }
+            tag.Add("OwnedItemsAtThirtyList", ownedItemsAtThirtyData);
         }
 
         //        public override void Initialize()
@@ -160,6 +190,20 @@ namespace Fargowiltas
                 {
                     if (ModContent.TryFind<ModItem>(entry, out ModItem item))
                         ItemHasBeenOwned[item.Type] = true;
+                }
+            }
+            ItemHasBeenOwnedAtThirtyStack = ItemID.Sets.Factory.CreateBoolSet(false);
+            var ownedItemsAtThirtyData = tag.GetList<string>("OwnedItemsAtThirtyList");
+            foreach (var entry in ownedItemsAtThirtyData)
+            {
+                if (int.TryParse(entry, out int type) && type < ItemID.Count)
+                {
+                    ItemHasBeenOwnedAtThirtyStack[type] = true;
+                }
+                else
+                {
+                    if (ModContent.TryFind<ModItem>(entry, out ModItem item))
+                        ItemHasBeenOwnedAtThirtyStack[item.Type] = true;
                 }
             }
         }
@@ -210,6 +254,7 @@ namespace Fargowiltas
             HasDrawnDebuffLayer = false;
             bigSuck = false;
             CoolCrab = false;
+            AutoSummon = false;
             if (!Player.controlUseItem)
             {
                 grabbedFruit = null;
@@ -263,20 +308,15 @@ namespace Fargowiltas
         }
         public override void PostUpdateEquips()
         {
-            /*
-            if (Fargowiltas.SwarmActive)
-            {
-                Player.buffImmune[BuffID.Horrified] = true;
-            }
-            */
+            AutoSummoner.TryAutoSummoner(Player);
         }
         public override void UpdateDead()
         {
             StationSoundCooldown = 0;
+            AutoSummonCD = 0;
             if (FargoClientConfig.Instance.MultiplayerDeathSpectate && Player.dead && Main.netMode != NetmodeID.SinglePlayer && Main.player.Any(p => p != null && !p.dead && !p.ghost))
             {
                 Spectate();
-               
             }
         }
         public void FindNewSpectateTarget() => SpectatePlayer = SpectatePlayer = Main.player.First(ValidSpectateTarget).whoAmI;
