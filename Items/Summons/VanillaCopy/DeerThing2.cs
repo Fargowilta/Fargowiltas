@@ -13,9 +13,11 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Thing Deer");
-            // Tooltip.SetDefault("Summons Deerclops in any biome");
-        }
+			// DisplayName.SetDefault("Thing Deer");
+			// Tooltip.SetDefault("Summons Deerclops in any biome");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.DeerThing]; // 5
+		}
 
         public override void AddRecipes()
         {

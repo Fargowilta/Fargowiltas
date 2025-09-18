@@ -98,6 +98,21 @@ Mods: {
 					Tooltip: ""
 				}
 
+				NoTrapsWorld: {
+					Label: "[i:510] No Traps World"
+					Tooltip: ""
+				}
+
+				RemixWorld: {
+					Label: "[i:4711] Remix World"
+					Tooltip: ""
+				}
+
+				ZenithWorld: {
+					Label: "[i:4956] Zenith World"
+					Tooltip: ""
+				}
+
 				UnlimitedAmmo: {
 					Label: "[i:771] Unlimited Ammo at 3996+ in Hardmode"
 					Tooltip: ""
@@ -255,6 +270,11 @@ Mods: {
 					Tooltip: Item speed is listed in use time, meaning bigger number = slower.
 				}
 
+				AnimatedRecipeGroups: {
+					Label: "[i:9] Animated Recipe Groups"
+					Tooltip: Whether recipe group sprites should flip through the viable items in the recipe group when displayed.
+				}
+
 				HideUnlimitedBuffs: {
 					Label: "[i:292] Hide unlimited buffs in tray"
 					Tooltip: ""
@@ -310,6 +330,19 @@ Mods: {
 			FoodT2: Plenty Satisfying Food
 			FoodT3: Exquisitively Stuffing Food
 			GemRobe: Gem Robe
+			WoodenCrate: Wooden Crate
+			IronCrate: Iron Crate
+			GoldenCrate: Golden Crate
+			JungleCrate: Jungle Crate
+			SkyCrate: Sky Crate
+			CorruptCrate: Corrupt Crate
+			CrimsonCrate: Crimson Crate
+			// HallowedCrate: Hallowed Crate
+			DungeonCrate: Dungeon Crate
+			FrozenCrate: Frozen Crate
+			SandCrate: Oasis Crate
+			LavaCrate: Obsidian Crate
+			OceanCrate: Ocean Crate
 			Or: Or
 		}
 
@@ -1609,7 +1642,7 @@ Mods: {
 				DisplayName: Fishy Energizer
 				Tooltip:
 					'''
-					Formed after using 10 Truffle Worm Clumps
+					Formed after using 10 Cans of Truffle Worms
 					'You feel content'
 					'''
 			}
@@ -1672,7 +1705,7 @@ Mods: {
 				DisplayName: Slimy Energizer
 				Tooltip:
 					'''
-					Formed after using 10 Overloaded Crowns
+					Formed after using 10 Personal Royal Orders
 					'It feels a bit slimy'
 					'''
 			}
@@ -1766,6 +1799,8 @@ Mods: {
 					An Energizer will drop for every 10 consumed items
 					'''
 			}
+
+			OverloaderRewards: The boss will drop {0} treasure bags, {1} trophies, and {2} energizers when defeated (rewards increase with stack size)
 
 			OverloadEye: {
 				DisplayName: Eyemalgamation
@@ -2520,7 +2555,7 @@ Mods: {
 					Normal5: You wish you could dress like me? Ha! Actually... yea, you can.
 					Normal6: You ever read the ancient classics? I love all the fighting in them.
 					Normal7: I'm a world class poet, ever read my piece about impending doom?
-					Normal8: Have you ever read The King in Yellow? I loved it when [REDACTED]... I meant when [DATA EXPUNGED]... Fine, forget it
+					Normal8: Have you ever read The King in Yellow? I loved it when [REDACTED]... I meant when [DATA EXPUNGED]... Fine, forget it.
 					Normal9: Like my wings? Thanks, the thing I got them from didn't like it much.
 					Normal10: Heroism has no place in this world, instead let's just play ping pong.
 					Normal11: Why are you looking at me like that? Your fashion sense isn't going to be winning you any awards either.
@@ -2592,8 +2627,10 @@ Mods: {
 					Normal1: No, I'm totally not throwing Love Potions while you're not looking! Um, I mean... oh, just buy something!
 					Normal2: Did you know? The only real music genres are death metal and artcore.
 					Normal3: I'm morally bankrupt? No, the bank loves me.
-					Normal4: I might be able to afford a taller body if you keep buying!
-					Normal5: My size deceives you! I may be 4'6'' but I'm 7'11'' when I stand on my money!
+					Normal4: The more rare things you kill, the more stuff I sell! Simple, right?
+					// Normal4: I might be able to afford a taller body if you keep buying!
+					Normal5: Oh, hi! I, uh, definitely don't have any Stink Potions on me right now! Not that I normally would!
+					// Normal5: My size deceives you! I may be 4'6'' but I'm 7'11'' when I stand on my money!
 					Normal6: You're the Terrarian? Honestly, I was expecting someone a little... taller.
 					Normal7: Don't look at me like that! The only thing I've deviated from is my humanity.
 					Normal8: Rip and tear and buy from me for more things to rip and tear!
@@ -2603,8 +2640,6 @@ Mods: {
 					Normal12: One day, I'll sell a summon for myself! ...Just kidding.
 					Normal13: Hmm, I can tell! You've killed a lot, but you haven't killed enough!
 					Normal14: Why the extra letter, you ask? Only the strongest sibling is allowed to remove their own!
-					Normal15: The more rare things you kill, the more stuff I sell! Simple, right?
-					Normal16: Oh, hi! I, uh, definitely don't have any Stink Potions on me right now! Not that I normally would!
 				}
 
 				HelpDialogue: {

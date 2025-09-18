@@ -10,10 +10,12 @@ namespace Fargowiltas.Items.Summons.Deviantt
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Athenian Idol");
-            /* Tooltip.SetDefault("Summons Medusa" +
+			// DisplayName.SetDefault("Athenian Idol");
+			/* Tooltip.SetDefault("Summons Medusa" +
                                "\nOnly usable at night or underground"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 6; // Places it right after Gelatin Crystal
+		}
 
         public override bool CanUseItem(Player player)
         {

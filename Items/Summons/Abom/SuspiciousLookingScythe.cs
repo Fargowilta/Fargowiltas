@@ -10,10 +10,12 @@ namespace Fargowiltas.Items.Summons.Abom
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Suspicious Looking Scythe");
-            /* Tooltip.SetDefault("Summons Pumpking" +
+			// DisplayName.SetDefault("Suspicious Looking Scythe");
+			/* Tooltip.SetDefault("Summons Pumpking" +
                                "\nOnly usable at night"); */
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.PumpkinMoonMedallion]; // 14
+		}
 
         public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight;
     }

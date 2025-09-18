@@ -98,6 +98,21 @@ Mods: {
 					Tooltip: ""
 				}
 
+				NoTrapsWorld: {
+					Label: "[i:510] Mundo Sem Armadilhas"
+					Tooltip: ""
+				}
+
+				RemixWorld: {
+					Label: "[i:4711] Mundo Remix"
+					Tooltip: ""
+				}
+
+				ZenithWorld: {
+					Label: "[i:4956] Mundo Zênite"
+					Tooltip: ""
+				}
+
 				UnlimitedAmmo: {
 					Label: "[i:771] Munição infinita quando com 3996+ no Modo Díficil"
 					Tooltip: ""
@@ -255,6 +270,11 @@ Mods: {
 					Tooltip: Velocidade do item está lista no tempo de uso, então números maiores = mais devagar.
 				}
 
+				AnimatedRecipeGroups: {
+					// Label: "[i:9] Animated Recipe Groups"
+					// Tooltip: Whether recipe group sprites should flip through the viable items in the recipe group when displayed.
+				}
+
 				HideUnlimitedBuffs: {
 					Label: "[i:292] Esconder buffs permanentes"
 					Tooltip: ""
@@ -310,6 +330,19 @@ Mods: {
 			FoodT2: Comida muito satisfatória
 			FoodT3: Comida extremamente satisfatória
 			GemRobe: Roupão de Jóia
+			WoodenCrate: Caixote de Madeira
+			IronCrate: Caixote de Ferro
+			GoldenCrate: Caixote Dourado
+			JungleCrate: Caixote de Selva
+			SkyCrate: Caixote do Céu
+			CorruptCrate: Caixote Corrompido
+			CrimsonCrate: Caixote Carmim
+			// HallowedCrate: Hallowed Crate
+			DungeonCrate: Caixote do Calabouço
+			FrozenCrate: Caixote Congelado
+			SandCrate: Caixote do Oásis
+			LavaCrate: Caixote de Obsidiana
+			OceanCrate: Caixote do Oceano
 			Or: Ou
 		}
 
@@ -665,7 +698,7 @@ Mods: {
 			}
 
 			Rocket1Bag: {
-				DisplayName:Bolsa Infinita de Foguete I
+				DisplayName: Bolsa Infinita de Foguete I
 				Tooltip: ""
 			}
 
@@ -748,10 +781,10 @@ Mods: {
 			}
 
 			HalfInstavator: {
-				DisplayName: Metade de Instavador 
+				DisplayName: Metade de Instavador
 				Tooltip:
 					'''
-                                        Solta uma bomba que cria a metade de um elevador até o inferno
+					                                   Solta uma bomba que cria a metade de um elevador até o inferno
 					Não vai cavar após uma certa profundidade
 					Evita quebrar áreas importantes
 					Use por sua conta e risco
@@ -846,7 +879,7 @@ Mods: {
 				Activated: Ativado
 				Deactivated: Desativado
 				// {Battle / Calming} Cry {activated / deactivated} for {playerName}{punctuation}
-				CryText: "Grito de {0} {1} para {2}{3}"
+				CryText: Grito de {0} {1} para {2}{3}
 			}
 
 			DeathFruit: {
@@ -988,7 +1021,7 @@ Mods: {
 			SandRenewalSupreme: {
 				DisplayName: Renovador de Deserto Supremo
 				Tooltip: Assoreia o mundo inteiro
-                        }
+			}
 
 			DirtRenewal: {
 				DisplayName: Renovador de Floresta
@@ -1449,7 +1482,7 @@ Mods: {
 			}
 
 			DeathBringerFairy: {
-				DisplayName: Fada da Morte 
+				DisplayName: Fada da Morte
 				Tooltip:
 					'''
 					invoca todos os chefes do Pré-Modo Díficil
@@ -1711,7 +1744,7 @@ Mods: {
 
 			OverloadBetsy: {
 				DisplayName: Bandeja de Ovos de Dragão
-					Tooltip: Invoca uma Betsy Energizada
+				Tooltip: Invoca uma Betsy Energizada
 			}
 
 			OverloadBrain: {
@@ -1766,6 +1799,8 @@ Mods: {
 					Um Energizador será derrubado se 10 forem usados
 					'''
 			}
+
+			// OverloaderRewards: The boss will drop {0} treasure bags, {1} trophies, and {2} energizers when defeated (rewards increase with stack size)
 
 			OverloadEye: {
 				DisplayName: Olhomalgamação
@@ -2061,7 +2096,7 @@ Mods: {
 			}
 
 			AbominationnMask: {
-				DisplayName: Máscara do Abominationn 
+				DisplayName: Máscara do Abominationn
 				Tooltip: ""
 			}
 
@@ -2076,17 +2111,17 @@ Mods: {
 			}
 
 			DevianttBody: {
-				DisplayName: Corpo da Deviantt 
+				DisplayName: Corpo da Deviantt
 				Tooltip: ""
 			}
 
 			DevianttMask: {
-				DisplayName: Máscara da Deviantt 
+				DisplayName: Máscara da Deviantt
 				Tooltip: ""
 			}
 
 			DevianttPants: {
-				DisplayName: Calças da Deviantt 
+				DisplayName: Calças da Deviantt
 				Tooltip: ""
 			}
 
@@ -2337,7 +2372,7 @@ Mods: {
 
 			HoneyRocketBox: {
 				Tooltip: ""
-				DisplayName: Caixa Infinita de Foguetes de Mel 
+				DisplayName: Caixa Infinita de Foguetes de Mel
 			}
 
 			DryRocketBox: {
@@ -2593,7 +2628,9 @@ Mods: {
 					Normal2: Você sabia? Os únicos gêneros musicas de verdade são death metal e artcore.
 					Normal3: Eu sou falida moralmente? Não, eu tô muito bem economicamente.
 					Normal4: Talvez eu consiga comprar um corpo mais alto se você continuar comprando!
+					// Normal4: I might be able to afford a taller body if you keep buying!
 					Normal5: Meu tamanho te engana! Eu posso ter 137 cm, mas eu tenho 240 cm quando eu fico em cima do meu dinheiro!
+					// Normal5: My size deceives you! I may be 4'6'' but I'm 7'11'' when I stand on my money!
 					Normal6: Você é o Terrariano? Honestamente, eu estava esperando alguém mais... alto.
 					Normal7: Não olha pra mim desse jeito! A única coisa que eu divergi foi da minha humanidade.
 					Normal8: Rasgar e dilacer e comprar de mim mais coisas para rasgar e dilacerar!
@@ -2603,8 +2640,6 @@ Mods: {
 					Normal12: Um dia, eu vou vender uma invocação pra mim mesma! ... Tô brincando.
 					Normal13: Hmm, Eu consigo sentir! Você matou muitos, mas não o suficiente!
 					Normal14: Por que a letra extra, você se pergunta? Apenas o irmão mais forte pode remover a letra dele!
-					Normal15: Quanto mais coisas raras você mata, mais coisas eu vendo! Simples, certo?
-					Normal16: Opa, olá! Eu, uh, Definitivamente não tenho nenhuma poção fedorenta comigo! Não que eu teria em qualquer situação!
 				}
 
 				HelpDialogue: {
@@ -2703,7 +2738,7 @@ Mods: {
 					Jungle: Essas árvores de mogno estão cheias de vida, mas uma árvore só tem uma função: ser cortada. Ah sim esses caíram da última.
 					Hallow: Esse lugar é um pouquinho muito brilhante pra mim, mas a madeira é tão cortável quanto o resto. Tem esses insetos legais de noite, pegue alguns.
 					GlowshroomHM: O que faz essas árvores brilharem eu não sei, você provavelmente vai comer elas mesmo, então fique com isso.
-					Evil: As árvores aqui são provavelmente as mais fortes nesse galho da realidade... Desculpa, piadas de árvore. Eu tenho esses pra você. 
+					Evil: As árvores aqui são provavelmente as mais fortes nesse galho da realidade... Desculpa, piadas de árvore. Eu tenho esses pra você.
 					Snow: Essa parte dos bosques é bem bonita né? Aqui, eu tenho algumas das minhas madeiras favoritas pra você.
 					Beach: Até quando de férias, Eu sempre encaixo um pouquinho de trabalho de lenhador. Alguns passáros irritantes caíram de uma palmeira. Tire eles da minha mão... talvez cozinhe eles?
 					Underworld: Eu olhei por aqui e achei algumas árvores estranhas e cinzentas. Muito frágeis. Eu também achei essa criatura e vegetal. Por favor leve eles, são quentes demais para segurar.
@@ -2746,7 +2781,7 @@ Mods: {
 				Chat: {
 					// Special
 					EternityDefeat: Parabéns. Você realmente abraçou a Eternidade... pelo menos, eu acho que você conseguiu? E agora? Ascender desse plano da existência? Lutar contra uma entidade transcendente que se parece com um gato? Destruir o mundo? Todo o poder está em suas mãos agora.
-					Defeat: Bom trabalho em me derrotar, eu acho. Eu ainda estou com vontade de esticar minhas asas... Por que nós não lutamos de verdade da próxima vez? 
+					Defeat: Bom trabalho em me derrotar, eu acho. Eu ainda estou com vontade de esticar minhas asas... Por que nós não lutamos de verdade da próxima vez?
 					MutantArmor: Armadura bonita que você tem, pele muito realística. Na verdade, tem algum problema eu pegar ela? Sua pele, quer dizer.
 					SoulsPostML: Agora que você derrotou o grandão, eu diria que é hora de começar a coletar aqueles materiais!
 					DefeatCommon: O que foi? Você quer lutar comigo? ...claro, eu acho.
@@ -2761,7 +2796,7 @@ Mods: {
 					Party: "{0} é quem me convidou, mas eu não entendo o porquê."
 					PartyWithoutPartyGirl: Eu não sei o porquê todo mundo tá tão feliz, mas se ninguém me confundir com uma Piñata, eu estou feliz também.
 					Nurse: Sempre que estamos sozinhos, a {0} fica jogando seringas em mim, não importa quantas vezes eu peço para que ela pare!
-					WitchDoctor: Por favor peça pro {0} parar com esse negócio 'místico', quer dizer, qual é! Eu entendo, você faz água com corante ou algo assim. 
+					WitchDoctor: Por favor peça pro {0} parar com esse negócio 'místico', quer dizer, qual é! Eu entendo, você faz água com corante ou algo assim.
 					Dryad: Por que a roupa da {0} faz minhas asas vibrarem?
 					Stylist: "{0} uma vez me deu uma peruca... eu fico horrível com cabelo longo."
 					Truffle: Aquele cogumelo mutado parece ser o meu tipo de pessoa.
@@ -2876,7 +2911,7 @@ Mods: {
 			CityBuster.DisplayName: Destruidor de Cidades
 			DoubleObsInstaBridgeProj.DisplayName: Instaponte de Obsidiana Dupla
 			GraveBuster.DisplayName: Destruidor de túmulos
-			HalfInstaProj.DisplayName: Meio Instavador 
+			HalfInstaProj.DisplayName: Meio Instavador
 			InstabridgeProj.DisplayName: Instaponte
 			InstaHouseVisual.DisplayName: Instacasa visual
 			InstaProj.DisplayName: Instavador
@@ -2892,12 +2927,12 @@ Mods: {
 			FakeHeartMarkDeviantt.DisplayName: Coração Falso
 			HallowNukeProj.DisplayName: RenovadordoConsagrado
 			HallowNukeSupremeProj.DisplayName: RenovadordoConsagradoSupremo
-			.DisplayName: Machanhador
+			// LumberJaxe.DisplayName: LumberJaxe
 			MechEyeProjectile.DisplayName: projétilolhomecânico
-			MushroomNukeProj.DisplayName: RenovadordeCogumelo 
+			MushroomNukeProj.DisplayName: RenovadordeCogumelo
 			MushroomNukeSupremeProj.DisplayName: RenovadordeCogumeloSupremo
 			PhantasmalEyeProjectile.DisplayName: projétilolhofantasma
-			PurityNukeProj.DisplayName: RenovadordePureza 
+			PurityNukeProj.DisplayName: RenovadordePureza
 			PurityNukeSupremeProj.DisplayName: RenovadordePurezaSuprema
 			SpawnProj.DisplayName: Prole
 			SemiBridgifierProj.DisplayName: Semi-Pontificador

@@ -15,9 +15,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Eyemalgamation");
-            // Tooltip.SetDefault("Summons several Eyes of Cthulhu\nOnly Treasure Bags will be dropped");
-        }
+			// DisplayName.SetDefault("Eyemalgamation");
+			// Tooltip.SetDefault("Summons several Eyes of Cthulhu\nOnly Treasure Bags will be dropped");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.SuspiciousLookingEye]; // 1
+		}
 
         public override bool CanUseItem(Player player)
         {

@@ -14,7 +14,9 @@ namespace Fargowiltas.Items.Summons.Abom
             // Tooltip.SetDefault("Deactivates Matsuri Lantern effect");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 0; // Places it before any other boss summons
+		}
 
         public override void SetDefaults()
         {

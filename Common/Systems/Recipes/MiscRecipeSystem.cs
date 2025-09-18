@@ -1,4 +1,5 @@
-﻿using Fargowiltas.Items.Summons;
+﻿using Fargowiltas.Items;
+using Fargowiltas.Items.Summons;
 using Fargowiltas.Items.Summons.Mutant;
 using Fargowiltas.Items.Summons.VanillaCopy;
 using Fargowiltas.Utilities;
@@ -47,6 +48,22 @@ namespace Fargowiltas.Common.Systems.Recipes
             foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.createItem.ModItem != null && (recipe.createItem.ModItem is BaseSummon || recipe.createItem.ModItem is FleshyDoll || recipe.createItem.ModItem is MechEye)))
             {
                 recipe.DisableDecraft();
+            }
+
+            // animate recipe groups
+            foreach (Recipe recipe in Main.recipe)
+            {
+                foreach (int groupID in recipe.acceptedGroups)
+                {
+                    foreach (Item item in recipe.requiredItem)
+                    {
+                        if (RecipeGroup.recipeGroups[groupID].IconicItemId == item.type)
+                        {
+                            // add tag that it should animate draw
+                            item.GetGlobalItem<FargoGlobalItem>().RecipeGroupAnimationItems = RecipeGroup.recipeGroups[groupID].ValidItems.ToList();
+                        }
+                    }
+                }
             }
         }
 
@@ -160,49 +177,49 @@ namespace Fargowiltas.Common.Systems.Recipes
             recipe.Register();
 
             recipe = Recipe.Create(ItemID.GemSquirrelAmber);
-            recipe.AddRecipeGroup(RecipeGroups.AnySquirrel);
+            recipe.AddRecipeGroup(RecipeGroupID.Squirrels);
             recipe.AddIngredient(ItemID.Amber, 5);
             recipe.AddTile(TileID.Solidifier);
             recipe.DisableDecraft();
             recipe.Register();
 
             recipe = Recipe.Create(ItemID.GemSquirrelAmethyst);
-            recipe.AddRecipeGroup(RecipeGroups.AnySquirrel);
+            recipe.AddRecipeGroup(RecipeGroupID.Squirrels);
             recipe.AddIngredient(ItemID.Amethyst, 5);
             recipe.AddTile(TileID.Solidifier);
             recipe.DisableDecraft();
             recipe.Register();
 
             recipe = Recipe.Create(ItemID.GemSquirrelDiamond);
-            recipe.AddRecipeGroup(RecipeGroups.AnySquirrel);
+            recipe.AddRecipeGroup(RecipeGroupID.Squirrels);
             recipe.AddIngredient(ItemID.Diamond, 5);
             recipe.AddTile(TileID.Solidifier);
             recipe.DisableDecraft();
             recipe.Register();
 
             recipe = Recipe.Create(ItemID.GemSquirrelEmerald);
-            recipe.AddRecipeGroup(RecipeGroups.AnySquirrel);
+            recipe.AddRecipeGroup(RecipeGroupID.Squirrels);
             recipe.AddIngredient(ItemID.Emerald, 5);
             recipe.AddTile(TileID.Solidifier);
             recipe.DisableDecraft();
             recipe.Register();
 
             recipe = Recipe.Create(ItemID.GemSquirrelRuby);
-            recipe.AddRecipeGroup(RecipeGroups.AnySquirrel);
+            recipe.AddRecipeGroup(RecipeGroupID.Squirrels);
             recipe.AddIngredient(ItemID.Ruby, 5);
             recipe.AddTile(TileID.Solidifier);
             recipe.DisableDecraft();
             recipe.Register();
 
             recipe = Recipe.Create(ItemID.GemSquirrelSapphire);
-            recipe.AddRecipeGroup(RecipeGroups.AnySquirrel);
+            recipe.AddRecipeGroup(RecipeGroupID.Squirrels);
             recipe.AddIngredient(ItemID.Sapphire, 5);
             recipe.AddTile(TileID.Solidifier);
             recipe.DisableDecraft();
             recipe.Register();
 
             recipe = Recipe.Create(ItemID.GemSquirrelTopaz);
-            recipe.AddRecipeGroup(RecipeGroups.AnySquirrel);
+            recipe.AddRecipeGroup(RecipeGroupID.Squirrels);
             recipe.AddIngredient(ItemID.Topaz, 5);
             recipe.AddTile(TileID.Solidifier);
             recipe.DisableDecraft();

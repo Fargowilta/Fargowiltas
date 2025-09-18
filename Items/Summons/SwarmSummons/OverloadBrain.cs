@@ -15,9 +15,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Brain Storm");
-            // Tooltip.SetDefault("Summons several Brains of Cthulhu\nOnly Treasure Bags will be dropped");
-        }
+			// DisplayName.SetDefault("Brain Storm");
+			// Tooltip.SetDefault("Summons several Brains of Cthulhu\nOnly Treasure Bags will be dropped");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.BloodySpine]; // 3
+		}
 
         public override bool CanUseItem(Player player)
         {

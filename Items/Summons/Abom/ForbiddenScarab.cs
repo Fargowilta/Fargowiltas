@@ -17,7 +17,9 @@ namespace Fargowiltas.Items.Summons.Abom
             // DisplayName.SetDefault("Forbidden Scarab");
             // Tooltip.SetDefault("Starts a Sandstorm");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 0; // Places it before any other boss summons
+		}
 
         public override void SetDefaults()
         {
@@ -39,9 +41,18 @@ namespace Fargowiltas.Items.Summons.Abom
 
         public override bool? UseItem(Player player)
         {
+            Main.windSpeedTarget = Main.windSpeedCurrent = 0.8f; //40mph?
+
             Sandstorm.StartSandstorm();
 
-            NetMessage.SendData(MessageID.WorldData);
+
+
+            if (Main.netMode == NetmodeID.Server)
+            {
+                NetMessage.SendData(MessageID.WorldData);
+                Main.SyncRain();
+            }
+
             FargoUtils.PrintLocalization("MessageInfo.StartSandStorm", new Color(175, 75, 255));
             SoundEngine.PlaySound(SoundID.Roar, player.position);
 

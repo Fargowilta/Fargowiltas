@@ -99,7 +99,7 @@ namespace Fargowiltas.NPCs
         {
             NPC.townNPC = true;
             NPC.friendly = true;
-            NPC.width = 18;
+            NPC.width = 36;
             NPC.height = 40;
             NPC.aiStyle = 7;
             NPC.damage = 10;
@@ -458,14 +458,18 @@ namespace Fargowiltas.NPCs
                 Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ItemType<Items.Tiles.WalkingRick>());
         }
 
+        
+
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            int offset = -5;
+            Texture2D texture = (Texture2D)TownNPCProfile().GetTextureNPCShouldUse(NPC);
+            Rectangle rectangle = NPC.frame;
+            Vector2 origin2 = rectangle.Size() / 2f;
+            SpriteEffects effects = NPC.IsShimmerVariant ? NPC.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally : SpriteEffects.None;
             if (Fargowiltas.ModLoaded["FargowiltasSouls"] && !(bool)ModLoader.GetMod("FargowiltasSouls").Call("GiftsReceived"))
             {
-                Texture2D texture = (Texture2D)TownNPCProfile().GetTextureNPCShouldUse(NPC);
-                Rectangle rectangle = NPC.frame;//new Rectangle(0, y3, texture2D13.Width, num156);
-                Vector2 origin2 = rectangle.Size() / 2f;
-                SpriteEffects effects = NPC.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+                
 
                 Color color26 = Main.DiscoColor;
                 color26.A = 0;
@@ -483,8 +487,22 @@ namespace Fargowiltas.NPCs
                 scale *= NPC.scale;
                 Main.EntitySpriteDraw(texture, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY - 4), new Microsoft.Xna.Framework.Rectangle?(rectangle), color26, NPC.rotation, origin2, scale, effects, 0);
             }
-            //Main.EntitySpriteDraw(texture2D13, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), NPC.GetAlpha(drawColor), NPC.rotation, origin2, NPC.scale, effects, 0);
-            return true;
+
+            if (NPC.IsShimmerVariant)
+                offset = -3;
+
+            if (!NPC.IsABestiaryIconDummy)
+            {
+                Main.EntitySpriteDraw(texture, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY) + new Vector2(0, offset), new Microsoft.Xna.Framework.Rectangle?(rectangle), NPC.GetAlpha(drawColor), NPC.rotation, origin2, NPC.scale, effects, 0);
+                return false;
+            }
+            else
+                return true;
+            
+
+            
+
+            
         }
 
         private static string DeviChat(string key, params object[] args) => Language.GetTextValue($"Mods.Fargowiltas.NPCs.Deviantt.Chat.{key}", args);
@@ -504,7 +522,10 @@ namespace Fargowiltas.NPCs
                 return ModContent.Request<Texture2D>("Fargowiltas/NPCs/Deviantt_Shimmer");
             }
 
-            return ModContent.Request<Texture2D>("Fargowiltas/NPCs/Deviantt");
+            if (npc.direction == -1)
+                return ModContent.Request<Texture2D>("Fargowiltas/NPCs/Deviantt");
+            else
+                return ModContent.Request<Texture2D>("Fargowiltas/NPCs/DevianttRight");
         }
 
         public int GetHeadTextureIndex(NPC npc) => ModContent.GetModHeadSlot("Fargowiltas/NPCs/Deviantt_Head");

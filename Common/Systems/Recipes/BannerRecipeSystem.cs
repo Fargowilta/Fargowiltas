@@ -1,5 +1,6 @@
 ﻿using Fargowiltas.Common.Configs;
 using Fargowiltas.Utilities;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -458,7 +459,7 @@ namespace Fargowiltas.Common.Systems.Recipes
         private static void AddBannerToMountOrPetRecipes()
         {
             AddBannerToItemRecipe(ItemID.DesertBasiliskBanner, ItemID.AncientHorn, conditions: Condition.Hardmode);
-            AddBannerToItemRecipe(ItemID.GastropodBanner, ItemID.BlessedApple, conditions: Condition.Hardmode);
+            AddBannerToItemRecipe(ItemID.UnicornBanner, ItemID.BlessedApple, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.MimicBanner, ItemID.ToySled, conditions: Condition.Hardmode);
             AddBannerToItemRecipe(ItemID.PigronBanner, ItemID.PigronMinecart, conditions: Condition.Hardmode);
 
@@ -561,13 +562,15 @@ namespace Fargowiltas.Common.Systems.Recipes
 
         private static void AddBannerSetToItemRecipe(bool[] set, int resultID)
         {
+            List<int> bannersAdded = [];
             for (int i = 0; i < NPCID.Count; i++)
             {
                 if (set[i])
                 {
                     int bannerId = Item.NPCtoBanner(i);
-                    if (bannerId > 0)
+                    if (bannerId > 0 && !bannersAdded.Contains(bannerId))
                     {
+                        bannersAdded.Add(bannerId);
                         RecipeHelper.CreateSimpleRecipe(Item.BannerToItem(bannerId), resultID, TileID.Solidifier, disableDecraft: true);
                     }
                 }

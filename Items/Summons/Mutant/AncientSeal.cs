@@ -20,7 +20,9 @@ namespace Fargowiltas.Items.Summons.Mutant
                                "\n'Use at your own risk'"); */
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
 
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 8));
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 19; // Places it right after Celestial Sigil
+
+			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 8));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
 
             ItemID.Sets.ItemNoGravity[Type] = true;

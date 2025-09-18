@@ -20,9 +20,11 @@ namespace Fargowiltas.Items.Summons.VanillaCopy
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            // DisplayName.SetDefault("Some Kind of Metallic Worm");
-            // Tooltip.SetDefault("Summons the Destroyer");
-        }
+			// DisplayName.SetDefault("Some Kind of Metallic Worm");
+			// Tooltip.SetDefault("Summons the Destroyer");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.MechanicalWorm]; // 9
+		}
 
         public override bool CanUseItem(Player player) => FargoUtils.ActuallyNight && !NPC.AnyNPCs(NPCType);
 

@@ -1,6 +1,7 @@
 ﻿using Fargowiltas.NPCs;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
@@ -42,9 +43,9 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
             if (npcType == NPCID.WallofFlesh)
             {
-                Item.useAnimation = 20;
-                Item.useTime = 2;
-                Item.consumable = false;
+                //Item.useAnimation = 20;
+                //Item.useTime = 2;
+                //Item.consumable = false;
             }
         }
 
@@ -112,5 +113,17 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
                 .AddTile(TileID.DemonAltar)
                 .Register();
         }
+
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            base.ModifyTooltips(tooltips);
+            int count = Math.Min(Item.stack, 10);
+            int bags = 5 * count;
+            int trophies = (count - (count % 3)) / 3;
+            int energizers = count == 10 ? 1 : 0;
+            string line = Language.GetTextValue("Mods.Fargowiltas.Items.OverloaderRewards", bags, trophies, energizers);
+            tooltips.Add(new TooltipLine(Mod, "SwarmSummon", line));
+        }
+
     }
 }

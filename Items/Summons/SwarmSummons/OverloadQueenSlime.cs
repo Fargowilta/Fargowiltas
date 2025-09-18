@@ -15,9 +15,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Swarm Crystal");
-            // Tooltip.SetDefault("Summons several Queen Slimes\nOnly Treasure Bags will be dropped");
-        }
+			// DisplayName.SetDefault("Swarm Crystal");
+			// Tooltip.SetDefault("Summons several Queen Slimes\nOnly Treasure Bags will be dropped");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.QueenSlimeCrystal]; // 6
+		}
 
         public override bool CanUseItem(Player player)
         {

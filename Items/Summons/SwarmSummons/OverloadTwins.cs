@@ -15,9 +15,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Omnifocal Lens");
-            // Tooltip.SetDefault("Summons several sets of Twins\nOnly Treasure Bags will be dropped");
-        }
+			// DisplayName.SetDefault("Omnifocal Lens");
+			// Tooltip.SetDefault("Summons several sets of Twins\nOnly Treasure Bags will be dropped");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.MechanicalEye]; // 8
+		}
 
         public override bool CanUseItem(Player player)
         {

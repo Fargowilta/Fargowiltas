@@ -21,6 +21,9 @@ namespace Fargowiltas.Common.Configs
         [DefaultValue(true)]
         public bool ExactTooltips;
 
+        [DefaultValue(true)]
+        public bool AnimatedRecipeGroups;
+
         [DefaultValue(false)]
         public bool HideUnlimitedBuffs;
 

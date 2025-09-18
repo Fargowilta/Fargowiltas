@@ -15,9 +15,11 @@ namespace Fargowiltas.Items.Summons.SwarmSummons
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Swarm Crown");
-            // Tooltip.SetDefault("Summons several King Slimes\nOnly Treasure Bags will be dropped");
-        }
+			// DisplayName.SetDefault("Swarm Crown");
+			// Tooltip.SetDefault("Summons several King Slimes\nOnly Treasure Bags will be dropped");
+
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = ItemID.Sets.SortingPriorityBossSpawns[ItemID.SlimeCrown]; // 2
+		}
 
         public override bool CanUseItem(Player player)
         {

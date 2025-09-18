@@ -49,7 +49,7 @@ namespace Fargowiltas
         public static int SwarmItemsUsed;
         public static bool SwarmSetDefaults;
         public static int SwarmMinDamage
-        { 
+        {
             get
             {
                 float dmg;
@@ -61,7 +61,7 @@ namespace Fargowiltas
                     dmg /= 1.2f;
                 return (int)dmg;
             }
-                
+
         }
 
         // Mod loaded bools
@@ -81,15 +81,14 @@ namespace Fargowiltas
 
         public Fargowiltas()
         {
-//            Properties = new ModProperties()
-//            {
-//                Autoload = true,
-//                AutoloadGores = true,
-//                AutoloadSounds = true,
-//            }; 
-//            HookIntoLoad();
+            //            Properties = new ModProperties()
+            //            {
+            //                Autoload = true,
+            //                AutoloadGores = true,
+            //                AutoloadSounds = true,
+            //            }; 
+            //            HookIntoLoad();
         }
-
 
         public override void Load()
         {
@@ -152,6 +151,8 @@ namespace Fargowiltas
             Terraria.On_Player.HasUnityPotion += OnHasUnityPotion;
             Terraria.On_Player.TakeUnityPotion += OnTakeUnityPotion;
             Terraria.On_Player.DropTombstone += DisableTombstones;
+
+            On_Item.GetShimmered += FixRecipeGroupsShimmerInteraction;
         }
 
         private static IEnumerable<Item> GetWormholes(Player self) =>
@@ -257,6 +258,8 @@ namespace Fargowiltas
             Terraria.On_Player.HasUnityPotion -= OnHasUnityPotion;
             Terraria.On_Player.TakeUnityPotion -= OnTakeUnityPotion;
             Terraria.On_Player.DropTombstone -= DisableTombstones;
+
+            On_Item.GetShimmered -= FixRecipeGroupsShimmerInteraction;
 
             summonTracker = null;
             dialogueTracker = null;
@@ -476,7 +479,7 @@ namespace Fargowiltas
                         return FargoClientConfig.Instance.DoubleTapDashDisabled;
 
                     case "AddCaughtNPC":
-                        { 
+                        {
                             if (args[1].GetType() != typeof(string))
                                 throw new Exception($"Call Error (Fargo Mutant Mod AddCaughtNPC): args[1] must be of type string");
                             if (args[2].GetType() != typeof(int))
@@ -517,7 +520,7 @@ namespace Fargowiltas
                         if (whoAmI >= 0 && whoAmI < FargoWorld.CurrentSpawnRateTile.Length)
                         {
                             FargoWorld.CurrentSpawnRateTile[whoAmI] = reader.ReadBoolean();
-                        }                        
+                        }
                     }
                     break;
 
@@ -573,7 +576,7 @@ namespace Fargowiltas
                     }
                     break;
 
-                    //client requested server to update world
+                //client requested server to update world
                 case 6:
                     if (Main.netMode == NetmodeID.Server)
                     {
@@ -581,7 +584,7 @@ namespace Fargowiltas
                     }
                     break;
 
-                    //client requested server to broadcast battle cry message
+                //client requested server to broadcast battle cry message
                 case 7:
                     {
                         bool isBattle = reader.ReadBoolean();
@@ -591,7 +594,7 @@ namespace Fargowiltas
                     }
                     break;
 
-                    //client sync battle cry states to others
+                //client sync battle cry states to others
                 case 8:
                     {
                         int p = reader.ReadInt32();
@@ -840,7 +843,7 @@ namespace Fargowiltas
                 }
                 */
             }
-                
+
 
             orig.Invoke(player, out dir, out dashing, dashStartAction);
 
@@ -907,7 +910,29 @@ namespace Fargowiltas
             }
         }
 
-
+        private void FixRecipeGroupsShimmerInteraction(On_Item.orig_GetShimmered orig, Item self)
+        {
+            if (!FargoClientConfig.Instance.AnimatedRecipeGroups)
+            {
+                orig(self);
+                return;
+            }
+            foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.HasResult(self.type) && recipe.acceptedGroups.Count != 0))
+            {
+                foreach (int groupID in recipe.acceptedGroups)
+                {
+                    foreach (Item material in recipe.requiredItem.Where(material => RecipeGroup.recipeGroups[groupID].ContainsItem(material.type) && material.type != RecipeGroup.recipeGroups[groupID].IconicItemId))
+                    {
+                        string name = material.Name;
+                        int stack = material.stack;
+                        material.ChangeItemType(RecipeGroup.recipeGroups[groupID].IconicItemId);
+                        material.SetNameOverride(name);
+                        material.stack = stack;
+                    }
+                }
+            }
+            orig(self);
+        }
 
         //        private static void HookIntoLoad()
         //        {
